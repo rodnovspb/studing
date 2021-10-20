@@ -10,9 +10,7 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9245db1f-2808-42f3-8e19-32131bda1ea0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/878.html" afterDir="false" />
-    </list>
+    <list default="true" id="9245db1f-2808-42f3-8e19-32131bda1ea0" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -122,7 +120,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="первый блин" />
     <MESSAGE value="второе изменение" />
-    <option name="LAST_COMMIT_MESSAGE" value="второе изменение" />
+    <MESSAGE value="третье изменение" />
+    <MESSAGE value="перенес фигму в корень" />
+    <option name="LAST_COMMIT_MESSAGE" value="перенес фигму в корень" />
   </component>
   <component name="WindowStateProjectService">
     <state x="252" y="0" key="#Deployment" timestamp="1634763680388">
