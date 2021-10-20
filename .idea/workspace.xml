@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand />
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9245db1f-2808-42f3-8e19-32131bda1ea0" name="Default Changelist" comment="первый блин">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Default_Changelist.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Default_Changelist/1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Default_Changelist/2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Default_Changelist/about (1).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Default_Changelist/about (2).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Default_Changelist/back_02.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Default_Changelist/bg_02.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Default_Changelist/blog_03.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Default_Changelist/blogs_01.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Default_Changelist/blogs_02.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Default_Changelist/blogs_03.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Default_Changelist/blogs_031.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Default_Changelist/blogs_04.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Default_Changelist/blogs_05.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Default_Changelist/if.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Default_Changelist/inst_01.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Default_Changelist/inst_02.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Default_Changelist/inst_03.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Default_Changelist/inst_031.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Default_Changelist/inst_04.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Default_Changelist/inst_05.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Default_Changelist/inst_06.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Default_Changelist/inst_07.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Default_Changelist/inst_08.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Default_Changelist/inst_09.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Default_Changelist/intro.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Default_Changelist/ip.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Default_Changelist/logo_03.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Default_Changelist/man_03.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Default_Changelist/map_01.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Default_Changelist/map_02.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Default_Changelist/map_021.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Default_Changelist/map_03.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Default_Changelist/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Default_Changelist/works2_03.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Default_Changelist/works3_03.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Default_Changelist/works_03.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/studing.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/meched/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/meched/index1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mogo/css/1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mogo/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mogo/css/fontello.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mogo/css/normalize.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mogo/css/reset.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mogo/css/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mogo/css/variables.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mogo/img/2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mogo/img/about (1).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mogo/img/about (2).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mogo/img/back_02.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mogo/img/bg_02.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mogo/img/blog_03.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mogo/img/blogs_03.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mogo/img/if.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mogo/img/images/blogs_01.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mogo/img/images/blogs_02.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mogo/img/images/blogs_03.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mogo/img/images/blogs_04.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mogo/img/images/blogs_05.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mogo/img/images/inst_01.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mogo/img/images/inst_02.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mogo/img/images/inst_03.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mogo/img/images/inst_04.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mogo/img/images/inst_05.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mogo/img/images/inst_06.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mogo/img/images/inst_07.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mogo/img/images/inst_08.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mogo/img/images/inst_09.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mogo/img/images/map_01.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mogo/img/images/map_02.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mogo/img/images/map_03.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mogo/img/inst_03.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mogo/img/intro.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mogo/img/ip.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mogo/img/logo_03.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mogo/img/man_03.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mogo/img/map_02.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mogo/img/works2_03.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mogo/img/works3_03.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mogo/img/works_03.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mogo/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mogo/js/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="rodnovspb" />
+      </list>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="27c7f14d-19dc-422c-ba1f-bd3b0b415b4a" />
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="hiddenUrls">
+      <set>
+        <option value="https://github.com/rodnovspb/learning.git" />
+        <option value="https://github.com/rodnovspb/sites.git" />
+        <option value="https://github.com/rodnovspb/studing.git" />
+        <option value="https://github.com/rodnovspb/untitled.git" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectId" id="1zmeGxsEyQ48YZRRDvcSefLaVm6" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="false" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9245db1f-2808-42f3-8e19-32131bda1ea0" name="Default Changelist" comment="" />
+      <created>1634757598643</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1634757598643</updated>
+      <workItem from="1634757599792" duration="1134000" />
+      <workItem from="1634758827272" duration="718000" />
+      <workItem from="1634759560252" duration="1003000" />
+      <workItem from="1634760760642" duration="59000" />
+      <workItem from="1634761689772" duration="2344000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="false" />
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="первый блин" />
+    <option name="LAST_COMMIT_MESSAGE" value="первый блин" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="252" y="0" key="#Deployment" timestamp="1634763680388">
+      <screen x="0" y="0" width="1920" height="1160" />
+    </state>
+    <state x="252" y="0" key="#Deployment/0.0.1920.1160@0.0.1920.1160" timestamp="1634763680388" />
+    <state x="602" y="337" key="#Scopes" timestamp="1634761799359">
+      <screen x="0" y="0" width="1920" height="1160" />
+    </state>
+    <state x="602" y="337" key="#Scopes/0.0.1920.1160@0.0.1920.1160" timestamp="1634761799359" />
+    <state x="313" y="0" key="CommitChangelistDialog2" timestamp="1634764012817">
+      <screen x="0" y="0" width="1920" height="1160" />
+    </state>
+    <state x="313" y="0" key="CommitChangelistDialog2/0.0.1920.1160@0.0.1920.1160" timestamp="1634764012817" />
+    <state x="581" y="133" key="FileChooserDialogImpl" timestamp="1634759547283">
+      <screen x="0" y="0" width="1920" height="1160" />
+    </state>
+    <state x="581" y="133" key="FileChooserDialogImpl/0.0.1920.1160@0.0.1920.1160" timestamp="1634759547283" />
+    <state x="757" y="406" key="Github.ShareDialog" timestamp="1634763479918">
+      <screen x="0" y="0" width="1920" height="1160" />
+    </state>
+    <state x="757" y="406" key="Github.ShareDialog/0.0.1920.1160@0.0.1920.1160" timestamp="1634763479918" />
+    <state x="110" y="0" key="SettingsEditor" timestamp="1634764051837">
+      <screen x="0" y="0" width="1920" height="1160" />
+    </state>
+    <state x="110" y="0" key="SettingsEditor/0.0.1920.1160@0.0.1920.1160" timestamp="1634764051837" />
+    <state x="252" y="117" key="Vcs.Push.Dialog.v2" timestamp="1634759465896">
+      <screen x="0" y="0" width="1920" height="1160" />
+    </state>
+    <state x="252" y="117" key="Vcs.Push.Dialog.v2/0.0.1920.1160@0.0.1920.1160" timestamp="1634759465896" />
+    <state x="639" y="426" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1634759603947">
+      <screen x="0" y="0" width="1920" height="1160" />
+    </state>
+    <state x="639" y="426" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1160@0.0.1920.1160" timestamp="1634759603947" />
+    <state x="1" y="166" key="vcs.ApplyPatchDifferentiatedDialog" timestamp="1634762363354">
+      <screen x="0" y="0" width="1920" height="1160" />
+    </state>
+    <state x="1" y="166" key="vcs.ApplyPatchDifferentiatedDialog/0.0.1920.1160@0.0.1920.1160" timestamp="1634762363354" />
+  </component>
+</project>
