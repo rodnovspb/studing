@@ -13,7 +13,7 @@ html{
 
 
 body {
-	min-width: 320px;  /*по наименьшей ширине дизайна*/
+	min-width: 320px;
 	min-height: 100vh;
 	font-family: "Open Sans", Arial, Helvetica, sans-serif; /*первым подключен шрифт от дизайнера*/
 	font-size: 16px;
@@ -52,4 +52,19 @@ ul {
 
 h1, h2, h3, h4, h5, h6, p {
 	margin: 0;
+}
+
+.container {
+	padding: 0 15px;
+	margin: 0 auto;
+}
+
+section {
+	padding: 30px 0;
+}
+
+@media (min-width: 768px) {
+	.container {
+		padding: 0 40px;
+	}
 }
