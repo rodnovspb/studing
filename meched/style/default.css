@@ -1,0 +1,55 @@
+html{
+	box-sizing: border-box;
+}
+
+
+/*на случай подключения слайдеров и других библиотек, в которых box-sizing content-box*/
+/*теперь у наших элементов этот стиль будет наследоваться от html, а у сторонних библиотек от родителя-обертки*/
+*,
+*::after,
+*:before{
+	box-sizing: inherit;
+}
+
+
+body {
+	min-width: 320px;  /*по наименьшей ширине дизайна*/
+	min-height: 100vh;
+	font-family: "Open Sans", Arial, Helvetica, sans-serif; /*первым подключен шрифт от дизайнера*/
+	font-size: 16px;
+	font-weight: 500;
+	color: #110303;
+	background-color: #FFFFFF;
+	/*указаны самые часто встречающиеся на странице стили элементов*/
+}
+
+img{
+	max-width: 100%; /*чтобы картинки не были больше ширины родительского блока*/
+	height: auto; /*чтобы не искажалась в этом случае*/
+}
+
+button {
+	cursor: pointer;
+	padding: 0;
+	border: 0;
+	background-color: transparent;
+}
+
+a {
+	text-decoration: none;
+	color: inherit; /*избавляемся от синего цвета ссылок по умолчанию*/
+}
+
+address {
+	font-style: normal; /*убираем курсив по умолчанию*/
+}
+
+ul {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+	margin: 0;
+}
