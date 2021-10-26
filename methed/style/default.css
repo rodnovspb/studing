@@ -57,6 +57,7 @@ h1, h2, h3, h4, h5, h6, p {
 .container {
 	padding: 0 15px;
 	margin: 0 auto;
+	max-width: 1100px;
 }
 
 section {
@@ -66,5 +67,34 @@ section {
 @media (min-width: 768px) {
 	.container {
 		padding: 0 40px;
+	}
+	section {
+		padding: 50px 0;
+	}
+}
+
+@media (min-width: 992px) {
+	.page__header {
+		width: 240px;
+		left: 0;
+		top: 0;
+		height: 100%;
+		position: fixed;
+	}
+	.container {
+		padding: 0 30px 0 270px;
+	}
+	section {
+		padding: 65px 0;
+	}
+}
+
+@media (min-width: 1440px) {
+	.page__header {
+		width: 355px;
+		top: 0;
+	}
+	section {
+		padding: 75px 0;
 	}
 }

@@ -23,8 +23,11 @@ hr{
 /*container*/
 .container{
   width: 100%;
-  max-width: 1200px;
+  max-width: 1230px;
   margin: 0 auto;
+  padding: 0 15px;
+
+
 }
 
 /*intro*/
@@ -1048,3 +1051,32 @@ footer{
   text-decoration: underline;
 }
 
+@media (max-width: 1230px) {
+  .intro__title{
+    font-size: 120px;
+  }
+  .intro__suptitle{
+    font-size: 52px;
+  }
+}
+@media (max-width: 990px){
+  .intro__title{
+    font-size: 80px;
+  }
+  .intro__suptitle{
+    font-size: 32px;
+  }
+}
+@media (max-width: 770px){
+  .nav{
+    display: none;
+  }
+}
+@media (max-width: 575px){
+  .intro__title{
+    font-size: 40px;
+  }
+  .intro__suptitle{
+    font-size: 22px;
+  }
+}

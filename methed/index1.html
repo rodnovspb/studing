@@ -6,9 +6,11 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link rel="stylesheet" href="style/index.css">
 <title>Document</title>
+<script defer src="js/swiper-bundle.esm.browser.min.js"></script>
+<script defer src="js/index.js"></script>
 </head>
-<body>
-<header class="header">
+<body class="page">
+<header class="header page__header">
     <div class="container header__container">
         <img class="header__logo" src="images/logo.svg" alt="Логотип Кира">
         <address class="header__contacts contacts">
@@ -45,14 +47,19 @@
 </header>
 <main>
     <section class="present">
-        <div class="container">
-            <img src="images/photo.jpg" alt="фото" class="present__photo">
+        <div class="container present__container">
+            <a href="images/photo.jpg" download="Фото"  class="present__photo">
+                <picture>
+                 <source srcset="images/photo.webp" type="image/webp" >
+                <img src="images/photo.jpg" alt="фото" >
+            </picture>
+            </a>
             <div class="present__content">
                 <hgroup class="present__group-title">
                 <h1 class="present__title">Кир Сорокин</h1>
                 <h2 class="present__subtitle">Разработчик сайтов</h2>
                 </hgroup>
-                <p class="present__description">Меня зовут Кир Сорокин, я разработчик сайтов с опытом 1 год</p>
+                <p class="present__description">Меня зовут Кир Сорокин, я разработчик сайтов с&nbsp;опытом 1&nbsp;год</p>
                 <button class="present__order-btn">ЗАКАЗАТЬ</button>
             </div>
         </div>
@@ -73,7 +80,7 @@
     </section>
     <section class="portfolio">
         <div class="container">
-            <h2 class="portfolio">Портфолио</h2>
+            <h2 class="portfolio__title">Портфолио</h2>
             <div class="portfolio__slider">
                 <ul class="portfolio__list">
                     <li class="portfolio__item">
@@ -91,6 +98,8 @@
                     <li class="potfolio__item"></li>
                     <li class="potfolio__item"></li>
                 </ul>
+                <button class="portfolio__arrow portfolio__arrow--left"></button>
+                <button class="portfolio__arrow portfolio__arrow--right"></button>
             </div>
         </div>
     </section>
