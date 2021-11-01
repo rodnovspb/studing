@@ -4,7 +4,15 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta charset="UTF-8">
 		<style>
+td{
+	border: 1px solid blue;
+	width: 100px;
+	height: 30px;
 
+}
+table{
+	border-collapse: collapse;
+}
 		</style>
 	</head>
 	<body>
@@ -18,81 +26,27 @@
 
 
 
+<ul id="parent">
+	<li>text</li>
+	<li>text</li>
+	<li id="elem">text</li>
+	<li>text</li>
+	<li>text</li>
+</ul>
 
-
-
-
-
-
-
-
-
-
-
-
-
-<ol class="elem"></ol>
-<button class="button">click me</button>
 
 
 
 <script>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  let a = document.querySelector('#parent')
+  let d = document.querySelector('#elem')
+  let c = document.createElement('li')
+  c.innerHTML = 'вставим этот'
+  c.addEventListener("click", function () {
+    c.innerHTML+="!"
+  })
+  a.insertBefore(c, d)
 
 
 
