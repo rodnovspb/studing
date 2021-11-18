@@ -1,9 +1,12 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <link rel="stylesheet" href="style.css">
 <link
 href="https://fonts.googleapis.com/css2?family=Cardo:ital@1&family=Open+Sans:wght@700&family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ActiveBox</title>
@@ -32,20 +35,20 @@ href="https://fonts.googleapis.com/css2?family=Cardo:ital@1&family=Open+Sans:wgh
 
 
 <!--header--------------------------------------->
-<header class="header">
+<header class="header" id="header">
   <div class="container">
     <div class="header__inner">
       <div class="header__logo">
         <img src="img/activebox-logo.png" alt="">
       </div>
-      <nav class="nav">
-        <a href="#" class="nav__link">Features</a>
-        <a href="#" class="nav__link">Works</a>
-        <a href="#" class="nav__link">Our team</a>
-        <a href="#" class="nav__link">Testimonials</a>
-        <a href="#" class="nav__link">Download</a>
+      <nav class="nav" id="nav">
+        <a href="#" class="nav__link" data-scroll = "#features">Features</a>
+        <a href="#" class="nav__link" data-scroll = "#works">Works</a>
+        <a href="#" class="nav__link" data-scroll = "#team">Our team</a>
+        <a href="#" class="nav__link" data-scroll = "#reviews">Testimonials</a>
+        <a href="#" class="nav__link" data-scroll = "#download">Download</a>
       </nav>
-      <button type="button" class="burger">
+      <button type="button" class="burger" id="navToggle">
         <span class="burger__item">Menu</span>
       </button>
     </div>
@@ -53,7 +56,7 @@ href="https://fonts.googleapis.com/css2?family=Cardo:ital@1&family=Open+Sans:wgh
 </header>
 
 <!--intro--------------------------------------->
-<div class="intro">
+<div class="intro" id="intro">
   <div class="container">
      <div class="intro__inner">
        <h1 class="intro__title">Your Favorite One Page
@@ -65,7 +68,7 @@ Multi Purpose Template</h1>
 </div>
 
 <!--Features-->
-<div class="container">
+<div class="container" id="features">
   <div class="features">
 
     <div class="features__item">
@@ -109,7 +112,7 @@ Multi Purpose Template</h1>
 
 <!--works-->
 
-<div class="works">
+<div class="works" id="works">
 
   <div class="works__item">
     <img class="works__photo" src="img/works/work-1.jpg" alt="">
@@ -177,7 +180,7 @@ Multi Purpose Template</h1>
 </div>
 
 <!--Team-->
-<div class="team">
+<div class="team" id="team">
   <div class="container">
       <div class="team__inner">
 
@@ -286,10 +289,10 @@ Multi Purpose Template</h1>
   </div>
 
 <!--Testimonials-->
-<div class="reviews">
+<div class="reviews" id="reviews">
   <div class="container">
 
-    <div class="reviews__item">
+      <div class="reviews__item">
       <div class="reviews__photo">
         <img class="reviews__image" src="img/reviews/review-1.jpg" alt="">
       </div>
@@ -303,7 +306,7 @@ Multi Purpose Template</h1>
 </div>
 
 <!--Download-->
-<div class="download">
+<div class="download" id="download">
   <div class="container">
     <h3 class="download__title">Are You Ready to Start? Download Now For Free!</h3>
     <div class="download__text"><p>Fusce dapibus, tellus ac cursus commodo</p></div>
@@ -361,6 +364,11 @@ Multi Purpose Template</h1>
       </div>
   </div>
 </footer>
+
+<!--JavaScript-->
+<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+<script src="app.js"></script>
 
 </body>
 
