@@ -665,13 +665,11 @@ body {
 
 
 .subscribe__body {
-	margin: 0 30px;
-	display: flex;
 	padding: 30px 50px;
 	align-items: center;
 	background-color: rgba(23, 33, 60, 1);
 	border-radius: 2px;
-	justify-content: space-between;
+
 }
 .subscribe__title {
 	max-width: 266px;
@@ -680,6 +678,32 @@ body {
 	color: #fff;
 	font-weight: 700;
 }
+@media(min-width: 1070px){
+	.subscribe__body {
+	margin: 0 30px;
+	}
+}
+@media(min-width: 810px){
+	.subscribe__body{
+	display: flex;
+	justify-content: space-between;
+	}
+}
+@media(max-width: 810px){
+	.subscribe__title{
+		max-width: 100%;
+		text-align: center;
+		margin-bottom: 15px;
+		font-size: 22px;
+	}
+	.subscribe__body {
+		padding: 18px 50px 30px;
+		margin: 0 -25px;
+
+	}
+}
+
+
 .subscribe__form {
 	flex: 0 1 50%;
 	display: flex;
@@ -713,6 +737,14 @@ body {
 	padding: 15px 22px;
 	border-radius: 0 5px 5px 0;
 	letter-spacing: 0.2px;
+}
+@media(max-width: 810px) {
+	.subscribe__input {
+		flex-basis: 70%;
+	}
+	.subscribe__button {
+		flex-basis: 30%;
+	}
 }
 
 

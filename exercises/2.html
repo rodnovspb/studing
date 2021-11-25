@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Документ</title>
+<style>
+.hidden{
+	display: none;
+}
+
+</style>
+</head>
+<body>
+
+
+<p id="elem1">1</p><button data-elem="elem1">toggle</button>
+<p id="elem2">2</p><button data-elem="elem2">toggle</button>
+<p id="elem3">3</p><button data-elem="elem3">toggle</button>
+
+
+<script>
+let buttons = document.querySelectorAll('button');
+
+for (let button of buttons) {
+button.addEventListener('click', function() {
+let elem = document.querySelector('#' + this.dataset.elem);
+elem.classList.toggle('hidden');
+});
+}
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

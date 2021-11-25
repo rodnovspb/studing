@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .spoiler:not(.active) {
+      display: none;
+    }
+
+
+
+  </style>
+</head>
+<body>
+
+
+<p>
+	абзац с текстом
+</p>
+<p>
+	абзац с текстом
+	<a href="" class="toggle">развернуть спойлер 1</a>
+</p>
+<p class="spoiler">
+	скрытый спойлер 1
+</p>
+<p>
+	абзац с текстом
+</p>
+<p>
+	абзац с текстом
+	<a href="" class="toggler">развернуть спойлер 2</a>
+</p>
+<p class="spoiler">
+	скрытый спойлер 2
+</p>
+<p>
+	абзац с текстом
+</p>
+
+
+
+<script>
+let a = document.querySelector('a.toggle')
+  a.addEventListener('click', function (event) {
+      event.preventDefault()
+      a.parentElement.nextElementSibling.classList.toggle('active')
+  if(this.parentElement.nextElementSibling.matches('.active')){
+  this.textContent = 'свернуть спойлер 1'
+  }
+  else{
+  this.textContent = 'развернуть спойлер 1'
+  }
+
+  })
+
+let a1 = document.querySelector('a.toggler')
+a1.addEventListener('click', function (event) {
+  event.preventDefault()
+  a1.parentElement.nextElementSibling.classList.toggle('active')
+  if(this.parentElement.nextElementSibling.matches('.active')){
+    this.textContent = 'свернуть спойлер 2'
+  }
+  else{
+  this.textContent = 'развернуть спойлер 2'
+  }
+})
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
