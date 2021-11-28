@@ -746,8 +746,92 @@ body {
 		flex-basis: 30%;
 	}
 }
+/*GetinTouch-----------------------------------*/
+    .getintouch {
+	padding: 80px 0 136px	;
+	}
+	.getintouch__header {
+		margin-bottom: 80px;
+	}
+	.getintouch__items {
+		display: flex;
+		align-items: center;
+	}
+	.item-getintouch{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		background-color: #FFFFFF;
+		padding: 50px 15px;
+	}
+
+	.item-getintouch--active {
+		background-color: rgba(37, 43, 66, 1);
+		color: #fff;
+		padding-top: 80px;
+		padding-bottom: 80px;
+	}
+
+	.item-getintouch--active .item-getintouch__email,
+	.item-getintouch--active .item-getintouch__label {
+		font-weight: 500;
+	}
+
+	.item-getintouch--active .item-getintouch__button {
+		color: #fff;
+		border-color: #FFFFFF;
+
+	}
 
 
+	.item-getintouch>*:not(:last-child){
+		margin-bottom: 15px;
+	}
+	.getintouch__item {
+		flex: 0 1 33.33333%;
+	}
+	.item-getintouch__emails {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+	.item-getintouch__email {
+		color: inherit;
+		font-weight: 600;
+		font-size: 14px;
+		line-height: 1.7;
+	}
+	.item-getintouch__email:hover {
+		text-decoration: underline;
+	}
+	.item-getintouch__icon {
+
+	}
+	.item-getintouch__button {
+		border: 1px solid #FF7B47;
+		border-radius: 5px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-weight: 600;
+		font-size: 14px;
+		line-height: 1.7;
+		color: rgba(255, 123, 71, 1);
+		padding: 10px 20px;
+		transition: all .1s linear;
+	}
+	.item-getintouch__button:hover {
+		background-color: #FF7B47;
+		color: #fff;
+		cursor: pointer;
+	}
+	.item-getintouch__label {
+		font-size: 16px;
+		line-height: 1.5;
+		font-weight: 700;
+	}
 
 
 

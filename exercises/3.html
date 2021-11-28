@@ -6,18 +6,97 @@
       content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>Документ</title>
+  <style>
+	.parent {
+	  margin: 0 auto;
+	  width: 600px;
+	  box-sizing: border-box;
+	}
+	.tab:not(.active){
+	  display: none;
+	}
+	.tab {
+	  height: 600px;
+	  background-color: #e9dada;
+	  padding: 10px;
+	}
+	a.active {
+	  background-color: #e9dada;
+	  outline: none;
+	}
+
+	a {
+	  padding: 10px;
+	  text-decoration: none;
+	  color: black;
+	  outline: 1px solid grey;
+	  margin-right: 10px;
+	  display: inline-block;
+	}
+	a:hover {
+	  background-color: #e9dada;
+	}
+
+  </style>
 </head>
 <body>
 
 
 
-
+<div class="parent">
+  <div class="menu">
+	<a href="#" class="active">Вкладка 1</a>
+	<a href="#">Вкладка 2</a>
+	<a href="#">Вкладка 3</a>
+  </div>
+  <div class="tabs">
+	<div class="tab active">текст вкладки 1</div>
+	<div class="tab">текст вкладки 2</div>
+	<div class="tab">текст вкладки 3</div>
+  </div>
+</div>
 
 <script>
 
-let arr = [1,2,3,4,5]
-	let[elem,elem1] = arr
-	console.log(elem)
+  let links = document.querySelectorAll('a')
+  let tabs = document.querySelectorAll('div.tab')
+
+  for(let i=0; i<tabs.length; i++){
+  	links[i].addEventListener('click', function () {
+  	for(let elem of tabs){
+  	if(elem.matches('.active')){
+    elem.classList.remove('active')
+	}
+	}
+  	tabs[i].classList.toggle('active')
+  	for(let link of links){
+    if(link.matches('.active')){
+    link.classList.remove('active')
+    }
+
+    }
+		this.classList.toggle('active')
+  	})
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
