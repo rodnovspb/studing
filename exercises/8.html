@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Документ</title>
+<style>
+  div {
+    box-sizing: border-box;
+
+  }
+  .wrapper {
+    width: 500px;
+    margin: 0 auto;
+    display: flex;
+    height: 300px;
+    font-size: 14px;
+  }
+  .menu {
+    flex: 0 1 33.333333%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: stretch;
+    margin-right: 10px;
+
+  }
+   button {
+     width: 100%;
+     transition: all .1s linear;
+     padding: 5px 0;
+
+   }
+    button:hover {
+      cursor: pointer;
+
+
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+
+  li {
+    border: 1px dashed #c1bbbb;
+    margin-bottom: 5px;
+    text-align: center;
+    transition: all .1s linear;
+  }
+
+  li:hover {
+    background-color: #e9e1e1;
+    cursor: pointer;
+  }
+
+  .text {
+    display: flex;
+    flex-direction: column;
+    flex: 0 1 66.77777%;
+  }
+  .text textarea {
+    flex-grow: 1;
+  }
+  .red{
+    background-color: #7b9ff4;
+  }
+  .active {
+    background-color: #ded3d3;
+  }
+
+
+</style>
+</head>
+<body>
+
+
+<div class="wrapper">
+  <div class="menu">
+    <ul class="notes">
+    </ul>
+      <button class="create red">новая запись</button>
+  </div>
+  <div class="text">
+    <textarea></textarea>
+    <button class="save">сохранить</button>
+  </div>
+</div>
+
+
+<script>
+
+  let arr = []
+  let ul = document.querySelector('ul')
+  let textarea = document.querySelector('textarea')
+  let save = document.querySelector('.save')
+  let create = document.querySelector('.create')
+  let flag = true
+  let flag2
+  let datamod
+  create.addEventListener('click', function () {
+    datamod=-1
+    for(let elem of ul.children){
+      if(elem.matches('.active')){
+        elem.classList.remove('active')
+      }
+    }
+    if(flag){
+      textarea.value = ''
+      let li = document.createElement('li')
+      li.innerHTML = "<span>Запись </span>" + (~~arr.length+1)
+      li.setAttribute('data-key', (~~arr.length+1))
+      li.addEventListener('click', function () {
+        if(arr[this.dataset.key-1]){
+          textarea.value = arr[this.dataset.key-1]
+        }
+        datamod=this.dataset.key-1
+        for(let elem of ul.children){
+          if(elem.matches('.active')){
+            elem.classList.remove('active')
+          }
+        }
+        this.classList.add('active')
+      })
+      ul.appendChild(li)
+      create.classList.remove('red')
+      save.classList.add('red')
+    }
+    flag=false
+  })
+  save.addEventListener('click', function () {
+    if(!flag && textarea.value && datamod<0){
+      arr.push(textarea.value)
+      textarea.value = ''
+      flag=true
+      create.classList.add('red')
+      save.classList.remove('red')
+
+    }
+    if(datamod>=0){
+      arr[datamod]=textarea.value
+      flag=true
+      create.classList.add('red')
+      save.classList.remove('red')
+
+    }
+      console.log(arr)
+  })
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
