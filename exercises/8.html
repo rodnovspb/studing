@@ -33,9 +33,10 @@
    }
     button:hover {
       cursor: pointer;
-
-
   }
+    .create {
+      margin-bottom: 10px;
+    }
 
   ul {
     list-style-type: none;
@@ -83,6 +84,7 @@
     <ul class="notes">
     </ul>
       <button class="create red">новая запись</button>
+      <button class="delete">удалить запись</button>
   </div>
   <div class="text">
     <textarea></textarea>
@@ -98,9 +100,23 @@
   let textarea = document.querySelector('textarea')
   let save = document.querySelector('.save')
   let create = document.querySelector('.create')
+  let del = document.querySelector('.delete')
   let flag = true
   let flag2
   let datamod
+  del.addEventListener('click', function () {
+      if(datamod>=0){
+        for(let elem of ul.children){
+          if(elem.matches('.active')){
+            let a = elem.dataset.key
+            elem.remove()
+            arr[elem.dataset.key-1]='delete'
+            textarea.value = ''
+            console.log(arr)
+          }
+        }
+      }
+  })
   create.addEventListener('click', function () {
     datamod=-1
     for(let elem of ul.children){
