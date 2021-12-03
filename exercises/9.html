@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Документ</title>
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  .parent {
+    width: 600px;
+    margin: 0 auto;
+  }
+  form {
+    display: flex;
+    margin-bottom: 20px;
+    max-width: 600px;
+  }
+  form>*{
+    margin-right: 5px;
+    padding: 8px 3px;
+    font-size: 15px;
+    max-width: 25%;
+  }
+  .add {
+    width: 25%;
+  }
+
+  h3 {
+    margin-bottom: 10px;
+  }
+  th, td {
+    padding: 8px;
+    border: 1px solid grey;
+    text-align: center;
+  }
+  table {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .result {
+    text-align: right;
+  }
+</style>
+</head>
+<body>
+
+<div class="parent">
+  <form>
+    <input class="name" placeholder="Название">
+    <input class="price" placeholder="Цена">
+    <input class="amount" placeholder="Количество">
+    <input class="add" type="button" value="Добавить">
+  </form>
+  <h3>Таблица продуктов</h3>
+  <table class="table">
+    <tr>
+      <th>Название</th>
+      <th>Цена</th>
+      <th>Количество</th>
+      <th>Сумма</th>
+      <th>Удалить</th>
+    </tr>
+  </table>
+  <div class="result">
+    Общий итог: <span class="total">0</span>
+  </div>
+</div>
+
+
+
+<script>
+let name   = document.querySelector('.name');
+let price  = document.querySelector('.price');
+let amount = document.querySelector('.amount');
+let add    = document.querySelector('.add');
+let table  = document.querySelector('.table');
+let total  = document.querySelector('.total');
+
+
+function addTd(tr, value, name) {
+  let td = document.createElement('td')
+  td.innerHTML = value
+  td.classList.add(name)
+  return td
+}
+
+function recount(){
+  let cost = document.querySelectorAll('.cost')
+  let sum=0
+  for(let elem of cost){
+  sum+=~~elem.innerHTML
+  }
+  total.innerHTML = sum
+}
+
+function edit(td){
+  td.addEventListener('dblclick', function () {
+    let input = document.createElement('input')
+    input.value = td.textContent
+    td.innerHTML = ''
+    td.appendChild(input)
+    input.addEventListener('keydown', function (event) {
+      if(event.key=='Enter'){
+        td.innerHTML = input.value
+        if(td.matches('.price') || td.matches('.amount')){
+          let elem1 = td.parentElement.querySelector('.amount').textContent
+          let elem2 = td.parentElement.querySelector('.price').textContent
+          td.parentElement.querySelector('.cost').textContent = elem1*elem2
+          recount()
+        }
+      }
+    })
+  })
+}
+
+
+
+
+add.addEventListener('click', function () {
+
+    let tr = document.createElement('tr')
+    tr.appendChild(addTd(tr, name.value, 'name'))
+    tr.appendChild(addTd(tr, price.value, 'price'))
+    tr.appendChild(addTd(tr, amount.value, 'amount'))
+    tr.appendChild(addTd(tr, price.value*amount.value, 'cost'))
+    tr.appendChild(addTd(tr, 'удалить', 'remove'))
+    let tds = tr.querySelectorAll('td')
+    for(let elem of tds){
+      if(elem.matches('.remove')){
+        elem.addEventListener('click', function () {
+            elem.parentElement.remove()
+            recount()
+        })
+      }
+      if(elem.matches('.name') || elem.matches('.price') || elem.matches('.amount')){
+        edit(elem)
+      }
+    }
+    table.appendChild(tr)
+
+    recount()
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
