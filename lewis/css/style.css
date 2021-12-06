@@ -179,4 +179,58 @@ body {
 .btn + .btn {
   margin-left: 1rem;
 }
+.works {
+  padding: 2.8rem;
+}
+.works__nav {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.4rem;
+}
+.works__nav-link {
+  font-size: 0.8rem;
+  line-height: 1.46rem;
+  color: rgba(43, 42, 44, 0.7);
+  text-decoration: none;
+  font-weight: 500;
+  margin: 0 1.5rem;
+}
+.portfolio {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -1rem;
+}
+.portfolio__col {
+  flex-basis: 33.333%;
+  padding: 1rem;
+}
+.work__image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+.work {
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.work__content {
+  padding: 1rem 0.8rem;
+}
+.work__cat {
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  line-height: 1.06rem;
+  color: #2B2A2C;
+  margin-bottom: 5px;
+}
+.work__title {
+  font-size: 1.06rem;
+  line-height: 1.4rem;
+  font-weight: 700;
+  color: #2B2A2C;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: space-between;
+}
 /*# sourceMappingURL=style.css.map */
