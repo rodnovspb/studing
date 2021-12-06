@@ -37,15 +37,15 @@
   <div>
     <p>Вопрос 2</p>
     <label>
-      <input type="radio" name="1">
+      <input type="radio" name="2">
       Ответ 1
     </label>
     <label>
-      <input type="radio" name="1"  data-right>
+      <input type="radio" name="2"  data-right>
       Ответ 2
     </label>
     <label>
-      <input type="radio" name="1">
+      <input type="radio" name="2">
       Ответ 3
     </label>
   </div>
@@ -56,20 +56,17 @@
 <script>
   let btn = document.querySelector('.btn')
 let inputs = document.querySelectorAll('input[type="radio"]')
-  for(let elem of inputs){
-    elem.addEventListener('click', function () {
-      for(let elem1 of elem.parentElement.parentElement.children){
-        elem1.style.removeProperty('color')
-      }
-      if(elem.hasAttribute('data-right')){
+  btn.addEventListener('click', function () {
+    for(let elem of inputs){
+      elem.parentElement.style.removeProperty('color')
+      if(elem.checked && elem.hasAttribute('data-right')){
         elem.parentElement.style.color='green'
       }
-      else {
+      else if(elem.checked && !elem.hasAttribute('data-right')){
         elem.parentElement.style.color='red'
       }
-    })
-  }
-
+    }
+  })
 
 </script>
 
