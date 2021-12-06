@@ -7,10 +7,12 @@
 <style>
 	.wrong {
       border: 2px solid red;
+      color: red;
     }
 
     .right {
       border: 2px solid green;
+      color: green;
     }
 
 </style>
@@ -19,10 +21,25 @@
 
 
 <div class="test">
-  <div>
+  <div class="q">
     <p>Вопрос 1</p>
     <label>
-      <input type="radio" name="1" data-right>
+      <input type="radio" name="0">
+      Ответ 1
+    </label>
+    <label>
+      <input type="radio" name="0">
+      Ответ 2
+    </label>
+    <label>
+      <input type="radio" name="0">
+      Ответ 3
+    </label>
+  </div>
+  <div class="q">
+    <p>Вопрос 2</p>
+    <label>
+      <input type="radio" name="1">
       Ответ 1
     </label>
     <label>
@@ -34,14 +51,14 @@
       Ответ 3
     </label>
   </div>
-  <div>
-    <p>Вопрос 2</p>
+  <div class="q">
+    <p>Вопрос 3</p>
     <label>
       <input type="radio" name="2">
       Ответ 1
     </label>
     <label>
-      <input type="radio" name="2"  data-right>
+      <input type="radio" name="2">
       Ответ 2
     </label>
     <label>
@@ -54,19 +71,28 @@
 
 
 <script>
-  let btn = document.querySelector('.btn')
-let inputs = document.querySelectorAll('input[type="radio"]')
-  btn.addEventListener('click', function () {
-    for(let elem of inputs){
-      elem.parentElement.style.removeProperty('color')
-      if(elem.checked && elem.hasAttribute('data-right')){
-        elem.parentElement.style.color='green'
-      }
-      else if(elem.checked && !elem.hasAttribute('data-right')){
-        elem.parentElement.style.color='red'
+let btn = document.querySelector('.btn')
+let div = document.querySelectorAll('.q')
+
+let answers = [0, 1, 3];
+btn.addEventListener('click', function () {
+    for(let i=0; i<div.length; i++){
+      let inputs = div[i].querySelectorAll('input[type="radio"]')
+      for(let j=0; j<inputs.length; j++){
+        inputs[j].parentElement.classList.remove('right', 'wrong')
+        if(inputs[j].checked && j==i){
+          inputs[j].parentElement.classList.add('right')
+        }
+        if(inputs[j].checked && j!=i){
+          inputs[j].parentElement.classList.add('wrong')
+        }
       }
     }
-  })
+})
+
+
+
+
 
 </script>
 
