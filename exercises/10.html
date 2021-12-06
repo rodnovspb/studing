@@ -21,40 +21,67 @@
 <body>
 
   <div class="test">
-    <div>
-      <p>Вопрос 1</p>
-      <input data-right="1">
-    </div>
-     <div>
-      <p>Вопрос 2</p>
-      <input data-right="2">
-    </div>
-     <div>
-      <p>Вопрос 3</p>
-      <input data-right="3">
-    </div>
-    <br>
-    <div><button class="btn">Проверить</button></div>
-  </div>
 
+
+
+  </div>
+   <br>
+  <div><button class="btn">Проверить</button></div>
 
 
 <script>
-  let answers = [1,2,3]
+let answers = [
+  '1',
+  '2',
+  '3',
+];
+
+let questions = [
+  'вопрос 1?',
+  'вопрос 2?',
+  'вопрос 3?'
+];
+
+let test = document.querySelector('.test')
+let btn = document.querySelector('button')
+
+  for(let i=0; i<questions.length; i++){
+    let a = document.createElement('p')
+    let b = document.createElement('input')
+    a.textContent = questions[i]
+    b.setAttribute('data-right', answers[i])
+    test.append(a,b)
+  }
+
   let inputs = document.querySelectorAll('input')
-  let btn = document.querySelector('.btn')
   btn.addEventListener('click', function () {
-    for(let i = 0; i<inputs.length; i++){
-      if(inputs[i].value == answers[i]){
-        inputs[i].classList.remove('wrong', 'right')
-        inputs[i].classList.add('right')
+    for(let elem of inputs){
+      elem.classList.remove('right', 'wrong')
+      if(elem.value===elem.dataset.right){
+        elem.classList.add('right')
       }
-      else {
-        inputs[i].classList.remove('wrong', 'right')
-        inputs[i].classList.add('wrong')
+    else {
+        elem.classList.add('wrong')
       }
     }
   })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 </script>
