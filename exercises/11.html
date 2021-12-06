@@ -49,15 +49,17 @@
       Ответ 3
     </label>
   </div>
+  <button class="btn">Проверить</button>
 </div>
 
 
 <script>
+  let btn = document.querySelector('.btn')
 let inputs = document.querySelectorAll('input[type="radio"]')
   for(let elem of inputs){
     elem.addEventListener('click', function () {
       for(let elem1 of elem.parentElement.parentElement.children){
-        elem1.style.color = 'black'
+        elem1.style.removeProperty('color')
       }
       if(elem.hasAttribute('data-right')){
         elem.parentElement.style.color='green'
