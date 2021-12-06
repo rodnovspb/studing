@@ -30,30 +30,41 @@
 
 
 <script>
-let obj = {
-  'Вопрос 1?': '1',
-  'Вопрос 2?': '2',
-  'Вопрос 3?': '3',
-}
+let questions = [
+  {
+    text:  'вопрос 1?',
+    right: '1',
+  },
+  {
+    text:  'вопрос 2?',
+    right: '2',
+  },
+  {
+    text:  'вопрос 3?',
+    right: '3',
+  },
+];
 
 let test = document.querySelector('.test')
-let btn = document.querySelector('button')
-for(let key in obj){
+for(let elem of questions){
   let a = document.createElement('p')
   let b = document.createElement('input')
-  a.textContent = key
-  b.setAttribute('data-right', key)
+  a.textContent = elem['text']
   test.append(a,b)
 }
+
 let inputs = document.querySelectorAll('input')
+  let btn = document.querySelector('button')
   btn.addEventListener('click', function () {
-    for(let elem of inputs){
-      elem.classList.remove('wrong', 'right')
-      if(obj[elem.dataset.right]==elem.value){
-        elem.classList.add('right')
+
+    for(let i = 0; i<questions.length; i++){
+      if(inputs[i].value==questions[i].right){
+        inputs[i].classList.remove('wrong')
+        inputs[i].classList.add('right')
       }
-    else {
-        elem.classList.add('wrong')
+      else {
+        inputs[i].classList.remove('right')
+        inputs[i].classList.add('wrong')
       }
     }
   })
