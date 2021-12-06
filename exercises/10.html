@@ -40,18 +40,18 @@
 
 
 <script>
+  let answers = [1,2,3]
+  let inputs = document.querySelectorAll('input')
   let btn = document.querySelector('.btn')
   btn.addEventListener('click', function () {
-    let inputs = document.querySelectorAll('input')
-    for(let elem of inputs){
-      let a = elem.dataset.right
-      if(elem.value === a ){
-        elem.classList.remove('right', 'wrong')
-        elem.classList.add('right')
+    for(let i = 0; i<inputs.length; i++){
+      if(inputs[i].value == answers[i]){
+        inputs[i].classList.remove('wrong', 'right')
+        inputs[i].classList.add('right')
       }
       else {
-        elem.classList.remove('right', 'wrong')
-        elem.classList.add('wrong')
+        inputs[i].classList.remove('wrong', 'right')
+        inputs[i].classList.add('wrong')
       }
     }
   })
