@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Документ</title>
+<style>
+	.wrong {
+      border: 2px solid red;
+    }
+
+    .right {
+      border: 2px solid green;
+    }
+
+</style>
+</head>
+<body>
+
+
+<div class="test">
+  <div>
+    <p>Вопрос 1</p>
+    <label>
+      <input type="radio" name="1" data-right>
+      Ответ 1
+    </label>
+    <label>
+      <input type="radio" name="1">
+      Ответ 2
+    </label>
+    <label>
+      <input type="radio" name="1">
+      Ответ 3
+    </label>
+  </div>
+  <div>
+    <p>Вопрос 2</p>
+    <label>
+      <input type="radio" name="1">
+      Ответ 1
+    </label>
+    <label>
+      <input type="radio" name="1"  data-right>
+      Ответ 2
+    </label>
+    <label>
+      <input type="radio" name="1">
+      Ответ 3
+    </label>
+  </div>
+</div>
+
+
+<script>
+let inputs = document.querySelectorAll('input[type="radio"]')
+  for(let elem of inputs){
+    elem.addEventListener('click', function () {
+      for(let elem1 of elem.parentElement.parentElement.children){
+        elem1.style.color = 'black'
+      }
+      if(elem.hasAttribute('data-right')){
+        elem.parentElement.style.color='green'
+      }
+      else {
+        elem.parentElement.style.color='red'
+      }
+    })
+  }
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
