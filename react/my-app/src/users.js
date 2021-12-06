@@ -30,9 +30,7 @@ function Users() {
   }
 
 
-  return <table>
-    {items}
-  </table>
+  return
 }
 
 export default Users

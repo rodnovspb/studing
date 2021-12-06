@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Документ</title>
+<style>
+
+.wrong {
+  border: 2px solid red;
+}
+
+.right {
+  border: 2px solid green;
+}
+
+
+
+</style>
+</head>
+<body>
+
+  <div class="test">
+    <div>
+      <p>Вопрос 1</p>
+      <input data-right="1">
+    </div>
+     <div>
+      <p>Вопрос 2</p>
+      <input data-right="2">
+    </div>
+     <div>
+      <p>Вопрос 3</p>
+      <input data-right="3">
+    </div>
+    <br>
+    <div><button class="btn">Проверить</button></div>
+  </div>
+
+
+
+<script>
+  let btn = document.querySelector('.btn')
+  btn.addEventListener('click', function () {
+    let inputs = document.querySelectorAll('input')
+    for(let elem of inputs){
+      let a = elem.dataset.right
+      if(elem.value === a ){
+        elem.classList.remove('right', 'wrong')
+        elem.classList.add('right')
+      }
+      else {
+        elem.classList.remove('right', 'wrong')
+        elem.classList.add('wrong')
+      }
+    }
+  })
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

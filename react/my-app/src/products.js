@@ -7,26 +7,48 @@ function id() {
 }
 
 const initProds = [
- {id: id(), name: 'product1', cost: 100},
- {id: id(), name: 'product2', cost: 200},
- {id: id(), name: 'product3', cost: 300},
+ {id: id(), name: 'product1', cost: 100, isEdit: false},
+ {id: id(), name: 'product2', cost: 200, isEdit: false},
+ {id: id(), name: 'product3', cost: 300, isEdit: false},
 ];
 
 
+
+
+
 function Products() {
+ let [prod, setProd] = useState(initProds)
 
- let [prods, setProds] = useState(initProds)
+ function toggle(id) {
+   setProd(prod.map(function (elem) {
+     if(elem.id===id){
+      elem.isEdit=!elem.isEdit
+     }
+     return elem
+   }))
+ }
 
-let items = prods.map(function (elem) {
+ function edit(id, field, event) {
+   setProd(prod.map(function (elem) {
+     if(elem.id===id){
+      elem[field] = event.target.value
+     }
+     return elem
+   }))
+ }
 
- return <Product
- key = {elem.id}
- name = {elem.name}
- cost = {elem.cost}
- />
+ let items = prod.map(function (elem) {
+   return <Product
+   key={elem.id}
+   id = {elem.id}
+   name={elem.name}
+   cost = {elem.cost}
+   isEdit={elem.isEdit}
+   edit={edit}
+   toggle={toggle}
 
-})
-
+   />
+ })
 
  return <div>
   {items}
