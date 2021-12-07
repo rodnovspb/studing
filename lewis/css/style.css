@@ -164,8 +164,8 @@ body {
   background: none;
   font-family: inherit;
   cursor: pointer;
-  border-radius: 30px;
-  padding: 1rem 2.2rem;
+  border-radius: 1.8em;
+  padding: 1.05em 1.7rem;
   transition: all 0.2s linear;
 }
 .btn:focus {
@@ -178,6 +178,12 @@ body {
 }
 .btn + .btn {
   margin-left: 1rem;
+}
+.btn--sm {
+  font-size: 0.93rem;
+  line-height: 1.33rem;
+  border-width: 3px;
+  font-weight: 700;
 }
 .works {
   padding: 2.8rem;
@@ -198,7 +204,7 @@ body {
 .portfolio {
   display: flex;
   flex-wrap: wrap;
-  margin: 0 -1rem;
+  margin: 0 -1rem 2.8rem;
 }
 .portfolio__col {
   flex-basis: 33.333%;
@@ -213,6 +219,10 @@ body {
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
   overflow: hidden;
+  transition: box-shadow 0.2s linear;
+}
+.work:hover {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
 }
 .work__content {
   padding: 1rem 0.8rem;
@@ -232,5 +242,9 @@ body {
   text-transform: uppercase;
   display: flex;
   justify-content: space-between;
+}
+/*Helpers-------------------------------------------*/
+.text-center {
+  text-align: center;
 }
 /*# sourceMappingURL=style.css.map */

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Документ</title>
+<style>
+
+
+</style>
+</head>
+<body>
+
+
+
+<div class="slider"></div>
+
+
+<script>
+let texts = ['text1', 'text2', 'text3'];
+let slider = document.querySelector('.slider')
+
+
+  let i=0
+  function f() {
+    setTimeout(function () {
+      slider.textContent=texts[i]
+      i++
+      if(i<=2){
+        f()
+      }
+      else {
+        i=0
+        f()
+      }
+
+    }, 500)
+  }
+
+f()
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
