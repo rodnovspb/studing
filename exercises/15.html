@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Документ</title>
+<style>
+.wrapper{
+  text-align: center;
+}
+
+</style>
+</head>
+<body>
+
+
+
+<div class="wrapper">
+  <button class="left">Назад</button>
+  <button class="right">Вперед</button>
+  <img id="slider" src="">
+</div>
+
+
+<script>
+
+let texts = ['team-1.jpg', 'team-2.jpg', 'team-3.jpg', 'team-4.jpg'];
+let img = document.querySelector('img')
+
+	let i=0
+  	img.src = '../activeBox/img/team/'+texts[i]
+  	function func() {
+		setInterval(function () {
+		  if(i<4){
+            img.src = '../activeBox/img/team/'+texts[i]
+            i++
+		  }
+		  else {
+		    i=0
+            img.src = '../activeBox/img/team/'+texts[i]
+            i++
+		  }
+
+        }, 1000)
+    }
+
+func()
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
