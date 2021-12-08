@@ -8,6 +8,11 @@
 .wrapper{
   text-align: center;
 }
+  #slider {
+    display: block;
+    margin: 10px auto 0;
+
+  }
 
 </style>
 </head>
@@ -26,25 +31,69 @@
 
 let texts = ['team-1.jpg', 'team-2.jpg', 'team-3.jpg', 'team-4.jpg'];
 let img = document.querySelector('img')
+right = document.querySelector('.right')
+left = document.querySelector('.left')
+let isPaused = false
+let timer
+
 
 	let i=0
+right.addEventListener('click', function () {
+  clearInterval(timer)
+  isPaused = true
+    if(i<3){
+      i++
+      img.src = '../activeBox/img/team/'+texts[i]
+    }
+    if(i==3){
+      i=0
+      img.src = '../activeBox/img/team/'+texts[i]
+
+    }
+})
+
+left.addEventListener('click', function () {
+  clearInterval(timer)
+  isPaused = true
+  if(i>0){
+    i--
+    img.src = '../activeBox/img/team/'+texts[i]
+  }
+  else if(i==0){
+    i=3
+    img.src = '../activeBox/img/team/'+texts[i]
+
+  }
+})
   	img.src = '../activeBox/img/team/'+texts[i]
+
   	function func() {
-		setInterval(function () {
-		  if(i<4){
-            img.src = '../activeBox/img/team/'+texts[i]
+      isPaused = false
+		timer = setInterval(function () {
+		  if(i<3){
             i++
+            img.src = '../activeBox/img/team/'+texts[i]
+
 		  }
-		  else {
+		  else if(i==3){
 		    i=0
             img.src = '../activeBox/img/team/'+texts[i]
-            i++
+
+
 		  }
 
-        }, 1000)
+        }, 1500)
     }
 
 func()
+
+  setInterval(function () {
+    if(isPaused === true){
+      func()
+    }
+  }, 500)
+
+
 
 
 
