@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Документ</title>
+<style>
+  .slider {
+    text-align: center;
+  }
+  .show {
+    display: inline-block;
+  }
+  .hide {
+    display: none;
+  }
+
+</style>
+</head>
+<body>
+
+
+<div class="slider">
+	<img class="first show" src="../activeBox/img/team/team-1.jpg">
+    <img class="second hide" src="../activeBox/img/team/team-2.jpg">
+    <img class="third hide" src="../activeBox/img/team/team-3.jpg">
+</div>
+
+
+<script>
+  let img1 = document.querySelector('.first')
+  let img2 = document.querySelector('.second')
+  let img3 = document.querySelector('.third')
+
+  let img = document.querySelectorAll('img')
+
+
+let i=1
+
+  setInterval(function () {
+    for(let elem of img){
+      elem.classList.remove('show')
+	  elem.classList.add('hide')
+	}
+    	if(i==3){
+    	  i=0
+		}
+		if(i==0){
+          img1.classList.remove('hide')
+          img1.classList.add('show')
+
+
+		}
+    if(i==1){
+      img2.classList.remove('hide')
+      img2.classList.add('show')
+
+    }
+    if(i==2){
+      img3.classList.remove('hide')
+      img3.classList.add('show')
+
+    }
+		i++
+
+  }, 1000)
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
