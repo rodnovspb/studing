@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Документ</title>
+<style>
+  .slider {
+    text-align: center;
+  }
+
+</style>
+</head>
+<body>
+
+
+<div class="slider">
+	<img src="../activeBox/img/team/team-1.jpg">
+</div>
+
+
+<script>
+  let img = document.querySelector('img')
+  let count = 2
+  function func() {
+    setInterval(function () {
+      if(count<4){
+        img.src = "../activeBox/img/team/team-" + count + ".jpg"
+        count++
+      }
+      else {
+        count = 1
+        img.src = "../activeBox/img/team/team-" + count + ".jpg"
+        count++
+      }
+    },1000)
+  }
+
+  func()
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
