@@ -2,16 +2,29 @@ import fs from 'fs'
 // node index.js
 
 
-async function f() {
+let arr = ['1.txt','2.txt','3.txt','4.txt','5.txt' ]
+
+async function func() {
   try {
-    let a = await fs.promises.readFile('1.txt', 'utf8')
-    let b = await fs.promises.readFile('2.txt', 'utf8')
-    let c = await fs.promises.readFile('3.txt', 'utf8')
-    console.log(a+b+c)
+    for(let elem of arr){
+      await fs.promises.writeFile(elem, Math.random()*10+'')
+    }
+    let sum=0
+    for(let elem of arr){
+      let z = await fs.promises.readFile(elem, "utf8")
+      sum+=~~z
+    }
+
+    await fs.promises.writeFile('6.txt', sum+'')
   }
   catch (e) {
-    console.log('error')
+    console.log(e)
   }
 
+
 }
-f()
+
+
+
+
+func()

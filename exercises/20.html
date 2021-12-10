@@ -15,48 +15,6 @@
 
 <script>
 
-// let promise = new Promise(function (resolve, reject) {
-//     setTimeout(function () {
-//         let b = 5
-//         resolve(b)
-//     },1000)
-// })
-//
-//   async function func() {
-//      let response = await promise
-//     console.log(response)
-//   }
-//
-// func()
-
-
-let a = new Promise(function (resolve, reject) {
-    setTimeout(function () {
-        resolve(1)
-    }, 2000)
-})
-
-let b = new Promise(function (resolve, reject) {
-  setTimeout(function () {
-    resolve(2)
-  }, 500)
-})
-
-let c = new Promise(function (resolve, reject) {
-  setTimeout(function () {
-    resolve(3)
-  }, 200)
-})
-
-async function func() {
-    let a1 = await a
-    let b1 = await b
-    let c1 = await c
-  console.log(a1, b1, c1)
-}
-
-func()
-
 
 
 
