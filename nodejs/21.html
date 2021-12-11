@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Документ</title>
+<style>
+
+  .field td {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #757272;
+    text-align: center;
+    font-weight: bold;
+  }
+  table {
+    margin: 0 auto;
+    border-collapse: collapse;
+  }
+
+  .red {
+    background: red;
+  }
+  .green {
+    background: green;
+  }
+  .blue {
+    background: blue;
+  }
+</style>
+</head>
+<body>
+
+
+
+<table class="field"></table>
+<p class="p1"><span>Количество кликов: </span><span></span></p>
+<p class="p2"><span>Минимальное количество кликов: </span><span></span></p>
+
+<script>
+  let span = document.querySelector('p.p1').lastElementChild
+  let p2 = document.querySelector('p.p2').lastElementChild
+let colors = ['red', 'green', 'blue'];
+let rows = 3;
+let cols = 3;
+let count = 0
+let table = document.querySelector('table')
+  for(let i=0; i<rows; i++){
+    let tr = document.createElement('tr')
+    for(let j=0; j<rows; j++){
+      let td = document.createElement('td')
+      td.classList.add(randomColor(colors))
+
+      td.addEventListener('click', function () {
+        count++
+        span.textContent = count
+        let num = colors.indexOf(td.className)
+        num===colors.length-1 ? td.className=colors[0] : td.className=colors[num+1]
+        let tds = document.querySelectorAll('td')
+        let flag = true
+        for(let elem of tds){
+          if(elem.className!=td.className){
+            flag=false
+          }
+
+        }
+        if(flag){
+          alert('Победа')
+        }
+      })
+      tr.appendChild(td)
+    }
+    table.appendChild(tr)
+  }
+function randomColor(a) {
+    return a[Math.round(Math.random()*2)]
+}
+
+let tds = document.querySelectorAll('td')
+  let red = 0
+  let green = 0
+  let blue = 0
+  for(let elem of tds){
+    if(elem.className=='red'){
+      red+=0
+      green+=1
+      blue+=2
+    }
+    if(elem.className=='green'){
+      red+=2
+      green+=0
+      blue+=1
+    }
+    if(elem.className=='blue'){
+      red+=1
+      green+=2
+      blue+=0
+    }
+
+  }
+
+if(red<green && red<blue){
+  p2.textContent=red
+}
+  if(green<red && green<blue){
+    p2.textContent=green
+  }
+  if(blue<green && blue<red){
+    p2.textContent=blue
+  }
+
+
+  if(blue==red && blue<green){
+    p2.textContent=blue
+  }
+  if(blue==green && blue<red){
+    p2.textContent=blue
+  }
+  if(red==green && red<blue){
+    p2.textContent=red
+  }
+  if(red==green && red==blue){
+    p2.textContent = red
+  }
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
