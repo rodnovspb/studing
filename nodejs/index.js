@@ -7,38 +7,55 @@ import http from 'http'
 // node index.js
 
 http.createServer(async (request, response)=>{
-  let data
-  let status = 200
-  let type
 
-  if(request.url=='/favicon.ico'){
-    data = await fs.promises.readFile('favicon.ico')
-    type = "image/x-icon"
-  }
-  else if(request.url=="/1.html"){
-    data = await fs.promises.readFile('1.html', 'utf8')
-    type = 'text/html'
-  }
-  else if(request.url=="/math.js"){
-    data = await fs.promises.readFile('math.js')
-    type = 'text/javascript'
-  }
-  else if(request.url=="/img.png"){
-    data = await fs.promises.readFile('img.png')
-    type = 'image/png'
-  }
-  else if(request.url=="/style.css"){
-    data = await fs.promises.readFile('style.css')
-    type = 'text/css'
-  }
-  else {
-    data = 'not found'
-    type = 'text/html'
-    status = 404
-  }
-  response.writeHead(status, {"Content-Type": type})
-  response.write(data)
-  response.end()
+
+
+
+    let path = './root'+request.url
+      if(/css/.test(path)){
+        path = './root'+"/dir"+request.url
+        let text = await fs.promises.readFile(path)
+        response.writeHead(200, {"Content-Type": 'text/css'})
+        response.write(text)
+        response.end()
+      }
+      else if(/js/.test(path)){
+        path = './root'+"/dir"+request.url
+        let text = await fs.promises.readFile(path)
+        response.writeHead(200, {"Content-Type": 'text/javascript'})
+        response.write(text)
+        response.end()
+      }
+      else if(/png/.test(path)){
+        path = './root'+"/dir"+request.url
+        let text = await fs.promises.readFile(path)
+        response.writeHead(200, {"Content-Type": 'image/png'})
+        response.write(text)
+        response.end()
+      }
+      else if(/dir/.test(path)){
+       path += '/index.html';
+        let text = await fs.promises.readFile(path)
+        response.writeHead(200, {"Content-Type": 'text/html'})
+        response.write(text)
+        response.end()
+      }
+      else {
+        let text = 'не найдена'
+        response.writeHead(404, {"Content-Type": 'text/html'})
+        response.write(text)
+        response.end()
+      }
+
+
+
+
+
+
+
+
+
+
 
 
 }).listen(3000)
