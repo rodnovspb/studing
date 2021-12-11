@@ -6,36 +6,39 @@ import http from 'http'
 
 // node index.js
 
-
 http.createServer(async (request, response)=>{
-  let obj = {
-    '/page1': '19.html',
-    '/page2': '20.html',
-    '/page3': '21.html',
+  let data
+  let status = 200
+  let type
+
+  if(request.url=='/favicon.ico'){
+    data = await fs.promises.readFile('favicon.ico')
+    type = "image/x-icon"
   }
-
-  if (request.url != '/favicon.ico') {
-    let text
-    let status = 200
-
-    switch (request.url) {
-      case '/page1' : text = await fs.promises.readFile(obj['/page1'], 'utf8')
-        break
-      case '/page2' : text = await fs.promises.readFile(obj['/page2'], 'utf8')
-        break
-      case '/page3' : text = await fs.promises.readFile(obj['/page3'], 'utf8')
-        break
-      default : text = 'not found'; status = 404
-        break
-    }
-
-    response.writeHead(status, {'Content-Type': 'text/html'})
-    response.write(text)
-    response.end()
-
+  else if(request.url=="/1.html"){
+    data = await fs.promises.readFile('1.html', 'utf8')
+    type = 'text/html'
   }
-
+  else if(request.url=="/math.js"){
+    data = await fs.promises.readFile('math.js')
+    type = 'text/javascript'
+  }
+  else if(request.url=="/img.png"){
+    data = await fs.promises.readFile('img.png')
+    type = 'image/png'
+  }
+  else if(request.url=="/style.css"){
+    data = await fs.promises.readFile('style.css')
+    type = 'text/css'
+  }
+  else {
+    data = 'not found'
+    type = 'text/html'
+    status = 404
+  }
+  response.writeHead(status, {"Content-Type": type})
+  response.write(data)
+  response.end()
 
 
 }).listen(3000)
-
