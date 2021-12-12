@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Документ</title>
+<style>
+  .parent {
+    text-align: center;
+  }
+  .field {
+    display: inline-block;
+  }
+  .field td {
+    padding: 20px;
+    border: 1px solid grey;
+    cursor: pointer;
+  }
+  .active {
+    background-color: #f00;
+  }
+
+</style>
+</head>
+<body>
+
+
+ <div class="parent">
+   <table class="field">
+
+   </table>
+ </div>
+
+
+<script>
+  let field = document.querySelector('.field')
+  function build(field, arr) {
+
+  }
+  function prepare(size) {
+    let arr = [];
+
+    arr = range(size * size);
+    arr = shuffle(arr);
+    arr = chunk(arr, size);
+  }
+
+  function range(count) {
+    let arr1 = []
+    for(let i=1; i<=count; i++){
+      arr1.push(i)
+    }
+    return arr1
+  }
+
+  function shuffle(arr) {
+    let arr2 = []
+    let length = arr.length
+    for(let i=0; i<length; i++){
+      let a = ~~arr.splice(Math.floor(Math.random()*arr.length), 1)
+      arr2.push(a)
+    }
+    return arr2
+  }
+
+
+  function chunk(arr, n) {
+    let arr0 = []
+    for(let i=0; arr[0]; i++){
+      let arr1 = []
+      for(let i=0; i<n && arr[0]; i++){
+        arr1.push(~~arr.splice(0,1))
+      }
+      arr0.push(arr1)
+    }
+    return arr0
+  }
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
