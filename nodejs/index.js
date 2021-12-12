@@ -35,17 +35,28 @@ function getMimeType(path) {
 http.createServer(async (request, response)=>{
   let status = 200
   let data
+
   let path = 'root' + request.url
+  if(!/html/.test(path) &&
+  !/css/.test(path) &&
+  !/img/.test(path) &&
+  !/js/.test(path)
+  ){
+    path = 'root' + request.url + '.html'
+  }
+
+
 
   try {
     data = await fs.promises.readFile(path)
-    console.log(path)
+
   }
   catch (e) {
     status = 404
-    data = '<h1>Sorry, page not found</h1>'
+    path = 'root/404.html'
+    data = await fs.promises.readFile(path)
   }
-
+  console.log(path)
   response.writeHead(status, {'Content-Type': getMimeType(path)})
   response.write(data)
   response.end()
