@@ -6,22 +6,50 @@ import http from 'http'
 
 // node index.js
 
-http.createServer(async (request, response)=>{
+function getMimeType(path) {
+  let mimes = {
+    html: 'text/html',
+    jpeg: 'image/jpeg',
+    jpg:  'image/jpeg',
+    png:  'image/png',
+    svg:  'image/svg+xml',
+    json: 'application/json',
+    js:   'text/javascript',
+    css:  'text/css',
+    ico:  'image/x-icon',
+  };
 
-  let path = 'root'+request.url + '/index.html'
-  let status
+  let exts = Object.keys(mimes);
+  let extReg = new RegExp('\\.(' + exts.join('|') + ')$');
+
+
+  let ext = path.match(extReg)[1];
+
+  if (ext) {
+    return mimes[ext];
+  } else {
+    return 'text/plain';
+  }
+}
+
+http.createServer(async (request, response)=>{
+  let status = 200
   let data
+  let path = 'root' + request.url
 
   try {
-    data = await fs.promises.readFile(path, 'utf8')
-    status=200
+    data = await fs.promises.readFile(path)
+    console.log(path)
   }
   catch (e) {
-    status=404
-    path='root/dir/404.html'
-    data = await fs.promises.readFile(path, 'utf8')
+    status = 404
+    data = '<h1>Sorry, page not found</h1>'
   }
-  response.writeHead(status, {'Content-Type': 'text/html'})
+
+  response.writeHead(status, {'Content-Type': getMimeType(path)})
   response.write(data)
   response.end()
+
+
+
 }).listen(3000)
