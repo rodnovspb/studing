@@ -34,16 +34,45 @@
 
 <script>
   let field = document.querySelector('.field')
-  function build(field, arr) {
+  let z = 2
+  build(field, prepare(z))
 
+  function build(field, arr) {
+    let k=0
+    let num = arr.length*2
+    let j=1
+    for(let elem of arr){
+      let tr = document.createElement('tr')
+      for(let i=0; i<elem.length; i++){
+        let td = document.createElement('td')
+        k++
+        td.innerHTML = elem[i]
+        td.addEventListener('click', function () {
+          if(this.innerHTML==j){
+            this.className = 'active'
+            j++
+          }
+          if(this.className=='active' && this.textContent==k){
+            field.innerHTML=''
+            z++
+            build(field, prepare(z))
+          }
+
+        })
+        tr.appendChild(td)
+      }
+        field.appendChild(tr)
+    }
   }
+
   function prepare(size) {
     let arr = [];
-
     arr = range(size * size);
     arr = shuffle(arr);
     arr = chunk(arr, size);
+    return arr
   }
+
 
   function range(count) {
     let arr1 = []
@@ -63,7 +92,6 @@
     return arr2
   }
 
-
   function chunk(arr, n) {
     let arr0 = []
     for(let i=0; arr[0]; i++){
@@ -75,6 +103,7 @@
     }
     return arr0
   }
+
 
 </script>
 
