@@ -4,14 +4,35 @@ let app = express();
 
 // node index.js
 
+let employees = [
+  {
+    surname: 'surname1',
+    name:    'user1',
+    salary:  1000,
+  },
+  {
+    surname: 'surname2',
+    name:    'user2',
+    salary:  2000,
+  },
+  {
+    surname: 'surname3',
+    name:    'user3',
+    salary:  3000,
+  },
+];
 
-let users = ['user1', 'user2', 'user3', 'user4', 'user5'];
+app.get("/", function (req, res) {
+  let a = "<table>"
+  for(let elem of employees){
+    a+="<tr><td>" + elem.name + "</td><td>"  + elem.surname + "</td><td>" + elem.salary + "</td></tr>"
+  }
+  a+="</table>"
+  res.send(a)
+})
 
-for(let i=0; i<users.length; i++){
-  app.get("/"+i+"/", function (req, res) {
-    res.send(users[i])
-  })
-}
+
+
 
 
 
