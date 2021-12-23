@@ -1,49 +1,22 @@
-import express from 'express';
+import expressHandlebars from 'express-handlebars';
 import __dirname from './__dirname.js';
-import fs from 'fs/promises'
-import { constants } from 'fs';
+const handlebars = expressHandlebars.create({
+    defaultLayout: 'main',
+    extname: 'hbs'
+});
+
+import express from 'express';
 let app = express();
+
+app.engine('hbs', handlebars.engine);
+app.set('view engine', 'hbs');
 
 // node index.js
 
-app.get('/city/show/:id', function(req, res) {
-
-});
-app.get('/city/edit/:id', function(req, res) {
-
-});
-app.get('/country/list', function(req, res) {
-
-});
-app.get('/country/show/:id', function(req, res) {
-
-});
-app.get('/country/edit/:id', function(req, res) {
-
-});
-
-let userRouter1 = express.Router()
-let userRouter2 = express.Router()
-
-userRouter1.get('/show/:id', function (req, res) {
-
-})
-userRouter1.get('/edit/:id', function (req, res) {
-
+app.get('/page', function (req, res) {
+   res.render('page1', {a: "https://lenta.ru/", b: "ссылка"})
 })
 
-userRouter2.get('/list', function (req, res) {
-
-})
-userRouter2.get('/show/:id', function (req, res) {
-
-})
-userRouter2.get('/edit/:id', function (req, res) {
-
-})
-
-app.use('/city/', userRouter1)
-app.use('/country/', userRouter2)
 
 
 
@@ -53,9 +26,13 @@ app.use('/country/', userRouter2)
 
 
 
-app.use(function (req, res) {
-    res.status(404).send('error')
-})
+
+
+
+
+
+
+
 
 
 
