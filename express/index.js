@@ -1,21 +1,20 @@
 import express from 'express';
 import __dirname from './__dirname.js';
+import fs from 'fs/promises'
+import { constants } from 'fs';
 let app = express();
 
 // node index.js
 
 
-app.get('/test/show/all/', function(req, res) {
-  res.send('all')
-});
+app.get('/page/:num', function (req, res) {
+    let path = __dirname + '/pages/' + req.params.num + '.html'
+    fs.access(path, constants.F_OK).then(()=>
+    res.sendFile(path)
+    ).catch((e)=>{res.status(404).send('error')})
+})
 
-app.get('/test/show/:num/', function(req, res) {
-  res.send('/test/show/:num/')
-});
 
-app.get('/test/:num1/:num2', function(req, res) {
-  res.send('/test/:num1/:num2')
-});
 
 
 
@@ -27,7 +26,7 @@ app.get('/test/:num1/:num2', function(req, res) {
 
 
 app.use(function (req, res) {
-  res.status(404).send('error 404')
+    res.status(404).send('error')
 })
 
 
