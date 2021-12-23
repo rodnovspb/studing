@@ -6,16 +6,44 @@ let app = express();
 
 // node index.js
 
+app.get('/city/show/:id', function(req, res) {
 
-app.get('/page/:num', function (req, res) {
-    let path = __dirname + '/pages/' + req.params.num + '.html'
-    fs.access(path, constants.F_OK).then(()=>
-    res.sendFile(path)
-    ).catch((e)=>{res.status(404).send('error')})
+});
+app.get('/city/edit/:id', function(req, res) {
+
+});
+app.get('/country/list', function(req, res) {
+
+});
+app.get('/country/show/:id', function(req, res) {
+
+});
+app.get('/country/edit/:id', function(req, res) {
+
+});
+
+let userRouter1 = express.Router()
+let userRouter2 = express.Router()
+
+userRouter1.get('/show/:id', function (req, res) {
+
+})
+userRouter1.get('/edit/:id', function (req, res) {
+
 })
 
+userRouter2.get('/list', function (req, res) {
 
+})
+userRouter2.get('/show/:id', function (req, res) {
 
+})
+userRouter2.get('/edit/:id', function (req, res) {
+
+})
+
+app.use('/city/', userRouter1)
+app.use('/country/', userRouter2)
 
 
 
