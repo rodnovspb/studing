@@ -181,12 +181,19 @@ function chunk(arr, n) {
   function createTable(parent, arr) {
     for(let elem of arr){
       let tr = document.createElement('tr')
+      let flag = false
       for(let elem1 of elem){
         let td = document.createElement('td')
         td.innerHTML = elem1
+        if(td.textContent){
+          flag = true
+        }
         tr.appendChild(td)
       }
-        parent.appendChild(tr)
+    if(flag){
+      parent.appendChild(tr)
+    }
+
     }
   }
 
