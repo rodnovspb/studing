@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Документ</title>
+<style>
+table th, table td {
+  padding: 5px;
+  border: 1px solid grey;
+  text-align: center;
+  height: 25px;
+}
+  .calendar {
+    display: inline-block;
+  }
+  .parent {
+    text-align: center;
+  }
+  .info {
+    text-align: center;
+  }
+  .right, .left {
+    text-decoration: none;
+  }
+
+</style>
+</head>
+<body>
+
+<div class="parent">
+  <div class="calendar">
+    <div class="info"><span></span>&nbsp;<span></span></div>
+    <table>
+      <thead>
+      <tr>
+        <th>Пн</th>
+        <th>Вт</th>
+        <th>Ср</th>
+        <th>Чтв</th>
+        <th>Пятн</th>
+        <th>Сб</th>
+        <th>Вскр</th>
+      </tr>
+      </thead>
+      <tbody class="body">
+
+      </tbody>
+    </table>
+    <div class="nav">
+      <a href="#" class="left">←</a>
+      <a href="#" class="right">→</a>
+    </div>
+  </div>
+</div>
+
+
+
+<script>
+
+let left = document.querySelector('.left')
+let right = document.querySelector('.right')
+let body = document.querySelector('.body')
+let calendar = document.querySelector('.calendar')
+let info = document.querySelector('.info')
+let mon = ['янв', 'февр', 'март', 'апр', 'май', 'июнь', 'июль', 'авг', 'сент', 'окт', 'нояб', 'дек']
+  let date = new Date()
+  let year = date.getFullYear()
+  let month = date.getMonth()
+draw(body, year,month)
+
+
+  info.firstElementChild.textContent = mon[month]
+  info.lastElementChild.textContent = year
+
+left.addEventListener('click', function () {
+    body.innerHTML=''
+    draw(body,  getPrevYear(), getPrevMonth())
+})
+
+right.addEventListener('click', function () {
+  body.innerHTML=''
+  draw(body,  getNextYear(), getNextMonth())
+})
+
+
+function getPrevMonth() {
+  if(month!=0){
+    info.firstElementChild.textContent = mon[month-1]
+    return --month
+  }
+  else {
+    month=11
+    info.firstElementChild.textContent = mon[month]
+    return month
+  }
+}
+function getPrevYear() {
+  if(month==0){
+    info.lastElementChild.textContent = year-1
+    return --year
+  }
+  else {
+    info.lastElementChild.textContent = year
+    return year
+  }
+}
+
+function getNextMonth() {
+  if(month!=11){
+    info.firstElementChild.textContent = mon[month+1]
+    return ++month
+  }
+  else {
+    month=0
+    info.firstElementChild.textContent = mon[month]
+    return month
+  }
+}
+function getNextYear() {
+  if(month==11){
+    info.lastElementChild.textContent = year+1
+    return ++year
+  }
+  else {
+    info.lastElementChild.textContent = year
+    return year
+  }
+}
+
+
+
+
+
+  function range(count) {
+  let arr = []
+    for(let i=1; i<=count; i++){
+      arr.push(i)
+    }
+    return arr
+  }
+
+function getLastDay(year, month) {
+  let date = new Date(year, month+1, 0)
+  return date.getDate()
+}
+
+function getFirstWeekDay(year, month) {
+    let date = new Date(year, month, 1)
+    return date.getDay()
+}
+
+function getLastWeekDay(year, month) {
+    let date = new Date(year, month+1, 0)
+    return date.getDay()
+}
+
+function normalize(arr, left, right) {
+    for (let i=0; i<left; i++){
+      arr.unshift('')
+    }
+    for (let i=0; i<right; i++){
+      arr.push('')
+    }
+    return arr
+}
+
+function chunk(arr, n) {
+  let arr0 = []
+
+  for(let i=0; arr.length>0; i++){
+    let arr1 = []
+    for(let j=0; j<n; j++){
+      arr1.push(arr.splice(0,1))
+    }
+    arr0.push(arr1)
+  }
+  return arr0
+}
+
+  function createTable(parent, arr) {
+    for(let elem of arr){
+      let tr = document.createElement('tr')
+      for(let elem1 of elem){
+        let td = document.createElement('td')
+        td.innerHTML = elem1
+        tr.appendChild(td)
+      }
+        parent.appendChild(tr)
+    }
+  }
+
+  function draw(body, year, month) {
+    createTable(body, chunk(normalize(range(getLastDay(year, month)), getFirstWeekDay(year, month)-1, 7-getLastWeekDay(year, month)),7))
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
