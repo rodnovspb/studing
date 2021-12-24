@@ -16,7 +16,10 @@ app.set('view engine', 'hbs');
 
 
 app.get('/', function (req, res) {
-  res.render('admin');
+  res.render('page', {
+    test: "data",
+    layout: 'mypage1'
+  });
 })
 
 
