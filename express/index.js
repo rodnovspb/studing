@@ -13,8 +13,15 @@ app.set('view engine', 'hbs');
 
 // node index.js
 
-app.get('/page', function (req, res) {
-   res.render('page1', {a: "https://lenta.ru/", b: "ссылка"})
+let titles = {
+  index:    'главная страница',
+  about:    'о нас',
+  conctacs: 'контакты',
+  price:    'наш прайс'
+}
+
+app.get('/:page', function (req, res) {
+  res.render(req.params.page, {title: titles[req.params.page]})
 })
 
 
