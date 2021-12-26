@@ -1,0 +1,22 @@
+.myslide {
+    width: 500px;
+    height: 375px;
+    border: 1px solid blue;
+    position: relative;
+    overflow: hidden;
+
+}
+
+.one,
+.two {
+    width: 500px;
+    height: 375px;
+    position: absolute;
+    overflow: hidden;
+}
+.one {
+
+}
+.two {
+    border-right: 1px solid #9e9898;
+}
