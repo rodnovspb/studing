@@ -19,28 +19,36 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 
 app.get('/', function (req, res) {
-  let a = Number(req.query.num1)
-  let b = Number(req.query.num2)
-  let c = Number(req.query.num3)
- let pifNumber = isPifagorNumber(a,b,c)
+  let timeToBirth
+  if(req.query.text){
+    timeToBirth = defineTimetoBirth(req.query.text)
+  }
+
   res.render('form', {
-    query: pifNumber,
-    query1: req.query
+    query: req.query,
+    time: timeToBirth
   })
 })
 
-function isPifagorNumber(a,b,c){
-  if(a>b && a>c){
-    return a**2==b**2+c**2
-  }
-  else if(b>a && b>c) {
-    return b ** 2 == a ** 2 + c ** 2
-  }
-  else if(c>a && c>b) {
-    return c ** 2 == a ** 2 + b ** 2
-  }
-}
+function defineTimetoBirth(date){
+  let differ
+  let arr = date.split('.')
+  let now = new Date()
+  let thisYear = now.getFullYear()
+  let year = ~~arr[2]
+  let month = ~~arr[1]
+  let day = ~~arr[0]
+  let birth = new Date(thisYear, month-1, day)
+  if(birth>now){
+    differ = (birth-now)/1000/60/60/24
 
+  }
+  else if(now>birth){
+    let nextBirth = new Date(thisYear+1, month, day)
+    differ = (nextBirth-now)/1000/60/60/24
+  }
+  return Math.round(differ)
+}
 
 
 
