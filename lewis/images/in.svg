@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="41" height="41" viewBox="0 0 41 41">
+  <g id="in" transform="translate(-400 -346)">
+    <path id="bg" d="M0,0H41V41H0Z" transform="translate(400 346)" fill="#007bb6"/>
+    <text id="in-2" data-name="in" transform="translate(411 375)" fill="#fff" font-size="24" font-family="FontAwesome"><tspan x="0" y="0"></tspan></text>
+  </g>
+</svg>

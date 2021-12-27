@@ -1,0 +1,12 @@
+p{
+    width: 500px;
+    margin: 0 auto;
+}
+#top {
+    width: 100px;
+    position: fixed;
+    z-index: 1;
+    right: 30px;
+    bottom: 30px;
+
+}
