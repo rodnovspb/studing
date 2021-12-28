@@ -19,48 +19,24 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 
 app.get('/', function (req, res) {
-    res.render('form')
-})
-app.post('/', function (req, res) {
-  let arr = req.body.text.split('')
-  let obj = countSymb(arr)
-  let commonArr = createArrfromObg(obj)
-  res.render('form', {
-    body: req.body,
-    key: commonArr[0],
-    value: commonArr[1]
-  })
+    let time = new Date(Number(req.query.year), Number(req.query.month),Number(req.query.day))
+    let dayOfWeek
+    switch (~~time.getDay()) {
+        case 0: dayOfWeek='воскр'; break;
+        case 1: dayOfWeek='пон'; break;
+        case 2: dayOfWeek='втор'; break;
+        case 3: dayOfWeek='среда'; break;
+        case 4: dayOfWeek='четв'; break;
+        case 5: dayOfWeek='пятн'; break;
+        case 6: dayOfWeek='сб'; break;
+        default: dayOfWeek='ошибка'; break;
+    }
+    res.render('form', {
+        day: dayOfWeek,
+        query: req.query
+    })
 })
 
-function countSymb(arr) {
-  let obj = {}
-  for(let elem of arr){
-    if(obj[elem]){
-      obj[elem]++
-    }
-    else if(!obj[elem]){
-      obj[elem] = 1
-    }
-  }
-  return obj
-}
-
-function createArrfromObg(obj){
-  let arr1 = []
-  let arr2 = []
-  for(let elem in obj){
-    arr1.push(elem)
-    arr2.push(obj[elem])
-  }
-  let sum = 0
-  for(let elem of arr2){
-    sum += Number(elem)
-  }
-  for(let i = 0; i<arr2.length; i++){
-    arr2[i] = Math.round((arr2[i]/sum)*100)
-  }
-  return [arr1, arr2]
-}
 
 
 
