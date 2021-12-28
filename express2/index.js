@@ -19,39 +19,48 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 
 app.get('/', function (req, res) {
-  let timeToBirth
-  if(req.query.text){
-    timeToBirth = defineTimetoBirth(req.query.text)
-  }
-
+    res.render('form')
+})
+app.post('/', function (req, res) {
+  let arr = req.body.text.split('')
+  let obj = countSymb(arr)
+  let commonArr = createArrfromObg(obj)
   res.render('form', {
-    query: req.query,
-    time: timeToBirth
+    body: req.body,
+    key: commonArr[0],
+    value: commonArr[1]
   })
 })
 
-function defineTimetoBirth(date){
-  let differ
-  let arr = date.split('.')
-  let now = new Date()
-  let thisYear = now.getFullYear()
-  let year = ~~arr[2]
-  let month = ~~arr[1]
-  let day = ~~arr[0]
-  let birth = new Date(thisYear, month-1, day)
-  if(birth>now){
-    differ = (birth-now)/1000/60/60/24
-
+function countSymb(arr) {
+  let obj = {}
+  for(let elem of arr){
+    if(obj[elem]){
+      obj[elem]++
+    }
+    else if(!obj[elem]){
+      obj[elem] = 1
+    }
   }
-  else if(now>birth){
-    let nextBirth = new Date(thisYear+1, month, day)
-    differ = (nextBirth-now)/1000/60/60/24
-  }
-  return Math.round(differ)
+  return obj
 }
 
-
-
+function createArrfromObg(obj){
+  let arr1 = []
+  let arr2 = []
+  for(let elem in obj){
+    arr1.push(elem)
+    arr2.push(obj[elem])
+  }
+  let sum = 0
+  for(let elem of arr2){
+    sum += Number(elem)
+  }
+  for(let i = 0; i<arr2.length; i++){
+    arr2[i] = Math.round((arr2[i]/sum)*100)
+  }
+  return [arr1, arr2]
+}
 
 
 
