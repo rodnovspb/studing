@@ -19,24 +19,42 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 
 app.get('/', function (req, res) {
-    let time = new Date(Number(req.query.year), Number(req.query.month),Number(req.query.day))
-    let dayOfWeek
-    switch (~~time.getDay()) {
-        case 0: dayOfWeek='воскр'; break;
-        case 1: dayOfWeek='пон'; break;
-        case 2: dayOfWeek='втор'; break;
-        case 3: dayOfWeek='среда'; break;
-        case 4: dayOfWeek='четв'; break;
-        case 5: dayOfWeek='пятн'; break;
-        case 6: dayOfWeek='сб'; break;
-        default: dayOfWeek='ошибка'; break;
+    let horoscope
+    if(req.query.submit){
+       horoscope = getHoroscope(req.query.date)
     }
     res.render('form', {
-        day: dayOfWeek,
-        query: req.query
+        query: req.query,
+        horoscope
     })
 })
 
+let Horoscope = {
+    'ves': ['весы плохо', 'весы нормально', "весы хорошо"],
+    'rak': ['рак плохо', 'рак нормально', "рак хорошо"],
+    'deva': ['дева плохо', 'дева нормально', "дева хорошо"],
+    'scorp': ['скорпион плохо', 'скорпион нормально', "скорпион хорошо"]
+}
+function getHoroscope (date){
+    let horoscope
+    let arr = date.split('-')
+    let month = arr[1]
+    let day = arr[2]
+    let date1 = month + '.'+day
+    if(date1>='00.01' && date1<='03.31'){
+        horoscope='ves'
+    }
+    else if(date1>'03.31' && date1<='06.31'){
+        horoscope='rak'
+    }
+    else if(date1>'06.31' && date1<='09.31'){
+        horoscope='deva'
+    }
+    else if(date1>'09.31' && date1<='11.31'){
+        horoscope='scorp'
+    }
+    return Horoscope[horoscope][1]
+}
 
 
 
