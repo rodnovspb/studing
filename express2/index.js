@@ -24,23 +24,20 @@ app.use(cookieParser(secret));
 app.use(expressSession({
     secret: secret,
 }));
-let count = 0
-app.get('/', function(req, res) {
-        count++
-        if(!req.session.test){
-            req.session.test = 'записанные данные'
-            res.send('Первый заход, записываю данные сессии')
-        }
-        else if(req.session.test && count==2){
-            res.send('второй заход, показываю: ' + req.session.test)
-        }
-        else if(count==3){
-            delete req.session.test
-            count=0
-            res.send('Сессия удалена')
-        }
 
-});
+
+
+app.get('/', function (req, res) {
+    req.session.test = 'моя сессия'
+    res.send('первый заход, сессия записана, перейдите на /page')
+})
+app.get('/page', function (req, res) {
+    res.send('второй заход, передаю данные' + req.session.test + "<br> Для удаления пройдите на /delete")
+})
+app.get('/delete', function (req, res) {
+    delete req.session.test
+    res.send('Третий заход, сессия удалена, перейдите на главную')
+})
 
 
 
