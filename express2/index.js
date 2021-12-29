@@ -21,17 +21,24 @@ app.use(bodyParser.urlencoded({extended: true}));
 let secret = 'qwerty'
 app.use(cookieParser(secret))
 
-app.get('/main', function (req, res) {
-    res.cookie('main', 'куки для главной страницы', {
-        path: '/main',
-        maxAge: 1000*60*60*24*365*10
-    })
-    res.send(req.cookies['main'])
+
+let time
+app.get('/', function (req, res) {
+    if(!time){
+        time = new Date().getTime()
+        res.cookie('time', time)
+        res.send('Первое посещение, время записано')
+    }
+    else {
+        let time2 = new Date().getTime()
+        let firsTime = req.cookies['time']
+        let differ = (time2 - firsTime)/1000
+        res.cookie('time', time2)
+        res.send("Прошло " + differ + ' секунд')
+        // После res.send код с res не выполняется
+    }
 })
 
-app.get('/page', function (req, res) {
-    res.send(req.cookies['main'])
-})
 
 
 
