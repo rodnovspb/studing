@@ -26,18 +26,37 @@ app.use(expressSession({
 }));
 
 
-
+let time
 app.get('/', function (req, res) {
-    if(!req.session.try){
-        req.session.try = 'зафиксирована попытка входа ранее'
-        res.send('первое посещение, сессия записана')
+    if(!time){
+        time = new Date().getTime()
+        req.session.time = time
+        res.send('Первое посещение, время записано')
     }
     else {
-        let a = req.session.try
-        delete req.session.try
-        res.send(a + '<br> Второе посещение, сессия удалена')
+        let time2 = new Date().getTime()
+        let differ = (-req.session.time + time2)/1000
+        req.session.time = time2
+        res.send('Прошло ' + differ + ' секунд')
     }
+
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
