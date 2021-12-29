@@ -21,19 +21,20 @@ app.use(bodyParser.urlencoded({extended: true}));
 let secret = 'qwerty'
 app.use(cookieParser(secret))
 
-app.get('/write', function (req, res) {
-    res.cookie('myCookies', 'мои куки')
-    res.send('записываю куки')
+app.get('/main', function (req, res) {
+    res.cookie('main', 'куки для главной страницы', {
+        path: '/main',
+        maxAge: 1000*60*60*24*365*10
+    })
+    res.send(req.cookies['main'])
 })
 
-app.get('/read', function (req, res) {
-    res.cookie('myCookies', 'мои куки')
-    res.send('Читаю куки:' + req.cookies['myCookies'])
+app.get('/page', function (req, res) {
+    res.send(req.cookies['main'])
 })
-app.get('/delete', function (req, res) {
-    res.clearCookie('myCookies')
-    res.send('Удаляю куки')
-})
+
+
+
 
 
 
