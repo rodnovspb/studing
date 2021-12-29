@@ -28,18 +28,16 @@ app.use(expressSession({
 
 
 app.get('/', function (req, res) {
-    req.session.test = 'моя сессия'
-    res.send('первый заход, сессия записана, перейдите на /page')
+    if(!req.session.try){
+        req.session.try = 'зафиксирована попытка входа ранее'
+        res.send('первое посещение, сессия записана')
+    }
+    else {
+        let a = req.session.try
+        delete req.session.try
+        res.send(a + '<br> Второе посещение, сессия удалена')
+    }
 })
-app.get('/page', function (req, res) {
-    res.send('второй заход, передаю данные' + req.session.test + "<br> Для удаления пройдите на /delete")
-})
-app.get('/delete', function (req, res) {
-    delete req.session.test
-    res.send('Третий заход, сессия удалена, перейдите на главную')
-})
-
-
 
 
 
