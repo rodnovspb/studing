@@ -1,4 +1,5 @@
 import expressHandlebars from 'express-handlebars';
+import expressSession from 'express-session';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 import __dirname from './__dirname.js';
@@ -18,26 +19,28 @@ app.set('view engine', 'hbs');
 app.use(bodyParser.urlencoded({extended: true}));
 // node index.js
 
-let secret = 'qwerty'
-app.use(cookieParser(secret))
+let secret = 'qwerty';
+app.use(cookieParser(secret));
+app.use(expressSession({
+    secret: secret,
+}));
+let count = 0
+app.get('/', function(req, res) {
+        count++
+        if(!req.session.test){
+            req.session.test = 'записанные данные'
+            res.send('Первый заход, записываю данные сессии')
+        }
+        else if(req.session.test && count==2){
+            res.send('второй заход, показываю: ' + req.session.test)
+        }
+        else if(count==3){
+            delete req.session.test
+            count=0
+            res.send('Сессия удалена')
+        }
 
-
-let time
-app.get('/', function (req, res) {
-    if(!time){
-        time = new Date().getTime()
-        res.cookie('time', time)
-        res.send('Первое посещение, время записано')
-    }
-    else {
-        let time2 = new Date().getTime()
-        let firsTime = req.cookies['time']
-        let differ = (time2 - firsTime)/1000
-        res.cookie('time', time2)
-        res.send("Прошло " + differ + ' секунд')
-        // После res.send код с res не выполняется
-    }
-})
+});
 
 
 
