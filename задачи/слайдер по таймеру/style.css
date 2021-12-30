@@ -1,0 +1,27 @@
+.slider {
+    width: 384px;
+    height: 128px;
+    border: 1px solid blue;
+    margin: 50px auto;
+    overflow: hidden;
+}
+.row img {
+    float: left;
+}
+.row {
+    width: 896px;
+    position: relative;
+    transition: left .2s linear;
+    left: 0;
+}
+.row::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+.left {
+    display: block;
+    margin: 10px auto;
+    width: 50px;
+    height: 20px;
+}
