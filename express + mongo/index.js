@@ -6,13 +6,24 @@ let mongoClient = new mongodb.MongoClient('mongodb://localhost:27017/', {
 
 mongoClient.connect(async function (error, mongo) {
 
-      let db = mongo.db('test')
-      let coll = db.collection('users')
-      coll.find().toArray().then(res=>{
-        console.log(res)
-      }).catch(e=>{
-        console.log(e)
-      })
+ try {
+   let coll = mongo.db('test').collection('prods')
+   let res = await coll.count({cost: 300})
+   console.log(res)
+ }
+ catch (e) {
+   console.log(e)
+ }
+
+
+
+
+
+
+
+
+
+
 
 
 
