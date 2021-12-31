@@ -6,17 +6,15 @@ let mongoClient = new mongodb.MongoClient('mongodb://localhost:27017/', {
 
 mongoClient.connect(async function (error, mongo) {
 
- try {
-   let coll = mongo.db('test').collection('prods')
-   let res = await coll.count({cost: 300})
-   console.log(res)
- }
- catch (e) {
-   console.log(e)
- }
+try {
+  let coll = mongo.db('test').collection('prods')
+  await coll.updateMany({}, {$set: {time: new Date().getTime()}})
 
+}
 
-
+catch (e) {
+  console.log(e)
+}
 
 
 
