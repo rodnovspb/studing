@@ -1,0 +1,22 @@
+[
+  {
+    "name": "user1",
+    "langs": ["english", "spanish"],
+  },
+  {
+    "name": "user2",
+    "langs": ["english", "german"],
+  },
+  {
+    "name": "user3",
+    "langs": ["german", "spanish"],
+  },
+  {
+    "name": "user4",
+    "langs": ["spanish", "english"],
+  },
+  {
+    "name": "user5",
+    "langs": ["german", "english", "spanish"],
+  },
+]
