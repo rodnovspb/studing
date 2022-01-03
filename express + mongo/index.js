@@ -21,6 +21,7 @@ mongoClient.connect(async function (error, mongo) {
 
 if(!error) {
   let coll = mongo.db('test').collection('users')
+  let collProd = mongo.db('test').collection('prods')
 
  app.get('/users/:name', async function (req, res) {
     let name = req.params.name
@@ -37,6 +38,10 @@ if(!error) {
   app.get('/users', async function (req, res) {
     let users = await coll.find().toArray()
     res.render('users', {users: users})
+  })
+  app.get('/prods', async function (req, res) {
+    let prods = await collProd.find().toArray()
+    res.render('prods', {prods})
   })
 }
 
