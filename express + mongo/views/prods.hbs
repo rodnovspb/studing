@@ -1,8 +1,7 @@
 <div>
   <ul>
 	{{#each prods}}
-	  <li><h2>Название: {{name}}</h2></li>
-	  <li><b>Цена: {{cost}}</b>, rest: {{rest}}</li>
+	  <li>Название: {{name}}, цена: {{cost}}, остаток: {{rest}}, <a href="/prods/{{name}}">Подробнее</a></li>
 	{{/each}}
   </ul>
 </div>

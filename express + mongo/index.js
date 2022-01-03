@@ -39,10 +39,22 @@ if(!error) {
     let users = await coll.find().toArray()
     res.render('users', {users: users})
   })
+
+  app.get('/prods/:num', async function (req, res) {
+    let num = req.params.num
+    let prod = await collProd.findOne({name: num})
+    if(prod){
+      res.render('prod', {name: prod})
+    }
+    else {
+      res.render('error')
+    }
+  })
   app.get('/prods', async function (req, res) {
     let prods = await collProd.find().toArray()
     res.render('prods', {prods})
   })
+
 }
 
 else {
