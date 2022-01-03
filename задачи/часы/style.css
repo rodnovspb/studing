@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.clock {
+    height: 700px;
+    width: 700px;
+    border: 1px solid blue;
+    margin: 50px auto;
+    /*display: flex;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
+    overflow: hidden;
+    position: relative;
+}
+.sec {
+    display: block;
+    position: absolute;
+    left: 200px;
+    z-index: 1;
+}
+.min {
+    display: block;
+    position: absolute;
+    left: 200px;
+}

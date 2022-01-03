@@ -1,0 +1,10 @@
+.block {
+    width: 150px;
+    height: 150px;
+    background-color: #0b5ed7;
+}
+.elem {
+    width: 150px;
+    height: 150px;
+    background-color: red;
+}

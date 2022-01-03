@@ -1,0 +1,10 @@
+.one {
+    width: 150px;
+    height: 150px;
+    background-color: mediumspringgreen;
+    margin: 50px auto;
+    transition: all 1s ease;
+}
+.one:hover {
+    /*transform: rotate(1000000deg);*/
+}
