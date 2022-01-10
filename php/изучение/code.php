@@ -1,15 +1,11 @@
 <?php
 
-$kilo = 1024;
-$mega = 1024*$kilo;
-$giga = 1024*1024*$kilo;
-$tera = 1024*1024*1024*$kilo;
 
+$arr = ['a' => 1, 'b' => 2, 'c' => 3];
 
-echo $tera/$kilo
+$key = "b";
 
-
-
+echo $arr[$key]
 
 
 
