@@ -4,16 +4,37 @@
 
 
 
-$age = 19;
+$arr = [
+    '2019-12-29'=> ['name1', 'name2', 'name3', 'name4'],
+    '2019-12-30'=> ['name5', 'name6', 'name7'],
+    '2019-12-31'=> ['name8', 'name9'],
+];
 
-if($age >10 and $age <99) {
-    $age = (string)$age;
-    $sum = $age[0] + $age[1];
-    if(strlen($sum)<2) echo 'сумма цифр однозначна';
-    else echo 'двузначна';
-} else echo 'меньше 10 или больше 99';
+$obj = [];
+foreach ($arr as $key=>$item){
+    foreach ($item as $value){
+        $a['date'] = $key;
+        $a['event'] = $value;
+        $obj[] = $a;
+    }
+}
 
-echo strlen((string)23);
+var_dump($obj);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
