@@ -1,0 +1,10 @@
+@font-face {
+    font-family: ProximaNova;
+    src: url("/fonts/ProximaNovaCond-Regular.woff") format('woff');
+}
+
+@font-face {
+    font-family: ProximaNova;
+    src: url("/fonts/ProximaNovaCond-Thin.woff") format('woff');
+    font-weight: 300;
+}

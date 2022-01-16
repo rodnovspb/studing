@@ -1,0 +1,40 @@
+body {
+    font-size: 30px;
+}
+
+.test > p:last-of-type {
+    color: #f00;
+}
+
+li:nth-of-type(even) {
+    color: #f00;
+}
+
+.input:checked + label {
+    color: red;
+}
+
+.text span[title='text'] {
+    color: red;
+}
+
+.btn {
+    font-size: 15px;
+    padding: 0.33em 0.66em;
+    border-radius: 0.66em;
+    margin-right: 10%;
+    box-shadow: 0 0 0.66em #b30d0d;
+}
+.btn-mod {
+    font-size: 50px;
+}
+.inline-block {
+    width: 500px;
+    height: 500px;
+    border: 1px solid blue;
+}
+
+.inline-block span {
+    vertical-align: middle;
+}
+

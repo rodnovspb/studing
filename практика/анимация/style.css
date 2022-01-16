@@ -1,0 +1,93 @@
+* {
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+}
+
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.header {
+    border: 1px solid blue;
+    padding: 10px;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+
+}
+.bg {
+    background: url("original.jpg") no-repeat;
+    background-position-x: 70%;
+    background-position-y: 30%;
+    /*animation-name: animation;*/
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+    background-size: cover;
+
+}
+
+@keyframes animation {
+    0% {
+        background-position-y: 30%;
+    }
+    100% {
+        background-position-y: 76%;
+    }
+}
+
+.header>h1 {
+    font-size: 4rem;
+    position: relative;
+    background-color: rgba(255,255,255, .8);
+    display: inline-block;
+}
+
+.spider {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    background-image: url("Ruyada-orumcek-gormek-removebg-preview.png");
+    right: 200px;
+    top: -100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.animation2 {
+    /*animation-name: animation2;*/
+    animation-duration: 1s;
+    animation-delay: 2s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes animation2 {
+
+    100% {
+        top: -20px;
+    }
+}
+
+
+
+
+.parent {
+    width: 300px;
+    height: 300px;
+    background: url("111.jpg") no-repeat;
+    margin: 30px auto;
+    border: 1px solid blue;
+
+
+}
+.child {
+    width: 100px;
+    height: 100px;
+    background-image: url("w1.png");
+    background-repeat: no-repeat;
+    /*position: absolute;*/
+    background-size: contain;
+}
+

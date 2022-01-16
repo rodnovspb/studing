@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .bordered {
+      box-shadow: 0 0 15px #eee;
+
+
+    }
+  </style>
+</head>
+<body>
+
+
+<img src="https://cdn1.iconfinder.com/data/icons/line-christmas-icons/75/_snow_tree-256.png" alt="">
+<img src="https://cdn1.iconfinder.com/data/icons/christmas-flat-4/58/016_-_Xmas_Tree-256.png" alt="">
+<img src="https://cdn3.iconfinder.com/data/icons/fantasy-and-role-play-game-adventure-quest/512/Treant-256.png" alt="">
+
+
+
+
+
+<script>
+
+  let images = document.querySelectorAll('img')
+  // document.addEventListener('click', function (event) {
+  //     console.log(event.target.tagName)
+  // })
+  for(let elem of images){
+    elem.addEventListener('click', function () {
+        this.classList.toggle('bordered')
+    })
+  }
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    body {
+      font-size: 30px;
+    }
+  </style>
+</head>
+<body>
+
+
+
+<p><input type="radio" class="input" name="name" value="1">Яблоки</p>
+<p><input type="radio" name="name" value="2">Вишня</p>
+<input class="btn" type="button" value="Кнопка">
+
+
+
+
+<script>
+
+
+
+  let radio = document.getElementsByName('name')
+  for(let elem of radio){
+    elem.addEventListener('input', func)
+  }
+
+function func() {
+  console.log(this.parentElement.innerText)
+}
+
+document.querySelector('.btn').onclick = checkRadio
+
+  function checkRadio() {
+    for(let elem of radio){
+      if(elem.checked){
+        console.log(elem.parentElement.textContent)
+        break
+
+      }
+    }
+  }
+
+
+</script>
+</body>
+</html>

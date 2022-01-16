@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Документ</title>
+<style>
+
+
+</style>
+</head>
+<body>
+
+<input class="elem1" value="5">
+<input class="elem2" value="6">
+<input class="btn" value="Большее число" type="button">
+<div class="out"></div>
+
+
+
+
+<script>
+document.querySelector('.btn').onclick = foo
+let a = document.querySelector('.elem1')
+let b = document.querySelector('.elem2')
+let out = document.querySelector('.out')
+
+  function foo() {
+	// Number(a.value) > Number(b.value) ? out.textContent="Первое больше" : out.textContent="Второе больше или равно"
+	if (parseInt(a.value) > parseInt(b.value) && parseInt(a.value) && parseInt(b.value)) out.textContent="Первое больше"
+	else if(!parseInt(a.value) || !parseInt(b.value)) out.textContent="Введите числа"
+	else  out.textContent="Второе больше или равно"
+  }
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

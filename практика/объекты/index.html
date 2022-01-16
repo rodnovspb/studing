@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="script.js" defer></script>
+  <style>
+    .elem {
+      width: 100px;
+      height: 100px;
+      background-color: #881f1f;
+      position: relative;
+      left: 0;
+      right: 0;
+    }
+  </style>
+</head>
+<body>
+
+
+<div class="elem"></div>
+<button class="start">Старт</button>
+<button class="stop">Стоп</button>
+<button class="back">Обратно</button>
+
+
+
+
+
+<script>
+
+  let aq = 12;
+  let b = 'аноним'
+  console.log(aq??b)
+
+
+
+  let start = document.querySelector('.start')
+  let stop = document.querySelector('.stop')
+  let back = document.querySelector('.back')
+let div = document.querySelector('.elem')
+let a = 0
+let timer
+let flag = true
+
+
+  start.addEventListener('click', function () {
+    if(flag){
+      timer = setInterval(function () {
+        div.style.left =a + 'px'
+        a++
+      }, 10)
+    }
+    flag = false
+  })
+
+
+
+  stop.addEventListener('click', function func () {
+      clearInterval(timer)
+    flag=true
+
+  })
+
+  back.addEventListener('click', function () {
+
+    if(flag){
+      timer = setInterval(function () {
+        div.style.left =a + 'px'
+        a--
+      }, 10)
+    }
+    flag = false
+  })
+
+
+
+
+
+
+</script>
+</body>
+</html>

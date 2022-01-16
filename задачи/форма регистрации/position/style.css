@@ -1,0 +1,55 @@
+body {
+    margin: 0;
+    background-color: #eee;
+}
+.composition {
+    width: 700px;
+    height: 400px;
+    background-color: #fff;
+    margin: 20px auto;
+    position: relative;
+    overflow: hidden;
+}
+.road {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+}
+.car {
+    width: 35%;
+    transform: scale(-1, 1);
+    position: absolute;
+    bottom: 0;
+    right: 35%;
+    z-index: 4;
+}
+.tree {
+    height: 70%;
+    position: absolute;
+    bottom: 30px;
+    left: 10%;
+    z-index: 3;
+}
+.cloud {
+    width: 45%;
+    position: absolute;
+    left: 30%;
+    transform: translateY(-20%);
+    z-index: 2;
+}
+.cloud-1 {
+    width: 40%;
+    position: absolute;
+    left: 0;
+    transform: translateY(-20%);
+    z-index: 2;
+}
+.cloud-2 {
+    width: 40%;
+    position: absolute;
+    left: 70%;
+    transform: translate(-10%,-30%);
+    z-index: 2;
+
+}

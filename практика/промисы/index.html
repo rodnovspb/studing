@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Документ</title>
+<style>
+
+
+</style>
+</head>
+<body>
+
+
+
+
+
+<script>
+
+
+  let promise = new Promise(function (resolve, reject) {
+      setTimeout(function () {
+        let a = 11
+        resolve(a)
+      }, 3000)
+  })
+
+  let promise1 = new Promise(function (resolve, reject) {
+    setTimeout(function () {
+      resolve([1,2,3,4,5])
+    }, 4000)
+  })
+
+promise.then(function (res) {
+    console.log(res)
+})
+
+
+ Promise.all([promise, promise1]).then(function (res) {
+      console.log(res)
+ }).catch(function (error) {
+    console.log(error)
+ })
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

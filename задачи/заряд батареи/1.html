@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Документ</title>
+  <style>
+    .battery {
+      width: 300px;
+      height: 90px;
+      border: 1px solid #c0c0c0;
+      border-radius: 6px;
+      padding: 10px;
+      position: relative;
+    }
+    .battery:after {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 40px;
+      position: absolute;
+      right: -22px;
+      top: 50%;
+      transform: translateY(-50%);
+      border: 1px solid #c0c0c0;
+      border-left-color: white;
+      border-radius: 0 5px 5px 0;
+    }
+    .battery-level {
+      background: -webkit-linear-gradient(top, #3b679e 0%,#7db9e8 50%);
+      height: 100%;
+      width: 30%;
+      transition: all ease 1s;
+    }
+    .battery-level-digit {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      text-align: center;
+      font-size: 70px;
+      line-height: 92px;
+    }
+    .battery-level.battery-animation {
+        animation-name: battery-charget;
+        animation-duration: 4s;
+        animation-iteration-count: infinite;
+    }
+    @keyframes battery-charget {
+      0% {
+        width: 0%;
+      }
+      100% {
+        width: 100%;
+      }
+    }
+  </style>
+
+</head>
+<body>
+
+
+  <div class="battery">
+    <div class="battery-level"></div>
+    <div class="battery-level-digit">0%</div>
+  </div>
+  <div class="status"></div>
+  <div class="charging-time"></div>
+  <div class="discharging-time"></div>
+
+
+
+
+
+
+
+
+<script>
+
+  let a = document.querySelector('h1')
+
+  navigator.getBattery().then(function (battery) {
+    function updateAllBatteryInfo() {
+      updateChargeInfo()
+      updateLevelInfo()
+      updateChargingInfo()
+      updateDisChargingInfo()
+
+    }
+    updateAllBatteryInfo()
+    battery.addEventListener("chargingchange", function () {
+      updateChargeInfo()
+    })
+    function updateChargeInfo() {
+      if(battery.charging){
+        document.querySelector('.status').textContent = 'Заряжается'
+        document.querySelector('.battery-level').classList.add('battery-animation')
+      }
+      else {
+        document.querySelector('.status').textContent = 'Не заряжается'
+        document.querySelector('.battery-level').classList.remove('battery-animation')
+      }
+}
+
+    battery.addEventListener('levelchange', updateLevelInfo)
+    function updateLevelInfo() {
+      document.querySelector('.battery-level-digit').innerHTML=battery.level*100+'%'
+      document.querySelector('.battery-level').style.width = battery.level*100+"%"
+    }
+
+    battery.addEventListener('chargintimechange', updateChargingInfo)
+    function updateChargingInfo() {
+      if(isFinite(battery.chargingTime)){
+        document.querySelector('.charging-time').textContent = "До зарядки: " + battery.chargingTime/60
+      }
+
+    }
+
+    battery.addEventListener('dischargintimechange', updateDisChargingInfo)
+    function updateDisChargingInfo() {
+
+        document.querySelector('.discharging-time').textContent = "До разрядки:" + battery.dischargingTime/60
+
+
+    }
+
+  })
+</script>
+
+
+
+
+
+</body>
+</html>

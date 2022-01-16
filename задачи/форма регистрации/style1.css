@@ -1,0 +1,46 @@
+body {
+    margin: 0;
+    padding: 30px;
+}
+.square {
+    width: 100px;
+    height: 100px;
+    background-color: #0a53be;
+    position: absolute;
+    right: -20px;
+    top: -20px;
+    z-index: -1;
+
+
+}
+.modal {
+    width: 500px;
+    height: 300px;
+    background-color: #ccc;
+    margin: 0 auto;
+    position: relative;
+    padding: 10px;
+}
+.modal__title {
+    margin: 0;
+    font: bold 20px/1.5 Arial, sans-serif;
+}
+
+.square.red {
+    background-color: #f00;
+    right: -30px;
+    top: -30px;
+    z-index: 1;
+}
+.square-fixed {
+    width: 100px;
+    height: 100px;
+    background-color: #1dca68;
+    position: fixed;
+    top: 50%;
+    left: 0;
+    margin-top: -50px;
+}
+p {
+    width: 50px;
+}

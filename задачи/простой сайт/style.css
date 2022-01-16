@@ -1,0 +1,242 @@
+*,
+*:after,
+*:before {
+    box-sizing: border-box;
+}
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+html {
+    font-size: 10px;
+    box-sizing: border-box;
+    line-height: 1.5;
+}
+body {
+    background: url("129.png");
+}
+
+.page {
+    width: 1000px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+}
+.header {
+    background-color: #2d2a2a;
+    text-align: center;
+    color: #fff;
+    padding: 10px;
+}
+.title,
+.subtitle {
+    font-weight: 400;
+    text-decoration-style: dashed ;
+    text-decoration-color: white;
+    text-decoration-line: underline;
+}
+.title {
+    color: blue;
+    font-size: 1.7rem;
+}
+.title-about {
+    line-height: 1;
+    margin-bottom: 8px;
+}
+.contacts {
+    padding: 10px;
+}
+
+.subtitle {
+    font-family: Tahoma, sans-serif;
+    font-size: 1.5rem;
+    color: #7dadf3;
+}
+.nav {
+    display: flex;
+    justify-content: center;
+}
+.nav__link {
+    font-size: 1.3em;
+    text-decoration: none;
+    padding: 10px 20px;
+    transition: background-color .2s ease;
+}
+.nav__link:hover {
+    background-color: whitesmoke;
+}
+.img {
+    width: 100%;
+    display: block;
+    margin-bottom: 15px;
+    background: linear-gradient(to top, #adf6bd, #eeeeee);
+}
+
+.page__intro {
+    max-height: 80px;
+    border-radius: 7px;
+    box-shadow: 0 0 10px #995d5d;
+    position: relative;
+    z-index: 5;
+    opacity: 50%;
+    background-color: #fff;
+
+}
+.content {
+    padding: 10px;
+}
+.about,
+.news {
+    margin-bottom: 20px;
+}
+.about__text,
+.news__text {
+    font-size: 1.5rem;
+    margin-top: 0;
+}
+
+.about__text:last-of-type,
+.news__text:last-of-type {
+    margin-bottom: 10px;
+}
+
+.read-more {
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+.read-more:hover {
+    text-decoration: underline;
+}
+.news {
+    border-bottom: 1px solid grey;
+    padding-bottom: 5px;
+}
+
+.news__date {
+    margin: 5px 0;
+    color: #333;
+}
+.news a{
+    text-decoration: none;
+    color: inherit;
+}
+.news a:hover {
+    text-decoration: underline;
+}
+.footer {
+    color: whitesmoke;
+    text-align: center;
+    background-color: #2d2a2a;
+    padding: 20px;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+.form-input {
+    padding: 5px;
+    border: 1px solid blue;
+    width: 150px;
+    display: block;
+}
+.form-input:focus {
+    outline: none;
+    font-size: 1.3rem;
+    font-family: Arial;
+    background-color: #d6ecf2;
+}
+
+.forms {
+    margin-bottom: 5px;
+}
+.form-textarea {
+    width: 150px;
+    min-height: 30px;
+    max-height: 100px;
+    font: bold italic 1.5rem/1.5 Arial;
+    outline: 1px solid #5d685d;
+    outline-offset: 4px;
+    resize: vertical;
+}
+fieldset {
+    width:400px;
+}
+
+.btn {
+    background-color: #198754;
+    border: 1px solid dimgray;
+    color: #fff;
+    padding: 5px 10px;
+    transition: background-color .2s ease;
+}
+
+.btn:hover,
+.btn:focus {
+    background-color: rgba(25, 135, 84, 0.86);
+    cursor: pointer;
+    outline: none;
+}
+.btn:active {
+    background-color: rgb(25, 135, 84);
+}
+.btn:disabled {
+    background-color: grey;
+    cursor: not-allowed;
+}
+.file {
+    color: transparent;
+}
+.file:hover,
+.file:focus {
+    outline: none;
+}
+.main-page {
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+.main-page:link {
+    color: #1e3e7d;
+}
+.main-page:visited {
+    color: #617d1e;
+}
+.main-page:hover {
+    color: #30312e;
+}
+.main-page:active {
+    color: #b522b2;
+}
+.field {
+    border-top-width: 5px;
+    border-bottom-width: 3px;
+    border-right-width: 5px;
+    border-top-style: ridge;
+    border-bottom-style: dotted;
+    border-right-style: double;
+    padding-bottom: 7px;
+    border-left: none;
+    border-bottom-color: red;
+    border-top-color: #5fcb38;
+    border-right-color: #2f0db5;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.container {
+    display: flex;
+}
+.main {
+    flex-basis: 80%;
+
+}
+.sidebar {
+    flex-basis: 20%;
+    padding: 10px 10px;
+    text-align: justify;
+    background-color: #eeeeee;
+}
+
+.img-tree {
+    opacity: 70%;
+    transition: all .2s linear;
+}
+.img-tree:hover {
+    opacity: 100%;
+}
+
+

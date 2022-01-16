@@ -1,0 +1,29 @@
+section {
+    width: 800px;
+    margin: 0 auto;
+    border: 1px solid blue;
+}
+h2 {
+    background-color: #a5b2f7;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+}
+.goods {
+    box-sizing: border-box;
+    width: 200px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid blue;
+
+}
+
+a {
+    text-decoration: none;
+    font-size: 50px;
+}

@@ -1,0 +1,16 @@
+{
+  "type": "module",
+  "dependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "name": "node_site",
+  "version": "1.0.0",
+  "main": "page.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

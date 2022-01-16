@@ -1,0 +1,71 @@
+body {
+    margin: 5px 0 0;
+    background-color: #0d326d;
+    font: 15px/1.5 Arial, sans-serif;
+    color: #121212;
+
+}
+.auth {
+    background-color: white;
+    padding: 20px;
+    width: 260px;
+    margin: 0 auto;
+    border-radius: 1%;
+}
+.auth-title {
+    text-align: center;
+    color: #960404;
+    margin: 0 0 15px;
+}
+.input {
+    display: block;
+    width: 238px;
+    padding: 8px 8px;
+    border: 1px solid #cccccc;
+    font: inherit;
+    background-color: white;
+}
+
+.input:focus {
+    outline: 1px solid #05b47f;
+    background-color: white;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+.select {
+    display: block;
+    width: 256px;
+    padding: 8px 8px;
+    border: 1px solid #cccccc;
+    font: inherit;
+    min-height: 40px;
+    background-color: white;
+}
+.select:focus {
+    outline: 1px solid #05b47f;
+    background-color: white;
+}
+
+.btn {
+    display: block;
+    width: 260px;
+    font: inherit;
+    cursor: pointer;
+    border: 0;
+    color: #fff;
+    padding: 5px;
+    background-color: #099707;
+}
+
+.btn:focus,
+.btn:hover {
+    background-color: #068703;
+    outline: 0;
+}
+.btn:active {
+    background-color: #067b03;
+}
+

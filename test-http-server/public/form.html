@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+
+
+<p id="message"></p>
+<p id="messag"></p>
+<p class="elem8"></p>
+
+<input type="text" placeholder="в какую минуту" class="elem6">
+<input type="text" placeholder="напоминание" class="elem7">
+<input type="button" class="elem5" value="Сделать напоминание">
+
+
+<script>
+let p = document.querySelector('#message')
+let p3 = document.querySelector('.elem8')
+let p2 = document.querySelector('#messag')
+let minute = document.querySelector('.elem6')
+let say = document.querySelector('.elem7')
+let btn = document.querySelector('.elem5')
+
+
+let objEvent = {}
+btn.addEventListener('click', function () {
+	let a = minute.value
+	let b = say.value
+if(!objEvent[a]){
+	objEvent[a] = []
+}
+	objEvent[a].push(b)
+	minute.value = ''
+	say.value = ''
+})
+
+
+
+let i = 0
+let j = 0
+	setInterval(function () {
+		emit('nextMinute', i, j)
+
+		j++
+		if(j==60){
+			i++
+		}
+		if(i==24){
+			i=0
+		}
+		if(j==60){
+			j=0
+		}
+	}, 100)
+
+let subscribes = {}
+
+function emit(sob, a, b) {
+	if(subscribes[sob]){
+		for(let elem of subscribes[sob]){
+			elem(a, b)
+		}
+	}
+}
+
+function on(sob, func) {
+	if(!subscribes[sob]){
+		subscribes[sob] = []
+	}
+	subscribes[sob].push(func)
+}
+
+function func1(a,b) {
+	p.textContent = a + ':' + b
+}
+
+function func2(a,b){
+	if(b==30){
+		p2.textContent = 'Пора сделать перерыв'
+	}
+	if(b==40){
+		p2.textContent = ''
+	}
+}
+
+function func3(a,b){
+	if(objEvent[b]){
+		for(let elem of objEvent[b]){
+			let p4 = document.createElement('p')
+			p4.innerHTML = elem
+			document.body.appendChild(p4)
+		}
+
+	}
+}
+
+
+function off(ev, func){
+	if(subscribes[ev].indexOf(func)!=-1){
+		subscribes[ev].splice(subscribes[ev].indexOf(func),1)
+	}
+}
+
+on('nextMinute', func1)
+on('nextMinute', func3)
+off('nextMinute', func2)
+// off('nextMinute', func1)
+console.log(subscribes["nextMinute"])
+
+
+
+
+
+</script>
+
+
+
+
+
+</body>
+</html>

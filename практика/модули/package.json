@@ -1,0 +1,6 @@
+{
+  "type": "module",
+  "dependencies": {
+    "node": "^17.3.1"
+  }
+}

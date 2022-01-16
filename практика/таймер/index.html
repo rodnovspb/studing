@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    div {
+      width: 100px;
+      height: 100px;
+      background-color: #aa2727;
+      position: relative;
+      left: 0;
+      top: 0;
+    }
+  </style>
+</head>
+<body>
+
+<div></div>
+<button class="start">Запустить</button>
+<button class="stop">Остановить</button>
+
+
+
+
+
+
+
+<script>
+  let div = document.querySelector('div')
+  let start = document.querySelector('.start')
+  let stop = document.querySelector('.stop')
+  let a = 0
+  let timer
+  let arr = []
+
+  start.addEventListener('click', function () {
+    timer = setInterval(function () {
+      if(arr.indexOf(timer)==-1){
+        arr.push(timer)
+        console.log(arr)
+      }
+
+      div.style.left = a + 'px'
+      a++
+    }, 20)
+  })
+
+  stop.addEventListener('click', function () {
+      console.log(arr)
+      arr.forEach(clearInterval)
+      console.log(arr)
+
+
+  })
+
+
+</script>
+</body>
+</html>
