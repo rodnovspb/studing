@@ -1,0 +1,17 @@
+div(class='col col-md-4')
+    div(class='card')
+        a(href="#")
+            h3(class="card-title text-center") #{val['name']}
+            img(
+                src="/images/" + val['image']
+                class='card-images')
+            p(class='text-center') #{val['cost'].toFixed(2)}
+        ul(class="card-actions")
+            li
+                button(
+                    data-goods_id=val['id']
+                    class="button button-primary add-to-cart"
+                ) to cart
+
+
+

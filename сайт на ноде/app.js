@@ -1,3 +1,4 @@
+// не забываем открыть терминал в корне этого сайта
 import express from 'express'
 import mysql from 'mysql'
 let app = express()
@@ -35,6 +36,7 @@ app.get('/', function (req, res) {
 
 })
 
+
 app.get('/cat', function (req, res) {
   let catId = req.query.id //здесь будет запрошенный id категории, переданный через get запрос
 
@@ -60,7 +62,10 @@ app.get('/cat', function (req, res) {
   // ждем выполнения всех промисов c помощью Promise.all
   Promise.all([cat, goods]).then(function (value) {
     console.log(value[0])
-    res.render("cat", {})
+    res.render("cat", {
+      cat: JSON.parse(JSON.stringify(value[0])),
+      goods: JSON.parse(JSON.stringify(value[1]))
+    })
   })
 
 })

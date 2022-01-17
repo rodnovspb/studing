@@ -12,6 +12,7 @@
   "dependencies": {
     "debug": "^4.3.3",
     "express": "^4.17.2",
+    "mustard-ui": "^1.0.4",
     "mysql": "^2.18.1",
     "pug": "^3.0.2"
   }
