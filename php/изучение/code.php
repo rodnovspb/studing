@@ -6,11 +6,11 @@
 
 
 
-$alfabet = range(1,26);
+$str = '1234567890';
 
-$keys = range('a', 'z');
+$arr = str_split($str, 1);
 
-var_dump(array_combine($keys, $alfabet));
+var_dump(array_sum($arr));
 
 
 
