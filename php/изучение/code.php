@@ -2,13 +2,6 @@
 
 
 
-$months = array( 1 => 'Январь' , 'Февраль' , 'Март' , 'Апрель' , 'Май' , 'Июнь' , 'Июль' , 'Август' , 'Сентябрь' , 'Октябрь' , 'Ноябрь' , 'Декабрь' );
-
-
-$current = date('n');
-
-
-echo $months[$current]
 
 
 
@@ -17,6 +10,13 @@ echo $months[$current]
 
 
 
+
+
+$date = date_create('2022-01-18');
+
+date_modify($date, '3 days');
+
+echo date_format($date, 'd.m.y')
 
 
 
