@@ -12,14 +12,24 @@
 
 
 
-$now = time();
-$year = date('Y');
-$ney_year = strtotime('31-12-'.$year);
+$year = '2022';
 
-echo floor(($ney_year-$now)/60/60/24)
+$w = 5;
+$d = 13;
+$arr = [];
 
+for($i = 1; $i<=12; $i++){
+    $timestamp = strtotime($year.'-'.$i."-".$d);
+    $day = date('w', $timestamp);
+    if($day==$w){
+        array_push($arr, date('d-m-Y', $timestamp));
+    }
 
+}
 
+echo '<pre>';
+print_r($arr);
+echo '</pre>';
 
 
 
