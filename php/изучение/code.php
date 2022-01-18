@@ -6,11 +6,11 @@
 
 
 
-$arr = [1,2,3,4,5];
+$alfabet = range(1,26);
 
-$arr =array_map('sqrt', $arr);
+$keys = range('a', 'z');
 
-var_dump($arr);
+var_dump(array_combine($keys, $alfabet));
 
 
 
