@@ -12,11 +12,13 @@
 
 
 
-$date = date_create('2022-01-18');
+$date = '2025-12-31';
 
-date_modify($date, '3 days');
+$date = date_create($date);
 
-echo date_format($date, 'd.m.y')
+date_modify($date, '-3 days');
+
+echo date_format($date, 'd-m-Y');
 
 
 
