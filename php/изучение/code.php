@@ -6,11 +6,23 @@
 
 
 
-$num = 5;
+$str = 'qwerty';
+$str = strrev($str);
 
-$arr = range(1, $num);
 
-echo array_sum($arr)
+$arr = str_split($str, 1);
+
+$arr[0] = mb_strtoupper($arr[0]);
+
+$str = implode('', $arr);
+$str = strrev($str);
+
+var_dump($str);
+
+
+
+
+
 
 
 
