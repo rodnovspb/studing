@@ -5,13 +5,13 @@
 
 
 
+//[[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 
-$str = '1234567890';
+$arr = range(1,9);
 
-$arr = str_split($str, 1);
+$arr = array_chunk($arr, 3);
 
-var_dump(array_sum($arr));
-
+var_dump($arr);
 
 
 
