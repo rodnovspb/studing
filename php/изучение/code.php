@@ -6,18 +6,11 @@
 
 
 
-$str = 'qwerty';
-$str = strrev($str);
+$arr = [1,2,3,4,5];
 
+$arr =array_map('sqrt', $arr);
 
-$arr = str_split($str, 1);
-
-$arr[0] = mb_strtoupper($arr[0]);
-
-$str = implode('', $arr);
-$str = strrev($str);
-
-var_dump($str);
+var_dump($arr);
 
 
 
