@@ -6,13 +6,11 @@
 
 
 
-$arr = range(1,10);
+$num = 5;
 
-shuffle($arr);
+$arr = range(1, $num);
 
-echo '<pre>';
-var_dump($arr);
-echo '</pre>';
+echo array_sum($arr)
 
 
 
