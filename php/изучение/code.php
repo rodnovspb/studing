@@ -6,9 +6,11 @@
 
 
 
-$arr = range(1,100);
+$arr = array_fill(0, 5, 'x');
 
-echo implode("<br>", $arr)
+echo '<pre>';
+print_r($arr);
+echo '<pre>';
 
 
 
