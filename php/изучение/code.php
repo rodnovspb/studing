@@ -6,11 +6,13 @@
 
 
 
-$arr = array_fill(0, 5, 'x');
+$arr = range(1,10);
+
+shuffle($arr);
 
 echo '<pre>';
-print_r($arr);
-echo '<pre>';
+var_dump($arr);
+echo '</pre>';
 
 
 
