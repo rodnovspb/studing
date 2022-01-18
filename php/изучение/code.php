@@ -12,13 +12,11 @@
 
 
 
-$date = '2025-12-31';
+$now = time();
+$year = date('Y');
+$ney_year = strtotime('31-12-'.$year);
 
-$date = date_create($date);
-
-date_modify($date, '-3 days');
-
-echo date_format($date, 'd-m-Y');
+echo floor(($ney_year-$now)/60/60/24)
 
 
 
