@@ -6,13 +6,9 @@
 
 
 
-$today = date_create('2022-01-18');
+$arr = range(1,100);
 
-date_modify($today, '-100 days');
-
-$day = date_format($today, 'Y-m-d');
-
-echo date('w', strtotime($day))
+echo implode("<br>", $arr)
 
 
 
