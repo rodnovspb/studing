@@ -34,11 +34,12 @@ body {
 
 .page {
     width: 100%;
-    min-height: 100vh;
+    min-height: 110vh;
     background: black url("../img/bg.jpg") no-repeat;
     background-size: cover;
     position: relative;
     overflow: hidden;
+
 }
 
 /*Header---------------------------*/
@@ -180,7 +181,7 @@ body {
 .footer {
     position: absolute;
     left: 0;
-    bottom: 45px;
+    bottom: 28px;
     color: #fff;
     width: 100%;
 }
@@ -265,11 +266,187 @@ body {
 
 /*Media---------------------------*/
 
-@media (min-width: 1800px) {
-    * {
-        font-size: 50px;
+@media (max-width: 1030px) and (orientation: landscape){
+    .author {
+        right: -33px
+    }
+    .contacts-link:last-child:after {
+        display: none;
     }
 }
+
+@media (max-width: 910px) and (orientation: landscape){
+    .author {
+        right: -55px
+    }
+    .content {
+        max-width: 511px;
+    }
+    .contacts-link:last-child:after {
+        display: none;
+    }
+}
+
+@media (max-width: 800px) and (orientation: landscape){
+    .author {
+        right: -124px;
+    }
+}
+
+@media (max-width: 768px) and (orientation: landscape){
+    .author {
+        display: none;
+    }
+    .content {
+        max-width: 90%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin: 0 auto;
+    }
+    .contacts {
+        justify-content: center;
+    }
+    .header-logo {
+        display: none;
+    }
+}
+
+
+/*portreit****************************/
+
+@media (orientation: portrait){
+    .content-header .title{
+        margin: 0 auto;
+    }
+    .author {
+        display: none;
+    }
+    .content {
+        max-width: 90%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin: 0 auto;
+    }
+    .contacts {
+        justify-content: center;
+    }
+    .contacts-link:last-child:after {
+        display: none;
+    }
+}
+
+@media (orientation: portrait) and (max-width: 1000px){
+    .subtitle {
+        margin-bottom: 0.7rem;
+    }
+    .title {
+        max-width: 380px;
+        line-height: 3.5rem;
+    }
+    .content-header {
+        margin-bottom: 1.5rem;
+    }
+    .text {
+        line-height: 2rem;
+    }
+
+    .header-logo {
+        display: none;
+    }
+    .header-nav-link {
+        font-size: 1.3rem;
+    }
+    .text {
+        font-size: 1.2rem;
+        line-height: 2.1rem;
+    }
+    .title {
+        font-size: 2.2rem;
+    }
+    .subtitle {
+        font-size: 1.6rem;
+    }
+    .btn {
+        font-size: 1.2rem;
+    }
+    .header {
+        margin-bottom: 115px;
+    }
+    .contacts-link {
+        font-size: 1.3rem;
+    }
+}
+
+@media (orientation: portrait) and (max-width: 640px){
+    .header {
+        padding: 0;
+        margin-bottom: 38px;
+    }
+    .contacts {
+        flex-direction: column;
+    }
+    .contacts-link {
+        margin-right: 0;
+        font-size: 1.1rem;
+    }
+    .header-brand {
+        display: none;
+    }
+    .header-nav {
+        flex-direction: column;
+        width: 100%;
+    }
+    .header-nav-link.active:after {
+        display: none;
+    }
+    .header-inner {
+        flex-direction: column;
+    }
+    .header-nav-link {
+        margin-left: 0;
+        text-align: center;
+        font-size: 1.5rem;
+        padding-top: 11px;
+        padding-bottom: 11px;
+    }
+    .header .container {
+        padding: 0;
+    }
+    .header-nav-link.active {
+        background-color: #1c73e3;
+        box-shadow: 1px 1px 3px #0778f1;
+    }
+    .text {
+        line-height: 1.6rem;
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+    }
+    .page {
+        padding-bottom: 34px;
+        min-height: 110vh;
+    }
+
+    .container {
+        padding-bottom: 40px;
+    }
+    .contacts {
+        margin-bottom: -55px;
+    }
+
+}
+
+
+
+
+
+
+
+
+
 
 
 /*@media (orientation: portrait) and (max-width: 800px){*/
