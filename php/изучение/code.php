@@ -19,19 +19,19 @@
 
 
 
-function getDivisors ($num) {
-    $arr = [];
-    for ($n=2; $n<$num; $n++){
-        if($num%$n===0){
-            $arr[] = $n;
-        }
-    }
-    return $arr;
+function delElem ($elem, $arr){
+   for($i=0; $i<count($arr); $i++){
+       if($elem===$arr[$i]){
+           array_splice($arr, $i, 1);
+       }
+   }
+   return $arr;
 }
 
 
-var_dump(getDivisors(24));
-
+echo '<pre>';
+print_r(delElem(5, [1,2,3,4,5,6,7,5,8]));
+echo '</pre>';
 
 
 
