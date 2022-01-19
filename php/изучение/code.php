@@ -19,26 +19,18 @@
 
 
 
-
-function func($num){
-    $i=1;
-    while (true){
-        $num = $num/=2;
-        if($num<=10){
-            return $i;
+function getDivisors ($num) {
+    $arr = [];
+    for ($n=2; $n<$num; $n++){
+        if($num%$n===0){
+            $arr[] = $n;
         }
-        $i++;
     }
-
-
+    return $arr;
 }
 
-echo func(99);
 
-
-
-
-
+var_dump(getDivisors(24));
 
 
 
