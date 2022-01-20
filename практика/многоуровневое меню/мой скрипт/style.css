@@ -1,0 +1,53 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 400px;
+    margin: 40px auto;
+}
+
+ul {
+    width: 100px;
+}
+
+.root ul {
+    display: none;
+    position: absolute;
+    right: -100px;
+    top: 0;
+}
+
+li {
+    list-style-type: none;
+    position: relative;
+}
+
+ul a,
+ul span {
+    text-decoration: none;
+    display: block;
+    color: #fff;
+    cursor: pointer;
+    padding: 3px 10px;
+}
+
+.container li {
+    background-color: #8eabee;
+}
+
+.container li:hover {
+    background-color: #373e4d;
+}
+
+ul.active {
+    display: block;
+}
+
+
+
+
+
+
