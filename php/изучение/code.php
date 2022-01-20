@@ -6,25 +6,20 @@
 
 
 
-$arr = [1, 2, 3, [4, 5, [6, 7]], [8, [9, 10]]];
+$arr = ['a', ['b', 'c', 'd'], ['e', 'f', ['g', ['j', 'k']]]];
 
-
-function func ($a){
-    $sum=0;
+function func($a){
+    $str = '';
     foreach ($a as $item){
         if(is_array($item)){
-            $sum += func($item);
+            $str.=func($item);
         }
-        else {
-            $sum += $item;
-        }
+        else $str.=$item;
     }
-    return $sum;
+    return $str;
 }
 
 echo func($arr)
-
-
 
 
 

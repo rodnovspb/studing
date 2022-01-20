@@ -16,11 +16,16 @@
 <script>
 
 
-  let arr = [1,2,3,4]
-  for(let elem in arr){
-    console.log(elem)
+  function func(){
+    let a = 1;
+    a++
+    if(a<5){
+      a+= func();
+    }
+    return a;
   }
 
+  console.log(func())
 
 </script>
 </body>
