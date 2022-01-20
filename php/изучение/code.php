@@ -6,9 +6,9 @@
 
 
 
-$arr = [1, [2, 7, 8], [3, 4, [5, [6, 7]]]];
+$arr = [1, 2, 3, [4, 5, [6, 7]], [8, [9, 10]]];
 
-function func($a){
+function func ($a){
     foreach ($a as $item){
         if(is_array($item)){
             func($item);
@@ -16,13 +16,10 @@ function func($a){
         else {
             echo $item."<br>";
         }
-
     }
 }
 
-func($arr)
-
-
+func ($arr)
 
 
 
