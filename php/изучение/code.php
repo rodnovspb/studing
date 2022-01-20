@@ -1,35 +1,47 @@
 <?php
 
-//function getSum($arr) {
-//    $sum = array_shift($arr);
-//
-//    if (count($arr) !== 0) {
-//        $sum += getSum($arr);
-//    }
-//
-//    return $sum;
-//}
-//
-//var_dump(getSum([1, 2, 3]));
 
 
 
 
 
-$arr = ['a' => 1, 'b' => 2, 'c' => 3, 'd' => 4, 'e' => 5];
 
-function func($arr){
-    $sum = array_shift($arr);
+$arr = [1, [2, 7, 8], [3, 4, [5, [6, 7]]]];
 
-    if(count($arr)>0){
-        $sum += func($arr);
+function func($a){
+    foreach ($a as $item){
+        if(is_array($item)){
+            func($item);
+        }
+        else {
+            echo $item."<br>";
+        }
+
     }
-
-    echo $sum."<br>";
-    return $sum;
 }
 
-echo func($arr)
+func($arr)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
