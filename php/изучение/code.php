@@ -1,25 +1,32 @@
 <?php
 
+//function getSum($arr) {
+//    $sum = array_shift($arr);
+//
+//    if (count($arr) !== 0) {
+//        $sum += getSum($arr);
+//    }
+//
+//    return $sum;
+//}
+//
+//var_dump(getSum([1, 2, 3]));
 
 
 
 
 
+$arr1 = [1,2,3,4,5,6];
 
-$arr = [1,2,3,4,5,6,7];
-
-function func ($arr){
-    var_dump(array_shift($arr));
-    var_dump($arr);
+function func($arr){
+    $sum = array_shift($arr);
     if(count($arr)>0){
-        func($arr);
+        $sum += func($arr);
     }
+    return $sum;
 }
-func($arr)
 
-
-
-
+echo func($arr1);
 
 
 
