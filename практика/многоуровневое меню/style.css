@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 600px;
+    margin: 40px auto;
+}
+
+.root-nav {
+    width: 150px;
+}
+
+.root-nav li {
+    list-style-type: none;
+    background-color: #df7878;
+    position: relative;
+}
+
+.root-nav a,
+.root-nav span {
+    text-decoration: none;
+    color: #eee;
+    padding: 5px 10px;
+    display: block;
+    cursor: pointer;
+}
+
+.root-nav ul {
+    display: none;
+    position: absolute;
+    right: -150px;
+    top: 0;
+    width: 150px;
+}
+
+ul.sub-menu-active {
+    display: block;
+}
