@@ -1,0 +1,24 @@
+include header
+
+div(class='wrap')
+    div(class='content')
+        header(class='site-header')
+            include site_header
+
+        div(class='container')
+            div(class='row')
+               div(class='col col-md-12')
+                   h2(class="panel-title") #{goods[0]["name"]}
+               div(class="col col-md-4")
+                   img(
+                        src="images/"+goods[0]["image"]
+                        class="goods-big-image"
+                   )
+               div(class="col col-md-8")
+                   p #{goods[0]["description"]}
+                   span(class="success") Цена: #{goods[0]["cost"]}
+                   button(
+                        class="button-success add-to-cart"
+                        data-goods_id = goods[0]["id"]
+                        ) to cart
+

@@ -67,5 +67,17 @@ app.get('/cat', function (req, res) {
       goods: JSON.parse(JSON.stringify(value[1]))
     })
   })
-
 })
+
+app.get('/goods', function (req, res) {
+  console.log(req.query.id)
+  con.query(
+          "SELECT * FROM goods WHERE id="+req.query.id,
+          function (error, result, fields) {
+              if(error) throw error;
+              res.render('goods', {goods: JSON.parse(JSON.stringify(result))})
+          }
+  )
+})
+
+// http://localhost:3000/goods?id=12  запускать этот адрес

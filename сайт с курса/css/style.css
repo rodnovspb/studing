@@ -34,7 +34,8 @@ body {
 
 .page {
     width: 100%;
-    min-height: 110vh;
+    min-height: 100vh;
+    height: 100%;
     background: black url("../img/bg.jpg") no-repeat;
     background-size: cover;
     position: relative;
@@ -266,12 +267,20 @@ body {
 
 /*Media---------------------------*/
 
+@media (min-width: 1031px) and (orientation: landscape) {
+    .page {
+        min-height: 110vh;
+    }
+}
 @media (max-width: 1030px) and (orientation: landscape){
     .author {
         right: -33px
     }
     .contacts-link:last-child:after {
         display: none;
+    }
+    .page {
+        min-height: 105vh;
     }
 }
 
@@ -281,6 +290,7 @@ body {
     }
     .content {
         max-width: 511px;
+        min-height: 153vh;
     }
     .contacts-link:last-child:after {
         display: none;
@@ -313,6 +323,31 @@ body {
     }
 }
 
+@media (max-width: 768px) and (orientation: landscape) and (max-height: 430px ){
+    .content {
+        min-height: 160vh;
+    }
+    .header {
+        margin-bottom: 30px;
+    }
+    .content-header {
+        margin-bottom: -1.6rem;
+    }
+    .title {
+        margin-bottom: 43px;
+    }
+}
+
+@media (max-width: 740px) and (orientation: landscape) and (max-height: 430px ){
+    .content {
+        min-height: 149vh;
+}
+}
+    @media (max-width: 650px) and (orientation: landscape) and (max-height: 400px ) {
+        .content {
+            min-height: 166vh;
+        }
+    }
 
 /*portreit****************************/
 
@@ -439,203 +474,10 @@ body {
 
 }
 
+@media (orientation: portrait) and (max-width: 400px){
+    .page {
+        min-height: 128vh;
+    }
+}
 
 
-
-
-
-
-
-
-
-
-/*@media (orientation: portrait) and (max-width: 800px){*/
-/*    .author {*/
-/*        display: none;*/
-/*    }*/
-/*}*/
-
-
-
-
-
-
-/*@media (max-width: 1100px){*/
-/*    .author {*/
-/*        right: 15px;*/
-/*        width: 352px;*/
-/*    }*/
-/*}*/
-
-/*@media (max-width: 950px) {*/
-/*    .author {*/
-/*        right: -30px;*/
-/*    }*/
-/*}*/
-
-/*@media (max-width: 900px) {*/
-/*    .header {*/
-/*        margin-bottom: 89px;*/
-/*    }*/
-/*}*/
-
-/*@media (max-width: 880px) {*/
-/*    .author {*/
-/*        right: -60px;*/
-/*    }*/
-/*    .content {*/
-/*        max-width: 550px;*/
-/*    }*/
-/*}*/
-
-/*@media (max-width: 830px){*/
-/*    .content {*/
-/*        max-width: 510px;*/
-/*    }*/
-/*    .contacts-link:last-child:after {*/
-/*        display: none;*/
-/*    }*/
-/*    .container {*/
-/*        padding-left: 2rem;*/
-/*        padding-right: 2rem;*/
-/*    }*/
-/*}*/
-
-/*@media (max-width: 780px){*/
-/*    .author {*/
-/*        right: -80px;*/
-/*    }*/
-/*    .content {*/
-/*        max-width: 469px;*/
-/*    }*/
-/*}*/
-
-/*@media (max-width: 767px){*/
-/*    .header-nav-link {*/
-/*        font-size: 1.2rem;*/
-/*    }*/
-/*    .header-logo {*/
-/*        display: none;*/
-/*    }*/
-/*    .content {*/
-/*        max-width: 457px;*/
-/*    }*/
-/*}*/
-
-/*@media (max-width: 740px) {*/
-/*    .author {*/
-/*        right: -97px;*/
-/*    }*/
-/*}*/
-
-/*@media (max-width: 715px) {*/
-/*    .content {*/
-/*        max-width: 450px;*/
-/*    }*/
-/*}*/
-
-
-
-
-
-/*@media (max-width: 991px) {*/
-/*@media (max-width: 767px)*/
-/*@media (max-width: 575px)*/
-
-/*@media (max-width: 1000px) {*/
-
-/*    .author {*/
-/*        right: -170px;*/
-/*    }*/
-
-/*}*/
-
-/*@media (max-width: 767px) {*/
-
-/*    .page {*/
-/*        min-height: 100vh;*/
-/*        height: auto;*/
-/*        padding-bottom: 2rem;*/
-/*    }*/
-
-/*    !* Header *!*/
-/*    .header {*/
-/*        margin-bottom: 50px;*/
-/*    }*/
-
-/*    .header-logo {*/
-/*        display: none;*/
-/*    }*/
-
-/*    .header-brand {*/
-/*        font-size: 1.2rem;*/
-/*    }*/
-
-
-/*    !* Content *!*/
-/*    .content {*/
-/*        max-width: none;*/
-/*        margin-bottom: 50px;*/
-
-/*        text-align: center;*/
-/*    }*/
-
-
-/*    !* Form *!*/
-/*    .form {*/
-/*        margin: 0 auto;*/
-/*    }*/
-
-
-/*    !* Footer *!*/
-/*    .footer {*/
-/*        position: static;*/
-/*    }*/
-
-
-/*    !* Contacts *!*/
-/*    .contacts {*/
-/*        flex-direction: column;*/
-/*    }*/
-
-/*    .contacts-link {*/
-/*        margin-right: 0;*/
-/*        margin-bottom: .5rem;*/
-/*    }*/
-
-/*    .contacts-link:last-child {*/
-/*        margin-bottom: 0;*/
-/*    }*/
-
-/*    .contacts-link:last-child:after {*/
-/*        display: none;*/
-/*    }*/
-
-/*    !* Author *!*/
-/*    .author {*/
-/*        display: none;*/
-/*    }*/
-/*}*/
-
-/*@media (max-width: 565px) {*/
-
-/*    !* Header *!*/
-/*    .header-inner {*/
-/*        flex-direction: column;*/
-/*    }*/
-
-/*    .header-brand {*/
-/*        margin-bottom: 1rem;*/
-/*    }*/
-/*}*/
-
-
-/*@media (max-width: 320px) {*/
-/*    .subtitle {*/
-/*        font-size: 1.2rem;*/
-/*    }*/
-
-/*    .title {*/
-/*        font-size: 1.6rem;*/
-/*    }*/
-/*}*/
