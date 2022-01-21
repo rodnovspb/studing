@@ -6,22 +6,26 @@
 
 
 
-$arr = ['a', ['b', 'c', 'd'], ['e', 'f', ['g', ['j', 'k']]]];
+$arr = [1, [2, 7, 8], [3, 4], [5, [6, 7]]];
 
 function func($a){
-    $str = '';
-    foreach ($a as $item){
-        if(is_array($item)){
-            $str.=func($item);
+    $length = count($a);
+    for($i=0; $i<$length; $i++){
+        if(is_array($a[$i])){
+            $a[$i] = func($a[$i]);
         }
-        else $str.=$item;
+        else {
+            $a[$i]=pow($a[$i], 2);
+        }
     }
-    return $str;
+
+    return $a;
 }
 
-echo func($arr)
 
-
+echo "<pre>";
+print_r(func($arr));
+echo "</pre>";
 
 
 
