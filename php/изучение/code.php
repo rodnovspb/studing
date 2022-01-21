@@ -3,31 +3,21 @@
 
 
 
-
-
-
-$arr = [1, [2, 7, 8], [3, 4], [5, [6, 7]]];
-
-function func($a){
-    $length = count($a);
-    for($i=0; $i<$length; $i++){
-        if(is_array($a[$i])){
-            $a[$i] = func($a[$i]);
-        }
-        else {
-            $a[$i]=pow($a[$i], 2);
+function findSumDivisors ($num) {
+    $sum=0;
+    for($i=1; $i<$num; $i++){
+        if($num % $i === 0) {
+            $sum+=$i;
         }
     }
-
-    return $a;
+    return $sum;
 }
 
+function checkFriendlyNum ($num1, $num2){
+    return (findSumDivisors($num1) === $num2 and findSumDivisors($num2) === $num1);
+}
 
-echo "<pre>";
-print_r(func($arr));
-echo "</pre>";
-
-
+var_dump(checkFriendlyNum(220, 284));
 
 
 
