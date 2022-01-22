@@ -16,29 +16,17 @@
 <script>
 
 
-let num = 123565746;
-let max=0;
-while (num>0){
-  let number = num%10;
-  if(number>max) max = number;
-  num=parseInt(num/10)
+function calculateСalories(gender, height) {
+  let result = gender === 'man' ? (height - 100) * 20 : (height - 105) * 19;
+  console.log(result)
+  if (typeof arguments[2] === 'number') {
+    result *= arguments[2];
+    console.log(result)
+  }
+  return result.toFixed(0);
 }
 
-console.log(max)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+console.log(calculateСalories('man', 183, 1.2))
 
 
 
