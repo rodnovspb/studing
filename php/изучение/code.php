@@ -2,20 +2,25 @@
 
 
 
-function f($item){
-    echo $item;
-    echo "<br>";
+
+checkNum(6);
+
+
+function checkNum($num){
+    $sum = array_sum(getDivisors($num));
+    $a = $num===$sum ? 'perfect': 'umperfect';
+    echo $a;
 }
 
-
-$arr = range(1,100);
-
-array_map('f', $arr)
-
-
-
-
-
+function getDivisors($num){
+    $arr = [];
+    for($i=1; $i<$num; $i++){
+        if($num % $i === 0){
+            $arr[]=$i;
+        }
+    }
+    return $arr;
+}
 
 
 
