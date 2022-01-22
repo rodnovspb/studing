@@ -16,15 +16,15 @@
 <script>
 
 
-let a = 0
-let num = (12345785).toString()
-  for(let elem of num){
-    if(elem>a){
-      a=elem
-    }
-  }
+let num = 123565746;
+let max=0;
+while (num>0){
+  let number = num%10;
+  if(number>max) max = number;
+  num=parseInt(num/10)
+}
 
-  console.log(a)
+console.log(max)
 
 
 
