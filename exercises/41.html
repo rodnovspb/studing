@@ -18,16 +18,21 @@
 
 
 
- let num = 123456
- let str = num.toString()
- let i = 1
- let a=''
- while (i<=str.length){
-   a+=str[str.length-i]
-   i++
- }
+let number = 472;
+// переменная, в которую поместим перевёрнутое число
+let flipNum = 0;
 
- console.log(+a)
+// while (number > 0) {
+//   let digit = number % 10;
+//   number = parseInt(number / 10);
+//   flipNum = flipNum * 10 + digit;
+//
+// }
+
+// 1 цикл: digit = 2, number = 47, flipNum = 0*10 + 2 = 2
+// 2 цикл: digit = 7, number = 4, flipNum = 2*10 + 7 = 27
+// 3 цикл: digit = 4, number = 0, flipNum = 27*10 + 4 = 274
+
 
 
 
