@@ -21,7 +21,11 @@ function partNumber ($num){
         $second = $num - $first - $third;
         return $first." ".$second." ".$third;
     }
-    elseif(strlen($num)===3 and $num%10 == 0){
+    elseif(strlen($num)===3 and $num%10 == 0 and $num%100 == 0){
+        $first = $num - $num%100;
+        return (string)$first;
+    }
+    elseif(strlen($num)===3 and $num%10 == 0 and $num%100 !== 0){
         $first = $num - $num%100;
         $second = $num - $first;
         return $first." ".$second;
@@ -45,10 +49,12 @@ function partNumber ($num){
 
 function NumToString ($num, $arrayForChange){
     $str = partNumber ($num);
-    echo strtr($str, $arrayForChange);
+    $str = strtr($str, $arrayForChange);
+    $str = str_replace('ноль', '', $str);
+    echo  $str;
 }
 
-NumToString(520, $arr);
+NumToString(120, $arr);
 
 
 
