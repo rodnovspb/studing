@@ -3,28 +3,19 @@
 
 
 
-checkNum(6);
+$arr = range(1, 999999);
 
-
-function checkNum($num){
-    $sum = array_sum(getDivisors($num));
-    $a = $num===$sum ? 'perfect': 'umperfect';
-    echo $a;
+function findHappyTickets($num){
+    $firstHalf = str_split(substr($num, 0, 3));
+    $secondHalf = str_split(substr($num, 3, 3));
+    return array_sum($firstHalf)===array_sum($secondHalf);
 }
 
-function getDivisors($num){
-    $arr = [];
-    for($i=1; $i<$num; $i++){
-        if($num % $i === 0){
-            $arr[]=$i;
-        }
+foreach ($arr as $item){
+    if(findHappyTickets($item) and strlen($item)===6){
+        echo $item."<br>";
     }
-    return $arr;
 }
-
-
-
-
 
 
 
