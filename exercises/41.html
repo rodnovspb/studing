@@ -16,21 +16,32 @@
 <script>
 
 
-let a = [1,2,3,[1,2,4,5,[3,5,6,[3,4,7,,7],7,8,9,9,0,],67,8,9,0,],4,5,6]
 
 
-  function f(arr) {
-    for(let elem of arr){
-      if(Array.isArray(elem)){
-        f(elem)
-      }
-      else {
-        console.log(elem)
-      }
-    }
-  }
+ let num = 123456
+ let str = num.toString()
+ let i = 1
+ let a=''
+ while (i<=str.length){
+   a+=str[str.length-i]
+   i++
+ }
 
-f(a)
+ console.log(+a)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
