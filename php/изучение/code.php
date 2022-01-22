@@ -5,6 +5,18 @@
 
 $arr = range(1, 999999);
 
+$arr = array_map("normalize", $arr);
+
+function normalize($num){
+    $str = (string)$num;
+    $arr = str_split($str,1);
+    while (count($arr)<6){
+        array_unshift($arr, '0');
+    }
+    return implode('', $arr);
+}
+
+
 function findHappyTickets($num){
     $firstHalf = str_split(substr($num, 0, 3));
     $secondHalf = str_split(substr($num, 3, 3));
@@ -16,10 +28,6 @@ foreach ($arr as $item){
         echo $item."<br>";
     }
 }
-
-
-
-
 
 
 
