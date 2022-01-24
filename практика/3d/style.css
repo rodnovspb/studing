@@ -1,0 +1,38 @@
+/** {*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*}*/
+
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.card {
+    /*transform-style: preserve-3d;*/
+    width: 20vw;
+    margin: 30px auto;
+    min-height: 60vh;
+    padding: 10px;
+    border-radius: 30px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.info {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 1.3em;
+}
+
+.title {
+    margin-bottom: 10px;
+}
+
+.elem {
+    /*width: 100px;*/
+    /*height: 100px;*/
+    border: 1px solid blue;
+    margin-bottom: 50px;
+    margin-left: 50px;
+}

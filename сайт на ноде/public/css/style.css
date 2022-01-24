@@ -43,3 +43,31 @@
     max-width: 90%;
     max-height: 150px;
 }
+
+.site-nav {
+    width: 300px;
+    min-height: 100vh;
+    position: fixed;
+    left: -300px;
+    top: 0;
+    z-index: 10;
+    padding: 10px;
+    transition: all 1s ease;
+    color: #fff;
+}
+
+.close-button-div {
+    text-align: right;
+}
+
+.show-nav {
+    position: relative;
+}
+
+ul.category-list {
+    list-style-type: disc;
+}
+
+ul.category-list a {
+    color: #424242;
+}

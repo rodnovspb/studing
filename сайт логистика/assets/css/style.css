@@ -1,0 +1,123 @@
+body {
+    margin: 0;
+    background-color: #FFFFFF;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 15px;
+    color: #585858;
+    line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+ul, ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+*,
+*:after,
+*:before {
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 1230px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/*header***********************/
+
+.header {
+    background-color: rgba(0,0,0, 0.2);
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    width: 100%;
+}
+
+.header__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 85px;
+}
+
+/*nav***********************/
+
+.nav {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+}
+
+.nav__link {
+    color: #fff;
+    text-decoration: none;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 15px;
+    display: flex;
+    padding: 0 15px;
+    align-items: center;
+}
+
+.nav__link.active {
+    background-color: #004AF2;
+}
+
+/*intro***********************/
+
+.intro {
+    background: black url("../images/photo bg.jpg") no-repeat center;
+    background-size: cover;
+}
+
+.intro__inner {
+    display: flex;
+    height: 600px;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.form {
+    width: 400px;
+    height: 415px;
+    border: 1px solid blue;
+    position: relative;
+    top: 20px;
+}
+
+.intro__text {
+    text-align: right;
+    margin-bottom: 45px;
+}
+
+.intro__title {
+    font-family: 'Lato', sans-serif;
+    font-size: 110px;
+    color: rgba(255, 255, 255, .8);
+    line-height: 0.9;
+    font-weight: 900;
+    position: relative;
+}
+
+.intro__countries {
+    color: #fff;
+}
+
+.intro__title-amp {
+    font-size: 170px;
+    color: rgba(255, 255, 255, .2);
+    line-height: 0.58;
+    font-weight: 900;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}

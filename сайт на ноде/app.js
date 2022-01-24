@@ -70,7 +70,6 @@ app.get('/cat', function (req, res) {
 })
 
 app.get('/goods', function (req, res) {
-  console.log(req.query.id)
   con.query(
           "SELECT * FROM goods WHERE id="+req.query.id,
           function (error, result, fields) {
@@ -78,6 +77,19 @@ app.get('/goods', function (req, res) {
               res.render('goods', {goods: JSON.parse(JSON.stringify(result))})
           }
   )
+})
+
+app.post("/get-category-list", function (req, res){
+  // console.log(req.body)
+  con.query(
+          "SELECT id, category FROM category",
+          function (error, result, fields) {
+            if(error) throw error;
+            console.log(result)
+            res.json(result)
+          }
+  )
+
 })
 
 // http://localhost:3000/goods?id=12  запускать этот адрес
