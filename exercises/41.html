@@ -3,9 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>Title</title>
-  <link rel="stylesheet" href="style1.css">
-  <link rel="stylesheet" href="style2.css">
-  <link rel="stylesheet" href="style3.css">
 </head>
 <body>
 
@@ -19,19 +16,30 @@
 
 
 
-
-
-
-
-
-
-function sayHello() {
-
-  console.log("Привет, " + name);
-  var name = "Вася";
+function out() {
+  let counter = 1
+  let inner = function (value) {
+    counter += value
+  }
+      return {
+        increment: function () {
+            return inner(1)
+        },
+        decrement: function () {
+            return inner(-1)
+        },
+        value: function () {
+            return counter
+        }
+      }
 }
-sayHello();
 
+
+let a = out()
+a.increment()
+a.decrement()
+a.decrement()
+console.log(a.value())
 
 
 
