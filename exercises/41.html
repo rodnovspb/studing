@@ -18,35 +18,51 @@
 
 
 
-  function f(){
-  let num = Math.floor(Math.random()*100)
-  if(num<=5) return 1
-  if(num>5 && num<=25) return 2
-  if(num>25 && num<=50) return 3
-  if(num>50) return 4
+
+
+  function f() {
+      let counter = 0
+      return function () {
+          counter++
+          return counter
+      }
   }
 
-let arr = []
-  for(let i=0; i<1000; i++){
-    let a = f()
-    arr.push(a)
-  }
 
-  let count1=0, count2=0, count3=0, count4=0;
-for(let elem of arr){
-  if(elem===1){
-    count1++
-  }
-  if(elem===2){
-    count2++
-  }
-  if(elem===3){
-    count3++
-  }
-  if(elem===4){
-    count4++
-  }
-}
+  let a = f()
+  let b = f()
+
+  console.log(a())
+  console.log(a())
+  console.log(a())
+  console.log(a())
+  console.log(b())
+  console.log(b())
+  console.log(b())
+  console.log(b())
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
