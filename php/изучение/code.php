@@ -3,23 +3,6 @@
 
 
 
-$arr[] = 'addr@mail.ru';    // +
-$arr[] = 'addr123@mail.ru'; // +
-$arr[] = 'my-addr@mail.ru'; // +
-$arr[] = 'my_addr@mail.ru'; // +
-$arr[] = 'addr@site.ru';    // +
-$arr[] = 'addr.ru';         // -
-$arr[] = 'addr@.ru';        // -
-$arr[] = 'my@addr@mail.ru'; // -
-
-$reg = "/^[\w-]+@[\w-]+\.(com|ru)$/";
-
-foreach ($arr as $item){
-    if(preg_match($reg, $item)){
-        echo $item;
-        echo "<br>";
-    }
-}
 
 
 
@@ -28,6 +11,19 @@ foreach ($arr as $item){
 
 
 
+
+
+
+
+
+
+
+
+$str = '12 34 56 78';
+
+$res = preg_replace("/(\d)(\d)/",'$2$1' , $str);
+
+echo $res;
 
 
 
