@@ -18,18 +18,13 @@
 
 
 
-$str = '2+3= 3+5= 7+8=';
+$str = '1 3 32 546 756 867';
 
-$res = preg_replace_callback('#(\d+)\+(\d+)=#', function ($match){
-    return $match[0].($match[1]+$match[2]);
-//   echo "<pre>";
-//   print_r($match);
-//   echo "</pre>";
+$res = preg_replace_callback('/(\d+)/', function ($match){
+    return $match[1]**2;
 }, $str);
 
-echo $res;
-
-
+echo $res
 
 
 
