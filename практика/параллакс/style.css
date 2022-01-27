@@ -1,0 +1,143 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    line-height: 1;
+    font-size: 16px;
+    color: #fff;
+    background-color: #282830;
+    font-family: "PT Sans";
+}
+
+.wrapper {
+    min-height: 100%;
+}
+
+._container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 50px 20px;
+}
+
+.parallax {
+    min-height: 100vh;
+}
+
+.parallax__body {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.parallax__container {
+    text-transform: uppercase;
+    position: relative;
+    z-index: 2;
+}
+
+.parallax__label {
+    color: yellowgreen;
+    display: flex;
+    font-size: 18px;
+    letter-spacing: 6px;
+    margin-bottom: 30px;
+    align-items: center;
+}
+
+.parallax__label:before {
+    width: 70px;
+    height: 3px;
+    content: '';
+    background-color: yellowgreen;
+    margin-right: 30px;
+}
+
+.parallax__title {
+    font-size: 88px;
+}
+
+.parallax__images {
+    position: absolute;
+    left: -10%;
+    top: -10%;
+    width: 120%;
+    height: 120%;
+    z-index: 1;
+}
+
+.images-parallax__item {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+
+.images-parallax__clouds,
+.images-parallax__mountains,
+.images-parallax__human {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+}
+
+.images-parallax__clouds {
+    background: url("./img/clouds.jpg") top no-repeat;
+    background-size: cover;
+    top: 0;
+}
+
+.images-parallax__mountains {
+    background: url("./img/mountains.png") top no-repeat;
+    background-size: cover;
+    top: 15%;
+    z-index: 2;
+}
+
+.images-parallax__human {
+    background: url("./img/human.png") top no-repeat;
+    background-size: cover;
+    top: 45%;
+    z-index: 3;
+}
+@media (max-aspect-ratio: 3/2) {
+    .images-parallax__human {
+        background-position: 20% top;
+    }
+}
+
+.content {
+    background-color: #392b2b;
+    z-index: 2;
+    position: relative;
+}
+
+.content__title {
+    font-size: 35px;
+    margin-bottom: 30px;
+}
+
+.content__text {
+    font-size: 16px;
+    line-height: 150%;
+}
+
+.content:before {
+    pointer-events: none;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 300px;
+    transform: translate(0, -100%);
+    background: linear-gradient(180deg, rgba(57, 52, 52, 0.7) 0%, rgba(250, 250, 250, .1) 100%);
+
+}
