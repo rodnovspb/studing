@@ -17,23 +17,24 @@
 
 <script>
 
-let mySmart = new Object()
 
- mySmart.model = 'Xiaomi'
- mySmart.year = 2000
- mySmart.price = 20000
 
-mySmart.show = function () {
-    for(let elem in this){
-      document.write(elem + ': ' + this[elem] + '<br>')
-    }
+  function Smart(model, year, cost) {
+      this.model = model
+      this.year = year
+      this.cost = cost
+      this.show = function () {
+            document.write("Модель " + this.model + "<br>")
+            document.write("Год " + this.year + "<br>")
+            document.write("Цена " + this.cost + "<br>")
+
+      }
   }
 
 
+  let obj = new Smart('Ксяоми', 2022, 20000)
 
-mySmart.show()
-
-
+  obj.show()
 
 
 
