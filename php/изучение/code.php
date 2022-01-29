@@ -7,16 +7,29 @@
 
 
 $arr = [
-    ['value' => '1', 'text' => 'text1'],
-    ['value' => '2', 'text' => 'text2'],
-    ['value' => '3', 'text' => 'text3'],
+    ['name' => 'user1', 'age' => 30, 'salary' => 500],
+    ['name' => 'user2', 'age' => 31, 'salary' => 600],
+    ['name' => 'user3', 'age' => 32, 'salary' => 700],
 ];
 
-echo "<select>";
-    foreach ($arr as $item){
-        echo "<option value='{$item['value']}'>$item[text]</option>";
+
+
+
+echo "<table>";
+    foreach ($arr as $row){
+        echo "<tr>";
+        foreach ($row as $key=>$value){
+            if($key==='salary'){
+                echo "<td>$value dollars</td>";
+            }
+            else {
+                echo "<td>$value</td>";
+            }
+
+        }
+        echo "</tr>";
     }
-echo "</select>";
+echo "</table>";
 
 
 
