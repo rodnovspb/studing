@@ -7,6 +7,11 @@
 
 
 
+echo "<ul>";
+    for ($i=1; $i<6; $i++){
+        echo "<li>$i</li>";
+    }
+echo "</ul>";
 
 
 
@@ -17,11 +22,6 @@
 
 
 
-
-$res = preg_replace('#[а-яё]+#ui', '!', 'яяя ЙЙЙ ёёё');
-
-
-echo $res;
 
 
 
