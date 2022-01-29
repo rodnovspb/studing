@@ -127,10 +127,11 @@ body {
     display: flex;
 }
 
-.btn_yes {
-    display: block;
+[data-todostate="active"] .todo__action_active {
+    display: none;
 }
-.btn_no {
+
+[data-todostate="complete"] .todo__action_complete {
     display: none;
 }
 
