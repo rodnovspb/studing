@@ -1,0 +1,139 @@
+*,
+*:before,
+*:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 16px;
+    color: #212529;
+    line-height: 1.5;
+    background-color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+.todo {
+    max-width: 450px;
+    margin: 20px auto;
+    padding: 10px;
+}
+
+.todo__wrapper {
+    display: flex;
+    justify-content: flex-start;
+    max-width: 62%;
+    align-items: center;
+}
+.todo__field {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.todo__input {
+    padding: 5px;
+    font-size: 20px;
+    border-radius: 3px;
+    outline: none;
+    border: 1px solid #b9b7b7;
+    max-width: 83%;
+    margin-right: 5px;
+}
+
+.todo__select {
+    padding: 5px;
+    font-size: 20px;
+    border-radius: 3px;
+    outline: none;
+    border: none;
+    background-color: #8bc34a;
+    color: #fff;
+    cursor: pointer;
+}
+
+.todo__select option {
+    background-color: #fff;
+    color: #000;
+}
+
+.add {
+    background-image: url("plus.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 30px;
+    z-index: 1;
+}
+
+.add:hover {
+ cursor: pointer;
+}
+
+.todo__item {
+    width: 100%;
+    background-color: #eee;
+    padding: 5px;
+    font-size: 20px;
+    border-radius: 3px;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    margin-bottom: 5px;
+
+}
+
+.todo__item:hover .actions {
+    transform: translateY(0%);
+    opacity: 0.8;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    right: 15px;
+    opacity: 0;
+    transition: all .3s ease-in;
+}
+
+.todo__action {
+    width: 25px;
+    height: 25px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.todo__action_active {
+    background: url("refresh.png") no-repeat;
+    background-size: contain;
+}
+
+.todo__action_delete {
+    background: url("delete.png") no-repeat;
+    background-size: contain;
+}
+
+.todo__action_complete {
+    background: url("tick.png") no-repeat;
+    background-size: contain;
+}
+
+.display-none {
+    display: none;
+}
+
+.display {
+    display: flex;
+}
+
+.btn_yes {
+    display: block;
+}
+.btn_no {
+    display: none;
+}
+
+
+
+
