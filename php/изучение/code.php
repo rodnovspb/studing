@@ -1,26 +1,17 @@
-<?php
-
-$arr = [
-    [
-        'name' => 'user1',
-        'age'  => 30,
-    ],
-    [
-        'name' => 'user2',
-        'age'  => 31,
-    ],
-    [
-        'name' => 'user3',
-        'age'  => 32,
-    ],
-];
-
-?>
 
 
-<?php foreach ($arr as $item): ?>
-<div>
-    <p>name: <?= $item['name'] ?></p>
-    <p>age: <?= $item['age'] ?></p>
-</div>
-<?php endforeach; ?>
+
+<form action="" method="get">
+  <input name="elem1" placeholder="Имя" value="<?php
+  if(isset($_GET["elem1"])) echo $_GET["elem1"] ?>">
+  <input name="elem2" placeholder="Фамилия" value="<?php
+  if(isset($_GET["elem2"])) echo $_GET["elem2"]
+  ?>">
+  <input type="submit">
+</form>
+
+<?php if(!empty($_GET)) echo   "Привет, $_GET[elem1] $_GET[elem2]"?>
+
+
+
+

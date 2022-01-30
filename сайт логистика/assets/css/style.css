@@ -121,3 +121,108 @@ ul, ol {
     top: 50%;
     transform: translateY(-50%);
 }
+
+.request-form {
+    max-width: 400px;
+    background-color: #004AF2;
+    width: 100%;
+    border-radius: 5px;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.request-form--intro {
+    position: relative;
+    bottom: -30px;
+}
+
+.request-form__header {
+    background-color: #033FC9;
+    padding: 20px 30px;
+}
+
+.request-form__content {
+    padding: 30px;
+}
+
+.request-form__title {
+    font-size: 30px;
+    line-height: 48px;
+    color: white;
+    font-family: Lato;
+    font-weight: 900;
+}
+
+.request-form__text {
+    color: white;
+    font-size: 15px;
+    line-height: 21px;
+    max-width: 340px;
+}
+
+.form__group {
+    margin-bottom: 25px;
+}
+
+.input {
+    display: block;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255,255,255, .25);
+    font-family: "PT Sans";
+    font-size: 16px;
+    line-height: 1.5;
+    color: #fff;
+    padding-bottom: 12px;
+    transition: border-bottom-color .2s ease;
+    padding-left: 50px;
+}
+.input::placeholder {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #fff;
+}
+
+.input:focus {
+    outline: none;
+    border-bottom-color: white;
+}
+
+.input--user {
+    background: url("../images/user-phone.svg") no-repeat left 15px top 5px;
+}
+
+.input--phone {
+    background: url("../images/user-icon.svg") no-repeat left 15px top 5px;
+}
+
+.input--mail {
+    background: url("../images/user-mail.svg") no-repeat left 15px top 7px;
+}
+
+/*Btn************************/
+
+.btn {
+    font-family: "PT Sans";
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    padding: 11px 20px;
+    border-radius: 5px;
+    border: none;
+    text-align: center;
+    cursor: pointer;
+    line-height: 1.1;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.btn--block {
+    width: 100%;
+    display: block;
+}
+
+.btn--orange {
+    background: linear-gradient(to right, #FF903E, #FF2C2C);
+}

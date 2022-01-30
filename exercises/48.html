@@ -19,20 +19,9 @@
 
 
 
-  let now = new Date()
-  let hour = now.getUTCHours()
-  let minutes = now.getMinutes()
-  let seconds = now.getSeconds()
+  let now = new Date(2022, 0, 50).toTimeString()
 
-  hour = (hour<10) ? "0" + hour : hour
-  minutes = (minutes<10) ? "0" + minutes : minutes
-  seconds = (seconds<10) ? "0" + seconds : seconds
-
-  let message = `Привет, сейчас ${hour}:${minutes}:${seconds}`
-
-  console.log(message)
-  console.log(now.getTimezoneOffset())
-
+console.log(now)
 
 
 
