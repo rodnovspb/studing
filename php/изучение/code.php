@@ -1,11 +1,25 @@
 
 
 <form action="" method="get">
-  <input name="city" placeholder="город" value="<?php if(isset($_GET["city"])) echo $_GET["city"]?>"><br>
-  <input name="country" placeholder="страна" value="<?php if(isset($_GET["country"])) echo $_GET["country"]?>"><br>
+  <input name="year" value="<?php
+  if(isset($_GET["year"])) echo $_GET["year"];
+  else echo date("Y", time())
+  ?>"><br>
   <input type="submit">
 </form>
 
-<?php if(!empty($_GET)) echo "Город: $_GET[city], страна: $_GET[country]"?>
+<?php
+if(!empty($_GET)){
+    $year = $_GET["year"];
+    $a = date("L", mktime(0,0,0,1,1, $year));
+    if($a==1){
+      echo 'Високосный';
+	}
+    else {
+      echo 'Не високосный';
+	}
+}
 
 
+
+?>
