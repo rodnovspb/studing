@@ -1,14 +1,26 @@
 <?php
 
-$arr = ['user1', 'user2', 'user3'];
-$a = 'text'
+$arr = [
+    [
+        'name' => 'user1',
+        'age'  => 30,
+    ],
+    [
+        'name' => 'user2',
+        'age'  => 31,
+    ],
+    [
+        'name' => 'user3',
+        'age'  => 32,
+    ],
+];
 
 ?>
 
 
 <?php foreach ($arr as $item): ?>
 <div>
-    <h2><?= $item ?></h2>
-    <p><?= $a ?></p>
+    <p>name: <?= $item['name'] ?></p>
+    <p>age: <?= $item['age'] ?></p>
 </div>
 <?php endforeach; ?>

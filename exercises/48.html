@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Документ</title>
+<style>
+
+
+</style>
+</head>
+<body>
+
+
+
+
+
+<script>
+
+
+
+  let now = new Date()
+  let hour = now.getUTCHours()
+  let minutes = now.getMinutes()
+  let seconds = now.getSeconds()
+
+  hour = (hour<10) ? "0" + hour : hour
+  minutes = (minutes<10) ? "0" + minutes : minutes
+  seconds = (seconds<10) ? "0" + seconds : seconds
+
+  let message = `Привет, сейчас ${hour}:${minutes}:${seconds}`
+
+  console.log(message)
+  console.log(now.getTimezoneOffset())
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
