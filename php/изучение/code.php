@@ -1,11 +1,14 @@
 <?php
 
-$arr = [1, 2, 3, 4, 5];
-
+$arr = ['user1', 'user2', 'user3'];
+$a = 'text'
 
 ?>
 
 
-<?php foreach ($arr as $item):  ?>
-<p><?=  $item ?></p>
+<?php foreach ($arr as $item): ?>
+<div>
+    <h2><?= $item ?></h2>
+    <p><?= $a ?></p>
+</div>
 <?php endforeach; ?>
