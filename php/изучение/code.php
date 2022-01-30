@@ -1,10 +1,7 @@
 
 
 <form action="" method="get">
-  <input name="year" value="<?php
-  if(isset($_GET["year"])) echo $_GET["year"];
-  else echo date("Y", time())
-  ?>"><br>
+  <input name="year" value="<?= $_GET["year"] ??  date("Y", time()) ?>"><br>
   <input type="submit">
 </form>
 
