@@ -1,17 +1,11 @@
 
 
-
 <form action="" method="get">
-  <input name="elem1" placeholder="Имя" value="<?php
-  if(isset($_GET["elem1"])) echo $_GET["elem1"] ?>">
-  <input name="elem2" placeholder="Фамилия" value="<?php
-  if(isset($_GET["elem2"])) echo $_GET["elem2"]
-  ?>">
+  <input name="city" placeholder="город" value="<?php if(isset($_GET["city"])) echo $_GET["city"]?>"><br>
+  <input name="country" placeholder="страна" value="<?php if(isset($_GET["country"])) echo $_GET["country"]?>"><br>
   <input type="submit">
 </form>
 
-<?php if(!empty($_GET)) echo   "Привет, $_GET[elem1] $_GET[elem2]"?>
-
-
+<?php if(!empty($_GET)) echo "Город: $_GET[city], страна: $_GET[country]"?>
 
 
