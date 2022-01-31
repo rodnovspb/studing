@@ -1,17 +1,14 @@
 
 
-
 <form action="" method="get">
-  <span>Мужской</span>
-  <input type="radio" name="sex" value="1" <?php if(!empty($_GET) and $_GET["sex"]==1) echo 'checked'?>><br>
-  <span>Женский</span>
-  <input type="radio" name="sex" value="2" <?php if(!empty($_GET) and $_GET["sex"]==2) echo 'checked'?>><br>
+  <span>Английский</span>
+  <input type="radio" name="lang" value="1" <?= (isset($_GET['lang']) and $_GET['lang']=='1') ? 'checked': '' ?>><br>
+    <span>Русский</span>
+  <input type="radio" name="lang" value="2" <?= (isset($_GET['lang']) and $_GET['lang']=='2') ? 'checked': '' ?>><br>
   <input type="submit">
+
 </form>
 
 <?php
-echo $_GET["sex"]."<br>";
-$elem = $_GET["sex"];
-$a =  $elem==1 ? 'Мужской' : ($elem=='2' ? "Женский" : 'Не выбран');
-echo $a;
-?>
+  echo $_GET["lang"]==1 ? 'Английский': ($_GET["lang"]==2 ? 'Русский' : "Не выбран");
+ ?>
