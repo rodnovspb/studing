@@ -10,8 +10,8 @@
 </form>
 
 <?php
-  if($_GET['sex']==1) echo 'Мужской';
-  elseif($_GET['sex']==2) echo 'Женский';
-  else echo 'Выберите пол';
-
- ?>
+echo $_GET["sex"]."<br>";
+$elem = $_GET["sex"];
+$a =  $elem==1 ? 'Мужской' : ($elem=='2' ? "Женский" : 'Не выбран');
+echo $a;
+?>
