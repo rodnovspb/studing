@@ -1,23 +1,33 @@
+<?php
+
+$arr = ['а' => 'a',    'б' => 'b',    'в' => 'v',    'г' => 'g',    'д' => 'd',
+		'е' => 'e',    'ё' => 'e',    'ж' => 'zh',   'з' => 'z',    'и' => 'i',
+		'й' => 'y',    'к' => 'k',    'л' => 'l',    'м' => 'm',    'н' => 'n',
+		'о' => 'o',    'п' => 'p',    'р' => 'r',    'с' => 's',    'т' => 't',
+		'у' => 'u',    'ф' => 'f',    'х' => 'h',    'ц' => 'c',    'ч' => 'ch',
+		'ш' => 'sh',   'щ' => 'sch',  'ь' => '',     'ы' => 'y',    'ъ' => '',
+		'э' => 'e',    'ю' => 'yu',   'я' => 'ya',
+
+		'А' => 'A',    'Б' => 'B',    'В' => 'V',    'Г' => 'G',    'Д' => 'D',
+		'Е' => 'E',    'Ё' => 'E',    'Ж' => 'Zh',   'З' => 'Z',    'И' => 'I',
+		'Й' => 'Y',    'К' => 'K',    'Л' => 'L',    'М' => 'M',    'Н' => 'N',
+		'О' => 'O',    'П' => 'P',    'Р' => 'R',    'С' => 'S',    'Т' => 'T',
+		'У' => 'U',    'Ф' => 'F',    'Х' => 'H',    'Ц' => 'C',    'Ч' => 'Ch',
+		'Ш' => 'Sh',   'Щ' => 'Sch',  'Ь' => '',     'Ы' => 'Y',    'Ъ' => '',
+		'Э' => 'E',    'Ю' => 'Yu',   'Я' => 'Ya']
+
+?>
 
 
-<form action="" method="get">
-  <input name="year" placeholder="год" value="<?= $_GET["year"] ?? date('Y', time()) ?>"><br>
-  <input name="month" placeholder="месяц" value="<?= $_GET["month"] ?? date('n', time()) ?>"><br>
-  <input name="day" placeholder="день" value="<?= $_GET["day"] ?? date('d', time()) ?>"><br>
+<form action="" method="post">
+  <textarea name="elem" placeholder="Отзыв"><?= $_POST['elem'] ?? "" ?></textarea><br>
   <input type="submit">
 </form>
 
-<?php
+<?php if(!empty($_POST)) {
+ $text = strtr($_POST['elem'], $arr);
 
-if(!empty($_GET)){
-  $year = $_GET["year"];
-  $month = $_GET["month"];
-  $day = $_GET["day"];
-  $newYear = mktime(12, 59, 59, 12, 31, date("Y", time()));
-  $now = mktime(0,0,0, $month, $day, $year);
-  echo floor(($newYear-$now)/60/60/24) . ' суток до Нового года';
-
-}
+ echo "<p>$text</p>";
 
 
-?>
+}?>
