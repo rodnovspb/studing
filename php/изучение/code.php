@@ -2,13 +2,15 @@
 
 
 <form action="" method="get">
-  <input type="hidden" value="0" name="flag">
-  <span>Есть 18, мелкий гавнюк?</span>
-  <input type="checkbox" value="1" name="flag" <?php if(isset($_GET["flag"]) and $_GET["flag"] == 1) echo 'checked'?>>
+  <input type="checkbox" name="flag1" value="1"><br>
+  <input type="checkbox" name="flag2" value="1"><br>
+  <input type="checkbox" name="flag3" value="1"><br>
   <input type="submit">
 </form>
 
 <?php if(!empty($_GET)) {
-  if($_GET['flag']==0) echo "<p>Не разрешаем</p>";
-  else echo "<p>Разрешаем</p>";
-}  ?>
+  echo $_GET['flag1']."<br>";
+  echo $_GET['flag2']."<br>";
+  echo $_GET['flag3']."<br>";
+  var_dump($_GET);
+} ?>
