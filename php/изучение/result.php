@@ -1,12 +1,15 @@
 
 
+<?php
+$arr = ['a', 'b', 'c', 'd', 'e'];
 
-
-
-<?php  for($i=1; $i<11; $i++){
-    echo "<a href=\"?num=$i\">Передаем $i</a><br>";
+foreach ($arr as $key=>$item){
+    echo "<a href=\"?num=$key\">Ссылка на $item</a><br>";
 }
 
-    if(isset($_GET['num'])) echo "<p>$_GET[num]</p>"
+if(isset($_GET['num'])) {
+    $a = $_GET['num'];
+    echo "<div>$arr[$a]</div>";
+}
 
 ?>
