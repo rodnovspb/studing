@@ -1,14 +1,17 @@
 
 
-<form action="" method="get">
-  <span>Английский</span>
-  <input type="radio" name="lang" value="1" <?= (isset($_GET['lang']) and $_GET['lang']=='1') ? 'checked': '' ?>><br>
-    <span>Русский</span>
-  <input type="radio" name="lang" value="2" <?= (isset($_GET['lang']) and $_GET['lang']=='2') ? 'checked': '' ?>><br>
-  <input type="submit">
 
+
+<form action="" method="get">
+  <span>Выберите страну</span><br>
+  <select name="test">
+	<option <?php if(isset($_GET['test']) and $_GET['test']=='Англия') echo 'selected'?>>Англия</option>
+	<option <?php if(isset($_GET['test']) and $_GET['test']=='Россия') echo 'selected'?>>Россия</option>
+	<option <?php if(isset($_GET['test']) and $_GET['test']=='США') echo 'selected'?>>США</option>
+  </select>
+  <input type="submit">
 </form>
 
-<?php
-  echo $_GET["lang"]==1 ? 'Английский': ($_GET["lang"]==2 ? 'Русский' : "Не выбран");
- ?>
+<?php  if(!empty($_GET)){
+  echo $_GET['test'];
+} ?>
