@@ -1,13 +1,12 @@
 
 
 <form action="" method="get">
-  <input type="text" name="text" placeholder="Ваше имя?"><br>
-  <input type="checkbox" name="flag"><br>
+  <input type="hidden" name="flag" value="0">
+  <input type="checkbox" name="flag" value="1">
   <input type="submit">
 </form>
 
-<?php if(!empty($_GET))
-  	if(isset($_GET["flag"])) echo "<p>Привет, $_GET[text]</p>";
-	else echo "<p>Пока, $_GET[text]</p>";
-
-  ?>
+<?php if(!empty($_GET)){
+  	if($_GET['flag']==0) echo '<p>Не отмечен</p>';
+  	elseif($_GET['flag']==1) echo '<p>отмечен</p>';
+}  ?>
