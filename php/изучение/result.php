@@ -1,7 +1,8 @@
 <?php
 
-if(isset($_GET['num1']) and isset($_GET['num2'])) echo $_GET['num1']+$_GET['num2'];
-
+if(!empty($_GET)){
+    echo $_GET['num']==1 ? 'Привет' : ($_GET['num']==2 ? 'Пока': "О-па");
+}
 
 
 
