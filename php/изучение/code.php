@@ -3,9 +3,9 @@
 
 <form action="" method="get">
   <span>Мужской</span>
-  <input type="radio" name="sex" value="1"><br>
+  <input type="radio" name="sex" value="1" <?php if(!empty($_GET) and $_GET["sex"]==1) echo 'checked'?>><br>
   <span>Женский</span>
-  <input type="radio" name="sex" value="2"><br>
+  <input type="radio" name="sex" value="2" <?php if(!empty($_GET) and $_GET["sex"]==2) echo 'checked'?>><br>
   <input type="submit">
 </form>
 
