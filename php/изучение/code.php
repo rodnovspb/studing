@@ -12,31 +12,33 @@
 
 <form action="" method="get">
   <input name="elem1">
-  <input name="elem2">
-  <input name="elem3">
   <input type="submit">
 </form>
 
 <?php
 
-if($_GET['elem1'] !='' and $_GET['elem2'] !='' and $_GET['elem3'] !='') {
+if(!empty($_GET)) {
+  $arr = explode(".", $_GET['elem1']);
+  $month = $arr[1];
+  $day = $arr[0];
+  $year = date('Y');
 
-  $num1 = (int)($_GET['elem1']);
-  $num2 = (int)($_GET['elem2']);
-  $num3 = (int)($_GET['elem3']);
+  $timestampBirth = mktime(23,59,59, $month, $day, $year);
+  $timestampNow = time();
+  if ($timestampBirth>$timestampNow) {
+    $x = floor(($timestampBirth-$timestampNow)/60/60/24);
+    echo "Осталось суток: $x";
+  }
+  else {
+      $timestampBirth = mktime(23,59,59, $month, $day, $year+1);
+      $x = floor(($timestampBirth-$timestampNow)/60/60/24);
+      echo "Осталось суток: $x";
+  }
 
-  $arr = [];
-  array_push($arr, $num1 , $num2 , $num3);
-  sort($arr);
 
-  $maxSquare = $arr[2]**2;
-  $averageSquare = $arr[1]**2;
-  $minSquare = $arr[0]**2;
 
-    $a = $maxSquare==($averageSquare+$minSquare) ? 'тройка': "не тройка";
-	echo $a;
+
 }
-
 
 
 
