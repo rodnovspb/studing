@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Документ</title>
+<style>
+	.parent {
+      width: 50%;
+      margin: 30px auto;
+      font-family: "Open Sans", sans-serif;
+      text-align: center;
+      font-size: 50px;
+    }
+
+
+</style>
+</head>
+<body>
+
+  <div class="parent"></div>
+
+
+
+<script>
+
+
+  function f(time, iter, elem) {
+      let interval = time/iter;
+      let item = document.querySelector(elem)
+      let n = 1
+      let timer = setInterval(function () {
+          item.innerHTML = n
+          n++
+          if(n==iter){
+            clearInterval(timer)
+          }
+      }, interval)
+
+  }
+
+    f(10000, 1000, ".parent")
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

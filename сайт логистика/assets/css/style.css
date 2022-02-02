@@ -213,14 +213,15 @@ ul, ol {
     font-size: 18px;
     font-weight: 700;
     color: #fff;
-    padding: 11px 20px;
+    padding: 15px 45px;
     border-radius: 5px;
     border: none;
     text-align: center;
     cursor: pointer;
     line-height: 1.1;
     display: inline-block;
-    vertical-align: top;
+    vertical-align: middle;
+    text-decoration: none;
 }
 
 .btn--block {
@@ -234,6 +235,23 @@ ul, ol {
 
 .section {
     padding: 60px 0;
+}
+
+.section__title {
+    font-size: 45px;
+    font-family: Lato, sans-serif;
+    color: #2c2c2c;
+    line-height: 1.2;
+    font-weight: 900;
+    margin-bottom: 40px;
+}
+
+.section__title span {
+    color: #0D53F2;
+}
+
+.section--map {
+    background: url("../images/clients/map.svg") left 30px top 130px no-repeat;
 }
 
 .services {
@@ -316,4 +334,39 @@ ul, ol {
     line-height: 1;
     pointer-events: none;
     z-index: 1;
+}
+
+.clients {
+    display: flex;
+    margin-bottom: 60px;
+}
+
+.clients__logos {
+    width: 60%;
+}
+
+.clients__reviews {
+    width: 40%;
+}
+
+.clients__list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.clients__list li {
+    margin-right: 40px;
+    margin-bottom: 40px;
+}
+
+.clients__love {
+    color: #464646;
+    font-size: 18px;
+    line-height: 21px;
+    margin-left: 40px;
+    min-height: 47px;
+    background: url("../images/clients/_ionicons_svg_ios-heart-empty.svg") no-repeat left 20px top 0;
+    padding-top: 5px;
+    display: inline-block;
 }
