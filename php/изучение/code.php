@@ -19,24 +19,19 @@
 
 <?php
 if(!empty($_GET['text'])) {
-  $arr = explode(" ", $_GET['text']);
-  $empty = [''];
-  $arr = array_diff($arr, $empty);
-  $arr1 = array_slice($arr, 0);
-  // отфильтровать знаки препинания
-    $arr1 = array_filter($arr1, function ($item){
-	  	if(preg_match("/\d/", $item) ==0) return false;
-	  	else return true;
+  $arr = str_split($_GET['text'], 1);
+  $amountSymb = array_count_values($arr);
+  $count = count($arr);
+  $rez = [];
 
-	});
+  foreach ($amountSymb as $key=>$value){
+    $rez[$key] = round(($value / $count) * 100, 1)." процентов";
+  }
 
-  $countWord = count($arr1);
-  echo "Количество слов: $countWord";
-  echo "<br>";
 
-  $str = implode('', $arr);
-  $countSymb = mb_strlen($str);
-  echo "Количество символов: $countSymb";
+  echo "<pre>";
+  print_r($rez);
+  echo "</pre>";
 
 
 }
@@ -45,7 +40,7 @@ if(!empty($_GET['text'])) {
 ?>
 
 
-<?php // var_dump(preg_match("/\d/", '.') !==0)  ?>
+
 
 
 
