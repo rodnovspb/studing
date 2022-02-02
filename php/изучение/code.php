@@ -10,37 +10,42 @@
 
 
 
+
+
 <form action="" method="get">
-  <input name="elem1">
+  <textarea name="text"><?php if(!empty($_GET['text'])) echo $_GET['text'] ?></textarea><br>
   <input type="submit">
 </form>
 
 <?php
+if(!empty($_GET['text'])) {
+  $arr = explode(" ", $_GET['text']);
+  $empty = [''];
+  $arr = array_diff($arr, $empty);
+  $arr1 = array_slice($arr, 0);
+  // отфильтровать знаки препинания
+    $arr1 = array_filter($arr1, function ($item){
+	  	if(preg_match("/\d/", $item) ==0) return false;
+	  	else return true;
 
-if(!empty($_GET)) {
-  $arr = explode(".", $_GET['elem1']);
-  $month = $arr[1];
-  $day = $arr[0];
-  $year = date('Y');
+	});
 
-  $timestampBirth = mktime(23,59,59, $month, $day, $year);
-  $timestampNow = time();
-  if ($timestampBirth>$timestampNow) {
-    $x = floor(($timestampBirth-$timestampNow)/60/60/24);
-    echo "Осталось суток: $x";
-  }
-  else {
-      $timestampBirth = mktime(23,59,59, $month, $day, $year+1);
-      $x = floor(($timestampBirth-$timestampNow)/60/60/24);
-      echo "Осталось суток: $x";
-  }
+  $countWord = count($arr1);
+  echo "Количество слов: $countWord";
+  echo "<br>";
 
-
+  $str = implode('', $arr);
+  $countSymb = mb_strlen($str);
+  echo "Количество символов: $countSymb";
 
 
 }
 
 
+?>
+
+
+<?php // var_dump(preg_match("/\d/", '.') !==0)  ?>
 
 
 
@@ -50,11 +55,6 @@ if(!empty($_GET)) {
 
 
 
-
-
-
-
- ?>
 
 
 
