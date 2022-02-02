@@ -10,34 +10,38 @@
 
 
 
-
-
 <form action="" method="get">
-  <textarea name="text"><?php if(!empty($_GET['text'])) echo $_GET['text'] ?></textarea><br>
+  <select name="day">
+	<?php for($i=1; $i<=31; $i++){
+	  echo "<option>$i</option>";
+	} ?>
+  </select>
+  <select name="month">
+	<?php
+	$arr = [1 => 'Январь' , 'Февраль' , 'Март' , 'Апрель' , 'Май' , 'Июнь' , 'Июль' , 'Август' , 'Сентябрь' , 'Октябрь' , 'Ноябрь' , 'Декабрь'];
+	foreach ($arr as $key=>$value){
+	  echo "<option value='$key'>$value</option>";
+	}
+	?>
+  </select>
+  <select name="year">
+	<?php  for($i=1990; $i<=2025; $i++){
+        echo "<option>$i</option>";
+	}   ?>
+  </select>
   <input type="submit">
 </form>
 
-<?php
-if(!empty($_GET['text'])) {
-  $arr = str_split($_GET['text'], 1);
-  $amountSymb = array_count_values($arr);
-  $count = count($arr);
-  $rez = [];
+<?php if(!empty($_GET)){
+  $day = $_GET['day'];
+  $month = $_GET['month'];
+  $year = $_GET['year'];
 
-  foreach ($amountSymb as $key=>$value){
-    $rez[$key] = round(($value / $count) * 100, 1)." процентов";
-  }
+  $date = date('w', mktime(0,0,0, $month, $day, $year));
+  $week = ['Воскресенье', 'Понедельник' , 'Вторник' , 'Среда' , 'Четверг' , 'Пятница' , 'Суббота'];
+  echo $week[$date];
 
-
-  echo "<pre>";
-  print_r($rez);
-  echo "</pre>";
-
-
-}
-
-
-?>
+} ?>
 
 
 
