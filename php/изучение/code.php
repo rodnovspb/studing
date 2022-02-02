@@ -9,40 +9,36 @@
 <body>
 
 
-
 <form action="" method="get">
-  <select name="day">
-	<?php for($i=1; $i<=31; $i++){
-	  echo "<option>$i</option>";
-	} ?>
-  </select>
-  <select name="month">
-	<?php
-	$arr = [1 => 'Январь' , 'Февраль' , 'Март' , 'Апрель' , 'Май' , 'Июнь' , 'Июль' , 'Август' , 'Сентябрь' , 'Октябрь' , 'Ноябрь' , 'Декабрь'];
-	foreach ($arr as $key=>$value){
-	  echo "<option value='$key'>$value</option>";
-	}
-	?>
-  </select>
-  <select name="year">
-	<?php  for($i=1990; $i<=2025; $i++){
-        echo "<option>$i</option>";
-	}   ?>
-  </select>
+  <input name="date" type="date">
   <input type="submit">
 </form>
 
-<?php if(!empty($_GET)){
-  $day = $_GET['day'];
-  $month = $_GET['month'];
-  $year = $_GET['year'];
+<?php
 
-  $date = date('w', mktime(0,0,0, $month, $day, $year));
-  $week = ['Воскресенье', 'Понедельник' , 'Вторник' , 'Среда' , 'Четверг' , 'Пятница' , 'Суббота'];
-  echo $week[$date];
+$arr = [
+	'Весы' => 'Все хорошо',
+	'Дева' => 'Все плохо',
+	'Рак' => 'Отлично',
+	'Лев' => 'Хорошо'
+];
 
-} ?>
 
+
+if(!empty($_GET)){
+  $date = explode('-', $_GET['date']);
+  $day = $date[2];
+  $month = $date[1];
+
+  if($month>='01' and $month<'04') echo $arr["Весы"];
+  elseif ($month>='04' and $month<'06') echo $arr["Дева"];
+  elseif ($month>='06' and $month<'09') echo $arr["Рак"];
+  elseif ($month>='09' and $month<'13') echo $arr["Лев"];
+}
+
+
+
+?>
 
 
 
