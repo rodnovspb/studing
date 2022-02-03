@@ -4,16 +4,17 @@
 <?php
 
 
-
-if(!isset($_COOKIE['counter'])){
-    setcookie('counter', 1);
-    $_COOKIE['counter']=1;
+if(!isset($_COOKIE['timer'])) {
+    setcookie('timer', time());
+    echo 'Добро пожаловать!';
 }
 else {
-    setcookie('counter', ++$_COOKIE['counter']);
+    $nowtime = time();
+    $lasttime = $_COOKIE['timer'];
+    $differ = $nowtime - $lasttime;
+    echo "Вы заходили $differ секунд назад";
+    setcookie('timer', $nowtime);
 }
-
-echo $_COOKIE['counter'];
 
 
 
