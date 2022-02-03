@@ -1,18 +1,31 @@
 
 
 
-<?php if(!empty($_GET)){
-  session_start();
-  $_SESSION['user'] = $_GET;
-
-}  ?>
+<?php
 
 
 
+if(!isset($_COOKIE['counter'])){
+    setcookie('counter', 1);
+    $_COOKIE['counter']=1;
+}
+else {
+    setcookie('counter', ++$_COOKIE['counter']);
+}
 
-<form action="" method="get">
-<input name="name" placeholder="Имя">
-<input name="age" placeholder="Возраст">
-<input name="salary" placeholder="Зарплата">
-  <input type="submit">
-</form>
+echo $_COOKIE['counter'];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+?>
