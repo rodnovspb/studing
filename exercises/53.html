@@ -5,7 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Документ</title>
 <style>
+	* {
+		/*margin: 0;*/
+		/*padding: 0;*/
+	}
+	div {
+		width: 100px;
+		height: 10000px;
+		border: 1px solid blue;
 
+	}
 
 </style>
 </head>
@@ -14,10 +23,7 @@
 
 
 
-
-<button class="open">Открыть</button>
-<button class="close">Закрыть</button>
-<button class="check">Проверить</button>
+<div></div>
 
 
 
@@ -25,17 +31,18 @@
 
 <script>
 
-	let myWindow;
-	document.querySelector('.open').addEventListener('click', function () {
-		myWindow = window.open("","" ,"left=200,top=250,width=250,height=250")
+
+
+	window.addEventListener('scroll', function () {
+		console.log(pageYOffset)
+		if(pageYOffset>200){
+			alert('!!')
+		}
 
 	})
-	document.querySelector('.close').addEventListener('click', function () {
-		myWindow.close()
-	})
-	document.querySelector('.check').addEventListener('click', function () {
-		console.log(myWindow.closed)
-	})
+
+
+
 
 
 
