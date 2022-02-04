@@ -11,18 +11,34 @@
 </head>
 <body>
 
-<p>astd</p>
+
+
+<button class="open">Открыть</button>
+<button class="close">Закрыть</button>
+
+
 
 
 
 
 <script>
 
+	let open = document.querySelector('.open')
+	let close = document.querySelector('.close')
+	let myWindow;
+	open.addEventListener('click', function () {
+		myWindow=window.open('','',"width=250,height=250,left=100")
+	})
 
-let a = 10
-	let b = 5
-	let c = a>b ? a : b
-	console.log(c)
+	close.addEventListener('click', function () {
+		if(myWindow){
+			myWindow.close()
+			myWindow=null
+
+		}
+
+	})
+
 
 
 

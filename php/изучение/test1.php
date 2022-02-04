@@ -3,18 +3,12 @@
 
 <?php
 
+if(isset($_COOKIE['elem'])){
+    setcookie("elem", '', time());
+    unset($_COOKIE['elem']);
+}
 
-if(!isset($_COOKIE['timer'])) {
-    setcookie('timer', time());
-    echo 'Добро пожаловать!';
-}
-else {
-    $nowtime = time();
-    $lasttime = $_COOKIE['timer'];
-    $differ = $nowtime - $lasttime;
-    echo "Вы заходили $differ секунд назад";
-    setcookie('timer', $nowtime);
-}
+var_dump($_COOKIE['elem']);
 
 
 
