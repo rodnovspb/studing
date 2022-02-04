@@ -1,0 +1,34 @@
+.modal {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0, .5);
+    z-index: 1;
+    overflow: hidden;
+}
+
+.modal-content {
+    margin: 15% auto;
+    padding: 20px 10px;
+    width: 50%;
+    height: 50%;
+    background-color: #d5c7c7;
+    border-radius: 10px;
+    text-align: justify;
+}
+
+.close {
+    display: inline-block;
+    float: right;
+    border: 1px solid #847f7f;
+    border-radius: 5px;
+    margin-top: -10px;
+}
+
+.block {
+    display: block;
+}
+
