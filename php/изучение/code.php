@@ -6,8 +6,11 @@
 
 
 
-for($i=0; $i<10; $i++){
-  file_put_contents('dir/'.$i.".txt", $i);
+$arr = array_diff(scandir('dir'), ['.', '..']);
+
+
+foreach ($arr as $item){
+ echo file_get_contents('dir/'.$item)."<br>";
 }
 
 
