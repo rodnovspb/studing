@@ -4,10 +4,7 @@
 
 <?php
 
-
-for($i=1; $i<4; $i++){
-  unlink(__DIR__."/".$i.".txt");
-}
+echo filesize( 'Ben-Hur.1959.Pifagor..avi')/(1024*1024*1024)
 
 
 
