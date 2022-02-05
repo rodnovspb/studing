@@ -6,8 +6,10 @@
 
 
 
-if(file_exists('message.txt')){
-  echo file_get_contents('message.txt');
+mkdir('test1');
+
+for($i=1; $i<4; $i++) {
+    file_put_contents("test1/".$i.'.txt', '111');
 }
 
 
