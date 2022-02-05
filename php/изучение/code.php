@@ -6,11 +6,11 @@
 
 
 
-mkdir('test1');
-
-for($i=1; $i<4; $i++) {
-    file_put_contents("test1/".$i.'.txt', '111');
+for($i=0; $i<10; $i++){
+  file_put_contents('dir/'.$i.".txt", $i);
 }
+
+
 
 
 
