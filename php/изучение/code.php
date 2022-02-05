@@ -9,7 +9,9 @@ $names = array_diff(scandir('dir'), ['.', '..']);
 
 echo "<ul>";
 	foreach ($names as $name){
-	  echo "<li>$name</li>";
+	  if(is_file("dir/".$name)){
+          echo "<li>$name</li>";
+	  }
 	}
 echo "</ul>";
 
