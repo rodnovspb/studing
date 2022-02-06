@@ -15,21 +15,11 @@ $query = "SELECT * FROM users";
 
 $res = mysqli_query($link, $query) or die(mysqli_error($link));
 
-$user = print_r(mysqli_fetch_assoc($res));
-$arr[]= $user;
-$user = print_r(mysqli_fetch_assoc($res));
-$arr[]= $user;
-$user = print_r(mysqli_fetch_assoc($res));
-$arr[]= $user;
-$user = print_r(mysqli_fetch_assoc($res));
-$arr[]= $user;
-$user = print_r(mysqli_fetch_assoc($res));
-$arr[]= $user;
-$user = print_r(mysqli_fetch_assoc($res));
-$arr[]= $user;
+for($data = []; $row = mysqli_fetch_assoc($res); $data[] = $row);
 
-
-var_dump($arr);
+echo "<pre>";
+    print_r($data);
+echo "</pre>";
 
 
 
