@@ -1,0 +1,7 @@
+.out {
+    font-size: 24px;
+    font-family: monospace;
+    display: inline-block;
+    background-color: black;
+    color: #fff;
+}

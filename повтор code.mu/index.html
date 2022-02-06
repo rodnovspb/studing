@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="links.js"></script>
+<title>Документ</title>
+<style>
+body {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+button {
+  height: auto;
+  padding: 0.57em;
+  font-size: 35px;
+}
+.main {
+  min-width: 30%;
+  }
+.prev,
+.next {
+  display: none;
+}
+
+.visible {
+  display: block;
+}
+
+
+
+</style>
+</head>
+<body>
+
+
+<button class="prev"><</button>
+<button class="main">Случайная страница</button>
+<button class="next">></button>
+
+
+
+<script>
+
+  let previous = document.querySelector('.prev')
+  let btn = document.querySelector('.main')
+  let next = document.querySelector('.next')
+  let random
+  let visited
+
+  btn.addEventListener('click', function () {
+    visited = JSON.parse(localStorage.getItem('visited'))
+    previous.classList.add('visible')
+    next.classList.add('visible')
+    random = Math.floor(Math.random()*links.length)
+    while (visited.includes(random)){
+      random = Math.floor(Math.random()*links.length)
+      if(visited.length>=links.length) {
+        alert('Все страницы изучены!')
+        break
+      }
+    }
+    if(!visited.includes(random)){
+      visited.push(random)
+    }
+    window.open(links[random])
+    localStorage.setItem('visited', JSON.stringify(visited))
+  })
+
+  previous.addEventListener('click', function () {
+    visited = JSON.parse(localStorage.getItem('visited'))
+    let num = --random
+    if(links[num]) window.open(links[num])
+    if(!visited.includes(num) && links[num]){
+      visited.push(num)
+      localStorage.setItem('visited', JSON.stringify(visited))
+    }
+
+  })
+
+  next.addEventListener('click', function () {
+    visited = JSON.parse(localStorage.getItem('visited'))
+    let num = ++random
+    if(links[num]) window.open(links[num])
+    if(!visited.includes(num) && links[num]){
+      visited.push(num)
+      localStorage.setItem('visited', JSON.stringify(visited))
+    }
+  })
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
