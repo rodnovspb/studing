@@ -1,12 +1,12 @@
 <?php
+require_once "sum.php";
+require_once 'square.php';
 
-require_once 'functions.php';
-require_once 'sum.php';
+
+echo sumOfSquare(2, 3);
 
 
-$res = squareSum([1,2,3,4,5,6]);
 
-echo $res;
 
 
 

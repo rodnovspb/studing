@@ -1,23 +1,7 @@
 <?php
 
-require_once 'functions.php';
+require_once "square.php";
 
-function squareSum($arr) {
-    $res = 0;
-
-    foreach ($arr as $elem) {
-        $res += square($elem);
-    }
-
-    return $res;
-}
-
-function cubeSum($arr) {
-    $res = 0;
-
-    foreach ($arr as $elem) {
-        $res += cube($elem);
-    }
-
-    return $res;
+function sumOfSquare($num1, $num2=0){
+    return square($num1) + square($num2);
 }
