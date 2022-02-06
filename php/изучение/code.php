@@ -1,19 +1,11 @@
-
-
 <?php
 
-function getFile ($name) {
-  ob_start();
-  include $name;
-  return ob_get_clean();
-}
+require 'functions.php';
 
-$week = getFile('text.php');
+echo cube(3);
+$res = square(10255);
 
-echo $week;
-echo $week;
-echo $week;
-
+echo $res;
 
 
 
