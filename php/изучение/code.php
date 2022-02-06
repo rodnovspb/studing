@@ -17,9 +17,15 @@ $res = mysqli_query($link, $query) or die(mysqli_error($link));
 
 for($data = []; $row = mysqli_fetch_assoc($res); $data[] = $row);
 
-echo "<pre>";
-    print_r($data);
-echo "</pre>";
+$user = $data[2];
+echo $user['name'];
+echo "<br>";
+echo $user['age'];
+echo "<br>";
+echo $user['salary'];
+echo "<br>";
+
+
 
 
 
