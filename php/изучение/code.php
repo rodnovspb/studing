@@ -1,33 +1,17 @@
-<!DOCTYPE html>
-<html>
-	<?php include "header.php"?>
-	<body>
-		<header>
-			header
-		</header>
-		<?php include "aside.php"?>
-		<main>
-			content
-		</main>
-		<?php include "footer.php"?>
-	</body>
-</html>
-
 
 
 <?php
 
+function getFile($name){
+  ob_start();
+  include $name;
 
+  return ob_get_clean();
+}
 
+$res = getFile('text.php');
 
-
-
-
-
-
-
-
-
+echo 'index'.$res;
 
 
 
@@ -35,25 +19,3 @@
 
 
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</body>
-</html>
-
-
