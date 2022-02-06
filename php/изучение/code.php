@@ -1,9 +1,10 @@
 <?php
 
-require 'functions.php';
+require_once 'functions.php';
+require_once 'sum.php';
 
-echo cube(3);
-$res = square(10255);
+
+$res = squareSum([1,2,3,4,5,6]);
 
 echo $res;
 
