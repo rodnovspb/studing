@@ -11,7 +11,7 @@ $link = mysqli_connect($host, $user, $pass, $name);
 mysqli_query($link, "SET NAMES 'utf8'");
 
 
-$query = "SELECT * FROM users WHERE (age > 23 AND age < 27) OR (salary > 400 AND salary < 1000)";
+$query = "SELECT * FROM users ORDER BY salary DESC LIMIT 1";
 
 $res = mysqli_query($link, $query) or die(mysqli_error($link));
 
