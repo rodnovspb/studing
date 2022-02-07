@@ -7,7 +7,7 @@
 <body>
 
 
-
+<div class="elem"></div>
 
 
 
@@ -16,9 +16,13 @@
 <script>
 
 
-document.addEventListener('click', function (event) {
-    alert(`Координаты: ${event.clientX}, ${event.clientY},`)
-})
+let name = prompt('Ваше имя?')
+
+  if(name){
+    document.querySelector('.elem').textContent = `Привет, ${name}`
+  } else {
+    document.querySelector('.elem').textContent = `Привет, гость`
+  }
 
 
 
