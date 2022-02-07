@@ -7,7 +7,9 @@
 <body>
 
 
-<div class="elem"></div>
+<a href="https://itchief.ru/javascript/frames" target="ya">Открыть ссылку во фрейме</a>
+<iframe name="ya" frameborder="1"></iframe>
+
 
 
 
@@ -16,13 +18,12 @@
 <script>
 
 
-let name = confirm('JS рулит?')
+let a = 'Я люблю JS'
+a = encodeURIComponent(a)
+let b = btoa(a)
+  let c = atob(b)
+  console.log(decodeURIComponent(c))
 
-  if(name){
-    document.querySelector('.elem').textContent = `Рулит`
-  } else {
-    document.querySelector('.elem').textContent = `Дно`
-  }
 
 
 

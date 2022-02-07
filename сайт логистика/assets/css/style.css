@@ -4,7 +4,7 @@ body {
     font-family: 'PT Sans', sans-serif;
     font-size: 15px;
     color: #585858;
-    line-height: 1.5;
+    line-height: 1.4;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -260,6 +260,10 @@ ul, ol {
     background: url("../images/clients/map.svg") left 30px top 130px no-repeat;
 }
 
+.section--grey {
+    background-color: #F9F9F9;
+}
+
 .services {
     display: flex;
     flex-wrap: wrap;
@@ -289,7 +293,6 @@ ul, ol {
 
 .services__text {
     font-weight: 400;
-    line-height: 1.4;
     margin-bottom: 19px;
     color: #585858;
 }
@@ -501,3 +504,90 @@ ul, ol {
     color: #585858;
     line-height: 21px;
 }
+
+.team {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+}
+
+.team__col {
+    padding: 0 15px;
+    width: 33.3333%;
+    margin-bottom: 30px;
+}
+
+.team__photo {
+    box-shadow: 10px 5px 13px rgba(0, 0, 0, .16);
+    margin-bottom: 12px;
+}
+
+.team__name {
+    font-family: Lato, sans-serif;
+    font-size: 18px;
+    font-weight: 900;
+    color: #2C2C2C;
+    margin-bottom: 3px;
+    line-height: 1.2;
+}
+
+.team__prof {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 15px;
+    color: #585858;
+    margin-bottom: 10px;
+}
+
+.team__contacts {
+    font-size: 14px;
+    line-height: 1.2;
+}
+
+.team__contacts li {
+    margin-bottom: 8px;
+}
+
+.team__contacts a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.team__contacts a:hover {
+    text-decoration: underline;
+}
+
+.team__contacts-icon {
+    width: 16px;
+    height: auto;
+    margin-right: 8px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -11,19 +11,20 @@ $link = mysqli_connect($host, $user, $pass, $name);
 mysqli_query($link, "SET NAMES 'utf8'");
 
 
-$query = "SELECT * FROM users";
+$query = "SELECT * FROM users WHERE salary <= 500";
 
 $res = mysqli_query($link, $query) or die(mysqli_error($link));
 
-for($data = []; $row = mysqli_fetch_assoc($res); $data[] = $row);
 
-$user = $data[2];
-echo $user['name'];
-echo "<br>";
-echo $user['age'];
-echo "<br>";
-echo $user['salary'];
-echo "<br>";
+
+for($arr=[]; $row = mysqli_fetch_assoc($res); $arr[]=$row);
+
+echo "<pre>";
+print_r($arr);
+echo "</pre>";
+
+
+
 
 
 
