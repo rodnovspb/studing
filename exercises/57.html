@@ -16,12 +16,12 @@
 <script>
 
 
-let name = prompt('Ваше имя?')
+let name = confirm('JS рулит?')
 
   if(name){
-    document.querySelector('.elem').textContent = `Привет, ${name}`
+    document.querySelector('.elem').textContent = `Рулит`
   } else {
-    document.querySelector('.elem').textContent = `Привет, гость`
+    document.querySelector('.elem').textContent = `Дно`
   }
 
 
