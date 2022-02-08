@@ -11,10 +11,13 @@ $link = mysqli_connect($host, $user, $pass, $name);
 mysqli_query($link, "SET NAMES 'utf8'");
 
 
-$query = "SELECT * FROM users ORDER BY salary DESC LIMIT 1";
+$query = "SELECT CONCAT(age, salary) FROM users";
 
 $res = mysqli_query($link, $query) or die(mysqli_error($link));
-
+//$data = mysqli_fetch_assoc($res);
+//
+//
+//echo $data['age'];
 
 
 for($arr=[]; $row = mysqli_fetch_assoc($res); $arr[]=$row);

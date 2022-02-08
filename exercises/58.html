@@ -8,21 +8,44 @@
 
 
 
+
+
+
+<button class="open">location.open</button>
+<button class="assign">location.assign</button>
+<button class="replace">location.replace</button>
+
 <script>
 
-</script>
+  let open = document.querySelector('.open')
+  let assign = document.querySelector('.assign')
+  let replace = document.querySelector('.replace')
+  let newWindow;
+  open.addEventListener('click', function () {
 
+      if(!newWindow){
+        newWindow = window.open('https://www.f2pool.com/','','width=300,height=300')
+        newWindow.focus()
+      }
+      else {
+        newWindow.focus()
+      }
+  })
 
+  assign.addEventListener('click', function () {
+      if(newWindow) {
+        newWindow.location.assign('https://www.f2pool.com/user/history')
+        newWindow.focus()
+      }
+  })
 
+  replace.addEventListener('click', function () {
+      if(newWindow) {
+        newWindow.location.replace('https://itchief.ru/javascript/localstorage')
+        newWindow.focus()
+      }
+  })
 
-<script>
-
-
-{
-a = 5
-delete window.a
-}
-console.log(window)
 
 
 
