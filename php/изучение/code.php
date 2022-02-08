@@ -11,10 +11,7 @@ $link = mysqli_connect($host, $user, $pass, $name);
 mysqli_query($link, "SET NAMES 'utf8'");
 
 
-$query = "
-	SELECT COUNT(DISTINCT age) as count1, 
-	       COUNT(DISTINCT salary) as count2 FROM users
-";
+$query = "SELECT CONCAT('!!!', name, '???') as new FROM users";
 
 $res = mysqli_query($link, $query) or die(mysqli_error($link));
 //$data = mysqli_fetch_assoc($res);
