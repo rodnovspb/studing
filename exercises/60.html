@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      font-size: 0;
+    }
+    .parent {
+      display: block;
+      background-color: grey;
+
+    }
+    .child {
+      display: inline-block;
+      background-color: red;
+      width: 150px;
+      height: 150px;
+      transition: all linear .2s;
+    }
+    .parent:hover .child{
+      transform: scale(.5);
+    }
+
+  </style>
+</head>
+<body>
+
+
+<div class="parent"><div class="child"></div></div>
+
+
+
+
+
+
+</body>
+</html>

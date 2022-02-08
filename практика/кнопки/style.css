@@ -1,0 +1,52 @@
+.parent {
+    width: 50%;
+    margin: 50px auto;
+}
+
+
+.social-icons-1 {
+    padding: 0;
+    list-style-type: none;
+}
+
+.social-icons-1 li {
+    display: inline-block;
+    position: relative;
+    font-size: 24px;
+
+}
+
+
+.social-icons-1 i {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    width: 24px;
+    height: auto;
+    text-align: center;
+    color: #fff;
+    transition: all .3s ease-out;
+
+}
+
+.social-icons-1 li:hover i {
+    transform: scale(1.8);
+    color: #337AB7;
+}
+
+.social-icons-1 a:before {
+    width: 60px;
+    height: 60px;
+    content: '';
+    background: linear-gradient(45deg, #337AB7, #2d6b9f);
+    display: block;
+    border-radius: 50%;
+    transform: scale(1);
+    transition: all .3s ease-out;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2), 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.social-icons-1 li:hover a:before {
+    transform: scale(0);
+}
+
