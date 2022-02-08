@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Документ</title>
+<style>
+  .wrap {
+    width: 50%;
+    margin: 0 auto;
+    border: 1px solid blue;
+  }
+  .text {
+    font-size: 40px;
+    opacity: 0;
+    transition: 1s;
+    /*transform: scale(2);*/
+  }
+
+  .square {
+    height: 700px;
+    background-color: #85e585;
+  }
+  .show {
+    opacity: 1;
+    /*transform: scale(1);*/
+  }
+
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="text">Этот текст будет повляться</div>
+  <div class="square"></div>
+  <div class="text">Этот текст будет повляться</div>
+  <div class="square"></div>
+  <div class="text">Этот текст будет повляться</div>
+  <div class="square"></div>
+  <div class="text">Этот текст будет повляться</div>
+
+</div>
+
+
+
+<script>
+  let elements = document.querySelectorAll('.text')
+  let observer = new IntersectionObserver(callback, {threshold: [0.5]})
+  // в threshold: [0.1] лежит значение на котором вызывать колбэк, то есть процент видимости
+  for(let element of elements) {
+    observer.observe(element)
+  }
+
+  function callback(entry) {
+    // в entry передается массив всех элементов (в виде объектов) за которым наблюдает observer
+    //   Для каждого такого элемента узнаем свойство isIntersecting
+    entry.forEach(value=>{
+      if(value.isIntersecting){
+        // если оно true, то обращаемся к самому элементу, который лежит в
+        // value.target
+        value.target.classList.add('show')
+      }
+      // если элемент становится не виден, то при обратном скролле он опять появляется с таким же эффектом =>
+      // else {
+      //   value.target.classList.remove('show')
+      // }
+    })
+  }
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
