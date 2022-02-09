@@ -11,7 +11,7 @@ $link = mysqli_connect($host, $user, $pass, $name);
 mysqli_query($link, "SET NAMES 'utf8'");
 
 
-$query = "SELECT * FROM users WHERE salary LIKE '5__'";
+$query = "SELECT MIN(age) as min, MAX(age) as max FROM users";
 
 
 $res=mysqli_query($link, $query) or die(mysqli_error($link));
