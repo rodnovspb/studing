@@ -11,7 +11,7 @@ $link = mysqli_connect($host, $user, $pass, $name);
 mysqli_query($link, "SET NAMES 'utf8'");
 
 
-$query = "SELECT ELT(DAYOFWEEK(time), 'вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб') as day FROM users";
+$query = "SELECT * FROM users WHERE salary LIKE '5__'";
 
 
 $res=mysqli_query($link, $query) or die(mysqli_error($link));
