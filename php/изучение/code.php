@@ -11,7 +11,11 @@ $link = mysqli_connect($host, $user, $pass, $name);
 mysqli_query($link, "SET NAMES 'utf8'");
 
 
-$query = "SELECT MIN(age) as min, MAX(age) as max FROM users";
+$query = "SELECT
+ *,
+HOUR(time) as hour,
+MINUTE(time) as min,
+SECOND(time) as sec FROM users";
 
 
 $res=mysqli_query($link, $query) or die(mysqli_error($link));
