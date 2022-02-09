@@ -11,9 +11,10 @@ $link = mysqli_connect($host, $user, $pass, $name);
 mysqli_query($link, "SET NAMES 'utf8'");
 
 
-$query = "SELECT *, CONCAT_WS('---', age, salary) as new FROM users";
+$query = "SELECT DAY(date) as 'дата' FROM users";
 
-$res = mysqli_query($link, $query) or die(mysqli_error($link));
+
+$res=mysqli_query($link, $query) or die(mysqli_error($link));
 //$data = mysqli_fetch_assoc($res);
 //
 //
