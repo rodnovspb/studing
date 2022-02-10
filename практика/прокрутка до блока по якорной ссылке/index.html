@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .elem {
+      width: 600px;
+      height: 1000px;
+      border: 1px solid blue;
+    }
+  </style>
+</head>
+<body>
+<ul>
+	<li><a href="http://code.mu/" data-link = "elem1">Ссылка 1</a></li>
+	<li><a href="#" data-link = "elem2">Ссылка 2</a></li>
+	<li><a href="#" data-link = "elem3">Ссылка 3</a></li>
+	<li><a href="#" data-link = "elem4">Ссылка 4</a></li>
+	<li><a href="#" data-link = "elem5">Ссылка 5</a></li>
+	<li><a href="#" data-link = "elem6">Ссылка 6</a></li>
+	<li><a href="#" data-link = "elem7">Ссылка 7</a></li>
+	<li><a href="#" data-link = "elem8">Ссылка 8</a></li>
+	</ul>
+
+
+<div class="elem elem1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero, quis.</div>
+<div class="elem elem2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero, quis.</div>
+<div class="elem elem3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero, quis.</div>
+<div class="elem elem4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero, quis.</div>
+<div class="elem elem5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero, quis.</div>
+<div class="elem elem6">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero, quis.</div>
+<div class="elem elem7">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero, quis.</div>
+<div class="elem elem8">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero, quis.</div>
+
+
+
+<script>
+
+  let links = document.querySelectorAll('a')
+  links.forEach(function (elem) {
+      elem.addEventListener('click', function (e) {
+          e.preventDefault()
+          document.querySelector("."+elem.dataset.link).scrollIntoView({behavior: 'smooth'})
+
+      })
+  })
+
+
+
+
+
+</script>
+</body>
+</html>

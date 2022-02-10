@@ -40,6 +40,14 @@ ul, ol {
     display: block;
 }
 
+.text-center {
+    text-align: center;
+}
+
+.rel {
+    position: relative;
+}
+
 /*header***********************/
 
 .header {
@@ -563,7 +571,64 @@ ul, ol {
     margin-right: 8px;
 }
 
+.mission {
+    padding: 60px 30px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 5px 30px rgba(0,0,0, .16);
+    margin-bottom: 30px;
+    text-align: center;
+    margin-top: -23px;
+    position: relative;
 
+}
+
+.mission__title {
+    font-family: Lato, sans-serif;
+    font-size: 30px;
+    font-weight: 900;
+    color: #004AF2;
+    line-height: 1.2;
+    margin-bottom: 5px;
+}
+
+.mission__subtitle {
+    font-family: Lato, sans-serif;
+    font-size: 21px;
+    font-weight: 400;
+    color: #585858;
+}
+
+.mission:after,
+.mission:before{
+    width: 41%;
+    height: 2px;
+    bottom: 0;
+    content: "";
+    display: block;
+    position: absolute;
+}
+
+.mission:before {
+    background-color: #004AF2;
+    right: 50%;
+}
+
+.mission:after {
+    background-color: #FC2C2B;
+    left: 50%;
+}
+
+.mission-title {
+    font-family: Lato, sans-serif;
+    font-weight: 900;
+    font-size: 90px;
+    color: rgba(0,0,0, .16);
+    line-height: 1;
+    text-align: center;
+    text-transform: uppercase;
+
+}
 
 
 

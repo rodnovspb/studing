@@ -11,11 +11,7 @@ $link = mysqli_connect($host, $user, $pass, $name);
 mysqli_query($link, "SET NAMES 'utf8'");
 
 
-$query = "SELECT
- *,
-HOUR(time) as hour,
-MINUTE(time) as min,
-SECOND(time) as sec FROM users";
+$query = "SELECT POSITION('er' IN name) as pos FROM users";
 
 
 $res=mysqli_query($link, $query) or die(mysqli_error($link));
