@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Документ</title>
+<style>
+
+
+</style>
+</head>
+<body>
+
+<div>
+asdasd
+  <span>sad</span>
+</div>
+<div></div>
+
+
+
+<script>
+
+  function f(elem){
+    if(elem.children.length>0){
+        for(let item of elem.children){
+          f(item)
+        }
+    }
+    else {
+      console.log(elem)
+      elem.id='111111'
+    }
+
+  }
+
+  f(document)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

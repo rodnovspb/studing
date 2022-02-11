@@ -11,7 +11,7 @@ $link = mysqli_connect($host, $user, $pass, $name);
 mysqli_query($link, "SET NAMES 'utf8'");
 
 
-$query = "SELECT POSITION('er' IN name) as pos FROM users";
+$query = "SELECT TIME_TO_SEC(time) as tts FROM users" ;
 
 
 $res=mysqli_query($link, $query) or die(mysqli_error($link));
