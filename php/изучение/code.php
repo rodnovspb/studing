@@ -11,7 +11,8 @@ $link = mysqli_connect($host, $user, $pass, $name);
 mysqli_query($link, "SET NAMES 'utf8'");
 
 
-$query = "SELECT TIME_TO_SEC(time) as tts FROM users" ;
+$query = "SELECT name as RRR FROM new WHERE id<2 UNION ALL SELECT age FROM users" ;
+
 
 
 $res=mysqli_query($link, $query) or die(mysqli_error($link));

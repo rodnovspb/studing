@@ -1,72 +1,67 @@
-<!doctype html>
-<html lang="en">
+
+<!DOCTYPE html>
+<html lang="ru">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Документ</title>
-<style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задача по поиску элементов</title>
+    <style>
+        .container {
+          display: flex;
+          margin: 0 auto;
+          max-width: 800px;
+          flex-direction: column;
+        }
 
+        .wrapper {
+          display: flex;
+        }
 
-</style>
+        .wrapper-main {
+          flex: 1 1 60%;
+        }
+
+        .aside {
+          flex: 1 1 40%;
+        }
+
+        .container * {
+          padding: 15px;
+          border: 2px solid #ddd;
+          margin: 5px;
+        }
+    </style>
 </head>
 <body>
-
-<div>
-asdasd
-  <span>sad</span>
-</div>
-<div></div>
-
-
-
-<script>
-
-  function f(elem){
-    if(elem.children.length>0){
-        for(let item of elem.children){
-          f(item)
-        }
-    }
-    else {
-      console.log(elem)
-      elem.id='111111'
-    }
-
-  }
-
-  f(document)
+    <div class="container">
+        <header class="header"><nav class="nav">1111</nav>HEADER</header>
+        <nav class="nav">NAV</nav>
+        <div class="wrapper">
+            <div class="wrapper-main">
+                <section class="section">MAIN SECTION</section>
+                <main class="main">
+                    <article class="article">ARTICLE-1</article>
+                    <article class="article">ARTICLE-2</article>
+                    <article class="article">ARTICLE-3</article>
+                </main>
+            </div>
+            <aside class="aside">
+                <nav class="nav">NAV ASIDE</nav>
+              <section class="section">ASIDE SECTION1<span>sdfsdfsdf</span>></section>
+                <section class="section">ASIDE SECTION2</section>
+                <section class="section">ASIDE SECTION3</section>
+            </aside>
+        </div>
+        <footer class="footer">FOOTER</footer>
+    </div>
 
 
+    <script>
 
+console.log(document.querySelector('.header+.nav').textContent)
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
+    </script>
 </body>
 </html>
