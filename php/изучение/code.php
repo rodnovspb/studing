@@ -11,7 +11,7 @@ $link = mysqli_connect($host, $user, $pass, $name);
 mysqli_query($link, "SET NAMES 'utf8'");
 
 
-$query = "SELECT name as RRR FROM new WHERE id<2 UNION ALL SELECT age FROM users" ;
+$query = "SELECT age, GROUP_CONCAT(name SEPARATOR '/ ') as names FROM users GROUP BY age" ;
 
 
 
