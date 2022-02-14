@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Документ</title>
+<style>
+  .size-40 {
+    font-size: 40px;
+  }
+  .color-red {
+    color: red;
+  }
+  .bg-yellow {
+    background: yellow;
+  }
+</style>
+</head>
+<body>
+
+
+
+
+
+
+<p class="elem1 block-elem2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita,
+                                          quidem!</p>
+
+
+
+
+<script>
+
+let p = document.querySelector('p')
+
+let a = "width: 180px; height: 180px; background-color: yellow"
+
+  let elems = document.querySelectorAll('*')
+  elems.forEach(item=>{
+    if(item.classList.length){
+      for(let elem of item.classList){
+        if(elem.search(/block-/)==0){
+          item.setAttribute('style', a)
+        }
+      }
+    }
+  })
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
