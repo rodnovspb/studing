@@ -20,7 +20,14 @@
 
 <ul id="target-list"></ul>
 
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, ratione!</p>
+
+<div></div>
+
 <script>
+
+  document.querySelector('div').appendChild(document.querySelector('p'))
+
 
   let list = document.querySelectorAll('ul li:nth-child(even)')
   let fragment = new DocumentFragment()
