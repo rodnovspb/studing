@@ -19,25 +19,23 @@
 </ul>
 
 
+<ul class="elem2">
+	<li>54321</li>
+	<li>54321</li>
+	<li>54321</li>
+</ul>
+
+
 
 <script>
 
-	let ul = document.querySelector('ul')
+	let uls = document.querySelectorAll('ul')
+	uls.forEach(elem=>{
+		elem.querySelectorAll('li').forEach(elem=>elem.remove())
+	})
 
 
-function deleteTextNodes(node) {
-	if(node.nodeType==3){
-		node.remove()
-	}
-	else {
-		Array.from(node.childNodes).forEach(elem=>deleteTextNodes(elem))
-	}
 
-
-}
-
-
-	deleteTextNodes(ul)
 
 
 
