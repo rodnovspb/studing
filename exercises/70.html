@@ -11,21 +11,31 @@
 </head>
 <body>
 
-<ul class="elem">
-  <li>sdfsdf</li>
+
+<ul class="elem1">
+	<li>12345</li>
+	<li>12345</li>
+	<li>12345</li>
 </ul>
+
+<ul class="elem2">
+	<li>54321</li>
+	<li>54321</li>
+	<li>54321</li>
+</ul>
+
 
 <script>
 
-let fragment = new DocumentFragment()
+let ul1 = document.querySelector('.elem1')
+let ul2 = document.querySelector('.elem2')
+let list = document.querySelectorAll('li')
 
-  for(let i=0; i<10; i++){
-    let li = document.createElement('li')
-    li.textContent = 'item-'+i;
-    fragment.appendChild(li)
-  }
+let arr=[]
 
-  document.querySelector('ul').prepend(fragment)
+list.forEach(elem=>arr.push(elem))
+ul1.append(...arr)
+  ul2.remove()
 
 
 
