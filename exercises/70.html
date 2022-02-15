@@ -11,31 +11,21 @@
 </head>
 <body>
 
-<ul id="source-list">
-  <li>One</li>
-  <li>Two</li>
-  <li>Three</li>
-  <li>Four</li>
+<ul class="elem">
+  <li>sdfsdf</li>
 </ul>
-
-<ul id="target-list"></ul>
-
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, ratione!</p>
-
-<div></div>
 
 <script>
 
-  document.querySelector('div').appendChild(document.querySelector('p'))
+let fragment = new DocumentFragment()
 
+  for(let i=0; i<10; i++){
+    let li = document.createElement('li')
+    li.textContent = 'item-'+i;
+    fragment.appendChild(li)
+  }
 
-  let list = document.querySelectorAll('ul li:nth-child(even)')
-  let fragment = new DocumentFragment()
-  list.forEach(elem=>{
-    fragment.append(elem)
-  })
-
-  document.querySelector('#target-list').appendChild(fragment)
+  document.querySelector('ul').prepend(fragment)
 
 
 
