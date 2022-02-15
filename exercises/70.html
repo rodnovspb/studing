@@ -18,32 +18,26 @@
 	<li>12345</li>
 </ul>
 
-<p>Lorem ipsum dolor sit amet.</p>
-
-<button class="start">в начало</button>
-<button class="end">В конец</button>
-
-
 
 
 <script>
 
-	let ul = document.querySelector('.elem1')
-	let p = document.querySelector('p')
-	let start = document.querySelector('.start')
-	let finish = document.querySelector('.end')
-	let li = document.createElement('li')
-	li.textContent = p.textContent
-
-	start.addEventListener('click', function () {
-		ul.prepend(li)
-	})
-	finish.addEventListener('click', function () {
-		ul.append(li)
-	})
+	let ul = document.querySelector('ul')
 
 
+function deleteTextNodes(node) {
+	if(node.nodeType==3){
+		node.remove()
+	}
+	else {
+		Array.from(node.childNodes).forEach(elem=>deleteTextNodes(elem))
+	}
 
+
+}
+
+
+	deleteTextNodes(ul)
 
 
 
