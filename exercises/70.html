@@ -19,20 +19,16 @@
 </ul>
 
 
-<ul class="elem2">
-	<li>54321</li>
-	<li>54321</li>
-	<li>54321</li>
-</ul>
-
-
 
 <script>
 
-	let uls = document.querySelectorAll('ul')
-	uls.forEach(elem=>{
-		elem.querySelectorAll('li').forEach(elem=>elem.remove())
-	})
+let ul = document.querySelector('ul')
+let num = ul.children.length
+
+
+for(let i=0; i<num; i++){
+	ul.children[0].remove()
+}
 
 
 
