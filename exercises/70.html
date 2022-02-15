@@ -18,24 +18,31 @@
 	<li>12345</li>
 </ul>
 
-<ul class="elem2">
-	<li>54321</li>
-	<li>54321</li>
-	<li>54321</li>
-</ul>
+<p>Lorem ipsum dolor sit amet.</p>
+
+<button class="start">в начало</button>
+<button class="end">В конец</button>
+
+
 
 
 <script>
 
-let ul1 = document.querySelector('.elem1')
-let ul2 = document.querySelector('.elem2')
-let list = document.querySelectorAll('li')
+	let ul = document.querySelector('.elem1')
+	let p = document.querySelector('p')
+	let start = document.querySelector('.start')
+	let finish = document.querySelector('.end')
+	let li = document.createElement('li')
+	li.textContent = p.textContent
 
-let arr=[]
+	start.addEventListener('click', function () {
+		ul.prepend(li)
+	})
+	finish.addEventListener('click', function () {
+		ul.append(li)
+	})
 
-list.forEach(elem=>arr.push(elem))
-ul1.append(...arr)
-  ul2.remove()
+
 
 
 
