@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Документ</title>
+<style>
+
+
+</style>
+</head>
+<body>
+
+<ul id="source-list">
+  <li>One</li>
+  <li>Two</li>
+  <li>Three</li>
+  <li>Four</li>
+</ul>
+
+<ul id="target-list"></ul>
+
+<script>
+
+  let list = document.querySelectorAll('ul li:nth-child(even)')
+  let fragment = new DocumentFragment()
+  list.forEach(elem=>{
+    fragment.append(elem)
+  })
+
+  document.querySelector('#target-list').appendChild(fragment)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
