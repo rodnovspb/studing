@@ -21,43 +21,13 @@ $result = '';
 
 for($arr=[]; $row = mysqli_fetch_assoc($res); $arr[]=$row);
 
-foreach ($arr as $elem){
-  $result .= "<p>";
-  $result.='<b>'.$elem['name'].'</b>';
-  $result.='<b>'.$elem['age'].'</b>';
-  $result.='<b>'.$elem['salary'].'</b>';
-  $result .= "</p>";
-}
-
-echo $result;
-
-
-
-
-
-
-
-
-
-
-
-//echo "<pre>";
-//print_r($arr);
-//echo "</pre>";
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 ?>
+
+<?php  foreach ($arr as $elem):  ?>
+	<div>
+	  <h2><?= $elem['name'] ?></h2>
+	  <p><?= $elem['age']?> years, <b><?= $elem['salary']?>$</b></p>
+	</div>
+<?php endforeach; ?>
