@@ -12,10 +12,12 @@
 <body>
 
 
-<ul class="elem1">
-	<li>12345</li>
-	<li>12345</li>
-	<li>12345</li>
+<ul>
+	<li>123</li>
+	<li>234</li>
+	<li>654</li>
+	<li>468</li>
+	<li>274</li>
 </ul>
 
 
@@ -23,12 +25,14 @@
 <script>
 
 let ul = document.querySelector('ul')
-let num = ul.children.length
+let first = ul.querySelector('li:first-child')
+let last = ul.querySelector('li:last-child')
+
+	let old = ul.replaceChild(first, last)
+	ul.prepend(old)
 
 
-for(let i=0; i<num; i++){
-	ul.children[0].remove()
-}
+
 
 
 
