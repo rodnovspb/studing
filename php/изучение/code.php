@@ -24,22 +24,9 @@ for($arr=[]; $row = mysqli_fetch_assoc($res); $arr[]=$row);
 
 
 ?>
+<ul>
+<?php foreach ($arr as $elem): ?>
+	<li><?= $elem['name'] ?></li>
 
-<table>
-	<tr>
-	  <th>id</th>
-	  <th>name</th>
-	  <th>age</th>
-	  <th>salary</th>
-	</tr>
-  	<?php foreach ($arr as $elem): ?>
-  		 <tr>
-		   <td><?= $elem['id'] ?></td>
-		   <td><?= $elem['name'] ?></td>
-		   <td><?= $elem['age'] ?></td>
-		   <td><?= $elem['salary'] ?></td>
-		 </tr>
-  	<?php endforeach; ?>
-
-
-</table>
+<?php endforeach;?>
+</ul>
