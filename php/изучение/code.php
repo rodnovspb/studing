@@ -20,34 +20,33 @@ for($arr=[]; $row = mysqli_fetch_assoc($res); $arr[]=$row);
 //print_r($arr);
 //echo '</pre>';
 ?>
-<table>
-	<tr>
-		<th>id</th>
-		<th>name</th>
-		<th>age</th>
-		<th>salary</th>
-		<th>delete</th>
-	</tr>
-<?php foreach ($arr as $elem): ?>
-  <tr>
-	<td><?= $elem['id']?></td>
-	<td><?= $elem['name']?></td>
-	<td><?= $elem['age']?></td>
-	<td><?= $elem['salary']?></td>
-	<td><a href="?del=<?= $elem['id']?>">удалить</a></td>
-  </tr>
-
-<?php endforeach; ?>
-</table>
+<a href="?id=1">1</a>
+<a href="?id=2">2</a>
+<a href="?id=3">3</a>
 
 <?php
-if(isset($_GET['del'])){
-  $del = $_GET['del'];
-  $query = "DELETE FROM users WHERE id=$del";
-  mysqli_query($link, $query) or die(mysqli_error($link));
+if(isset($_GET['id'])){
+  $id = $_GET['id'];
+  $query = "SELECT * FROM users WHERE id=$id";
+  $res=mysqli_query($link, $query) or die(mysqli_error($link));
+  $user = mysqli_fetch_assoc($res);
 }
 
 ?>
+
+
+
+<div>
+	<p>
+		имя: <span class="name"><?php if(isset($user['name'])) echo $user['name'] ?></span>
+	</p>
+	<p>
+		возраст: <span class="age"><?php if(isset($user['age'])) echo $user['age'] ?></span>,
+		зарплата: <span class="salary"><?php if(isset($user['salary'])) echo $user['salary'] ?>$</span>,
+	</p>
+</div>
+
+
 
 
 
