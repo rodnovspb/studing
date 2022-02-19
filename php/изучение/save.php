@@ -24,3 +24,17 @@ mysqli_query($link, $query) or die(mysqli_error($link));
 echo 'Юзер обновлен'
 
 ?>
+
+<?php
+session_start();
+
+if(!empty($_SESSION['flash'])) {
+    foreach ($_SESSION['flash'] as $elem) {
+        echo $elem;
+    }
+    $_SESSION['flash']=[];
+
+}
+
+
+?>
