@@ -64,6 +64,10 @@ ul, ol {
     width: 100%;
 }
 
+.header--dark {
+    background-color: rgba(0,0,0, 0.8);
+}
+
 .header__inner {
     display: flex;
     justify-content: space-between;
@@ -89,6 +93,10 @@ ul, ol {
     align-items: center;
 }
 
+.nav__link:not(.active):hover {
+    text-decoration: underline;
+}
+
 .nav__link.active {
     background-color: #004AF2;
 }
@@ -99,6 +107,12 @@ ul, ol {
     background: black url("../images/photo bg.jpg") no-repeat center;
     background-size: cover;
     margin-bottom: 30px;
+}
+
+.intro--blog {
+    height: 350px;
+    background: black url("../images/bg.jpg") no-repeat center;
+    background-size: cover;
 }
 
 .intro__inner {
@@ -154,6 +168,10 @@ ul, ol {
     z-index: 10;
 }
 
+.request-form--right {
+    margin-left: auto;
+}
+
 .request-form--intro {
     position: relative;
     bottom: -30px;
@@ -174,6 +192,7 @@ ul, ol {
     color: white;
     font-family: Lato;
     font-weight: 900;
+    margin-bottom: 5px;
 }
 
 .request-form__text {
@@ -696,8 +715,17 @@ ul, ol {
     justify-content: space-between;
     flex-wrap: wrap;
     margin-bottom: 30px;
-
 }
+
+.articles--column {
+    flex-direction: column;
+}
+
+.articles--column .articles__item {
+    max-width: none;
+    margin-bottom: 45px;
+}
+
 .articles__item {
     width: 100%;
     max-width: 500px;
@@ -880,6 +908,15 @@ ul, ol {
 
 .modal__icon {
     margin-bottom: 10px;
+}
+
+
+.main {
+    display: flex;
+}
+
+.main__col {
+    width: 50%;
 }
 
 

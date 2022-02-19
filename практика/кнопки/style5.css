@@ -1,0 +1,43 @@
+.parent {
+    width: 400px;
+    margin: 50px auto;
+}
+
+.social-icons-1 {
+    list-style-type: none;
+    display: flex;
+}
+
+li {
+    margin-right: 60px;
+}
+
+a {
+    font-size: 30px;
+    text-decoration: none;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+a i {
+    z-index: 10;
+    color: #fff;
+}
+
+a:after {
+    background-color: #4a5aa6;
+    content: '';
+    width: 60px;
+    height: 60px;
+    display: inline-block;
+    position: absolute;
+    transition: all .4s linear;
+}
+
+a:hover:after {
+    transform: rotate(270deg);
+    border-radius: 50%;
+}
+
