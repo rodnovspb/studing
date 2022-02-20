@@ -5,54 +5,39 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Документ</title>
 <style>
-.hide {
-  display: none;
+body {
+
 }
 
 </style>
 </head>
 <body>
 
-<ul class="list">
-  <li>
-    <div class="q">Первый список
-    <ul>
-      <li>Один</li>
-      <li>Два</li>
-      <li>Три</li>
-    </ul>
-    </div>
-  </li>
-  <li>
-    <div class="q">Второй список
-    <ul>
-      <li>Четыре</li>
-      <li>Пять</li>
-      <li>Шесть</li>
-    </ul>
-    </div>
-  </li>
-</ul>
 
-<button>fsdfsdf</button>
+
 
 <script>
 
- let list = document.querySelector('.list');
- list.addEventListener('click', function (e) {
-   let trigger = e.target.closest('.q');
-   console.log(e.target)
-   if (trigger) {
-     trigger.classList.toggle('hide');
-   }
- });
 
-let btn = document.querySelector('button')
-  btn.addEventListener('click', function () {
-    let li = document.createElement('li')
-    li.innerHTML = '<li>' + 'семь' + '</li>'
-    list.append(li)
+  let count = parseInt(Math.random()*30+1)
+  for(let i=0; i<count; i++){
+    let btn = document.createElement('button')
+    btn.type = 'button'
+    btn.textContent='0'
+    document.body.append(btn)
+  }
+
+  document.body.addEventListener('click', function (e) {
+    if(e.target.nodeName === 'BUTTON') {
+      e.target.textContent = Number(e.target.textContent)+1
+    }
+    else {
+      return false
+    }
   })
+
+
+
 
 
 
