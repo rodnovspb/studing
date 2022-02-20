@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Документ</title>
+<style>
+.hide {
+  display: none;
+}
+
+</style>
+</head>
+<body>
+
+<ul class="list">
+  <li>
+    <div class="q">Первый список
+    <ul>
+      <li>Один</li>
+      <li>Два</li>
+      <li>Три</li>
+    </ul>
+    </div>
+  </li>
+  <li>
+    <div class="q">Второй список
+    <ul>
+      <li>Четыре</li>
+      <li>Пять</li>
+      <li>Шесть</li>
+    </ul>
+    </div>
+  </li>
+</ul>
+
+<button>fsdfsdf</button>
+
+<script>
+
+ let list = document.querySelector('.list');
+ list.addEventListener('click', function (e) {
+   let trigger = e.target.closest('.q');
+   console.log(e.target)
+   if (trigger) {
+     trigger.classList.toggle('hide');
+   }
+ });
+
+let btn = document.querySelector('button')
+  btn.addEventListener('click', function () {
+    let li = document.createElement('li')
+    li.innerHTML = '<li>' + 'семь' + '</li>'
+    list.append(li)
+  })
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
