@@ -38,11 +38,14 @@ ul, ol {
     padding: 0 15px;
 }
 
-.img {
+.img,
+.text img {
     width: 100%;
     height: auto;
     display: block;
 }
+
+
 
 .text-center {
     text-align: center;
@@ -50,6 +53,12 @@ ul, ol {
 
 .rel {
     position: relative;
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 /*header***********************/
@@ -112,6 +121,12 @@ ul, ol {
 .intro--blog {
     height: 350px;
     background: black url("../images/bg.jpg") no-repeat center;
+    background-size: cover;
+}
+
+.intro--text {
+    height: 350px;
+    background: black url("../images/photobg.jpg") no-repeat center;
     background-size: cover;
 }
 
@@ -347,6 +362,10 @@ ul, ol {
 
 .section--map {
     background: url("../images/clients/map.svg") left 30px top 130px no-repeat;
+}
+
+.section--last {
+    margin-bottom: 60px;
 }
 
 .section--grey {
@@ -759,6 +778,7 @@ ul, ol {
 }
 
 .footer {
+    margin-top: auto;
     background-color: #F9F9F9;
     padding: 41px 0px;
     background-image:
@@ -767,7 +787,7 @@ ul, ol {
     background-repeat: no-repeat;
     background-position: left -50px bottom -80px, right -50px bottom -80px;
     text-align: center;
-    margin-top: 60px;
+
 }
 
 .footer__contacts {
@@ -919,6 +939,76 @@ ul, ol {
     width: 50%;
 }
 
+.text {
+    font-size: 18px;
+    line-height: 1.5;
+    color: #585858;
+    max-width: 890px;
+    margin-bottom: 50px;
+}
+
+.text p {
+    margin-bottom: 20px;
+}
+
+.text h2,
+.text h3,
+.text h4,
+.text h5,
+.text h6 {
+    color: #2C2C2C;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.text h2 {
+    font-size: 27px;
+}
+
+.text h3 {
+    font-size: 24px;
+}
+
+.text h4 {
+    font-size: 21px;
+}
+
+.text h5 {
+    font-size: 18px;
+}
+
+.text h6 {
+    font-size: 15px;
+}
+
+.text ul,
+.text ol {
+    margin-bottom: 20px;
+}
+
+.text ol {
+    list-style-type: decimal;
+    list-style-position: inside;
+}
+
+.text hr {
+    display: block;
+    width: 100%;
+    height: 1px;
+    border: 0;
+    background: #d1d1d1;
+    margin: 40px 0;
+}
+
+.text a {
+    font-size: inherit;
+    text-decoration: none;
+    color: blue;
+}
+
+.text a:hover {
+    text-decoration: underline;
+}
 
 
 

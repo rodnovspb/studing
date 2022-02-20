@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    body {
+      background-color: #92c1f0;
+    }
+    div {
+      width: 30%;
+      height: 40px;
+      margin: 50px auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #e6e655;
+      border-radius: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    div:before {
+      content: '';
+      position: absolute;
+      width: 100px;
+      height: 10px;
+      display: block;
+      background-color: #fff;
+      transform: rotate(-45deg);
+      left: -600px;
+      animation-name: move;
+      animation-duration: 4s;
+      animation-iteration-count: infinite;
+      animation-delay: 1s;
+    }
+
+    @keyframes move {
+      100% {
+        left: 600px;
+    }
+    }
+
+  </style>
+</head>
+<body>
+
+
+<div>Кнопка</div>
+
+
+
+
+
+<script>
+
+
+
+</script>
+</body>
+</html>
