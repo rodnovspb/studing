@@ -24,8 +24,8 @@
 <script>
 
   let div = document.querySelector('div')
-  let left = parseInt(div.offsetLeft)
-  let topQ = parseInt(div.offsetTop)
+  let left = div.getBoundingClientRect().left
+  let topQ = div.getBoundingClientRect().top
   window.addEventListener('keydown', function (e) {
     if(e.key==='a'){
     left--
