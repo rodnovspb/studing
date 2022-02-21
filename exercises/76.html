@@ -6,9 +6,10 @@
 <title>Документ</title>
 <style>
  div {
-   width: 200px;
-   height: 200px;
+   width: 100px;
+   height: 100px;
    border: 1px solid blue;
+   position: fixed;
 
  }
 
@@ -17,26 +18,33 @@
 <body>
 
 
-<ul class="items">
-  <li>1</li>
-  <li>2</li>
-  <li>3</li>
-  <li>4</li>
-  <li>5</li>
-  <li>6</li>
-  <li>7</li>
-  <li>8</li>
-  <li>9</li>
-</ul>
+<div></div>
 
 
 <script>
 
-document.querySelector('.items').addEventListener('click', function (event) {
-    if(event.target.nodeName=="LI"){
-      event.target.remove()
+  let div = document.querySelector('div')
+  let left = parseInt(div.offsetLeft)
+  let topQ = parseInt(div.offsetTop)
+  window.addEventListener('keydown', function (e) {
+    if(e.key==='a'){
+    left--
+    div.style.left = left + 'px'
+}
+    if(e.key==='d'){
+      left++
+      div.style.left = left + 'px'
     }
-})
+    if(e.key==='w'){
+		topQ--
+      div.style.top = topQ + 'px'
+    }
+    if(e.key==='s'){
+      topQ++
+      div.style.top = topQ + 'px'
+    }
+  })
+
 
 
 
