@@ -5,11 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Документ</title>
 <style>
- div {
+
+ div.child {
    width: 100px;
    height: 100px;
    border: 1px solid blue;
    position: fixed;
+ }
+ div.elem {
+	 width: 300px;
+	 height: 300px;
+	 border: 1px solid blue;
+	 margin: 50px;
+
 
  }
 
@@ -17,13 +25,16 @@
 </head>
 <body>
 
+<div class="elem"><div class="child"></div></div>
 
-<div></div>
 
 
 <script>
+let div = document.querySelector('div.child')
+console.log(div.getBoundingClientRect())
+console.log(div.offsetTop)
 
-  let div = document.querySelector('div')
+
   let left = div.getBoundingClientRect().left
   let topQ = div.getBoundingClientRect().top
   window.addEventListener('keydown', function (e) {
