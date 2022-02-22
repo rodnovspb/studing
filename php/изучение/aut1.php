@@ -20,14 +20,15 @@ if(!empty($_POST['submit']) and !empty($_POST['login']) and !empty($_POST['pass'
 $login = $_POST['login'];
 $passAut = $_POST['pass'];
 
-// запрашиваем соль из базы
+// запрашиваем соленый пароль из базы
     $query = "SELECT * FROM user WHERE login='$login'";
     $user = mysqli_fetch_assoc(mysqli_query($link, $query));
     if(!empty($user)) {
-        $salt = $user['salt'];
+//        $salt = $user['salt'];
         $pass = $user['pass'];
-        $hash = md5($passAut . $salt );
-        if($hash == $pass) echo 'Вы авторизованы';
+
+//        $hash = md5($passAut . $salt );
+        if(password_verify($passAut, $pass)) echo 'Вы авторизованы';
         else echo "Логин или пароль неверны";
     }
     else {

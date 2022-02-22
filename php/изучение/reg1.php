@@ -16,8 +16,7 @@ mysqli_query($link, "SET NAMES 'utf8'");
 <?php
 if(!empty($_POST['submit']) and !empty($_POST['login']) and !empty($_POST['pass'])){
     $login = $_POST['login'];
-    $salt = generateSalt();
-    $pass = md5($_POST['pass'] . $salt);
+    $pass = password_hash($login, PASSWORD_DEFAULT);
     $query = "INSERT INTO user SET login='$login', pass='$pass', salt = '$salt'";
     mysqli_query($link, $query);
 }

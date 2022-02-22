@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Документ</title>
+<style>
+
+
+</style>
+</head>
+<body>
+
+
+<a href="#">Яндекс</a>
+
+
+<script>
+
+  let a = document.querySelector('a')
+  a.addEventListener('click', function (e) {
+    e.preventDefault()
+    e.stopPropagation()
+  })
+
+  window.addEventListener('click', function (e) {
+    console.log(e)
+  })
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
