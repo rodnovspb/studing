@@ -5,28 +5,38 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Документ</title>
 <style>
-
+div {
+	width: 300px;
+	height: 300px;
+	border: 1px solid blue;
+}
 
 </style>
 </head>
 <body>
 
-
-<a href="#">Яндекс</a>
+<div id="box"></div>
 
 
 <script>
 
-  let a = document.querySelector('a')
-  a.addEventListener('click', function (e) {
-    e.preventDefault()
-    e.stopPropagation()
-  })
 
-  window.addEventListener('click', function (e) {
-    console.log(e)
-  })
+	let box = document.querySelector('#box')
+	window.setInterval(function () {
+		let event = new CustomEvent('start', {
+			detail: {
+				color: 'white'
+			}
+		})
+		box.dispatchEvent(event);
 
+
+	}, 100000)
+
+
+	box.addEventListener('start', function (e) {
+		console.log(e.detail)
+	})
 
 
 </script>
