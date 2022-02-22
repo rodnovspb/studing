@@ -1,0 +1,61 @@
+
+
+.social-icons-6 {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+}
+
+a {
+    font-size: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid #337AB7;
+    margin: 0 6px;
+    position: relative;
+    color: #337AB7;
+    transition: all 0.2s linear 0s;
+    overflow: hidden;
+}
+
+a:after {
+    width: 95%;
+    height: 95%;
+    content: '';
+    position: absolute;
+    background-color: #337AB7;
+    border-radius: 50%;
+    right: 0;
+    left: 0;
+    margin: auto;
+    top: -110%;
+    display: block;
+    transition: all 0.2s linear 0s;
+}
+
+a:hover:after {
+    top: 2.5%;
+    transition: all 0.2s linear 0s;
+}
+
+i {
+    position: relative;
+    z-index: 1;
+}
+
+.social-icons-6 a:hover {
+    color: #fff;
+}
+
+
+
+
+
+
+
+

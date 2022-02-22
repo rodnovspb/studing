@@ -17,3 +17,8 @@ if($_SESSION['auth'] = true) : ?>
 </html>
 
 <?php endif; ?>
+
+<?php
+echo md5('1')
+
+?>
