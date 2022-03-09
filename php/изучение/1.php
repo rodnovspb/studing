@@ -11,7 +11,16 @@ if($_SESSION['auth'] = true) : ?>
 </head>
 <body>
   <p>Вы авторизованы</p>
+	<?php
+	echo  $_SESSION['status']=='2' ? 'АДМИН': "ПОЛЬЗОВАТЕЛЬ" ;
+	echo '<br>';
+	echo "Логин:" . $_SESSION['login'];
+	?>
 
+	<?php
+	if($_SESSION['status']=='2') echo "<a href='admin.php'>Админ панель</a>"
+
+	?>
 
 </body>
 </html>

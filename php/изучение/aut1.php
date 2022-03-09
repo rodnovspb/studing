@@ -28,7 +28,15 @@ $passAut = $_POST['pass'];
         $pass = $user['pass'];
 
 //        $hash = md5($passAut . $salt );
-        if(password_verify($passAut, $pass)) echo 'Вы авторизованы';
+        if(password_verify($passAut, $pass)){
+          echo 'Вы авторизованы<br>';
+          session_start();
+          $_SESSION['auth'] = true;
+          $_SESSION['login'] = $user['login'];
+          $_SESSION['id'] = $user['id'];
+          $_SESSION['status'] = $user['status'];
+          echo "<a href='delete.php'>удалить страницу</a>";
+        }
         else echo "Логин или пароль неверны";
     }
     else {
@@ -36,6 +44,24 @@ $passAut = $_POST['pass'];
     }
 
 
+}
+?>
+
+<?php
+$login = $_POST['login'];
+$query = "SELECT *, statuses.name as status FROM user 
+	LEFT JOIN statuses
+	on user.status=statuses.id WHERE login='$login'";
+$res = mysqli_query($link, $query) or die(mysqli_error($link));
+$user = mysqli_fetch_assoc($res);
+
+if(!empty($user)) {
+  $hash = $user['pass'];
+  if(password_verify($passAut, $hash)){
+    echo "<h1>Ваш статус: $user[status]</h1>";
+
+
+  }
 }
 
 
