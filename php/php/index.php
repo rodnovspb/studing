@@ -1,51 +1,27 @@
 <meta charset="utf-8">
 
 <?php
+$host = "localhost";
+$user = 'root';
+$pass = '';
+$name = 'mydb';
+$link = mysqli_connect($host, $user, $pass, $name);
+mysqli_query($link, "SET NAMES 'utf8'");
+?>
 
+<?php
 $url = $_SERVER['REQUEST_URI'];
+preg_match('#/page/(\d+)#', $url, $match);
+$id = $match[1];
+
+$query = "SELECT * FROM pages WHERE id = $id";
+$result = mysqli_query($link, $query) or die(mysqli_error($link));
+$page = mysqli_fetch_assoc($result);
+
 $layout = file_get_contents('layout.php');
-$content = file_get_contents('view' . $url . '.php');
-$content = preg_replace('/{{ title: "(.+?)" }}/', '', $content);
-
-
-
-$layout = str_replace('{{content}}', $content, $layout);
-
-
-
-preg_match('/{{ title: "(.+?)" }}/', $content, $match);
-$title = $match[1];
-$layout = str_replace('{{title}}', $title, $layout);
-
+$layout = str_replace('{{title}}', $page['title'], $layout);
+$layout = str_replace('{{content}}', $page['content'], $layout);
 echo $layout;
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
