@@ -1,0 +1,41 @@
+.parent {
+    width: 800px;
+    margin: 50px auto;
+}
+
+.social-icons-1 {
+    list-style-type: none;
+    display: flex;
+}
+
+i {
+    font-size: 40px;
+}
+
+i:hover {
+    animation-name: move;
+    animation-duration: 500ms;
+    animation-iteration-count: infinite;
+}
+
+@keyframes move {
+    0% {
+        filter: drop-shadow(5px 5px 2px #8e8ef6) drop-shadow(-5px -5px 2px #8e8ef6);
+    }
+    25% {
+        filter: drop-shadow(5px -5px 2px #8e8ef6) drop-shadow(5px -5px 2px #8e8ef6);
+    }
+    50% {
+        filter: drop-shadow(-5px 5px 2px #8e8ef6) drop-shadow(-5px 5px 2px #8e8ef6);
+    }
+    75% {
+        filter: drop-shadow(-5px 5px 2px #8e8ef6) drop-shadow(5px -5px 2px #8e8ef6);
+    }
+    100% {
+        filter: drop-shadow(5px -5px 2px #8e8ef6) drop-shadow(-5px -5px 2px #8e8ef6);
+    }
+}
+
+li {
+    margin: 0 20px;
+}

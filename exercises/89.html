@@ -1,12 +1,23 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Title</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Документ</title>
+<style>
+div {
+  width: 100px;
+  height: 5000px;
+}
+
+</style>
 </head>
 <body>
 
-
+<form action="">
+  <input type="text">
+<input type="submit">
+</form>
 
 
 
@@ -15,8 +26,26 @@
 
 <script>
 
+  document.querySelector('form').addEventListener('submit', ()=>{
+    console.log('submit')
+  })
+
+
+
 
 
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>

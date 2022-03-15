@@ -24,8 +24,8 @@ if(preg_match('#^/page/all$#', $url, $match)){
     echo $content;
 }
 
-elseif(preg_match('#/page/([a-z0-9_-]+)#', $url, $match)) {
-    $page = $match[1];
+elseif(preg_match('#/page/(?<slug>[a-z0-9_-]+)#', $url, $match)) {
+    $page = $match['slug'];
     $query = "SELECT * FROM pages WHERE slug = '$page'";
     $result = mysqli_query($link, $query) or die(mysqli_error($link));
     $data = mysqli_fetch_assoc($result);
