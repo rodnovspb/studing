@@ -11,18 +11,57 @@ mysqli_query($link, "SET NAMES 'utf8'");
 
 <?php
 $url = $_SERVER['REQUEST_URI'];
-preg_match('#/page/([a-z0-9_-]+)#', $url, $match);
-$slug = $match[1];
 
+if(preg_match('#^/page/all$#', $url, $match)){
+    $query = "SELECT * FROM pages";
+    $result = mysqli_query($link, $query) or die(mysqli_error($link));
+    for($data = []; $row = mysqli_fetch_assoc($result); $data[] = $row);
+    $content = '';
+    foreach($data as $elem){
+        $item = '<div><a href="/page/' . $elem['slug'] . '">' . $elem['title'] . '</a></div>';
+        $content .= $item;
+    }
+    echo $content;
+}
 
-$query = "SELECT * FROM pages WHERE slug='$slug'";
-$result = mysqli_query($link, $query) or die(mysqli_error($link));
-$page = mysqli_fetch_assoc($result);
+elseif(preg_match('#/page/([a-z0-9_-]+)#', $url, $match)) {
+    $page = $match[1];
+    $query = "SELECT * FROM pages WHERE slug = '$page'";
+    $result = mysqli_query($link, $query) or die(mysqli_error($link));
+    $data = mysqli_fetch_assoc($result);
+    if (isset($data)) {
+        $layout = file_get_contents('layout.php');
+        $layout = str_replace('{{title}}', $data['title'], $layout);
+        $layout = str_replace('{{content}}', $data['content'], $layout);
+        echo $layout;
+    }
+    else {
+      echo '
+<form action="" method="post">
+	<input name="slug" placeholder="slug">
+	<input name="title" placeholder="title">
+	<input name="content" placeholder="content">
+	<input type="submit">
+</form>
+      
+      ';
+	}
+}
+?>
 
-$layout = file_get_contents('layout.php');
-$layout = str_replace('{{title}}', $page['title'], $layout);
-$layout = str_replace('{{content}}', $page['content'], $layout);
-echo $layout;
+<?php
+
+if(!empty($_POST)) {
+  $slug = $_POST['slug'];
+  $title = $_POST['title'];
+  $content= '<div>' . $_POST['content'] . '</div>';
+  $query = "INSERT INTO pages SET title = '$title', slug = '$slug', content = '$content'";
+  mysqli_query($link, $query) or die(mysqli_error($link));
+  header('Location: all');
+}
 
 
 ?>
+
+
+
