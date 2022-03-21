@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+
+
+
+
+<button type="button" id="get-text">Получить текст с сервера</button>
+<div id="result"></div>
+
+
+<script>
+
+  document.querySelector('#get-text').onclick = function(){
+    let xhr = new XMLHttpRequest()
+    xhr.open('GET', '1012.html')
+    xhr.send()
+
+    xhr.onload = function () {
+      if(xhr.status===200){
+      document.querySelector('#result').innerHTML = xhr.response
+      }
+      else {
+        console.log(xhr.statusText)
+      }
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
