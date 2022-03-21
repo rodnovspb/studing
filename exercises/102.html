@@ -16,16 +16,16 @@
 <script>
 
 
-
-let sleep = ms=>{
-  return new Promise(res=>{
-    setTimeout(res, ms)
+  let a = new Promise(res=>{
+    res()
   })
-}
 
-sleep(1000).then(()=>{
-  console.log('!!!')
-})
+  a.then((a=3)=>{
+    console.log('!!!!')
+    console.log(a)
+  })
+
+
 
 
 </script>

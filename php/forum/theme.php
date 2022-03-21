@@ -39,7 +39,7 @@ if(isset($_GET['id'])) {
 		<h3>Название темы: $theme[name]</h3>
 		<p class='creater'><span>Создатель: $theme[creater]</span><a href=\"main.php\">Посмотреть темы форума</a></p>
 	";
-    if ($_SESSION['login']) {
+    if ($_SESSION['login'] and $_SESSION['status'] !=0 ) {
         echo "
 		<form action='' method='post'>
 			<textarea name='textarea' cols='30' rows='5' placeholder='Введите текст сообщения'></textarea>
@@ -63,7 +63,9 @@ if(isset($_GET['id'])) {
         echo "<h3>Последние сообщения:</h3>";
         echo "<table><tr><th>Текст</th><th>Автор</th><th>Время</th></tr>";
         foreach ($data as $datum) {
-            echo "<tr><td>$datum[text]</td><td>$datum[author]</td><td>$datum[date]</td></tr>";
+          	preg_match('/([0-9-]+)\s([\d:]+)\./', $datum['date'], $match);
+          	$date = $match[2] ." / " . $match[1];
+            echo "<tr><td>$datum[text]</td><td>$datum[author]</td><td>$date</td></tr>";
         }
         echo "</table>";
 	}

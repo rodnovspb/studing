@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+      .link {
+        text-decoration: none;
+        position: relative;
+      }
+      .link:before {
+        content: '';
+        height: 1px;
+        background-color: blue;
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        transform: translateY(6px);
+        pointer-events: none;
+        opacity: 0;
+      }
+    .link:hover:before {
+      transform: translateY(0px);
+      opacity: 1;
+      transition: opacity 2s, transform 0.3s;
+    }
+  </style>
+</head>
+<body>
+
+
+
+<p>Lorem ipsum <a class="link" href="#">dolor sit amet</a> or sit amet, consectetur adipisicing elit. Architecto,
+   obcaecati!</p>
+
+
+
+
+<script>
+
+
+
+</script>
+</body>
+</html>
