@@ -1,0 +1,22 @@
+{
+  "name": "111",
+  "version": "1.0.0",
+  "description": "111",
+  "main": "111",
+  "type": "module",
+  "scripts": {
+    "test": "111"
+  },
+  "repository": {
+    "type": "git",
+    "url": "111"
+  },
+  "keywords": [
+    "111"
+  ],
+  "author": "111",
+  "license": "ISC",
+  "dependencies": {
+    "js-cookie": "^3.0.1"
+  }
+}

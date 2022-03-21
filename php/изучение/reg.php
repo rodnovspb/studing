@@ -46,7 +46,7 @@ mysqli_query($link, "SET NAMES 'utf8'");
     $_SESSION['login'] = $login;
     $id = mysqli_insert_id($link);
     $_SESSION['id'] = $id;
-    header('Location: login.php');
+    header('Location: index.php');
   }
   else {
     echo 'Пароли не совпадают';

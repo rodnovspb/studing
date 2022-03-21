@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Документ</title>
+<style>
+  video {
+    height: 75vh;
+  }
+
+</style>
+</head>
+<body>
+
+  <video src="video.mp4" muted controls loop autoplay></video>
+
+
+
+<script>
+
+  let video = document.querySelector('video')
+
+  video.addEventListener("pause", function () {
+      localStorage['currentTime'] = JSON.stringify(video.currentTime)
+  })
+
+  window.addEventListener('pagehide', function () {
+    localStorage['currentTime'] = JSON.stringify(video.currentTime)
+
+  })
+
+  window.addEventListener('pageshow', function () {
+    video.currentTime = localStorage['currentTime']
+    video.play()
+  })
+
+  window.addEventListener('blur', function () {
+    video.pause()
+    localStorage['currentTime'] = JSON.stringify(video.currentTime)
+  })
+
+  window.addEventListener('focus', function () {
+    video.currentTime = localStorage['currentTime']
+    video.play()
+
+  })
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
