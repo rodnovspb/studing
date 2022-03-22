@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Документ</title>
+<style>
+
+
+</style>
+</head>
+<body>
+
+
+
+
+
+<script>
+
+
+
+ function f(str, ms) {
+	return new Promise(resolve => {
+		setTimeout(function () {
+			resolve(str)
+		}, ms)
+	})
+ }
+
+
+ async function f1() {
+		let a = await f('qqq', 1000)
+		let b = await f('www', 2000)
+		let c = await f('rrr', 2500)
+	 console.log(a+b+c)
+ }
+ f1()
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Документ</title>
+<style>
+  .elem {
+    font-size: 28px;
+    line-height: 32px;
+    color: #337AB7;
+    text-align: center;
+  }
+
+  .elem span {
+    animation: anima 1s alternate infinite;
+  }
+
+  @keyframes anima {
+    0% {
+      opacity: 1;
+      filter: blur(0px);
+    }
+    100% {
+      opacity: 0;
+      filter: blur(5px);
+    }
+  }
+
+</style>
+</head>
+<body>
+
+
+
+<div class="elem">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, voluptate.</div>
+
+
+
+
+
+<script>
+
+
+  let div = document.querySelector('.elem')
+  let arr = div.textContent.split('')
+
+
+    for(let i=0; i<arr.length; i++){
+      let delay = Math.floor(Math.random()*1000)
+      arr[i] = "<span style='animation-delay: "+ delay + "ms'>" + arr[i] + "</span>"
+    }
+    div.innerHTML = arr.join('')
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
