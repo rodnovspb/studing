@@ -36,6 +36,36 @@ for($data = []; $row = mysqli_fetch_assoc($res); $data[] = $row);
 ?>
 
 <?php if($_SESSION['status'] == 2 or $_SESSION['status'] == 3) { ?>
+
+    <?php
+
+    if(!empty($_POST['del']) and isset($_POST['submit']))	{
+
+        $id = $_POST['hidden'];
+        switch ($_POST['del']) {
+            case '1':
+                $query = "UPDATE forum SET status = 0 WHERE id='$id'";
+                break;
+            case '2':
+                $query = "DELETE FROM forum WHERE id='$id'";
+                break;
+            case '3':
+                $query = "UPDATE forum SET status = 2 WHERE id='$id'";
+                break;
+            case '4':
+                $query = "UPDATE forum SET status = 3 WHERE id='$id'";
+                break;
+            case '5':
+                $query = "UPDATE forum SET status = 1 WHERE id='$id'";
+                break;
+        }
+        mysqli_query($link, $query) or die(mysqli_error($link));
+        header("Location: admin.php");
+
+    }
+
+    ?>
+
   <div class="center">Добро, пожаловать, <?php echo $_SESSION['login']?></div>
   <h1 class="center">Админ панель</h1>
 
@@ -71,6 +101,7 @@ for($data = []; $row = mysqli_fetch_assoc($res); $data[] = $row);
          		<select name='del'>
          		<option value='1'>Забанить</option>
          		<option value='2'>Удалить</option>
+         		<option value='5'>Пользователь</option>
 				</select>
 				<input type='submit' value='ок' name='submit'>
 				<input type='hidden' name='hidden' value='$datum[id]'>
@@ -85,6 +116,7 @@ for($data = []; $row = mysqli_fetch_assoc($res); $data[] = $row);
          		<option value='2'>Удалить</option>
          		<option value='3'>Сделать модератором</option>
          		<option value='4'>Сделать админом</option>
+         		<option value='5'>Сделать пользователем</option>
 				</select>
 				<input type='submit' value='ок' name='submit'>
 				<input type='hidden' name='hidden' value='$datum[id]'>
@@ -100,38 +132,16 @@ for($data = []; $row = mysqli_fetch_assoc($res); $data[] = $row);
 	</table>
 	</div>
 
-<?php
 
-	if(!empty($_POST['del']) and isset($_POST['submit']))	{
-		$id = $_POST['hidden'];
-		switch ($_POST['del']) {
-			case '1':
-			  $query = "UPDATE forum SET status = 0 WHERE id='$id'";
-			  break;
-            case '2':
-              $query = "DELETE FROM forum WHERE id='$id'";
-              break;
-			case '3':
-              $query = "UPDATE forum SET status = 2 WHERE id='$id'";
-              break;
-            case '4':
-                $query = "UPDATE forum SET status = 3 WHERE id='$id'";
-                break;
-        }
-        mysqli_query($link, $query) or die(mysqli_error($link));
-//		header("Location: admin.php");
-    }
-
-?>
 
 
 <?php
-	echo "<div class='center'><form action='' method='post'><input name='out' type='submit' value='выйти'></input></form></div>";
+	echo "<div class='center'><form action='' method='post'><input name='out' type='submit' value='выйти'></form></div>";
 	if(!empty($_POST['out'])) {
 	  session_destroy();
-//        header("Location: /");
+        header("Location: /");
+        exit();
     }
-
 	?>
 
 <?php } else echo "<h1 class='center'>Вы не модератор и не админ</h1>"?>

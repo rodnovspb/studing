@@ -6,6 +6,14 @@ $name = 'mydb';
 $link = mysqli_connect($host, $user, $pass, $name);
 mysqli_query($link, "SET NAMES 'utf8'");
 ?>
+<?php
+if(!empty($_GET['del']) and ($_SESSION['status'] == 2 or $_SESSION['status'] == 3)) {
+    $num = $_GET['del'];
+    $query = "DELETE FROM themes WHERE id='$num'";
+    mysqli_query($link, $query) or die(mysqli_error($link));
+    header('Location: main.php');
+}
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -39,7 +47,17 @@ h4 {
 </style>
 </head>
 <body>
-
+<?php
+if(!empty($_POST['name']) and !empty($_POST['submit'])) {
+    $name = $_POST['name'];
+    $login = $_SESSION['login'];
+    $query = "INSERT INTO themes SET name = '$name', creater = '$login'";
+    mysqli_query($link, $query) or die(mysqli_error($link));
+    $last_id = mysqli_insert_id($link);
+    header("Location: theme.php?id=$last_id");
+    exit();
+}
+?>
 
 <?php
 if(empty($_SESSION['login'])) echo "<div class='user'>Вы не авторизованы</div>";
@@ -84,16 +102,6 @@ else {
 	echo "</table>";
 ?>
 
-<?php
-if(!empty($_GET['del']) and ($_SESSION['status'] == 2 or $_SESSION['status'] == 3)) {
-  $num = $_GET['del'];
-  $query = "DELETE FROM themes WHERE id='$num'";
-  mysqli_query($link, $query) or die(mysqli_error($link));
-//  header('Location: main.php');
-}
-
-?>
-
 <?php  if($_SESSION['login'] and $_SESSION['status'] != 0) { ?>
 
 	<div class="create">
@@ -104,15 +112,7 @@ if(!empty($_GET['del']) and ($_SESSION['status'] == 2 or $_SESSION['status'] == 
 	  </form>
 	</div>
 <?php }
-if(!empty($_POST['name']) and !empty($_POST['submit'])) {
-    $name = $_POST['name'];
-    $login = $_SESSION['login'];
-    $query = "INSERT INTO themes SET name = '$name', creater = '$login'";
-    mysqli_query($link, $query) or die(mysqli_error($link));
-    $last_id = mysqli_insert_id($link);
 
-    header("Location: theme.php?id=$last_id");
-}
 
 ?>
 

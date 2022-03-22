@@ -18,23 +18,25 @@
 <script>
 
 
+	async function f() {
+		try {
+			let response = await fetch('https://jsonplaceholder.typicode.com/todos/1')
+			if(!response.ok) {
+				throw new Error('Ответ сервера не в диапазоне 200-299')
+			}
+			else {
+				let data = await response.json()
+				console.log(data.title)
+			}
 
- function f(str, ms) {
-	return new Promise(resolve => {
-		setTimeout(function () {
-			resolve(str)
-		}, ms)
-	})
- }
+		} catch (e) {
+			console.log(e)
+		}
+	}
 
 
- async function f1() {
-		let a = await f('qqq', 1000)
-		let b = await f('www', 2000)
-		let c = await f('rrr', 2500)
-	 console.log(a+b+c)
- }
- f1()
+	f()
+
 
 
 
