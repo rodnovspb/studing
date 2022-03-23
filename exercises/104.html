@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Документ</title>
+<style>
+
+
+</style>
+</head>
+<body>
+
+
+
+
+
+<script>
+
+  let xhr = new XMLHttpRequest()
+  xhr.open('GET', '1.html')
+  xhr.addEventListener('load', function () {
+    if(xhr.status != 200) {
+      console.log(xhr.statusText)
+      return
+    }
+    document.body.innerHTML = xhr.response
+  })
+
+  xhr.addEventListener('error', function () {
+    console.log(xhr.statusText)
+  })
+
+  xhr.addEventListener('progress', function (e) {
+    if(e.lengthComputable) {
+      console.log(e.total)
+    }
+    else console.log(e.loaded)
+  })
+
+
+
+  xhr.send()
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
