@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Документ</title>
+<link rel="stylesheet" href="1.css">
+</head>
+<body>
+
+<div class="parent">
+<a href="#" class="btn">Ссылка</a>
+<button class="btn">Кнопка</button>
+<input type="button" value="Инпут" class="btn">
+</div>
+
+
+<script>
+
+	let elems = document.querySelectorAll('.btn')
+	elems.forEach(function (elem) {
+		elem.addEventListener('click', function () {
+			for(let i=0; i<elems.length; i++){
+				if(elems[i].classList.contains('active')){
+					elems[i].classList.remove('active')
+				}
+			}
+			this.classList.add('active')
+		})
+	})
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

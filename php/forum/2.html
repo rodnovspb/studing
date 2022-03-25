@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Документ</title>
+<style>
+
+
+</style>
+</head>
+<body>
+
+
+<input type="text" value="Отправить этот текст">
+<button>Отправить</button>
+<div class="out"></div>
+
+
+
+
+
+<script>
+
+document.querySelector('button').addEventListener('click', function () {
+		let url = new URL('http://forum/2.php')
+		url.searchParams.set('q', document.querySelector('input').value)
+		let xhr = new XMLHttpRequest()
+		xhr.open('get', url, false)
+		xhr.send()
+		document.querySelector('div').innerHTML = xhr.response
+})
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

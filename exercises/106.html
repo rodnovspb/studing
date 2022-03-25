@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+
+<input type="number" class="text">
+<button class="btn">Вывести</button>
+<div class="out"></div>
+
+
+
+
+
+<script>
+
+  let text = document.querySelector('.text')
+  let btn = document.querySelector('.btn')
+  let div = document.querySelector('.out')
+
+  btn.onclick = ()=>{
+    let a  = +text.value
+    console.log(a)
+    let out = ''
+    for(let i=0; i<a; i++) {
+      out+=i+" ";
+    }
+    div.innerHTML = out
+  }
+
+
+</script>
+</body>
+</html>

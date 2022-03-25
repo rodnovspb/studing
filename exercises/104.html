@@ -10,37 +10,36 @@
 </style>
 </head>
 <body>
-
-
+<button>Запросить xtr</button>
+<div></div>
 
 
 
 <script>
 
-  let xhr = new XMLHttpRequest()
-  xhr.open('GET', '1.html')
-  xhr.addEventListener('load', function () {
-    if(xhr.status != 200) {
+let btn = document.querySelector('button')
+let div = document.querySelector('div')
+
+  function f() {
+    let xhr = new XMLHttpRequest()
+    xhr.open('get', '1.html')
+    xhr.send()
+    xhr.onload =()=>{
+    if(xhr.status == 200) {
+      div.innerHTML = xhr.response
+    }
+    else {
       console.log(xhr.statusText)
-      return
     }
-    document.body.innerHTML = xhr.response
-  })
-
-  xhr.addEventListener('error', function () {
-    console.log(xhr.statusText)
-  })
-
-  xhr.addEventListener('progress', function (e) {
-    if(e.lengthComputable) {
-      console.log(e.total)
     }
-    else console.log(e.loaded)
-  })
+    xhr.onerror = ()=>{
+      console.log(xhr.statusText)
+    }
+  }
+
+  btn.onclick = f
 
 
-
-  xhr.send()
 
 
 
