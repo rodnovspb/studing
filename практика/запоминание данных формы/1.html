@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+    }
+  </style>
+</head>
+<body>
+
+
+<form action="" name="form" class="form">
+  <div><input type="text" name="text" class="first memory"></div>
+  <div><input type="email" name="email" class="memory"></div>
+  <div><input type="number" name="number" class="memory"></div>
+  <div><input type="range" name="range" class="memory"></div>
+  <div><input type="date" name="date" class="memory"></div>
+  <div><input type="color" name="color" class="memory"></div>
+  <div><input type="radio" name="elem" value="1"><input type="radio" name="elem" value="2"></div>
+  <div><input type="checkbox" name="checkbox" class="memory"></div>
+  <div><select name="select" id="select" class="memory">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+  </select>
+  </div>
+  <div><input class="submit" type="submit"></div>
+</form>
+
+<script>
+
+document.querySelector('.submit').addEventListener('click', function (e) {
+  let formData = new FormData(document.querySelector('.form'))
+  let obj = {};
+  for(let elem of Array.from(formData)){
+    let key = elem[0]
+    let value = elem[1]
+    obj[key]=value
+  }
+  localStorage.setItem('form', JSON.stringify(obj))
+})
+
+  document.querySelector('.first').addEventListener('click', function () {
+    if(localStorage.form) {
+      let data = JSON.parse(localStorage.form)
+        let inputs = document.querySelectorAll('.memory')
+        inputs.forEach(function (elem) {
+          if(['checkbox', 'radio', 'submit'].indexOf(elem.type)==-1){
+          elem.value = data[elem.name]
+          }
+        })
+    }
+  }, {once: true})
+
+
+
+
+
+
+</script>
+</body>
+</html>

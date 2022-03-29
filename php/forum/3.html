@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Документ</title>
+<style>
+form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  gap: 10px;
+}
+  .form {
+    margin-bottom: 20px;
+  }
+
+  form div {
+    display: flex;
+    justify-content: space-between;
+  }
+.btn {
+   margin-left: auto;
+  }
+
+</style>
+</head>
+<body>
+
+
+<div class="form">
+<form action="3.php" method="post" name="user">
+  <div><label for="name">Имя:</label><input type="text" name="name" id="name"></div>
+  <div><label for="surname">Фамилия:</label><input type="text" name="surname" id="surname"></div>
+  <div class="btn"><button type="submit">Отправить</button></div>
+</form>
+</div>
+<div class="result">
+  Полученные данные:
+  <ul>...</ul>
+</div>
+
+
+
+
+
+
+<script>
+
+  let form = document.querySelector('form')
+  let name = document.querySelector('[name="name"]')
+  let surname = document.querySelector('[name="surname"]')
+  let btn = document.querySelector('.btn')
+  let ul = document.querySelector('.result ul')
+  let url = form.action
+
+  function send(){
+    let name_text = encodeURIComponent(name.value)
+    let surname_text = encodeURIComponent(surname.value)
+    let xhr = new XMLHttpRequest()
+    xhr.open('POST', url)
+    xhr.responseType = 'json'
+    // первый способ
+    // xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    // xhr.send(`name=${name_text}&surname=${surname_text}`)
+    let formData = new FormData(form)
+    xhr.send(formData)
+    xhr.addEventListener('load', function () {
+        if(xhr.status != 200) return
+        let response = xhr.response
+        ul.innerHTML = `<li>Имя: ${response.name}</li><li>Фамилия: ${response.surname}</li>`
+    })
+
+  }
+
+
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault()
+    send();
+  })
+
+</script>
+
+
+
+
+
+</body>
+</html>

@@ -11,7 +11,7 @@ session_start();
 
 $_SESSION['flash'][] = 'сообщение 1';
 
-header('Location: page.php');
+header('Location: id.php');
 
 
 

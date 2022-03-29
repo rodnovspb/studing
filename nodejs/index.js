@@ -54,7 +54,7 @@ http.createServer(async (request, response)=>{
   }
   catch (e) {
     status = 404
-    path = 'root/404.html'
+    path = 'root/404.php'
     data = await fs.promises.readFile(path)
   }
   console.log(path)

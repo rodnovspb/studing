@@ -71,3 +71,100 @@ input.red:focus {
     font-size: 13px;
     color: red;
 }
+
+.info {
+    display: flex;
+}
+
+.image{
+    height: auto;
+    display: block;
+    width: 35%;
+}
+
+.image img {
+    max-width: 100%;
+}
+
+.information {
+    padding-left: 20px;
+}
+
+.information p {
+    margin-bottom: 20px;
+}
+
+.main {
+    display: flex;
+    padding-top: 10px;
+}
+
+.friends {
+    width: 34%;
+}
+
+.wall {
+    width: 64%;
+}
+
+.head {
+    text-align: center;
+}
+
+.friends_list {
+    list-style-type: none;
+}
+.friends_div, .wall_list {
+    padding-top: 10px;
+}
+
+.textarea {
+    width: 100%;
+    min-height: 80px;
+}
+
+.textarea_input {
+    text-align: right;
+}
+
+.p-content {
+    padding: 3px 0;
+    max-width: 100%;
+    word-break: break-all;
+}
+
+.href-out {
+    margin-right: 20px;
+}
+
+.write_mess {
+    display: flex;
+    gap: 20px;
+}
+
+.left {
+    max-width: 30%;
+
+}
+
+.right {
+    max-width: 70%;
+    padding-left: 250px;
+
+}
+
+.container {
+    display: flex;
+}
+
+.left-messages {
+    list-style-type: none;
+}
+
+.form-mess {
+    width: 100%;
+}
+.textarea-mess {
+    width: 500px;
+    display: block;
+}

@@ -22,11 +22,11 @@ mysqli_query($link, "SET NAMES 'utf8'");
       $_SESSION['salary'] = $_POST['salary'];
       $query = "INSERT INTO users SET name = '$_POST[name]', age = '$_POST[age]', salary = '$_POST[salary]'";
 	  mysqli_query($link, $query) or die(mysqli_error($link));
-      header('Location: page.php');
+      header('Location: id.php');
       }
 	  else {
           $_SESSION['flash'] = 'форма заполнена некорректно';
-          header('Location: page.php');
+          header('Location: id.php');
 	  }
 	}
 	elseif (isset($_SESSION['flash'])) {

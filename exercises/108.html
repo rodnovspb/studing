@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+
+<form action="" method="post">
+  <input type="text" name="1">
+  <input type="text" name="2">
+  <input type="text" name="3">
+  <button type="submit">Запрос</button>
+</form>
+
+
+
+
+
+
+<script>
+
+  document.querySelector('form').addEventListener('submit', function (e) {
+      let formData = new FormData(this)
+      for(let elem of formData.entries()){
+        console.log(elem)
+      }
+      e.preventDefault()
+  })
+
+
+
+
+</script>
+</body>
+</html>

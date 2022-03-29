@@ -43,7 +43,7 @@ http.createServer(async (request, response)=>{
  }
  catch (e) {
    status = 404
-   layout = await fs.promises.readFile('404/404.html')
+   layout = await fs.promises.readFile('404/404.php')
    response.writeHead(status, {'Content-Type': 'text/html'})
    console.log('6 иф/ошибка')
  }
