@@ -1,20 +1,11 @@
 <?php
 
 
-class Student{
+class User{
     public $name;
-    public $course;
-    public function transferToNextCourse(){
-        if($this->isCorrect($this->course+1)) $this->course++;
-        else $this->course=5;
-    }
-    private function isCorrect($num){
-        if($num<=5) return true;
-        else return false;
+    public function __construct($var1, $var2){
+        echo $var1+$var2;
     }
 }
 
-$one = new Student;
-$one->course=3;
-$one->transferToNextCourse();
-echo $one->course;
+$one = new User(5,10);
