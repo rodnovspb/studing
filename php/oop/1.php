@@ -1,20 +1,17 @@
 <?php
 
 
-class Car {
-    public $color;
-    public $fuel;
-    public function go(){
-    }
-    public function turn(){
-    }
-    public function stop(){
-    }
+class User {
+    public $name;
+    public $age;
 }
 
-$myCar = new Car;
+$user1= new User;
+$user1->name='Денис';
+$user1->age=25;
 
-$myCar ->color='red';
-$myCar ->fuel='gaz';
-$myCar ->go();
-$myCar->stop();
+$user2 = new User;
+$user2->name='Вася';
+$user2->age=35;
+
+echo $user1->age + $user2->age;
