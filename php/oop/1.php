@@ -1,19 +1,21 @@
 <?php
 
 
-
-class Rectangle{
-    public $width;
-    public $height;
-    public function getSquare(){
-        echo $this->height*$this->width;
+class User {
+    public $age;
+    public function setAge($num){
+       if($this->isAgeCorrect($num)) $this->age=$num;
     }
-    public function getPer(){
-        echo ($this->width+$this->height)*2;
+    public function addAge($num){
+        if($this->isAgeCorrect($num)) $this->age=$num;
+    }
+    public function isAgeCorrect($age){
+        return ($age>18 and $age<60);
     }
 }
 
-$one = new Rectangle;
-$one->height=20;
-$one->width=30;
-$one->getSquare();
+$one = new User;
+
+$one->addAge(61);
+echo $one->age;
+
