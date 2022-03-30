@@ -2,17 +2,15 @@
 
 
 
-class User {
+class Employee {
     public $name;
-    public $age;
-    public function setAge($str){
-        if($str>=18) $this->age=$str;
+    public $salary;
+    public function double(){
+        $this->salary**=2;
     }
 }
 
-$one = new User;
-
-$one->age=25;
-$one->setAge(17);
-
-echo $one->age;
+$one = new Employee;
+$one->salary=25;
+$one->double();
+echo $one->salary;
