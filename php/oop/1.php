@@ -1,20 +1,20 @@
 <?php
 
 
-class User {
+class Student{
     public $name;
-    public $age;
-    public function addAge($num){
-        if($this->isCorrect($num)) $this->age+=$num;
+    public $course;
+    public function transferToNextCourse(){
+        if($this->isCorrect($this->course+1)) $this->course++;
+        else $this->course=5;
     }
     private function isCorrect($num){
-        return $this->age+$num<60;
+        if($num<=5) return true;
+        else return false;
     }
 }
 
-$one = new User;
-$one->age=20;
-$one->addAge(40);
-echo $one->age;
-
-$one->isCorrect(50);
+$one = new Student;
+$one->course=3;
+$one->transferToNextCourse();
+echo $one->course;
