@@ -1,14 +1,16 @@
 <?php
 
 
-class User{
+class Employee{
     public $name;
     public $age;
-    public function __construct($a, $b){
-        $this->name=$a;
-        $this->age=$b;
+    public $salary;
+    public function __construct($name, $age, $salary){
+        $this->name=$name;
+        $this->age=$age;
+        $this->salary=$salary;
     }
 }
 
-$one = new User('Den', 25);
-echo $one->name;
+$one = new Employee('Den', 35, 3000);
+echo $one->salary;
