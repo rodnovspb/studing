@@ -3,9 +3,12 @@
 
 class User{
     public $name;
-    public function __construct($var1, $var2){
-        echo $var1+$var2;
+    public $age;
+    public function __construct($a, $b){
+        $this->name=$a;
+        $this->age=$b;
     }
 }
 
-$one = new User(5,10);
+$one = new User('Den', 25);
+echo $one->name;
