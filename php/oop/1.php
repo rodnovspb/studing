@@ -4,12 +4,15 @@
 
 class User {
     public $name;
-    public function setName($str){
-        $this->name=$str;
+    public $age;
+    public function setAge($str){
+        if($str>=18) $this->age=$str;
     }
 }
 
 $one = new User;
 
-$one->setName('Den');
-echo $one->name;
+$one->age=25;
+$one->setAge(17);
+
+echo $one->age;
