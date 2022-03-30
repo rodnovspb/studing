@@ -2,24 +2,17 @@
 
 
 class User {
+    public $name;
     public $age;
-    public function setAge($num){
-       if($this->isAgeCorrect($num)) $this->age=$num;
-    }
     public function addAge($num){
-        if($this->isAgeCorrect($num)) $this->age=$num;
+        if($this->isCorrect($num)) $this->age+=$num;
     }
-    public function isAgeCorrect($age){
-        return ($age>18 and $age<60);
-    }
-    public function subAge($num){
-        if($this->isAgeCorrect($this->age-$num)) $this->age = $this->age-$num;
+    private function isCorrect($num){
+        return $this->age+$num<60;
     }
 }
 
 $one = new User;
-
-$one->addAge(59);
-$one->subAge(20);
+$one->age=20;
+$one->addAge(40);
 echo $one->age;
-
