@@ -13,4 +13,7 @@ class Employee{
 }
 
 $one = new Employee('Den', 35, 3000);
-echo $one->salary;
+$two = new Employee('Erich', 25, 1000);
+$three = new Employee('Olga', 35, 1000);
+
+echo $one->salary+$two->salary+$three->salary;
