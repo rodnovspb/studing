@@ -1,20 +1,14 @@
 <?php
 
 
-class Employee {
+
+class User {
     public $name;
-    public $age;
-    public $salary;
+    public function show(){
+        return $this->name;
+    }
 }
 
-$user1 = new Employee;
-$user1->name='Den';
-$user1->age=25;
-$user1->salary=1000;
-
-$user2 = new Employee;
-$user2->name='Erich';
-$user2->age=26;
-$user2->salary=2000;
-
-echo array_sum([$user1->age, $user2->age]);
+$one = new User;
+$one->name='Den';
+echo $one->show();
