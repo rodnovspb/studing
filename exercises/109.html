@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Документ</title>
+<style>
+
+
+</style>
+</head>
+<body>
+
+
+<button>Получить данные</button>
+<div></div>
+
+
+
+
+
+<script>
+
+  let btn = document.querySelector('button')
+  let div = document.querySelector('div')
+
+  // первый вариант
+  // btn.addEventListener('click', function () {
+  //     let request = fetch('107.html')
+  //     request.then(res=>{
+  //       if(res.status==200){
+  //         res.text().then(data=>{
+  //           div.innerHTML = data
+  //         })
+  //       }
+  //     }).catch(e=>{
+  //       console.log(e)
+  //     })
+  // })
+
+
+  // второй вариант
+
+  btn.addEventListener('click', async function f() {
+      try{
+      let request = await fetch('107.html');
+      if(request.status==200) {
+        let data = await request.text()
+        div.innerHTML = data
+      }}
+      catch (e) {
+        console.log(e)
+      }
+
+  })
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Документ</title>
+<style>
+
+
+</style>
+</head>
+<body>
+
+<input type="text">
+<button>Запросить</button>
+<div>Имя:</div>
+
+<script>
+  document.querySelector('button').addEventListener('click', function (){
+    let value = document.querySelector('input').value
+	get(value)
+  })
+
+  async function get(id) {
+    try {
+      let response = await fetch(`2.php?id=${id}`)
+	  if(response.status==200){
+	    let name = await response.json()
+		document.querySelector('div').innerHTML+=` ${name}`
+  }}
+  catch(e){
+	  console.log(e)
+    }
+  }
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

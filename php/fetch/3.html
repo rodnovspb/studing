@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Документ</title>
+<style>
+  .form-group {
+    margin-bottom: 10px;
+  }
+  .result {
+    display: none;
+  }
+
+  .error {
+    font-size: 0.8em;
+    color: #f00;
+  }
+
+  .form-success .result {
+    display: flex;
+  }
+
+  .wrapper {
+    margin-bottom: 30px;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 10px;
+  }
+  table, td, th {
+    border: 1px solid #dee2e6;
+    padding: 0.5rem;
+  }
+
+</style>
+</head>
+<body>
+
+ <div class="wrapper">
+   <form action="3.php" method="post" id="user">
+     <div class="form-group">
+       <label for="name">Введите имя </label><input type="text" id="name" name="name">
+       <div class="error"></div>
+       </div>
+     <div class="form-group">
+       <label for="mail">Введите почту </label><input type="text" id="mail" name="mail">
+       <div class="error"></div>
+     </div>
+     <button type="submit" class="submit">Отправить</button>
+   </form>
+   <div class="result">
+     <div class="result__text">Форма успешно отправлена</div>
+     <div class="result__ok"></div>
+     <button type="button" class="result__close">Хорошо</button>
+   </div>
+ </div>
+
+ <div class="users">
+   <button class="get-users" type="button">Получить список пользователей</button>
+   <table>
+     <thead>
+     <tr>
+       <th>№</th>
+       <th>Имя</th>
+       <th>Почта</th>
+     </tr>
+     </thead>
+     <tbody>
+     </tbody>
+   </table>
+ </div>
+
+
+
+<script>
+
+ document.querySelector('#user').addEventListener('submit', function (e){
+   e.preventDefault()
+   sendUser()
+ })
+
+ async function sendUser(){
+   try{
+     let response = await fetch(document.forms.user.action, {
+       method: 'POST',
+       body: new FormData(document.forms.user)
+     })
+     if(response.ok){
+       let data = await response.json()
+       document.querySelectorAll('.error').forEach(elem=>{
+         elem.textContent=''
+       })
+       if(data['result'] === 'error'){
+         let errors = data['error']
+         for(let[key, value] of Object.entries(errors)){
+            document.querySelector(`[name=${key}]`).nextElementSibling.textContent=value
+         }
+       } else {
+         document.forms.user.reset()
+         document.forms.user.closest('.wrapper').classList.add('form-success')
+       }
+     }
+   }
+   catch (e){
+     console.log(e)
+   }
+ }
+
+document.querySelector('.result__close').onclick = (e)=>{
+   e.target.closest('.wrapper').classList.toggle('form-success')
+}
+
+document.querySelector('.get-users').onclick = async ()=>{
+   try {
+     let response = await fetch('4.php')
+     if(response.ok){
+       let obj = await response.json()
+       let html='';
+       let i=1
+       for(let[mail, name] of Object.entries(obj)){
+         html +=`<tr><td>${i++}</td><td>${name}</td><td>${mail}</td></tr>`
+       }
+       document.querySelector('table tbody').innerHTML = html
+     }
+   }
+   catch (e){
+     console.log(e)
+   }
+}
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Документ</title>
+<style>
+  * {
+    box-sizing: border-box;
+  }
+  .container {
+    width: 300px;
+    height: 200px;
+    margin: 100px auto;
+    position: relative;
+  }
+
+  input {
+    border: 2px solid #BFE2FF;
+    padding: 8px 10px;
+    outline: none;
+
+  }
+
+  input:focus + label {
+    top: -8px;
+    font-size: 12px;
+    background-color: #BFE2FF;
+    padding: 1px 2px;
+  }
+
+  input:not(:placeholder-shown) + label{
+    top: -8px;
+    font-size: 12px;
+    background-color: #BFE2FF;
+    padding: 1px;
+  }
+
+
+  label {
+    font-family: Verdana;
+    position: absolute;
+    left: 10px;
+    top: 7px;
+    font-size: 16px;
+    pointer-events: none;
+    transition: all .1s linear;
+
+  }
+
+</style>
+</head>
+<body>
+
+
+<div class="container">
+  <input type="text" class="input" placeholder=" ">
+  <label>Фамилия</label>
+</div>
+
+
+
+
+
+
+<script>
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Документ</title>
+<style>
+ .modal {
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   z-index: -1;
+ }
+
+  .text {
+    width: 50%;
+    height: 20%;
+    box-shadow: 0 0 20px #43a2d9;
+    border: 6px solid #BFE2FF;
+    background-color: whitesmoke;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: text;
+    z-index: 2;
+    transform: scale(0);
+
+  }
+
+  .visible {
+    background-color: rgba(51, 122, 183, 0.7);
+    z-index: 1;
+    transition: background-color 0.2s linear;
+  }
+
+ .visible .text {
+   transform: scale(1);
+   transition: transform 0.3s linear;
+ }
+
+</style>
+</head>
+<body>
+
+
+
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam deserunt dolorum eaque eveniet nam quo repellat sed sit vero voluptatum.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam deserunt dolorum eaque eveniet nam quo repellat sed sit vero voluptatum.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam deserunt dolorum eaque eveniet nam quo repellat sed sit vero voluptatum.</p>
+<button class="btn">Открыть окно</button>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam deserunt dolorum eaque eveniet nam quo repellat sed sit vero voluptatum.</p>
+<div class="modal">
+  <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, molestias?</div>
+</div>
+<script>
+  document.querySelector('.btn').addEventListener('click', function () {
+    document.querySelector('.modal').classList.add('visible')
+  })
+
+  document.querySelector('.modal').addEventListener('click', function (e) {
+    if(e.target.className == 'modal visible')
+    document.querySelector('.modal').classList.remove('visible')
+  })
+</script>
+
+
+
+
+
+
+
+
+
+
+<script>
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

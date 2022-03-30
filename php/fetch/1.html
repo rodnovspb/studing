@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Документ</title>
+<style>
+.item {
+    display: flex;
+}
+
+</style>
+</head>
+<body>
+
+<input type="text" value="1">
+<button type="button" class="one">Вывести по id</button>
+<button type="button" class="all">Вывести всех</button>
+<div class="result"></div>
+
+
+
+
+<script>
+
+
+
+  async function get(id=-1){
+    try {
+		let request = await fetch(`1.php?id=${id}`)
+	  	if(request.status==200){
+	  	  let obj = await request.json()
+			let count = obj['count'];
+	  	  	let html=`<div>Найдено: ${count}</div>`
+		  	let data = obj['data'];
+	  	  	console.log(data)
+			for(let key in data){
+			  html+=`<div class="item">
+					<img src="${data[key]['url']}" alt="">
+					<div><p>Имя: ${data[key]['name']}</p>
+						 <p>Страна: ${data[key]['location']}</p>
+					</div>
+</div>`
+			}
+			document.querySelector('.result').innerHTML = html;
+		}
+    }
+    catch (e){``
+      console.log(e)
+	}
+  }
+
+  document.querySelector('.one').addEventListener('click', function (){
+		let num = parseInt(document.querySelector('input').value)
+  		get(num)
+  })
+
+  document.querySelector('.all').addEventListener('click', function (){
+    get()
+  })
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
