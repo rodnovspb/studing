@@ -16,3 +16,5 @@ $one = new User;
 $one->age=20;
 $one->addAge(40);
 echo $one->age;
+
+$one->isCorrect(50);
