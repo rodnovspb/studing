@@ -2,15 +2,18 @@
 
 
 
-class Employee {
-    public $name;
-    public $salary;
-    public function double(){
-        $this->salary**=2;
+class Rectangle{
+    public $width;
+    public $height;
+    public function getSquare(){
+        echo $this->height*$this->width;
+    }
+    public function getPer(){
+        echo ($this->width+$this->height)*2;
     }
 }
 
-$one = new Employee;
-$one->salary=25;
-$one->double();
-echo $one->salary;
+$one = new Rectangle;
+$one->height=20;
+$one->width=30;
+$one->getSquare();
