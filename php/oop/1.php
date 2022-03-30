@@ -2,31 +2,14 @@
 
 
 
-class Employee {
+class User {
     public $name;
-    public $age;
-    public $salary;
-    public function getName(){
-        return $this->name;
-    }
-    public function getAge(){
-        return $this->age;
-    }
-    public function getSalary(){
-        return $this->salary;
-    }
-    public function checkAge(){
-        return $this->age>18;
+    public function setName($str){
+        $this->name=$str;
     }
 }
 
-$one = new Employee;
+$one = new User;
 
-$one->salary=1000;
-$one->age=25;
-
-$two = new Employee;
-$two->salary=2000;
-$two->age=17;
-
-echo $one->salary + $two->salary;
+$one->setName('Den');
+echo $one->name;
