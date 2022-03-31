@@ -1,30 +1,19 @@
 <?php
-class User
-{
-    private $name;
-    private $age;
 
-    public function __construct($name, $age)
+
+class Numbers{
+    private $nums=[];
+    public function __construct($arr)
     {
-        $this->name = $name;
-        $this->age = $age;
+        $this->nums=$arr;
     }
-
-    public function getName()
-    {
-        return $this->name;
+    public function add($num){
+        $this->nums[]=$num;
     }
-
-    public function getAge()
-    {
-        return $this->age;
+    public function getSum(){
+        return array_sum($this->nums);
     }
 }
 
-$one=new User('Den', 35);
-$methods = ['method1' => 'getName', 'method2' => 'getAge'];
-
-echo $one->{$methods['method2']}();
-
-
+echo (new Numbers([1,2,3,4,5]))->getSum();
 
