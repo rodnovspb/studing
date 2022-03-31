@@ -1,23 +1,28 @@
 <?php
 
-class City {
-    public $name;
-    public $population;
-    public function __construct($name,$population)
+class Student {
+    private $name;
+    private $course;
+    public function __construct($name)
     {
         $this->name=$name;
-        $this->population=$population;
+        $this->course=1;
+    }
+    public function getName(){
+        return $this->name;
+    }
+    public function getCourse(){
+        return $this->course;
+    }
+    public function transferToNextCourse(){
+        if($this->isCorrect($this->course)) $this->course++;
+    }
+    private function isCorrect($num){
+        return $num<5;
     }
 }
 
-$one = new City('Moscow', 20000000);
-$two = new City('SPb', 8000000);
-$three = new City('Chlb', 1500000);
-$four = new City('Astrakh', 1000000);
-$five = new City('Krasn', 2000000);
-
-$arr=[$one, $two, $three, $four, $five];
-
-foreach ($arr as $elem){
-    echo "<p>$elem->name&nbsp;$elem->population</p>";
-}
+$one = new Student('Den');
+echo $one->getCourse();
+$one->transferToNextCourse();
+echo $one->getCourse();
