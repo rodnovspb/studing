@@ -1,27 +1,26 @@
 <?php
 
 
-class Employee {
+class User {
     private $name;
     private $age;
-    private $salary;
-    public function set($name, $age, $salary){
+    public function __construct($name, $age){
+        $this->age=$age;
         $this->name=$name;
-        if($this->isAgeCorrect($age)){
-            $this->age=$age;
-        }
-        $this->salary=$salary;
     }
-    public function get(){
-        $arr=['name'=>$this->name, 'age'=>$this->age, 'salary'=>$this->salary."$"];
-        return $arr;
+    public function getName(){
+        return $this->name;
     }
-    private function isAgeCorrect($num){
-        return $num>=1 and $num<=100;
+    public function setAge($num){
+        $this->age=$num;
+    }
+    public function getAge(){
+        return $this->age;
     }
 }
 
-$one=new Employee;
-$one->set('Den', 55, 3000);
+$one = new User('Den', 35);
 
-print_r($one->get());
+echo $one->getName();
+$one->setAge(36);
+echo $one->getAge();
