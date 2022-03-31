@@ -1,23 +1,21 @@
 <?php
 
-class Arr{
-    private $numbers=[];
-    public function add($arr){
-        $this->numbers = array_merge($this->numbers, $arr);
-    }
-    public function get(){
-        echo "<pre>";
-        print_r($this->numbers);
-        echo "</pre>";
-    }
-    public function getAvg(){
-        return array_sum($this->numbers)/count($this->numbers);
+
+
+class City {
+    public $name;
+    public $foundation;
+    public $population;
+    public function __construct($name, $foundation, $population)
+    {
+        $this->name=$name;
+        $this->foundation=$foundation;
+        $this->population=$population;
     }
 }
 
-$one = new Arr;
-$one->add([1,2,3,4]);
-$one->add([1,2,3,4]);
-$one->get();
-
-echo $one->getAvg();
+$one=new City('Moscow', 1235, '20 bil');
+$props=['name', 'foundation', 'population'];
+foreach ($props as $prop){
+    echo $one->$prop;
+}
