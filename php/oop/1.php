@@ -1,13 +1,15 @@
 <?php
 
-class Student {
-    private $name;
-    private $course = 1;
-    public function __construct($name)
-    {
-        $this->name=$name;
+class Arr{
+    private $numbers=[];
+    public function add($num){
+        $this->numbers[]=$num;
     }
-    public function transfer(){
-        $this->course++;
+    public function sum(){
+        return array_sum($this->numbers);
     }
 }
+
+$one = new Arr;
+
+echo $one->sum();
