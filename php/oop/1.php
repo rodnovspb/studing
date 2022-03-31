@@ -23,7 +23,10 @@ class Test{
     {
         $this->value=$value;
     }
+    public function get(){
+        return $this->value;
+    }
 }
 
 $two = new Test('population');
-echo $one->{$two->value};
+echo $one->{$two->get()};
