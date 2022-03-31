@@ -1,25 +1,23 @@
 <?php
 
-
-class Numbers{
-    private $nums=[];
-    public function __construct($arr)
-    {
-        $this->nums=$arr;
+class sumHelper{
+    public function getSum1($arr){
+        return $this->getSum($arr, 1);
     }
-    public function add($num){
-        $this->nums[]=$num;
-        return $this;
+    public function getSum2($arr){
+        return $this->getSum($arr, 2);
     }
-    public function getSum(){
-        return array_sum($this->nums);
-    }
-    public function push($arr){
-        $this->nums=array_merge($this->nums, $arr);
-        return $this;
+    private function getSum($arr, $pow){
+        $sum=0;
+        foreach ($arr as $item){
+            $sum+=pow($item, $pow);
+        }
+        return $sum;
     }
 }
 
-$one=new Numbers([1,2,3]);
+$one = new sumHelper;
 
-echo $one->add(7)->add(8)->push([4,5,8,6,7])->add(9)->getSum();
+echo $one->getSum2([2,3,4]);
+
+
