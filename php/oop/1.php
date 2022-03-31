@@ -15,5 +15,5 @@ class Numbers{
     }
 }
 
-echo (new Numbers([1,2,3,4,5]))->getSum();
+echo (new Numbers([1,2,3,4,5]))->getSum()+(new Numbers([7,6,4,8]))->getSum();
 
