@@ -15,7 +15,6 @@ class City {
 }
 
 $one=new City('Moscow', 1235, '20 bil');
-$props=['name', 'foundation', 'population'];
-foreach ($props as $prop){
-    echo $one->$prop;
-}
+$props=['elem1'=>'name', 'foundation', 'population'];
+
+echo $one->{$props['elem1']};
