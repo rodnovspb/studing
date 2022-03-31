@@ -17,4 +17,13 @@ class City {
 $one=new City('Moscow', 1235, '20 bil');
 $props=['elem1'=>'name', 'foundation', 'population'];
 
-echo $one->{$props['elem1']};
+class Test{
+    public $value;
+    public function __construct($value)
+    {
+        $this->value=$value;
+    }
+}
+
+$two = new Test('population');
+echo $one->{$two->value};
