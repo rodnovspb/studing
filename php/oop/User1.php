@@ -1,6 +1,6 @@
 <?php
 
-class User {
+class User1 {
     private $name;
     private $age;
     public function __construct($name, $age)

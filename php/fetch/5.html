@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Документ</title>
+<style>
+
+
+</style>
+</head>
+<body>
+
+
+<form action="5.php" id="form">
+  <label for="name">Ваше имя<input type="text" name="name" id="name"></label>
+  <textarea name="textarea" id="" cols="30" rows="5" placeholder="Введите сообщение"></textarea>
+  <button type="submit">Отправить</button>
+</form>
+
+<div class="elem1">Получено имя <span></span></div>
+<div class="elem2">Получен текст <span></span></div>
+
+
+
+
+<script>
+
+  document.forms.form.addEventListener('submit', async function (e){
+    try {
+      e.preventDefault()
+      let formData = new FormData(this)
+      let request = await fetch(this.action, {
+        method: "POST",
+        body: formData
+      })
+      if(request.ok){
+        let obj = await request.json()
+        document.querySelector('.elem1 span').innerHTML=obj.name
+        document.querySelector('.elem2 span').innerHTML=obj.textarea
+      }
+
+      }
+    catch (e){
+      console.log(e)
+    }
+
+  })
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

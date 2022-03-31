@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+
+<form action="" method="post" id="form">
+  <input type="file" name="file">
+  <input type="submit">
+</form>
+
+
+
+<script>
+
+document.forms.form.addEventListener('submit', async function (e){
+  try {
+    e.preventDefault()
+    let formData = new FormData(this)
+    let request = await fetch('6.php', {
+      method: 'POST',
+      body: formData
+    })
+
+    let res = await request.json()
+    console.log(res)
+
+  } catch (e){
+    console.log(e)
+  }
+})
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
