@@ -13,7 +13,7 @@ class Employee {
         $this->salary=$salary;
     }
     public function get(){
-        $arr=['name'=>$this->name, 'age'=>$this->age, 'salary'=>$this->salary];
+        $arr=['name'=>$this->name, 'age'=>$this->age, 'salary'=>$this->salary."$"];
         return $arr;
     }
     private function isAgeCorrect($num){
