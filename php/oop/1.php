@@ -1,13 +1,13 @@
 <?php
 
-class User{
+class Employee{
     private $name;
     private $age;
-    public function setName($name){
-        $this->name=$name;
+    public function setName($var){
+        $this->name=$var;
     }
-    public function setAge($age){
-        $this->age=$age;
+    public function setAge($var){
+        $this->age=$var;
     }
     public function getName(){
         return $this->name;
@@ -17,51 +17,35 @@ class User{
     }
 }
 
-class Employee extends User{
-    private $salary;
-    public function setSalary($num){
-        $this->salary=$num;
+class Programmer extends Employee {
+    private $langs;
+    public function setLangs($arr){
+        $this->langs=$arr;
     }
-    public function getSalary(){
-        return $this->salary;
+    public function getLangs(){
+        return $this->langs;
+    }
+}
+class Driver extends Employee{
+    private $experience;
+    private $cat;
+    public function setExp($var){
+        $this->experience=$var;
+    }
+    public function setCat($var){
+        $this->cat=$var;
+    }
+    public function getExp(){
+        return $this->experience;
+    }
+    public function getCat(){
+        return $this->cat;
     }
 }
 
-$one=new Employee;
-$one->setName('Den');
-$one->setAge(35);
-$one->setSalary(5000);
+$man = new Driver;
+$man->setName('Lenya');
+$man->setCat(5);
 
-echo $one->getName()."<br>";
-echo $one->getAge()."<br>";
-echo $one->getSalary()."<br>";
-
-class Student extends User {
-    private $course;
-    public function setCourse($num){
-        $this->course=$num;
-    }
-    public function getCourse(){
-        return $this->course;
-    }
-}
-
-$two = new Student;
-$two->setName('Olya');
-echo $two->getName();
-$two->setCourse(5);
-echo $two->getCourse();
-
-class StudentRussia extends Student {
-    private $nationality;
-    public function setNat($num){
-        $this->nationality=$num;
-    }
-    public function getNat(){
-        return $this->nationality;
-    }
-}
-
-$three = new StudentRussia;
-$three->setName('Vasya');
-echo $three->getName();
+echo $man->getName();
+echo $man->getCat();
