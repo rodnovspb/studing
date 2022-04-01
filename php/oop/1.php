@@ -36,3 +36,32 @@ echo $one->getName()."<br>";
 echo $one->getAge()."<br>";
 echo $one->getSalary()."<br>";
 
+class Student extends User {
+    private $course;
+    public function setCourse($num){
+        $this->course=$num;
+    }
+    public function getCourse(){
+        return $this->course;
+    }
+}
+
+$two = new Student;
+$two->setName('Olya');
+echo $two->getName();
+$two->setCourse(5);
+echo $two->getCourse();
+
+class StudentRussia extends Student {
+    private $nationality;
+    public function setNat($num){
+        $this->nationality=$num;
+    }
+    public function getNat(){
+        return $this->nationality;
+    }
+}
+
+$three = new StudentRussia;
+$three->setName('Vasya');
+echo $three->getName();
