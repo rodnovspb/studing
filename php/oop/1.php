@@ -70,6 +70,6 @@ class ArraySumHelper
 }
 
 $helper = new ArraySumHelper;
-echo $helper->getAvg2([4,9,16]);
+echo $helper->getAvg4([256]);
 
 
