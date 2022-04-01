@@ -1,22 +1,16 @@
 <?php
 
-class User{
-    protected $name;
-    protected function setName($var){
-        $this->name=$var;
-    }
-    protected function getName(){
-        return $this->name;
+class User {
+    protected $name='111';
+}
+
+class One extends User {
+    public $two;
+    public function setTwo(){
+        $this->two=$this->name;
     }
 }
 
-class Driver extends User {
-
-
-}
-
-$one = new Driver;
-$one->setItem('QWQEWQE');
-$one->getItem();
-
-
+$qwerty = new One;
+$qwerty->setTwo();
+echo $qwerty->two;
