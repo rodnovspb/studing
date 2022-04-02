@@ -1018,6 +1018,31 @@ ul, ol {
 
 
 /*Медиа*/
+@media (max-width: 991px){
+    .section__title {
+        text-align: center;
+    }
+    .section--map {
+        background-position: top 130px center;
+    }
+    .services__item {
+        width: 50%;
+    }
+    .clients__list {
+        justify-content: center;
+    }
+    .clients__logos {
+        margin-bottom: 50px;
+    }
+    .clients {
+        margin-bottom: 30px;
+        flex-direction: column;
+    }
+    .clients__logos,
+    .clients__reviews {
+        width: 100%;
+    }
+}
 
 @media (max-width: 767px) {
     /*header*/
@@ -1079,6 +1104,28 @@ ul, ol {
     .intro__title {
         font-size: 90px;
     }
+    .intro {
+        margin-bottom: 0;
+    }
+    .clients {
+        flex-direction: column;
+    }
+    .clients__logos,
+    .clients__reviews {
+        width: 100%;
+    }
+    .clients__list {
+        margin: 0 -15px;
+    }
+    .clients__list li {
+        width: 33%;
+        margin-right: 0;
+        padding: 0 15px;
+
+    }
+    .clients__list-logo {
+        margin: 0 auto;
+    }
 }
 @media (max-width: 575px) {
     .intro__title {
@@ -1089,6 +1136,18 @@ ul, ol {
         left: 50%;
         transform: translate3d(-50%, -50%, 0);
         font-size: 90px;
+    }
+    .services__item {
+        width: 100%;
+    }
+    .services__main-title {
+        font-size: 60px;
+    }
+    .section {
+        padding: 30px 0;
+    }
+    .section__title {
+        font-size: 35px;
     }
 }
 

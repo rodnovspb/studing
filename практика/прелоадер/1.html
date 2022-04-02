@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .preloader {
+      background-color: #e0e0e0;
+      position: fixed;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      z-index: 1000;
+    }
+    .preloader__row {
+      position: relative;
+      width: 70px;
+      height: 70px;
+      top: 50%;
+      left: 50%;
+      margin-left: -35px;
+      margin-top: -35px;
+      text-align: center;
+      animation: rotate 1.5s infinite linear;
+    }
+    .preloader__item {
+      width: 35px;
+      height: 35px;
+      background-color: #337ab7;
+      border-radius: 50%;
+      position: absolute;
+      /*display: inline-block;*/
+      top: 0;
+      animation: scale 2s infinite ease-in-out;
+    }
+    .preloader__item:last-child {
+      top: auto;
+      bottom: 0;
+      right: 0;
+      animation-delay: -1s;
+    }
+
+    @keyframes rotate {
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes scale {
+      0% {
+        transform: scale(0);
+      }
+      50% {
+        transform: scale(1);
+      }
+      100% {
+        transform: scale(0);
+      }
+    }
+    .hiding {
+      transition: 4s opacity ease-in;
+      opacity: 0;
+    }
+    .none {
+      display: none;
+    }
+
+
+  </style>
+</head>
+<body>
+
+<div class="preloader">
+  <div class="preloader__row">
+    <div class="preloader__item"></div>
+    <div class="preloader__item"></div>
+  </div>
+</div>
+
+
+
+
+
+
+<script>
+
+
+    window.addEventListener('load', function () {
+      document.querySelector('.preloader').classList.add('hiding')
+      setTimeout(function () {
+        document.querySelector('.preloader').classList.add('none')
+        document.querySelector('.preloader').classList.remove('hiding')
+      }, 5000)
+    })
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

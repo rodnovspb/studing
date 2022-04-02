@@ -7,7 +7,7 @@
 <body>
 
 
-
+<input type="file" multiple name="file[]">
 
 
 
@@ -15,13 +15,11 @@
 
 <script>
 
+  document.querySelector('input').addEventListener('change', function () {
+    let files = document.querySelector('input').files
+    console.log(files[0].getAsDataURL)
+  })
 
-let personData = '{"name":"Иван","age":37,"mother":{"name":"Ольга","age":58},"children":["Маша","Игорь","Таня"],"married": true,"dog": null}';
-
-let obj=JSON.parse(personData)
-
-
-    console.log(Math)
 
 
 
