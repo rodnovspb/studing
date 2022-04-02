@@ -1,30 +1,46 @@
 <?php
 class User {
     private $name;
-    private  $age;
-    public function __construct($name, $age)
+    private $surname;
+    private $burthday;
+    private $age;
+    public function __construct($name, $surname, $burthday)
     {
-       $this->name=$name;
-       $this->age=$age;
+        $this->name=$name;
+        $this->surname=$surname;
+        if(preg_match('/^(\d{4}|\d{2})-(\d{2}|\d)-(\d{2}|\d)$/', $burthday)) {
+            $this->burthday = $burthday;
+        }
+        $this->age=$this->calculateAge($this->burthday);
     }
     public function getName(){
         return $this->name;
     }
+    public function getSurname(){
+        return $this->surname;
+    }
+    public function getBirth(){
+        return $this->burthday;
+    }
     public function getAge(){
         return $this->age;
     }
-}
-
-class Student extends User {
-    private $course;
-    public function __construct($name, $age, $course)
-    {
-        parent::__construct($name, $age);
-        $this->course=$course;
-    }
-    public function getCourse(){
-        return $this->course;
+    private function calculateAge($var){
+        $now = time();
+        return floor(($now-strtotime($var))/60/60/24/360);
     }
 }
 
-$student = new Student('john', 19, 2);
+class Employee extends User{
+    private $salary;
+    public function __construct($name, $surname, $burthday, $salary){
+        parent::__construct($name, $surname, $burthday);
+        $this->salary = $salary;
+    }
+    public function getSalary(){
+        return $this->salary;
+    }
+}
+
+$one=new Employee('Den', "ew", '1986-10-14', 3000);
+echo $one->getSalary();
