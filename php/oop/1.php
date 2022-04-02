@@ -1,32 +1,30 @@
 <?php
 class User {
     private $name;
-    private $age;
-    public function setName($var){
-        if(strlen($var)>3) $this->name=$var;
-    }
-    public function setAge($var){
-        if($var>17) $this->age=$var;
+    private  $age;
+    public function __construct($name, $age)
+    {
+       $this->name=$name;
+       $this->age=$age;
     }
     public function getName(){
-        echo $this->name;
+        return $this->name;
     }
     public function getAge(){
-        echo $this->age;
+        return $this->age;
     }
 }
 
 class Student extends User {
-    public function setAge($var)
+    private $course;
+    public function __construct($name, $age, $course)
     {
-        if($var<=25) parent::setAge($var);
+        parent::__construct($name, $age);
+        $this->course=$course;
     }
-    public function setName($var)
-    {
-       if(strlen($var)<10) parent::setName($var);
+    public function getCourse(){
+        return $this->course;
     }
 }
 
-$one = new Student;
-$one->setName('qqwwwwwwwwwq');
-echo $one->getName();
+$student = new Student('john', 19, 2);
