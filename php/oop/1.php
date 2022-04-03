@@ -1,28 +1,29 @@
 <?php
-class User
-{
-    private $name;
-    private $age;
+function compare($obj1, $obj2){
+    return $obj1 == $obj2;
+}
+function compareExact($obj1, $obj2){
+    return $obj1 === $obj2;
+}
 
+function compareAll($obj1, $obj2){
+    if($obj1 === $obj2) return 1;
+    elseif ($obj1 == $obj2) return 0;
+    else return -1;
+}
+
+class User {
+    public $name;
+    public $age;
     public function __construct($name, $age)
     {
-        $this->name = $name;
-        $this->age  = $age;
-    }
-
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    public function getAge()
-    {
-        return $this->age;
+        $this->name=$name;
+        $this->age=$age;
     }
 }
 
-$user1 = new User('Den', 35);
-$user2 = new User('Den', '35');
-$user3 = $user1;
+$one = new User('Den', 35);
+$two = new User('Den', 35);
+$three = $two;
 
-var_dump($user1==$user2);
+echo compareAll($three, $two);
