@@ -1,79 +1,65 @@
 <?php
-
-class Arr {
-    private $nums=[];
-    public $sumHelper;
-    public $avgHelper;
-    public function add($var){
-        $this->nums[]=$var;
-    }
-    public function __construct()
+class Product {
+    private $name;
+    private $price;
+    private $quantity;
+    public function __construct($name, $price, $quantity)
     {
-        $this->sumHelper=new SumHelper;
-        $this->avgHelper = new AvgHelper;
-
+        $this->name=$name;
+        $this->price=$price;
+        $this->quantity=$quantity;
     }
-    public function getSum23(){
-        $arr=$this->nums;
-        return $this->sumHelper->getSum2($arr) + $this->sumHelper->getSum3($arr);
+    public function getName(){
+        return $this->name;
     }
-    public function getNums(){
-        return $this->nums;
+    public function getPrice(){
+        return $this->price;
     }
-    public function getAvgMeanSum(){
-        return $this->avgHelper->getAvg($this->getNums()) + $this->avgHelper->getMeanSquare($this->nums);
+    public function getQuantity(){
+        return $this->quantity;
+    }
+    public function getCost(){
+        return $this->quantity*$this->price;
     }
 }
-
-
-class SumHelper {
-    public function getSum2($arr){
-        return $this->getSum($arr, 2);
+class Cart {
+    private $products=[];
+    public function getProducts(){
+        return $this->products;
     }
-    public function getSum3($arr){
-        return $this->getSum($arr, 3);
+    public function add($prod){
+        $this->products[] = $prod;
     }
-    private function getSum($arr, $pow){
-        $sum=0;
-        foreach ($arr as $elem){
-            $sum+=$elem**$pow;
+    public function remove($nameOfProd){
+        $count = count($this->products);
+        for($i=0; $i<$count; $i++){
+            if($this->products[$i]->getName() == $nameOfProd){
+                unset($this->products[$i]);
+            }
+        }
+    }
+    public function getTotalCost(){
+        $sum = 0;
+        foreach ($this->products as $item){
+            $sum+=$item->getCost();
         }
         return $sum;
     }
-}
-class AvgHelper {
-    private $getSquare;
-    public function getAvg($arr){
-        return array_sum($arr)/count($arr);
+    public function getTotalQuantity(){
+        $sum=0;
+        foreach ($this->getProducts() as $item){
+            $sum+=$item->getQuantity();
+        }
+        return $sum;
     }
-    public function getMeanSquare($arr){
-        return pow($this->getSquare->getSum2($arr)/count($arr), 1/2);
+    public function getAvgPrice(){
+        return $this->getTotalCost()/$this->getTotalQuantity();
     }
-    public function __construct()
-    {
-        $this->getSquare=new sumHelper;
-    }
-
 }
 
-$one = new Arr;
-$one->add(2);
-$one->add(3);
+$one = new Cart;
+$one->add(new Product('Соль', 10, 20));
+$one->add(new Product('Сахар', 20, 30));
+$one->add(new Product('Перец', 30, 40));
 
-
-
-
-echo "среднее арифметическое " . $one->avgHelper->getAvg($one->getNums());
-echo "<br>";
-echo "среднее квадратическое " . $one->avgHelper->getMeanSquare($one->getNums());
-echo "<br>";
-echo $one->getAvgMeanSum();
-
-//Добавьте в класс Arr метод getAvgMeanSum, который будет находить сумму среднего арифметического и среднего квадратичного из массива $this->nums.
-
-
-//квадратный корень, извлеченный из суммы квадратов элементов, деленной на количество)
-
-//средквадр  (4+9)/2 = 7,5  => 2,54
-
-//сред ариф 2,5
+echo $one->getTotalQuantity();
