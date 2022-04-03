@@ -1,51 +1,35 @@
 <?php
-class Employee
-{
-    private $name;
-    private $salary;
 
+class Employee {
+    public $name;
+    public $salary;
     public function __construct($name, $salary)
     {
-        $this->name = $name;
-        $this->salary = $salary;
-    }
-
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    public function getSalary()
-    {
-        return $this->salary;
+        $this->name=$name;
+        $this->salary=$salary;
     }
 }
 
-class EmployeesCollection {
-    private $employees = [];
-    public function add($var){
-        if(!($this->isExist($var, $this->employees))){
-            $this->employees[]=$var;
-        };
-    }
-    public function get(){
-        return $this->employees;
-    }
-    private function isExist($newVar, $vars){
-        foreach ($vars as $var){
-            if(in_array($newVar, $vars)) return true;
-        }
-        return false;
+class Student {
+    public $name;
+    public $scholarship;
+    public function __construct($name, $scholarship)
+    {
+        $this->name=$name;
+        $this->scholarship=$scholarship;
     }
 }
 
-$collection = new EmployeesCollection;
+$arr =[new Employee('asd', 10), new Student('dasd', 24), new Employee('asd', 10), new Student('dasd', 14), new
+Employee('ased', 10), new Student('dasrd', 24)];
 
-$collection->add(new Employee('Den', 3000));
-$collection->add(new Employee('Den', 3000));
-$collection->add(new Employee('Den', 3000));
+$sumEm = 0;
+$sumSt = 0;
+foreach ($arr as $item){
+    $item instanceof Employee ? $sumEm+=$item->salary: $sumEm+=0;
+    $item instanceof Student ? $sumSt+=$item->scholarship: $sumSt+=0;
+}
 
-
-echo "<pre>";
-print_r($collection->get());
-echo "</pre>";
+echo '$sumEm='.$sumEm;
+echo "<br>";
+echo '$sumSt='.$sumSt;
