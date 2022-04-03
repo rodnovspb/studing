@@ -1,44 +1,79 @@
 <?php
 
-class User {
-    public $name;
-    public $surname;
-    public function __construct($name, $surname)
+class Employee
+{
+    private $name;
+    private $salary;
+
+    public function __construct($name, $salary)
     {
-        $this->name=$name;
-        $this->surname=$surname;
+        $this->name = $name;
+        $this->salary = $salary;
+    }
+
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    public function getSalary()
+    {
+        return $this->salary;
     }
 }
 
-class Employee extends User {
-    public $salary;
-    public function __construct($name, $surname,  $salary)
+class Student
+{
+    private $name;
+    private $scholarship; // стипендия
+
+    public function __construct($name, $scholarship)
     {
-       parent::__construct($name, $surname);
-       $this->salary=$salary;
+        $this->name = $name;
+        $this->scholarship = $scholarship;
     }
-}
-class City {
-    public $name;
-    public $population;
-    public function __construct($name, $population)
+
+    public function getName()
     {
-        $this->name=$name;
-        $this->population=$population;
+        return $this->name;
+    }
+
+    public function getScholarship()
+    {
+        return $this->scholarship;
     }
 }
 
-$one = new User('Den', 'Rodnov');
-$one1 = new User('Denis', 'Rodnovskiy');
-$one2 = new User('Denya', 'Rodnovanin');
-$two = new Employee('Sema', 'Dunin', 3000);
-$two1 = new Employee('Semad', 'Duninr', 4000);
-$two2 = new Employee('Semas', 'Duninq', 5000);
-$three = new City('Mosq', 5000);
-$three1 = new City('Dfds', 5500);
-$three2 = new City('Werx', 300);
-$arr = [$one, $one2, $two1, $three, $three2, $one1, $two, $two2, $three1];
-
-foreach ($arr as $item){
-    if($item instanceof User and !($item instanceof Employee)) echo $item->name . "<br>";
+class UsersCollection {
+    private $employee=[];
+    private $students=[];
+    public function add($var){
+        if($var instanceof Employee) $this->employee[]=$var;
+        if($var instanceof Student) $this->students[]=$var;
+    }
+    public function getSalary(){
+        $sum=0;
+        foreach ($this->employee as $item){
+            $sum+=$item->getSalary();
+        }
+        return $sum;
+    }
+    public function getScholarship(){
+        $sum=0;
+        foreach ($this->students as $item){
+            $sum+=$item->getScholarship();
+        }
+        return $sum;
+    }
+    public function getTotalMoney(){
+        return $this->getScholarship() + $this->getSalary();
+    }
 }
+
+$one = new UsersCollection;
+$one->add(new Employee('dasd', 10));
+$one->add(new Employee('dasd', 20));
+$one->add(new Student('das', 40));
+$one->add(new Student('daas', 30));
+
+echo $one->getTotalMoney();
