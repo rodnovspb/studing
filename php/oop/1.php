@@ -1,35 +1,44 @@
 <?php
 
-class Employee {
+class User {
     public $name;
+    public $surname;
+    public function __construct($name, $surname)
+    {
+        $this->name=$name;
+        $this->surname=$surname;
+    }
+}
+
+class Employee extends User {
     public $salary;
-    public function __construct($name, $salary)
+    public function __construct($name, $surname,  $salary)
     {
-        $this->name=$name;
-        $this->salary=$salary;
+       parent::__construct($name, $surname);
+       $this->salary=$salary;
     }
 }
-
-class Student {
+class City {
     public $name;
-    public $scholarship;
-    public function __construct($name, $scholarship)
+    public $population;
+    public function __construct($name, $population)
     {
         $this->name=$name;
-        $this->scholarship=$scholarship;
+        $this->population=$population;
     }
 }
 
-$arr =[new Employee('asd', 10), new Student('dasd', 24), new Employee('asd', 10), new Student('dasd', 14), new
-Employee('ased', 10), new Student('dasrd', 24)];
+$one = new User('Den', 'Rodnov');
+$one1 = new User('Denis', 'Rodnovskiy');
+$one2 = new User('Denya', 'Rodnovanin');
+$two = new Employee('Sema', 'Dunin', 3000);
+$two1 = new Employee('Semad', 'Duninr', 4000);
+$two2 = new Employee('Semas', 'Duninq', 5000);
+$three = new City('Mosq', 5000);
+$three1 = new City('Dfds', 5500);
+$three2 = new City('Werx', 300);
+$arr = [$one, $one2, $two1, $three, $three2, $one1, $two, $two2, $three1];
 
-$sumEm = 0;
-$sumSt = 0;
 foreach ($arr as $item){
-    $item instanceof Employee ? $sumEm+=$item->salary: $sumEm+=0;
-    $item instanceof Student ? $sumSt+=$item->scholarship: $sumSt+=0;
+    if($item instanceof User and !($item instanceof Employee)) echo $item->name . "<br>";
 }
-
-echo '$sumEm='.$sumEm;
-echo "<br>";
-echo '$sumSt='.$sumSt;
