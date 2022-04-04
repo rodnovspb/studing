@@ -1,12 +1,38 @@
 <?php
 
-class Math {
-    public static function getSum($var1, $var2){
-        return $var1+$var2;
+class ArraySumHelper
+{
+    public static function getSum1($arr)
+    {
+        return self::getSum($arr, 1);
     }
-    public static function getDoubleSum($var1, $var2){
-        echo 2*self::getSum($var1, $var2);
+
+    public static function getSum2($arr)
+    {
+        return self::getSum($arr, 2);
+    }
+
+    public static function getSum3($arr)
+    {
+        return self::getSum($arr, 3);
+    }
+
+    public static function getSum4($arr)
+    {
+        return self::getSum($arr, 4);
+    }
+
+    private static function getSum($arr, $power) {
+        $sum = 0;
+
+        foreach ($arr as $elem) {
+            $sum += pow($elem, $power);
+        }
+
+        return $sum;
     }
 }
 
-Math::getDoubleSum(1,2);
+$arr = [1,2,3];
+
+echo ArraySumHelper::getSum2($arr);
