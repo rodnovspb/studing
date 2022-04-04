@@ -1,20 +1,15 @@
 <?php
 
-class Circle {
-    const PI=3.14;
-    private $radius;
-    public function __construct($radius)
+class User {
+    public $name;
+    public function __construct($name)
     {
-        $this->radius=$radius;
+        $this->name=$name;
     }
-    public function getSquare(){
-        return self::PI*$this->radius**2;
-    }
-    public function getLength(){
-        return self::PI*$this->radius*2;
+    public function getClass(){
+        return get_class($this);
     }
 }
 
-$one = new Circle(10);
-echo $one->getSquare();
-echo $one->getLength();
+$one = new User('dasd');
+echo get_class($one);
