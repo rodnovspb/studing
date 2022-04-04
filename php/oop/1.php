@@ -1,20 +1,12 @@
 <?php
 
-class Test {
-    public function method1 (){
-        echo '1';
-    }
-    public function method2 (){
-        echo '2';
-    }
-    public function method3 (){
-        echo '3';
-    }
+class User {
+    public $name='1';
+    public $name1='2';
+    public $name2;
+    private $name3=5;
 }
 
-$one = new Test;
-
-$arr = get_class_methods($one);
-foreach ($arr as $item){
-    $one->$item();
-}
+echo '<pre>';
+print_r(get_class_vars(User));
+echo '</pre>';
