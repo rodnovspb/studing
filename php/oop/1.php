@@ -1,12 +1,16 @@
 <?php
 
-class User {
-    public $name='1';
-    public $name1='2';
-    public $name2;
-    private $name3=5;
+class Test {
+    public $prop1;
+    public $prop2;
+    private $prop3;
+    private $prop4;
+    public $vars=[];
+    function __construct()
+    {
+        $this->vars=array_merge(get_class_vars(get_class($this)));
+    }
 }
 
-echo '<pre>';
-print_r(get_class_vars(User));
-echo '</pre>';
+$one = new Test;
+var_dump($one->vars);
