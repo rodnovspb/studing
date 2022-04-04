@@ -1,79 +1,59 @@
 <?php
 
-class Employee
-{
+class Post {
     private $name;
     private $salary;
-
     public function __construct($name, $salary)
     {
-        $this->name = $name;
-        $this->salary = $salary;
+        $this->name=$name;
+        $this->salary=$salary;
     }
-
-    public function getName()
-    {
+    public function getName1(){
         return $this->name;
     }
-
-    public function getSalary()
-    {
+    public function getSalary(){
         return $this->salary;
     }
 }
 
-class Student
-{
-    private $name;
-    private $scholarship; // стипендия
-
-    public function __construct($name, $scholarship)
+class Employee{
+    public $name;
+    public $surname;
+    public $post;
+    public function __construct($name, $surname, Post $var)
     {
-        $this->name = $name;
-        $this->scholarship = $scholarship;
+        $this->name=$name;
+        $this->surname=$surname;
+        $this->post=$var;
     }
-
-    public function getName()
-    {
+    public function getName(){
         return $this->name;
     }
-
-    public function getScholarship()
-    {
-        return $this->scholarship;
+    public function getSurname(){
+        return $this->surname;
+    }
+    public function setName($var){
+        $this->name=$var;
+    }
+    public function setSurname($var){
+        $this->surname=$var;
+    }
+    public function changePost(Post $var){
+        $this->post=$var;
     }
 }
 
-class UsersCollection {
-    private $employee=[];
-    private $students=[];
-    public function add($var){
-        if($var instanceof Employee) $this->employee[]=$var;
-        if($var instanceof Student) $this->students[]=$var;
-    }
-    public function getSalary(){
-        $sum=0;
-        foreach ($this->employee as $item){
-            $sum+=$item->getSalary();
-        }
-        return $sum;
-    }
-    public function getScholarship(){
-        $sum=0;
-        foreach ($this->students as $item){
-            $sum+=$item->getScholarship();
-        }
-        return $sum;
-    }
-    public function getTotalMoney(){
-        return $this->getScholarship() + $this->getSalary();
-    }
-}
+$programmer = new Post('Программист', 4000);
+$manager = new Post('Менеджер', 3000);
+$driver = new Post('Водитель', 4500);
 
-$one = new UsersCollection;
-$one->add(new Employee('dasd', 10));
-$one->add(new Employee('dasd', 20));
-$one->add(new Student('das', 40));
-$one->add(new Student('daas', 30));
+$man = new Employee('Den', 'Ronin', $programmer);
+$man->changePost($manager);
 
-echo $one->getTotalMoney();
+echo $man->name;
+echo "<br>";
+echo $man->surname;
+echo "<br>";
+echo $man->post->getName1();
+echo "<br>";
+echo $man->post->getSalary();
