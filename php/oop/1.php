@@ -1,14 +1,20 @@
 <?php
 
-class User
-{
-    const MESSAGE = "privet";
-    public function getCon(){
-        echo self::MESSAGE;
+class Circle {
+    const PI=3.14;
+    private $radius;
+    public function __construct($radius)
+    {
+        $this->radius=$radius;
+    }
+    public function getSquare(){
+        return self::PI*$this->radius**2;
+    }
+    public function getLength(){
+        return self::PI*$this->radius*2;
     }
 }
 
-echo User::MESSAGE;
-
-$one = new User;
-$one->getCon();
+$one = new Circle(1);
+echo $one->getSquare();
+echo $one->getLength();
