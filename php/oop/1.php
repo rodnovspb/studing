@@ -1,12 +1,14 @@
 <?php
 
-class Test {
-    public static $prop='qwe';
-    public $elem;
-    public static function f(){
-        echo self::$prop;
+class User
+{
+    const MESSAGE = "privet";
+    public function getCon(){
+        echo self::MESSAGE;
     }
 }
 
-$a = new Test;
-$a::f();
+echo User::MESSAGE;
+
+$one = new User;
+$one->getCon();
