@@ -7,20 +7,26 @@
 <body>
 
 
-
-
-
-
+<label>Первое число <input type="text" class="elem1"></label>
+<label>Второе число <input type="text" class="elem2"></label>
+<button class="multiply">Умножить</button>
+<button class="divis">Делить</button>
+<div class="response"></div>
 
 
 <script>
+let num1 = document.querySelector('.elem1')
+let num2 = document.querySelector('.elem2')
+let btnMulti = document.querySelector('.multiply')
+let btnDiv = document.querySelector('.divis')
+  let div = document.querySelector('.response')
+btnMulti.addEventListener('click', function () {
+  div.innerHTML = num1.value*num2.value
+})
+btnDiv.addEventListener('click', function () {
+  div.innerHTML = num1.value/num2.value
+})
 
-  let arr=[]
-for(let i = 2014; i<=2050; i++){
-  if(new Date(i, 0, 1).getDay() === 0)  arr.push(new Date(i, 0, 1).toLocaleDateString())
-}
-
-console.log(arr)
 
 
 
