@@ -12,11 +12,11 @@
 
 <script>
 
-let pos = 5
+let pos = 2
   let str =  document.querySelector('span').textContent
-  let arr = str.split('')
-  arr.splice(pos, 1)
-document.querySelector('span').textContent = arr.join('')
+  let a = str.substring(0, pos)
+  let b = str.substring(pos+1)
+  console.log(a+b)
 
 
 
