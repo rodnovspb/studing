@@ -15,6 +15,6 @@ class Circle {
     }
 }
 
-$one = new Circle(1);
+$one = new Circle(10);
 echo $one->getSquare();
 echo $one->getLength();
