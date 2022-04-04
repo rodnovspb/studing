@@ -5,12 +5,11 @@ class Test {
     public $prop2;
     private $prop3;
     private $prop4;
-    public $vars=[];
-    function __construct()
-    {
-        $this->vars=array_merge(get_class_vars(get_class($this)));
+    public function getvars(){
+        var_dump(get_object_vars($this));
     }
+
 }
 
 $one = new Test;
-var_dump($one->vars);
+$one->getvars();
