@@ -1,13 +1,18 @@
 <?php
 
-$_GET['name'] = 'dasd';
-
-if(isset($_GET['name']) and !empty($_GET['name'])){
-    $name = $_GET['name'];
-    if(class_exists($name)) echo 'Класс существует';
-    else echo 'Класс не существует';
+class Elem {
+    public function get(){
+        echo 'существует';
+    }
 }
 
-class dasd {
-
+if(!empty($_GET['name']) and !empty($_GET['method'])) {
+    $name = $_GET['name'];
+    $method = $_GET['method'];
+    if(class_exists($name)) {
+        if(method_exists($name, $method)) {
+            $one = new $name;
+            $one->$method();
+        }
+    }
 }
