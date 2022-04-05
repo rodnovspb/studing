@@ -15,4 +15,7 @@ if(!empty($_GET['name']) and !empty($_GET['method'])) {
             $one->$method();
         }
     }
+    else {
+        echo 'нет';
+    }
 }
