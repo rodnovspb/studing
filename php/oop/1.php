@@ -1,21 +1,16 @@
 <?php
 
-class Elem {
-    public function get(){
-        echo 'существует';
-    }
+$arr = ['prop1', 'prop2','prop3','prop4'];
+
+class User {
+    public $prop1='1';
+    public $prop3=2;
 }
 
-if(!empty($_GET['name']) and !empty($_GET['method'])) {
-    $name = $_GET['name'];
-    $method = $_GET['method'];
-    if(class_exists($name)) {
-        if(method_exists($name, $method)) {
-            $one = new $name;
-            $one->$method();
-        }
-    }
-    else {
-        echo 'нет';
+$one = new User;
+
+foreach ($arr as $item){
+    if(property_exists($one, $item)) {
+        echo $one->$item;
     }
 }
