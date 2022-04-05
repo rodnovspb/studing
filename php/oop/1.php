@@ -1,15 +1,13 @@
 <?php
 
-class Test {
-    public $prop1;
-    public $prop2;
-    private $prop3;
-    private $prop4;
-    public function getvars(){
-        var_dump(get_object_vars($this));
-    }
+$_GET['name'] = 'dasd';
 
+if(isset($_GET['name']) and !empty($_GET['name'])){
+    $name = $_GET['name'];
+    if(class_exists($name)) echo 'Класс существует';
+    else echo 'Класс не существует';
 }
 
-$one = new Test;
-$one->getvars();
+class dasd {
+
+}
