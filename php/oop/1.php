@@ -1,51 +1,52 @@
 <?php
 
-interface iUser {
-    public function setName($name);
-    public function getName();
-    public function setAge($age);
-    public function getAge();
+interface iFigure3d {
+    public function getVolume();
+    public function getSurfaceSquare();
 }
 
-interface iEmployee extends iUser {
-    public function setSalary($salary);
-    public function getSalary();
-}
-
-class Employee implements iUser {
-    private $name;
-    private $age;
-    private $salary;
-
-    public function setName($name)
+class Cube implements iFigure3d {
+    private $a;
+    public function __construct($a)
     {
-        $this->name = $name;
+        $this->a=$a;
     }
-    public function getName()
+    public function getVolume()
     {
-        return $this->name;
+        return $this->a**3;
     }
-
-    public function setAge($age)
+    public function getSurfaceSquare()
     {
-        $this->age = $age;
-    }
-    public function getAge()
-    {
-        return $this->age;
-    }
-
-    public function setSalary($salary)
-    {
-        $this->salary = $salary;
-    }
-
-    public function getSalary()
-    {
-        return $this->salary;
+        return $this->a**2*6;
     }
 }
 
-$one=new Employee;
-$one->setName('Den');
-echo $one->getName();
+class Quadrate {
+    private $a;
+    public function __construct($a)
+    {
+        $this->a=$a;
+    }
+    public function getSquare(){
+        return $this->a**2;
+    }
+}
+
+$quadrate1 = new Quadrate(2);
+$quadrate2 = new Quadrate(1);
+$quadrate3 = new Quadrate(3);
+
+$cube1 = new Cube(1);
+$cube2 = new Cube(1);
+$cube3 = new Cube(1);
+
+$arr = [$quadrate1, $quadrate2, $quadrate3, $cube1, $cube2, $cube3];
+$sum=0;
+foreach ($arr as $item){
+    if($item instanceof iFigure3d) {
+        $sum+=$item->getVolume();
+
+    }
+}
+
+echo $sum;
