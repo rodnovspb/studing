@@ -26,5 +26,4 @@ class User implements iUser {
     {
         return $this->age;
     }
-
 }
