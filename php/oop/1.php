@@ -1,57 +1,51 @@
 <?php
 
-interface iFigure3d {
-    public function getVolume();
-    public function getSurfaceSquare();
+interface iFigure {
+    public function getSquare();
 }
 
-class Cube implements iFigure3d {
+interface iTetra {
+    public function __construct($a);
+}
+
+interface iCircle {
+    public function getRadius();
+    public function getDiameter();
+}
+
+class Disc implements iCircle, iFigure {
+    const PI=3.14;
+    private $radius;
+    public function __construct($radius)
+    {
+        $this->radius=$radius;
+    }
+    public function getRadius()
+    {
+        return $this->radius;
+    }
+    public function getDiameter()
+    {
+       return $this->radius*2;
+    }
+    public function getSquare()
+    {
+        return self::PI*$this**2;
+    }
+}
+
+
+class Quadrate implements iFigure, iTetra {
     private $a;
     public function __construct($a)
     {
         $this->a=$a;
     }
-    public function getVolume()
+    public function getSquare()
     {
-        return $this->a**3;
-    }
-    public function getSurfaceSquare()
-    {
-        return $this->a**2*6;
-    }
-}
-
-class Quadrate {
-    private $a;
-    public function __construct($a)
-    {
-        $this->a=$a;
-    }
-    public function getSquare(){
         return $this->a**2;
     }
 }
 
-$quadrate1 = new Quadrate(1);
-$quadrate2 = new Quadrate(1);
-$quadrate3 = new Quadrate(1);
-
-$cube1 = new Cube(1);
-$cube2 = new Cube(1);
-$cube3 = new Cube(1);
-
-$arr = [$quadrate1, $quadrate2, $quadrate3, $cube1, $cube2, $cube3];
-$sumVol=0;
-$sumSquare=0;
-foreach ($arr as $item){
-    if($item instanceof iFigure3d) {
-        $sumVol+=$item->getVolume();
-    } elseif ($item instanceof Quadrate){
-        $sumSquare+=$item->getSquare();
-    }
-
-}
-
-echo $sumVol;
-echo "<br>";
-echo $sumSquare;
+$one = new Disc(1);
+echo $one->getSquare();
