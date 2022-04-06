@@ -1,54 +1,29 @@
 <?php
 
-interface Figure {
-    public function getSquare();
-    public function getPerimeter();
+interface iUser {
+    public function setName($name);
+    public function getName();
+    public function setAge($age);
+    public function getAge();
 }
 
-class Quadrate implements Figure {
-    private $a;
-    public function __construct($a)
+class User implements iUser {
+    private $name;
+    private $age;
+    public function setName($name)
     {
-        $this->a=$a;
+       $this->name=$name;
     }
-    public function getSquare()
+    public function getName()
     {
-        return $this->a**2;
+        return $this->name;
     }
-    public function getPerimeter()
+    public function setAge($age)
     {
-        return $this->a*4;
+       $this->age=$age;
     }
-}
-
-$one = new Quadrate(1);
-$one1 = new Quadrate(1);
-$one2 = new Quadrate(1);
-
-$coll = new FigureCollection;
-$coll->add($one);
-$coll->add($one1);
-$coll->add($one2);
-echo $coll->getTotalSquare();
-echo $coll->getTotalPerimeter();
-
-class FigureCollection {
-    private $figures = [];
-    public function add(Figure $figure) {
-        $this->figures[]=$figure;
-    }
-    public function getTotalSquare (){
-        $sum=0;
-        foreach ($this->figures as $figure) {
-            $sum+=$figure->getSquare();
-        }
-        return $sum;
-    }
-    public function getTotalPerimeter(){
-        $sum=0;
-        foreach ($this->figures as $figure){
-            $sum+=$figure->getPerimeter();
-        }
-        return $sum;
+    public function getAge()
+    {
+        return $this->age;
     }
 }
