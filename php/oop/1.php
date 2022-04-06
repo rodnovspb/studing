@@ -1,26 +1,28 @@
 <?php
 
-interface iCube {
-    public function __construct($a);
-    public function getVolume();
-    public function getSquare();
+interface iUser {
+    public function __construct($name, $age);
+    public function getName();
+    public function getAge();
 }
 
-class Cube implements iCube {
-    private $a;
-    public function __construct($a)
+class User implements iUser {
+    private $name;
+    private $age;
+    public function __construct($name, $age)
     {
-        $this->a=$a;
+        $this->name=$name;
+        $this->age=$age;
     }
-    public function getSquare()
+    public function getName()
     {
-        return $this**2*6;
+        return $this->name;
     }
-    public function getVolume()
+    public function getAge()
     {
-        return pow($this->a, 3);
+       return $this->age;
     }
 }
 
-$one = new Cube(2);
-echo $one->getVolume();
+$one = new User('Den', 35);
+echo $one->getName();
