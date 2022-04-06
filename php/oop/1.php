@@ -1,51 +1,43 @@
 <?php
 
-interface iFigure {
-    public function getSquare();
+interface iProgrammer {
+    public function __construct($name, $salary);
+    public function getName();
+    public function getSalary();
+    public function addLangs($lang);
+    public function getLangs();
 }
 
-interface iTetra {
-    public function __construct($a);
-}
-
-interface iCircle {
-    public function getRadius();
-    public function getDiameter();
-}
-
-class Disc implements iCircle, iFigure {
-    const PI=3.14;
-    private $radius;
-    public function __construct($radius)
+class Employee {
+    private $name;
+    private $salary;
+    public function __construct($name, $salary)
     {
-        $this->radius=$radius;
+        $this->name=$name;
+        $this->salary=$salary;
     }
-    public function getRadius()
-    {
-        return $this->radius;
+    public function getName(){
+        return $this->name;
     }
-    public function getDiameter()
-    {
-       return $this->radius*2;
-    }
-    public function getSquare()
-    {
-        return self::PI*$this**2;
+    public function getSalary(){
+        return $this->salary;
     }
 }
 
-
-class Quadrate implements iFigure, iTetra {
-    private $a;
-    public function __construct($a)
+class Programmer extends Employee implements iProgrammer {
+    private $langs=[];
+    public function addLangs($lang)
     {
-        $this->a=$a;
+        $this->langs[]=$lang;
     }
-    public function getSquare()
+    public function getLangs()
     {
-        return $this->a**2;
+        return $this->langs;
     }
 }
 
-$one = new Disc(1);
-echo $one->getSquare();
+$one = new Programmer('Den', 5000);
+$one->addLangs('php');
+$one->addLangs('js');
+echo $one->getLangs();
+echo $one->getSalary();
