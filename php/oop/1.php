@@ -32,21 +32,26 @@ class Quadrate {
     }
 }
 
-$quadrate1 = new Quadrate(2);
+$quadrate1 = new Quadrate(1);
 $quadrate2 = new Quadrate(1);
-$quadrate3 = new Quadrate(3);
+$quadrate3 = new Quadrate(1);
 
 $cube1 = new Cube(1);
 $cube2 = new Cube(1);
 $cube3 = new Cube(1);
 
 $arr = [$quadrate1, $quadrate2, $quadrate3, $cube1, $cube2, $cube3];
-$sum=0;
+$sumVol=0;
+$sumSquare=0;
 foreach ($arr as $item){
     if($item instanceof iFigure3d) {
-        $sum+=$item->getVolume();
-
+        $sumVol+=$item->getVolume();
+    } elseif ($item instanceof Quadrate){
+        $sumSquare+=$item->getSquare();
     }
+
 }
 
-echo $sum;
+echo $sumVol;
+echo "<br>";
+echo $sumSquare;
