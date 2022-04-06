@@ -2,6 +2,7 @@
 
 interface Figure {
     public function getSquare();
+    public function getPerimeter();
 }
 
 class Quadrate implements Figure {
@@ -14,6 +15,10 @@ class Quadrate implements Figure {
     {
         return $this->a**2;
     }
+    public function getPerimeter()
+    {
+        return $this->a*4;
+    }
 }
 
 $one = new Quadrate(1);
@@ -25,6 +30,7 @@ $coll->add($one);
 $coll->add($one1);
 $coll->add($one2);
 echo $coll->getTotalSquare();
+echo $coll->getTotalPerimeter();
 
 class FigureCollection {
     private $figures = [];
@@ -35,6 +41,13 @@ class FigureCollection {
         $sum=0;
         foreach ($this->figures as $figure) {
             $sum+=$figure->getSquare();
+        }
+        return $sum;
+    }
+    public function getTotalPerimeter(){
+        $sum=0;
+        foreach ($this->figures as $figure){
+            $sum+=$figure->getPerimeter();
         }
         return $sum;
     }
