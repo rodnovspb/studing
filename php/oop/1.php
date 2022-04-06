@@ -1,56 +1,61 @@
 <?php
 
-
-
-abstract class User {
-    private $name;
-    public function setName($var){
-        $this->name=$var;
+abstract class Figure {
+    abstract public function getPerimeter();
+    abstract public function getSquare();
+    public function getRatio(){
+        return $this->getSquare()/$this->getPerimeter();
     }
-    public function getName(){
-        return $this->name;
-    }
-    abstract public function increaseRevenue($value);
-    abstract public function decreaseRevenue($value);
-}
-
-class Employee extends User {
-    private $salary;
-    public function setSalary ($var){
-        $this->salary=$var;
-    }
-    public function getSalary(){
-        return $this->salary;
-    }
-    public function increaseRevenue($value)
-    {
-        $this->salary=$this->salary+$value;
-    }
-    public function decreaseRevenue($value)
-    {
-        $this->salary=$this->salary-$value;
+    public function getSquarePerimeterSum(){
+        return $this->getPerimeter()+$this->getSquare();
     }
 }
 
-class Student extends User {
-    private $scholarship;
-    public function setSchol($var){
-        $this->scholarship=$var;
-    }
-    public function getSchol(){
-        return $this->scholarship;
-    }
-    public function increaseRevenue($value)
+class Rectangle extends Figure {
+    private $a;
+    private $b;
+    public function __construct($a, $b)
     {
-        $this->scholarship =  $this->scholarship + $value;
+        $this->a=$a;
+        $this->b=$b;
     }
-    public function decreaseRevenue($value)
+
+    public function getPerimeter()
     {
-        $this->scholarship=$this->scholarship-$value;
+        return ($this->b+$this->b)*2;
+    }
+    public function getSquare()
+    {
+       return $this->b*$this->a;
+    }
+}
+class Circle extends Figure {
+    const PI=3.14;
+    private $radius;
+    public function __construct($radius)
+    {
+        $this->radius=$radius;
+    }
+    public function getSquare()
+    {
+        return $this->radius**2*self::PI;
+    }
+    public  function getPerimeter()
+    {
+        return 2*self::PI*$this->radius;
     }
 }
 
-$one = new Student;
-$one->setSchol(1000);
-$one->increaseRevenue(500);
-echo $one->getSchol();
+$one = new Rectangle(1,1);
+echo $one->getSquare();
+echo '<br>';
+echo $one->getRatio();
+echo '<br>';
+$two = new Circle(1);
+echo $two->getSquare();
+echo '<br>';
+echo $two->getPerimeter();
+echo '<br>';
+echo $two->getRatio();
+echo '<br>';
+echo $two->getSquarePerimeterSum();
