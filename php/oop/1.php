@@ -1,7 +1,6 @@
 <?php
 
 interface Figure {
-    public function getPerimeter();
     public function getSquare();
 }
 
@@ -11,32 +10,32 @@ class Quadrate implements Figure {
     {
         $this->a=$a;
     }
-    public function getPerimeter()
-    {
-       return $this->a*4;
-    }
     public function getSquare()
     {
-       return $this->a**2;
+        return $this->a**2;
     }
 }
 
-class Circle implements Figure {
-    const PI=3.14;
-    private $radius;
-    public function __construct($radius)
-    {
-        $this->radius=$radius;
+$one = new Quadrate(1);
+$one1 = new Quadrate(1);
+$one2 = new Quadrate(1);
+
+$coll = new FigureCollection;
+$coll->add($one);
+$coll->add($one1);
+$coll->add($one2);
+echo $coll->getTotalSquare();
+
+class FigureCollection {
+    private $figures = [];
+    public function add(Figure $figure) {
+        $this->figures[]=$figure;
     }
-    public function getPerimeter()
-    {
-        return 2*$this->radius*self::PI;
-    }
-    public function getSquare()
-    {
-        return self::PI*$this->radius**2;
+    public function getTotalSquare (){
+        $sum=0;
+        foreach ($this->figures as $figure) {
+            $sum+=$figure->getSquare();
+        }
+        return $sum;
     }
 }
-
-$one = new Circle(1);
-echo $one->getPerimeter();
