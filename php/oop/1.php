@@ -1,28 +1,51 @@
 <?php
 
 interface iUser {
-    public function __construct($name, $age);
+    public function setName($name);
     public function getName();
+    public function setAge($age);
     public function getAge();
 }
 
-class User implements iUser {
+interface iEmployee extends iUser {
+    public function setSalary($salary);
+    public function getSalary();
+}
+
+class Employee implements iUser {
     private $name;
     private $age;
-    public function __construct($name, $age)
+    private $salary;
+
+    public function setName($name)
     {
-        $this->name=$name;
-        $this->age=$age;
+        $this->name = $name;
     }
     public function getName()
     {
         return $this->name;
     }
+
+    public function setAge($age)
+    {
+        $this->age = $age;
+    }
     public function getAge()
     {
-       return $this->age;
+        return $this->age;
+    }
+
+    public function setSalary($salary)
+    {
+        $this->salary = $salary;
+    }
+
+    public function getSalary()
+    {
+        return $this->salary;
     }
 }
 
-$one = new User('Den', 35);
+$one=new Employee;
+$one->setName('Den');
 echo $one->getName();
