@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    .wrapper {
+      max-width: 50%;
+
+    }
+    input {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    .line {
+      max-width: 100%;
+      width: 0%;
+      height: 10px;
+      background-color: #84f3a5;
+      transition: 1s;
+    }
+  </style>
+
+</head>
+<body>
+
+<div class="wrapper">
+<input type="text">
+<div class="line"></div>
+</div>
+
+<script>
+
+  let input = document.querySelector('input')
+  let line = document.querySelector('.line')
+  let total =0
+
+  input.addEventListener('input', function () {
+      let value = input.value
+      let length = value.length
+      let difficulty = 100/(10/length) <=30 ? 100/(10/length) : 30;
+      let par = length >= 5 ? 20 : 0
+      let smallLetter = /[a-z]/.test(value) ? 10 : 0
+      let bigLetter = /[A-Z]/.test(value) ? 10 : 0
+      let digit = /\d/.test(value) ? 10 : 0
+      let symbols = /[-\[\]}{.$#@&*+!<>?]/.test(value) ? 10 : 0
+      let mix = (smallLetter && bigLetter && digit && symbols) ? 20 : 0
+      total = difficulty + smallLetter + bigLetter + digit + symbols + mix + par
+      let color =''
+      switch (total) {
+          case 10:
+          case 20:
+          case 30:
+             color='red';
+             break;
+        case 40:
+        case 50:
+        case 60:
+          color='orange';
+          break;
+        case 70:
+        case 80:
+          color='yellow';
+          break;
+        case 90:
+        case 100:
+          color='FF84F3A5';
+          break;
+      }
+
+      line.style.width = `${total}%`
+      line.style.backgroundColor = `${color}`
+  })
+
+
+
+
+</script>
+</body>
+</html>
