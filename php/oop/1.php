@@ -2,26 +2,21 @@
 
 class User {
     private $name;
-    private $age;
-    public function __construct($name, $age)
+    private $surname;
+    private $patronymic;
+    function __toString()
     {
-        $this->name=$name;
-        $this->age=$age;
-    }
-    public function __toString()
-    {
-        return $this->name;
+        return "$this->name $this->patronymic $this->surname";
     }
 
-    public function getName(){
-        return $this->name;
-    }
-    public function getAge(){
-        return $this->age;
+    function __construct($name, $surname, $patronymic)
+    {
+        $this->name=$name;
+        $this->surname=$surname;
+        $this->patronymic=$patronymic;
     }
 }
 
-$one = new User("Den", 35);
+$one = new User('Den', 'Rodnov', 'Anatolyevich');
 
 echo $one;
-
