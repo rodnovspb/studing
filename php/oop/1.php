@@ -1,16 +1,17 @@
 <?php
 
 trait Trait1 {
-    private $a=1;
+    private function met1 (){
+        return 3;
+    }
 }
 
 class Test {
-    use Trait1;
-    public function get(){
-        return $this->a;
+    use Trait1 {
+        Trait1::met1 as public;
     }
 }
 
 $one = new Test;
-echo $one->get();
+echo $one->met1();
 
