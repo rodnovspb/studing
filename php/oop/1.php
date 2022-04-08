@@ -1,21 +1,27 @@
 <?php
 
-class User {
+class User
+{
     private $name;
     private $age;
+
+    function __get($var){
+        return $this->$var;
+    }
+
     function __set($var, $value)
     {
-        $arr = ["name", "age"];
-        if(in_array($var, $arr)) {
+        if($value != '' and $var == 'name'){
             $this->$var = $value;
         }
-    }
-    function __get($name)
-    {
-        return $this->$name;
+        if($value >=0 and $value <= 70 and $var = 'age'){
+            $this->$var = $value;
+        }
     }
 }
 
 $one = new User;
-$one->name = 'Den';
-echo $one->name;
+$one->age = 55;
+echo $one->age;
+
+
