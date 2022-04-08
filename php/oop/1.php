@@ -1,18 +1,13 @@
 <?php
 
-class Arr {
-    private $numbers = [];
-    public function add($num) {
-        $this->numbers[]=$num;
-        return $this;
-    }
-    function __toString()
+class User{
+    private $name=1;
+    private $age=2;
+    function __get($var)
     {
-        return (string)array_sum($this->numbers);
+        return $this->$var;
     }
 }
 
-$arr = new Arr;
-
-$arr->add(1)->add(2)->add(3);
-echo $arr;
+$one = new User;
+echo $one->ag2e;
