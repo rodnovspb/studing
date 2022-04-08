@@ -10,25 +10,26 @@
 
 
 
-
-
-
 <script>
 
 
- function f(a, callback1, callback2) {
-    a>10 ? callback1() : callback2()
- }
+// function ask(question, yes, no) {
+//   if (confirm(question)) yes()
+//   else no();
+// }
+//
+// ask(
+//         "Вы согласны?",
+//         function() { alert("Вы согласились."); },
+//         function() { alert("Вы отменили выполнение."); }
+// );
 
 
+let ask = (question, yes, no) => {
+  confirm(question) ? yes() : no()
+}
 
-
-
-f(15, function() {console.log('+')},  function() {console.log('-')})
-
-
-
-
+ask('Вы согласны', ()=>alert("Вы согласились."), ()=>alert("Вы отменили выполнение."))
 
 
 
