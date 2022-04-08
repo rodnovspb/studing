@@ -1,23 +1,30 @@
 <?php
 
 trait Trait1 {
-    public $a = 2;
-    public function met(){
-        return 'trait';
+    private function met1() {
+        return 1;
     }
 }
 
-class Parent1 {
-    public $a = 1;
-    public function met(){
-        return 'parclass';
+trait Trait2 {
+    private function met2() {
+        return 2;
     }
 }
 
-class Class1 extends Parent1 {
-        use Trait1;
+trait Trait3 {
+    use Trait1, Trait2;
+    private function met3() {
+        return 3;
+    }
 }
 
-$one = new Class1;
-echo $one->a;
+class User {
+    use Trait3;
+    public function getSum(){
+        return $this->met1()+$this->met2()+$this->met3();
+    }
+}
 
+$one = new User;
+echo $one->getSum();
