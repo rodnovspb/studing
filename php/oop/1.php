@@ -1,30 +1,27 @@
 <?php
 
-trait Trait1 {
-    private function met1() {
-        return 1;
-    }
-}
-
-trait Trait2 {
-    private function met2() {
-        return 2;
-    }
-}
-
-trait Trait3 {
-    use Trait1, Trait2;
-    private function met3() {
-        return 3;
-    }
-}
-
 class User {
-    use Trait3;
-    public function getSum(){
-        return $this->met1()+$this->met2()+$this->met3();
+    private $name;
+    private $age;
+    public function __construct($name, $age)
+    {
+        $this->name=$name;
+        $this->age=$age;
+    }
+    public function __toString()
+    {
+        return $this->name;
+    }
+
+    public function getName(){
+        return $this->name;
+    }
+    public function getAge(){
+        return $this->age;
     }
 }
 
-$one = new User;
-echo $one->getSum();
+$one = new User("Den", 35);
+
+echo $one;
+
