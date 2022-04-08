@@ -1,17 +1,21 @@
 <?php
 
-class Test {
-    private $prop1;
-    private $prop2;
-    function __set($name, $value)
+class User {
+    private $name;
+    private $age;
+    function __set($var, $value)
     {
-        $this->$name = $value;
+        $arr = ["name", "age"];
+        if(in_array($var, $arr)) {
+            $this->$var = $value;
+        }
     }
-    function __get($name){
+    function __get($name)
+    {
         return $this->$name;
     }
 }
 
-$one = new Test;
-$one->prop4 = 'dsad';
-echo $one->prop4;
+$one = new User;
+$one->name = 'Den';
+echo $one->name;
