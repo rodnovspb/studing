@@ -1,30 +1,29 @@
 <?php
 
-
-trait Helper {
-    private $name;
-    private $age;
-    public function getName(){
-        return $this->name;
-    }
-    public function getAge(){
-        return $this->age;
+trait Trait1 {
+    private function method1(){
+        return 1;
     }
 }
 
-class City {
-    use Helper;
-    private $population;
-    public function __construct($name, $age, $population)
-    {
-        $this->name=$name;
-        $this->population=$population;
-        $this->age=$age;
-    }
-    public function getPopulation(){
-        return$this->population;
+trait Trait2 {
+    private function method2(){
+        return 2;
     }
 }
 
-$one = new City('Chel', 300, 1000000);
-echo $one->getName();
+trait Trait3 {
+    private function method3(){
+        return 3;
+    }
+}
+
+class Test {
+    use Trait1, Trait2, Trait3;
+    public function getSum(){
+        return $this->method1()+$this->method2()+$this->method3();
+    }
+}
+
+$one = new Test;
+echo $one->getSum();
