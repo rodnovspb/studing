@@ -20,15 +20,11 @@
     a>10 ? callback1() : callback2()
  }
 
-  function func1() {
-      console.log('+')
-  }
 
- function func2() {
-   console.log('-')
- }
 
-f(5, func1, func2)
+
+
+f(15, function() {console.log('+')},  function() {console.log('-')})
 
 
 
