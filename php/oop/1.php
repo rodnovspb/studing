@@ -1,21 +1,20 @@
 <?php
 
-class User
-{
-    private $name;
-    private $age;
-
-    public function __construct($name, $age)
+class Date {
+    public $year;
+    public $month;
+    public $day;
+    function __construct($year, $month, $day)
     {
-        $this->name = $name;
-        $this->age = $age;
+        $this->year=$year;
+        $this->month=$month;
+        $this->day=$day;
     }
-
-    public function __get($var)
+    function __get($name)
     {
-        return $this->$var;
+        if($name=='weekDay') return date('w', mktime(0,0,0, $this->month, $this->day, $this->year));
     }
 }
 
-$one = new User('Den', 35);
-echo $one->age1;
+$day = new Date(2022, 4, 8);
+echo $day->weekDay;
