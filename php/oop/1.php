@@ -1,20 +1,17 @@
 <?php
 
-class Date {
-    public $year;
-    public $month;
-    public $day;
-    function __construct($year, $month, $day)
+class Test {
+    private $prop1;
+    private $prop2;
+    function __set($name, $value)
     {
-        $this->year=$year;
-        $this->month=$month;
-        $this->day=$day;
+        $this->$name = $value;
     }
-    function __get($name)
-    {
-        if($name=='weekDay') return date('w', mktime(0,0,0, $this->month, $this->day, $this->year));
+    function __get($name){
+        return $this->$name;
     }
 }
 
-$day = new Date(2022, 4, 8);
-echo $day->weekDay;
+$one = new Test;
+$one->prop4 = 'dsad';
+echo $one->prop4;
