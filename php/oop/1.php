@@ -1,29 +1,28 @@
 <?php
 
 trait Trait1 {
-    private function method1(){
-        return 1;
+    public function method(){
+        echo 44;
     }
 }
-
 trait Trait2 {
-    private function method2(){
-        return 2;
-    }
-}
-
-trait Trait3 {
-    private function method3(){
-        return 3;
+    public function method(){
+        echo 2;
     }
 }
 
 class Test {
-    use Trait1, Trait2, Trait3;
-    public function getSum(){
-        return $this->method1()+$this->method2()+$this->method3();
+    use Trait1, Trait2 {
+        Trait1::method insteadof Trait2;
+        Trait1::method as met1;
+        Trait2::method as met2;
+
     }
+    public function __construct()
+    {
+        return $this->met1();
+    }
+
 }
 
 $one = new Test;
-echo $one->getSum();
