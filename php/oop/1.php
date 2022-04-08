@@ -1,22 +1,18 @@
 <?php
 
-class User {
-    private $name;
-    private $surname;
-    private $patronymic;
+class Arr {
+    private $numbers = [];
+    public function add($num) {
+        $this->numbers[]=$num;
+        return $this;
+    }
     function __toString()
     {
-        return "$this->name $this->patronymic $this->surname";
-    }
-
-    function __construct($name, $surname, $patronymic)
-    {
-        $this->name=$name;
-        $this->surname=$surname;
-        $this->patronymic=$patronymic;
+        return (string)array_sum($this->numbers);
     }
 }
 
-$one = new User('Den', 'Rodnov', 'Anatolyevich');
+$arr = new Arr;
 
-echo $one;
+$arr->add(1)->add(2)->add(3);
+echo $arr;
