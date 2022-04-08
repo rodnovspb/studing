@@ -1,17 +1,23 @@
 <?php
 
 trait Trait1 {
-    private function met1 (){
-        return 3;
+    public $a = 2;
+    public function met(){
+        return 'trait';
     }
 }
 
-class Test {
-    use Trait1 {
-        Trait1::met1 as public;
+class Parent1 {
+    public $a = 1;
+    public function met(){
+        return 'parclass';
     }
 }
 
-$one = new Test;
-echo $one->met1();
+class Class1 extends Parent1 {
+        use Trait1;
+}
+
+$one = new Class1;
+echo $one->a;
 
