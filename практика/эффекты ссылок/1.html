@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    :root {
+      --link-color: #d81b60;
+    }
+    a {
+      color: var(--link-color)
+    }
+    a:hover {
+      color: white;
+      text-decoration: none;
+    }
+    .link1 {
+      box-shadow: inset 0 0 var(--link-color);
+      transition: box-shadow .2s;
+      padding: 3px;
+      margin: -3px;
+    }
+    .link1:hover {
+      box-shadow: inset 0 -20px  var(--link-color);
+      text-decoration: none;
+    }
+    .link2 {
+      position: relative;
+      padding: 2px;
+      margin: -2px;
+    }
+    .link2:before {
+      position: absolute;
+      content: '';
+      width: 100%;
+      height: 100%;
+      background-color: var(--link-color);
+      left: 0;
+      top: 0;
+      transform: scale(0);
+      transition: transform 0.3s;
+      z-index: -1;
+
+    }
+    .link2:hover:before {
+      transform: scale(1);
+    }
+    .link3 {
+      position: relative;
+      padding: 2px;
+      margin: -2px;
+    }
+    .link3:before {
+      position: absolute;
+      content: '';
+      transform: scaleX(0);
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      background-color: var(--link-color);
+      z-index: -1;
+      transition: transform .3s;
+      transform-origin: left;
+    }
+    .link3:hover:before {
+      transform: scaleX(1);
+    }
+
+    .link4 {
+      position: relative;
+      padding: 2px;
+      margin: -2px;
+    }
+    .link4:after {
+      position: absolute;
+      content: '';
+      width: 100%;
+      height: 100%;
+      background-color: var(--link-color);
+      z-index: -1;
+      left: 0;
+      top: 0;
+      transform: scaleY(0);
+      transition: transform .3s;
+      transform-origin: bottom;
+    }
+    .link4:hover:after {
+      transform: scaleY(1);
+    }
+    .link5 {
+      position: relative;
+      padding: 2px;
+      margin: -2px;
+    }
+    .link5:after {
+      position: absolute;
+      content: '';
+      width: 100%;
+      height: 100%;
+      background-color: var(--link-color);
+      z-index: -1;
+      left: 0;
+      top: 0;
+      transform: scaleX(0);
+      transition: transform .3s;
+      transform-origin: right;
+    }
+    .link5:hover:after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+  </style>
+</head>
+<body>
+
+
+<p>Lorem ipsum dolor sit amet, <a class="link1" href="#">consectetur</a> adipisicing elit. Corporis,
+    necessitatibus?</p>
+<p>Lorem ipsum dolor sit amet, <a class="link2" href="#">consectetur</a> adipisicing elit. Corporis,
+    necessitatibus?</p>
+<p>Lorem ipsum dolor sit amet, <a class="link3" href="#">consectetur</a> adipisicing elit. Corporis,
+    necessitatibus?</p>
+<p>Lorem ipsum dolor sit amet, <a class="link4" href="#">consectetur</a> adipisicing elit. Corporis,
+    necessitatibus?</p>
+<p>Lorem ipsum dolor sit amet, <a class="link5" href="#">consectetur</a> adipisicing elit. Corporis,
+    necessitatibus?</p>
+
+
+
+
+
+<script>
+
+
+
+</script>
+</body>
+</html>

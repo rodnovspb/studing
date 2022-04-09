@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Title</title>
+  <script src="1.js" defer></script>
 </head>
 <body>
 
@@ -13,23 +14,10 @@
 <script>
 
 
-// function ask(question, yes, no) {
-//   if (confirm(question)) yes()
-//   else no();
-// }
-//
-// ask(
-//         "Вы согласны?",
-//         function() { alert("Вы согласились."); },
-//         function() { alert("Вы отменили выполнение."); }
-// );
-
-
-let ask = (question, yes, no) => {
-  confirm(question) ? yes() : no()
+for (let i = 0; i < 100; i++) {
+	if (i % 2 !== 0) continue
+	console.log(i)
 }
-
-ask('Вы согласны', ()=>alert("Вы согласились."), ()=>alert("Вы отменили выполнение."))
 
 
 

@@ -12,7 +12,9 @@
 <div class="out"></div>
 
 
-
+<p>asdasd</p>
+<p>asdasd</p>
+<p>asdasd</p>
 
 
 <script>
@@ -30,6 +32,20 @@
     }
     div.innerHTML = out
   }
+
+
+
+  let elems = document.querySelectorAll('p')
+ for(let i=0; i<elems.length; i++){
+   console.log(typeof i)
+   elems[i].setAttribute('data-num', i)
+ }
+
+for(let elem in elems){
+  elems[elem].setAttribute('sdfsd', "sadfsdf")
+}
+
+
 
 
 </script>

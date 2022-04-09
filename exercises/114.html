@@ -5,25 +5,27 @@
   <title>Title</title>
   <style>
     .content {
-      background-color: #efcaca;
-      padding-top: 50px;
-      position: relative;
-      min-height: 70vh;
-    }
-    img {
-      width: auto;
-      height: 100px;
-      transform: translateY(0px);
-    }
-    .cart {
-      background-color: #007aff;
-      width: 20px;
-      height: 20px;
-      position: absolute;
-      right: 0;
-      top: 0;
-      transform: translate3d();
-    }
+		background-color: #efcaca;
+		padding-top: 50px;
+		position: relative;
+		min-height: 70vh;
+	}
+
+	img {
+		width: auto;
+		height: 100px;
+		transform: translateY(0px);
+	}
+
+	.cart {
+		background-color: #007aff;
+		width: 20px;
+		height: 20px;
+		position: absolute;
+		right: 0;
+		top: 0;
+		transform: translate3d();
+	}
 
 
 
@@ -43,29 +45,29 @@
 <script>
 
   document.querySelector('button').addEventListener('click', function () {
-    let pic = document.querySelector('img')
-    let cart = document.querySelector('.cart')
-    let pic_pos = pic.getBoundingClientRect()
-    let cart_pos = cart.getBoundingClientRect()
-    let clone = pic.cloneNode()
-    clone.style.position='fixed'
-    clone.style.top = pic_pos.top+'px'
-    clone.style.left = pic_pos.left+'px'
-    clone.style.zIndex='1'
-    clone.style.border='none'
-    document.body.append(clone)
-    void clone.offsetWidth;
-    let left = cart_pos.left
-    let top = cart_pos.top
-    clone.style.left =`${left}px`
-    clone.style.top =`${top}px`
-    clone.style.transform +='scale(0.5)'
-    clone.style.opacity = '0'
+	  let pic = document.querySelector('img')
+	  let cart = document.querySelector('.cart')
+	  let pic_pos = pic.getBoundingClientRect()
+	  let cart_pos = cart.getBoundingClientRect()
+	  let clone = pic.cloneNode()
+	  clone.style.position = 'fixed'
+	  clone.style.top = pic_pos.top + 'px'
+	  clone.style.left = pic_pos.left + 'px'
+	  clone.style.zIndex = '1'
+	  clone.style.border = 'none'
+	  document.body.append(clone)
+	  void clone.offsetWidth;
+	  let left = cart_pos.left
+	  let top = cart_pos.top
+	  clone.style.left = `${left}px`
+	  clone.style.top = `${top}px`
+	  clone.style.transform += 'scale(0.5)'
+	  clone.style.opacity = '0'
 
-    clone.style.transition = '1s'
-    setTimeout(function () {
-      clone.remove()
-    }, 900)
+	  clone.style.transition = '1s'
+	  setTimeout(function () {
+		  clone.remove()
+	  }, 900)
 
 
   })

@@ -5,16 +5,17 @@
   <title>Title</title>
   <style>
     div.text {
-      width: 500px;
-    }
-    .line {
-      position: fixed;
-      width: 0%;
-      height: 10px;
-      background-color: #4949d9;
-      top: 0;
-      left: 0;
-    }
+		width: 500px;
+	}
+
+	.line {
+		position: fixed;
+		width: 0%;
+		height: 10px;
+		background-color: #4949d9;
+		top: 0;
+		left: 0;
+	}
   </style>
 </head>
 <body>
@@ -32,15 +33,15 @@
 <script>
 
 let height = Math.max(document.body.scrollHeight, document.body.offsetHeight, document.documentElement.clientHeight,
-        document.documentElement.scrollHeight, document.documentElement.offsetHeight)
+		document.documentElement.scrollHeight, document.documentElement.offsetHeight)
 
 let scrollTop = document.querySelector('.line').clientHeight
 let line = document.querySelector('.line')
-  document.addEventListener('scroll', function () {
-    let a = window.scrollY/height*100
-    line.style.width=`${a}%`
+document.addEventListener('scroll', function () {
+	let a = window.scrollY / height * 100
+	line.style.width = `${a}%`
 
-  })
+})
 
 
 
