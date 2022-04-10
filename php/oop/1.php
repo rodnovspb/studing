@@ -1,15 +1,12 @@
 <?php
 
 
-class Date
+class Date1
 {
-  	private $date;
+  	public $date;
     public function __construct($date = null)
     {
       	$this->date = date_create($date);
-//        $this->day = date_format($this->date, 'd');
-//        $this->month = date_format($this->date, 'm');
-//        $this->year = date_format($this->date, 'Y');
     }
 
     public function getDay()
@@ -99,6 +96,46 @@ class Date
 
 }
 
-$one = new Date;
-$one->addDay(1);
-echo $one->getWeekDay('ru');
+class Interval {
+    public $date1;
+    public $date2;
+    public $diff;
+    public function __construct(Date1 $date1, Date1 $date2)
+    {
+        $this->date1 = strtotime((string)$date1);
+        $this->date2 = strtotime((string)$date2);
+        $this->diff = $this->date2 - $this->date1;
+    }
+    public function toDays()
+    {
+        return round($this->diff/60/60/24, 2) . "суток";
+    }
+
+    public function toMonths()
+    {
+        return round($this->diff/60/60/24/30,2) . 'месяцев';
+    }
+
+    public function toYears()
+    {
+        return round($this->diff/60/60/24/30/12, 2) . 'лет';
+    }
+}
+
+$one = new Date1('2021-04-9');
+$two = new Date1();
+
+echo '<pre>';
+print_r($two->date);
+echo '</pre>';
+
+
+$int = new Interval($one, $two);
+
+echo '<pre>';
+print_r($int->toDays());
+echo '<br>';
+print_r($int->toMonths());
+echo '<br>';
+print_r($int->toYears());
+echo '</pre>';
