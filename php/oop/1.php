@@ -2,24 +2,34 @@
 
 class Tag {
     private $name;
-    function __construct($name)
+    private $attr;
+    function __construct($name, $attr=[])
     {
         $this->name=$name;
+        $this->attr=$attr;
     }
     public function open(){
         $name = $this->name;
-        return "<$name>";
+        $atrr = $this->createAttr();
+        return "<$name $atrr>";
     }
     public function close(){
         $name = $this->name;
         return "</$name>";
     }
+    private function createAttr(){
+        $strAtr = '';
+        if(!empty($this->attr)){
+            foreach ($this->attr as $key=>$value){
+                $strAtr .= " $key=\"$value\"";
+            }
+        }
+        return $strAtr;
+    }
 }
 
-$header = new Tag('header');
-echo $header->open();
-echo 'header сайта';
-echo $header->close();
 
+$input = new Tag('input', ['id'=>1, 'class'=>'elem']);
+echo $input->open();
 
 
