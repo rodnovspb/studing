@@ -53,8 +53,13 @@ class Tag {
 }
 
 
-echo (new Tag('input'))->add('name', 'name1')->open();
-echo (new Tag('input'))->add('name', 'name2')->open();
+echo (new Tag('input'))
+    ->add('name', 'name1')
+    ->open();
+
+echo (new Tag('input'))
+    ->add('name', 'name2')
+    ->open();
 
 
 
