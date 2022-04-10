@@ -1,141 +1,81 @@
 <?php
 
 
-class Date1
+interface iFile
 {
-  	public $date;
-    public function __construct($date = null)
-    {
-      	$this->date = date_create($date);
-    }
+    public function __construct($filePath);
 
-    public function getDay()
-    {
-		return date_format($this->date, 'd');
-    }
+    public function getPath(); // путь к файлу
+    public function getDir();  // папка файла
+    public function getName(); // имя файла
+    public function getExt();  // расширение файла
+    public function getSize(); // размер файла
 
-    public function getMonth($lang = null)
-    {
-        $monthsRu = [1 => 'Январь' , 'Февраль' , 'Март' , 'Апрель' , 'Май' , 'Июнь' , 'Июль' , 'Август' , 'Сентябрь'
-		, 'Октябрь' , 'Ноябрь' , 'Декабрь' ];
-        if($lang==='ru'){
-          return $monthsRu[(int)(date_format($this->date, 'm'))];
-		} elseif ($lang==='en') {
-          return date_format($this->date, 'F');
-		} else {
-          return date_format($this->date, 'm');
-		}
-    }
+    public function getText();          // получает текст файла
+    public function setText($text);     // устанавливает текст файла
+    public function appendText($text);  // добавляет текст в конец файла
 
-    public function getYear()
-    {
-      return date_format($this->date, 'Y');
-    }
-
-    public function getWeekDay($lang = null)
-    {
-
- 		 $weekDay = [ 'Воскресенье', 'Понедельник' , 'Вторник' , 'Среда' , 'Четверг' , 'Пятница' , 'Суббота'];
- 		 switch ($lang) {
-			 case 'ru': $day = $weekDay[(int)(date_format($this->date, 'w'))];
-			 break;
-			 case 'en': $day = date_format($this->date, 'l');
-			 break;
-			 default: $day = date_format($this->date, 'w');
-		 }
-		 return $day;
-
-    }
-
-    public function addDay($value)
-    {
-        date_modify($this->date, "$value day");
-        return $this;
-    }
-
-    public function subDay($value)
-    {
-        date_modify($this->date, "-$value day");
-        return $this;
-    }
-
-    public function addMonth($value)
-    {
-        date_modify($this->date, "$value month");
-        return $this;
-    }
-
-    public function subMonth($value)
-    {
-        date_modify($this->date, "-$value month");
-        return $this;
-    }
-
-    public function addYear($value)
-    {
-        date_modify($this->date, "$value year");
-        return $this;
-    }
-
-    public function subYear($value)
-    {
-        date_modify($this->date, "-$value year");
-        return $this;
-    }
-
-    public function format($format)
-    {
-        return date_format($this->date, $format);
-    }
-
-    public function __toString()
-    {
-        return date_format($this->date, "Y-m-d");
-    }
-
-
+    public function copy($copyPath);    // копирует файл
+    public function delete();           // удаляет файл
+    public function rename($newName);   // переименовывает файл
+    public function replace($newPath);  // перемещает файл
 }
 
-class Interval {
-    public $date1;
-    public $date2;
-    public $diff;
-    public function __construct(Date1 $date1, Date1 $date2)
-    {
-        $this->date1 = strtotime((string)$date1);
-        $this->date2 = strtotime((string)$date2);
-        $this->diff = $this->date2 - $this->date1;
+class File implements iFile{
+    private $filePath;
+    public function __construct($filePath) {
+        $this->filePath=$filePath;
     }
-    public function toDays()
+    public function getPath()
     {
-        return round($this->diff/60/60/24, 2) . "суток";
+        return $this->filePath;
     }
-
-    public function toMonths()
+    public function getDir()
     {
-        return round($this->diff/60/60/24/30,2) . 'месяцев';
+        return __DIR__;
     }
-
-    public function toYears()
+    public function getName()
     {
-        return round($this->diff/60/60/24/30/12, 2) . 'лет';
+        return pathinfo($this->filePath)['filename'];
+    }
+    public function getExt(){
+        return pathinfo($this->filePath)['extension'];
+    }
+    public function getSize(){
+        return filesize($this->filePath)/1024 . ' кб';
+    }
+    public function getText()
+    {
+        return file_get_contents($this->filePath);
+    }
+    public function setText($text)
+    {
+        file_put_contents($this->filePath, $text);
+    }
+    public function appendText($text)
+    {
+        $data = file_get_contents($this->filePath);
+        file_put_contents($this->filePath, $data . $text);
+    }
+    public function copy($copyPath)
+    {
+        copy($this->filePath, $copyPath);
+    }
+    public function delete()
+    {
+        unlink($this->filePath);
+    }
+    public function rename($newName)
+    {
+        rename($this->filePath, $newName);
+    }
+    public function replace($newPath)
+    {
+        rename($this->filePath, $newPath);
     }
 }
 
-$one = new Date1('2021-04-9');
-$two = new Date1();
-
-echo '<pre>';
-print_r($two->date);
-echo '</pre>';
+$file = new File('C:\Users\user\Desktop\studing\php\oop\1.txt');
 
 
-$int = new Interval($one, $two);
 
-echo '<pre>';
-print_r($int->toDays());
-echo '<br>';
-print_r($int->toMonths());
-echo '<br>';
-print_r($int->toYears());
-echo '</pre>';
