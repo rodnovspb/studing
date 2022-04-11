@@ -1,6 +1,7 @@
 {
   "type": "module",
   "dependencies": {
+    "lodash": "^4.17.21",
     "node": "^17.3.1"
   }
 }

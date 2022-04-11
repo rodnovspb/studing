@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "express": "^4.17.2",
+    "lodash": "^4.17.21",
     "mongodb": "^4.2.2",
     "node": "^17.4.0",
     "nodemon": "^2.0.15",

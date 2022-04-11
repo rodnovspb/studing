@@ -1,7 +1,6 @@
 <?php
 
 interface iTag {
-    public function __construct($name);
     public function open();
     public function close();
     public function add($name, $value);
@@ -123,6 +122,39 @@ class Tag implements iTag {
     public function setText($text) {
         $this->text = $text;
         return $this;
+    }
+}
+
+
+class Img extends Tag{
+    public function __construct()
+    {
+        $this->setAttrs(['src'=>' ', 'alt'=>' ']);
+        parent::__construct('img');
+    }
+    public function __toString()
+    {
+        return $this->open();
+    }
+}
+
+class Link extends Tag {
+    const ACTIVE_LINK = 'active';
+    public function __construct()
+    {
+        $this->setAttrs(['href'=>'']);
+        parent::__construct('a');
+    }
+    public function open()
+    {
+        $this->activateSelf();
+        return parent::open();
+    }
+    private function activateSelf(){
+        $file =  pathinfo($_SERVER['REQUEST_URI'])['filename']. ".php";
+        if($this->getAttr('href') ===  $file ){
+            $this->addClass(self::ACTIVE_LINK);
+        }
     }
 }
 
