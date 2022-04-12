@@ -16,24 +16,26 @@
 <script>
 
 
-let calculator = {
-  read(){
-    this.a=+prompt('Введите число', '')
-    this.b=+prompt('Введите число', '')
+let ladder = {
+  step: 0,
+  up() {
+    this.step++;
+    return this
   },
-  sum(){
-    console.log(this.a+this.b)
+  down() {
+    this.step--;
+    return this
   },
-  multiply(){
-    console.log(this.a*this.b)
+  showStep: function() { // показывает текущую ступеньку
+    alert( this.step );
   }
 };
 
-calculator.read()
-  calculator.sum()
-  calculator.multiply()
-
-
+ladder
+    .up()
+    .up()
+    .up()
+    .showStep()
 
 
 
