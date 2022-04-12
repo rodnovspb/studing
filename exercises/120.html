@@ -15,20 +15,34 @@
 
 <script>
 
-  import _ from 'lodash'
-  console.log(_)
 
-
-let user = {
-  name: "Иван",
-  sizes: {
-    height: 182,
-    width: 50
+let calculator = {
+  read(){
+    this.a=+prompt('Введите число', '')
+    this.b=+prompt('Введите число', '')
+  },
+  sum(){
+    console.log(this.a+this.b)
+  },
+  multiply(){
+    console.log(this.a*this.b)
   }
 };
 
-let user1 = Object.assign({}, user)
-  console.log(user.sizes)
+calculator.read()
+  calculator.sum()
+  calculator.multiply()
+
+
+
+
+
+
+
+
+
+
+
 
 
 
