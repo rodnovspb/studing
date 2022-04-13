@@ -236,9 +236,21 @@ $form->setAttrs(['action'=>'', 'method'=>'POST']);
 
 
 echo $form->open();
-    echo (new Input())->setAttrs(['name'=>'elem1', 'value'=>date('Y')]);
+    echo (new Input())->setAttrs(['name'=>'elem1', 'type'=>'number']);
+    echo (new Input())->setAttrs(['name'=>'elem2', 'type'=>'number']);
+    echo (new Input())->setAttrs(['name'=>'elem3', 'type'=>'number']);
+    echo (new Input())->setAttrs(['name'=>'elem4', 'type'=>'number']);
+    echo (new Input())->setAttrs(['name'=>'elem5', 'type'=>'number']);
     echo (new Input())->setAttrs(['type'=>'submit']);
 echo $form->close();
+
+if($_REQUEST['elem1'] && $_REQUEST['elem2'] && $_REQUEST['elem3'] && $_REQUEST['elem4'] && $_REQUEST['elem5']){
+    $sum=0;
+    for($i=1; $i<=5; $i++){
+        $sum+=(int)($_REQUEST['elem'.$i]);
+    }
+    echo "<div>Сумма: $sum</div>";
+}
 
 
 
