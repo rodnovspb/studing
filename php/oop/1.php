@@ -210,6 +210,12 @@ echo $uList
     ->addItem((new ListItem())->setText('item2'))
     ->addItem((new ListItem())->setText('item3'));
 
+$oList = new Ol();
+echo $oList
+        ->addItem((new ListItem())->setText('item1'))
+        ->addItem((new ListItem())->setText('item2'))
+        ->addItem((new ListItem())->setText('item3'));
+
 
 
 
