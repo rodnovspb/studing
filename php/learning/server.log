@@ -1,0 +1,252 @@
+Array
+(
+    [ALLUSERSPROFILE] => C:\ProgramData
+    [APPDATA] => C:\Users\user\AppData\Roaming
+    [ChocolateyInstall] => C:\ProgramData\chocolatey
+    [CommonProgramFiles] => C:\Program Files\Common Files
+    [CommonProgramFiles(x86)] => C:\Program Files (x86)\Common Files
+    [CommonProgramW6432] => C:\Program Files\Common Files
+    [COMPUTERNAME] => WIN-TB44VS31KC2
+    [ComSpec] => C:\WINDOWS\system32\cmd.exe
+    [DriverData] => C:\Windows\System32\Drivers\DriverData
+    [EMAIL] => C:\Users\user\AppData\Roaming\The Bat!
+    [FPS_BROWSER_APP_PROFILE_STRING] => Internet Explorer
+    [FPS_BROWSER_USER_PROFILE_STRING] => Default
+    [HOMEDRIVE] => C:
+    [HOMEPATH] => \Users\user
+    [IDEA_INITIAL_DIRECTORY] => C:\Program Files\JetBrains\PhpStorm 2021.1.1\bin
+    [LOCALAPPDATA] => C:\Users\user\AppData\Local
+    [LOGONSERVER] => \\WIN-TB44VS31KC2
+    [NUMBER_OF_PROCESSORS] => 6
+    [OneDrive] => C:\Users\user\OneDrive
+    [OS] => Windows_NT
+    [Path] => C:\Python310\Scripts\;C:\Python310\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs\;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\user\AppData\Local\Microsoft\WindowsApps;C:\Users\user\AppData\Roaming\npm
+    [PATHEXT] => .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY;.PYW
+    [PROCESSOR_ARCHITECTURE] => AMD64
+    [PROCESSOR_IDENTIFIER] => Intel64 Family 6 Model 158 Stepping 10, GenuineIntel
+    [PROCESSOR_LEVEL] => 6
+    [PROCESSOR_REVISION] => 9e0a
+    [ProgramData] => C:\ProgramData
+    [ProgramFiles] => C:\Program Files
+    [ProgramFiles(x86)] => C:\Program Files (x86)
+    [ProgramW6432] => C:\Program Files
+    [PSModulePath] => C:\Program Files\WindowsPowerShell\Modules;C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules
+    [PUBLIC] => C:\Users\Public
+    [SESSIONNAME] => Console
+    [SystemDrive] => C:
+    [SystemRoot] => C:\WINDOWS
+    [TEMP] => C:\Users\user\AppData\Local\Temp
+    [TMP] => C:\Users\user\AppData\Local\Temp
+    [USERDOMAIN] => WIN-TB44VS31KC2
+    [USERDOMAIN_ROAMINGPROFILE] => WIN-TB44VS31KC2
+    [USERNAME] => user
+    [USERPROFILE] => C:\Users\user
+    [windir] => C:\WINDOWS
+    [SCRIPT_NAME] => /studing/php/learning/1.php
+    [SCRIPT_FILENAME] => C:\Users\user\Desktop\studing\php\learning\1.php
+    [DOCUMENT_ROOT] => C:\Users\user\Desktop\studing
+    [HTTP_CONTENT_LENGTH] => 0
+    [HTTP_SEC_GPC] => 1
+    [HTTP_DNT] => 1
+    [HTTP_COOKIE] => Phpstorm-637b3fa3=9e8547ab-4380-4327-a3c1-ac2887ab4af0; nameCookie=valueCookie; key={%20name1:%20'value1'%2C%20name2:%20'value2'%20}; PHPSESSID=7o1vttu56il37f0jb9m4vohdp0h2ovh8
+    [HTTP_ACCEPT_LANGUAGE] => ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,la;q=0.6
+    [HTTP_ACCEPT_ENCODING] => gzip, deflate, br
+    [HTTP_SEC_FETCH_DEST] => document
+    [HTTP_SEC_FETCH_USER] => ?1
+    [HTTP_SEC_FETCH_MODE] => navigate
+    [HTTP_SEC_FETCH_SITE] => none
+    [HTTP_ACCEPT] => text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+    [HTTP_USER_AGENT] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.75 Safari/537.36
+    [HTTP_UPGRADE_INSECURE_REQUESTS] => 1
+    [HTTP_SEC_CH_UA_PLATFORM] => "Windows"
+    [HTTP_SEC_CH_UA_MOBILE] => ?0
+    [HTTP_SEC_CH_UA] => " Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"
+    [HTTP_CACHE_CONTROL] => max-age=0
+    [HTTP_HOST] => localhost:63342
+    [CONTENT_TYPE] => 
+    [CONTENT_LENGTH] => 0
+    [QUERY_STRING] => _ijt=qpqde2q8njtupdna6nn4jj20nd
+    [DOCUMENT_URI] => /studing/php/learning/1.php
+    [REDIRECT_STATUS] => 200
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PORT] => 63342
+    [SERVER_ADDR] => 127.0.0.1
+    [REMOTE_PORT] => 54853
+    [REMOTE_ADDR] => 127.0.0.1
+    [REQUEST_METHOD] => GET
+    [REQUEST_URI] => /studing/php/learning/1.php?_ijt=qpqde2q8njtupdna6nn4jj20nd
+    [FCGI_ROLE] => RESPONDER
+    [PHP_SELF] => /studing/php/learning/1.php
+    [REQUEST_TIME_FLOAT] => 1649802032.4977
+    [REQUEST_TIME] => 1649802032
+)
+
+Array
+(
+    [ALLUSERSPROFILE] => C:\ProgramData
+    [APPDATA] => C:\Users\user\AppData\Roaming
+    [ChocolateyInstall] => C:\ProgramData\chocolatey
+    [CommonProgramFiles] => C:\Program Files\Common Files
+    [CommonProgramFiles(x86)] => C:\Program Files (x86)\Common Files
+    [CommonProgramW6432] => C:\Program Files\Common Files
+    [COMPUTERNAME] => WIN-TB44VS31KC2
+    [ComSpec] => C:\WINDOWS\system32\cmd.exe
+    [DriverData] => C:\Windows\System32\Drivers\DriverData
+    [EMAIL] => C:\Users\user\AppData\Roaming\The Bat!
+    [FPS_BROWSER_APP_PROFILE_STRING] => Internet Explorer
+    [FPS_BROWSER_USER_PROFILE_STRING] => Default
+    [HOMEDRIVE] => C:
+    [HOMEPATH] => \Users\user
+    [IDEA_INITIAL_DIRECTORY] => C:\Program Files\JetBrains\PhpStorm 2021.1.1\bin
+    [LOCALAPPDATA] => C:\Users\user\AppData\Local
+    [LOGONSERVER] => \\WIN-TB44VS31KC2
+    [NUMBER_OF_PROCESSORS] => 6
+    [OneDrive] => C:\Users\user\OneDrive
+    [OS] => Windows_NT
+    [Path] => C:\Python310\Scripts\;C:\Python310\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs\;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\user\AppData\Local\Microsoft\WindowsApps;C:\Users\user\AppData\Roaming\npm
+    [PATHEXT] => .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY;.PYW
+    [PROCESSOR_ARCHITECTURE] => AMD64
+    [PROCESSOR_IDENTIFIER] => Intel64 Family 6 Model 158 Stepping 10, GenuineIntel
+    [PROCESSOR_LEVEL] => 6
+    [PROCESSOR_REVISION] => 9e0a
+    [ProgramData] => C:\ProgramData
+    [ProgramFiles] => C:\Program Files
+    [ProgramFiles(x86)] => C:\Program Files (x86)
+    [ProgramW6432] => C:\Program Files
+    [PSModulePath] => C:\Program Files\WindowsPowerShell\Modules;C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules
+    [PUBLIC] => C:\Users\Public
+    [SESSIONNAME] => Console
+    [SystemDrive] => C:
+    [SystemRoot] => C:\WINDOWS
+    [TEMP] => C:\Users\user\AppData\Local\Temp
+    [TMP] => C:\Users\user\AppData\Local\Temp
+    [USERDOMAIN] => WIN-TB44VS31KC2
+    [USERDOMAIN_ROAMINGPROFILE] => WIN-TB44VS31KC2
+    [USERNAME] => user
+    [USERPROFILE] => C:\Users\user
+    [windir] => C:\WINDOWS
+    [SCRIPT_NAME] => /studing/php/learning/1.php
+    [SCRIPT_FILENAME] => C:\Users\user\Desktop\studing\php\learning\1.php
+    [DOCUMENT_ROOT] => C:\Users\user\Desktop\studing
+    [HTTP_CONTENT_LENGTH] => 0
+    [HTTP_SEC_GPC] => 1
+    [HTTP_DNT] => 1
+    [HTTP_COOKIE] => Phpstorm-637b3fa3=9e8547ab-4380-4327-a3c1-ac2887ab4af0; nameCookie=valueCookie; key={%20name1:%20'value1'%2C%20name2:%20'value2'%20}; PHPSESSID=7o1vttu56il37f0jb9m4vohdp0h2ovh8
+    [HTTP_ACCEPT_LANGUAGE] => ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,la;q=0.6
+    [HTTP_ACCEPT_ENCODING] => gzip, deflate, br
+    [HTTP_SEC_FETCH_DEST] => document
+    [HTTP_SEC_FETCH_USER] => ?1
+    [HTTP_SEC_FETCH_MODE] => navigate
+    [HTTP_SEC_FETCH_SITE] => none
+    [HTTP_ACCEPT] => text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+    [HTTP_USER_AGENT] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.75 Safari/537.36
+    [HTTP_UPGRADE_INSECURE_REQUESTS] => 1
+    [HTTP_SEC_CH_UA_PLATFORM] => "Windows"
+    [HTTP_SEC_CH_UA_MOBILE] => ?0
+    [HTTP_SEC_CH_UA] => " Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"
+    [HTTP_CACHE_CONTROL] => max-age=0
+    [HTTP_HOST] => localhost:63342
+    [CONTENT_TYPE] => 
+    [CONTENT_LENGTH] => 0
+    [QUERY_STRING] => _ijt=qpqde2q8njtupdna6nn4jj20nd
+    [DOCUMENT_URI] => /studing/php/learning/1.php
+    [REDIRECT_STATUS] => 200
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PORT] => 63342
+    [SERVER_ADDR] => 127.0.0.1
+    [REMOTE_PORT] => 54853
+    [REMOTE_ADDR] => 127.0.0.1
+    [REQUEST_METHOD] => GET
+    [REQUEST_URI] => /studing/php/learning/1.php?_ijt=qpqde2q8njtupdna6nn4jj20nd
+    [FCGI_ROLE] => RESPONDER
+    [PHP_SELF] => /studing/php/learning/1.php
+    [REQUEST_TIME_FLOAT] => 1649802041.7309
+    [REQUEST_TIME] => 1649802041
+)
+
+Array
+(
+    [ALLUSERSPROFILE] => C:\ProgramData
+    [APPDATA] => C:\Users\user\AppData\Roaming
+    [ChocolateyInstall] => C:\ProgramData\chocolatey
+    [CommonProgramFiles] => C:\Program Files\Common Files
+    [CommonProgramFiles(x86)] => C:\Program Files (x86)\Common Files
+    [CommonProgramW6432] => C:\Program Files\Common Files
+    [COMPUTERNAME] => WIN-TB44VS31KC2
+    [ComSpec] => C:\WINDOWS\system32\cmd.exe
+    [DriverData] => C:\Windows\System32\Drivers\DriverData
+    [EMAIL] => C:\Users\user\AppData\Roaming\The Bat!
+    [FPS_BROWSER_APP_PROFILE_STRING] => Internet Explorer
+    [FPS_BROWSER_USER_PROFILE_STRING] => Default
+    [HOMEDRIVE] => C:
+    [HOMEPATH] => \Users\user
+    [IDEA_INITIAL_DIRECTORY] => C:\Program Files\JetBrains\PhpStorm 2021.1.1\bin
+    [LOCALAPPDATA] => C:\Users\user\AppData\Local
+    [LOGONSERVER] => \\WIN-TB44VS31KC2
+    [NUMBER_OF_PROCESSORS] => 6
+    [OneDrive] => C:\Users\user\OneDrive
+    [OS] => Windows_NT
+    [Path] => C:\Python310\Scripts\;C:\Python310\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs\;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\user\AppData\Local\Microsoft\WindowsApps;C:\Users\user\AppData\Roaming\npm
+    [PATHEXT] => .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY;.PYW
+    [PROCESSOR_ARCHITECTURE] => AMD64
+    [PROCESSOR_IDENTIFIER] => Intel64 Family 6 Model 158 Stepping 10, GenuineIntel
+    [PROCESSOR_LEVEL] => 6
+    [PROCESSOR_REVISION] => 9e0a
+    [ProgramData] => C:\ProgramData
+    [ProgramFiles] => C:\Program Files
+    [ProgramFiles(x86)] => C:\Program Files (x86)
+    [ProgramW6432] => C:\Program Files
+    [PSModulePath] => C:\Program Files\WindowsPowerShell\Modules;C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules
+    [PUBLIC] => C:\Users\Public
+    [SESSIONNAME] => Console
+    [SystemDrive] => C:
+    [SystemRoot] => C:\WINDOWS
+    [TEMP] => C:\Users\user\AppData\Local\Temp
+    [TMP] => C:\Users\user\AppData\Local\Temp
+    [USERDOMAIN] => WIN-TB44VS31KC2
+    [USERDOMAIN_ROAMINGPROFILE] => WIN-TB44VS31KC2
+    [USERNAME] => user
+    [USERPROFILE] => C:\Users\user
+    [windir] => C:\WINDOWS
+    [SCRIPT_NAME] => /studing/php/learning/1.php
+    [SCRIPT_FILENAME] => C:\Users\user\Desktop\studing\php\learning\1.php
+    [DOCUMENT_ROOT] => C:\Users\user\Desktop\studing
+    [HTTP_CONTENT_LENGTH] => 0
+    [HTTP_SEC_GPC] => 1
+    [HTTP_DNT] => 1
+    [HTTP_COOKIE] => Phpstorm-637b3fa3=9e8547ab-4380-4327-a3c1-ac2887ab4af0; nameCookie=valueCookie; key={%20name1:%20'value1'%2C%20name2:%20'value2'%20}; PHPSESSID=7o1vttu56il37f0jb9m4vohdp0h2ovh8
+    [HTTP_ACCEPT_LANGUAGE] => ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,la;q=0.6
+    [HTTP_ACCEPT_ENCODING] => gzip, deflate, br
+    [HTTP_SEC_FETCH_DEST] => document
+    [HTTP_SEC_FETCH_USER] => ?1
+    [HTTP_SEC_FETCH_MODE] => navigate
+    [HTTP_SEC_FETCH_SITE] => none
+    [HTTP_ACCEPT] => text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+    [HTTP_USER_AGENT] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.75 Safari/537.36
+    [HTTP_UPGRADE_INSECURE_REQUESTS] => 1
+    [HTTP_SEC_CH_UA_PLATFORM] => "Windows"
+    [HTTP_SEC_CH_UA_MOBILE] => ?0
+    [HTTP_SEC_CH_UA] => " Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"
+    [HTTP_CACHE_CONTROL] => max-age=0
+    [HTTP_HOST] => localhost:63342
+    [CONTENT_TYPE] => 
+    [CONTENT_LENGTH] => 0
+    [QUERY_STRING] => _ijt=qpqde2q8njtupdna6nn4jj20nd
+    [DOCUMENT_URI] => /studing/php/learning/1.php
+    [REDIRECT_STATUS] => 200
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PORT] => 63342
+    [SERVER_ADDR] => 127.0.0.1
+    [REMOTE_PORT] => 54853
+    [REMOTE_ADDR] => 127.0.0.1
+    [REQUEST_METHOD] => GET
+    [REQUEST_URI] => /studing/php/learning/1.php?_ijt=qpqde2q8njtupdna6nn4jj20nd
+    [FCGI_ROLE] => RESPONDER
+    [PHP_SELF] => /studing/php/learning/1.php
+    [REQUEST_TIME_FLOAT] => 1649802088.7844
+    [REQUEST_TIME] => 1649802088
+)
+
