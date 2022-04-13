@@ -204,17 +204,41 @@ class Ol extends HtmlList {
     }
 }
 
-$uList = new Ul();
-echo $uList
-    ->addItem((new ListItem())->setText('item1'))
-    ->addItem((new ListItem())->setText('item2'))
-    ->addItem((new ListItem())->setText('item3'));
+class Form extends Tag {
+    public function __construct()
+    {
+        parent::__construct('form');
+    }
+}
+class Input extends Tag {
+    function __construct()
+    {
+        parent::__construct('input');
+    }
+    public function open(){
+        $name = $this->getAttr('name');
+        if($name){
+        if(isset($_REQUEST[$name])) {
+            $this->setAttrs(['value'=>$_REQUEST[$name]]);
+        }
+        }
+        return parent::open();
+    }
 
-$oList = new Ol();
-echo $oList
-        ->addItem((new ListItem())->setText('item1'))
-        ->addItem((new ListItem())->setText('item2'))
-        ->addItem((new ListItem())->setText('item3'));
+    public function __toString()
+    {
+        return $this->open();
+    }
+}
+
+$form = new Form();
+$form->setAttrs(['action'=>'', 'method'=>'POST']);
+
+
+echo $form->open();
+    echo (new Input())->setAttrs(['name'=>'elem1', 'value'=>date('Y')]);
+    echo (new Input())->setAttrs(['type'=>'submit']);
+echo $form->close();
 
 
 
