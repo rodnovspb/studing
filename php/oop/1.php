@@ -230,27 +230,29 @@ class Input extends Tag {
         return $this->open();
     }
 }
+class Submit extends Input {
+    public function __construct()
+    {
+        $this->setAttrs(['type'=>'submit']);
+        parent::__construct();
+    }
+}
 
-$form = new Form();
+
+$form = new Form;
 $form->setAttrs(['action'=>'', 'method'=>'POST']);
 
 
 echo $form->open();
-    echo (new Input())->setAttrs(['name'=>'elem1', 'type'=>'number']);
-    echo (new Input())->setAttrs(['name'=>'elem2', 'type'=>'number']);
-    echo (new Input())->setAttrs(['name'=>'elem3', 'type'=>'number']);
-    echo (new Input())->setAttrs(['name'=>'elem4', 'type'=>'number']);
-    echo (new Input())->setAttrs(['name'=>'elem5', 'type'=>'number']);
-    echo (new Input())->setAttrs(['type'=>'submit']);
+    echo (new Input)->setAttrs(['name'=>'elem1', 'type'=>'number']);
+    echo (new Input)->setAttrs(['name'=>'elem2', 'type'=>'number']);
+    echo (new Input)->setAttrs(['name'=>'elem3', 'type'=>'number']);
+    echo (new Input)->setAttrs(['name'=>'elem4', 'type'=>'number']);
+    echo (new Input)->setAttrs(['name'=>'elem5', 'type'=>'number']);
+    echo new Submit;
 echo $form->close();
 
-if($_REQUEST['elem1'] && $_REQUEST['elem2'] && $_REQUEST['elem3'] && $_REQUEST['elem4'] && $_REQUEST['elem5']){
-    $sum=0;
-    for($i=1; $i<=5; $i++){
-        $sum+=(int)($_REQUEST['elem'.$i]);
-    }
-    echo "<div>Сумма: $sum</div>";
-}
+
 
 
 
