@@ -237,7 +237,21 @@ class Submit extends Input {
         parent::__construct();
     }
 }
+class Password extends Input {
+    public function __construct()
+    {
+        $this->setAttrs(['type' => 'password']);
+        parent::__construct();
+    }
+}
 
+class Hidden extends Input {
+    public function __construct()
+    {
+        $this->setAttrs(['type'=>'hidden']);
+        parent::__construct();
+    }
+}
 
 $form = new Form;
 $form->setAttrs(['action'=>'', 'method'=>'POST']);
@@ -249,6 +263,8 @@ echo $form->open();
     echo (new Input)->setAttrs(['name'=>'elem3', 'type'=>'number']);
     echo (new Input)->setAttrs(['name'=>'elem4', 'type'=>'number']);
     echo (new Input)->setAttrs(['name'=>'elem5', 'type'=>'number']);
+    echo (new Password)->setAttrs(['name'=>'pass']);
+    echo (new Hidden)->setAttrs(['name'=>'id', 'value'=>123]);
     echo new Submit;
 echo $form->close();
 
