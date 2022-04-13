@@ -158,6 +158,45 @@ class Link extends Tag {
     }
 }
 
+class ListItem extends Tag {
+    function __construct()
+    {
+        parent::__construct('li');
+    }
+    function __toString()
+    {
+        return $this->show();
+    }
+}
+
+class HtmlList extends Tag {
+    private $items = [];
+    public function addItem (ListItem $li) {
+        $this->items[] = $li;
+        return $this;
+    }
+    public function show()
+    {
+        $result = $this->open();
+            foreach ($this->items as $item){
+                $result .=$item;
+            }
+        $result .= $this->close();
+        return $result;
+    }
+    public function __toString()
+    {
+        return $this->show();
+    }
+}
+
+$list = new HtmlList('ul');
+echo $list
+    ->addItem((new ListItem('li'))->setText('item')->setAttrs(['class'=> 'first']))
+    ->addItem((new ListItem('li'))->setText('item'))
+    ->addItem((new ListItem('li'))->setText('item'))
+    ->addItem((new ListItem('li'))->setText('item'));
+
 
 
 
