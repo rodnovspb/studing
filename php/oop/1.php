@@ -190,12 +190,25 @@ class HtmlList extends Tag {
     }
 }
 
-$list = new HtmlList('ul');
-echo $list
-    ->addItem((new ListItem('li'))->setText('item')->setAttrs(['class'=> 'first']))
-    ->addItem((new ListItem('li'))->setText('item'))
-    ->addItem((new ListItem('li'))->setText('item'))
-    ->addItem((new ListItem('li'))->setText('item'));
+class Ul extends HtmlList {
+    public function __construct()
+    {
+        parent::__construct('ul');
+    }
+}
+
+class Ol extends HtmlList {
+    public function __construct()
+    {
+        parent::__construct('ol');
+    }
+}
+
+$uList = new Ul();
+echo $uList
+    ->addItem((new ListItem())->setText('item1'))
+    ->addItem((new ListItem())->setText('item2'))
+    ->addItem((new ListItem())->setText('item3'));
 
 
 
