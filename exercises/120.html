@@ -12,20 +12,24 @@
              commodi,
     cumque deserunt ducimus eaque expedita molestias mollitia necessitatibus numquam officiis porro possimus quam reprehenderit vero, voluptas voluptatem.</p>
 
-
+<ul>'asdasd'</ul>
 
 
 <script>
 
-    let span = document.createElement('span')
-    span.innerHTML = '111111111111'
-    document.querySelector('p').appendChild(span)
+let arr = []
 
 
-    let htmlCollection = document.getElementsByTagName('p')
-    console.log(htmlCollection.length)
-  let nodeList = document.querySelector('p')
-  console.log(nodeList.offsetTop)
+for(let i=0; i<10000000; i++){
+  arr.push(Math.random())
+}
+
+
+let sum = arr.reduce((accum, elem)=>accum+elem, 0)
+
+console.log(sum/(arr.length))
+
+
 
 
 
