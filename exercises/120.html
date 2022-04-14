@@ -16,22 +16,16 @@
 <script>
 
 
-function Calc (){
-  this.read = function (){
-    this.a = +prompt('1 число', '')
-    this.b = +prompt('2 число', '')
+function Accum(num){
+  this.value = num;
+  this.read = ()=>{
+    this.value+=+prompt('Число?', '');
   }
-  this.sum = ()=>this.a+this.b;
-  this.mult = ()=>this.a*this.b;
 }
 
-let cal = new Calc;
-
-cal.read()
-console.log(cal.sum())
-console.log(cal.mult())
-
-
+let accum = new Accum(1)
+accum.read()
+console.log(accum.value)
 
 
 
