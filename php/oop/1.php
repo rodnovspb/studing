@@ -268,6 +268,9 @@ echo $form->open();
     echo new Submit;
 echo $form->close();
 
+$var = '0';
+var_dump(empty($var));
+
 
 
 

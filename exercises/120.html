@@ -16,17 +16,20 @@
 <script>
 
 
-
-  let obj = {
-    a: 5,
-    b: this
+function Calc (){
+  this.read = function (){
+    this.a = +prompt('1 число', '')
+    this.b = +prompt('2 число', '')
   }
+  this.sum = ()=>this.a+this.b;
+  this.mult = ()=>this.a*this.b;
+}
 
-console.log(obj.b)
+let cal = new Calc;
 
-
-
-
+cal.read()
+console.log(cal.sum())
+console.log(cal.mult())
 
 
 
