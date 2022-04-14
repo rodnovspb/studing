@@ -8,24 +8,25 @@
 
 
 
-
+<p class="elem">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus accusantium asperiores assumenda
+             commodi,
+    cumque deserunt ducimus eaque expedita molestias mollitia necessitatibus numquam officiis porro possimus quam reprehenderit vero, voluptas voluptatem.</p>
 
 
 
 
 <script>
 
+    let span = document.createElement('span')
+    span.innerHTML = '111111111111'
+    document.querySelector('p').appendChild(span)
 
-function Accum(num){
-  this.value = num;
-  this.read = ()=>{
-    this.value+=+prompt('Число?', '');
-  }
-}
 
-let accum = new Accum(1)
-accum.read()
-console.log(accum.value)
+    let htmlCollection = document.getElementsByTagName('p')
+    console.log(htmlCollection.length)
+  let nodeList = document.querySelector('p')
+  console.log(nodeList.offsetTop)
+
 
 
 
