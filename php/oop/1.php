@@ -108,7 +108,7 @@ class Tag implements iTag {
     }
 
     public function getText() {
-        return $this->attr['text'] ?? null;
+        return $this->text;
     }
 
     public function getAttrs() {
@@ -253,23 +253,144 @@ class Hidden extends Input {
     }
 }
 
-$form = new Form;
-$form->setAttrs(['action'=>'', 'method'=>'POST']);
+class Textarea extends Tag {
+    public function __construct() {
+        parent::__construct('textarea');
+    }
+        public function open(){
+            $name = $this->getAttr('name');
+            if(isset($name) && isset($_REQUEST[$name])) {
+                $this->setText($_REQUEST[$name]);
+            }
+            return parent::open();
+        }
+}
+
+class Chekbox extends Tag {
+    function __construct()
+    {
+        parent::__construct('input');
+        $this->setAttrs(['type'=>'checkbox', 'value'=>'1']);
+    }
+    public function open()
+    {
+        $name = $this->getAttr('name');
+        if(isset($name)){
+        if(isset($_REQUEST[$name])){
+            $value = $_REQUEST[$name];
+            if($value==1){
+                $this->setAttrs(['checked'=>true]);
+            } else {
+                $this->remove('checked');
+            }
+        }
+        return parent::open();
+        } else {
+            return parent::open();
+        }
+    }
+    function __toString()
+    {
+        return $this->open();
+    }
+}
+
+class Radio extends Tag {
+    public function __construct()
+    {
+        $this->setAttrs(['type'=>'radio']);
+        parent::__construct('input');
+    }
+
+    public function open(){
+        $name = $this->getAttr('name');
+        $value = $this->getAttr('value');
+        if(isset($name)){
+            if($_REQUEST[$name]==$value){
+                $this->setAttrs(['checked'=>true]);
+            }
+        }   return parent::open();
+
+    }
+    public function __toString()
+    {
+        return $this->open();
+    }
+}
+
+class Option extends Tag {
+    public function __construct(){
+        parent::__construct('option');
+    }
+    public function __toString()
+    {
+        return $this->show();
+    }
+    public function setSelected(){
+        $this->setAttrs(['selected'=>true]);
+        return $this;
+    }
+}
+
+class Select extends Tag {
+    private $options;
+    public function __construct(){
+        parent::__construct('select');
+    }
+    public function addItem(Option $option){
+        $this->options[] = $option;
+        return $this;
+    }
+    public function show(){
+       $result = $this->open();
+       $name = $this->getAttr('name');
+       $value = $_REQUEST[$name];
+       foreach ($this->options as $option) {
+           if(isset($value) && ($option->getAttr('value'))===$value){
+               $option->setSelected();
+           } else {
+               $option->remove('selected');
+           }
+           $result .= $option;
+       }
+       $result .= $this->close();
+       return $result;
+    }
+    public function __toString()
+    {
+        return $this->show();
+    }
+}
 
 
-echo $form->open();
-    echo (new Input)->setAttrs(['name'=>'elem1', 'type'=>'number']);
-    echo (new Input)->setAttrs(['name'=>'elem2', 'type'=>'number']);
-    echo (new Input)->setAttrs(['name'=>'elem3', 'type'=>'number']);
-    echo (new Input)->setAttrs(['name'=>'elem4', 'type'=>'number']);
-    echo (new Input)->setAttrs(['name'=>'elem5', 'type'=>'number']);
-    echo (new Password)->setAttrs(['name'=>'pass']);
-    echo (new Hidden)->setAttrs(['name'=>'id', 'value'=>123]);
+$form1 = new Form;
+$form1->setAttrs(['action'=>'', 'method'=>'GET']);
+$select = new Select;
+echo $form1->open();
+    echo $select->setAttrs(['name'=>'list'])
+        ->addItem((new Option)->setAttrs(['value'=>'1'])->setText('option1'))
+        ->addItem((new Option)->setAttrs(['value'=>'2'])->setText('option2')->setSelected())
+        ->addItem((new Option)->setAttrs(['value'=>'3'])->setText('option3'))
+        ->addItem((new Option)->setAttrs(['value'=>'4'])->setText('option4'))
+        ->addItem((new Option)->setAttrs(['value'=>'5'])->setText('option5'))
+        ->addItem((new Option)->setAttrs(['value'=>'6'])->setText('option6'));
     echo new Submit;
+echo $form1->close();
+
+
+
+
+
+
+$form = new Form;
+$form->setAttrs(['action'=>'', 'method'=>'GET']);
+echo $form->open();
+echo (new Radio)->setAttrs(['name'=>'radio', 'value'=>'1']);
+echo (new Radio)->setAttrs(['name'=>'radio', 'value'=>'2']);
+echo (new Radio)->setAttrs(['name'=>'radio', 'value'=>'3']);
+echo new Submit;
 echo $form->close();
 
-$var = '0';
-var_dump(empty($var));
 
 
 
