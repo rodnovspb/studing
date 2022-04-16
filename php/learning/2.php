@@ -1,5 +1,10 @@
 <?php
 
-$str = '4dsa@dsadf.ru';
+$str = 'google.com';
 
-echo preg_match('/^[^ ]+@[^ ]+\.[^ ]{1,30}$/', $str);
+
+var_dump(filter_var($str, FILTER_VALIDATE_URL));
+
+$a = 'asdasd@dfsdf.ru';
+
+echo preg_match('/^\S+@\S+\.\S+$/', $a);
