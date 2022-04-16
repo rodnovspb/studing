@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    input[type='file'] {
+        display: none;
+    }
+    .wrapper {
+      display: flex;
+      max-width: 100vw;
+      position: relative;
+    }
+    .img img {
+      max-width: 100%;
+      max-height: 50px;
+      height: auto;
+      visibility: hidden;
+      margin-left: 30px;
+      cursor: pointer;
+      transition: transform .3s;
+    }
+    .load {
+      border: 1px solid #ccc;
+      padding: 1px 10px;
+      line-height: 1;
+      border-radius: 3px;
+      background-color: #ccc;
+      font-family: Arial;
+      font-size: 15px;
+      cursor: pointer;
+
+    }
+    form>div {
+      margin-bottom: 10px;
+    }
+    .loop {
+      transform: scale(2);
+      position: absolute;
+      top: 0;
+
+    }
+  </style>
+</head>
+<body>
+
+
+<div class="wrapper">
+  <div class="form">
+    <form action="" method="post">
+      <div><label for="file"><span class="load">Загрузить</span></label><input id="file" type="file" title=" "
+                                                                               accept="image/*"></div>
+      <div><input type="submit" name="submit"></div>
+    </form>
+  </div>
+  <div class="img">
+    <img src="" alt="Image preview">
+  </div>
+</div>
+
+
+
+
+
+<script>
+
+
+
+let input = document.querySelector('input[type=\'file\']')
+let img = document.querySelector('img')
+img.addEventListener('click', function (){
+  this.classList.toggle('loop')
+})
+input.addEventListener('change', function (){
+  if(this.files[0]){
+    let file = this.files[0];
+    let reader = new FileReader()
+    reader.readAsDataURL(file)
+    reader.onloadend = function (){
+      img.style.visibility='visible';
+      img.src = reader.result
+    }
+  }
+})
+
+
+</script>
+</body>
+</html>
