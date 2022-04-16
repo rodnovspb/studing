@@ -1,6 +1,5 @@
 <?php
 
-$str = 'dsaвd';
+$str = '4dsa@dsadf.ru';
 
-
-echo preg_match('/^([a-zA-Z]{1,30}|[а-яёА-ЯЁ]{1,30})$/u', $str);
+echo preg_match('/^[^ ]+@[^ ]+\.[^ ]{1,30}$/', $str);
