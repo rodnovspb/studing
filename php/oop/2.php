@@ -78,12 +78,37 @@ class FormHelper extends TagHelper {
             }
         }
     }
+    public function select($attrs=[], $options=[]){
+        $result = $this->open('select', $attrs);
+        if(isset($attrs['name'])){
+            $name = $attrs['name'];
+            if(isset($_REQUEST[$name])){
+                $value = $_REQUEST[$name];
+            }
+        }
+        foreach ($options as $option){
+            if(isset($value)){
+                unset($option['attrs']['selected']);
+                if($option['attrs']['value']== $value){
+                    $option['attrs']['selected'] = true;
+                }
+            }
+            $result .=$this->open('option', $option['attrs']) . $option['text'] . $this->close('option');
+        }
+        $result .=$this->close('select');
+        return $result;
+    }
 }
 
 echo (new FormHelper)->openForm(['action'=>' ', 'method'=>'post']);
 echo (new FormHelper)->checkbox(['name'=>'elem1']);
 echo (new FormHelper)->input(['name'=>'year']);
 echo (new FormHelper)->textarea('qqqqqqqqqq', ['name'=>'textarea']);
+echo (new FormHelper)->select(['name' => 'list', 'class' => 'eee'], [
+    ['text' => 'item1', 'attrs' => ['value' => '1']],
+    ['text' => 'item2', 'attrs' => ['value' => '2', 'selected' => true]],
+    ['text' => 'item3', 'attrs' => ['value' => '3', 'class' => 'last']],
+]);
 echo (new FormHelper)->submit();
 echo (new FormHelper)->closeForm();
 
