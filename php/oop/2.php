@@ -68,11 +68,22 @@ class FormHelper extends TagHelper {
         }
         return $hidden . $this->open('input', $attrs);
     }
+    public function textarea($text, $attrs=[]){
+        if(isset($attrs['name'])){
+            $name = $attrs['name'];
+            if(isset($_REQUEST[$name])){
+                return $this->show('textarea', $_REQUEST[$attrs['name']], $attrs);
+            }else{
+                return $this->open('textarea', $attrs) . $text . $this->close('textarea');
+            }
+        }
+    }
 }
 
-echo (new FormHelper)->openForm(['action'=>' ', 'method'=>'get']);
+echo (new FormHelper)->openForm(['action'=>' ', 'method'=>'post']);
 echo (new FormHelper)->checkbox(['name'=>'elem1']);
 echo (new FormHelper)->input(['name'=>'year']);
+echo (new FormHelper)->textarea('qqqqqqqqqq', ['name'=>'textarea']);
 echo (new FormHelper)->submit();
 echo (new FormHelper)->closeForm();
 
