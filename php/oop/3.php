@@ -12,13 +12,20 @@ class CookieShell {
         setcookie($name, '', time());
         unset($_COOKIE[$name]);
     }
-    static function exists($name){
+    public function exists($name){
         return isset($_COOKIE[$name]);
     }
 }
 
 
+
 $one = new CookieShell;
-$one->set('aaa1', 222, 3600);
-$one->del('aaa1');
-var_dump($one->get('aaa1'));
+if($one->exists('counter')){
+    $value = $one->get('counter');
+    $one->set('counter', ++$value, 100000);
+} else {
+    $one->set('counter', 0, 100000);
+}
+
+
+echo $one->get('counter');
