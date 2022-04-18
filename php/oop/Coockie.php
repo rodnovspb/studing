@@ -17,13 +17,35 @@ class CookieShell {
     }
 }
 
-
-
-$one = new CookieShell;
-if($one->exists('counter')){
-    $value = $one->get('counter');
-    $one->set('counter', ++$value, 100000);
-} else {
-    $one->set('counter', 0, 100000);
+class SessionShell {
+    public function __construct()
+    {
+        if(!isset($_SESSION)){
+            session_start();
+        }
+    }
+    public function exists($name){
+        return isset($_SESSION[$name]);
+    }
+    public function set($name, $value){
+        $_SESSION[$name] = $value;
+    }
+    public function get($name){
+        return $_SESSION[$name];
+    }
+    public function del($name){
+        unset($_SESSION[$name]);
+    }
+    public function destroy(){
+        if(isset($_SESSION)){
+            session_destroy();
+        }
+    }
 }
-echo $one->get('counter');
+
+$session = new SessionShell;
+$session->set('test', 1);
+$session->destroy();
+
+var_dump($_SESSION);
+
