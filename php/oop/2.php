@@ -112,5 +112,5 @@ echo (new FormHelper)->select(['name' => 'list', 'class' => 'eee'], [
 echo (new FormHelper)->submit();
 echo (new FormHelper)->closeForm();
 
-
+phpinfo();
 
