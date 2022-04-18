@@ -160,13 +160,13 @@ class Link extends Tag {
 
 
 echo "<nav>";
-echo (new Link())->setAttrs(['href' => '1.php'])
+echo (new Link())->setAttrs(['href' => 'Tag.php'])
     ->setText('Ссылка 1')
     ->show() . "<br>";
-echo (new Link())->setAttrs(['href' => '2.php'])
+echo (new Link())->setAttrs(['href' => 'TagHelper.php'])
         ->setText('Ссылка 2')
         ->show() . "<br>";
-echo (new Link())->setAttrs(['href' => '3.php'])
+echo (new Link())->setAttrs(['href' => 'Coockie.php'])
         ->setText('Ссылка 3')
         ->show() . "<br>";
 echo (new Link())->setAttrs(['href' => '4.php'])

@@ -26,6 +26,4 @@ if($one->exists('counter')){
 } else {
     $one->set('counter', 0, 100000);
 }
-
-
 echo $one->get('counter');
