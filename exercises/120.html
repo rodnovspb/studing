@@ -8,17 +8,28 @@
 
 
 
-<p class="elem">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus accusantium asperiores assumenda
+<p class="elem">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusam&#8461;us &\u{1F60D};accusa9 &#190; ntium
+                asperiores
+                assumenda
              commodi,
-    cumque deserunt ducimus eaque expedita molestias mollitia necessitatibus numquam officiis porro possimus quam reprehenderit vero, voluptas voluptatem.</p>
+    cumque deserunt ducimus eaque expedita molestias mollitia necessitatibus numquam officiis porro possimus quam
+                reprehenderit vero, \\u{1F60D}voluptas '\u{1F60D}'voluptatem.</p>
 
-<ul>'asdasd'</ul>
+
 
 
 <script>
 
+let str = 'cumque deserunt ducimus eaque expedita molestias molliti';
 
+let pos = 0;
 
+while (true) {
+    let num = str.indexOf('u', pos)
+    pos=num+1
+    if(num==-1) break
+    console.log(num)
+}
 
 
 
