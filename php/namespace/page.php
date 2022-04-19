@@ -1,15 +1,15 @@
 <?php
 
 namespace Project;
-use \Core\Admin\Model;
-use \Core\Users\Storage\Data;
+use \Resource\Controller\Page as ControllerPage;
+use \Resource\Model\Page as ModelPage;
 
 class Test
 {
     public function __construct()
     {
-        $model = new Model;
-        $data  = new Data;
+        $pageController  = new ControllerPage;
+        $pageModel       = new ModelPage;
     }
 }
 
