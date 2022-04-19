@@ -22,11 +22,10 @@
 
 
     function checkSpam(str) {
-       return (str.toLowerCase().includes('viagra') || str.toLowerCase().includes('xxx'))
-
+       return /\bviagra\b|\bxxx\b/.test(str)
     }
 
-console.log(checkSpam('x3xx3 iagdraff'))
+console.log(checkSpam('xxxx'))
 
 
 
