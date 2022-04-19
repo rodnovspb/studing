@@ -20,12 +20,16 @@
 
 <script>
 
-function firstToUp(str) {
-    if(str.length===0) return str;
-    return str[0].toUpperCase()+str.slice(1)
-}
 
-console.log(firstToUp(''))
+    function checkSpam(str) {
+       return (str.toLowerCase().includes('viagra') || str.toLowerCase().includes('xxx'))
+
+    }
+
+console.log(checkSpam('x3xx3 iagdraff'))
+
+
+
 
 
 
