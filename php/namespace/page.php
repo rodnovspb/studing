@@ -1,8 +1,8 @@
 <?php
 
-namespace Project;
-use \Resource\Controller\Page as ControllerPage;
-use \Resource\Model\Page as ModelPage;
+namespace Project\Data;
+use \Project\Data\Controller\Page as ControllerPage;
+use \Project\Data\Model\Page as ModelPage;
 
 class Test
 {
