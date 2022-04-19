@@ -20,12 +20,22 @@
 
 <script>
 
-
+    let str=''
+    let str2=''
+    console.time()
 for(let i=0; i<2000; i++){
-    console.log(`${i+" "+String.fromCharCode(i)}`)
+    String.fromCodePoint(i)
+    str+=String.fromCharCode(i);
 }
 
-
+//String.fromCharCode(i) - быстрее намного
+console.timeEnd()
+    console.time()
+    for(let i=0; i<2000; i++) {
+        String.fromCharCode(i)
+        str2 += String.fromCharCode(i);
+    }
+    console.timeEnd()
 
 
 
