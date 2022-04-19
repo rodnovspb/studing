@@ -22,11 +22,15 @@
 
 
 function trancate(str, maxlength) {
-    return str.length>=maxlength ? str.substr(0, maxlength) +'...' : str;
+    return str.length>=maxlength ? str.substr(0, maxlength) +'…' : str;
 }
 
 
 console.log(trancate('qw qwe  wqeqw  eqwe', 5))
+
+console.log('…'.charCodeAt(0))
+console.log(String.fromCharCode(8230))
+
 
 
 
