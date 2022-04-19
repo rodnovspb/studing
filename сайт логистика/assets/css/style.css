@@ -73,6 +73,7 @@ ul, ol {
     right: 0;
     z-index: 1000;
     width: 100%;
+    transition: background-color .2s linear;
 }
 
 .header--dark {
@@ -1243,8 +1244,7 @@ ul, ol {
         }
         .main__col-right {
             max-width: 100%;
-        }
-        .section--last {
+         .section--last {
             margin-bottom: 0;
         }
         .intro--text {
