@@ -21,14 +21,12 @@
 <script>
 
 
-    function checkSpam(str) {
-       return /\bviagra\b|\bxxx\b/.test(str)
-    }
-
-console.log(checkSpam('xxxx'))
+function trancate(str, maxlength) {
+    return str.length>=maxlength ? str.substr(0, maxlength) +'...' : str;
+}
 
 
-
+console.log(trancate('qw qwe  wqeqw  eqwe', 5))
 
 
 
