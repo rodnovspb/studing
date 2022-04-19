@@ -26,12 +26,11 @@ function trancate(str, maxlength) {
 }
 
 
-console.log(trancate('qw qwe  wqeqw  eqwe', 5))
+function extractCurrencyValue(str) {
+    console.log(+str.slice(1))
+}
 
-console.log('…'.charCodeAt(0))
-console.log(String.fromCharCode(8230))
-
-
+extractCurrencyValue('$120')
 
 
 </script>
