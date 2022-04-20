@@ -10,12 +10,24 @@
 // window.addEventListener('resize', function () {
 // 	console.log(`${this.innerWidth} ${this.innerHeight}`)
 // })
+//
+//
+// document.querySelectorAll('[data-scroll]').forEach(function (elem) {
+// 		elem.addEventListener('click', function (e) {
+// 			e.preventDefault()
+// 			document.querySelector(elem.dataset.scroll).scrollIntoView({ block: "center", behavior: "smooth"})
+//
+// 		})
+// })
 
 
 $(function () {
 	let introH, headerH;
 	let intro = $("#intro");
 	let header = $("#header");
+
+	// Header class on scroll
+
 	headerScroll()
 	$(window).on('scroll resize', function () {
 		headerScroll()
@@ -31,6 +43,18 @@ $(function () {
 			header.removeClass('header--dark')
 		}
 	}
+
+	// Smooth scroll
+	$("[data-scroll]").on('click', function (event) {
+		event.preventDefault();
+		let scrollEl = $(this).data('scroll')
+		let scrollElPos = $(scrollEl).offset().top
+		$("html, body").animate({
+			scrollTop: scrollElPos - headerH
+		}, 500)
+	})
+
+
 
 })
 

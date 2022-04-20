@@ -40,7 +40,8 @@
   let links = document.querySelectorAll('a')
   links.forEach(function (elem) {
       elem.addEventListener('click', function (e) {
-          e.preventDefault()
+		  // без отмены действия !ссылки! по умолчанию работать не будет
+		  e.preventDefault()
           document.querySelector("."+elem.dataset.link).scrollIntoView({behavior: 'smooth'})
 
       })
