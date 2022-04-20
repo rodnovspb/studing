@@ -16,23 +16,23 @@
 <script>
 
 
-function sumInput() {
-  let arr = []
-  while (true){
-    let num = prompt('Введите число', '')
-    if(isNaN(num) || num=='' || num === null){
-      let sum=0
-      for(let elem of arr){
-        sum+=elem
-      }
-      return sum
-    } else {
-      arr.push(+num)
-    }
-  }
-}
 
-console.log(sumInput())
+let arr = [-100, -9, -2, 3, -5]
+let array
+  function getMaxSubSum(arr) {
+    array = []
+    for(let i=0; i<arr.length; i++){
+      let sum = 0
+      for(let j=i; j<arr.length; j++){
+        sum+= arr[j]
+        array.push(sum)
+      }
+    }
+    return Math.max(...array, 0)
+  }
+
+  console.log(getMaxSubSum(arr))
+
 
 
 
