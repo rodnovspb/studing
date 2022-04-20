@@ -1,19 +1,12 @@
 <?php
 
-namespace Project\Data;
-use \Project\Data\Controller\Page as ControllerPage;
-use \Project\Data\Model\Page as ModelPage;
+spl_autoload_register();
 
-class Test
-{
-    public function __construct()
-    {
-        $pageController  = new ControllerPage;
-        $pageModel       = new ModelPage;
-    }
-}
+$obj = new Main\Cart\Purchase;
 
+echo $obj->var;
 
+echo DIRECTORY_SEPARATOR;
 
 
 
