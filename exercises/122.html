@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+
+
+
+
+
+
+
+<script>
+
+
+function sumInput() {
+  let arr = []
+  while (true){
+    let num = prompt('Введите число', '')
+    if(isNaN(num) || num=='' || num === null){
+      let sum=0
+      for(let elem of arr){
+        sum+=elem
+      }
+      return sum
+    } else {
+      arr.push(+num)
+    }
+  }
+}
+
+console.log(sumInput())
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
