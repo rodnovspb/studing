@@ -21,11 +21,30 @@
 
 <script>
 
+  let arr = []
+  for(let i=0; i<100000; i++){
+    let num = Math.round(Math.random()*100)
+    arr.push(num)
+  }
 
 
-let strings = ["кришна", "кришна", "харе", "харе",
-  "харе", "харе", "кришна", "кришна", ":-O"
-];
+
+
+  console.time()
+  let b = unique(arr)
+  console.timeEnd()
+
+  console.time()
+  let z = uniqueFast(arr)
+  console.timeEnd()
+
+
+
+
+
+function uniqueFast(arr) {
+  return Array.from(new Set(arr))
+}
 
 function unique(arr) {
   let a = []
@@ -37,7 +56,7 @@ function unique(arr) {
   return a
 }
 
-console.log(unique(strings))
+
 
 
 
