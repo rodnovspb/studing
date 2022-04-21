@@ -21,10 +21,14 @@
 
 <script>
 
-let arr = ["Bilbo", "Gandalf", "Nazgul"].map(item=>item.length).filter(e=>e>5)
+let arr = [1,2,3,4,5,6,1]
+  let sum = arr.reduce((accum, elem)=>{
+      if(elem>4) return accum+elem
+      else return accum
+  }, 0)
 
-console.log(arr)
 
+  console.log(sum)
 
 </script>
 </body>
