@@ -21,11 +21,40 @@
 
 <script>
 
-function filterRange(arr, a, b){
-  return arr.filter(elem=>{return elem>a && elem<b})
-}
 
-console.log(filterRange([1,2,3,4,5], 3, 5))
+
+  function filterRangeInPlace(arr, a, b) {
+      for(let i=0; i<arr.length; i++){
+        if(arr[i]<a || arr[i]>b){
+          arr.splice(i,1)
+        }
+      }
+  }
+
+  let arr = [1,2,3,4,5]
+  filterRangeInPlace(arr, 2,4)
+  console.log(arr)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
