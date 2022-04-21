@@ -22,27 +22,19 @@
 <script>
 
 
-function Calculator() {
-  this.methods = {
-    '-': (a,b)=>a-b,
-    '+': (a,b)=>a+b,
-  }
-  this.calculate = function (str) {
-      let arr = str.split(' ')
-      let a = +arr[0]
-      let symb = arr[1]
-      let b = +arr[2]
-      if(!this.methods[symb] || isNaN(a) || isNaN(b)) return NaN
-      return this.methods[symb](a,b)
-  }
-  this.add = function (name, func) {
-      this.methods[name] = func
-  }
-}
 
-let obj = new Calculator
-  console.log(obj.calculate('1 + 4'))
+  let vasya = { name: "Вася", age: 25 };
+  let petya = { name: "Петя", age: 30 };
+  let masha = { name: "Маша", age: 28 };
 
+  let users = [ vasya, petya, masha ];
+
+  function f(arr) {
+      return  arr.map(elem=>elem.name)
+  }
+
+
+  console.log(f(users))
 
 
 
