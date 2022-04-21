@@ -23,22 +23,33 @@
 
 
 
-let arr = [1, 2, 3, 4, 5, 6];
+let arr = [1, 2, 3];
 
 function shuffle(arr) {
     for(let i = 0; i<arr.length; i++){
-      let a = arr[i]
-      let random = Math.floor(Math.random()*arr.length)
-      let b = arr[random]
-      arr[i] = b
-      arr[random] = a
+      let random = Math.floor(Math.random()*arr.length);
+      [arr[i], arr[random]]=[arr[random], arr[i]]
     }
 }
 
 shuffle(arr)
-  console.log(arr)
+
+  let count = {
+    '123': 0,
+    '132': 0,
+    '213': 0,
+    '231': 0,
+    '321': 0,
+    '312': 0
+  }
+
+  for(let i = 0; i<1000000; i++){
+    shuffle(arr)
+    count[arr.join('')]++
+  }
 
 
+console.log(count)
 
 
 
