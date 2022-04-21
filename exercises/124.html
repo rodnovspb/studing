@@ -35,6 +35,9 @@ function Calculator() {
       if(!this.methods[symb] || isNaN(a) || isNaN(b)) return NaN
       return this.methods[symb](a,b)
   }
+  this.add = function (name, func) {
+      this.methods[name] = func
+  }
 }
 
 let obj = new Calculator
