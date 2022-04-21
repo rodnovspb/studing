@@ -21,17 +21,11 @@
 
 <script>
 
-let a = 'my-short-string'
-
-function camelize(str) {
-  let arr = str.split('-')
-  arr = arr.map(elem=>elem[0].toUpperCase() + elem.slice(1)).join('')
-  return arr
+function filterRange(arr, a, b){
+  return arr.filter(elem=>{return elem>a && elem<b})
 }
 
-console.log(camelize(a))
-
-
+console.log(filterRange([1,2,3,4,5], 3, 5))
 
 
 
