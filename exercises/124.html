@@ -21,17 +21,9 @@
 
 <script>
 
-let arr = [
-         {id: 1, name: "Вася"},
-         {id: 2, name: "Петя"},
-         {id: 3, name: "Маша"}]
+let arr = ["Bilbo", "Gandalf", "Nazgul"].map(item=>item.length).filter(e=>e>5)
 
-let obj;
-arr.forEach(function (elem) {
-   if(elem.id==2) obj=Object.assign(elem)
-})
-
-  console.log(obj)
+console.log(arr)
 
 
 </script>
