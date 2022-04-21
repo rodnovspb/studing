@@ -23,19 +23,21 @@
 
 
 
-let vasya = { name: "Вася", age: 25 };
-let petya = { name: "Петя", age: 30 };
-let masha = { name: "Маша", age: 29 };
+let strings = ["кришна", "кришна", "харе", "харе",
+  "харе", "харе", "кришна", "кришна", ":-O"
+];
 
-let arr = [ vasya, petya, masha ];
-
-function getAverAge(arr) {
-  console.log  (arr.reduce((accum, elem)=>accum+elem.age, 0)/arr.length)
+function unique(arr) {
+  let a = []
+  for(let elem of arr){
+    if(!a.includes(elem)) {
+      a.push(elem)
+    }
+  }
+  return a
 }
 
-getAverAge(arr)
-
-
+console.log(unique(strings))
 
 
 
