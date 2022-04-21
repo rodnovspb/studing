@@ -23,35 +23,17 @@
 
 
 
-let arr = [1, 2, 3];
+let vasya = { name: "Вася", age: 25 };
+let petya = { name: "Петя", age: 30 };
+let masha = { name: "Маша", age: 29 };
 
-function shuffle(arr) {
-    for(let i = 0; i<arr.length; i++){
-      let random = Math.floor(Math.random()*arr.length);
-      [arr[i], arr[random]]=[arr[random], arr[i]]
-    }
+let arr = [ vasya, petya, masha ];
+
+function getAverAge(arr) {
+  console.log  (arr.reduce((accum, elem)=>accum+elem.age, 0)/arr.length)
 }
 
-shuffle(arr)
-
-  let count = {
-    '123': 0,
-    '132': 0,
-    '213': 0,
-    '231': 0,
-    '321': 0,
-    '312': 0
-  }
-
-  for(let i = 0; i<1000000; i++){
-    shuffle(arr)
-    count[arr.join('')]++
-  }
-
-
-console.log(count)
-
-
+getAverAge(arr)
 
 
 
