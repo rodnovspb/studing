@@ -21,13 +21,17 @@
 
 <script>
 
-let arr = [1,2,3,4,5,6]
+let arr = [
+         {id: 1, name: "Вася"},
+         {id: 2, name: "Петя"},
+         {id: 3, name: "Маша"}]
 
-arr.forEach((item, index, array)=>{
-  console.log(`Элемент ${item}, индекс ${index}, массив ${array}`)
+let obj;
+arr.forEach(function (elem) {
+   if(elem.id==2) obj=Object.assign(elem)
 })
 
-
+  console.log(obj)
 
 
 </script>
