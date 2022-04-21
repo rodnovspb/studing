@@ -21,31 +21,15 @@
 
 <script>
 
+let a = 'my-short-string'
 
-let obj = {
-  a: 5,
-  b: 21,
-  func(elem){
-    return elem.age > this.a && elem.age < this.b
-  }
+function camelize(str) {
+  let arr = str.split('-')
+  arr = arr.map(elem=>elem[0].toUpperCase() + elem.slice(1)).join('')
+  return arr
 }
 
-let users = [
-  {age: 16},
-  {age: 20},
-  {age: 23},
-  {age: 30}
-];
-
-console.log(users.find(obj.func, obj))
-
-
-
-
-
-
-
-
+console.log(camelize(a))
 
 
 
