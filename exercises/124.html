@@ -23,30 +23,32 @@
 
 
 
-let vasya = { name: "Вася", surname: "Пупкин", id: 1 };
-let petya = { name: "Петя", surname: "Иванов", id: 2 };
-let masha = { name: "Маша", surname: "Петрова", id: 3 };
+let arr = [1, 2, 3, 4, 5, 6];
 
-let users = [ vasya, petya, masha ];
-
-function f(arr) {
-    arr = arr.map(elem=> ({id: elem.id, fullname: elem.name + " " + elem.surname}))
-  return arr
+function shuffle(arr) {
+    for(let i = 0; i<arr.length; i++){
+      let a = arr[i]
+      let random = Math.floor(Math.random()*arr.length)
+      let b = arr[random]
+      arr[i] = b
+      arr[random] = a
+    }
 }
 
-  console.log(f(users))
+shuffle(arr)
+  console.log(arr)
 
-let a = [1,2,3,4]
 
-  function f1(b) {
-    for(let i=0; i<b.length; i++){
-      b[i]*=2
-    }
-  }
 
-f1(a)
 
-console.log(a)
+
+
+
+
+
+
+
+
 
 
 
