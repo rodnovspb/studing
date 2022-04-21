@@ -22,22 +22,23 @@
 <script>
 
 
-
-  function filterRangeInPlace(arr, a, b) {
-      for(let i=0; i<arr.length; i++){
-        if(arr[i]<a || arr[i]>b){
-          arr.splice(i,1)
-        }
-      }
+function Calculator() {
+  this.methods = {
+    '-': (a,b)=>a-b,
+    '+': (a,b)=>a+b,
   }
+  this.calculate = function (str) {
+      let arr = str.split(' ')
+      let a = +arr[0]
+      let symb = arr[1]
+      let b = +arr[2]
+      if(!this.methods[symb] || isNaN(a) || isNaN(b)) return NaN
+      return this.methods[symb](a,b)
+  }
+}
 
-  let arr = [1,2,3,4,5]
-  filterRangeInPlace(arr, 2,4)
-  console.log(arr)
-
-
-
-
+let obj = new Calculator
+  console.log(obj.calculate('1 + 4'))
 
 
 
