@@ -80,6 +80,53 @@ $(function () {
 		})
 	}
 
+	// Modal
+		$("[data-modal]").on('click', function (event) {
+			event.preventDefault();
+			let modal = $(this).data('modal');
+			$('body').addClass('no-scroll')
+			$(modal).addClass('show')
+
+			setTimeout(function () {
+				$(modal).find('.modal__inner').css({
+					transform: 'scale(1)',
+					opacity: '1'
+				})
+			}, 200)
+
+		})
+
+		$('[data-modal-close]').on('click', function (event) {
+			event.preventDefault();
+			let modal = $(this).parents('.modal')
+
+			modalClose(modal)
+
+			modal.removeClass('show')
+			$('body').removeClass('no-scroll')
+		})
+
+		$('.modal').on('click', function () {
+				$(this).find('.modal__inner').css({
+					transform: 'scale(0.5)',
+					opacity: '0 '
+				})
+			$(this).removeClass('show')
+			$('body').removeClass('no-scroll')
+		})
+
+		$('.modal__inner').on('click', function (e) {
+			e.stopPropagation()
+		})
+
+		function modalClose(modal) {
+			setTimeout(function () {
+				modal.find('.modal__inner').css({
+					transform: 'scale(0.5)',
+					opacity: '0 '
+				})
+			}, 200)
+		}
 
 })
 

@@ -840,7 +840,6 @@ ul, ol {
 /*Modal*/
 .modal {
     display: none;
-    /*display: flex;*/
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
@@ -866,6 +865,9 @@ ul, ol {
     padding: 25px;
     position: relative;
     margin-top: 50px;
+    opacity: 0;
+    transform: scale(0.5);
+    transition: transform .2s ease-out, opacity .2s ease-out;
 }
 
 .modal__title {
@@ -931,6 +933,10 @@ ul, ol {
     cursor: pointer;
     padding: 0;
     transition: transform .2s linear;
+}
+
+.modal__close:hover {
+    outline: none;
 }
 
 .modal__close img {
