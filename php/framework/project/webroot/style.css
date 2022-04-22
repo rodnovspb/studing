@@ -1,0 +1,8 @@
+body {
+    background-color: rgba(193, 221, 241, 0.5);
+    font-size: 16px;
+}
+img {
+    max-height: 30vh;
+    width: auto;
+}

@@ -21,40 +21,10 @@
 
 <script>
 
-  let arr = []
-  for(let i=0; i<100000; i++){
-    let num = Math.round(Math.random()*100)
-    arr.push(num)
-  }
 
 
 
-
-  console.time()
-  let b = unique(arr)
-  console.timeEnd()
-
-  console.time()
-  let z = uniqueFast(arr)
-  console.timeEnd()
-
-
-
-
-
-function uniqueFast(arr) {
-  return Array.from(new Set(arr))
-}
-
-function unique(arr) {
-  let a = []
-  for(let elem of arr){
-    if(!a.includes(elem)) {
-      a.push(elem)
-    }
-  }
-  return a
-}
+  console.log(Array.from('12121'))
 
 
 

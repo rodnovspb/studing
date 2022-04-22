@@ -22,6 +22,7 @@ class UserController extends Controller {
         var_dump($this->users[$params['id']][$params['key']]);
     }
     public function all(){
+        $this->title = 'Контроллер user, действие all';
         $data = "<table><tr><th>Имя</th><th>Возраст</th><th>Зарплата</th></tr>";
         foreach ($this->users as $user){
             $data .= "<tr><td>$user[name]</td><td>$user[age]</td><td>$user[salary]</td></tr>";
@@ -30,6 +31,7 @@ class UserController extends Controller {
         echo $data;
     }
     public function first($params){
+        $this->title = 'Контроллер user, действие first';
         $params['n'] = (int)abs($params['n']);
         $num = $params['n'] <= count($this->users) ? $params['n'] : count($this->users);
         $data = "<table><tr><th>Имя</th><th>Возраст</th><th>Зарплата</th></tr>";

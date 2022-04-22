@@ -14,12 +14,11 @@
 <header class="header" id="header">
   <div class="container">
     <div class="header__inner">
-        <a href="index.html">
+        <a href="index.html" data-scroll="#intro">
            <img class="img" src="assets/images/logo.svg" alt="">
         </a>
-      <nav class="nav">
-        <a class="nav__link active" href="#" data-scroll="#services">Services</a>
-        <a class="nav__link" href="blog.html">Blog</a>
+      <nav class="nav" id="nav">
+        <a class="nav__link" href="#" data-scroll="#services">Services</a>
         <a class="nav__link" href="#" data-scroll="#clients">Clients</a>
         <a class="nav__link" href="#" data-scroll="#benefits">Benefits</a>
         <a class="nav__link" href="#" data-scroll="#team">Team</a>
@@ -64,7 +63,7 @@
   </div>
 </div>
 
-<section class="section" id="services">
+<section class="section" id="services" data-scrollspy="#services">
   <div class="container">
     <div class="services">
       <h2 class="services__main-title">Services</h2>
@@ -93,7 +92,7 @@
   </div>
 </section>
 
-<section class="section section--map" id="clients">
+<section class="section section--map" id="clients" data-scrollspy="#clients">>
   <div class="container">
     <h2 class="section__title"><span>Our</span> clients</h2>
     <div class="clients">
@@ -149,7 +148,7 @@
   </div>
 </section>
 
-<section class="section" id="benefits">
+<div class="section" id="benefits" data-scrollspy="#benefits">
   <div class="container">
       <h2 class="section__title"><span>Our</span> benefits</h2>
     <div class="benefits">
@@ -185,10 +184,9 @@
         <img class="img" src="assets/images/auto.jpg" alt="">
       </div>
     </div>
-  </div>
-</div>
+  </div></div>
 
-<section class="section section--grey" id="team">
+<section class="section section--grey" id="team" data-scrollspy="#team">>
   <div class="container">
       <h2 class="section__title"><span>Our</span> team</h2>
 
@@ -238,7 +236,7 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="mission" data-scrollspy="#mission">>
     <div class="container">
         <h2 class="mission-title">OUR MISSION</h2>
         <div class="mission">
@@ -251,7 +249,7 @@
     </div>
 </section>
 
-<section class="section section--last" id="news">
+<section class="section section--last" id="news" data-scrollspy="#news">
     <div class="container">
         <h2 class="section__title"><span>Interesting</span> to read</h2>
         <div class="articles">
@@ -290,7 +288,8 @@
         </nav>
     </div>
 </footer>
-</div>
+
+
 
 
 <!--Modal------------------------->
@@ -366,7 +365,7 @@ We can help!</h4>
 
 
 
-
-
+</div>
+</div>
 </body>
 </html>

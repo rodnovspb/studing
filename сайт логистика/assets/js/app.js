@@ -26,6 +26,7 @@ $(function () {
 	let introH, headerH;
 	let intro = $("#intro");
 	let header = $("#header");
+	let scrollTop = $(window).scrollTop()
 
 	// Header class on scroll
 
@@ -55,6 +56,29 @@ $(function () {
 		}, 500)
 	})
 
+	// Scrollspy
+	let windowH = $(window).height()
+	scrollSpy(scrollTop)
+	$(window).on('scroll', function () {
+		scrollTop = $(this).scrollTop()
+		scrollSpy(scrollTop)
+	})
+
+	function scrollSpy(scrollTop) {
+		$("[data-scrollspy]").each(function () {
+			let $this = $(this)
+			let sectionId = $this.data('scrollspy')
+			let sectionOffset = $this.offset().top
+			sectionOffset = sectionOffset - windowH/3
+			if(scrollTop >= sectionOffset){
+				$('[data-scroll]').removeClass('active')
+				$('#nav [data-scroll="' + sectionId + '"]').addClass('active')
+			}
+			if(scrollTop==0){
+				$('[data-scroll]').removeClass('active')
+			}
+		})
+	}
 
 
 })
