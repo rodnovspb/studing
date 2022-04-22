@@ -2,6 +2,10 @@
 	use \Core\Route;
 
 	return [
+		new Route('/goods/:id/', 'goods', 'one'),
+		new Route('/goods-all/', 'goods', 'all'),
+		new Route('/get-one/:id', 'page', 'one'),
+		new Route('/get-all/', 'page', 'all'),
 		new Route('/my-page1/', 'page', 'show1'),
 		new Route('/my-page2/', 'page', 'show2'),
 		new Route('/page2/:id/', 'page', 'show'),

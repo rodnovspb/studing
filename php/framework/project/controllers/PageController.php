@@ -68,6 +68,25 @@ class PageController extends Controller{
         print_r($data);
         echo "</pre>";
     }
+    public function one($params){
+        $page = (new Page)->getById($params['id']);
+        $this->title = $page['title'];
+        return $this->render('/page/one',
+        [
+            'text'=> $page['text'],
+            'h1'=> $page['title'],
+        ]);
+    }
+
+    public function all(){
+        $this->title = 'Список статей';
+        $pages = (new Page)->getAll();
+        return $this->render('/page/all',
+        [
+            'pages' => $pages,
+            'h1' => $this->title,
+        ]);
+    }
 
 
 }
