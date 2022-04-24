@@ -15,16 +15,17 @@
 
 <script>
 
-  let obj;
 
-fetch('https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json')
-  .then(res=>res.json())
-  .then(function (res) {
-    console.log(res)
-      obj = Object.assign(res)
-  }).then(()=>{
-  console.log(obj)
-})
+
+(async ()=> {
+  let res = await fetch('https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json')
+  let obj = await res.json()
+  console.log(Object.keys(obj))
+})()
+
+
+
+
 
 
 
