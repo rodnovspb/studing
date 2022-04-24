@@ -1,4 +1,4 @@
-/** Used to compose unicode character classes. */
+/** Used to compose unicode character Classes. */
 var rsAstralRange = '\\ud800-\\udfff',
     rsComboMarksRange = '\\u0300-\\u036f',
     reComboHalfMarksRange = '\\ufe20-\\ufe2f',

@@ -4,7 +4,7 @@ var deburrLetter = require('./_deburrLetter'),
 /** Used to match Latin Unicode letters (excluding mathematical operators). */
 var reLatin = /[\xc0-\xd6\xd8-\xf6\xf8-\xff\u0100-\u017f]/g;
 
-/** Used to compose unicode character classes. */
+/** Used to compose unicode character Classes. */
 var rsComboMarksRange = '\\u0300-\\u036f',
     reComboHalfMarksRange = '\\ufe20-\\ufe2f',
     rsComboSymbolsRange = '\\u20d0-\\u20ff',

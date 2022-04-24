@@ -1,0 +1,6 @@
+RewriteEngine On
+RewriteBase /
+#Следующие строки означают: если адрес не начинается на /project/webroot/,
+#то переадресовываем любую адресную строку (.+) на на index.php
+RewriteCond %{REQUEST_URI} !^/project/webroot/
+RewriteRule .+ index.php
