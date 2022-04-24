@@ -7,10 +7,7 @@
 <body>
 
 
-<form action="" method="post">
-  <input type="text">
-  <input type="submit">
-</form>
+<div></div>
 
 
 
@@ -18,8 +15,17 @@
 
 <script>
 
+  let arr = ['Январь' , 'Февраль' , 'Март' , 'Апрель' , 'Май' , 'Июнь' , 'Июль' , 'Август' , 'Сентябрь' , 'Октябрь'
+    , 'Ноябрь' , 'Декабрь']
 
+  let div = document.querySelector('div')
 
+  div.insertAdjacentHTML('afterbegin', `
+  ${arr.map(function (elem) {
+      return `<p>${elem}</p>`
+  }).join('')}
+
+  `)
 
 
 

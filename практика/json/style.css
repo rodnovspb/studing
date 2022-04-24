@@ -1,0 +1,21 @@
+html {
+    font-size: 10px;
+}
+body {
+    font-family: 'Permanent Marker', cursive;
+}
+
+h1{
+    text-align: center;
+    padding: 2rem 0;
+    font-size: 3rem;
+}
+h2 {
+    text-align: center;
+    font-size: 2rem;
+    font-family: Arial, sans-serif;
+}
+.heroes {
+    display: flex;
+    justify-content: space-between;
+}
