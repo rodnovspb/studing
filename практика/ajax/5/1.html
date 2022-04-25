@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Тайтл страницы</title>
+	  <meta charset="UTF-8">
+	</head>
+	<body>
+
+
+<form action="" method="get">
+  <input type="text" name="elem1" class="elem1">
+  <input type="text" name="elem2" class="elem2">
+  <input type="submit" name="submit">
+</form>
+<div></div>
+
+
+<script>
+
+  let div = document.querySelector('div')
+  let form = document.querySelector('form')
+  let input1 = form.querySelector('.elem1')
+  let input2 = form.querySelector('.elem2')
+  let submit = form.querySelector('[name="submit"]')
+
+
+  form.addEventListener('submit', function (e){
+    e.preventDefault();
+    let search = new URLSearchParams();
+    search.set('num1', input1.value)
+	search.set('num2', input2.value)
+    fetch(`ajax.php?${search.toString()}`)
+	.then(res=>res.json())
+	.then(res=>{
+	  div.innerHTML = res;
+	})
+  })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  </body>
+  </html>

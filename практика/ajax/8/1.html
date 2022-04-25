@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+
+<form action="" method="post">
+  <input type="text" name="elem1">
+  <input type="text" name="elem2">
+  <input type="text" name="elem3">
+  <input type="submit">
+</form>
+<div></div>
+
+
+
+
+<script>
+
+let form = document.querySelector('form')
+form.addEventListener('submit', function (e){
+  e.preventDefault()
+  let formdata = new FormData(this)
+  fetch('ajax.php', {
+    method: "POST",
+    body: formdata,
+  }).then(res=>res.json())
+    .then(res=>document.querySelector('div').innerHTML = res)
+})
+
+let url = new URL('https://www.dns-shop.ru/catalog/17a8936316404e77/monobloki/?stock=now-today-later&price=36499-50000&brand=acer&f[6dz]=13p2wr')
+console.log(Array.from(url.searchParams))
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Тайтл страницы</title>
+	</head>
+	<body>
+        <input type="submit" id="button">
+		<div id="result"></div>
+	</body>
+</html>
+
+
+<script>
+
+let result = document.querySelector('#result')
+let btn = document.querySelector('#button')
+  btn.addEventListener('click', function () {
+    fetch('ajax.html')
+            .then(res=>res.text())
+            .then(data=>result.innerHTML = data)
+
+  })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Тайтл страницы</title>
+	</head>
+	<body>
+        <input type="submit" id="button">
+		<ul id="result"></ul>
+
+
+
+<script>
+
+let result = document.querySelector('#result')
+
+setInterval(function (){
+  fetch('ajax.php')
+  .then(res=>res.json())
+  .then(res=>func(res, result))
+}, 1000);
+
+function func(time, ul) {
+  ul.innerHTML += `<li>${time}</li>`
+}
+
+
+
+
+
+
+
+
+
+
+
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  </body>
+  </html>

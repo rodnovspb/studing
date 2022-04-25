@@ -1,0 +1,40 @@
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Тайтл страницы</title>
+	</head>
+	<body>
+        <input type="submit" id="button">
+		<ul id="result"></ul>
+
+
+
+<script>
+
+let result = document.querySelector('#result')
+let btn = document.querySelector('#button')
+btn.addEventListener('click', function () {
+	fetch('ajax.php')
+	.then(res=>res.json())
+	.then(res=>{
+		result.innerHTML +=`<li>${res}</li>`
+	})
+})
+
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  </body>
+  </html>

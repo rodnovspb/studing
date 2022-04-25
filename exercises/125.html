@@ -8,20 +8,20 @@
 
 
 
-
+<div>werwer</div>
 
 
 
 
 <script>
 
+document.querySelector('div').addEventListener('click', function (e) {
+  console.log(e)
+})
 
 
-(async ()=> {
-  let res = await fetch('https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json')
-  let obj = await res.json()
-  console.log(Object.keys(obj))
-})()
+
+
 
 
 
