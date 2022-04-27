@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    li{
+      height: 200px;
+      border: 1px solid #eee;
+      display: flex;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+
+<ul class="ul"></ul>
+
+
+
+
+
+
+<script>
+  let flag = true
+  let ul = document.querySelector('ul')
+
+  window.addEventListener('load', getFromDB(10))
+
+  window.addEventListener('scroll', function (){
+    let windowHeight = window.innerHeight
+    let ulBottom = ul.getBoundingClientRect().bottom
+    if(windowHeight+10 > ulBottom) {
+      // if(!timer){
+      //   timer = setTimeout(function (){
+      //     getFromDB(3)
+      //     timer=null
+      //     clearTimeout(timer)
+      //   }, 250)
+      // }
+      if(flag){
+        getFromDB(3)
+
+      }
+    }
+  })
+
+  function getFromDB(count){
+    flag=false
+    let from = document.querySelectorAll('.ul li').length
+    let params = new URLSearchParams;
+    params.set('from', from)
+    params.set('to', count)
+    fetch('ajax.php', {
+      method: "POST",
+      body: params
+    }).then(res=>res.json())
+      .then(res=>addToTable(res)).then(()=>{
+        flag=true
+
+      })
+  }
+
+  function addToTable(arr){
+    let result = '';
+    arr.forEach(elem=>{
+      result+= `<li><a href="#" data-id="${elem.id}">${elem.surname}</a></li>`
+    })
+    ul.insertAdjacentHTML('beforeend', result)
+  }
+
+
+
+
+
+</script>
+</body>
+</html>

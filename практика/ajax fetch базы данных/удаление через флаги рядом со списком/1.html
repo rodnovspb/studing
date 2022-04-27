@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+    table td,th {
+      padding: 5px 20px;
+      border: 1px solid #eee;
+    }
+  </style>
+</head>
+<body>
+
+<table class="table">
+  <tr>
+    <th>id</th>
+    <th>Фамилия</th>
+    <th>Удаление</th>
+  </tr>
+</table>
+<input type="submit" name="submit">
+
+
+
+
+
+<script>
+  let submit = document.querySelector('[name="submit"]')
+  let table = document.querySelector('.table')
+
+  submit.addEventListener('click', function () {
+    let checkboxes = document.querySelectorAll('.table [type="checkbox"]')
+    let arr = [];
+    for(let elem of checkboxes){
+      if(elem.checked) arr.push(elem.name)
+    }
+    let params = new URLSearchParams();
+    params.set('del', arr)
+    fetch('ajax.php', {
+      method: "POST",
+      body: params
+    }).then(res=>res.json())
+      .then(res=>func1(res, arr))
+  })
+
+
+  try {
+    fetch('ajax.php')
+    .then(res=>res.json())
+    .then(res=>func(res))
+  } catch (e) {
+    console.log(e)
+  }
+
+  function func(arr){
+    let res='';
+    arr.forEach(elem=>{
+      res+=`
+          <tr>
+            <td>${elem.id}</td>
+            <td>${elem.surname}</td>
+            <td><input type="checkbox" name="${elem.id}"></td>
+          </tr>`
+    })
+    table.insertAdjacentHTML('beforeend', res)
+  }
+
+  function func1(res, arr){
+      if(res){
+        let checks = document.querySelectorAll('.table [type="checkbox"]')
+        checks.forEach(elem=>{
+          if(arr.includes(elem.name)){
+            elem.closest('tr').remove()
+          }
+        })
+      }
+  }
+
+
+
+
+
+
+</script>
+</body>
+</html>

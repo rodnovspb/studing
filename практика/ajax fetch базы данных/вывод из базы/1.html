@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Документ</title>
+<style>
+    table {
+      border-collapse: collapse;
+    }
+    td {
+        border: 1px solid grey;
+    }
+    .wrapper {
+       padding: 10px;
+    }
+</style>
+</head>
+<body>
+
+   <div class="wrapper">
+   <input type="submit" class="submit" name="all" value="Запросить всех">
+   <div class="all">
+      <table class="table">
+         <tr>
+            <th>id</th>
+            <th>Имя</th>
+            <th>Фамилия</th>
+            <th>Возраст</th>
+            <th>Зарплата</th>
+         </tr>
+      </table>
+   </div>
+   </div>
+   <div class="wrapper">
+   <input type="number" class="one">
+   <input type="submit" value="Запросить одного" class="getOne">
+   <div class="employee">Данные работника:</div>
+   </div>
+
+<script>
+   let btnAll = document.querySelector('.submit')
+   let btnOne = document.querySelector('.getOne')
+   let divAll = document.querySelector('.all')
+   let divOne = document.querySelector('.employee')
+
+   btnAll.addEventListener('click', function (){
+      fetch('ajax.php?all=on')
+      .then(res=>res.json())
+      .then(res=>func(res))
+   }, {once: true})
+
+   btnOne.addEventListener('click', function () {
+      let num = document.querySelector('.one').value
+      fetch(`ajax.php?num=${num}`)
+      .then(res=>res.json())
+      .then(res=>func1(res))
+   })
+
+function func1(obj) {
+      if(obj){
+   let result =
+   `<p> id: ${obj.id}, имя: ${obj.name}, фамилия: ${obj.surname}, возраст: ${obj.age}, зп: ${obj.salary} </p>`
+   divOne.insertAdjacentHTML('beforeend', result)
+      } else {
+         divOne.insertAdjacentHTML('beforeend', '<p>Работник не найден</p>')
+      }
+}
+
+function func(arr){
+      let result = '';
+      arr.forEach(elem=>{
+         result += `<tr>
+                        <td>${elem.id}</td>
+                        <td>${elem.name}</td>
+                        <td>${elem.surname}</td>
+                        <td>${elem.age}</td>
+                        <td>${elem.salary}</td>
+                    </tr>`
+      })
+   document.querySelector('.table').insertAdjacentHTML('beforeend', result)
+}
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

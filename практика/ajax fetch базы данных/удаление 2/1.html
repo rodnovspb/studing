@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+    table td,th {
+      padding: 5px 20px;
+      border: 1px solid #eee;
+    }
+  </style>
+</head>
+<body>
+
+<table class="table">
+  <tr>
+    <th>id</th>
+    <th>Фамилия</th>
+    <th>Удаление</th>
+  </tr>
+</table>
+
+
+
+
+
+<script>
+
+  let table = document.querySelector('.table')
+  try {
+    fetch('ajax.php')
+    .then(res=>res.json())
+    .then(res=>func(res))
+  } catch (e) {
+    console.log(e)
+  }
+
+  function func(arr){
+    let res='';
+    arr.forEach(elem=>{
+      res+=`
+          <tr>
+            <td>${elem.id}</td>
+            <td>${elem.surname}</td>
+            <td><a href="ajax.php" data-id="${elem.id}">удалить</a></td>
+          </tr>`
+    })
+    table.insertAdjacentHTML('beforeend', res)
+    func1()
+  }
+
+  function func1() {
+    let links = document.querySelectorAll('.table a')
+    links.forEach(elem => {
+      elem.addEventListener('click', function (e) {
+        e.preventDefault()
+        let id = elem.dataset.id
+        let target = elem.closest('tr')
+        try {
+          fetch(`ajax.php?del=${id}`)
+          .then(res=>res.json())
+          .then(res=>func2(res, target))
+        } catch (e){
+          console.log(e)
+        }
+      })
+    }
+)
+}
+
+function func2(res, target) {
+  if(res){
+    target.remove()
+  }
+}
+
+
+
+
+</script>
+</body>
+</html>

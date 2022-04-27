@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+  </style>
+</head>
+<body>
+
+
+<input type="number" class="number">
+<input type="submit" class="submit">
+<div></div>
+
+
+
+
+
+<script>
+  let number = document.querySelector('.number')
+  let submit = document.querySelector('.submit')
+  let div = document.querySelector('div')
+
+  submit.onclick = function (){
+    let num = number.value
+    try {
+      fetch(`ajax.php?num=${num}`)
+      .then(res=>res.json())
+      .then(res=>func(res))
+    } catch (e) {
+      console.log(e.message)
+    }
+
+  }
+
+function func(elem){
+    if(elem===0) div.innerHTML= 'не найдено'
+    else if(elem===1) div.innerHTML= 'удалено'
+}
+
+
+
+</script>
+</body>
+</html>

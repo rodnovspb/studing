@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+
+
+
+
+
+
+
+<script>
+
+function f(){
+  console.log('!!!')
+}
+
+// можно сделать через глобальную переменную таймер, но через замыкание timer становится локальной, вот решение:
+
+function throttle(callback, time){
+  let timer = null
+  return function () {
+    if(timer) return
+    timer = setTimeout(function (){
+      callback()
+      timer=null
+      clearTimeout(timer)
+    }, time)
+  }
+}
+
+//создаем переменнную с функцией внутри, теперь при каждом запуске это переменной через () будет запускаться одна и та же функция с одной и той же переменной timer
+
+let func = throttle(f, 1000)
+
+window.addEventListener('mousemove', func)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
