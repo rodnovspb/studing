@@ -122,9 +122,8 @@ ul, ol {
 /*intro***********************/
 
 .intro {
-    background: black url("../images/photo bg.jpg") no-repeat center;
-    background-size: cover;
     margin-bottom: 30px;
+    position: relative;
 }
 
 .intro--blog {
@@ -139,11 +138,79 @@ ul, ol {
     background-size: cover;
 }
 
+.intro__slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.intro__slider-photo {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+
+}
+
+.intro__slider .slick-list,
+.intro__slider .slick-track {
+    height: 100%;
+}
+
+.intro__slider-item {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+.intro__slider-arrows {
+    position: absolute;
+    bottom: 30px;
+    left: 430px;
+}
+
+.intro__slider-btn {
+    width: 0;
+    height: 0;
+    padding: 0;
+    background-color: transparent;
+    color: transparent;
+    font-size: 0;
+    cursor: pointer;
+    margin: 0 4px;
+}
+
+.intro__slider-btn:focus {
+    outline: none;
+}
+
+.intro__slider-btn-prev {
+    border-width: 10px 10px 10px 0;
+    border-color: transparent #fff transparent transparent;
+    border-style: solid;
+}
+
+.intro__slider-btn-next {
+    border-width: 10px 0 10px 10px;
+    border-color: transparent transparent transparent #fff;
+    border-style: solid;
+}
+
 .intro__inner {
     display: flex;
     height: 600px;
     align-items: flex-end;
     justify-content: space-between;
+    position: relative;
+    z-index: 2;
 }
 
 .form {
@@ -199,6 +266,7 @@ ul, ol {
 .request-form--intro {
     position: relative;
     bottom: -30px;
+    pointer-events: auto;
 }
 
 .request-form__header {

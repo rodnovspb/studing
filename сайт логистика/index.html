@@ -4,8 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=PT+Sans&display=swap"
-        rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
+rel="stylesheet">
+<link rel="stylesheet" href="assets/css/slick.css">
+<link rel="stylesheet" href="assets/css/style.css">
 <title>Центр Логистик</title>
 
 </head>
@@ -31,6 +32,14 @@
 </header>
 
 <div class="intro" id="intro">
+    <div id="introSlider" class="intro__slider">
+        <div class="slider-item">
+            <img src="assets/images/photo bg.jpg" alt="" class="intro__slider-photo">
+        </div>
+        <div class="slider-item">
+            <img src="assets/images/photo bg.jpg" alt="" class="intro__slider-photo">
+        </div>
+    </div>
   <div class="container">
     <div class="intro__inner">
       <div class="request-form request-form--intro">
@@ -59,6 +68,11 @@
         <h1 class="intro__title"><span class="intro__title-amp">&amp;</span>Trans<br>Logistic</h1>
 
       </div>
+        <div class="intro__slider-arrows">
+            <button type="button" id="introSliderPrev" class="intro__slider-btn intro__slider-btn-prev">Prev</button>
+                        <button type="button" id="introSliderNext" class="intro__slider-btn intro__slider-btn-next">
+                            Prev</button>
+        </div>
     </div>
   </div>
 </div>
@@ -359,6 +373,7 @@ We can help!</h4>
 
 <!--Javascript-->
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js"></script>
+<script src="assets/js/slick.min.js"></script>
 <script src="assets/js/app.js"></script>
 
 

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    div.arrow {
+      width: 0;
+      height: 0;
+      border-width: 50px 50px 50px 50px;
+      border-color: blue transparent transparent transparent;
+      border-style: solid;
+      cursor: pointer;
+      margin-right: 30px;
+    }
+    .wrapper {
+      height: 500px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /*Правильный вариант, здесь курсор показывается только на самом элементе*/
+    div.arrow2 {
+      width: 0;
+      height: 0;
+      border-width: 0 50px 50px 50px;
+      border-color: transparent transparent blue transparent;
+      border-style: solid;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+
+
+<div class="wrapper">
+  <div class="arrow"></div>
+  <div class="arrow2"></div>
+</div>
+
+
+
+
+<script>
+
+
+
+</script>
+</body>
+</html>
