@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    table {
+      border-collapse: collapse;
+    }
+    table td,th {
+      padding: 5px 20px;
+      border: 1px solid #eee;
+      text-align: center;
+    }
+    .delete {
+      padding: 10px 0;
+    }
+    .deleted {
+      background-color: #f1a0a0;
+    }
+  </style>
+</head>
+<body>
+
+<table class="table">
+  <tr>
+    <th>id</th>
+    <th>Фамилия</th>
+    <th>Удаление</th>
+  </tr>
+</table>
+<div class="delete">
+  <input type="submit" class="submit" value="удаление выделенных">
+</div>
+
+
+
+
+
+<script>
+  let table = document.querySelector('.table')
+  let submit = document.querySelector('.submit')
+
+  ;(async ()=>{
+  let table = document.querySelector('.table')
+  let response = await fetch('ajax.php')
+  let array = await response.json()
+  setTable(array)
+  })()
+
+  function setTable(arr){
+    let res = '';
+    arr.map(elem=>res+=`<tr><td>${elem.id}</td><td>${elem.surname}</td><td class="${elem['deleted'] == 0 ? '' :
+    'deleted'}"><a href="#"
+    data-id="${elem.id}">${elem['deleted'] == 0 ? "удалить" : "восстановить"}</a></td></tr>`)
+    table.insertAdjacentHTML('beforeend', res)
+    markDelete()
+  }
+
+  function markDelete(){
+    let links = document.querySelectorAll('.table a')
+    links.forEach(elem=>elem.addEventListener('click', function (e){
+      e.preventDefault()
+      let request;
+      if(elem.textContent == 'удалить') request = fetch(`ajax.php?mark=${this.dataset.id}`);
+      else if(elem.textContent == 'восстановить') request = fetch(`ajax.php?recover=${this.dataset.id}`);
+      request.then(res=>res.json())
+      .then(res=>changeTable(res, elem)).catch(e=>console.log(e))
+    }))
+  }
+
+  function changeTable(res, elem){
+    if(res && elem.textContent==='удалить'){
+      elem.textContent='восстановить';
+      elem.closest('td').classList.add('deleted')
+    }
+    else if(res && elem.textContent==='восстановить') {
+      elem.textContent='удалить'
+      elem.closest('td').classList.remove('deleted')
+    }
+  }
+
+  submit.addEventListener('click', function (){
+    (async ()=>{
+        try {
+          let request = await fetch("ajax.php?delete=true")
+          let status = request.status
+          if(status===200){
+            let deletedElems = document.querySelectorAll('.table td.deleted')
+            deletedElems.forEach(elem=>{
+              elem.closest('tr').remove()
+            })
+          }
+        } catch (e){
+          console.log(e.message)
+        }
+      })()
+
+  })
+
+
+
+
+
+</script>
+</body>
+</html>

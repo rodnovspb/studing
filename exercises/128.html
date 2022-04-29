@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+
+<form action="">
+  <input type="text" name="name">
+  <input type="submit" name="submit" value="111">
+</form>
+
+<table>
+  <tr>
+    <td>asd</td>
+    <td>asd</td>
+    <td>asd</td>
+  </tr>
+</table>
+
+
+
+<script>
+
+  document.querySelector('form').addEventListener('submit', function (e){
+    e.preventDefault()
+    let formdata = new FormData(this)
+    console.log(Array.from(formdata))
+  })
+
+
+
+
+</script>
+</body>
+</html>

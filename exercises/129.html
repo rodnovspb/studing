@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+
+
+
+
+
+
+
+<script>
+
+
+  fetch('https://habr.com/ru/post/244041/', {
+    mode: "cors",
+    headers: '',
+    cache: "no-cache",
+    credentials: "include",
+    body: URLSearchParams,
+    method: "POST"
+
+  }).then(res=>{
+    if(res.ok){
+      res.text().then(res=>console.log(res))
+    }
+  })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

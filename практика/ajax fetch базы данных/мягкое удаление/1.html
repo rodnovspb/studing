@@ -15,91 +15,182 @@
       border: 1px solid #eee;
       text-align: center;
     }
-    .delete {
-      padding: 10px 0;
+    .add {
+      padding: 15px 0;
     }
-    .deleted {
-      background-color: #f1a0a0;
+    .input-mini {
+      display: block;
+      width: 100%;
+      margin: 0;
     }
+
   </style>
 </head>
 <body>
 
-<table class="table">
-  <tr>
-    <th>id</th>
-    <th>Фамилия</th>
-    <th>Удаление</th>
-  </tr>
-</table>
-<div class="delete">
-  <input type="submit" class="submit" value="удаление выделенных">
+
+<div class="add">
+  <form action="" method="post">
+  <input type="text" name="name" placeholder="имя"><br>
+  <input type="text" name="surname" placeholder="фамилия"><br>
+  <input type="number" name="age" placeholder="возраст"><br>
+  <input type="number" name="salary" placeholder="зарплата"><br>
+  <input type="submit" name="submit" class="submit" value="добавить">
+  </form>
 </div>
 
 
 
 
+<table class="table">
+  <tr class="head">
+    <th>id</th>
+    <th>Имя</th>
+    <th>Фамилия</th>
+    <th>Возраст</th>
+    <th>Зарплата</th>
+    <th>Редактирование</th>
+  </tr>
+</table>
 
 <script>
   let table = document.querySelector('.table')
-  let submit = document.querySelector('.submit')
-
-  ;(async ()=>{
-  let table = document.querySelector('.table')
-  let response = await fetch('ajax.php')
-  let array = await response.json()
-  setTable(array)
-  })()
-
-  function setTable(arr){
-    let res = '';
-    arr.map(elem=>res+=`<tr><td>${elem.id}</td><td>${elem.surname}</td><td class="${elem['deleted'] == 0 ? '' :
-    'deleted'}"><a href="#"
-    data-id="${elem.id}">${elem['deleted'] == 0 ? "удалить" : "восстановить"}</a></td></tr>`)
-    table.insertAdjacentHTML('beforeend', res)
-    markDelete()
+  let form = document.querySelector('.add form');
+  let tableHead = document.querySelector('.head');
+  if(localStorage.getItem('table') !== null){
+    let arr = localStorage.getItem('table')
+    fillTable(JSON.parse(arr))
+  } else {
+    download()
   }
 
-  function markDelete(){
-    let links = document.querySelectorAll('.table a')
-    links.forEach(elem=>elem.addEventListener('click', function (e){
-      e.preventDefault()
-      let request;
-      if(elem.textContent == 'удалить') request = fetch(`ajax.php?mark=${this.dataset.id}`);
-      else if(elem.textContent == 'восстановить') request = fetch(`ajax.php?recover=${this.dataset.id}`);
-      request.then(res=>res.json())
-      .then(res=>changeTable(res, elem)).catch(e=>console.log(e))
-    }))
-  }
-
-  function changeTable(res, elem){
-    if(res && elem.textContent==='удалить'){
-      elem.textContent='восстановить';
-      elem.closest('td').classList.add('deleted')
-    }
-    else if(res && elem.textContent==='восстановить') {
-      elem.textContent='удалить'
-      elem.closest('td').classList.remove('deleted')
-    }
-  }
-
-  submit.addEventListener('click', function (){
-    (async ()=>{
-        try {
-          let request = await fetch("ajax.php?delete=true")
-          let status = request.status
-          if(status===200){
-            let deletedElems = document.querySelectorAll('.table td.deleted')
-            deletedElems.forEach(elem=>{
-              elem.closest('tr').remove()
-            })
-          }
-        } catch (e){
-          console.log(e.message)
-        }
-      })()
-
+  form.addEventListener('submit', function (e){
+    e.preventDefault()
+    let name = document.querySelector('[name="name"]').value
+    let surname = document.querySelector('[name="surname"]').value
+    let age = document.querySelector('[name="age"]').value
+    let salary = document.querySelector('[name="salary"]').value
+    let str =
+    `<tr><td class="id"></td><td class="name">${name}</td><td class="surname">${surname}</td><td class="age">${age}</td><td class="salary">${salary}</td><td></td></tr>`
+    tableHead.insertAdjacentHTML('afterend', str)
+    let formData = new FormData(this)
+    fetch('ajax.php', {
+      method: "POST",
+      body: formData,
+    }).then(res=>res.json()).then(res=>{
+      let{id, data} = res
+      let lastTr = document.querySelector('.head').nextElementSibling;
+      lastTr.firstElementChild.innerHTML = id;
+      let link = document.createElement('a')
+      link.href = '#'
+      link.dataset.id  = id
+      link.textContent = 'редактировать'
+      link.className = 'edit'
+      link.addEventListener('click', function (e){
+        e.preventDefault()
+        edit(this)
+      })
+      lastTr.lastElementChild.append(link)
+      localStorage.setItem('table', JSON.stringify(data))
+    })
   })
+
+
+  async function download() {
+    try {
+      let request = await fetch('ajax.php')
+      let response = await request.json()
+      localStorage.setItem('table', JSON.stringify(response))
+      fillTable(response)
+    } catch (e) {
+      console.log(e)
+    }
+  }
+
+    function fillTable(res){
+      let result = '';
+      for(let elem of res){
+        result+= `<tr>
+                  <td class="id">${elem.id}</td>
+                  <td class="name">${elem.name}</td>
+                  <td class="surname">${elem.surname}</td>
+                  <td class="age">${elem.age}</td>
+                  <td class="salary">${elem.salary}</td>
+                  <td><a class="edit" href="#" data-id="${elem.id}">редактировать</a></td>
+                  </tr>`
+      }
+      table.insertAdjacentHTML('beforeend', result)
+      document.querySelectorAll('.edit').forEach(function (elem){
+        elem.addEventListener('click', function (e){
+          e.preventDefault()
+          edit(elem)
+          e.stopPropagation()
+        })
+      })
+    }
+
+  function edit(node){
+    let id = node.dataset.id
+    let parent = node.closest('tr')
+    let name = parent.querySelector('.name')
+    let surname = parent.querySelector('.surname')
+    let age = parent.querySelector('.age')
+    let salary = parent.querySelector('.salary')
+    let [nameText, surnameText, ageText, salaryText] = [name.textContent, surname.textContent, age.textContent,
+      salary.textContent]
+    name.innerHTML = `<input class="input-mini input-name" type="text" value="${nameText}">`
+    surname.innerHTML = `<input class="input-mini input-surname" type="text" value="${surnameText}">`
+    age.innerHTML = `<input type="number" class="input-mini input-age" type="text" value="${ageText}">`
+    salary.innerHTML = `<input type="number" class="input-mini input-salary" type="text" value="${salaryText}">`
+
+
+    document.body.addEventListener('click', function (e){
+      if(!e.target.matches(".input-mini")){
+        parent.querySelectorAll('.input-mini').forEach(elem=>{
+          f1()
+        })
+      }
+    })
+
+
+    function f1(){
+      [nameText, surnameText, ageText, salaryText] = [
+        table.querySelector('.input-name').value,
+        table.querySelector('.input-surname').value,
+        table.querySelector('.input-age').value,
+        table.querySelector('.input-salary').value
+      ]
+      name.innerHTML = nameText
+      surname.innerHTML = surnameText
+      age.innerHTML = ageText
+      salary.innerHTML = salaryText
+      let params = new URLSearchParams;
+      params.set('id', id)
+      params.set('nameText', nameText)
+      params.set('surnameText', surnameText)
+      params.set('ageText', ageText)
+      params.set('salaryText', salaryText)
+      fetch('ajax.php', {
+        method: "POST",
+        body: params
+      }).then(res=>res.json())
+      .then(res=>{
+        localStorage.setItem('table', JSON.stringify(res))
+      }).catch(e=>{
+        console.log(e)
+      })
+    }
+
+  }
+
+
+
+
+
+
+
+
+
 
 
 
