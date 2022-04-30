@@ -1,5 +1,4 @@
 <?php
-echo '!!!';
-session_start();
-$_SESSION['aaa'] = 5;
-echo $_SESSION['aaa'];
+
+
+var_dump([ 1, 2, 3 ]);

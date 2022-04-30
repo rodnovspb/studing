@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+
+<input type="file" multiple>
+
+
+
+
+
+<script>
+
+let input = document.querySelector('input')
+  input.addEventListener('change', download)
+
+
+async function download(){
+    try {
+      let formdata = new FormData();
+      for(let i=0; i<input.files.length; i++){
+        formdata.append(`${i}`, input.files[i])
+      }
+      let response = await fetch('1.php', {
+        body: formdata,
+        method: "POST"
+      })
+      let result = await response.json()
+      console.log(result)
+    } catch (e) {
+      console.log(e)
+    }
+
+  }
+
+
+
+
+
+  // Вариант 2 c немного измененным запросом, через Request
+
+// async function download(){
+//   try {
+//     let formdata = new FormData();
+//     for(let i=0; i<input.files.length; i++){
+//       formdata.append(`${i}`, input.files[i])
+//     }
+//
+//     let headers = new Headers()
+//     // тут можно добавить заголовки
+//     headers.set('Origin', 'http://mybank.com')
+//
+//     let init = {
+//       body: formdata,
+//       method: "POST",
+//       headers: headers
+//     }
+//     let request = new Request('1.php', init)
+//
+//     let response = await fetch(request)
+//     let result = await response.json()
+//     console.log(result)
+//   } catch (e) {
+//     console.log(e)
+//   }
+//
+// }
+
+
+
+
+
+
+</script>
+</body>
+</html>

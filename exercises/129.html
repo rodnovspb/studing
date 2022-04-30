@@ -16,19 +16,12 @@
 <script>
 
 
-  fetch('https://habr.com/ru/post/244041/', {
-    mode: "cors",
-    headers: '',
-    cache: "no-cache",
-    credentials: "include",
-    body: URLSearchParams,
-    method: "POST"
-
-  }).then(res=>{
-    if(res.ok){
-      res.text().then(res=>console.log(res))
-    }
-  })
+  fetch('https://vk.com/feed', {
+    credentials: 'include',
+    mode: "cors"
+  }).then(function (res) {
+    return res.json()
+  }).then(res=>console.log(res))
 
 
 

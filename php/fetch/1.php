@@ -32,7 +32,6 @@ elseif ($id==-1) {
     $output['count'] = count($users);
     $output['data'] = $users;
 }
-
 exit(json_encode($output));
 
 ?>
