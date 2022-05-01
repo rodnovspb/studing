@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+
+<input type="submit">
+<ul></ul>
+
+
+
+<script>
+  let arr = [
+    {
+      name: 'user1',
+      age:  25,
+    },
+    {
+      name: 'user2',
+      age:  26,
+    },
+    {
+      name: 'user3',
+      age:  27,
+    },
+  ];
+
+  document.querySelector('input').addEventListener('click', func)
+
+  function func() {
+    fetch(`ajax.php?data=${JSON.stringify(arr)}`)
+    .then(res=>res.json())
+    .then(res=>setUl(res)).catch(e=>{
+      console.log(e)
+    })
+  }
+
+  function setUl(arr) {
+    let res = arr.reduce((accum, elem)=>{
+      return accum +=`<li>Имя: ${elem['name']}, возраст: ${elem['age']}</li>`
+    },'');
+    document.querySelector('ul').innerHTML = res;
+  }
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

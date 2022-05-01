@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+
+<input type="button" value="запрос">
+<div>
+</div>
+
+
+
+
+<script>
+
+document.querySelector('input').addEventListener('click', async ()=>{
+    try {
+      let response = await fetch('ajax.php');
+      if(response.ok){
+        let result = await response.json()
+        func(result)
+      }
+    } catch (e){
+      console.log(e)
+    }
+})
+
+function func(arr){
+  let result = '<tr>'
+  let heads = Object.keys(arr[0])
+  for(let head of heads){
+    result += `<th>${head}</th>`
+  }
+  result += '</tr>'
+  let table = document.createElement('table')
+  for(let elem of arr){
+    let count=0;
+    result+="<tr>"
+    result+=`<td>${elem[heads[count]]}</td><td>${elem[heads[++count]]}</td><td>${elem[heads[++count]]}</td>`
+    result+="</tr>"
+  }
+  table.innerHTML = result
+  document.querySelector('div').append(table)
+}
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+
+<input type="submit">
+
+
+
+<script>
+
+  document.querySelector('input').addEventListener('click', func)
+
+  let data = ['user1', 'user2', 'user3'];
+
+  function func() {
+    fetch(`ajax.php?data=${JSON.stringify(data)}`)
+    .then(res=>res.json())
+    .then(res=>console.log(res))
+  }
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

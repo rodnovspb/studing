@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+
+<input type="submit">
+<table>
+  <tr>
+    <th>id</th>
+    <th>Имя</th>
+    <th>Фамилия</th>
+    <th>Зарплата</th>
+    <th>Возраст</th>
+  </tr>
+</table>
+
+
+<script>
+
+  document.querySelector('input').addEventListener('click', async ()=>{
+    try {
+      let countRow = document.querySelectorAll('table tr').length-1
+      let response = await fetch(`ajax.php?row=${countRow}`)
+      if(response.ok){
+        let data = await response.json()
+        func(data)
+      }
+    } catch (e){
+      console.log(e)
+    }
+  })
+
+  function func(arr){
+    let res = arr.reduce(function (accum, elem){
+      return accum+=`<tr>
+                      <td>${elem.id}</td>
+                      <td>${elem.name}</td>
+                      <td>${elem.surname}</td>
+                      <td>${elem.salary}</td>
+                      <td>${elem.age}</td>
+                      </tr>`
+    }, '')
+    document.querySelector('table').insertAdjacentHTML('beforeend', res)
+  }
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

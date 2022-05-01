@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    input {
+      width: 60px;
+    }
+  </style>
+</head>
+<body>
+
+
+<table>
+  <tr>
+    <th>id</th>
+    <th>Имя</th>
+    <th>Фамилия</th>
+    <th>Зарплата</th>
+    <th>Возраст</th>
+  </tr>
+</table>
+
+
+<script>
+  let table = document.querySelector('table');
+  ;(async ()=>{
+    try {
+      let response = await fetch('ajax.php')
+      let result = await response.json()
+      setTable(result)
+      setEdit()
+    } catch (e){
+      console.log(e)
+    }
+  })()
+
+  function setTable(arr){
+    let res = arr.reduce((accum, elem)=> accum+=`
+<tr>
+   <td data-id="${elem.id}">${elem.id}</td>
+   <td data-name="name">${elem.name}</td>
+   <td data-name="surname">${elem.surname}</td>
+   <td data-name="salary">${elem.salary}</td>
+   <td data-name="age">${elem.age}</td>
+ </tr>`, '')
+    table.insertAdjacentHTML('beforeend', res);
+  }
+
+  function setEdit(){
+    table.addEventListener('click', function (e){
+      if(e.target.tagName === "TD" && !e.target.dataset.id) {
+        let id = (e.target.closest('tr').querySelector('td[data-id]').dataset.id)
+        let tdName = e.target.dataset.name
+        let text = e.target.textContent
+        switch (e.target.dataset.name){
+          case 'name':
+          case 'surname': e.target.innerHTML = `<input type="text">`
+          break;
+          default: e.target.innerHTML = `<input type="number">`
+        }
+        let input = e.target.children[0]
+        input.value = text
+        input.addEventListener('blur', function (){
+          e.target.innerHTML = `${this.value}`
+          let tdText = e.target.textContent;
+          fetch(`ajax.php?data=${JSON.stringify([id, tdName, tdText])}`)
+          .then(res=>res.json())
+          // .then(res=>{
+          // если не затронута ни одна строчка (например введено то же значение)
+          //   if(res !==1){
+          //     throw new Error('ошибка запроса к базе данных')
+          //   }
+          // })
+          .catch(e=>{
+            console.log(e)
+            alert('Ошибка базы, неверное значение')
+          })
+        })
+
+
+      }
+    })
+  }
+
+
+
+
+
+
+</script>
+</body>
+</html>

@@ -21,19 +21,19 @@ let controller = {
 
 
 ;(function () {
-	let app = {
-		init: function () {
-			this.main()
-			this.event()
-		},
-		main: function () {
+		let app = {
+			init: function() {
+				this.main()
+				this.event()
+			},
+			main: function () {
 
-		},
-		event: function () {
-			let input = document.querySelector('input')
-			input.onclick = controller.handle
-		},
-	}
+			},
+			event: function () {
+				let input = document.querySelector('input')
+				input.onclick = controller.handle
+			},
+		}
 
 	app.init()
 
