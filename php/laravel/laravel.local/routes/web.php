@@ -17,12 +17,16 @@ Route::get('/', function () {
     return 'главная';
 });
 
-Route::get('/user/all', function () {
-    return 'all';
-});
+
 
 Route::get('/user/{id}', function ($id) {
-    return "$id";
+    return 'id';
+});
+Route::get('/user/', function () {
+    return 'user';
+});
+Route::get('/user/all', function () {
+    return 'all';
 });
 
 
