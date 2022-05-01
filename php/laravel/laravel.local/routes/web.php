@@ -18,14 +18,11 @@ Route::get('/', function () {
 });
 
 
-Route::prefix('admin')->group(function(){
-    Route::get('/users', function () {
+    Route::get('admin/users', function () {
         return 'all';
-    });
-    Route::get('/user/{id}', function ($id) {
-        return $id;
-    });
-});
+    })->name('users');
+
+
 
 
 
