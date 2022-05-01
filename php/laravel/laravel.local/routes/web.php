@@ -17,15 +17,16 @@ Route::get('/', function () {
     return 'главная';
 });
 
-Route::prefix('blog/post')->group(function(){
 
-    Route::get('/all', function () {
+Route::prefix('admin')->group(function(){
+    Route::get('/users', function () {
         return 'all';
     });
-    Route::get('/{id}', function ($id) {
+    Route::get('/user/{id}', function ($id) {
         return $id;
     });
 });
+
 
 
 
