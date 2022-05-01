@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use Core\Route;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Route as RoutePattern;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +25,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        RoutePattern::pattern('id', '[0-9]+');
+        RoutePattern::pattern('slug', '[\w-]+');
     }
 }

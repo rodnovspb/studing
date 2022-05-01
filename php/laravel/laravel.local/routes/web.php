@@ -17,14 +17,13 @@ Route::get('/', function () {
     return 'главная';
 });
 
-Route::get('/{id}', function ($id) {
-    return "whereNumber $id";
-})->whereNumber('id');
+Route::get('/user/all', function () {
+    return 'all';
+});
 
-Route::get('/{slug}', function ($slug) {
-    return "$slug";
-})->whereAlpha('slug');
+Route::get('/user/{id}', function ($id) {
+    return "$id";
+});
 
-Route::get('/{slugNum}', function ($slugNum) {
-    return "whereAlphaNumeric $slugNum";
-})->whereAlphaNumeric('slugNum');
+
+
