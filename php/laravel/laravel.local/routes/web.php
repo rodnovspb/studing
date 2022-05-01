@@ -17,13 +17,16 @@ Route::get('/', function () {
     return 'главная';
 });
 
-Route::get('/user/{id}', function () {
-    return 'id';
-})->whereNumber('id');
+Route::prefix('blog/post')->group(function(){
 
-Route::get('/user/{slug}', function () {
-    return 'slug';
-})->where('slug', '[a-z0-9_-]+');
+    Route::get('/all', function () {
+        return 'all';
+    });
+    Route::get('/{id}', function ($id) {
+        return $id;
+    });
+});
+
 
 
 
