@@ -18,9 +18,9 @@ Route::get('/', function () {
 });
 
 
-    Route::get('admin/users', function () {
-        return 'all';
-    })->name('users');
+Route::get('/user/profile', function ($id) {
+    return 'profile';
+})->name('profile');
 
 
 
