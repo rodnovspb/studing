@@ -17,17 +17,15 @@ Route::get('/', function () {
     return 'главная';
 });
 
-
-
-Route::get('/user/{id}', function ($id) {
+Route::get('/user/{id}', function () {
     return 'id';
-});
-Route::get('/user/', function () {
-    return 'user';
-});
-Route::get('/user/all', function () {
-    return 'all';
-});
+})->whereNumber('id');
+
+Route::get('/user/{slug}', function () {
+    return 'slug';
+})->where('slug', '[a-z0-9_-]+');
+
+
 
 
 
