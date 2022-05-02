@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,8 +25,8 @@ Route::get('/user/profile', function ($id) {
 })->name('profile');
 
 
-
-
+Route::get('/post/{id}', [PostController::class, 'show']);
+Route::get('/user/{name}', [UserController::class, 'show']);
 
 
 
