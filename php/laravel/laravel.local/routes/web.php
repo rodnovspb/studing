@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\WeatherController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,14 +20,13 @@ Route::get('/', function () {
     return 'главная';
 });
 
-
-Route::get('/user/profile', function ($id) {
-    return 'profile';
-})->name('profile');
-
-
+Route::get('/user/age', [UserController::class, 'getage']);
+Route::get('/user/salary/{salary}', [UserController::class, 'getsalary']);
+Route::get('/user/sex/{sex}', [UserController::class, 'getsex']);
+Route::get('/user/{name}/{surname}', [PostController::class, 'showUser']);
+Route::get('/post/view', [PostController::class, 'view']);
 Route::get('/post/{id}', [PostController::class, 'show']);
-Route::get('/user/{name}', [UserController::class, 'show']);
+Route::get('/weather/{city}', [WeatherController::class, 'getweather']);
 
 
 

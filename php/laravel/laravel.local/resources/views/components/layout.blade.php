@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>my view</title>
+		<title>{{$title}}</title>
 	</head>
 	<body>
-		my view
+		{{$slot}}
 	</body>
 </html>

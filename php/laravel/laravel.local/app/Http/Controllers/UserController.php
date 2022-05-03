@@ -16,4 +16,13 @@ class UserController extends Controller
         ];
         return $users[$name] ?? 'не существует';
     }
+    public function getAge(){
+        return view('user.getage');
+    }
+    public function getSalary($salary){
+        return view('user.getsalary', ['salary'=>$salary]);
+    }
+    public function getSex($sex){
+        return view('user.getsex', ['sex'=>$sex]);
+    }
 }
