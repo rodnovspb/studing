@@ -1,6 +1,7 @@
 <x-layout>
     <x-slot:title>
-        Пол
+        {{$title}}
     </x-slot:title>
     Пол : {{$sex}}
+    <p>{{$content}}</p>
 </x-layout>

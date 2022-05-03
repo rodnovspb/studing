@@ -1,6 +1,7 @@
 <x-layout>
     <x-slot:title>
-        Возраст
+        {{$title}}
     </x-slot:title>
-    Возраст 35 лет
+    <p>Возраст 35 лет</p>
+    <p>{{$content}}</p>
 </x-layout>

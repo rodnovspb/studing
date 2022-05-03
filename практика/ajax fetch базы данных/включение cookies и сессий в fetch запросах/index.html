@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+
+
+<form action="">
+<input required type="text" name="login">
+<input type="submit">
+</form>
+
+
+
+
+<script>
+  document.querySelector('form').addEventListener('submit', function (e){
+    e.preventDefault()
+    let formdata = new FormData(this)
+    fetch('ajax.php', {
+      method: "POST",
+      // credentials: 'include'
+      body: formdata
+    }).then(res=>res.json())
+      .then(res=>console.log(res))
+      .catch(e=>{
+        console.log(e)
+      })
+  })
+
+
+
+
+</script>
+</body>
+</html>

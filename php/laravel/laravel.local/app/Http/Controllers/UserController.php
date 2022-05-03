@@ -17,12 +17,15 @@ class UserController extends Controller
         return $users[$name] ?? 'не существует';
     }
     public function getAge(){
-        return view('user.getage');
+        $content = 'Контент для getAge';
+        return view('user.getage', ['content'=>$content, 'title'=>'Тайтл для getAge']);
     }
     public function getSalary($salary){
-        return view('user.getsalary', ['salary'=>$salary]);
+        $content = 'Контент для getSalary';
+        return view('user.getsalary', ['salary'=>$salary, 'content'=>$content, 'title'=>'Тайтл для getSalary']);
     }
     public function getSex($sex){
-        return view('user.getsex', ['sex'=>$sex]);
+        $content = 'Контент для getSex';
+        return view('user.getsex', ['sex'=>$sex, 'content'=>$content, 'title'=>'Тайтл для getSex']);
     }
 }

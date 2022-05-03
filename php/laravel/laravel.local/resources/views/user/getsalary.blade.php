@@ -1,6 +1,7 @@
 <x-layout>
     <x-slot:title>
-        Зарплата
+        {{$title}}
     </x-slot:title>
     Зарплата: {{$salary}}
+    <p>{{$content}}</p>
 </x-layout>
