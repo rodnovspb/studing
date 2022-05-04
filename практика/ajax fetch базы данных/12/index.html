@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<input type="submit">
+
+
+
+<script>
+  let obj = {
+      name: 'user1',
+      age:  25
+    }
+  document.querySelector('input').addEventListener('click', func)
+
+  function func() {
+    fetch(`ajax.php?data=${JSON.stringify(obj)}`)
+    .then(res=>res.json())
+    .then(res=>console.log(res)).catch(e=>{
+      console.log(e)
+    })
+  }
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

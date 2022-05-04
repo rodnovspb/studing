@@ -568,17 +568,71 @@ ul, ol {
 .reviews {
     position: relative;
 }
+.reviews .slick-list {
+    z-index: 2;
+    padding-top: 20px;
+}
+
+.reviews .slick-dots {
+    position: absolute;
+    bottom: -20px;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.reviews .slick-dots li.slick-active button {
+    box-shadow: 0 0 0 5px rgba(0, 74, 242, .11);
+    background: #004AF2;
+}
+
+.reviews .slick-dots button {
+    padding: 0;
+    font-size: 0;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    background: #dbdbdb;
+    color: transparent;
+    border: 0;
+    cursor: pointer;
+    display: block;
+    transition: background-color .1s linear, box-shadow .1s linear ;
+}
+
+.reviews .slick-dots button:focus {
+    outline: none;
+}
+
+.reviews .slick-dots li {
+    margin: 0 8px;
+}
+
+.reviews__item {
+    padding: 0 10px;
+}
+
+.reviews:before,
+.reviews:after{
+    content: '';
+    display: block;
+    width: 20px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 3;
+}
 
 .reviews:before {
-    position: absolute;
-    content: '';
-    background: url("../images/clients/lines.svg") left center no-repeat;
-    left: 2px;
-    top: -16px;
-    z-index: 1;
-    height: 125px;
-    width: 91px;
-    display: block;
+    left: 0;
+    background-image: linear-gradient(to right, white, transparent);
+}
+
+.reviews:after {
+    right: 0;
+    background-image: linear-gradient(to left, white, transparent);
 }
 
 .reviews__header {
@@ -588,6 +642,17 @@ ul, ol {
     align-items: center;
     position: relative;
     z-index: 2;
+}
+
+.reviews__header:before {
+    position: absolute;
+    content: '';
+    background: url("../images/clients/lines.svg") left center no-repeat;
+    left: 2px;
+    top: -13px;
+    height: 125px;
+    width: 91px;
+    display: block;
 }
 
 .reviews__header-content {
@@ -605,6 +670,8 @@ ul, ol {
     border-radius: 50%;
     border: 5px solid white;
     box-shadow: 0 3px 6px rgba(0,0,0, .16);
+    position: relative;
+    z-index: 2;
 }
 
 .reviews__name {
@@ -1319,6 +1386,7 @@ ul, ol {
         }
         .main__col-right {
             max-width: 100%;
+        }
          .section--last {
             margin-bottom: 0;
         }

@@ -34,10 +34,12 @@ class UserController extends Controller
         $href = 'https://yandex.ru/';
         return view('user.getpage', [
             'array'=> [[1, 2, 3], [4, 5, 6], [7, 8, 9], 1],
+            'arr4'=>[1,1,0, 2,3,0,4,5,0, 56],
             'table'=>$table,
             'data'=> [1],
             'arr1'=>[1,2,3,4],
             'correct'=>false,
+            'arrOfStr'=>['qwerty', 'asdfgh', 'rtyuio', 'fghdsg'],
             'isAuth'=>true,
             'str'=>"<b>text</b>",
             'script'=>"<script>alert('!!!!!')</script>",

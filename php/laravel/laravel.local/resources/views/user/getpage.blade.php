@@ -3,6 +3,64 @@
         Заголовок
     </x-slot:title>
 
+    @php
+        for($i=0; $i<10; $i++){
+            echo "<p>$i</p>";
+        }   
+    @endphp
+
+    @for($i=0; $i<count($arr4); $i++)
+        <p>{{$i}} {{$arr4[$i]}}</p>
+    @endfor
+
+    @foreach($arr4 as $elem)
+        @continue($elem==0)
+        <p>{{$elem}}</p>
+    @endforeach
+
+    @foreach($arr4 as $elem)
+        @break($elem == 0)
+        <p>{{$elem}}</p>
+    @endforeach
+
+    @foreach($arr1 as $item)
+            @break($loop->last)
+        {{$item}}
+    @endforeach
+
+
+    @foreach($arr1 as $item)
+        <p><b>{!! $loop->remaining < $loop->count-1 ? '<i>':null!!}{{$item}}{!! $loop->remaining < $loop->count-1 ?
+        '</i>':null !!}</b></p>
+    @endforeach
+    <ul>
+        @foreach($arrOfStr as $item)
+            <li {{$loop->first ? 'class=first': null}}{{$loop->last ? 'class=last': null}}>{{$loop->iteration}}
+                {{$item}}</li>
+        @endforeach
+    </ul>
+
+    @foreach($arr as $item)
+
+        @if($loop->first)
+            первая итерация
+        @endif
+        @if($loop->last)
+            последняя итерация
+        @endif
+        @if($loop->odd)
+            нечетная итерация
+        @endif
+        @if($loop->even)
+            четная итерация
+        @endif
+        {{$loop->index}}
+        {{$loop->iteration}}
+        {{$loop->remaining}}
+        {{$loop->count}}
+        <p>{{$item}}</p>
+    @endforeach
+
     @forelse($var5 as $elem)
         <p>{{$elem}}</p>
     @empty
