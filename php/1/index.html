@@ -22,8 +22,6 @@
     let formdata = new FormData(this)
     fetch('ajax.php', {
       method: "POST",
-      // credentials  - куки, по умолчанию same-origin
-      // отключить - omit, не будут работать сессии
       credentials: 'same-origin',
       body: formdata
     }).then(res=>res.json())

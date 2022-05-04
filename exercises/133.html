@@ -6,31 +6,21 @@
 </head>
 <body>
 
-
+<p class="elem">sad</p>
+<p class="elem">sad</p>
+<p class="elem">sad</p>
+<p class="elem">sad</p>
 
 
 
 <script>
 
-let range = {
-  from: 0,
-  to: 100,
-  [Symbol.iterator]() {
-    this.current = this.from;
-    return this;
-  },
-  next() {
-    if (this.current < this.to) {
-      return {done: false, value: this.current++}
-    } else {
-      return {done: true}
-    }
-  }
-}
+let str = 'qwerty😂'
+  console.log(str.split(''))
+  console.log(Array.from(str))
 
-for(let elem of range){
-  console.log(elem)
-}
+
+
 
 
 

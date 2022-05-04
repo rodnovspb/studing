@@ -28,4 +28,55 @@ class UserController extends Controller
         $content = 'Контент для getSex';
         return view('user.getsex', ['sex'=>$sex, 'content'=>$content, 'title'=>'Тайтл для getSex']);
     }
+    public function getPage($page){
+        $table = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+        $text = 'текст ссылки';
+        $href = 'https://yandex.ru/';
+        return view('user.getpage', [
+            'array'=> [[1, 2, 3], [4, 5, 6], [7, 8, 9], 1],
+            'table'=>$table,
+            'data'=> [1],
+            'arr1'=>[1,2,3,4],
+            'correct'=>false,
+            'isAuth'=>true,
+            'str'=>"<b>text</b>",
+            'script'=>"<script>alert('!!!!!')</script>",
+            'year'=>2022,
+            'month'=>'май',
+            'location'=>['country'=>"Россия", 'city'=>'Челябинск'],
+            'city'=>'Севастополь',
+            'page'=>$page,
+            'name'=>'Денис',
+            'age'=>35,
+            'salary'=>5000,
+            'class'=>'invisible',
+            'value1'=> '',
+            'value2'=>'2000',
+            'value3'=>'3000',
+            'style'=>'color: red',
+            'text'=> $text,
+            'href'=> $href,
+            'arr'=>[1,2,3,4],
+            'employee'=>['name'=>'Вася', 'age'=>'111', 'salary'=>50000],
+            'elements'=> [
+                [
+                    'name' => 'user1',
+                    'surname' => 'surname1',
+                    'salary' => 1000,
+                ],
+                [
+                    'name' => 'user2',
+                    'surname' => 'surname2',
+                    'salary' => 2000,
+                ],
+                [
+                    'name' => 'user3',
+                    'surname' => 'surname3',
+                    'salary' => 3000,
+                ],
+            ],
+            'var5'=>[]
+
+            ]);
+    }
 }

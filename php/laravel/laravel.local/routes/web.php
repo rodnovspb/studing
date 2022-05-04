@@ -20,6 +20,7 @@ Route::get('/', function () {
     return 'главная';
 });
 
+Route::get('/user/page/{page}', [UserController::class, 'getpage']);
 Route::get('/user/age', [UserController::class, 'getage']);
 Route::get('/user/salary/{salary}', [UserController::class, 'getsalary']);
 Route::get('/user/sex/{sex}', [UserController::class, 'getsex']);
