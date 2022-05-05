@@ -17,19 +17,10 @@
 
 
 
-let arr = ["nap", "teachers", "cheaters", "PAN", "ear", "era", "hectares"];
+let map = new Map()
+  map.set('111', '222').set(1,2).set('34543', '234234')
+  console.log(Array.from(map.keys()))
 
-function func(arr){
-  let map = new Map()
-  for(let elem of arr){
-    let key = elem.split('').sort().join('')
-    map.set(key, elem)
-  }
-
-  console.log(Array.from(map.values()))
-}
-
-func(arr)
 
 
 
