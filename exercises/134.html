@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+
+
+
+
+
+
+
+<script>
+
+
+
+let arr = ["nap", "teachers", "cheaters", "PAN", "ear", "era", "hectares"];
+
+function func(arr){
+  let map = new Map()
+  for(let elem of arr){
+    let key = elem.split('').sort().join('')
+    map.set(key, elem)
+  }
+
+  console.log(Array.from(map.values()))
+}
+
+func(arr)
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
