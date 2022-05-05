@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    .wrapper {
+      width: 70%;
+      margin: 0 auto;
+      height: 300px;
+    }
+
+    .message {
+
+
+    }
+    .message textarea {
+      width: 100%;
+      height: 50px;
+    }
+    .input {
+      padding: 10px 0;
+      display: flex;
+      justify-content: space-between;
+    }
+    .book__header {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    .book__author {
+      display: flex;
+      justify-content: space-between;
+    }
+    .book__text {
+      margin-bottom: 5px;
+      word-break: break-all;
+    }
+    .book__message {
+      padding: 10px 0;
+    }
+  </style>
+</head>
+<body>
+
+
+<div class="wrapper">
+<div class="message">
+  <div class="message">
+    <form action="" class="form">
+      <textarea class="form__text" name="textarea" placeholder="Сообщение" required></textarea>
+      <div class="input"><input class="form__author" type="text" name="name" placeholder="Ваше имя" required><input class="submit" type="submit">
+      </div>
+    </form>
+</div>
+  <div class="book">
+    <div class="book__header">Гостевая книга</div>
+  </div>
+</div>
+
+
+<script>
+
+  (async ()=>{
+    try {
+      let request = await fetch('ajax.php')
+      let response = await request.json()
+      setTable(response)
+    } catch (e){
+      console.log(e)
+    }
+  })()
+
+  function setTable(arr){
+    for(let elem of arr){
+      let time = new Date(Number(elem['date'])).toLocaleString()
+      addToBook(elem['text'], elem['author'], time)
+    }
+  }
+
+  let form = document.querySelector('.form')
+  form.addEventListener('submit', async function (e){
+    let timeNow = Date.now()
+    addtoPage(timeNow)
+    e.preventDefault()
+    let formdata = new FormData(this)
+    formdata.append('time', String(timeNow))
+    document.querySelector('.form__text').value = ''
+    document.querySelector('.form__author').value = ''
+    try {
+      let request = await fetch('ajax.php', {
+        method: "POST",
+        body: formdata
+      })
+        let data = await request.json()
+        if(data===1) console.log('успешно')
+    } catch (e){
+      console.log(e)
+    }
+  })
+
+  function addtoPage(time){
+    let author = document.querySelector('.form__author').value;
+    let text = document.querySelector('.form__text').value;
+    let date = (new Date(time)).toLocaleString()
+    addToBook(text, author, date)
+  }
+
+  function addToBook(text, author, time){
+    let divMessage = document.createElement('div')
+    divMessage.className = 'book__message'
+    let divText = document.createElement('div')
+    divText.className = 'book__text'
+    divText.textContent = text
+    let divAuthor = document.createElement('div')
+    divAuthor.className = 'book__author'
+    let spanAuthor = document.createElement('span')
+    spanAuthor.className = 'author'
+    spanAuthor.textContent = author;
+    let spanTime = document.createElement('span')
+    spanTime.className = 'time'
+    spanTime.textContent = time
+    divAuthor.append(spanAuthor, spanTime)
+    divMessage.append(divText, divAuthor)
+    document.querySelector('.book__header').after(divMessage)
+  }
+
+
+
+
+
+
+</script>
+</body>
+</html>
