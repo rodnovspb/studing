@@ -16,18 +16,18 @@
 <script>
 
 
-function getSecondsToTomorrow(){
-  let now = new Date()
-  let nowSeconds = now.getTime()/1000
-  let tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate()+1)
-  let tomorrowSeconds = tomorrow.getTime()/1000
-  console.log((tomorrowSeconds-nowSeconds))
+function formatDate(date){
+  let now = Date.now()/1000
+  let last = date.getTime()/1000
+  let result = ''
+  result = (now-last)<1 ? 'прямо сейчас':
+          (now-last)<60 ? `${Math.round(now-last)} секунд назад` :
+          (now-last)<3600 ? `${Math.round((now-last)/60)} минут назад`: date.toLocaleString();
+  console.log(result)
 }
 
-getSecondsToTomorrow()
 
-
-
+formatDate(new Date(2022, 4, 6, 12, 17, 59))
 
 
 
