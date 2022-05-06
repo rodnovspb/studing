@@ -16,13 +16,26 @@
 <script>
 
 
-function getWeekDay(date){
-  let weekdays = ["вскр", 'пн','вт', "ср","чт", "птн", "сб"]
-  console.log(weekdays[date.getDay()])
+function getSecondsToTomorrow(){
+  let now = new Date()
+  let nowSeconds = now.getTime()/1000
+  let tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate()+1)
+  let tomorrowSeconds = tomorrow.getTime()/1000
+  console.log((tomorrowSeconds-nowSeconds))
 }
 
+getSecondsToTomorrow()
 
-getWeekDay(new Date(2022, 11, 31))
+
+
+
+
+
+
+
+
+
+
 
 
 
