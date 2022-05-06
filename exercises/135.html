@@ -16,22 +16,26 @@
 <script>
 
 
-
-let salaries = {
-  "John": 100,
-  "Pete": 300,
-  "Mary": 250
+let options = {
+  title: "My menu",
+  items: ["Item1", "Item2"]
 };
 
-function sumSalaries(obj) {
-  let res = 0
-  for(let elem of Object.values(obj)){
-    res+=elem
-  }
-  console.log(res)
+
+
+function showMenu({title = "Untitled", width = 200, height = 100, items = []} = {}) {
+  console.log(width)
 }
 
-sumSalaries(salaries)
+showMenu({width: 1})
+
+
+
+
+
+
+
+
 
 
 
