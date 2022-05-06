@@ -16,40 +16,13 @@
 <script>
 
 
-  function func1(a,b) {
-      return a-b
-  }
-
-  function func2(a,b) {
-      return a.getTime() - b.getTime()
-  }
+function getWeekDay(date){
+  let weekdays = ["вскр", 'пн','вт', "ср","чт", "птн", "сб"]
+  console.log(weekdays[date.getDay()])
+}
 
 
-  function bench(f) {
-    let start = new Date(0)
-    let end = new Date()
-
-    let now = Date.now()
-    for(let i=0; i<100000; i++){
-      f(start, end)
-    }
-    let finish = Date.now()
-    return finish - now
-  }
-
-
- let time1 = 0
-  let time2 = 0
-
-  for(let i=0; i<100; i++){
-    time1 += bench(func1)
-    time2 += bench(func2)
-  }
-
-
-console.log(time1)
-console.log(time2)
-
+getWeekDay(new Date(2022, 11, 31))
 
 
 
