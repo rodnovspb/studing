@@ -16,20 +16,24 @@
 <script>
 
 
-let options = {
-  title: "My menu",
-  items: ["Item1", "Item2"]
+let salaries = {
+  "John": 100,
+  "Pete": 300,
+  "Mary": 250
 };
 
 
-
-function showMenu({title = "Untitled", width = 200, height = 100, items = []} = {}) {
-  console.log(width)
+function topSalary(obj) {
+  let employee = null, salary = null
+  for(let[name, value] of Object.entries(obj)){
+    if(value > salary){
+      [employee, salary] = [name, value]
+    }
+  }
+  console.log(employee)
 }
 
-showMenu({width: 1})
-
-
+topSalary(salaries)
 
 
 
