@@ -15,24 +15,28 @@
 
 <script>
 
+let room = {
+  number: 23
+};
 
-function formatDate(date){
-  let now = Date.now()/1000
-  let last = date.getTime()/1000
-  let result = ''
-  result = (now-last)<1 ? 'прямо сейчас':
-          (now-last)<60 ? `${Math.round(now-last)} секунд назад` :
-          (now-last)<3600 ? `${Math.round((now-last)/60)} минут назад`: date.toLocaleString();
-  console.log(result)
-}
-
-
-formatDate(new Date(2022, 4, 6, 12, 17, 59))
+let meetup = {
+  title: "Совещание",
+  occupiedBy: [{name: "Иванов"}, {name: "Петров"}],
+  place: room
+};
 
 
+room.occupiedBy = meetup;
+meetup.self = meetup;
 
-
-
+console.log(JSON.stringify(meetup, function (key, value) {
+        if(key != "" && value==meetup) return undefined
+        else {
+          console.log(key)
+          console.log(value)
+          return value
+        }
+}, 2))
 
 
 

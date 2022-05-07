@@ -3,7 +3,7 @@
  *
  * @static
  * @memberOf _
- * @since 4.13.0
+ * @since 4.id вставленной записи.0
  * @category Util
  * @returns {string} Returns the empty string.
  * @example

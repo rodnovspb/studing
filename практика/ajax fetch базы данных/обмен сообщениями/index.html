@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+  .wrapper {
+    width: 80vw;
+    margin: 0 auto;
+    display: flex;
+    gap: 20px;
+    padding-top: 20px;
+    font-size: 16px;
+  }
+  .messengerOne__messages,
+  .messengerTwo__messages {
+    border: 1px solid #ccc;
+    min-height: 250px;
+    margin-bottom: 20px;
+  }
+  .messengerOne__messages p,
+  .messengerTwo__messages p {
+    margin: 0;
+  }
+  </style>
+</head>
+<body>
+
+
+<div class="wrapper">
+  <div class="messengerOne">
+    <div class="messengerOne__messages"></div>
+    <textarea class="messengerOne__textarea" name="textareaOne" data-id="1"></textarea>
+  </div>
+  <div class="messengerTwo">
+    <div class="messengerTwo__messages"></div>
+    <textarea class="messengerTwo__textarea" name="textareaTwo" data-id="2"></textarea>
+  </div>
+</div>
+
+
+<script>
+let textarea1 = document.querySelector('.messengerOne__textarea')
+let textarea2 = document.querySelector('.messengerTwo__textarea')
+let chat1 = document.querySelector('.messengerOne__messages')
+let chat2 = document.querySelector('.messengerTwo__messages')
+
+textarea1.addEventListener('keydown', sendMessage)
+textarea2.addEventListener('keydown', sendMessage)
+
+function sendMessage(e){
+  if(e.key === 'Enter' && e.shiftKey === true){
+    if(e.repeat) return
+    e.preventDefault()
+    let text = e.target.value
+    e.target.value = ''
+    let randomNum = Date.now()
+    sendToServer(text, +e.target.dataset.id, randomNum)
+    sendToMyWindow(text, +e.target.dataset.id, randomNum)
+  }
+}
+
+
+function sendToServer(text, sender, randomNum){
+  let formdata = new FormData()
+  formdata.append('sender', sender)
+  formdata.append('text', text)
+  formdata.append('timestamp', randomNum)
+  fetch('ajax.php', {
+    method: "POST",
+    body: formdata
+  }).then(res=>res.json())
+    .then(res=>check(res))
+    .catch(e=>console.log(e))
+}
+
+function check(res){
+  if(res !== 1) console.log('Не доставлено')
+}
+
+function sendToMyWindow(text, sender, randomNum){
+  let chat = sender === 1 ? chat1 : chat2
+  chat.insertAdjacentHTML('beforeend', `<p class="message" data-time="${randomNum}" data-sender="${sender}">${text}</p>`)
+}
+
+function refreshM1(){
+  let timestamp = 0
+  return function (){
+      let messages = chat1.getElementsByClassName('message')
+      let arr = []
+      for(let elem of messages){
+          arr.push(elem.dataset.time)
+      }
+    timestamp = Math.max(...arr)
+    if(timestamp > 0){
+    fetch(`ajax.php?sender1=2&timestamp1=${timestamp}`)
+    .then(res=>res.json())
+    .then(res=>sendToWindow(res, 1))
+    .catch(e=>console.log(e))
+ }}
+ }
+
+function refreshM2(){
+  let timestamp = 0
+  return function (){
+    let messages = chat2.getElementsByClassName('message')
+    let arr = []
+    for(let elem of messages){
+        arr.push(elem.dataset.time)
+    }
+
+    timestamp = Math.max(...arr)
+    if(timestamp > 0){
+    fetch(`ajax.php?sender2=1&timestamp2=${timestamp}`)
+    .then(res=>res.json())
+    .then(res=>sendToWindow(res, 2))
+    .catch(e=>console.log(e))
+  }}
+}
+
+ function sendToWindow(data, chatNumber){
+    if(data.length>0){
+   let chat = chatNumber === 1 ? chat1 : chat2
+   let result = ''
+   data = data.reverse()
+   data.map(elem=>{
+     result+=`<p class="message" data-time="${elem.timestamp}">${elem.text}</p>`
+   })
+   chat.insertAdjacentHTML('beforeend', result)
+    }
+}
+
+
+
+
+
+
+let refreshMessages1 = refreshM1()
+let refreshMessages2 = refreshM2()
+
+window.addEventListener('load', function (){
+  setInterval(function (){
+    refreshMessages1()
+    refreshMessages2()
+  }, 5000)
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

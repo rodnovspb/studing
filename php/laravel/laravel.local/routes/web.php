@@ -27,6 +27,7 @@ Route::get('/user/age', [UserController::class, 'getage']);
 Route::get('/user/salary/{salary}', [UserController::class, 'getsalary']);
 Route::get('/user/sex/{sex}', [UserController::class, 'getsex']);
 Route::get('/user/{name}/{surname}', [PostController::class, 'showUser']);
+Route::get('/post/collection', [PostController::class, 'func']);
 Route::get('/post/view', [PostController::class, 'view']);
 Route::get('/post/{id}', [PostController::class, 'show']);
 Route::get('/weather/{city}', [WeatherController::class, 'getweather']);

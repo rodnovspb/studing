@@ -16096,7 +16096,7 @@
      *
      * @static
      * @memberOf _
-     * @since 4.13.0
+     * @since 4.id вставленной записи.0
      * @category Util
      * @returns {Array} Returns the new empty array.
      * @example
@@ -16118,7 +16118,7 @@
      *
      * @static
      * @memberOf _
-     * @since 4.13.0
+     * @since 4.id вставленной записи.0
      * @category Util
      * @returns {boolean} Returns `false`.
      * @example
@@ -16135,7 +16135,7 @@
      *
      * @static
      * @memberOf _
-     * @since 4.13.0
+     * @since 4.id вставленной записи.0
      * @category Util
      * @returns {Object} Returns the new empty object.
      * @example
@@ -16157,7 +16157,7 @@
      *
      * @static
      * @memberOf _
-     * @since 4.13.0
+     * @since 4.id вставленной записи.0
      * @category Util
      * @returns {string} Returns the empty string.
      * @example
@@ -16174,7 +16174,7 @@
      *
      * @static
      * @memberOf _
-     * @since 4.13.0
+     * @since 4.id вставленной записи.0
      * @category Util
      * @returns {boolean} Returns `true`.
      * @example

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .wrapper {
+      width: 70%;
+      margin: 0 auto;
+    }
+    .head {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    .date {
+      text-align: right;
+    }
+    .new__text {
+      text-indent: 15px;
+      margin-bottom: 10px;
+    }
+    .new {
+      font-size: 13px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="wrapper">
+  <div class="head">Лента новостей</div>
+  <div class="main">
+<!--    <div class="new">-->
+<!--      <div class="new__text">4 мая ВЦИОМ показал данные исследования о единении россиян. Выяснилось, что половина россиян испытывает гордость за страну, когда думает о ней, 43 процента — любовь. Также объединение вокруг президента в условиях экономических и гуманитарных санкций Запада поддержал 81 процент граждан.</div>-->
+<!--      <div class="date">2022-05-06 15:09:36</div>-->
+<!--    </div>-->
+  </div>
+</div>
+
+
+
+<script>
+
+window.addEventListener('load', function (){
+  fetch('ajax.php')
+  .then(res=>res.json())
+  .then(res=>loadNews(res, 'beforeend')).then(()=>interval())
+  .catch(e=>console.log(e))
+})
+
+let content = document.querySelector('.main')
+
+function loadNews(arr, method){
+  if(arr.length>0){
+    arr.forEach(function (elem){
+      content.insertAdjacentHTML(method, `
+<div class="new" data-id="${elem['id']}"><div class="new__text">${elem['new']}<div class="date">${elem['date']}</div></div></div>`
+      )
+      let news = document.querySelectorAll('.main .new')
+      if(news.length > 5) document.querySelector('.main .new:last-child').remove()
+    })
+  }
+}
+
+function interval(){
+  setInterval(function (){
+    let lastId = document.querySelector('.new:first-child').dataset.id
+    fetch(`ajax.php?last=${lastId}`)
+    .then(res=>res.json())
+    .then(res=>loadNews(res, 'afterbegin'))
+    .catch(e=>console.log(e))
+  }, 5000)
+}
+
+// fetch('ajax.php?num=true')
+// .then(res=>res.json())
+// .then(res=>console.log(res))
+// .catch(e=>console.log(e))
+
+
+
+
+</script>
+</body>
+</html>
