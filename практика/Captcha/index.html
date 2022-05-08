@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<!--Сообщение при успешной отправке-->
+<div class="form-result d-none"></div>
+
+<!--Форма-->
+<form action="process-form.php" id="form" method="post">
+<!--  Капча-->
+  <div class="captcha">
+    <div class="captcha__image-reload">
+      <img src="captcha.php" alt="captcha" class="captcha__image" width="132">
+      <button class="captcha__refresh" type="button"></button>
+    </div>
+    <div class="captcha__group">
+      <label for="captcha">Код, изображенный на картинке</label>
+      <input type="text" id="captcha" name="captcha">
+      <div class="invalid-feedback"></div>
+    </div>
+  </div>
+<!--  Кнопка "Отправить"-->
+  <button type="submit">Отправить</button>
+</form>
+
+<script>
+// функция для обновления капчи
+const refreshCaptcha = (target)=>{
+  const captchaImage = target.closest('.captcha__image-reload').querySelector('.captcha__image')
+  let ms = new Date().getUTCMilliseconds()
+  captchaImage.src = `captcha.php?r=${ms}`
+}
+
+const captchaBtn = document.querySelector('.captcha__refresh');
+captchaBtn.addEventListener('click', (e)=>refreshCaptcha(e.target))
+
+// Код для отправки формы на сервер через AJAX и обработки полученного результата
+
+const form = document.querySelector('#form')
+form.addEventListener('submit', e=>{
+  e.preventDefault()
+  try {
+    fetch(form.action, {
+      method: form.method,
+      credentials: "same-origin",
+      body: new FormData(form)
+    }).then(res=>res.json())
+      .then(data=>console.log(data))
+  } catch (e){
+    console.log(e)
+  }
+})
+
+
+
+
+
+</script>
+</body>
+</html>
