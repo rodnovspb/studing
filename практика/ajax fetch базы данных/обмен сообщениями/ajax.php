@@ -25,25 +25,27 @@ if(isset($_POST['text']) and isset($_POST['sender']) and isset($_POST['timestamp
     exit(json_encode(mysqli_affected_rows($link)));
 }
 
-if(isset($_GET['sender1']) and isset($_GET['timestamp1'])){
-    $sender = (int)$_GET['sender1'];
-    $timestamp = $_GET['timestamp1'];
-    $query = "SELECT * FROM chat WHERE sender = $sender and timestamp > '$timestamp'";
+if(isset($_GET['lastmessages']) and $_GET['lastmessages'] == true){
+    $query  = "SELECT * from chat ORDER BY id DESC LIMIT 10";
     $res = mysqli_query($link, $query) or die(mysqli_error($link));
-    for($data = []; $row = mysqli_fetch_assoc($res); $data[] = $row);
+    for($data=[]; $row = mysqli_fetch_assoc($res); $data[]=$row);
     exit(json_encode($data));
 }
 
-if(isset($_GET['sender2']) and isset($_GET['timestamp2'])){
-    $sender = (int)$_GET['sender2'];
-    $timestamp = $_GET['timestamp2'];
-    $query = "SELECT * FROM chat WHERE sender = $sender and timestamp > '$timestamp'";
-    $res = mysqli_query($link, $query) or die(mysqli_error($link));
-    for($data = []; $row = mysqli_fetch_assoc($res); $data[] = $row);
-    exit(json_encode($data));
+if(isset($_GET['chat']) and isset($_GET['time'])){
+    $time = $_GET['time'];
+    if($_GET['chat'] == 1){
+        $query = "SELECT * FROM chat WHERE sender = 2 and timestamp > '$time' LIMIT 5";
+        $res = mysqli_query($link, $query) or die(mysqli_error($link));
+        for($data = []; $row = mysqli_fetch_assoc($res); $data[]=$row);
+        exit(json_encode($data));
+    } elseif ($_GET['chat'] == 2){
+        $query = "SELECT * FROM chat WHERE sender = 1 and timestamp > '$time'";
+        $res = mysqli_query($link, $query) or die(mysqli_error($link));
+        for($data = []; $row = mysqli_fetch_assoc($res); $data[]=$row);
+        exit(json_encode($data));
+    }
 }
-
-
 
 
 

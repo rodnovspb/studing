@@ -83,67 +83,198 @@ function sendToMyWindow(text, sender, randomNum){
   chat.insertAdjacentHTML('beforeend', `<p class="message" data-time="${randomNum}" data-sender="${sender}">${text}</p>`)
 }
 
-function refreshM1(){
-  let timestamp = 0
-  return function (){
-      let messages = chat1.getElementsByClassName('message')
-      let arr = []
-      for(let elem of messages){
-          arr.push(elem.dataset.time)
-      }
-    timestamp = Math.max(...arr)
-    if(timestamp > 0){
-    fetch(`ajax.php?sender1=2&timestamp1=${timestamp}`)
-    .then(res=>res.json())
-    .then(res=>sendToWindow(res, 1))
-    .catch(e=>console.log(e))
- }}
- }
-
-function refreshM2(){
-  let timestamp = 0
-  return function (){
-    let messages = chat2.getElementsByClassName('message')
-    let arr = []
-    for(let elem of messages){
-        arr.push(elem.dataset.time)
-    }
-
-    timestamp = Math.max(...arr)
-    if(timestamp > 0){
-    fetch(`ajax.php?sender2=1&timestamp2=${timestamp}`)
-    .then(res=>res.json())
-    .then(res=>sendToWindow(res, 2))
-    .catch(e=>console.log(e))
-  }}
-}
-
- function sendToWindow(data, chatNumber){
-    if(data.length>0){
-   let chat = chatNumber === 1 ? chat1 : chat2
-   let result = ''
-   data = data.reverse()
-   data.map(elem=>{
-     result+=`<p class="message" data-time="${elem.timestamp}">${elem.text}</p>`
-   })
-   chat.insertAdjacentHTML('beforeend', result)
-    }
-}
-
-
-
-
-
-
-let refreshMessages1 = refreshM1()
-let refreshMessages2 = refreshM2()
 
 window.addEventListener('load', function (){
+  fetch('ajax.php?lastmessages=true')
+  .then(res=>res.json())
+  .then(res=>loadLastMessages(res))
+  .catch(e=>console.log(e))
+})
+
+function loadLastMessages(arr){
+  if(arr.length>0){
+    let result = ''
+    arr = arr.reverse()
+    arr.map(elem=>{
+      result+=`<p class="message" data-sender="${elem.sender}" data-time="${elem.timestamp}">${elem.text}</p>`
+    })
+    chat1.insertAdjacentHTML('beforeend', result)
+    chat2.insertAdjacentHTML('beforeend', result)
+  }
+  refreshMessages()
+}
+
+
+function refreshMessages(){
   setInterval(function (){
     refreshMessages1()
     refreshMessages2()
-  }, 5000)
-})
+  }, 10000)
+}
+
+function refreshMessages1(){
+  let messages = chat1.querySelectorAll("[data-sender='2']")
+  if(messages.length==0){
+    ;(async ()=>{
+      try {
+        let request = await fetch(`ajax.php?chat=1&time=0`)
+        let response = await request.json()
+          refreshByInterval(response, 1)
+      } catch (e){
+        console.log(e)
+      }})()
+  } else {
+    let timestamp = messages[messages.length-1].dataset.time
+    ;(async ()=>{
+      try {
+        let request = await fetch(`ajax.php?chat=1&time=${timestamp}`)
+        let response = await request.json()
+        refreshByInterval(response, 1)
+      } catch (e){
+        console.log(e)
+      }})()
+  }
+}
+
+function refreshMessages2(){
+  let messages = chat2.querySelectorAll("[data-sender='1']")
+  if(messages.length==0){
+    ;(async ()=>{
+      try {
+        let request = await fetch(`ajax.php?chat=2&time=0`)
+        let response = await request.json()
+        refreshByInterval(response, 2)
+      } catch (e){
+        console.log(e)
+      }})()
+  } else {
+    let timestamp = messages[messages.length-1].dataset.time
+    ;(async ()=>{
+      try {
+        let request = await fetch(`ajax.php?chat=2&time=${timestamp}`)
+        let response = await request.json()
+        refreshByInterval(response, 2)
+      } catch (e){
+        console.log(e)
+      }})()
+  }
+}
+
+
+
+
+
+function refreshByInterval(arr, chat){
+  if(arr.length>0){
+    let result = ''
+    arr.map(elem=>{
+      result+=`<p class="message" data-sender="${elem.sender}" data-time="${elem.timestamp}">${elem.text}</p>`
+    })
+    if(chat===1) chat1.insertAdjacentHTML('beforeend', result)
+    if(chat===2) chat2.insertAdjacentHTML('beforeend', result)
+  }
+}
+
+
+
+
+
+
+
+
+
+//
+// function refreshMessages1(){
+//   let messages = chat1.querySelectorAll("[data-sender='2']")
+//   let lasttimestamp = 0
+//   if(messages.length>0){
+//     lasttimestamp = messages[messages.length-1].dataset.time
+//   }
+//   console.log(lasttimestamp)
+//     fetch(`ajax.php?chat=1&time=${lasttimestamp}`)
+//     .then(res=>res.json())
+//     .then(res=>refreshByInterval(res, 1))
+//     .catch(e=>console.log(e))
+//
+// }
+//
+// function refreshMessages2(){
+//   let messages = chat2.querySelectorAll("[data-sender='1']")
+//   if(messages.length>0){
+//     let lasttimestamp = messages[messages.length-1].dataset.time
+//     fetch(`ajax.php?chat=2&time=${lasttimestamp}`)
+//     .then(res=>res.json())
+//     .then(res=>refreshByInterval(res, 2))
+//     .catch(e=>console.log(e))
+//   }
+// }
+//
+
+
+
+
+
+// function refreshM1(){
+//   let timestamp = 0
+//   return function (){
+//       let messages = chat1.getElementsByClassName('message')
+//       let arr = []
+//       for(let elem of messages){
+//           arr.push(elem.dataset.time)
+//       }
+//     timestamp = Math.max(...arr)
+//     if(timestamp > 0){
+//     fetch(`ajax.php?sender1=2&timestamp1=${timestamp}`)
+//     .then(res=>res.json())
+//     .then(res=>sendToWindow(res, 1))
+//     .catch(e=>console.log(e))
+//  }}
+//  }
+//
+// function refreshM2(){
+//   let timestamp = 0
+//   return function (){
+//     let messages = chat2.getElementsByClassName('message')
+//     let arr = []
+//     for(let elem of messages){
+//         arr.push(elem.dataset.time)
+//     }
+//
+//     timestamp = Math.max(...arr)
+//     if(timestamp > 0){
+//     fetch(`ajax.php?sender2=1&timestamp2=${timestamp}`)
+//     .then(res=>res.json())
+//     .then(res=>sendToWindow(res, 2))
+//     .catch(e=>console.log(e))
+//   }}
+// }
+//
+//  function sendToWindow(data, chatNumber){
+//     if(data.length>0){
+//    let chat = chatNumber === 1 ? chat1 : chat2
+//    let result = ''
+//    data = data.reverse()
+//    data.map(elem=>{
+//      result+=`<p class="message" data-time="${elem.timestamp}">${elem.text}</p>`
+//    })
+//    chat.insertAdjacentHTML('beforeend', result)
+//     }
+// }
+//
+//
+//
+//
+//
+//
+// let refreshMessages1 = refreshM1()
+// let refreshMessages2 = refreshM2()
+//
+// window.addEventListener('load', function (){
+//   setInterval(function (){
+//     refreshMessages1()
+//     refreshMessages2()
+//   }, 5000)
+// })
 
 
 

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+
+<input type="submit">
+<div></div>
+
+
+<script>
+document.querySelector('input').addEventListener('click', function (){
+  ;(async ()=>{
+    try {
+      let request = await fetch(`ajax.php`)
+      let response = await request.json()
+      func(response)
+    } catch (e){
+      console.log(e)
+    }})()
+})
+
+
+function func(arr){
+  if(arr.length>0) {
+    let result = ''
+    arr.map(elem => {
+      result += `<p class="message" data-sender="${elem.sender}" data-time="${elem.timestamp}">${elem.text}</p>`
+    })
+    document.querySelector('div').insertAdjacentHTML('beforeend', result)
+  }
+}
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
