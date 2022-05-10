@@ -15,7 +15,8 @@ class UserSeeder extends Seeder {
                 'name'=> Str::random(7),
                 'email'=> Str::random(7) . "@" . Str::random(5) . 'ru',
                 'age' => rand(18, 65),
-                'salary' => rand(3000, 10000)
+                'salary' => rand(3000, 10000),
+                'created_at' => date('Y-m-d H:i:s'),
             ],
         ]);
     }

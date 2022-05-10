@@ -3,11 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <title>Title</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<div class="wrapper">
 <!--Сообщение при успешной отправке-->
-<div class="form-result d-none"></div>
+<div class="form-result d-none">Форма успешно отправлена!</div>
 
 <!--Форма-->
 <form action="process-form.php" id="form" method="post">
@@ -20,12 +22,13 @@
     <div class="captcha__group">
       <label for="captcha">Код, изображенный на картинке</label>
       <input type="text" id="captcha" name="captcha">
-      <div class="invalid-feedback"></div>
+      <div class="invalid-feedback">Пожалуйста введите код!</div>
     </div>
   </div>
 <!--  Кнопка "Отправить"-->
   <button type="submit">Отправить</button>
 </form>
+</div>
 
 <script>
 // функция для обновления капчи
@@ -49,7 +52,29 @@ form.addEventListener('submit', e=>{
       credentials: "same-origin",
       body: new FormData(form)
     }).then(res=>res.json())
-      .then(data=>console.log(data))
+      .then(data=>{
+        console.log(data)
+        let inputInvalid = document.querySelector('.is-invalid')
+        if(inputInvalid){
+        inputInvalid.classList.remove('is-invalid')
+        inputInvalid.nextElementSibling.textContent=''
+        }
+        if(!data.success){
+          refreshCaptcha(captchaBtn)
+          data.errors.forEach(error=>{
+            console.log(error)
+            let input = form.querySelector(`input[name="${error[0]}"]`)
+            input.classList.add('is-invalid')
+            input.nextElementSibling.textContent = error[1]
+          })
+        } else {
+          form.reset()
+          form.querySelector('.captcha__refresh').disabled = true
+          form.querySelector('[type="submit"]').disabled = true
+          document.querySelector('.form-result').classList.remove('d-none')
+        }
+      })
+
   } catch (e){
     console.log(e)
   }
