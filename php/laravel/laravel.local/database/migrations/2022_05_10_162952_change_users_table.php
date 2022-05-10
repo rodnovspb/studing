@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table){
-            $table->string('name', 100)->change();
+            $table->dateTime('created_at')->default(date('Y-m-d H:i:s'))->change();
         });
     }
 
@@ -25,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('users', function (Blueprint $table){
+            $table->dateTime('created_at')->change();
+        });
     }
 };

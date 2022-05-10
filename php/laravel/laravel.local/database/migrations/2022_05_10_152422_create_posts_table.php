@@ -13,10 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table){
-            $table->string('mail')->comment('Эл. ящик');
-            $table->string('salary')->default(0)->change();
-            $table->integer('age')->nullable()->unsigned();
+        Schema::create('posts', function (Blueprint $table) {
+            $table->id();
+            $table->string('title', 50);
+            $table->string('slug', 50);
+            $table->integer('likes')->default(0);
+            $table->dateTime('created_at');
         });
     }
 
@@ -27,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('posts');
     }
 };

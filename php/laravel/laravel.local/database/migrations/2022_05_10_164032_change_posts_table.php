@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('user', function (Blueprint $table){
-            $table->string('mail')->unique()->change();
+        Schema::table('posts', function (Blueprint $table){
+            $table->dateTime('created_at')->default(date('Y-m-d H:i:s'))->change();
         });
     }
 
@@ -25,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('posts', function (Blueprint $table){
+            $table->dateTime('created_at')->change();
+        });
     }
 };

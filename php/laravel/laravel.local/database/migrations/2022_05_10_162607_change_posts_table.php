@@ -13,7 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::dropIfExists('posts1');
+        Schema::table('posts', function (Blueprint $table){
+            $table->dateTime('created_at')->useCurrent()->change();
+        });
     }
 
     /**
@@ -23,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('posts', function (Blueprint $table){
+            $table->dateTime('created_at')->change();
+        });
     }
 };
