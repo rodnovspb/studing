@@ -34,9 +34,15 @@ body {
 </style>
 </head>
 <body>
+<?php
+date_default_timezone_set('Europe/Moscow')
+?>
+
 
 <div class="wrapper">
-    <div class="header"></div>
+    <div class="header">
+        <?= date('H:i:s d.m.Y') ?>
+    </div>
     <div class="main">
  <?php
 
@@ -54,8 +60,9 @@ body {
  echo date('h') . ' - h<br>';
  echo date('H') . ' - H<br>';
  echo date('i') . ' - i<br>';
- echo date('s') . ' - s<br>';
+ echo date('s') . ' - s<br><br>';
 
+echo date('F')
 
 
 

@@ -23,6 +23,25 @@
 
 
 $(function () {
+
+	// Nav toggle on mobile
+
+	let navToggle = $('#navToggle')
+	let nav = $('#nav')
+	navToggle.on('click', function (event) {
+		event.preventDefault();
+		nav.toggleClass('show')
+		$(this).toggleClass('active')
+		$('body').toggleClass('show-nav')
+	})
+
+	$(window).on('resize', function () {
+		navToggle.removeClass('active')
+		nav.removeClass('show')
+		$('body').removeClass('show-nav')
+	})
+
+
 	let introH, headerH;
 	let intro = $("#intro");
 	let header = $("#header");
@@ -51,6 +70,11 @@ $(function () {
 		event.preventDefault();
 		let scrollEl = $(this).data('scroll')
 		let scrollElPos = $(scrollEl).offset().top
+
+		navToggle.removeClass('active')
+		nav.removeClass('show')
+		$('body').removeClass('show-nav')
+
 		$("html, body").animate({
 			scrollTop: scrollElPos - headerH
 		}, 500)
