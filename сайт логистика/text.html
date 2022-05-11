@@ -3,9 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=PT+Sans&display=swap"
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=PT+Sans&display=swap"
         rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/style.css">
+
+<link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon/favicon-16x16.png">
+<link rel="manifest" href="assets/images/favicon/manifest.json">
+<link rel="mask-icon" href="assets/images/favicon/safari-pinned-tab.svg" color="#004AF2">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#004AF2">
+
 <title>Центр Логистик</title>
 
 </head>
@@ -13,24 +22,24 @@
 
 <div class="page">
 
-<header class="header">
+<header class="header" id="header">
   <div class="container">
     <div class="header__inner">
      <a href="index.html">
            <img src="assets/images/logo.svg" alt="">
         </a>
-      <nav class="nav">
+      <nav class="nav" id="nav">
         <a class="nav__link" href="index.html">Home page</a>
         <a class="nav__link" href="blog.html">Blog</a>
         <a class="nav__link active" href="text.html">Privacy Policy</a>
         <a class="nav__link" href="#">Terms &amp; Conditions</a>
       </nav>
-      <button class="burger" type="button"><img class="burger__icon" src="assets/images/burger.svg" alt=""></button>
+      <button class="burger" type="button" id="navToggle"><img class="burger__icon" src="assets/images/burger.svg" alt=""></button>
     </div>
   </div>
 </header>
 
-<div class="intro intro--text"></div>
+<div class="intro intro--text" id="intro"></div>
 
 <section class="section section--last">
     <div class="container">
@@ -78,9 +87,9 @@
         </address>
 
         <nav class="footer__nav" >
-            <a href="#">Terms &amp; Contidions</a>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Our blog</a>
+            <a href="text.html">Terms &amp; Contidions</a>
+            <a href="text.html">Privacy Policy</a>
+            <a href="blog.html">Our blog</a>
         </nav>
     </div>
 </footer>
@@ -89,7 +98,7 @@
 
 
 <!--Javascript-->
-<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js"></script>
+<script src="assets/js/jquery-3.6.0.min.js"></script>
 <script src="assets/js/app.js"></script>
 
 </body>
