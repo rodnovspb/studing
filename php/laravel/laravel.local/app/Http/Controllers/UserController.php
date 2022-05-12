@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 class UserController extends Controller
 {
     public function get(){
-       $users = DB::table('users')->where('id', '=', 8)->first();
+        $users = DB::table('users')->where('id','=', 3)->value('email');
         return view('user.get', ['users'=>$users]);
     }
 
