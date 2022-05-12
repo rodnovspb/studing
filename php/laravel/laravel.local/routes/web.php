@@ -21,6 +21,7 @@ Route::get('/', function () {
     return 'главная';
 });
 
+Route::get('/users', [UserController::class, 'get']);
 Route::get('/practise', [PractiseController::class, 'getpage']);
 Route::get('/user/page/{page}', [UserController::class, 'getpage']);
 Route::get('/user/age', [UserController::class, 'getage']);

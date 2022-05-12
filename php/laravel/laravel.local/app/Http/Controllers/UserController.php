@@ -3,9 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
+    public function get(){
+        DB::enableQueryLog();
+        $users = DB::table('users')->get();
+        return view('user.get', ['users'=>$users]);
+    }
+
     public function show($name){
         $users = [
             'user1' => 'city1',
