@@ -8,10 +8,7 @@ use Illuminate\Support\Facades\DB;
 class UserController extends Controller
 {
     public function get(){
-        $users = DB::table('users')->where(function ($query){
-            $query->where('age', '>', 20)->where('age', '<', 30);})->orWhere(function ($query){
-               $query->where('salary', '>', 5000)->where('salary', '<', 7001);
-        })->get();
+       $users = DB::table('users')->where('id', '=', 8)->first();
         return view('user.get', ['users'=>$users]);
     }
 
