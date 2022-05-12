@@ -8,8 +8,9 @@ use Illuminate\Support\Facades\DB;
 class UserController extends Controller
 {
     public function get(){
-        DB::enableQueryLog();
-        $users = DB::table('users')->get();
+        $users = DB::table('users')->where('salary', '=', 500)->orWhere(function ($query){
+            $query->where('age', '>', 20)->where('age', '<', 30);
+        })->get();
         return view('user.get', ['users'=>$users]);
     }
 
