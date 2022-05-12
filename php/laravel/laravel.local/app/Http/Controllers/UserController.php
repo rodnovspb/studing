@@ -8,7 +8,8 @@ use Illuminate\Support\Facades\DB;
 class UserController extends Controller
 {
     public function get(){
-        $users = DB::table('users')->where('id','=', 3)->value('email');
+        $users = DB::table('users')->whereNotIn('id', [1,2,3,5])->get();
+        dd($users);
         return view('user.get', ['users'=>$users]);
     }
 
