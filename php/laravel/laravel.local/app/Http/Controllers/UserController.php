@@ -8,7 +8,10 @@ use Illuminate\Support\Facades\DB;
 class UserController extends Controller
 {
     public function get(){
-        $users = DB::table('users')->where('age', '>', 20)->where('age', '<', 30)->inRandomOrder()->first();
+
+    $users=DB::table('users')
+        ->leftJoin('cities', 'cities.id', '=', 'users.city_id')
+        ->get();
         dump($users);
 //        return view('user.get', ['users'=>$users]);
     }
