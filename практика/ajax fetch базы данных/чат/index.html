@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      padding: 0;
+    }
+    .wrapper {
+      margin: 0 auto;
+      width: 50vw;
+    }
+
+    .main {
+      width: 300px;
+    }
+
+    .chat {
+      width: 100%;
+      height: 300px;
+      border: 1px solid #ccc;
+      resize: vertical;
+      overflow-y: auto;
+      word-break: break-all;
+      hyphens: auto;
+    }
+
+    .chat p {
+      margin: 2px 5px;
+    }
+
+    .messenger {
+      padding: 10px 0;
+      width: 100%;
+    }
+
+    .messenger__textarea {
+      width: 100%;
+      resize: vertical;
+      overflow-y: auto;
+    }
+
+    .success {
+      background-color: #cef4ce;
+    }
+  </style>
+</head>
+<body>
+
+<div class="wrapper">
+  <div class="main">
+  <div class="chat"></div>
+  <div class="messengers">
+    <div class="messenger messenger__one">
+      <textarea class="messenger__textarea textarea-1" name="textarea-1" id="messenger__textarea-1"
+                data-name="Vasiliy"></textarea>
+    </div>
+    <div class="messenger messenger__two">
+      <textarea class="messenger__textarea textarea-2" name="textarea-2" id="messenger__textarea-2"
+                data-name="Semen"></textarea>
+    </div>
+    <div class="messenger messenger__three">
+      <textarea class="messenger__textarea textarea-3" name="textarea-3" id="messenger__textarea-3"
+                data-name="Denis"></textarea>
+    </div>
+  </div>
+  </div>
+</div>
+
+
+<script>
+
+  document.querySelector('.wrapper').addEventListener('keydown', (e)=>send(e))
+
+  window.addEventListener('load', function (){
+    fetch('ajax.php?get=true')
+    .then(res=>res.json())
+    .then(res=>loadMesseges(res))
+    .catch(e=>console.log(e))
+  })
+
+  function loadMesseges(arr){
+    arr = arr.reverse()
+    let res = ''
+    for(let elem of arr){
+      res += `<p class="success" data-sender="${elem.sender}" data-time="${elem.time}">${elem.sender}: ${elem.text}</p>`
+    }
+    document.querySelector('.chat').insertAdjacentHTML('beforeend', res);
+    scrollToBottom()
+  }
+
+  // Автоматический скрол вниз при наполнении чата
+  function scrollToBottom(){
+    let chat = document.querySelector('.chat')
+    chat.scrollTop = chat.scrollHeight
+  }
+
+  function send(e){
+    if(e.key === 'Enter' && e.shiftKey === true && e.target.matches('.messenger__textarea')){
+      let text = e.target.value
+      let sender = e.target.name
+      let senderName = e.target.dataset.name
+      let time = Date.now()
+      e.target.value = ''
+      document.querySelector('.chat').insertAdjacentHTML('beforeend',
+      `<p data-sender="${senderName}" data-time="${time}">${senderName}: ${text}</p>`);
+      scrollToBottom()
+      sendToDB(senderName, text, time);
+    }
+  }
+
+
+function sendToDB(senderName, text, time){
+    try {
+      let formdata = new FormData()
+      formdata.append('sender', senderName)
+      formdata.append('text', text)
+      formdata.append('time', time)
+      fetch('ajax.php', {
+        method: "POST",
+        body: formdata
+      }).then(res=>res.json())
+        .then(res=>report(res, senderName, time))
+    } catch (e){
+      console.log(e)
+    }
+}
+
+function report(status, senderName, time) {
+  document.querySelector(`.chat [data-time="${time}"][data-sender="${senderName}"]`).classList.add('success')
+}
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
