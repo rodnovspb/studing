@@ -2,9 +2,31 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Collection;
+use App\Models\Post;
 
 class PostController extends Controller
 {
+    public function getWithModel(){
+        $post = new Post;
+        $post->title = 'Мой пост';
+        $post->slug = 'Слаг';
+        $post->likes = 1000;
+        $post->save();
+
+        $posts = Post::find([11,20,33]);
+        $arr = [];
+        foreach ($posts as $post){
+            $subarr = [];
+            $subarr['id'] = $post->id;
+            $subarr['title'] = $post->title;
+            $subarr['slug'] = $post->slug;
+            $subarr['likes'] = $post->likes;
+            $subarr['created_at'] = $post->created_at;
+            $arr[] = $subarr;
+        }
+        return view('post.getWithModel', ['posts'=>$arr]);
+    }
+
     public function show($id)
     {
         $posts = [

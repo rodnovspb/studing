@@ -5,6 +5,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WeatherController;
 use App\Http\Controllers\PractiseController;
+use App\Http\Controllers\CityController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,8 @@ Route::get('/', function () {
     return 'главная';
 });
 
+Route::get('/getmodel', [PostController::class, 'getWithModel']);
+Route::get('/model', [CityController::class, 'getWithModel']);
 Route::get('/users', [UserController::class, 'get']);
 Route::get('/practise', [PractiseController::class, 'getpage']);
 Route::get('/user/page/{page}', [UserController::class, 'getpage']);
