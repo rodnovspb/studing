@@ -8,6 +8,7 @@ use App\Http\Controllers\PractiseController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CountryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +25,7 @@ Route::get('/', function () {
     return 'главная';
 });
 
+Route::get('/country', [CountryController::class, 'show']);
 Route::get('/profile', [ProfileController::class, 'show']);
 Route::get('/account', [AccountController::class, 'show']);
 Route::get('/getmodel', [PostController::class, 'getWithModel']);
