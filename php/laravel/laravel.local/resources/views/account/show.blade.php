@@ -1,7 +1,20 @@
 <x-layout>
-<p>id {{$account['id']}}</p>
-<p>Логин {{$account['login']}}</p>
-<p>Имя {{$account['profile']['name']}}</p>
-<p>Фамилия {{$account['profile']['surname']}}</p>
-<p>Почта {{$account['profile']['email']}}</p>
+    <table>
+        <tr>
+            <th>id</th>
+            <th>Логин</th>
+            <th>Имя</th>
+            <th>Фамилия</th>
+            <th>Почта</th>
+        </tr>
+        @foreach($arr as $account)
+            <tr>
+                <td>{{$account['id']}}</td>
+                <td>{{$account['login']}}</td>
+                <td>{{$account['profile']['name']}}</td>
+                <td>{{$account['profile']['surname']}}</td>
+                <td>{{$account['profile']['email']}}</td>
+            </tr>
+        @endforeach
+    </table>
 </x-layout>
