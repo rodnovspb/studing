@@ -1,0 +1,20 @@
+<x-layout>
+    <table>
+        <tr>
+    	<th>id</th>
+    	<th>Имя</th>
+    	<th>Фамилия</th>
+    	<th>Почта</th>
+    	<th>Логин</th>
+    	</tr>
+        @foreach($arr as $item)
+            <tr>
+                <td>{{$item['id']}}</td>
+                <td>{{$item['name']}}</td>
+                <td>{{$item['surname']}}</td>
+                <td>{{$item['email']}}</td>
+                <td>{{$item['account']['login']}}</td>
+            </tr>
+        @endforeach
+    </table>
+</x-layout>
