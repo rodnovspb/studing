@@ -22,16 +22,14 @@ body {
 <script>
 
 
-let obj = [1,2,3]
-Object.seal(obj)
 
-obj[1] = 5
+	function sum(a) {
+		return function (b) {
+				console.log(a+b)
+		}
+	}
 
-console.log(obj)
-
-
-
-
+sum(10)(15)
 
 
 
