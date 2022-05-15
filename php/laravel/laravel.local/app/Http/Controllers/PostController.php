@@ -7,11 +7,7 @@ use App\Models\Post;
 class PostController extends Controller
 {
     public function getWithModel(){
-        $post = new Post;
-        $post->title = 'Мой пост';
-        $post->slug = 'Слаг';
-        $post->likes = 1000;
-        $post->save();
+        Post::whereId(47)->delete();
 
         $posts = Post::find([11,20,33]);
         $arr = [];
