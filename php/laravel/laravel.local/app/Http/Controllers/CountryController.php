@@ -9,12 +9,14 @@ class CountryController extends Controller
 {
     public function show(){
         $country = Country::all();
-        foreach ($country as $item){
-            dump($item->country);
-            foreach ($item->cities as $city){
-                dump($city->city);
-            }
-        }
+        return view('country.show', ['countries'=>$country]);
+
+//        foreach ($country as $item){
+//            dump($item->country);
+//            foreach ($item->cities as $city){
+//                dump($city->city);
+//            }
+//        }
 
 
     }
