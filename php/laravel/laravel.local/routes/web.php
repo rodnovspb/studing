@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\WeatherController;
 use App\Http\Controllers\PractiseController;
 use App\Http\Controllers\CityController;
+use App\Http\Controllers\AccountController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,7 @@ Route::get('/', function () {
     return 'главная';
 });
 
+Route::get('/account', [AccountController::class, 'show']);
 Route::get('/getmodel', [PostController::class, 'getWithModel']);
 Route::get('/model', [CityController::class, 'getWithModel']);
 Route::get('/users', [UserController::class, 'get']);
