@@ -22,11 +22,38 @@ body {
 <script>
 
 
-function alert1() {
-	console.log('!!!!!!!!!')
+function makeCounter() {
+	let counter = 0
+	return {
+		inc: function () {
+			counter++
+		},
+		dec: function () {
+			counter--
+		},
+		show: function () {
+			console.log(counter)
+		}
+	}
 }
 
-console.log(globalThis)
+
+let q = makeCounter()
+
+q.dec()
+q.dec()
+q.dec()
+	q.show()
+
+
+
+
+
+
+
+
+
+
 
 
 </script>
