@@ -9,8 +9,8 @@ use Illuminate\Http\Request;
 class CityController extends Controller
 {
     public function showCountry(){
-       $city= City::all();
-       foreach ($city as $item){
+       $cities= City::take(1000)->where('population', '>', 5000)->get();
+       foreach ($cities as $item){
            dump($item->city);
            dump($item->countries['country']);
        }
