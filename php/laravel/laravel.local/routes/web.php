@@ -10,6 +10,8 @@ use App\Http\Controllers\AccountController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\WorkerController;
+use App\Http\Controllers\StudentController;
+use App\Http\Controllers\LessonController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +28,8 @@ Route::get('/', function () {
     return 'главная';
 });
 
+Route::get('/lesson', [LessonController::class, 'show']);
+Route::get('/student', [StudentController::class, 'show']);
 Route::get('/worker', [WorkerController::class, 'show']);
 Route::get('/showcountry', [CityController::class, 'showcountry']);
 Route::get('/country', [CountryController::class, 'show']);
