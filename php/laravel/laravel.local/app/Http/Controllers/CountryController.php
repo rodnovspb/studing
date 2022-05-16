@@ -8,15 +8,10 @@ use App\Models\Country;
 class CountryController extends Controller
 {
     public function show(){
-        $country = Country::all();
-        return view('country.show', ['countries'=>$country]);
+        $country = Country::find(1)->cities()->where('population', '>', 5000)->get();
+        dd($country);
+//        return view('country.show', ['countries'=>$country]);
 
-//        foreach ($country as $item){
-//            dump($item->country);
-//            foreach ($item->cities as $city){
-//                dump($city->city);
-//            }
-//        }
 
 
     }

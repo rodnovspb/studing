@@ -25,6 +25,7 @@ Route::get('/', function () {
     return 'главная';
 });
 
+Route::get('/showcountry', [CityController::class, 'showcountry']);
 Route::get('/country', [CountryController::class, 'show']);
 Route::get('/profile', [ProfileController::class, 'show']);
 Route::get('/account', [AccountController::class, 'show']);

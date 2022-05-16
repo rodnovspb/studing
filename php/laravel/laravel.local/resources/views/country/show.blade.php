@@ -1,10 +1,6 @@
 <x-layout>
     @foreach($countries as $country)
-        <h1>{{$country['country']}}</h1>
-            <ul>
-            @foreach($country['cities'] as $item)
-                <li>{{$item['city']}}</li>
-            @endforeach
-            </ul>
+        <p>{{$country['city']}}</p>
+
     @endforeach
 </x-layout>
