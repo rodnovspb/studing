@@ -9,6 +9,7 @@ use App\Http\Controllers\CityController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CountryController;
+use App\Http\Controllers\WorkerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,7 @@ Route::get('/', function () {
     return 'главная';
 });
 
+Route::get('/worker', [WorkerController::class, 'show']);
 Route::get('/showcountry', [CityController::class, 'showcountry']);
 Route::get('/country', [CountryController::class, 'show']);
 Route::get('/profile', [ProfileController::class, 'show']);
