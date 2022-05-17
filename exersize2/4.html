@@ -22,28 +22,29 @@ body {
 <script>
 
 
-function makeCounter() {
-	let counter = 0
-	return {
-		inc: function () {
-			counter++
-		},
-		dec: function () {
-			counter--
-		},
-		show: function () {
-			console.log(counter)
-		}
+function makeCounter () {
+	let count = 0
+	function f() {
 	}
+
+	f.inc = function () {
+		count++
+	}
+	f.dec = function () {
+		count--
+	}
+	f.show = function () {
+		console.log(count)
+	}
+
+	return f
 }
 
+let a = makeCounter ()
 
-let q = makeCounter()
+	a.inc()
+	a.show()
 
-q.dec()
-q.dec()
-q.dec()
-	q.show()
 
 
 
