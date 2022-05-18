@@ -12,6 +12,7 @@ use App\Http\Controllers\CountryController;
 use App\Http\Controllers\WorkerController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\LessonController;
+use App\Http\Controllers\MarkController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,7 @@ Route::get('/', function () {
     return 'главная';
 });
 
+Route::get('/mark', [MarkController::class, 'show']);
 Route::get('/lesson', [LessonController::class, 'show']);
 Route::get('/student', [StudentController::class, 'show']);
 Route::get('/worker', [WorkerController::class, 'show']);

@@ -8,8 +8,11 @@ use App\Models\Country;
 class CountryController extends Controller
 {
     public function show(){
-        $country = Country::find(1)->cities()->where('population', '>', 5000)->get();
-        dd($country);
+        $country = Country::with('cities')->find(1);
+        foreach ($country->cities as $city){
+            dump($city);
+        }
+
 //        return view('country.show', ['countries'=>$country]);
 
 
