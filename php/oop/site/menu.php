@@ -172,7 +172,7 @@ echo (new Link())->setAttrs(['href' => 'Coockie.php'])
 echo (new Link())->setAttrs(['href' => '4.php'])
         ->setText('Ссылка 4')
         ->show() . "<br>";
-echo (new Link())->setAttrs(['href' => '5.php'])
+echo (new Link())->setAttrs(['href' => '5-1.php'])
         ->setText('Ссылка 5')
         ->show() . "<br>";
 echo "</nav>";
