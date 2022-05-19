@@ -8,10 +8,11 @@ use App\Models\Mark;
 class MarkController extends Controller
 {
     public function show(){
-        $marks = Mark::with(['post', 'user'])->get();
+        $marks = Mark::all();
         foreach ($marks as $mark){
             dump($mark->post);
             dump($mark->user);
         }
+        dump($marks->loadCount('post'));
     }
 }

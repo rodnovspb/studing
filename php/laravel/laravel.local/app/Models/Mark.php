@@ -9,6 +9,8 @@ use App\Models\User;
 
 class Mark extends Model
 {
+    protected $with = ['post', 'user'];
+
     public function post(){
         return $this->belongsTo(Post::class, 'post_id');
     }
