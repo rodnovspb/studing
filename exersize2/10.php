@@ -8,7 +8,7 @@ function printValues($arr){
     global $values;
 
     if(!is_array($arr)){
-        die("Это не массив");
+        die('не массив');
     }
 
     foreach ($arr as $key=>$value){
