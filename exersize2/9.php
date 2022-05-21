@@ -1,19 +1,13 @@
 <?php
 
-$str = 'Denis,  ';
+$int = 175;
+$min = 1;
+$max = 100;
 
-function foo($value){
-    if(strpos($value, ', ') === false) return false;
-    list($a, $b) = explode(', ', $value, 2);
-    $string = (is_string($a) and is_string($b));
-    $notempty = !empty($a) and !empty($b);
-    return $string and $notempty;
+if(filter_var($int, FILTER_VALIDATE_INT, ['options'=>['min_range'=>$min, 'max_range'=>$max]]) === false){
+    echo("Значение переменной находится за пределами допустимого диапазона");
+} else {
+    echo("Значение переменной находится в допустимом диапазоне");
 }
-
-
-
-$var = filter_var($str, FILTER_CALLBACK, ['options'=>'foo']);
-
-var_dump($var);
 
 
