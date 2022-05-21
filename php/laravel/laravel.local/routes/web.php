@@ -15,6 +15,7 @@ use App\Http\Controllers\LessonController;
 use App\Http\Controllers\MarkController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\FormselfController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,9 @@ Route::get('/', function () {
     return 'главная';
 });
 
+Route::get('/test/method/', [LoginController::class, 'tasks']);
+Route::post('/id-login/{id}/{login}', [LoginController::class, 'login']);
+Route::get('/id-login/{id}/{login}', [LoginController::class, 'login']);
 Route::match(['get', 'post'], '/formself', [FormselfController::class, 'formself']);
 Route::get('/formpost', [FormController::class, 'formpost']);
 Route::post('/resultpost', [FormController::class, 'resultpost']);

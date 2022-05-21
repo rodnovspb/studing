@@ -1,8 +1,8 @@
 <?php
 
 
-$ip = "193.169.0.3";
+$str = "<h1>Hello°ƒ #WorldÆØÅ!</h1>";
 
-var_dump(filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4));
+var_dump(filter_var($str, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH));
 
 

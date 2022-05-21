@@ -8,7 +8,8 @@ class FormselfController extends Controller
 {
     public function formself(Request $request){
 //        $data = $request->all();
-          $data = $request->only(['city', 'country']);
+//          $data = $request->only(['city', 'country']);
+            $data = $request->except('_token');
         if(isset($data['city']) and isset($data['country'])){
             return view('formself.formself', [
                 'arr' => $data
