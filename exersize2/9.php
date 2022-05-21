@@ -1,13 +1,8 @@
 <?php
 
-$int = 175;
-$min = 1;
-$max = 100;
 
-if(filter_var($int, FILTER_VALIDATE_INT, ['options'=>['min_range'=>$min, 'max_range'=>$max]]) === false){
-    echo("Значение переменной находится за пределами допустимого диапазона");
-} else {
-    echo("Значение переменной находится в допустимом диапазоне");
-}
+$ip = "193.169.0.3";
+
+var_dump(filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4));
 
 
