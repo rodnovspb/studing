@@ -13,6 +13,8 @@ use App\Http\Controllers\WorkerController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\LessonController;
 use App\Http\Controllers\MarkController;
+use App\Http\Controllers\FormController;
+use App\Http\Controllers\FormselfController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +31,11 @@ Route::get('/', function () {
     return 'главная';
 });
 
+Route::match(['get', 'post'], '/formself', [FormselfController::class, 'formself']);
+Route::get('/formpost', [FormController::class, 'formpost']);
+Route::post('/resultpost', [FormController::class, 'resultpost']);
+Route::get('/form', [FormController::class, 'form']);
+Route::get('/result', [FormController::class, 'result']);
 Route::get('/mark', [MarkController::class, 'show']);
 Route::get('/lesson', [LessonController::class, 'show']);
 Route::get('/student', [StudentController::class, 'show']);

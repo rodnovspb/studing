@@ -1,0 +1,13 @@
+/* Default styles */
+body {
+    margin: 0px;
+}
+
+
+/* Blocks */
+@import "blocks/header";
+@import "blocks/btn";
+
+
+/* Vendor libs */
+@import "vendor/slick";

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Account;
+use Illuminate\Http\Request;
 
 class AccountController extends Controller
 {
@@ -11,5 +12,7 @@ class AccountController extends Controller
         $arr = Account::all();
         return view('account.show', ['arr'=>$arr]);
     }
+
+
 
 }
