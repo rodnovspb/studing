@@ -1,0 +1,49 @@
+:root {
+  --red: red;
+  --shadow: 0 0 5px rgba(0, 0, 0, .3);
+  --fontsize: 16px;
+  --gray: #e5e1e1;
+  --blue: #8d8dec;
+}
+
+body {
+  font-size: var(--fontsize);
+}
+
+.btn {
+  box-shadow: var(--shadow);
+}
+.btn:hover {
+  background-color: var(--gray);
+  cursor: pointer;
+  outline: none;
+}
+
+.main__intro {
+  background-color: #00B7FF;
+}
+.main span {
+  color: var(--blue);
+}
+
+.header--fixed {
+  background-color: #1e7e34;
+}
+
+.elem1 .elem2 {
+  background-color: #1dca68;
+}
+
+.submit {
+  background-color: #e5e1e1;
+}
+.submit:hover {
+  background-color: #c1b8b8;
+  cursor: pointer;
+}
+
+html {
+  font-weight: 500;
+}
+
+/*# sourceMappingURL=style.css.map */

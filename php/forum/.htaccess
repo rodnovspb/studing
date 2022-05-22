@@ -1,4 +1,4 @@
 RewriteEngine On
 RewriteBase /
 RewriteCond %{REQUEST_URI} !\.(js|css|ico|jpg|png)$
-#RewriteRule .+ index.php
+#RewriteRule .+ index.html

@@ -102,7 +102,7 @@
 	  	    session_start();
 	  	    $_SESSION['login']=$login;
             echo "<div class='success'>Поздравляем, вы зарегистрированы!</div>
-					<div class='suc'><a class='success' href='index.php'>Авторизоваться</a></div>";
+					<div class='suc'><a class='success' href='index.html'>Авторизоваться</a></div>";
 
 		  }
 	  	  else {
