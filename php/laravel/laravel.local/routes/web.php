@@ -51,6 +51,7 @@ Route::get('/account', [AccountController::class, 'show']);
 Route::get('/getmodel', [PostController::class, 'getWithModel']);
 Route::get('/model', [CityController::class, 'getWithModel']);
 Route::get('/users', [UserController::class, 'get']);
+Route::get('/index', [UserController::class, 'index']);
 Route::get('/practise', [PractiseController::class, 'getpage']);
 Route::get('/user/page/{page}', [UserController::class, 'getpage']);
 Route::get('/user/age', [UserController::class, 'getage']);

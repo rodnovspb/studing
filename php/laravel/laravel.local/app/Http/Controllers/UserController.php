@@ -2,12 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 
 class UserController extends Controller
 {
+    public function index(){
+        $users =  User::simplePaginate(1);
+        return view('user.index', ['users'=>$users]);
+//        echo $users;
+//        echo DB::table('users')->simplePaginate(2);
+//        $users = DB::table('users')->paginate(2);
+//        echo "<pre>";
+//        print_r($users);
+//        echo "</pre>";
+    }
+
     public function get(){
     $users=DB::table('users')
         ->leftJoin('cities', 'cities.id', '=', 'users.city_id')
