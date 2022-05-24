@@ -15,43 +15,18 @@
 
 <script>
 
-function slow(x) {
-  let res = 0
-  for(let i=0; i<1000000000; i++){
-    res+=x*i
+
+
+  function defer(func, ms) {
+      return function (){setTimeout(()=>func.apply(this), ms)}
   }
-  return res
-}
 
-
-function cachingDecorator(func) {
-  let cache = new Map();
-  return function (x) {
-    if(cache.has(x)){
-      return cache.get(x)
-    } else {
-      let result = func(x)
-      cache.set(x, result)
-      return result
-    }
+  function f(x) {
+      console.log(x)
   }
-}
-
-slow = cachingDecorator(slow)
-
-  console.log(slow(5))
-  console.log(slow(5))
-  console.log(slow(5))
-  console.log(slow(6))
-  console.log(slow(6))
-  console.log(slow(6))
 
 
-
-
-
-
-
+  let x = defer(f, 500)
 
 
 

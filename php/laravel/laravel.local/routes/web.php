@@ -16,6 +16,7 @@ use App\Http\Controllers\MarkController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\FormselfController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\DeveloperController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,10 @@ Route::get('/', function () {
     return 'главная';
 });
 
+Route::get('/add-developers', [DeveloperController::class, 'form']);
+Route::get('/edit/{id}', [DeveloperController::class, 'edit']);
+Route::get('/developers', [DeveloperController::class, 'all']);
+Route::post('/developers', [DeveloperController::class, 'all']);
 Route::get('/test/method/', [LoginController::class, 'tasks']);
 Route::post('/id-login/{id}/{login}', [LoginController::class, 'login']);
 Route::get('/id-login/{id}/{login}', [LoginController::class, 'login']);
