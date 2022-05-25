@@ -1,18 +1,23 @@
 <?php
 
 class Car {
-    public $color='green';
-    public $cost;
+    public $tank;
 
-    public function setCost($a){
-        $this->cost = $a;
+    public function fill($a){
+        $this->tank += $a;
+        return $this;
     }
-    public function getCost(){
-        return $this->cost;
+
+    public function ride($km){
+        $spent = 10*$km;
+        $this->tank -= $spent;
+        return $this;
+    }
+
+    public function getTank(){
+        return $this->tank;
     }
 }
 
-$a = new Car;
-$a->setCost(5000);
-
-var_dump($a instanceof Car);
+$auto = new Car;
+echo $auto->fill(100)->ride(5)->getTank();
