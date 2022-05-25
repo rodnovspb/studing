@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    div {
+      width: 100px;
+      height: 100px;
+      background-color: blue;
+      animation-name: div;
+      animation-duration: 3s;
+      animation-iteration-count: infinite;
+      position: relative;
+      box-shadow: 0 0 10px blue;
+    }
+    div:hover{
+      animation-play-state: paused;
+    }
+
+    @keyframes div {
+      0% {
+        /*transform: translateX(0);*/
+        /*margin-left: 0;*/
+        left: 0;
+        top: 0;
+        /*transform: translate3d(0, 0, 0);*/
+      }
+      100% {
+        /*transform: translateX(3px);*/
+        /*margin-left: 3px;*/
+        left: 300px;
+        top: 300px;
+        /*transform: translate3d(300px, 300px, 0);*/
+      }
+
+    }
+  </style>
+</head>
+<body>
+
+
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+
+
+
+
+
+<script>
+
+
+
+</script>
+</body>
+</html>

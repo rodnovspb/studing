@@ -1,3 +1,7 @@
+@import "vars";
+@import "mixins";
+
+
 /* Default styles */
 body {
     margin: 0px;
@@ -7,7 +11,3 @@ body {
 /* Blocks */
 @import "blocks/header";
 @import "blocks/btn";
-
-
-/* Vendor libs */
-@import "vendor/slick";

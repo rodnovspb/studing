@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      padding: 0;
+      box-sizing: border-box;
+    }
+    .wrapper {
+      width: 70%;
+      margin: 0 auto;
+      padding: 10px;
+      border: 1px solid #ccc;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .plans {
+      width: 100%;
+    }
+    .plans__item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    .plans__change {
+      display: flex;
+      flex-direction: column;
+      gap: 10px
+    }
+    .plans__text {
+      width: 100%;
+      padding-right: 10px;
+    }
+
+    .plans__list {
+      padding-left: 10px;
+      margin-bottom: 10px;
+    }
+
+    .plans__textarea {
+      width: 100%;
+      height: 100%;
+      resize: vertical;
+      padding: 2px;
+
+    }
+    .plans__textarea:focus {
+      outline: none;
+    }
+
+    .plans__add {
+      text-align: center;
+    }
+
+    .plans__textarea:not([data-time]) {
+      border: 2px solid red
+    }
+
+  </style>
+</head>
+<body>
+
+
+<div class="wrapper">
+  <div class="input">
+    <input class="date" type="date">
+  </div>
+  <div class="plans">
+    <div class="plans__list">
+<!--      <div class="plans__item">-->
+<!--        <div class="plans__text">-->
+<!--          <textarea class="plans__textarea"></textarea>-->
+<!--        </div>-->
+<!--        <div class="plans__change">-->
+<!--            <button class="plans__edit">Редактировать</button>-->
+<!--            <button class="plans__delete">Удалить</button>-->
+<!--            <label>Сделано <input class="plans__done" type="checkbox"></label>-->
+<!--        </div>-->
+<!--      </div>-->
+    </div>
+    <div class="plans__add">
+      <button class="plans__btn" disabled>Добавить</button>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<script>
+  let btnAdd = document.querySelector('.plans__btn')
+  let date = document.querySelector('.date')
+  date.addEventListener('change', function (){
+  document.querySelector('.plans__list').innerHTML = ''
+  btnAdd.removeAttribute('disabled')
+    fetch(`ajax.php?date=${this.value}`)
+    .then(res=>res.json())
+    .then(res=>addFromDB(res))
+    .catch(e=>console.log(e))
+  })
+
+  btnAdd.addEventListener('click', function (){
+    document.querySelector('.plans__list')
+    .insertAdjacentHTML('beforeend', `<div class="plans__item">
+        <div class="plans__text">
+          <textarea class="plans__textarea"></textarea>
+        </div>
+        <div class="plans__change">
+            <button class="plans__edit">Сохранить</button>
+            <button class="plans__delete">Удалить</button>
+            <label>Сделано <input class="plans__done" type="checkbox"></label>
+        </div>
+      </div>`)
+    let item = document.querySelector('.plans__item:last-child')
+    addEvents(item)
+  })
+
+  function addEvents(item){
+      let editBtn = item.querySelector('.plans__edit')
+      editBtn.addEventListener('click', e=>sendToDB(e))
+      let deleteBtn = item.querySelector('.plans__delete')
+      deleteBtn.addEventListener('click', e=>deleteFromDB(e))
+      let checkDone = item.querySelector('.plans__done')
+      checkDone.addEventListener('change', e=>markDone(e))
+  }
+
+  function sendToDB(e) {
+    let parent = e.target.closest('.plans__item')
+    let textarea = parent.querySelector('.plans__textarea')
+    let text = textarea.value
+    if(text.length > 0) {
+      let timestamp = Date.now()
+      textarea.dataset.time = timestamp
+      let formdata = new FormData
+      formdata.append('text', text)
+      formdata.append('date', date.value)
+      formdata.append('timestamp', timestamp)
+      fetch('ajax.php', {
+          method: "POST",
+          body: formdata
+      }).then(res=>res.json())
+        .then(res=>{
+          result = res === 1 ? 'Сохранено' : 'Не сохранено'
+          console.log(result)
+        })
+        .catch(e=>console.log(e))
+    }
+  }
+
+  function deleteFromDB(e){
+    let parent = e.target.closest('.plans__item')
+    let textarea = parent.querySelector('.plans__textarea')
+    if(textarea.dataset.time){
+      fetch(`ajax.php?delete=${textarea.dataset.time}`)
+      .then(res=>res.json())
+      .then(res=>{
+        result = res === 1 ? 'удалено' : 'не удалено'
+        console.log(result)
+      })
+      .catch(e=>console.log(e))
+    }
+    parent.remove()
+  }
+
+  function markDone(e){
+    let parent = e.target.closest('.plans__item')
+    let textarea = parent.querySelector('.plans__textarea')
+    if(textarea.dataset.time){
+      let checkbox = parent.querySelector('.plans__done')
+      let done = checkbox.checked ? 1:0
+      fetch(`ajax.php?checked=${done}&timestamp=${textarea.dataset.time}`)
+      .then(res=>res.json())
+      .then(res=>{
+        result = res === 1 ? 'Изменено' : 'Не изменено'
+        console.log(result)
+      })
+      .catch(e=>console.log(e))
+    }
+  }
+
+  function addFromDB(data){
+    if(!data) console.log(data)
+    else {
+      let res = ''
+      for(let elem of data){
+        let checked = elem.done == 1 ? 'checked' : ''
+        res += `<div class="plans__item">
+        <div class="plans__text">
+          <textarea class="plans__textarea" data-time="${elem.timestamp}">${elem.text}</textarea>
+        </div>
+        <div class="plans__change">
+            <button class="plans__edit">Сохранить</button>
+            <button class="plans__delete">Удалить</button>
+            <label>Сделано <input class="plans__done" type="checkbox" ${checked}></label>
+        </div>
+      </div>`
+      }
+      document.querySelector('.plans__list')
+      .insertAdjacentHTML('beforeend', res)
+      document.querySelectorAll('.plans__list .plans__item')
+      .forEach(elem=>addEvents(elem))
+    }
+  }
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

@@ -33,6 +33,8 @@ Route::get('/', function () {
     return 'главная';
 });
 
+Route::get('/unsubscribe', [DeveloperController::class, 'unsubscribe'])->name('unsubscribe');
+Route::get('/url', [DeveloperController::class, 'url'])->name('developer.url');
 Route::get('/add-developers', [DeveloperController::class, 'form']);
 Route::get('/edit/{id}', [DeveloperController::class, 'edit']);
 Route::get('/developers', [DeveloperController::class, 'all']);

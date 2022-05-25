@@ -1,12 +1,17 @@
 .header {
     width: 100%;
     padding: 10px;
-    background-color: #333;
+    background-color: $primary;
+    box-shadow: $shadow;
+
+    &--fixed {
+        background-color: $black;
+    }
 }
 
 .header__title {
     margin: 0;
 
     font-size: 36px;
-    color: #fff;
+    color: $primary;
 }

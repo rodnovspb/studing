@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Developer;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\URL;
+use App\Http\Controllers\LoginController;
 
 class DeveloperController extends Controller
 {
@@ -49,5 +51,27 @@ class DeveloperController extends Controller
         // с какой страницы пользователь пришел на редактирование (т.к. пагинация)
         $page = $_SERVER['HTTP_REFERER'];
         return view('developer.edit', ['id'=>$id, 'name'=>$name, 'surname'=>$surname, 'page'=>$page]);
+    }
+
+    public function url(Request $request){
+            $developer =  Developer::find(35);
+//            echo URL::current();
+//            echo route('developer.url', ['developer' => $developer]);
+    }
+
+    public function unsubscribe(Request $request){
+        $url = action([LoginController::class, 'tasks']);
+        echo $url;
+
+        $developer =  Developer::find(35);
+//        echo URL::signedRoute('unsubscribe', ['developer' => $developer]);
+//        echo URL::temporarySignedRoute('unsubscribe', now()->addMinutes(30), ['developer' => $developer]);
+//          if(!$request->hasValidSignature()){
+//              abort(401);
+//          }
+//            if(!$request->hasValidSignatureWhileIgnoring(['page', 'order'])){
+//                 abort(401);
+//          }
+
     }
 }
