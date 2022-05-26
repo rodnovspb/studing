@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+
+
+
+
+
+
+
+<script>
+'use strict'
+
+
+
+
+let obj = {
+  a: 1,
+  b: 2,
+  set send(a){
+    [this.a,this.b] = a.split(' ')
+  }
+}
+
+obj.send = "Денис Роднов"
+
+Object.defineProperty(obj, 'receive', {
+  get(){
+    return[this.a,this.b]
+  }
+})
+console.log(Object.getOwnPropertyDescriptors(obj))
+
+
+
+
+
+</script>
+</body>
+</html>
