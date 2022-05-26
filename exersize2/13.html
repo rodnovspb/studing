@@ -19,25 +19,23 @@
 
 
 
-let obj = {
-  a: 1,
-  b: 2,
-  set send(a){
-    [this.a,this.b] = a.split(' ')
+let user = {
+  get name(){
+    return this._name
+  },
+  set name(a){
+    if(a.length < 4){
+      console.log('Меньше 4')
+      return
+    }
+      this._name = a
   }
 }
 
-obj.send = "Денис Роднов"
 
-Object.defineProperty(obj, 'receive', {
-  get(){
-    return[this.a,this.b]
-  }
-})
-console.log(Object.getOwnPropertyDescriptors(obj))
+user.name = 'sad33'
 
-
-
+  console.log(user.name)
 
 
 </script>
