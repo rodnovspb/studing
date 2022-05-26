@@ -24,5 +24,9 @@
     "node-sass": "^7.0.1",
     "panini": "^1.7.2",
     "sass": "^1.52.1"
+  },
+  "dependencies": {
+    "bootstrap": "^5.1.3",
+    "slick-carousel": "^1.8.1"
   }
 }

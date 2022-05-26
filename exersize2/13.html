@@ -17,25 +17,24 @@
 'use strict'
 
 
-
-
-let user = {
-  get name(){
-    return this._name
-  },
-  set name(a){
-    if(a.length < 4){
-      console.log('Меньше 4')
-      return
+function User(name, birthday) {
+  this.name = name,
+  this.birthday = new Date(birthday),
+  Object.defineProperty(this, 'age', {
+    get() {
+      return new Date().getFullYear()-this.birthday.getFullYear();
     }
-      this._name = a
-  }
+  })
 }
 
 
-user.name = 'sad33'
+let user = new User('Денис', "1986-10-14")
+  console.log(user.age)
 
-  console.log(user.name)
+
+
+
+
 
 
 </script>

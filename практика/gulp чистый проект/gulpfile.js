@@ -6,12 +6,12 @@ const autoprefixer = require("gulp-autoprefixer");
 const cssbeautify = require("gulp-cssbeautify");
 const removeComments = require('gulp-strip-css-comments');
 const rename = require("gulp-rename");
-// const sass = require("gulp-sass");
+const sass = require('gulp-sass')(require('sass'));
 const cssnano = require("gulp-cssnano");
 const rigger = require("gulp-rigger");
 const uglify = require("gulp-uglify");
 const plumber = require("gulp-plumber");
-// const imagemin = require("gulp-imagemin");
+const imagemin = require("gulp-imagemin");
 const del = require("del");
 const panini = require("panini");
 const browsersync = require("browser-sync").create();
@@ -57,8 +57,16 @@ function browserSyncReload(done) {
 }
 
 function html() {
+    panini.refresh();
     return src(path.src.html, { base: "src/" })
         .pipe(plumber())
+        .pipe(panini({
+            root: 'src/',
+            layouts: 'src/tpl/layouts/',
+            partials: 'src/tpl/partials/',
+            helpers: 'src/tpl/helpers/',
+            data: 'src/tpl/data/'
+        }))
         .pipe(dest(path.build.html))
         .pipe(browsersync.stream());
 }
@@ -66,7 +74,7 @@ function html() {
 function css() {
     return src(path.src.css, { base: "src/assets/sass/" })
         .pipe(plumber())
-        // .pipe(sass())
+        .pipe(sass())
         .pipe(autoprefixer({
             browsers: ['last 8 versions'],
             cascade: true
@@ -104,7 +112,7 @@ function js() {
 
 function images() {
     return src(path.src.images)
-        // .pipe(imagemin())
+        .pipe(imagemin())
         .pipe(dest(path.build.images));
 }
 
