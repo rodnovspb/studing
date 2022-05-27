@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Title</title>
+  <style>
+    *,
+    *:after,
+    *:before {
+      box-sizing: border-box;
+    }
+    body {
+      background-color: #eee;
+    }
+    .wrapper {
+      max-width: 50vw;
+      margin: 100px auto 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+    }
+    .circle {
+      position: relative;
+      width:255px;
+      height: 255px;
+      transition: transform 6s cubic-bezier(.29,.98,.59,.96);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .border {
+      position: relative;
+      border: 8px solid white;
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(0,0,0, .2);
+    }
+    .btn {
+      position: absolute;
+      cursor: pointer;
+      z-index: 10;
+      left: 50%;
+      top: 50%;
+      transform: translate3d(-50%, -50%, 0);
+    }
+
+    .btn-down {
+      transform: scale(.96);
+    }
+    .btn-down.btn:before {
+      box-shadow: 0 5px 8px rgba(0,0,0, .25);
+    }
+
+    .btn:before,
+    .btn:after {
+      position: absolute;
+      z-index: 10;
+      left: 50%;
+      top: 50%;
+      border-radius: 50%;
+      background: linear-gradient(to bottom, #ddd, #fff);
+      transform: translate3d(-50%, -50%, 0);
+    }
+    .btn:before {
+      content: '';
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: linear-gradient(to top, #ddd, #fff);
+      box-shadow: 0 8px 12px rgba(0,0,0, .25);
+    }
+    .btn:after {
+      content: 'ЖМИ';
+      width: 55px;
+      height: 55px;
+      font-family: sans-serif;
+      color: #aba8a8;
+      font-size: 18px;
+      text-transform: uppercase;
+      text-align: center;
+      line-height: 55px;
+      background: linear-gradient(to bottom, #ddd, #fff);
+    }
+
+    .sec {
+      position: absolute;
+      top: -2px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-color: transparent;
+      border-width: 130px 75px 0;
+      transform-origin: center bottom;
+    }
+    .sec:nth-child(1){
+      transform: rotate(60deg);
+      border-top-color: #1dcf68;
+    }
+    .sec:nth-child(2){
+      transform: rotate(120deg);
+      border-top-color: #00a2d3;
+    }
+    .sec:nth-child(3){
+      transform: rotate(180deg);
+      border-top-color: #e1fc04;
+    }
+    .sec:nth-child(4){
+      transform: rotate(240deg);
+      border-top-color: #c000ff;
+    }
+    .sec:nth-child(5){
+      transform: rotate(300deg);
+      border-top-color: #f8a204;
+    }
+    .sec:nth-child(6){
+      transform: rotate(360deg);
+      border-top-color: #d83221;
+    }
+
+    .color {
+      text-align: center;
+      margin-bottom: 20px;
+      min-height: 20px;
+      line-height: 1;
+      font-size: 20px;
+      color: #3946ff;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+
+
+<div class="wrapper">
+  <div class="color"></div>
+  <div class="border">
+    <div class="btn"></div>
+    <div class="circle">
+    <div class="sec"></div>
+    <div class="sec"></div>
+    <div class="sec"></div>
+    <div class="sec"></div>
+    <div class="sec"></div>
+    <div class="sec"></div>
+  </div>
+  </div>
+</div>
+
+
+
+
+
+<script>
+
+let btn = document.querySelector('.btn')
+let circle =  document.querySelector('.circle')
+let show =  document.querySelector('.color')
+
+let duration = 6000
+let timer;
+
+
+  btn.addEventListener('click', function () {
+    show.textContent=''
+    let str = circle.style.transform
+    let deg = +str.replace(/[^\d]/g,'')
+    let count = Math.floor(1200 + Math.random()*360)
+    circle.style.transform = `rotate(${deg+count}deg)`
+    showColor(circle.style.transform.replace(/[^\d]/g,''))
+  })
+
+  btn.addEventListener('mousedown', function () {
+    this.classList.add('btn-down')
+  })
+  btn.addEventListener('mouseup', function () {
+    this.classList.remove('btn-down')
+  })
+
+
+  function showColor(degree) {
+    if(timer){
+      clearTimeout(timer)
+    }
+  let color;
+      timer = setTimeout(()=>{
+        let deg = degree%360
+        if((deg<=360 && deg>=330) || (deg>=0 && deg<=30)) color='red';
+        else if(deg>30 && deg<=90) color='orange';
+        else if(deg>90 && deg<=150) color='purple';
+        else if(deg>150 && deg<=210) color='yellow';
+        else if(deg>210 && deg<=270) color='blue';
+        else if(deg>270 && deg<=330) color='green';
+          show.textContent = color
+      }, duration)
+
+  }
+
+
+</script>
+</body>
+</html>
