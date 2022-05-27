@@ -37,22 +37,20 @@
 <?php
 
 
+
 class Car {
-    private $model;
-    private $cost;
-    public function __construct($model, $cost)
-    {
-        $this->model = $model;
-        $this->cost = $cost;
-    }
-    public function getModel(){
-      return $this->model;
+  private $color = 'N/A';
+  public function __construct($color = null)
+  {
+    if($color){
+      $this->color = $color;
 	}
-    public function getCost(){
-        return $this->cost;
-    }
+  }
+  public function getColor(){
+    return "Находится в классе " . __CLASS__ .", цвет:" . $this->color;
+  }
 }
 
-$bmw = new Car('кабриолет', 3000);
+$a = new Car('Черный');
 
-var_dump($bmw->getCost());
+echo $a->getColor();
