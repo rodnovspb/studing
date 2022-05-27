@@ -1,0 +1,35 @@
+@import "vars";
+
+
+/* Default styles */
+html {
+    font-size: 15px;
+}
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    color: $black;
+    font-size: 1rem;
+    line-height: 1.5;
+    background-color: $gray;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+/* Bootstrap */
+@import "../../../node_modules/bootstrap/scss/functions";
+@import "../../../node_modules/bootstrap/scss/variables";
+@import "../../../node_modules/bootstrap/scss/mixins";
+@import "../../../node_modules/bootstrap/scss/grid";
+@import "../../../node_modules/bootstrap/scss/bootstrap-grid";
+//подключу весь бутстрап, иначе пути не всегда находит
+@import "../../../node_modules/bootstrap/scss/bootstrap";
+
+
+
+/* Blocks */
+@import "blocks/header";

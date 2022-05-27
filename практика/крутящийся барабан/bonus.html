@@ -1,0 +1,353 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0028)http://192.168.4.92/chat/rules.php -->
+<html><head><TITLE>Бонус</TITLE>
+ <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+ <script>
+
+var degree = 1800;
+
+var clicks = 0;
+
+var flag='true';
+
+$(document).ready(function(){
+	$('#spin').click(function(){
+			var newDegree = degree*clicks;
+			var extraDegree = Math.floor(Math.random() * (7200 - 720 + 1)) + 720;
+			totalDegree = newDegree+extraDegree;
+			var deg=totalDegree%360;
+			var color;
+			if((deg<=360 && deg>=330) || (deg>=0 && deg<=30)) color='red';
+			else if(deg>30 && deg<=90) color='orange';
+			else if(deg>90 && deg<=150) color='purple';
+			else if(deg>150 && deg<=210) color='yellow';
+			else if(deg>210 && deg<=270) color='blue';
+			else if(deg>270 && deg<=330) color='green';
+			$('#wheel .sec').each(function(){
+				$('#inner-wheel').css({
+					'transform' : 'rotate(' + totalDegree + 'deg)'
+				});
+			});
+			setTimeout(() => {
+				/*$.ajax({
+				url: "./bonus_click.php",
+				type: "post",
+				dataType: "html",
+				data: {'color':color, 'user':userId},
+				success: function(data) {
+				$("#notification").css({'display':'block'});
+				$("#notification").html(data);
+				setTimeout(() => {$("#notification").css({'display':'none'});}, 30000);
+			    }
+			});*/
+            $("#notification").html(color);
+			}, 7000);
+	});
+});
+
+ </script>
+
+<style>
+*{	margin:0;	padding:0; }
+
+body{
+	background:#f3f3f3;
+	color:#fff;
+	font-size:18px;
+	font-family: 'Exo 2', sans-serif;
+}
+
+a{
+	color:#34495e;
+}
+
+
+
+
+
+#wrapper{
+	margin: 20px auto 0;
+	width:266px;
+	position:relative;
+}
+
+#txt{
+	color:#f3f3f3;
+}
+
+
+
+#wheel{
+	width:250px;
+	height:250px;
+	border-radius:50%;
+	position:relative;
+	overflow:hidden;
+	border:8px solid #fff;
+	box-shadow:rgba(0,0,0,0.2) 0px 0px 10px, rgba(0,0,0,0.05) 0px 3px 0px;
+	transform: rotate(0deg);
+}
+
+#wheel:before{
+	content:'';
+	position:absolute;
+	border:4px solid rgba(0,0,0,0.1);
+	width:242px;
+	height:242px;
+	border-radius:50%;
+	z-index:1000;
+}
+
+#inner-wheel{
+	width:100%;
+	height:100%;
+
+	-webkit-transition: all 6s cubic-bezier(0,.99,.44,.99);
+	-moz-transition:    all 6 cubic-bezier(0,.99,.44,.99);
+	-o-transition:      all 6s cubic-bezier(0,.99,.44,.99);
+	-ms-transition:     all 6s cubic-bezier(0,.99,.44,.99);
+	transition:         all 6s cubic-bezier(0,.99,.44,.99);
+}
+
+#wheel div.sec{
+	position: absolute;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 130px 75px 0;
+	border-color: #19c transparent;
+	transform-origin: 75px 129px;
+	left:50px;
+	top:-4px;
+	opacity:1;
+}
+
+#wheel div.sec:nth-child(1){
+	transform: rotate(60deg);
+	-webkit-transform: rotate(60deg);
+	-moz-transform: rotate(60deg);
+	-o-transform: rotate(60deg);
+	-ms-transform: rotate(60deg);
+	border-color: #1dcf68 transparent;
+}
+#wheel div.sec:nth-child(2){
+	transform: rotate(120deg);
+	-webkit-transform: rotate(120deg);
+	-moz-transform: rotate(120deg);
+	-o-transform: rotate(120deg);
+	-ms-transform: rotate(120deg);
+	border-color: #00a2d3 transparent;
+}
+#wheel div.sec:nth-child(3){
+	transform: rotate(180deg);
+	-webkit-transform: rotate(180deg);
+	-moz-transform: rotate(180deg);
+	-o-transform: rotate(180deg);
+	-ms-transform: rotate(180deg);
+	border-color: #e1fc04 transparent;
+}
+#wheel div.sec:nth-child(4){
+	transform: rotate(240deg);
+	-webkit-transform: rotate(240deg);
+	-moz-transform: rotate(240deg);
+	-o-transform: rotate(240deg);
+	-ms-transform: rotate(240deg);
+	border-color: #c000ff transparent;
+}
+#wheel div.sec:nth-child(5){
+	transform: rotate(300deg);
+	-webkit-transform: rotate(300deg);
+	-moz-transform: rotate(300deg);
+	-o-transform: rotate(300deg);
+	-ms-transform: rotate(300deg);
+	border-color: #f8a204 transparent;
+}
+#wheel div.sec:nth-child(6){
+	transform: rotate(360deg);
+	-webkit-transform: rotate(360deg);
+	-moz-transform: rotate(360deg);
+	-o-transform: rotate(360deg);
+	-ms-transform: rotate(360deg);
+	border-color: #d83221 transparent;
+}
+
+
+#wheel div.sec .fa{
+	margin-top: -100px;
+	color: rgba(0,0,0,0.2);
+	position: relative;
+	z-index: 10000000;
+	display: block;
+	text-align: center;
+	font-size:36px;
+	margin-left:-15px;
+
+	text-shadow: rgba(255, 255, 255, 0.1) 0px -1px 0px, rgba(0, 0, 0, 0.2) 0px 1px 0px;
+}
+
+
+
+
+#spin{
+	width:68px;
+	height:68px;
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin:-34px 0 0 -34px;
+	border-radius:50%;
+	box-shadow:rgba(0,0,0,0.1) 0px 3px 0px;
+	z-index:1000;
+	background:#fff;
+	cursor:pointer;
+	font-family: 'Exo 2', sans-serif;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+
+#spin:after{
+	content:"ЖМИ";
+	text-align:center;
+	line-height:68px;
+	color:#CCC;
+	position: relative;
+	z-index: 100000;
+	width:68px;
+	height:68px;
+	display:block;
+}
+
+#spin:before{
+	content:"";
+	position:absolute;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 0 20px 28px 20px;
+	border-color: transparent transparent #ffffff transparent;
+	top:-12px;
+	left:14px;
+}
+
+#inner-spin{
+	width:54px;
+	height:54px;
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin:-27px 0 0 -27px;
+	border-radius:50%;
+	background:red;
+	z-index:999;
+	box-shadow:rgba(255,255,255,1) 0px -2px 0px inset, rgba(255,255,255,1) 0px 2px 0px inset,  rgba(0,0,0,0.4) 0px 0px 5px ;
+
+	background: rgb(255,255,255);
+	background: -moz-radial-gradient(center, ellipse cover,  rgba(255,255,255,1) 0%, rgba(234,234,234,1) 100%);
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(234,234,234,1)));
+	background: -webkit-radial-gradient(center, ellipse cover,  rgba(255,255,255,1) 0%,rgba(234,234,234,1) 100%);
+	background: -o-radial-gradient(center, ellipse cover,  rgba(255,255,255,1) 0%,rgba(234,234,234,1) 100%);
+	background: -ms-radial-gradient(center, ellipse cover,  rgba(255,255,255,1) 0%,rgba(234,234,234,1) 100%);
+	background: radial-gradient(ellipse at center,  rgba(255,255,255,1) 0%,rgba(234,234,234,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f3f3f3',GradientType=1 );
+}
+
+#spin:active #inner-spin{
+	box-shadow:rgba(0,0,0,0.4) 0px 0px 5px inset;
+}
+
+#spin:active:after{
+	font-size:15px;
+}
+
+
+
+#shine{
+	width:250px;
+	height:250px;
+	position:absolute;
+	top:0;
+	left:0;
+	background: -moz-radial-gradient(center, ellipse cover,  rgba(255,255,255,1) 0%, rgba(255,255,255,0.99) 1%, rgba(255,255,255,0.91) 9%, rgba(255,255,255,0) 100%);
+background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(255,255,255,1)), color-stop(1%,rgba(255,255,255,0.99)), color-stop(9%,rgba(255,255,255,0.91)), color-stop(100%,rgba(255,255,255,0)));
+background: -webkit-radial-gradient(center, ellipse cover,  rgba(255,255,255,1) 0%,rgba(255,255,255,0.99) 1%,rgba(255,255,255,0.91) 9%,rgba(255,255,255,0) 100%);
+background: -o-radial-gradient(center, ellipse cover,  rgba(255,255,255,1) 0%,rgba(255,255,255,0.99) 1%,rgba(255,255,255,0.91) 9%,rgba(255,255,255,0) 100%);
+background: -ms-radial-gradient(center, ellipse cover,  rgba(255,255,255,1) 0%,rgba(255,255,255,0.99) 1%,rgba(255,255,255,0.91) 9%,rgba(255,255,255,0) 100%);
+background: radial-gradient(ellipse at center,  rgba(255,255,255,1) 0%,rgba(255,255,255,0.99) 1%,rgba(255,255,255,0.91) 9%,rgba(255,255,255,0) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=1 );
+opacity:0.1;
+}
+#timer{
+	display:none;
+}
+
+
+@-webkit-keyframes hh {
+  0%, 100%{
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+  }
+
+  50%{
+    transform: rotate(7deg);
+    -webkit-transform: rotate(7deg);
+  }
+}
+
+@keyframes hh {
+   0%, 100%{
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+  }
+
+  50%{
+    transform: rotate(7deg);
+    -webkit-transform: rotate(7deg);
+  }
+}
+
+.spin {
+  -webkit-animation: hh 0.1s;
+    animation: hh 0.1s;
+}
+
+
+</STYLE>
+
+<META content="MSHTML 6.00.2900.2180" name=GENERATOR>
+<meta charset="utf-8">
+</head>
+<body>
+
+
+<div style='margin-top: 60px;' class="title__page">
+    <p style="color:#555555; font-weight: normal; text-align: center;">Крути колесо и испытывай удачу</p>
+</div>
+
+<div style="text-align: center; margin-top: 15px;">
+    <p id="notification" style="color: #f44336;"></p>
+</div>
+<div id="wrapper">
+        <div id="wheel">
+            <div id="inner-wheel">
+                <div class="sec"></div>
+                <div class="sec"></div>
+                <div class="sec"></div>
+                <div class="sec"></div>
+                <div class="sec"></div>
+                <div class="sec"></div>
+            </div>
+
+            <div id="spin">
+                <div id="inner-spin"></div>
+            </div>
+        </div>
+  </div>
+</div>
+
+
+</body></html>
