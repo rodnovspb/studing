@@ -103,4 +103,7 @@ class UserController extends Controller
 
             ]);
     }
+    public function showwithcomponent(){
+        return view('user.showwithcomponent');
+    }
 }

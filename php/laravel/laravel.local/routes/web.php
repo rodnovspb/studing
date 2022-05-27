@@ -17,6 +17,8 @@ use App\Http\Controllers\FormController;
 use App\Http\Controllers\FormselfController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DeveloperController;
+use App\Http\Controllers\Component;
+use App\Http\Controllers\Block;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,9 +32,14 @@ use App\Http\Controllers\DeveloperController;
 */
 
 Route::get('/', function () {
-    return 'главная';
+    return view('components.layout', [
+        'title'=>'Заголовок',
+    ]);
 });
 
+Route::get('/showwithcomponent', [UserController::class, 'showwithcomponent']);
+Route::get('/block', [Block::class, 'show']);
+Route::get('/component', [Component::class, 'show']);
 Route::get('/unsubscribe', [DeveloperController::class, 'unsubscribe'])->name('unsubscribe');
 Route::get('/url', [DeveloperController::class, 'url'])->name('developer.url');
 Route::get('/add-developers', [DeveloperController::class, 'form']);
@@ -48,7 +55,7 @@ Route::post('/resultpost', [FormController::class, 'resultpost']);
 Route::get('/form', [FormController::class, 'form']);
 Route::get('/result', [FormController::class, 'result']);
 Route::get('/mark', [MarkController::class, 'show']);
-Route::get('/lesson', [LessonController::class, 'show']);
+Route::get('/lesson/{id}', [LessonController::class, 'show']);
 Route::get('/student', [StudentController::class, 'show']);
 Route::get('/worker', [WorkerController::class, 'show']);
 Route::get('/showcountry', [CityController::class, 'showcountry']);

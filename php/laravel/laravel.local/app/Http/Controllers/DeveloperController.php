@@ -29,7 +29,7 @@ class DeveloperController extends Controller
             exit();
         }
         $developers =  Developer::simplePaginate(15);
-        return view('developer.all', ['all'=>$developers]);
+        return view('developer.all', ['all'=>$developers, 'title'=>'Наши разработчики']);
     }
 
     public function form(Request $request){

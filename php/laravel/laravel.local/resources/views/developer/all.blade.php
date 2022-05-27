@@ -1,4 +1,10 @@
 <x-layout>
+    <x-slot:title>
+        {{ $title }}
+    </x-slot:title>
+    <x-slot:meta>
+        meta/
+    </x-slot:meta>
     <table>
         <tr>
             <th>Имя</th>

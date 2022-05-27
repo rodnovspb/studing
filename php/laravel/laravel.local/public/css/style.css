@@ -1,0 +1,17 @@
+body {
+    background-color: rgba(199, 222, 242, 0.45);
+}
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    max-width: 50px;
+    height: auto;
+}
+
+.footer {
+    margin-bottom: 20px;
+}
