@@ -1583,7 +1583,7 @@ body {
     --bs-blue: #0d6efd;
     --bs-indigo: #6610f2;
     --bs-purple: #6f42c1;
-    --bs-pink: #cf246c;
+    --bs-pink: #ef3382;
     --bs-red: #dc3545;
     --bs-orange: #fd7e14;
     --bs-yellow: #ffc107;
@@ -7365,7 +7365,7 @@ body {
     --bs-blue: #0d6efd;
     --bs-indigo: #6610f2;
     --bs-purple: #6f42c1;
-    --bs-pink: #cf246c;
+    --bs-pink: #ef3382;
     --bs-red: #dc3545;
     --bs-orange: #fd7e14;
     --bs-yellow: #ffc107;
@@ -7630,7 +7630,7 @@ pre code {
 
 code {
     font-size: 0.875em;
-    color: #cf246c;
+    color: #ef3382;
     word-wrap: break-word;
 }
 
@@ -20517,5 +20517,79 @@ textarea.form-control-lg {
 }
 /* Blocks */
 .header {
-    background-color: #1dca68;
+    margin-top: 2rem;
+}
+
+.header__inner {
+    background-color: #fff;
+    border-radius: 10px;
+    -webkit-box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);
+    padding: 0.8rem 1.4rem;
+}
+
+.header__row {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.6rem;
+    color: #121212;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.logo__prefix {
+    color: #ef3382;
+}
+
+.nav {
+    font-size: 1rem;
+    font-weight: 500;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.nav__link {
+    text-decoration: none;
+    color: #121212;
+    padding: 0.25rem 1.5rem;
+    -webkit-transition: background-color 0.1s linear;
+    -o-transition: background-color 0.1s linear;
+    transition: background-color 0.1s linear;
+    border-radius: 20px;
+    margin-right: 1rem;
+}
+
+.nav__link:hover {
+    background-color: #f2f2f2;
+}
+
+.nav__link.active {
+    background-color: #ef3382;
+    color: #fff;
+}
+
+.nav__link.active:hover {
+    background-color: #c6105c;
+}
+
+.lang {
+    text-align: right;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.lang__item {
+    text-transform: uppercase;
+    color: #121212;
+    text-decoration: none;
+    margin-left: 0.5rem;
+}
+
+.lang__item.active {
+    color: #ef3382;
 }
