@@ -489,7 +489,7 @@ p {
 }
 
 @media (max-width: 991px) {
-	/*Nav*/
+	/*Navigation*/
 	.nav{
 		display: none;
 		position: absolute;

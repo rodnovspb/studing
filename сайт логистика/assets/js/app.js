@@ -24,7 +24,7 @@
 
 $(function () {
 
-	// Nav toggle on mobile
+	// Navigation toggle on mobile
 
 	let navToggle = $('#navToggle')
 	let nav = $('#nav')

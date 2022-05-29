@@ -39,7 +39,7 @@ $(function () {
 
       })
 
-    // Nav Toggle
+    // Navigation Toggle
     navToggle.on('click', function (event) {
       event.preventDefault()
       nav.toggleClass("show")

@@ -19,6 +19,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DeveloperController;
 use App\Http\Controllers\Component;
 use App\Http\Controllers\Block;
+use App\Http\Controllers\MenuController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,11 +33,10 @@ use App\Http\Controllers\Block;
 */
 
 Route::get('/', function () {
-    return view('components.layout', [
-        'title'=>'Заголовок',
-    ]);
+    return 'главная';
 });
 
+Route::get('/menu', [MenuController::class, 'showMenu']);
 Route::get('/showwithcomponent', [UserController::class, 'showwithcomponent']);
 Route::get('/block', [Block::class, 'show']);
 Route::get('/component', [Component::class, 'show']);

@@ -8,7 +8,11 @@
 <body>
 
 
-{{ $slot }}
+<x-header.h1 :h1=" $h1 " />
+<x-header.logotip alt="Альт" width="100" height="100"/>
+<x-other.menu class="error" id="elem" />
+
+
 
 
 
