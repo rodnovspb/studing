@@ -20,6 +20,7 @@ use App\Http\Controllers\DeveloperController;
 use App\Http\Controllers\Component;
 use App\Http\Controllers\Block;
 use App\Http\Controllers\MenuController;
+use App\Http\Controllers\BookController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +37,9 @@ Route::get('/', function () {
     return 'главная';
 });
 
+Route::get('/count', [BookController::class, 'count']);
+Route::get('/book/get', [BookController::class, 'getSession']);
+Route::get('/book/{value}', [BookController::class, 'setSession']);
 Route::get('/menu', [MenuController::class, 'showMenu']);
 Route::get('/showwithcomponent', [UserController::class, 'showwithcomponent']);
 Route::get('/block', [Block::class, 'show']);
