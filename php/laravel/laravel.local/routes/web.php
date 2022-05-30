@@ -37,6 +37,7 @@ Route::get('/', function () {
     return 'главная';
 });
 
+Route::get('/time', [BookController::class, 'time']);
 Route::get('/count', [BookController::class, 'count']);
 Route::get('/book/get', [BookController::class, 'getSession']);
 Route::get('/book/{value}', [BookController::class, 'setSession']);
