@@ -26,16 +26,24 @@ body {
 @import "../../../node_modules/bootstrap/scss/mixins";
 @import "../../../node_modules/bootstrap/scss/grid";
 @import "../../../node_modules/bootstrap/scss/bootstrap-grid";
-//подключу весь бутстрап, иначе пути не всегда находит
-@import "../../../node_modules/bootstrap/scss/bootstrap";
+////подключу весь бутстрап, иначе пути не всегда находит
+//@import "../../../node_modules/bootstrap/scss/bootstrap";
 
 
 
 /* Blocks */
+@import "blocks/page";
 @import "blocks/header";
+@import "blocks/content";
+@import "blocks/intro";
 @import "blocks/logo";
 @import "blocks/nav";
 @import "blocks/lang";
+@import "blocks/footer";
+@import "blocks/btn";
+@import "blocks/contacts";
+@import "blocks/author";
+@import "blocks/circle";
 
 
 
