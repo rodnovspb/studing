@@ -39,4 +39,75 @@ class BookController extends Controller
         ]);
     }
 
+    public function anonim(Request $request){
+        $value = $request->session()->get('qwerty', function (){
+            return 'Значение не задано, выполнилась анонимная функция';
+        });
+        echo $value;
+    }
+
+    public function forget(Request $request, $key){
+        if($request->session()->get($key) !== null){
+            $request->session()->forget($key);
+            echo 'удалено';
+        } else  echo 'такой переменной нет';
+    }
+
+    public function setVar(Request $request, $key){
+        $request->session()->put('var', $key);
+        return view('book.show', [
+            'var'=> "установлена переменная $key"
+        ]);
+    }
+
+    public function getVar(Request $request){
+        return view('book.show', [
+            'var'=> "показана и удалена переменная ". $request->session()->pull('var'),
+        ]);
+    }
+
+    public function flush(Request $request){
+        $request->session()->flush();
+        echo "Удалено";
+    }
+
+    public function setkey(Request $request, $key, $value){
+        $request->session()->put($key, $value);
+        echo "Установлено: $key = $value" . "<br>";
+        echo "<pre>";
+        print_r($request->session()->all());
+        echo "</pre>";
+    }
+
+    public function gettime(Request $request){
+        if(!$request->session()->exists('time')){
+            $request->session()->put('time', date('H-i-s'));
+            echo 'время установлено';
+        } else {
+            $request->session()->put('time', date('H-i-s'));
+            echo $request->session()->get('time');
+        }
+    }
+
+    public function setarr(Request $request){
+        $request ->session() ->put('arr', [1,2,3,4]);
+        echo "<pre>";
+        print_r($request ->session() ->get('arr'));
+        echo "</pre>";
+    }
+
+    public function push(Request $request, $value){
+        $request ->session() ->push('arr', $value);
+        echo "<pre>";
+        print_r($request ->session() ->get('arr'));
+        echo "</pre>";
+    }
+
+    public function session($key, $value){
+        session([$key => $value]);
+        echo "<pre>";
+        print_r(session($key, 'default'));
+        echo "</pre>";
+    }
+
 }

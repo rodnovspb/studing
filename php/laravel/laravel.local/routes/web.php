@@ -37,6 +37,16 @@ Route::get('/', function () {
     return 'главная';
 });
 
+Route::get('/session/{key}/{value}', [BookController::class, 'session']);
+Route::get('/push/{value}', [BookController::class, 'push']);
+Route::get('/setarr', [BookController::class, 'setarr']);
+Route::get('/gettime', [BookController::class, 'gettime']);
+Route::get('/set/{key}/{value}', [BookController::class, 'setkey']);
+Route::get('/flush', [BookController::class, 'flush']);
+Route::get('/get', [BookController::class, 'getVar']);
+Route::get('/set/{var}', [BookController::class, 'setVar']);
+Route::get('/forget/{key}', [BookController::class, 'forget']);
+Route::get('/anonim', [BookController::class, 'anonim']);
 Route::get('/time', [BookController::class, 'time']);
 Route::get('/count', [BookController::class, 'count']);
 Route::get('/book/get', [BookController::class, 'getSession']);

@@ -14,7 +14,7 @@ $url = $_SERVER['REQUEST_URI'];
 
 $route = '/page/(?<catSlug>[a-z0-9_-]+)/(?<pageSlug>[a-z0-9_-]+)';
 if(preg_match("#^$route$#", $url, $params)) {
-//  $page = include 'view/page/show.php';
+//  $page = include 'view/page/show.blade.php';
     $catSlug = $params['catSlug'];
     $pageSlug = $params['pageSlug'];
     $query = "SELECT pages.title, pages.content FROM pages
