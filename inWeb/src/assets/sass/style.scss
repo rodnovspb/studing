@@ -26,8 +26,9 @@ body {
 @import "../../../node_modules/bootstrap/scss/mixins";
 @import "../../../node_modules/bootstrap/scss/grid";
 @import "../../../node_modules/bootstrap/scss/bootstrap-grid";
-////подключу весь бутстрап, иначе пути не всегда находит
-//@import "../../../node_modules/bootstrap/scss/bootstrap";
+@import "../../../node_modules/bootstrap/scss/modal";
+//подключу весь бутстрап, иначе пути не всегда находит
+@import "../../../node_modules/bootstrap/scss/bootstrap";
 
 
 
@@ -44,6 +45,8 @@ body {
 @import "blocks/contacts";
 @import "blocks/author";
 @import "blocks/circle";
+@import "blocks/social";
+
 
 
 

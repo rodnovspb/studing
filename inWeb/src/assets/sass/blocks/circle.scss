@@ -13,9 +13,15 @@
 
 @keyframes circleRadius {
   0% {
-    border-radius: 62% 38% 63% 37% / 50% 41% 59% 50% ;
+    border-radius: 62% 38% 63% 37% / 50% 41% 59% 50%;
+    transform: translate3d(0,0,0);
+  }
+  50% {
+    border-radius: 54% 46% 46% 54% / 57% 58% 42% 43% ;
+    transform: translate3d(-25px,-25px,0);
   }
   100% {
-    border-radius: 31% 69% 38% 62% / 37% 41% 59% 63%;
+    border-radius: 25% 75% 32% 68% / 30% 71% 29% 70%;
+    transform: translate3d(-50px,-50px,0);
   }
 }
