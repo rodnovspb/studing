@@ -74,7 +74,7 @@ function html() {
 function css() {
     return src(path.src.css, { base: "src/assets/sass/" })
         .pipe(plumber())
-        .pipe(sass())
+        .pipe(sass.sync().on('error', sass.logError))
         .pipe(autoprefixer({
             overrideBrowserslist: ['last 8 versions'],
             cascade: true
@@ -130,7 +130,7 @@ function watchFiles() {
 const build = gulp.series(clean, gulp.parallel(html, css, js, images));
 const watch = gulp.parallel(build, watchFiles, browserSync);
 
-
+sass().on('error', sass.logError)
 
 /* Exports Tasks */
 exports.html = html;
