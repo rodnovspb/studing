@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .datalist {
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+
+<div class="wrapper">
+  <div class="select">
+    <label>Введите город <input class="input" type="text" list="city"></label>
+  <datalist class="datalist" id="city">
+  </datalist>
+  </div>
+</div>
+
+
+<script>
+
+  let input = document.querySelector('.input')
+  let list = document.querySelector('#city')
+  input.addEventListener('input', async function (e){
+    try {
+      let value = (e.target.value).trim()
+      if(value.length>0){
+        value = value.split('')
+        value[0] = value[0].toUpperCase()
+        value = value.join('')
+        let formdata = new FormData
+        formdata.append('str', value)
+        let response = await fetch('ajax.php', {
+          method: "POST",
+          body: formdata
+        })
+        if(response.ok){
+          let arr = await response.json()
+          if(arr.length>0){
+            render(arr)
+          }
+        }
+      }
+    } catch (e){
+      console.log(e)
+    }
+  })
+
+
+  function render(arr){
+    let result = ''
+    arr.forEach(elem=>{
+      result += `<option>${elem.name}</option>`
+    })
+    list.innerHTML = result
+  }
+
+
+
+
+</script>
+</body>
+</html>

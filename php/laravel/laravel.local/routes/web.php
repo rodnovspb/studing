@@ -21,6 +21,8 @@ use App\Http\Controllers\Component;
 use App\Http\Controllers\Block;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\RedirectController;
+use App\Http\Controllers\UserlistController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +39,18 @@ Route::get('/', function () {
     return 'главная';
 });
 
+
+
+Route::get('/showparam', [UserlistController::class, 'showparam'])->name('showparam');
+Route::get('/param/{var}', [UserlistController::class, 'param'])->name('param');
+Route::get('/success', [UserlistController::class, 'success'])->name('success');
+Route::get('/userlist', [UserlistController::class, 'userlist'])->name('userlist');
+Route::post('/add-user', [UserlistController::class, 'add']);
+Route::get('/add-user', [UserlistController::class, 'form'])->name('form');
+Route::get('/page/form', [RedirectController::class, 'form']);
+Route::get('/page/receive-form', [RedirectController::class, 'receiveForm']);
+Route::get('/page/show2', [RedirectController::class, 'show2']);
+Route::get('/page/show1', [RedirectController::class, 'show1']);
 Route::get('/session/{key}/{value}', [BookController::class, 'session']);
 Route::get('/push/{value}', [BookController::class, 'push']);
 Route::get('/setarr', [BookController::class, 'setarr']);
