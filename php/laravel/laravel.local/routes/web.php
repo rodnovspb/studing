@@ -23,6 +23,7 @@ use App\Http\Controllers\MenuController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\RedirectController;
 use App\Http\Controllers\UserlistController;
+use App\Http\Controllers\ResponseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +42,10 @@ Route::get('/', function () {
 
 
 
+Route::get('/count-cookie', [ResponseController::class, 'count']);
+Route::get('/getcookie', [ResponseController::class, 'get']);
+Route::get('/cookie', [ResponseController::class, 'setcookie']);
+Route::get('/response', [ResponseController::class, 'response']);
 Route::get('/showparam', [UserlistController::class, 'showparam'])->name('showparam');
 Route::get('/param/{var}', [UserlistController::class, 'param'])->name('param');
 Route::get('/success', [UserlistController::class, 'success'])->name('success');
