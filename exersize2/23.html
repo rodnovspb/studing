@@ -15,20 +15,24 @@
 
 <script>
 
-let obj = {
-  eats: true,
-  arr: {
-    key: {
-      a: [1,2,3,4]
+
+
+
+  let dictionary = Object.create(null, {
+    toString: {
+      value(){
+        return Object.keys(this).join()
+      }
     }
-  }
-}
+  })
+  dictionary.__proto__ = "test";
+  dictionary.apple = "Apple";
 
-let clone = Object.create(Object.getPrototypeOf(obj), Object.getOwnPropertyDescriptors(obj))
 
 
-  console.log(clone)
-  console.log(Object.assign(obj))
+  alert(dictionary.toString())
+  console.log(Object.getOwnPropertyDescriptors(dictionary))
+
 
 
 
