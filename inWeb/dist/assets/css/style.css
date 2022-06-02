@@ -20924,6 +20924,13 @@ textarea.form-control-lg {
     justify-content: center;
 }
 
+.content__title {
+    margin: 0 0 0.2rem;
+    font-weight: 700;
+    font-size: 2rem;
+    color: #121212;
+}
+
 .intro__text {
     font-size: 1.2rem;
     color: #a1a1a1;
@@ -21091,8 +21098,8 @@ textarea.form-control-lg {
     -webkit-box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
     border-radius: 62% 38% 63% 37%/50% 41% 59% 50%;
-    -webkit-animation: circleRadius 4s alternate infinite;
-    animation: circleRadius 4s alternate infinite;
+    -webkit-animation: circleRadius 12s alternate infinite;
+    animation: circleRadius 12s alternate infinite;
 }
 
 @-webkit-keyframes circleRadius {
@@ -21177,4 +21184,13 @@ textarea.form-control-lg {
 .social__icon--inst {
     width: 35px;
     height: 35px;
+}
+
+.services {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
 }
