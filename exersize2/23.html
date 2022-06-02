@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+
+
+
+
+
+
+
+<script>
+
+let obj = {
+  eats: true,
+  arr: {
+    key: {
+      a: [1,2,3,4]
+    }
+  }
+}
+
+let clone = Object.create(Object.getPrototypeOf(obj), Object.getOwnPropertyDescriptors(obj))
+
+
+  console.log(clone)
+  console.log(Object.assign(obj))
+
+
+
+
+
+
+</script>
+</body>
+</html>
