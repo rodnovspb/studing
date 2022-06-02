@@ -42,6 +42,8 @@ Route::get('/', function () {
 
 
 
+Route::get('/res-view-cookie-header', [ResponseController::class, 'rvch']);
+Route::get('/queue', [ResponseController::class, 'queue']);
 Route::get('/count-cookie', [ResponseController::class, 'count']);
 Route::get('/getcookie', [ResponseController::class, 'get']);
 Route::get('/cookie', [ResponseController::class, 'setcookie']);
