@@ -42,6 +42,11 @@ Route::get('/', function () {
 
 
 
+Route::get('/project', [ResponseController::class, 'project']);
+Route::get('/getform', [ResponseController::class, 'getForm']);
+Route::get('/form-saveflash', [ResponseController::class, 'form']);
+Route::get('/getflash', [ResponseController::class, 'getflash']);
+Route::get('/flash', [ResponseController::class, 'flash']);
 Route::get('/res-view-cookie-header', [ResponseController::class, 'rvch']);
 Route::get('/queue', [ResponseController::class, 'queue']);
 Route::get('/count-cookie', [ResponseController::class, 'count']);

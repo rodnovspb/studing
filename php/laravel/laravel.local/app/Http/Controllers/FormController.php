@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use phpDocumentor\Reflection\DocBlock\Description;
 
 class FormController extends Controller
 {
@@ -11,6 +12,8 @@ class FormController extends Controller
     }
 
     public function result(Request $request){
+        dd($request);
+
         return view('form.result', [
             'num1' => $request->input('num1'),
             'num2' => $request->input('num2'),
