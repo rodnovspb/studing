@@ -24,6 +24,7 @@ use App\Http\Controllers\BookController;
 use App\Http\Controllers\RedirectController;
 use App\Http\Controllers\UserlistController;
 use App\Http\Controllers\ResponseController;
+use App\Http\Controllers\RegController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +43,8 @@ Route::get('/', function () {
 
 
 
+Route::get('/reg', [RegController::class, 'reg']);
+Route::post('/reg', [RegController::class, 'sendToDB']);
 Route::get('/project', [ResponseController::class, 'project']);
 Route::get('/getform', [ResponseController::class, 'getForm']);
 Route::get('/form-saveflash', [ResponseController::class, 'form']);

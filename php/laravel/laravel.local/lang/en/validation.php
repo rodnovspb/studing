@@ -93,8 +93,8 @@ return [
     'min' => [
         'array' => 'The :attribute must have at least :min items.',
         'file' => 'The :attribute must be at least :min kilobytes.',
-        'numeric' => 'The :attribute must be at least :min.',
-        'string' => 'The :attribute must be at least :min characters.',
+        'numeric' => ':attribute должен быть не менее :min символов.',
+        'string' => ':attribute должен быть не менее :min символов.',
     ],
     'multiple_of' => 'The :attribute must be a multiple of :value.',
     'not_in' => 'The selected :attribute is invalid.',
@@ -151,6 +151,7 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+
     ],
 
     /*
