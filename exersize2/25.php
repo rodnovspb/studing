@@ -1,24 +1,28 @@
 <?php
 
 
-interface Car {
-    public function setModel($a);
-    public function getModel();
+interface Inter0 {
+    public function func0($a);
 }
 
-class miniCar implements Car {
-    public $model;
-    public function setModel($a)
+interface Inter extends Inter0 {
+    public function func1();
+}
+
+
+class Cls {
+    public $a;
+}
+
+class Car extends Cls implements Inter {
+    public function func1()
     {
-        $this->model = $a;
+        echo $this->a;
     }
 
-    public function getModel()
+    public function func0($a)
     {
-        echo $this->model;
+        $this->a = $a;
     }
 }
 
-$obj = new miniCar;
-$obj->setModel('mers');
-$obj->getModel();
