@@ -1,28 +1,39 @@
 <?php
 
 
-interface Inter0 {
-    public function func0($a);
+interface Dimensions {
+    public function getSquare();
 }
 
-interface Inter extends Inter0 {
-    public function func1();
-}
-
-
-class Cls {
-    public $a;
-}
-
-class Car extends Cls implements Inter {
-    public function func1()
+class Circle implements Dimensions {
+    const PI = 3.14;
+    public $radius;
+    public function __construct($radius)
     {
-        echo $this->a;
+        $this->radius = $radius;
     }
+    public function getSquare()
+    {
+        return self::PI*$this->radius**2;
+    }
+}
 
-    public function func0($a)
+class Rectangle implements Dimensions {
+    public $a;
+    public $b;
+    public function __construct($a, $b)
     {
         $this->a = $a;
+        $this->b = $b;
+    }
+    public function getSquare()
+    {
+        return $this->a * $this->b;
     }
 }
 
+$circle = new Circle(1);
+echo $circle->getSquare();
+
+$square = new Rectangle(1,1);
+echo $square->getSquare();
