@@ -2,16 +2,23 @@
 
 
 interface Car {
-    const PI = 3.14;
-    public function getPi();
+    public function setModel($a);
+    public function getModel();
 }
 
-class BMW implements Car {
-    public function getPi()
+class miniCar implements Car {
+    public $model;
+    public function setModel($a)
     {
-        echo self::PI;
+        $this->model = $a;
+    }
+
+    public function getModel()
+    {
+        echo $this->model;
     }
 }
 
-$obj = new BMW;
-$obj->getPi();
+$obj = new miniCar;
+$obj->setModel('mers');
+$obj->getModel();
