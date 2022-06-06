@@ -1,10 +1,4 @@
-<?php
-$host = "localhost";
-$user = 'cinedr_bot';
-$pass = 'cined261475288@';
-$name = 'cinedr_bot';
-$link = mysqli_connect($host, $user, $pass, $name);
-mysqli_query($link, "SET NAMES 'utf8'");
+
 
 
 $types = [
