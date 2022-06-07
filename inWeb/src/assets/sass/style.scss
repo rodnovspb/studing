@@ -14,6 +14,7 @@ body {
     background-color: $gray;
 }
 
+
 *,
 *:before,
 *:after {
@@ -47,6 +48,11 @@ body {
 @import "blocks/circle";
 @import "blocks/social";
 @import "blocks/services";
+@import "blocks/portfolio";
+
+
+/* Vendor */
+@import "vendor/slick";
 
 
 
