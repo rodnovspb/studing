@@ -15,32 +15,32 @@
 
 <script>
 
+
+  
   class Alive {
-    constructor(name) {
-      this.name = name
-      this.speed = 0
+    constructor() {
       this.temp = 36
     }
-  }
-  
-  
-  class Animal extends Alive{
-    start(){
-      this.speed = 10
-    }
-    stop(){
-      this.speed = 0
+    kill(){
+      this.temp = 14
     }
   }
 
-let rabbit = new Animal('кролик')
-rabbit.start()
-  console.log(rabbit)
+  class Animal extends Alive {
+    constructor() {
+      super();
+      super.temp = 50
+    }
+    func(){
+      super.kill()
+    }
+  }
 
 
 
-
-
+let obj = new Animal;
+  obj.kill()
+  console.log(obj)
 
 
 
