@@ -25,6 +25,8 @@ use App\Http\Controllers\RedirectController;
 use App\Http\Controllers\UserlistController;
 use App\Http\Controllers\ResponseController;
 use App\Http\Controllers\RegController;
+use App\Http\Controllers\VisitController;
+use App\Http\Middleware\CounterOfVisits;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,6 +45,7 @@ Route::get('/', function () {
 
 
 
+Route::get('/visit', [VisitController::class, 'count'])->middleware('countvisits');
 Route::get('/reg', [RegController::class, 'reg']);
 Route::post('/reg', [RegController::class, 'sendToDB']);
 Route::get('/project', [ResponseController::class, 'project']);

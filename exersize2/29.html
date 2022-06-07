@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+
+
+
+
+
+
+
+<script>
+
+  class Alive {
+    constructor(name) {
+      this.name = name
+      this.speed = 0
+      this.temp = 36
+    }
+  }
+  
+  
+  class Animal extends Alive{
+    start(){
+      this.speed = 10
+    }
+    stop(){
+      this.speed = 0
+    }
+  }
+
+let rabbit = new Animal('кролик')
+rabbit.start()
+  console.log(rabbit)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

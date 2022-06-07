@@ -15,18 +15,20 @@
 
 
 
-
   <form action="" method="post">
     @csrf
-{{--      <input type="text" name="name" value=" {{ old('name') }}">--}}
-{{--    <input type="text" name="surname" value="{{ old('surname') }}">--}}
-{{--    <input type="text" name="pass">--}}
-{{--    <input type="checkbox" name="check">--}}
-{{--      <input type="text" name="pass">--}}
-{{--      <input type="text" name="name">--}}
+      <input type="text" name="name" value=" {{ old('name') }}">
+    <input type="text" name="surname" value="{{ old('surname') }}">
+    <input type="text" name="pass">
+    <input type="checkbox" name="check">
+      <input type="text" name="pass">
+      <input type="text" name="name">
       <input type="text" name="password">
     <input type="submit">
 </form>
+
+{{--  перевод с иностранного--}}
+  {{ __("Confirm your :amount payment", ['amount'=> "300 руб."]) }}
 
   @if ($errors->any())
       <div class="alert alert-danger">
@@ -37,6 +39,7 @@
         </ul>
     </div>
   @endif
+
 
 {{--@if($errors->has('surname'))--}}
 {{--    <div> surname ошибка </div>--}}
