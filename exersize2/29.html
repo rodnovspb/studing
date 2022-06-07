@@ -15,31 +15,21 @@
 
 <script>
 
-  class Alive {
-    constructor(name) {
-      this.name = name
-      this.speed = 0
-      this.temp = 36
+function f() {
+  return class  {
+    func(){
+      console.log('!!!')
     }
   }
-  
-  
-  class Animal extends Alive{
-    start(){
-      this.speed = 10
-    }
-    stop(){
-      this.speed = 0
-    }
-  }
-
-let rabbit = new Animal('кролик')
-rabbit.start()
-  console.log(rabbit)
+}
 
 
+class User extends f() {
 
+}
 
+let obj = new User;
+obj.func()
 
 
 
