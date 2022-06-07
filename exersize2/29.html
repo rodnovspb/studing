@@ -63,7 +63,7 @@ class ExtendedClock extends Clock {
     this.render();
     this.timer = setInterval(() => this.render(), this.precision);
   }
-};
+}
 
 let obj = new ExtendedClock({template: 'h-m-s', precision: 2000});
 
