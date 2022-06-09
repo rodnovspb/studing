@@ -8,8 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class User extends Model
 {
     use HasFactory;
-    static function w(): int
-    {
-        return 5;
-    }
+
 }

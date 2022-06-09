@@ -27,6 +27,7 @@ use App\Http\Controllers\ResponseController;
 use App\Http\Controllers\RegController;
 use App\Http\Controllers\VisitController;
 use App\Http\Middleware\CounterOfVisits;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,6 +44,9 @@ Route::get('/', function () {
     return 'главная';
 });
 
+
+
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 
 
 Route::get('/visit', [VisitController::class, 'count'])->middleware('countvisits');

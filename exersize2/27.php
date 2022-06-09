@@ -33,3 +33,5 @@ $types = [
 ];
 
 var_dump(in_array('Достw', $types));
+
+print_r(PDO::getAvailableDrivers());
