@@ -22,21 +22,16 @@
   
   
   class CoffeeMachine {
-    _amount = 0;
-    
-    setAmount(value){
-      this._amount = value
-    }
-    
-    getAmount(){
-      return this._amount
-    }
-    
+   #amount = 0
+   
+   getAmount(){
+    return this.#amount
+   }
+   
   }
   
   
   let obj = new CoffeeMachine;
-  obj.setAmount(10)
   console.log(obj.getAmount())
 
 
