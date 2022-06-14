@@ -22,31 +22,22 @@
   
   
   class CoffeeMachine {
-    _waterAmount = 0;
+    _amount = 0;
     
-    set waterAmount(value){
-      if(value<0) throw new Error('ошибка')
-      this._waterAmount = value
-    }
-    
-    get waterAmount(){
-      return this._waterAmount
-    }
-  
-    constructor(power) {
-      this._power = power
+    setAmount(value){
+      this._amount = value
     }
     
-    get power(){
-      return this._power
+    getAmount(){
+      return this._amount
     }
+    
   }
   
-  let obj = new CoffeeMachine(200)
-  obj.waterAmount = -1
-  console.log(obj)
   
-  
+  let obj = new CoffeeMachine;
+  obj.setAmount(10)
+  console.log(obj.getAmount())
 
 
 
