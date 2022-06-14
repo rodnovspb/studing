@@ -15,30 +15,39 @@
 
 <script>
 
-class Article {
-  constructor(title, date) {
-    this.title = title
-    this.date = date
+
+  
+  
+  
+  
+  
+  class CoffeeMachine {
+    _waterAmount = 0;
+    
+    set waterAmount(value){
+      if(value<0) throw new Error('ошибка')
+      this._waterAmount = value
+    }
+    
+    get waterAmount(){
+      return this._waterAmount
+    }
+  
+    constructor(power) {
+      this._power = power
+    }
+    
+    get power(){
+      return this._power
+    }
   }
   
-  static compare(a,b){
-    return a.date - b.date
-  }
+  let obj = new CoffeeMachine(200)
+  obj.waterAmount = -1
+  console.log(obj)
   
-  static create(){
-    return new this('Сегодняшняя статья', new Date)
-  }
-}
+  
 
-
-let arr = [
-        new Article('Статья 1', new Date(2022, 0, 3)),
-        new Article('Статья 2', new Date(2022, 0, 4)),
-        new Article('Статья 3', new Date(2022, 0, 4)),
-]
-
-  console.log(Article.compare(arr[1], arr[0])/1000/60/60/24)
-  console.log(Article.create())
 
 
 
