@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+
+
+
+
+
+
+
+<script>
+
+class Article {
+  constructor(title, date) {
+    this.title = title
+    this.date = date
+  }
+  
+  static compare(a,b){
+    return a.date - b.date
+  }
+  
+  static create(){
+    return new this('Сегодняшняя статья', new Date)
+  }
+}
+
+
+let arr = [
+        new Article('Статья 1', new Date(2022, 0, 3)),
+        new Article('Статья 2', new Date(2022, 0, 4)),
+        new Article('Статья 3', new Date(2022, 0, 4)),
+]
+
+  console.log(Article.compare(arr[1], arr[0])/1000/60/60/24)
+  console.log(Article.create())
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

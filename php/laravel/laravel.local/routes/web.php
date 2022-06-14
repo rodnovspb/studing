@@ -28,6 +28,7 @@ use App\Http\Controllers\RegController;
 use App\Http\Controllers\VisitController;
 use App\Http\Middleware\CounterOfVisits;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PassController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,6 +50,9 @@ Route::get('/', function () {
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 
 
+Route::get('/decrypt/{str}', [PassController::class, 'decrypt'])->name('decrypt');
+Route::get('/crypt/{str}', [PassController::class, 'crypt'])->name('crypt');
+Route::get('/pass', [PassController::class, 'pass'])->name('pass');
 Route::get('/visit', [VisitController::class, 'count'])->middleware('countvisits');
 Route::get('/reg', [RegController::class, 'reg']);
 Route::post('/reg', [RegController::class, 'sendToDB']);
