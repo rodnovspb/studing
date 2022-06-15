@@ -1,19 +1,16 @@
 <?php
 
-class Car
-{
-    public static $value = 5;
-    public static function set($a) {
-        self::$value = $a;
+
+
+class Count {
+    static int $count = 0;
+    public static function increment(){
+        self::$count++;
     }
 }
 
-Car::set(111);
-
-class Bmw extends Car {
-    public static function func() {
-        return parent::$value;
-    }
-}
-
-echo Bmw::func();
+Count::increment();
+Count::increment();
+Count::increment();
+Count::increment();
+echo Count::$count;
