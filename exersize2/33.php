@@ -1,16 +1,13 @@
 <?php
 
+include 'show.php';
 
 
-class Count {
-    static int $count = 0;
-    public static function increment(){
-        self::$count++;
-    }
-}
 
-Count::increment();
-Count::increment();
-Count::increment();
-Count::increment();
-echo Count::$count;
+show([
+    1=>'asdasdasd',
+    2=>'asdasdasd',
+    3=>'asdasdasd',
+    4=>'asdasdasd',
+    5=>'asdasdasd',
+]);

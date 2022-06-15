@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+
+
+
+
+
+
+
+<script>
+
+
+
+
+
+
+  let mix = {
+    sayHi(){
+      console.log(this.name + ", привет")
+    },
+    sayBye(){
+      console.log(this.name + ", пока")
+    }
+  }
+  
+  class User {
+    constructor(name) {
+      this.name = name
+    }
+  }
+
+
+User.prototype.sayHi = mix.sayHi
+User.prototype.sayBye = mix.sayBye
+  
+  let user = new User('Денис')
+  user.sayHi()
+  console.log(User.prototype)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
