@@ -19,28 +19,29 @@
 
 
 
-class ValidationError extends Error {
+class Validation extends Error {
   constructor(message) {
-    super();
-    this.name = 'ValidationError'
-    this.message = message;
+    super(message);
+    this.name = 'Validation'
   }
 }
 
 
-function f() {
-  throw new ValidationError('моя ошибка')
-}
+let json = '{"name": 1, "surname": 2d}';
 
+function read(user) {
   try {
-    f()
+    let obj = JSON.parse(user)
+    if(!obj.name) throw new Validation('нет obj.name');
+    if(!obj.surname) throw new Validation('нет obj.surname');
   } catch (e) {
-    console.log(e.name)
-    console.log(e.message)
-    console.log(e.stack)
+    if(e.name === 'SyntaxError') console.log('SyntaxError')
+    else if(e.name === 'Validation') console.log(e.message)
+    else throw e;
   }
+}
 
-
+read(json)
 
 
 
