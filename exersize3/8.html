@@ -17,24 +17,31 @@
 
 
 
-function func(){
-  let json = '{"key": 1, "name": 12}'
-  try{
-    obj = JSON.parse(json);
-    throw new Error('моя ошибка');
-  } catch (e) {
-    if(e.name === 'SyntaxError') console.log(e)
-    else throw e;
-  } finally {
-    console.log('выполнился finally')
+
+
+class ValidationError extends Error {
+  constructor(message) {
+    super();
+    this.name = 'ValidationError'
+    this.message = message;
   }
 }
 
-try{
-  func()
-} catch (e) {
-  console.log(e)
+
+function f() {
+  throw new ValidationError('моя ошибка')
 }
+
+  try {
+    f()
+  } catch (e) {
+    console.log(e.name)
+    console.log(e.message)
+    console.log(e.stack)
+  }
+
+
+
 
 
 
