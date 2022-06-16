@@ -32,6 +32,17 @@
             echo "<div>" . get_the_content() . "</div>";
             echo "<p>" . get_the_author() . "</p>";
 
+            echo "<p>" . the_time('d.m.Y H:i:s') . "</p>";
+
+            $arr = get_the_category();
+            $str = '';
+            foreach ($arr as $item){
+              $str .= "$item->name, ";
+			}
+			echo $str;
+            echo "<p>" . the_category() . "</p>";
+
+
 
 
 
