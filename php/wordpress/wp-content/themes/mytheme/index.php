@@ -32,15 +32,7 @@
 
             echo "<div>" . get_the_content() . "</div>";
 
-            $arr = get_the_tags();
-            if(is_array($arr)){
-                foreach ($arr as $item){
-                    echo $item->name . " | ";
-                }
-			}
-
-
-            show(get_the_tags());
+   			the_post_thumbnail();
 
 
 

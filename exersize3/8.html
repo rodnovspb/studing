@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+
+
+
+
+
+
+
+<script>
+
+
+
+function func(){
+  let json = '{"key": 1, "name": 12}'
+  try{
+    obj = JSON.parse(json);
+    throw new Error('моя ошибка');
+  } catch (e) {
+    if(e.name === 'SyntaxError') console.log(e)
+    else throw e;
+  }
+}
+
+try{
+  func()
+} catch (e) {
+  console.log(e)
+}
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
