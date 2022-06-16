@@ -25,6 +25,8 @@ function func(){
   } catch (e) {
     if(e.name === 'SyntaxError') console.log(e)
     else throw e;
+  } finally {
+    console.log('выполнился finally')
   }
 }
 
