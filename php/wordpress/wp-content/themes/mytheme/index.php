@@ -20,6 +20,7 @@
 
 	<div class="middle">
 	<?php
+	include_once "show.php";
     // циклы вывода записей
     // если записи найдены
     if ( have_posts() ){
@@ -30,17 +31,22 @@
 
 
             echo "<div>" . get_the_content() . "</div>";
-            echo "<p>" . get_the_author() . "</p>";
 
-            echo "<p>" . the_time('d.m.Y H:i:s') . "</p>";
-
-            $arr = get_the_category();
-            $str = '';
-            foreach ($arr as $item){
-              $str .= "$item->name, ";
+            $arr = get_the_tags();
+            if(is_array($arr)){
+                foreach ($arr as $item){
+                    echo $item->name . " | ";
+                }
 			}
-			echo $str;
-            echo "<p>" . the_category() . "</p>";
+
+
+            show(get_the_tags());
+
+
+
+
+
+
 
 
 
