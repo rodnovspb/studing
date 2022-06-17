@@ -24,14 +24,7 @@
     }, 1000)
   })
   
-  promise.then(res=>{
-    console.log(res)
-  }).catch(e=>{
-    console.log(e.message)
-  }).finally(()=>{
-    console.log('промис завершен')
-  })
-  
+  promise.then(res=>console.log('больше 0.5'), err=>console.log('ошибка'))
   
   
   
