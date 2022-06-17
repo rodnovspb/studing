@@ -18,17 +18,20 @@
 
   let promise = new Promise((resolve, reject) => {
     setTimeout(()=>{
-      let random = Math.random()
-      if(random>0.5) resolve('больше 0,5')
-      else reject(new Error('Ошибка, меньше 0,5'))
+      let num = Math.random()
+      num > 0.5 ? resolve('больше') : reject(new Error('ошибка, меньше 0,5'))
     }, 1000)
   })
   
-  promise.then(res=>console.log('больше 0.5'), err=>console.log('ошибка'))
+  promise.finally(()=>{
+    console.log('финалли')
+  }).then(res=>{
+    console.log(res)
+  }).catch(e=>{
+    console.log(e)
+  })
   
-  
-  
-  
+ 
   
   
   
