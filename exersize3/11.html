@@ -15,17 +15,32 @@
 
 <script>
 
-function loadScript(path, callback) {
-  let script = document.createElement('script')
-  script.src = path
-  script.onload = callback(script)
-  script.onerror = ()=> new Error('Ошибка')
-  document.head.append(script)
-}
 
-loadScript('https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.2.0/lodash.js', function (script) {
-  console.log(`Скрипт ${script.src} загрузился`)
-})
+  let promise = new Promise((resolve, reject) => {
+    setTimeout(()=>{
+      let random = Math.random()
+      if(random>0.5) resolve('больше 0,5')
+      else reject(new Error('Ошибка, меньше 0,5'))
+    }, 1000)
+  })
+  
+  promise.then(res=>{
+    console.log(res)
+  }).catch(e=>{
+    console.log(e.message)
+  }).finally(()=>{
+    console.log('промис завершен')
+  })
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 
 
 
