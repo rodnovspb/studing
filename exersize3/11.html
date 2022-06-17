@@ -18,23 +18,26 @@
 
 
   
-  function load(src) {
-    return new Promise(((resolve, reject) => {
-      let script = document.createElement('script')
-      script.src = src
-      script.onload = ()=>resolve(script)
-      script.onerror = ()=>reject(new Error('ошибка'))
-      document.head.append(script)
-    }))
-  }
 
+  let promise = new Promise(function(resolve, reject) {
+    resolve(1);
+  
+    setTimeout(() => resolve(2), 1000);
+  });
 
-let promise = load('10.js')
-  promise.then(res=>{
-    console.log(`Скрипт ${res.src} загружен`)
-  }).catch(e=>{
-    console.log(e)
-  }).finally(()=>console.log('финалли'))
+  promise.then(console.log);
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 
 
 
