@@ -18,44 +18,20 @@
 
 
 
-
-class Validation extends Error {
+class FormatError extends SyntaxError {
   constructor(message) {
     super(message);
-    this.name = 'Validation'
+    this.name = 'FormatError';
   }
 }
 
-class PropertyRequiredError extends Validation {
-  constructor(property) {
-    super(`Нет свойства ${property}`);
-    this.property = property
-    this.name = 'PropertyRequiredError';
-  }
-}
+let error =  new FormatError('ошибка форматирования')
 
+console.log(error.name)
+console.log(error.message)
+console.log(error.stack)
 
-let json = '{"name1": 1, "surname": 2}';
-
-function read(user) {
-  try {
-    let obj = JSON.parse(user)
-    if(!obj.name) throw new PropertyRequiredError('name');
-    if(!obj.surname) throw new PropertyRequiredError('surname');
-  } catch (e) {
-    if(e.name === 'SyntaxError') console.log('SyntaxError')
-    else if(e instanceof Validation) console.log(e.message)
-    else throw e;
-  }
-}
-
-read(json)
-
-let obj = new Validation('sdf')
-console.log(obj.constructor)
-
-
-
+  console.log(error instanceof Error)
 
 
 
