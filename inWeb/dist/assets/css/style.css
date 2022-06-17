@@ -20944,11 +20944,23 @@ textarea.form-control-lg {
     margin-bottom: 0.5rem;
 }
 
+@media (max-width: 575px) {
+    .intro__title {
+        font-size: 2rem;
+    }
+}
+
 .intro__subtitle {
     font-size: 1.6rem;
     color: #121212;
     font-weight: 400;
     margin-bottom: 2rem;
+}
+
+@media (max-width: 575px) {
+    .intro__subtitle {
+        font-size: 1.2rem;
+    }
 }
 
 .intro__subtitle--pink {
@@ -20972,6 +20984,15 @@ textarea.form-control-lg {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+}
+
+@media (max-width: 575px) {
+    .nav {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+    }
 }
 
 .nav__link {
@@ -21085,6 +21106,24 @@ textarea.form-control-lg {
     z-index: 2;
 }
 
+@media (max-width: 1330px) {
+    .author {
+        right: 2rem;
+    }
+}
+
+@media (max-width: 1000px) {
+    .author {
+        right: -6rem;
+    }
+}
+
+@media (max-width: 575px) {
+    .author {
+        display: none;
+    }
+}
+
 .circle {
     position: absolute;
     z-index: 1;
@@ -21100,6 +21139,24 @@ textarea.form-control-lg {
     border-radius: 62% 38% 63% 37%/50% 41% 59% 50%;
     -webkit-animation: circleRadius 12s alternate infinite;
     animation: circleRadius 12s alternate infinite;
+}
+
+@media (max-width: 1330px) {
+    .circle {
+        right: 0;
+    }
+}
+
+@media (max-width: 1000px) {
+    .circle {
+        right: -12rem;
+    }
+}
+
+@media (max-width: 575px) {
+    .circle {
+        display: none;
+    }
 }
 
 @-webkit-keyframes circleRadius {

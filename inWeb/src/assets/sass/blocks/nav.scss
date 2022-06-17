@@ -2,6 +2,10 @@
   font-size: 1rem;
   font-weight: 500;
   display: flex;
+
+  @media (max-width: $breakpoint_sm) {
+    flex-direction: column;
+  }
 }
 
 .nav__link {

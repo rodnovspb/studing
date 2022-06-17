@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+
+
+
+
+
+
+
+<script>
+
+function loadScript(path, callback) {
+  let script = document.createElement('script')
+  script.src = path
+  script.onload = callback(script)
+  script.onerror = ()=> new Error('Ошибка')
+  document.head.append(script)
+}
+
+loadScript('https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.2.0/lodash.js', function (script) {
+  console.log(`Скрипт ${script.src} загрузился`)
+})
+
+
+
+
+</script>
+</body>
+</html>

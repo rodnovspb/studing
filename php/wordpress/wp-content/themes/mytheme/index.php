@@ -4,11 +4,9 @@
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<title>
-		<?php echo wp_get_document_title(); ?>
+	  <?php echo wp_get_document_title() ." - ". get_bloginfo('name')?>
 	</title>
-
 	<link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>" type="text/css" />
-
     <?php wp_head(); ?>
 </head>
 
@@ -19,6 +17,7 @@
 	</header>
 
 	<div class="middle">
+		<div><?= get_calendar() ?></div>
 	<?php
 	include_once "show.php";
     // циклы вывода записей
@@ -31,19 +30,6 @@
 
 
             echo "<div>" . get_the_content() . "</div>";
-
-   			the_post_thumbnail();
-
-
-
-
-
-
-
-
-
-
-
 
             echo "<br>";
         }
