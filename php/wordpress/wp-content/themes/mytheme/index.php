@@ -17,18 +17,15 @@
             if (have_posts()) {
                 while (have_posts()) {
                     the_post();
-
-
                     if(is_single()){
                       echo "<h1>" . get_the_title() ."</h1>";
                       echo "<div>Автор: " . get_the_author() . "</div>";
                       echo "<div>Время публикации: " . get_the_time() . "</div>";
 					} else {
                       echo '<h2>'. get_the_title() .' </h2>';
-                      echo "<div><a href='" . get_permalink() . "'>подробнее</a></div>";
                       echo "<div>" . the_post_thumbnail() . "</div>";
 					}
-						the_content();
+						the_content('подробнее');
 
                 }
             } else {

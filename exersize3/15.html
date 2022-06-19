@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+
+
+
+
+
+
+
+<script>
+
+
+  
+  class Thenable {
+    constructor(value) {
+      this.key = value
+    }
+    then(resolve, reject){
+      setTimeout(()=>{
+        resolve(this.key**2)
+      })
+    }
+  }
+  
+  new Promise((resolve, reject) => {
+    setTimeout(()=>{
+      resolve(10)
+    }, 1000)
+  }).then((res)=>{
+    return new Thenable(res)
+  }).then(res=>console.log(res))
+  
+  
+  
+  
+  
+  
+  
+
+
+</script>
+</body>
+</html>
