@@ -16,8 +16,13 @@
 <script>
 
 
-  let promise = fetch('1.html')
-  promise.then(res=>console.log(res))
+  let promise = fetch('13.html')
+  promise
+          .then(res=>res.text())
+          .then(res=>fetch(res))
+          .then(res=>res.text())
+          .then(res=>console.log(res))
+          .catch(e=>console.log(e))
 
   
   
