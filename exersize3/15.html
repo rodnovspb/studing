@@ -15,17 +15,18 @@
 
 <script>
 
-
+  class User {
+  
+  }
+  
+  
   new Promise(((resolve, reject) => {
-    resolve(5)
-  })).then(()=>{
-   throw new Error('asdsadad')
-  })
-     .catch(e=>{
-    console.log(e.message)
-       return 4;
-  }).then(res=>{
-    console.log(res)
+    reject(new Error('ошибка'))
+  })).catch(e=>{
+    if(e instanceof User) console.log(e)
+    else throw e
+  }).catch(e=>{
+    console.log(`Неизвестная ошибка ${e.message}`)
   })
 
   
