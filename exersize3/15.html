@@ -16,19 +16,34 @@
 <script>
 
 
-Promise.all([
-  new Promise((resolve => {
-    setTimeout(()=>resolve(1), 1000)
-  })),
-  new Promise((resolve => {
-    setTimeout(()=>resolve(2), 2000)
-  })),
-  new Promise((resolve => {
-    setTimeout(()=>resolve(3), 1000)
-  })),
-]).then(resolve=>{
-  console.log(resolve)
-})
+  Promise.all([
+    new Promise((resolve, reject) => {
+      setTimeout(()=>{
+        resolve(1)
+      }, 1000)
+    }),
+    new Promise((resolve, reject) => {
+      setTimeout(()=>{
+        reject(new Error('ошибка'))
+      }, 1500)
+    }),
+    new Promise((resolve, reject) => {
+      setTimeout(()=>{
+        resolve(1)
+      }, 900)
+    }),
+  ]).then(res=>console.log(res))
+    .catch(e=>console.log(e))
+
+
+
+
+
+
+
+
+
+
 
 
 
