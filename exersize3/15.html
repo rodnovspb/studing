@@ -16,13 +16,17 @@
 <script>
 
 
-  let promise = fetch('13.html')
-  promise
-          .then(res=>res.text())
-          .then(res=>fetch(res))
-          .then(res=>res.text())
-          .then(res=>console.log(res))
-          .catch(e=>console.log(e))
+  new Promise(((resolve, reject) => {
+    resolve(5)
+  })).then(()=>{
+   throw new Error('asdsadad')
+  })
+     .catch(e=>{
+    console.log(e.message)
+       return 4;
+  }).then(res=>{
+    console.log(res)
+  })
 
   
   
