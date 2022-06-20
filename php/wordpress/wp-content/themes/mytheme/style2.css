@@ -1,0 +1,9 @@
+.footer--my {
+	margin-top: 10px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.comment-respond {
+	text-align: center;
+}

@@ -1,0 +1,8 @@
+label[for='comment'] {
+	display: none;
+}
+
+.author_date {
+	display: flex;
+	justify-content: space-between;
+}
