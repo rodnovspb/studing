@@ -16,33 +16,28 @@
 <script>
 
 
-async function loadJson(url){
-  let response = await fetch(url);
-  if(response.status == 200){
-    response = await response.json();
-    return response;
-  }
   
-  throw new Error(response.status);
-}
+  
+  async function wait() {
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    return 10;
+  }
 
-loadJson('no-such-user.json') // (3)
-        .catch(alert); // Error: 404
+  function f() {
+    wait().then(res=>console.log(res))
+  }
 
-function loadJson(url) {
-  return fetch(url)
-          .then(response => {
-            if (response.status == 200) {
-              return response.json();
-            } else {
-              throw new Error(response.status);
-            }
-          })
-}
+  f()
 
 
-loadJson('no-such-user.json') // (3)
-        .catch(alert); // Error: 404
+
+
+
+
+
+
+
+
 
 
 
