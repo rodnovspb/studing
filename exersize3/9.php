@@ -14,18 +14,29 @@ require_once 'show.php';
 $link = mysqli_connect($host, $user, $pass, $name);
 mysqli_query($link, "SET NAMES 'utf8'");
 
-$query = "INSERT INTO persons (first_name, last_name, email) VALUES (?, ?, ?)";
-if($stmt = mysqli_prepare($link, $query)){
-    mysqli_stmt_bind_param($stmt, 'sss', $first_name, $last_name, $email);
-    $first_name = "Ron1";
-    $last_name = "Weasley1";
-    $email = "ronweasley@mail.2c1om";
-    $res = mysqli_stmt_execute($stmt);
-    echo "Записи успешно вставлены.";
+$query = "SELECT * FROM persons";
+$res = mysqli_query($link, $query) or die(mysqli_error($link));
+if(mysqli_num_rows($res)>0){
+    echo "<table>";
+    echo "<tr>";
+    echo "<th>id</th>";
+    echo "<th>first_name</th>";
+    echo "<th>last_name</th>";
+    echo "<th>email</th>";
+    echo "</tr>";
+    while ($row = mysqli_fetch_assoc($res)){
+        echo "<tr>";
+        echo "<td>$row[id]</td>";
+        echo "<td>$row[first_name]</td>";
+        echo "<td>$row[last_name]</td>";
+        echo "<td>$row[email]</td>";
+        echo "</tr>";
+    }
+    echo "</table>";
+    mysqli_free_result($res);
 } else {
-    echo 'Ошибка: ' . mysqli_error($link);
+    echo "Записей, соответствующих вашему запросу, не найдено.";
 }
-    mysqli_stmt_close($stmt);
 
 
 
