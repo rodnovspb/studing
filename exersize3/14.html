@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+
+
+
+
+
+
+
+<script>
+
+ 
+  
+  
+  async function f() {
+      let promise = new Promise(((resolve, reject) => {
+        setTimeout(()=>{
+          resolve(111)
+        }, 1000)
+      }))
+    
+    let res = await promise
+    console.log(res)
+    
+  }
+
+  f()
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
