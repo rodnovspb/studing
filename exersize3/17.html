@@ -15,26 +15,28 @@
 
 <script>
 
-  function* generateSequence() {
-    yield 1
-    yield 2
-    yield 3
-    yield 4
-    yield 5
+
+  
+  
+  
+  
+  function* f(start, end) {
+    for(let i=start; i<end; i++) yield i
   }
 
+  function* generatePasswordCodes(){
+    
+    yield* f(48, 57)
+    yield* f(65, 90)
+    yield* f(97, 122)
+  }
 
-let generator = generateSequence()
+  let str = ''
+  for(let code of generatePasswordCodes()){
+    str += String.fromCharCode(code)
+  }
 
-let arr = [...generator]
-  console.log(arr)
-
-
-
-
-
-
-
+console.log(str)
 
 
 
