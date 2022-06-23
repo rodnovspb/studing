@@ -17,19 +17,32 @@
 
 
 
-function* pseudoRandom(seed){
-  let value = seed
-  
-  while (true){
-    value = value * 56345%45658252
-    yield value
-  }
-}
 
-let a = pseudoRandom(1)
-  console.log(a.next().value)
-  console.log(a.next().value)
-  console.log(a.next().value)
+
+
+  async function* f(url) {
+    for(let i=0; i<10; i++){
+      let data = await fetch(url)
+      let text = await data.text()
+      yield text
+    }
+  }
+
+  (async ()=>{
+    for await (let elem of f('15.html')){
+      console.log(elem)
+    }
+  })()
+
+
+(async ()=>{
+  for(let i=0; i<10; i++){
+    let a = await fetch('15.html')
+    let b = await a.text()
+    console.log(b)
+  }
+})()
+
 
 
 
