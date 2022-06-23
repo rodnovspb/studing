@@ -17,21 +17,19 @@
 
 
 
-function gen(seed) {
+function* pseudoRandom(seed){
   let value = seed
   
-  return function () {
-    value = value*16807 % 2147483647
-    return value
+  while (true){
+    value = value * 56345%45658252
+    yield value
   }
 }
 
-let a = gen(2)
-  console.log(a())
-  console.log(a())
-  console.log(a())
-
-
+let a = pseudoRandom(1)
+  console.log(a.next().value)
+  console.log(a.next().value)
+  console.log(a.next().value)
 
 
 
