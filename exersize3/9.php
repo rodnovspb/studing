@@ -76,47 +76,47 @@ require_once 'show.php';
 //}
 
 
-//////Выборка данных в стиле PDO (+ подготовленные операторы)
-    echo "<table style='border: solid 1px black;'>";
-    echo "<tr><th>Id</th><th>Имя</th><th>Фамилия</th><th>E-mail</th></tr>";
-
-    class Tablerows extends RecursiveIteratorIterator {
-        function __construct($it)
-        {
-            parent::__construct($it, self::LEAVES_ONLY);
-        }
-
-
-    function current(){
-        return "<td style='width: 150px; border: 1px solid black;'>" .
-            parent::current(). "</td>";
-    }
-
-        function beginChildren() {
-            echo "<tr>";
-        }
-
-        function endChildren() {
-            echo "</tr>" . "\n";
-        }
-    }
-
-try {
-    $pdo = new PDO("mysql:host=$host;dbname=$name",$user,$pass);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $stmt = $pdo->prepare('SELECT * FROM persons WHERE id=10');
-    $stmt->execute();
-
-    $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-
-    foreach (new Tablerows(new RecursiveArrayIterator($stmt->fetchAll())) as $k=>$v){
-        echo $v;
-    }
-
-
-} catch (PDOException $e){
-    echo "Ошибка " . $e->getMessage();
-}
-
-$conn = null;
-echo "</table>";
+////////Выборка данных в стиле PDO (+ подготовленные операторы)
+//    echo "<table style='border: solid 1px black;'>";
+//    echo "<tr><th>Id</th><th>Имя</th><th>Фамилия</th><th>E-mail</th></tr>";
+//
+//    class Tablerows extends RecursiveIteratorIterator {
+//        function __construct($it)
+//        {
+//            parent::__construct($it, self::LEAVES_ONLY);
+//        }
+//
+//
+//    function current(){
+//        return "<td style='width: 150px; border: 1px solid black;'>" .
+//            parent::current(). "</td>";
+//    }
+//
+//        function beginChildren() {
+//            echo "<tr>";
+//        }
+//
+//        function endChildren() {
+//            echo "</tr>" . "\n";
+//        }
+//    }
+//
+//try {
+//    $pdo = new PDO("mysql:host=$host;dbname=$name",$user,$pass);
+//    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+//    $stmt = $pdo->prepare('SELECT * FROM persons WHERE id=10');
+//    $stmt->execute();
+//
+//    $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+//
+//    foreach (new Tablerows(new RecursiveArrayIterator($stmt->fetchAll())) as $k=>$v){
+//        echo $v;
+//    }
+//
+//
+//} catch (PDOException $e){
+//    echo "Ошибка " . $e->getMessage();
+//}
+//
+//$conn = null;
+//echo "</table>";
