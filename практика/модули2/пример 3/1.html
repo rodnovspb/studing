@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+
+
+
+
+
+
+
+<script type="module">
+
+  //Если модуль импортируется в нескольких файлах, то код модуля будет выполнен только один раз, объект admin будет создан и в дальнейшем будет передан всем импортёрам.
+
+  // Все импортёры получат один-единственный объект admin
+  
+import {obj} from './script.js'
+
+  console.log(obj)
+
+  
+</script>
+</body>
+</html>

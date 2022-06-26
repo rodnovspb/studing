@@ -18,9 +18,9 @@ function css_to_wp_head(){
 
 add_action('wp_head', 'js_to_wp_head');
 function js_to_wp_head() {
-    wp_enqueue_script('script0.js', get_stylesheet_directory_uri() . '/script0.js');
-    wp_enqueue_script('script.js', get_stylesheet_directory_uri() . '/script.js');
-    wp_enqueue_script('script2.js', get_stylesheet_directory_uri() . '/script2.js');
+    wp_enqueue_script('script0.js', get_template_directory_uri() . '/script0.js');
+    wp_enqueue_script('script.js', get_template_directory_uri() . '/script.js');
+    wp_enqueue_script('script2.js', get_template_directory_uri() . '/script2.js');
     $script = "console.log(`четвертый скрипт`)";
     wp_add_inline_script('script2.js', $script, 'after');
 }

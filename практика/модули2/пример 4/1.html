@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+
+
+
+
+
+
+
+<script type="module">
+
+import {func} from "./script2.js";
+func()
+
+
+import {obj} from "./script.js";
+console.log(obj.name)
+// объект один для двух модулей, имя изменилось во втором модуле
+//но если в html скрипте изменить obj.name, то не меняется
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

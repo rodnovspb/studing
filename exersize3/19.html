@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+<body>
+ <input id="elem" value="old">
+ <input type="submit" id="btn">
+
+ <script>
+  let elem = document.querySelector('#elem');
+  let btn = document.querySelector('#btn');
+
+  btn.addEventListener('click', function () {
+    elem.setAttribute('value', 'old');
+    let value = elem.getAttribute('value');
+    elem.value = value;
+ });
+ </script>
+</body>
+
+
+
+</script>
+</body>
+</html>
