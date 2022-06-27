@@ -17,36 +17,26 @@
 
 
 
-  
-  
-  
-  
-  let dictionary = {
-    'Hello': 'Hola',
-    'Bye': 'Adiós'
-  };
 
-  
-  let proxy = new Proxy(dictionary, {
-    get(obj, key){
-      if(key in obj) return obj[key]
-      return key
-    }
-  })
-  
-  
-  console.log(proxy['Hello'])
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+let user = {
+  name: "Вася",
+  age: 30,
+  _password: "***"
+};
+
+let proxy = new Proxy(user, {
+  ownKeys(target){
+    return Object.keys(target).filter(key=>!key.startsWith('_'))
+  }
+})
+
+console.log(Object.keys(proxy))
+
+
+
+
+
 
 </script>
 
