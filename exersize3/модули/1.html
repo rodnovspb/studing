@@ -26,6 +26,7 @@
     'Bye': 'Adiós'
   };
 
+  
   let proxy = new Proxy(dictionary, {
     get(obj, key){
       if(key in obj) return obj[key]
