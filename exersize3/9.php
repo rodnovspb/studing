@@ -10,70 +10,51 @@ $name = 'mydb';
 require_once 'show.php';
 
 
-/////////Процедурный Mysqli
+///////Процедурный Mysqli
 //$link = mysqli_connect($host, $user, $pass, $name);
 //mysqli_query($link, "SET NAMES 'utf8'");
 //
-//$query = "SELECT * FROM persons WHERE last_name='Роднов'";
+//$query = "UPDATE persons SET first_name = 'DENIS11' WHERE id = 1";
 //$res = mysqli_query($link, $query) or die(mysqli_error($link));
-//if(mysqli_num_rows($res)>0){
-//    echo "<table>";
-//    echo "<tr>";
-//    echo "<th>id</th>";
-//    echo "<th>first_name</th>";
-//    echo "<th>last_name</th>";
-//    echo "<th>email</th>";
-//    echo "</tr>";
-//    while ($row = mysqli_fetch_assoc($res)){
-//        echo "<tr>";
-//        echo "<td>$row[id]</td>";
-//        echo "<td>$row[first_name]</td>";
-//        echo "<td>$row[last_name]</td>";
-//        echo "<td>$row[email]</td>";
-//        echo "</tr>";
-//    }
-//    echo "</table>";
-//    mysqli_free_result($res);
-//} else {
-//    echo "Записей, соответствующих вашему запросу, не найдено.";
-//}
-
-
-
-//////////PDO
-//try {
-//    $pdo = new PDO("mysql:host=$host;dbname=$name",$user,$pass);
-//    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-//} catch (PDOException $e){
-//    echo "Ошибка " . $e->getMessage();
-//}
 //
-//try{
-//    $query = "SELECT * FROM persons2";
-//    $result = $pdo->query($query);
-//    if($result->rowCount()>0){
-//            echo "<table>";
-//    echo "<tr>";
-//    echo "<th>id</th>";
-//    echo "<th>first_name</th>";
-//    echo "<th>last_name</th>";
-//    echo "<th>email</th>";
-//    echo "</tr>";
-//    while ($row = $result->fetch()){
-//        echo "<tr>";
-//        echo "<td>$row[id]</td>";
-//        echo "<td>$row[first_name]</td>";
-//        echo "<td>$row[last_name]</td>";
-//        echo "<td>$row[email]</td>";
-//        echo "</tr>";
-//    }
-//    echo "</table>";
-//    unset($result);
-//    }
-//
-//} catch (PDOException $e){
-//    die("Ошибка: " . $e->getMessage());
+//if($res){
+//    echo 'Обновлено';
+//}  else {
+//    echo 'Не обновлено';
 //}
+
+
+
+////////PDO
+try {
+    $pdo = new PDO("mysql:host=$host;dbname=$name",$user,$pass);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e){
+    echo "Ошибка " . $e->getMessage();
+}
+
+try {
+    $query = "UPDATE persons2 SET first_name = 'DENIS11' WHERE id = 1";
+    $stmt = $pdo->prepare($query);
+    $stmt->execute();
+
+    if($stmt->rowCount()>0) echo 'успешно';
+
+} catch (PDOException $e){
+    die("Ошибка: " . $e->getMessage());
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ////////Выборка данных в стиле PDO (+ подготовленные операторы)
