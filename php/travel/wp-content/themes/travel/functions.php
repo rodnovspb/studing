@@ -35,3 +35,22 @@ register_sidebar(array(
     'description' => 'Размещайте виджеты футера',
 ));
 
+
+// слайдер
+
+add_action('init', 'slider');
+
+function slider(){
+    register_post_type('slider', array(
+        'public' => true,
+        'supports' => ['title', 'thumbnail'],
+        'labels'=> [
+            'name' => 'Слайдер',
+            'all_items' => 'Все изображения',
+            'add_new' => 'Добавить изображение',
+            'add_new_item' => 'Добавить слайдер',
+            ]
+    ));
+}
+
+

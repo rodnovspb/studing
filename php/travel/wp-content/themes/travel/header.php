@@ -22,11 +22,24 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <!-- Start-Header-->
 			<div class="header">
 				<div class="wrap">
-				<!-- Start-logo-->
-				<div class="logo">
-					<a href="<?php echo home_url(); ?>"><img src="<?php bloginfo("template_url")?>/images/logo.png" title="logo" /></a>
+<!--				Start-logo-->
+				<div class="logo"
+				<a href="<?php echo home_url(); ?>"><img src="<?php bloginfo("template_url")?>/images/logo.png" title="logo" /></a>
 				</div>
-                <!-- End-Logo-->
+<!--                End-Logo-->
+
+<!--				Слайдер начало-->
+<!--		--><?php //$slider = new WP_Query(array('post_type'=>'slider')); ?>
+<!---->
+<!--        --><?php //if($slider->have_posts()) :?>
+<!--		--><?php //while ($slider->have_posts()) : $slider->the_post(); ?>
+<!---->
+<!--        --><?php //endwhile; ?>
+<!--        --><?php //else: ?>
+<!--		<div>Здесь нужно установить изображения</div>-->
+<!--        --><?php //endif; ?>
+<!--				Слайдер конец-->
+
                 <!-- Start-Header-nav-->
 				<div class="clear"> </div>
                 <!-- End-Header-nav-->

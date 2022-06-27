@@ -14,14 +14,12 @@ require_once 'show.php';
 //$link = mysqli_connect($host, $user, $pass, $name);
 //mysqli_query($link, "SET NAMES 'utf8'");
 //
-//$query = "UPDATE persons SET first_name = 'DENIS11' WHERE id = 1";
+//$query = "SELECT * FROM persons LIMIT 5 OFFSET 1";
 //$res = mysqli_query($link, $query) or die(mysqli_error($link));
 //
-//if($res){
-//    echo 'Обновлено';
-//}  else {
-//    echo 'Не обновлено';
-//}
+//for($data = []; $row = mysqli_fetch_assoc($res); $data[] = $row);
+//
+//show($data);
 
 
 
@@ -34,11 +32,10 @@ try {
 }
 
 try {
-    $query = "UPDATE persons2 SET first_name = 'DENIS11' WHERE id = 1";
-    $stmt = $pdo->prepare($query);
-    $stmt->execute();
+    $query = "SELECT * FROM persons LIMIT 5 OFFSET 1";
+    $res = $pdo->query($query);
 
-    if($stmt->rowCount()>0) echo 'успешно';
+    show($res->fetch());
 
 } catch (PDOException $e){
     die("Ошибка: " . $e->getMessage());

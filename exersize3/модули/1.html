@@ -16,10 +16,16 @@
 <script type="module">
 
 
-  
-  import arr from './script.js'
-  
-  console.log(arr)
+  function f(a) {
+    if(a>10){
+      (async function f() {
+        let obj = await import('./script.js')
+        obj.f()
+      })()
+    }
+  }
+
+  f(9)
   
   
   

@@ -19,6 +19,10 @@
 			<div class="mark"><?php the_tags(); ?></div>
 		</div>
 
+		<div class="comments__block">
+		  	<?php comments_template(); ?>
+		</div>
+
         <?php endwhile; ?>
         <?php else: ?>
             <div>Записей не найдено</div>
