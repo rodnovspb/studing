@@ -13,24 +13,16 @@
 
 
 
-<script type="module">
+<script>
 
 
-  function f(a) {
-    if(a>10){
-      (async function f() {
-        let obj = await import('./script.js')
-        obj.f()
-      })()
-    }
-  }
+ if(1) import('./script.js').then(obj=>obj.f())
 
-  f(9)
-  
-  
-  
-  
-  
+
+
+
+
+
 </script>
 
 
