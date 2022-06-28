@@ -14,22 +14,40 @@
 
 <script>
 
-  function sum(a, b) {
-    return a + b;
-  }
-  
+
+
+function log(date, importance, message) {
+  alert(`[${date.getHours()}:${date.getMinutes()}] [${importance}] ${message}`);
+}
   
   function carry(f) {
     return function (a) {
       return function (b) {
-        return f(a,b)
+        return function (c) {
+          return f(a,b,c)
+        }
       }
     }
   }
+  
+  let carriedF = carry(log)
+  
+  let withTime = carriedF(new Date())
+  
+  console.log(withTime('asd')('asdasdas'))
 
-let carF = carry(sum)
 
-console.log(carF(1)(2))
+
+
+
+
+
+
+
+
+
+
+
 
 
 
