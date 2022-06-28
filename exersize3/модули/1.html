@@ -21,18 +21,42 @@
 
 let user = {
   name: "Вася",
-  age: 30,
   _password: "***"
 };
 
+
 let proxy = new Proxy(user, {
+  get(target, prop) {
+    if (!prop.startsWith('_')) return target[prop]
+    throw new Error('ошибка доступа')
+  },
+  
+  set(target, key, value) {
+    if (!key.startsWith('_')) {
+      target[key] = value
+      return true
+    }
+    throw new Error('ошибка доступа')
+  },
+  
+  deleteProperty(target, key) {
+    if (!key.startsWith('_')) {
+      delete target[key]
+      return true
+    }
+    throw new Error('ошибка доступа')
+  },
+  
   ownKeys(target){
     return Object.keys(target).filter(key=>!key.startsWith('_'))
   }
 })
 
-console.log(Object.keys(proxy))
-
+try {
+  proxy['_password'] = 444
+} catch (e) {
+  console.log(e)
+}
 
 
 
