@@ -17,26 +17,26 @@
 
 
 
-let range = {
-  start: 1,
-  end: 10
+let user = {
+  name: "John"
 };
 
-let proxy = new Proxy(range, {
-  has(target, value){
-    return target.start < value && target.end > value
+function wrap(obj) {
+    return new Proxy(obj, {
+      get(target, key){
+        if(key in target) return Reflect.get(target, key)
+        throw new Error('нет ключа')
+      }
+    })
+}
+
+let proxy = wrap(user)
+  
+  try {
+    console.log(proxy.name)
+  } catch (e) {
+    console.log(e)
   }
-})
-
-
-console.log(19 in proxy)
-
-
-
-
-
-
-
 
 
 
