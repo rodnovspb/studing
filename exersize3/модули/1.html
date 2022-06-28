@@ -17,28 +17,21 @@
 
 
 
-let user = {
-  name: "John"
-};
-
-function wrap(obj) {
-    return new Proxy(obj, {
-      get(target, key){
-        if(key in target) return Reflect.get(target, key)
-        throw new Error('нет ключа')
-      }
-    })
-}
-
-let proxy = wrap(user)
   
-  try {
-    console.log(proxy.name)
-  } catch (e) {
-    console.log(e)
-  }
+  
+  let array = [1, 2, 3];
+  
+  
+  array = new Proxy(array, {
+    get(target, key){
+      if(Math.abs(key) <= target.length && key < 0){
+        return  target[target.length-Math.abs(key)]
+      }
+      return target[key]
+    }
+  })
 
-
+console.log(array[2])
 
 
 
