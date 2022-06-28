@@ -13,7 +13,15 @@ if(!empty($_POST)){
    require_once 'db.php';
    $data = load($data);
    $order_id = save('orders', $data);
-   show($order_id);
+   setPaymentData($order_id);
+}
+
+function setPaymentData($order_id){
+    if(isset($_SESSION['payment'])) unset($_SESSION['payment']);
+    $_SESSION['payment']['id'] = $order_id;
+    $_SESSION['payment']['price'] = $_POST['price'];
+    header('Location: form.php');
+    die();
 }
 
 function load($data){
