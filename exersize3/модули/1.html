@@ -17,21 +17,9 @@
 
 
 
-  
-  
-  let array = [1, 2, 3];
-  
-  
-  array = new Proxy(array, {
-    get(target, key){
-      if(Math.abs(key) <= target.length && key < 0){
-        return  target[target.length-Math.abs(key)]
-      }
-      return target[key]
-    }
-  })
 
-console.log(array[2])
+
+eval('alert("!!!!")')
 
 
 
