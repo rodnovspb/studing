@@ -16,15 +16,18 @@
 
 
 
+let animals = ["тигр", "ёж", "енот", "ехидна", "АИСТ", "ЯК"];
 
-let date = new Date()
+let collator = new Intl.Collator()
+
+console.log(animals.sort(function (a,b) {
+  return collator.compare(a,b)
+}))
+
+console.log(animals.sort())
 
 
-  let formatter = Intl.DateTimeFormat('ru', {
-    second: 'numeric'
-  })
-  console.log(formatter.format(date))
-  
+
 
 </script>
 </body>
