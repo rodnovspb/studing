@@ -16,41 +16,15 @@
 
 
 
-function log(date, importance, message) {
-  alert(`[${date.getHours()}:${date.getMinutes()}] [${importance}] ${message}`);
-}
+
+let date = new Date()
+
+
+  let formatter = Intl.DateTimeFormat('ru', {
+    second: 'numeric'
+  })
+  console.log(formatter.format(date))
   
-  function carry(f) {
-    return function (a) {
-      return function (b) {
-        return function (c) {
-          return f(a,b,c)
-        }
-      }
-    }
-  }
-  
-  let carriedF = carry(log)
-  
-  let withTime = carriedF(new Date())
-  
-  console.log(withTime('asd')('asdasdas'))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </script>
 </body>
