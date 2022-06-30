@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="simple-adaptive-slider.css">
+  <script src="simple-adaptive-slider.js"></script>
+</head>
+<body>
+
+
+<div class="itcss">
+  <div class="itcss__wrapper">
+    <div class="itcss__items">
+      <div class="itcss__item">
+        <img src="img/1%20(1).jpg" alt="">
+      </div>
+      <div class="itcss__item">
+         <img src="img/1%20(2).jpg" alt="">
+      </div>
+      <div class="itcss__item">
+         <img src="img/1%20(3).jpg" alt="">
+      </div>
+      <div class="itcss__item">
+         <img src="img/1%20(4).jpg" alt="">
+      </div>
+    </div>
+  </div>
+  <!-- Стрелки для перехода к предыдущему и следующему слайду -->
+  <a class="itcss__control itcss__control_prev" href="#" role="button" data-slide="prev"></a>
+  <a class="itcss__control itcss__control_next" href="#" role="button" data-slide="next"></a>
+</div>
+
+
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // инициализация слайдера
+    new ItcSimpleSlider('.itcss', {
+      loop: true,
+      autoplay: true,
+      interval: 5000,
+      swipe: true,
+    });
+  });
+</script>
+
+</body>
+</html>
