@@ -7,6 +7,7 @@
 		  <div>Дата публикации: <?php the_date();?></div>
 		</div>
 	  	<?php the_content(); ?>
+		<?php echo do_shortcode("[site_url]")?>
 		<?php comments_template(); ?>
 	</div>
     <?php get_footer(); ?>

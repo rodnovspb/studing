@@ -11,7 +11,6 @@
 	echo "<div>Фильтр: </div>";
     $text = 'Lorem <b>Ipsum</b> is simply dummy text of the printing and typesetting industry.';
     echo text($text);
-
     ?>
   </div>
 </div>

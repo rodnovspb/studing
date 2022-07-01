@@ -1,21 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-</head>
+<html>
 <body>
 
 
+<table><tr>
+    <td>01</td>
+    <td>02</td>
+    <td>03</td>
+    <td>04</td>
+    <td>05</td>
+    </tr><tr>
+    <td>01</td>
+    <td>02</td>
+    <td>03</td>
+    <td>04</td>
+    <td>05</td>
+    </tr><tr>
+    <td>01</td>
+    <td>02</td>
+    <td>03</td>
+    <td>04</td>
+    <td>05</td>
+    </tr><tr>
+    <td>01</td>
+    <td>02</td>
+    <td>03</td>
+    <td>04</td>
+    <td>05</td>
+    </tr><tr>
+    <td>01</td>
+    <td>02</td>
+    <td>03</td>
+    <td>04</td>
+    <td>05</td>
+    </tr></table>
 
 
 
 
 <script>
 
+let table = document.querySelector('table')
 
+  for(let i=0; i<table.rows.length; i++){
+    for(let j=0; j<table.rows[i].cells.length; j++){
+      if(table.rows[i].cells[j].cellIndex === i){
+        table.rows[i].cells[j].style.backgroundColor = 'red';
+      }
+    }
+  }
 
-console.log((new Date()).toLocaleTimeString())
 
 
 

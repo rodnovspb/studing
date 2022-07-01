@@ -89,3 +89,53 @@ add_filter('to_cut', 'cut');
 function cut($str) : string {
     return mb_substr($str, 0, 30);
 }
+
+add_filter('the_content', 'add_author');
+add_filter('the_content', 'add_class');
+
+function add_author($content){
+    return $content . "<div>Автор: Денис Роднов</div>";
+}
+
+function add_class($content){
+    return "<div class='post'>" . $content . "</div>";
+}
+
+add_action( 'the_excerpt', 'add_recommend');
+
+function add_recommend($excerpt){
+    $arr = ["Рекомендую: ", "Интересная статья: ", "Популярная запись: "];
+    return "<div class='recommend'>" . $arr[array_rand($arr)] . "</div>" . $excerpt;
+}
+
+// задевает также заголовки меню
+//add_filter('the_title', 'add_to_title');
+//
+//function add_to_title($title){
+//    return "Страница: " . $title;
+//
+//}
+
+// шорткоды
+
+add_shortcode('site_url', 'add_site_url');
+
+function add_site_url(){
+    ob_start();
+    echo 'ссылка на главную';
+    $str = ob_get_clean();
+    return "<a href='" . site_url() . "'>  $str </a>";
+}
+
+add_shortcode('my_name', 'add_name');
+
+function add_name(){
+    return "<span>Эта надпись выведенa из шорткода</span>";
+}
+
+add_shortcode('day_of_week', 'add_day');
+
+function add_day(){
+    $days = array('Воскресенье', 'Понедельник' , 'Вторник' , 'Среда' , 'Четверг' , 'Пятница' , 'Суббота'  );
+    return $days[date('w')];
+}
