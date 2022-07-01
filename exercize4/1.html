@@ -39,17 +39,11 @@
 
 <script>
 
-let table = document.querySelector('table')
+let tds = document.querySelectorAll('td')
 
-  for(let i=0; i<table.rows.length; i++){
-    for(let j=0; j<table.rows[i].cells.length; j++){
-      if(table.rows[i].cells[j].cellIndex === i){
-        table.rows[i].cells[j].style.backgroundColor = 'red';
-      }
-    }
-  }
-
-
+for (let i = 0; i < tds.length; i++) {
+    if(tds[i].cellIndex === tds[i].parentElement)
+}
 
 
 
