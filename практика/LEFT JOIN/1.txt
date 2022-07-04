@@ -1,0 +1,23 @@
+SELECT wp_posts.id, wp_posts.post_title, wp_posts.post_content, wp_terms.name FROM `wp_posts`
+LEFT JOIN wp_term_relationships ON wp_term_relationships.object_id = wp_posts.id
+LEFT JOIN wp_term_taxonomy ON wp_term_taxonomy.term_taxonomy_id = wp_term_relationships.term_taxonomy_id
+LEFT JOIN wp_terms ON  wp_terms.term_id = wp_term_taxonomy.term_id
+WHERE wp_posts.post_type = 'post' ORDER BY wp_posts.ID LIMIT 30
+
+
+После SELECT пишем поля со всех таблиц которые нужны в итоговой таблице.
+После LEFT JOIN сначала идет таблица с которой связываемся, потом связываемое поле этой таблицы = связываемое поле предыдущей основной.
+Можно связывать несколько таблиц подряд, как если первая со второй, вторая с третьей и т.д.
+
+Если у таблиц есть одинаковые названия полей, которые должны присутствовать в итоговой, то делаем:
+SELECT wp_posts.id as first_field и т.д.
+
+Связываение происходит в буфере обмена, париться что там происходит не нужно, просто связывай нужные таблицы по такому-то полю, хоть паровозом
+
+В последнюю очередь идет условие, которое отработает для основной (первой) таблицы
+
+___________________________________________________________________________________
+
+SELECT wp_posts.ID, wp_posts.post_title, wp_posts.post_content, parent.post_title FROM `wp_posts` LEFT JOIN wp_posts as parent ON parent.id = wp_posts.post_parent
+
+Таблицы тоже можно переименовывать. Здесь в таблице есть ссылка на родительскую запись, нужно для каждой записи показать ее родителя, поэтому wp_posts переименовал в parent  (одна и та же таблица)
