@@ -29,24 +29,10 @@
   
 <script>
 
-  f(document.querySelector('ul'))
-  
-  function f(node) {
-    if(node.nodeName === "UL"){
-      let list = node.children
-      for (let listElement of list) {
-        if(listElement.nodeName === 'LI') {
-          console.log((listElement.textContent).trim())
-        } else {
-          f(listElement)
-        }
-      }
-    }
-  }
 
-
-
-
+	console.dir(document.__proto__)
+	
+	
 
 
 </script>
