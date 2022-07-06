@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Документ</title>
+<style>
+
+
+</style>
+</head>
+<body>
+  
+  
+  <ul>
+      <li>001</li>
+      <li>
+        <ul>
+          <li>111</li>
+          <li>222</li>
+          <li>333</li>
+        </ul>
+      </li>
+      <li>003</li>
+      <li>004</li>
+      <li>005</li>
+  </ul>
+  
+  
+<script>
+
+  f(document.querySelector('ul'))
+  
+  function f(node) {
+    if(node.nodeName === "UL"){
+      let list = node.children
+      for (let listElement of list) {
+        if(listElement.nodeName === 'LI') {
+          console.log((listElement.textContent).trim())
+        } else {
+          f(listElement)
+        }
+      }
+    }
+  }
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
