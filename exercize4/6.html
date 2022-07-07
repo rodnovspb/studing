@@ -25,12 +25,18 @@
 <script>
  
   let elems = document.querySelectorAll('a')
+
   for (let elem of elems) {
-      if(/:\/\//.test(elem.href) && !(elem.href).startsWith('http://internal.com')){
-		  elem.style.color = 'orange'
-      }
-      
+    let href = elem.getAttribute('href')
+    if(!href) continue
+    if(!href.includes('://')) continue
+    if(href.startsWith('http://internal.com')) continue
+    elem.style.color = 'orange'
   }
+  
+  
+  
+  
   
   
 </script>
