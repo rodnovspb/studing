@@ -7,43 +7,32 @@
 <style>
 
 
+
 </style>
 </head>
 <body>
 
-
-<div show-info="name"></div>
-<div show-info="age"></div>
-
+<ul>
+  <li><a href="http://google.com">http://google.com</a></li>
+  <li><a href="/tutorial">/tutorial.html</a></li>
+  <li><a href="local/path">local/path</a></li>
+  <li><a href="ftp://ftp.com/my.zip">ftp://ftp.com/my.zip</a></li>
+  <li><a href="http://nodejs.org">http://nodejs.org</a></li>
+  <li><a href="http://internal.com/test">http://internal.com/test</a></li>
+</ul>
 
 
 <script>
-
-
-let elems = document.querySelectorAll('[show-info]')
-
-    let obj = {
-	    name: 'Денис',
-        age: 35
-    }
-
-for (let elem of elems) {
-    let field = elem.getAttribute('show-info')
-    elem.innerHTML = obj[field]
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
+ 
+  let elems = document.querySelectorAll('a')
+  for (let elem of elems) {
+      if(/:\/\//.test(elem.href) && !(elem.href).startsWith('http://internal.com')){
+		  elem.style.color = 'orange'
+      }
+      
+  }
+  
+  
 </script>
 
 
