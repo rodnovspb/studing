@@ -6,6 +6,9 @@
 <title>Документ</title>
 <style>
 
+  a[href*="://"]:not([href^="http://internal.com"]) {
+    color: orangered;
+  }
 
 
 </style>
@@ -23,22 +26,14 @@
 
 
 <script>
- 
-  let elems = document.querySelectorAll('a')
 
-  for (let elem of elems) {
-    let href = elem.getAttribute('href')
-    if(!href) continue
-    if(!href.includes('://')) continue
-    if(href.startsWith('http://internal.com')) continue
-    elem.style.color = 'orange'
-  }
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
 </script>
 
 
