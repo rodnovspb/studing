@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    table, th, td {
+      border: 1px solid blue;
+      padding: 5px;
+    }
+    td {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<select name="select" class="select">
+  <option value="">Выбери человека</option>
+  <option value="1">Ivan</option>
+  <option value="2">Stepan</option>
+  <option value="3">Maxim</option>
+  <option value="4">Irina</option>
+</select>
+
+<div class="wrapper">
+
+</div>
+
+
+<script>
+
+let select = document.querySelector('.select')
+let div = document.querySelector('.wrapper')
+
+select.addEventListener('change', async function (){
+  div.innerHTML = ''
+  if(this.value !== ''){
+    try {
+      let response = await fetch(`ajax.php?num=${this.value}`)
+      if(response.ok){
+        let data = await response.json();
+        div.innerHTML = data;
+      }
+    } catch (e){console.log(e)}
+  }
+})
+
+
+
+
+
+</script>
+</body>
+</html>
