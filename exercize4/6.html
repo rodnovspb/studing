@@ -10,29 +10,38 @@
 </style>
 </head>
 <body>
-  
-  
-  <ul>
-      <li>001</li>
-      <li>
-        <ul>
-          <li>111</li>
-          <li>222</li>
-          <li>333</li>
-        </ul>
-      </li>
-      <li>003</li>
-      <li>004</li>
-      <li>005</li>
-  </ul>
-  
-  
+
+
+<div show-info="name"></div>
+<div show-info="age"></div>
+
+
+
 <script>
 
 
-	console.dir(document.__proto__)
-	
-	
+let elems = document.querySelectorAll('[show-info]')
+
+    let obj = {
+	    name: 'Денис',
+        age: 35
+    }
+
+for (let elem of elems) {
+    let field = elem.getAttribute('show-info')
+    elem.innerHTML = obj[field]
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 </script>
