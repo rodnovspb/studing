@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    table, th, td {
+      border: 1px solid #0000ff;
+      border-collapse: collapse;
+      padding: 10px;
+    }
+    th {
+      background-color: rgba(140, 187, 245, 0.3);
+    }
+    td {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+
+<table>
+  <tr>
+    <th>пн</th>
+    <th>вт</th>
+    <th>ср</th>
+    <th>чт</th>
+    <th>пт</th>
+    <th>сб</th>
+    <th>вс</th>
+  </tr>
+</table>
+
+
+
+
+
+<script>
+
+  let table = document.querySelector('table')
+  createCalendar(table, 2022, 8)
+  
+  function createCalendar(table, year, month) {
+      let date = new Date(year, month-1, 1)
+      let firstDayWeek = date.getDay()
+      let lastDate = (new Date(year, month, 0)).getDate()
+      
+      let arr = []
+      let countEmptyCells = firstDayWeek - 1
+      
+      
+      for(let i=0; i< countEmptyCells; i++){
+        arr.push('')
+      }
+      
+      for(let i=1; i<=lastDate; i++){
+        arr.push(i)
+      }
+      
+        while (arr.length){
+        let tr = document.createElement('tr')
+        for(let j=0; j<7; j++){
+          let td = document.createElement('td')
+          td.textContent = arr.shift()
+          tr.append(td)
+        }
+        table.append(tr)
+      }
+      
+  }
+  
+  
+  
+
+
+</script>
+</body>
+</html>
