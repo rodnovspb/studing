@@ -10,36 +10,29 @@
 <body>
 
 
-<ul>
-    <li>001</li>
-    <li>002</li>
-    <li>003</li>
-    <li>004</li>
-    <li>005</li>
-</ul>
+
+
 
 
 
 <script>
 
-let elem = document.createElement('li')
-elem.innerHTML = 'append'
-  document.querySelector('ul').append(elem)
-
-let elem1 = document.createElement('li')
-elem1.innerHTML = 'prepend'
-document.querySelector('ul').prepend(elem1)
-
-let elem3 = document.createElement('span')
-elem3.innerHTML = 'before'
-  document.querySelector('ul').before(elem3)
-
-let elem4 = document.createElement('span')
-  elem4.innerHTML = 'after'
-  document.querySelector('ul').after(elem4)
-
-
-
+    
+    function getList() {
+        let list = new DocumentFragment()
+		for (let i = 0; i < 10; i++) {
+            let elem = document.createElement('p')
+			elem.innerHTML = i;
+            list.append(elem)
+		}
+		return list
+	}
+ 
+ document.body.append(getList())
+ 
+ 
+ 
+ 
 
 
 
