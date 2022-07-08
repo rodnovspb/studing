@@ -6,3 +6,18 @@ label[for='comment'] {
 	display: flex;
 	justify-content: space-between;
 }
+
+.footer__links {
+	display: flex;
+	gap: 5%;
+}
+
+.footer__links span {
+	font-weight: 700;
+}
+
+.footer__links ul {
+	padding-left: 0;
+	margin-top: 5px;
+	list-style-type: none;
+}
