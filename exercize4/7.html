@@ -11,24 +11,30 @@
 </head>
 <body>
 
-<ol id="elem">
-  <li>Привет</li>
-  <li>Мир</li>
-</ol>
+<ul>
+
+</ul>
+
 
 <script>
-  
-  function clear(elem) {
-    while (elem.firstChild){
-      elem.firstChild.remove()
-    }
-  }
 
-  let elem = document.querySelector('#elem')
-  clear(elem); // очищает список
+let elem = document.querySelector('ul');
+
+
+(function f() {
+    let data = prompt('Введите текст', '')
+    if(data){
+      elem.insertAdjacentHTML('beforeend', `<li>${data}</li>`)
+      f()
+    }
+  })()
   
   
   
+  
+
+
+
 </script>
 
 
