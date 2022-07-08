@@ -24,7 +24,9 @@ let elem = document.querySelector('ul');
 (function f() {
     let data = prompt('Введите текст', '')
     if(data){
-      elem.insertAdjacentHTML('beforeend', `<li>${data}</li>`)
+      let li = document.createElement('li')
+      li.innerHTML = data
+      elem.append(li)
       f()
     }
   })()
