@@ -4,42 +4,39 @@
   <meta charset="UTF-8">
   <title>Title</title>
   <style>
-    .alert {
-      border: 1px solid #0000ff;
-      padding: 15px;
-      border-radius: 4px;
-      background-color: #4375f1;
-      color: #fff;
-      text-align: center;
-    }
-    
+  
   </style>
 </head>
 <body>
 
 
-<div class="parent">
-  <div>111111111</div>
-  <div class="alert">Это алерт</div>
-  <div>22222222</div>
-  <div>33333333</div>
-  <div>44444444</div>
-</div>
+<ul>
+    <li>001</li>
+    <li>002</li>
+    <li>003</li>
+    <li>004</li>
+    <li>005</li>
+</ul>
 
 
 
 <script>
 
-let div = document.querySelector('.parent div:nth-child(2)')
-let elem = document.createElement('div')
-  elem.className = 'alert'
-  elem.innerHTML = "<strong>Это второй алерт</strong>"
-  div.before(elem)
+let elem = document.createElement('li')
+elem.innerHTML = 'append'
+  document.querySelector('ul').append(elem)
 
+let elem1 = document.createElement('li')
+elem1.innerHTML = 'prepend'
+document.querySelector('ul').prepend(elem1)
 
+let elem3 = document.createElement('span')
+elem3.innerHTML = 'before'
+  document.querySelector('ul').before(elem3)
 
-
-
+let elem4 = document.createElement('span')
+  elem4.innerHTML = 'after'
+  document.querySelector('ul').after(elem4)
 
 
 
