@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,28 +11,29 @@
 </head>
 <body>
 
-
-<div>111111111</div>
-
-
-
+<ol id="elem">
+  <li>Привет</li>
+  <li>Мир</li>
+</ol>
 
 <script>
+  
+  function clear(elem) {
+    while (elem.firstChild){
+      elem.firstChild.remove()
+    }
+  }
 
-  setTimeout(()=>{
-    document.write('<span>234234234234</span>')
-  }, 1000)
+  let elem = document.querySelector('#elem')
+  clear(elem); // очищает список
   
   
-
- 
- 
- 
- 
-
-
-
-
+  
 </script>
+
+
+
+
+
 </body>
 </html>
