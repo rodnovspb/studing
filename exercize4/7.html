@@ -19,16 +19,16 @@
 
     
     function getList() {
-        let list = new DocumentFragment()
+        let list = []
 		for (let i = 0; i < 10; i++) {
             let elem = document.createElement('p')
 			elem.innerHTML = i;
-            list.append(elem)
+            list.push(elem)
 		}
 		return list
 	}
  
- document.body.append(getList())
+ document.body.append(...getList())
  
  
  
