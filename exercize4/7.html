@@ -14,9 +14,6 @@
 
 <div id="container"></div>
 
-
-
-
   <script>
 
     let data = {
@@ -41,20 +38,28 @@
     createTree(container,data)
     
     function createTree(container, data) {
-      if(Object.values(data).length > 0){
-        let ul = document.createElement('ul')
-        for(let key in data){
-          let li = document.createElement('li')
-          li.textContent = key
-          ul.append(li)
-          createTree(ul, data[key])
+      let ul = document.createElement('ul')
+      for(let key in data){
+        let li = document.createElement('li')
+        li.textContent = key
+        ul.append(li)
+        if(Object.values(data[key]).length > 0){
+          createTree(li, data[key])
         }
         container.append(ul)
       }
     }
+
+
+
+    
+    
+    
+    
     
 
-  
+
+
   
   
   
