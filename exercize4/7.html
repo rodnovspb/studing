@@ -41,16 +41,17 @@
     createTree(container,data)
     
     function createTree(container, data) {
-      let ul = document.createElement('ul')
       if(Object.values(data).length > 0){
+        let ul = document.createElement('ul')
         for(let key in data){
           let li = document.createElement('li')
           li.textContent = key
           ul.append(li)
           createTree(ul, data[key])
         }
+        container.append(ul)
       }
-      container.append(ul)
+      
     }
     
 
