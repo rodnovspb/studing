@@ -1,4 +1,11 @@
 	<?php get_header(); ?>
+	<div>
+	  <?php
+      global $wpdb;
+      $wpdb->delete('wp_test4', ["column"=>'surname1']);
+
+	  ?>
+	</div>
 	<div class="middle">
 		<?php the_post(); ?>
 	  	<h1><?php the_title(); ?></h1>

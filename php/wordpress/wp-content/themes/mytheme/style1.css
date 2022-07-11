@@ -10,6 +10,7 @@ label[for='comment'] {
 .footer__links {
 	display: flex;
 	gap: 5%;
+	flex-wrap: wrap;
 }
 
 .footer__links span {

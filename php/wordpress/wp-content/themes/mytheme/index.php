@@ -6,8 +6,9 @@
               if (have_posts()) {
                   while (have_posts()) {
                       the_post();
-                      echo "<h3><a href='" . get_permalink() . "'>" . get_the_title() . "</a></h3>";
+                      echo "<h3><a href='" . get_permalink() . "'>" . get_the_title() . " (ID поста " . get_the_ID() . ")</a></h3>";
                       the_excerpt();
+
                   }
               } else {
                   echo '<p>Записей нет...</p>';
