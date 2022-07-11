@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .clock_hour {
+      color: #FF0000;
+    }
+    .clock_minutes {
+      color: #077f07;
+    }
+    .clock_seconds {
+      color: #0000FF;
+    }
+  </style>
+</head>
+<body>
+
+
+<div class="wrapper">
+  <div class="clock">
+    <span class="clock_hour">hh</span>:<span class="clock_minutes">mm</span>:<span class="clock_seconds">ss</span>
+  </div>
+  <div class="control">
+    <button class="start">Старт</button>
+    <button class="stop">Стоп</button>
+  </div>
+</div>
+
+
+
+
+
+<script>
+  let start = document.querySelector('.start')
+  let stop = document.querySelector('.stop')
+  let elem1 = document.querySelector('.clock_hour')
+  let elem2 = document.querySelector('.clock_minutes')
+  let elem3 = document.querySelector('.clock_seconds')
+  let id;
+  
+  
+  start.addEventListener('click', function (e) {
+    id = setInterval(()=>{
+      let date = new Date;
+      elem1.textContent = date.getHours();
+      elem2.textContent = (date.getMinutes() < 10 ? '0': '') + date.getMinutes();
+      elem3.textContent = (date.getSeconds() < 10 ? '0' : '') + date.getSeconds();
+    }, 1000)
+    e.preventDefault()
+  })
+  
+  stop.addEventListener('click', function () {
+    clearInterval(id)
+  })
+  
+  
+
+
+</script>
+</body>
+</html>
