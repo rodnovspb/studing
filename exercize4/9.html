@@ -33,26 +33,28 @@
 
 
 <script>
-  let start = document.querySelector('.start')
+  let startBtn = document.querySelector('.start')
   let stop = document.querySelector('.stop')
-  let elem1 = document.querySelector('.clock_hour')
-  let elem2 = document.querySelector('.clock_minutes')
-  let elem3 = document.querySelector('.clock_seconds')
+  let parent = document.querySelector('.clock')
   let id;
   
   
-  start.addEventListener('click', function (e) {
-    id = setInterval(()=>{
-      let date = new Date;
-      elem1.textContent = date.getHours();
-      elem2.textContent = (date.getMinutes() < 10 ? '0': '') + date.getMinutes();
-      elem3.textContent = (date.getSeconds() < 10 ? '0' : '') + date.getSeconds();
-    }, 1000)
+  function start(){
+    let date = new Date;
+    parent.children[0].textContent = (date.getHours() < 10 ? '0':'') + date.getHours();
+    parent.children[1].textContent = (date.getMinutes() < 10 ? '0': '') + date.getMinutes();
+    parent.children[2].textContent = (date.getSeconds() < 10 ? '0' : '') + date.getSeconds();
+  }
+
+  startBtn.addEventListener('click', function (e) {
+    start()
+    id = setInterval(start, 1000)
     e.preventDefault()
   })
   
   stop.addEventListener('click', function () {
     clearInterval(id)
+    id = null
   })
   
   
