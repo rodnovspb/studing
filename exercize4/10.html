@@ -4,11 +4,15 @@
   <meta charset="UTF-8">
   <title>Title</title>
   <style>
-    div {
+    .elem {
+      width: 100px;
+      height: 500px;
+      padding: 20px;
+      border: 10px solid blue;
+      overflow: scroll;
       position: absolute;
-      background-color: yellow;
-      color: red;
-      display: none;
+      left: 50px;
+      top: 50px;
     }
   </style>
 </head>
@@ -17,38 +21,24 @@
 
 
 
-<div></div>
+<div class="elem">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque eaque et exercitationem molestiae nesciunt porro quas suscipit tenetur voluptas voluptatum? Accusantium beatae, corporis ea eius error eum illo, ipsum iure minus nihil quas qui quia quidem suscipit voluptatum? Ab, aspernatur assumenda consectetur culpa delectus dolores doloribus eius eligendi esse excepturi expedita harum illo impedit in magnam minima molestias nulla odio odit officiis optio pariatur porro possimus quam quasi rem sequi tempore tenetur ut voluptates. Ab adipisci, consectetur debitis earum eos perspiciatis repellat tempore tenetur! Commodi eligendi, minima! Deserunt eos error harum minima natus, nobis, obcaecati porro repudiandae vitae voluptatem voluptatum!</div>
 
-
-
-
-
-
-
+<button></button>
 
 <script>
- 
-  
-  function showNotification(options){
-    if(Object.values(options)){
-      let elem = document.querySelector('div')
-      elem.style.display = 'block'
-      elem.style.padding = '30px'
-      if(options.top) elem.style.top = options.top + 'px' || '10px'
-      if(options.html) elem.textContent = options.html
-      if(options.left) elem.style.left = options.left + 'px' || '10px'
-    }
-  }
+let elem = document.querySelector('.elem')
+let btn = document.querySelector('button')
+  btn.onclick = ()=> elem.scrollTop += 10
 
 
-  
-  setTimeout(()=>showNotification({
-    left: 50,
-    top: 50,
-    html: 'Такой-то текст'
-  }), 3000)
 
-  
+
+
+
+
+
+
+
 
 
 </script>
