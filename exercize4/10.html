@@ -23,12 +23,13 @@
 
 <div class="elem">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque eaque et exercitationem molestiae nesciunt porro quas suscipit tenetur voluptas voluptatum? Accusantium beatae, corporis ea eius error eum illo, ipsum iure minus nihil quas qui quia quidem suscipit voluptatum? Ab, aspernatur assumenda consectetur culpa delectus dolores doloribus eius eligendi esse excepturi expedita harum illo impedit in magnam minima molestias nulla odio odit officiis optio pariatur porro possimus quam quasi rem sequi tempore tenetur ut voluptates. Ab adipisci, consectetur debitis earum eos perspiciatis repellat tempore tenetur! Commodi eligendi, minima! Deserunt eos error harum minima natus, nobis, obcaecati porro repudiandae vitae voluptatem voluptatum!</div>
 
-<button></button>
+<button>кнопка</button>
 
 <script>
 let elem = document.querySelector('.elem')
-let btn = document.querySelector('button')
-  btn.onclick = ()=> elem.scrollTop += 10
+document.querySelector('button').onclick = ()=>{
+  console.log(elem.scrollHeight - elem.scrollTop  - elem.clientHeight)
+}
 
 
 
