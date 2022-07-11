@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+
+<table>
+<thead>
+  <tr>
+    <th>Name</th><th>Surname</th><th>Age</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>Wohn</td><td>Smith</td><td>10</td>
+  </tr>
+  <tr>
+    <td>Pete</td><td>Brown</td><td>15</td>
+  </tr>
+  <tr>
+    <td>Ann</td><td>Lee</td><td>5</td>
+  </tr>
+  <tr>
+    <td>Rann</td><td>Lee</td><td>5</td>
+  </tr>
+  <tr>
+    <td>Znn</td><td>Lee</td><td>5</td>
+  </tr>
+</tbody>
+</table>
+
+
+
+
+<script>
+  
+  let table = document.querySelector('table')
+  
+  let sortedRows = Array.from(table.rows)
+          .slice(1)
+          .sort((row1, row2)=>
+    row1.cells[0].innerHTML > row2.cells[0].innerHTML ? 1 : -1)
+
+  table.tBodies[0].append(...sortedRows)
+
+</script>
+</body>
+</html>
