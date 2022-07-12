@@ -6,9 +6,8 @@
   <style>
     .elem {
       width: 100px;
-      height: 500px;
+      height: 100px;
       padding: 20px;
-      border: 10px solid blue;
       overflow: scroll;
       position: absolute;
       left: 50px;
@@ -27,9 +26,8 @@
 
 <script>
 let elem = document.querySelector('.elem')
-document.querySelector('button').onclick = ()=>{
-  console.log(elem.scrollHeight - elem.scrollTop  - elem.clientHeight)
-}
+
+  console.log(elem.offsetWidth -elem.clientWidth)
 
 
 

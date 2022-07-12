@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .parent {
+      border: 10px solid blue;
+      width: 300px;
+      height: 150px;
+      position: relative;
+    }
+    .ball {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: red;
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+
+
+<div class="parent">
+  <div class="ball"></div>
+</div>
+<button>В центр</button>
+
+
+
+
+
+<script>
+
+  let field = document.querySelector('.parent')
+  let btn = document.querySelector('button')
+
+  btn.onclick = ()=>{
+    let fieldWidth = field.clientWidth
+    let ballWidth = field.children[0].clientWidth
+    let fieldHeight = field.clientHeight
+    let ballHeight = field.children[0].clientHeight
+    field.children[0].style.cssText = `
+      left: ${fieldWidth/2-ballWidth/2}px;
+      top: ${fieldHeight/2-ballHeight/2}px
+    `
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</script>
+</body>
+</html>
