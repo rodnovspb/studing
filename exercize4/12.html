@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Title</title>
   <style>
-    div {
+    div.elem {
       position: absolute;
       left: 50px;
       top: 50px;
@@ -12,13 +12,16 @@
       width: 100px;
       height: 100px;
     }
+    .text {
+      width: 50px;
+    }
   </style>
 </head>
 <body>
 
 
-<div>
-</div>
+<div class="elem"></div>
+<div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur debitis dignissimos dolorem ex officiis. Consectetur consequatur corporis, cumque delectus deleniti doloremque minima molestias nemo nihil, nisi nulla ratione rerum sed similique velit! Animi assumenda consectetur corporis cupiditate dolore, ea earum eius eos eum facere fugiat incidunt ipsam iusto laboriosam laborum libero magnam maxime minima minus molestiae nam nisi numquam odit optio placeat praesentium quaerat quis quisquam quo quos repellendus repudiandae saepe similique tempora totam, veritatis vitae. Accusamus beatae corporis deserunt dolor dolorem error ex exercitationem fuga incidunt inventore molestiae necessitatibus nihil nisi obcaecati perspiciatis placeat porro possimus, provident quae quibusdam quis, ratione sequi sint vitae voluptate. Distinctio iusto nemo perspiciatis possimus quam qui quos sapiente sunt? Accusantium distinctio error harum libero odio quaerat quas quibusdam quos. Animi beatae, blanditiis culpa cum deleniti eveniet exercitationem fuga id illo, incidunt inventore iure labore odit quaerat, quibusdam quod repellat soluta tempore vel vero voluptates voluptatibus voluptatum. Iusto quia ratione ullam. Adipisci deserunt distinctio dolores eos eum explicabo, minus necessitatibus non numquam quae ratione sapiente similique sint. A accusamus accusantium aliquam, aperiam architecto aspernatur blanditiis consequuntur debitis delectus dicta doloremque earum enim error esse eum facere in itaque laboriosam molestias quae quia sapiente sint sit ut vero voluptatem voluptates? Cupiditate dignissimos nisi perferendis similique vel. Accusamus at dolorem dolores eum possimus quae rerum temporibus! Aperiam aut consequuntur dicta dolore eius enim eveniet id illum ipsam ipsum labore magni molestiae necessitatibus, nostrum possimus provident quibusdam quos repellendus sapiente voluptatum! Assumenda blanditiis ducimus excepturi inventore labore maxime minus officiis? Consequuntur ea eius esse iure labore, molestias quo repellendus sequi tempore veritatis. A accusamus adipisci atque, dignissimos doloribus eveniet fugiat id illo nam neque nesciunt non optio quasi sequi similique? Aliquam dolor ea explicabo facere facilis fugiat inventore iste iusto, magnam nisi, quam sapiente similique voluptates! A accusamus cupiditate dolor doloremque eos, explicabo, in itaque nam, nostrum quod sed tenetur voluptate voluptates? Consequatur eaque harum voluptatem! Ad consequuntur cumque dolor doloremque eaque earum enim eveniet fuga laboriosam, magnam maiores neque quasi quod quos rem repudiandae sed sint tempora tempore ut! Accusamus, incidunt sequi. Alias aliquid asperiores cumque dolor, dolore doloribus dolorum earum error est fuga id nihil, non nulla quisquam ullam ut vitae! Illo nobis, quo! Adipisci aspernatur cumque eaque fugiat illo impedit itaque laborum libero, perspiciatis quam recusandae ullam, ut, voluptate? Aliquid assumenda debitis earum eius est exercitationem hic id in ipsa iusto laudantium minima mollitia placeat quam quasi quibusdam, quo quod repellat repudiandae saepe sint soluta tempora voluptates! Dolores excepturi expedita nemo nesciunt porro saepe similique. A aliquid at aut blanditiis corporis cumque deleniti dolorem eaque, eius, excepturi exercitationem illum itaque laboriosam maxime odio odit officiis perspiciatis possimus provident quas quia quibusdam sequi suscipit temporibus unde vel, vitae voluptatum. Consequuntur eius excepturi hic iure magni quia totam voluptatibus. Dolore explicabo, illum nihil nisi non numquam perferendis praesentium quaerat. Accusantium error inventore molestiae molestias nam, natus necessitatibus nemo obcaecati officiis porro reprehenderit, sint, vel vitae. Ab ad, aperiam enim laudantium magnam unde veniam voluptates! Eum, nisi.</div>
 
 
 
@@ -26,20 +29,22 @@
 <script>
   
   
-  let elem = document.querySelector('div')
+  let elem = document.querySelector('div.elem')
   elem.addEventListener('click', function (e) {
-    let left = this.getBoundingClientRect().left
-    let bottom = this.getBoundingClientRect().bottom
+    let left = this.getBoundingClientRect().left + pageXOffset
+    let bottom = this.getBoundingClientRect().bottom + pageYOffset
     let note = document.createElement('span')
     note.style.cssText = `
-      position: fixed;
+      position: absolute;
       left: ${left}px;
       top: ${bottom}px
     `
     note.innerHTML = 'Сообщение'
     document.body.append(note)
+    setTimeout(()=>note.remove(), 5000)
   })
 
+  
 
 
 
