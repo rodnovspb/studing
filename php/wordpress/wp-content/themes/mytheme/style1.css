@@ -22,3 +22,12 @@ label[for='comment'] {
 	margin-top: 5px;
 	list-style-type: none;
 }
+
+.cats {
+	margin-bottom: 40px;
+	margin-top: -10px;
+}
+
+.single_flex {
+	display: flex;
+}

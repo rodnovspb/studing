@@ -8,7 +8,14 @@
                       the_post();
                       echo "<h3><a href='" . get_permalink() . "'>" . get_the_title() . " (ID поста " . get_the_ID() . ")</a></h3>";
                       the_excerpt();
-
+                      echo "<div class='cats'>";
+                      $links = array_map(function ($cat){
+                        return sprintf('<a href="%s">%s</a>',
+                            get_category_link($cat),
+                            $cat->name);
+					  }, get_the_category());
+                      echo implode(', ', $links);
+                      echo "</div>";
                   }
               } else {
                   echo '<p>Записей нет...</p>';

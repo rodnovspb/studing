@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    div {
+      width: 400px;
+      height: 200px;
+      border: 10px solid blue;
+      margin-top: 50px;
+      margin-left: 50px;
+      background-color: #0f0;
+    }
+  </style>
+</head>
+<body>
+
+
+<div></div>
+
+
+
+
+
+<script>
+  let div = document.querySelector('div')
+  div.addEventListener('click', function (e) {
+    console.dir(e.clientX)
+    console.dir(e.clientY)
+    console.log(~~e.target.getBoundingClientRect().left)
+    console.log(~~e.target.getBoundingClientRect().top)
+    console.log(~~e.target.getBoundingClientRect().bottom)
+    console.log(~~e.target.getBoundingClientRect().right)
+    console.log(e.target.getBoundingClientRect().left + this.clientLeft)
+    console.log(e.target.getBoundingClientRect().top + this.clientTop)
+    console.log(e.target.getBoundingClientRect().right - this.clientLeft)
+    console.log(e.target.getBoundingClientRect().top - this.clientTop)
+    console.log(e.target.getBoundingClientRect())
+  })
+  
+
+
+</script>
+</body>
+</html>
