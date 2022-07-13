@@ -1,10 +1,11 @@
 	<?php get_header(); ?>
 	<?php
 	require_once 'show.php';
-	foreach(get_the_category() as $item){
-        echo sprintf('<a href="%s">%s</a>', get_category_link($item), $item->name) . "<br>";
 
-	}
+
+	foreach(get_tags() as $tag){
+	  echo '<a href="' . get_tag_link($tag->term_id) .'">' . $tag->name . '</a><br>';
+	};
 
 
 	?>
