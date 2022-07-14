@@ -11,17 +11,13 @@
       margin: 50px 50px;
       position: relative;
     }
-    .elem {
-      display: none;
-    }
   </style>
 </head>
 <body>
 
 
   <div class="anchor"></div>
-
-  <div class="elem">Заметка</div>
+  
 
   
 
@@ -29,16 +25,18 @@
 <script>
 
   let anchor = document.querySelector('.anchor')
-  let elem = document.querySelector('.elem')
+  
   
 
-  positionAt(anchor, 'right', elem)
+  positionAt(anchor, 'right')
 
-  function positionAt(anchor, position, elem){
-    elem.style.display = 'inline-block'
+  function positionAt(anchor, position){
+    let elem = document.createElement('div')
+    elem.className = 'elem'
+    elem.innerHTML = 'Заметка'
     elem.style.position = 'absolute'
+    document.body.append(elem)
     let placeAnchor = anchor.getBoundingClientRect()
-    console.log(placeAnchor)
     switch (position) {
       case 'top':
         elem.style.left = placeAnchor.left + 'px'
@@ -57,6 +55,8 @@
          elem.style.top = placeAnchor.top + anchor.offsetHeight/2 - elem.offsetHeight/2 + 'px'
          break;
     }
+    
+    
   }
   
   
