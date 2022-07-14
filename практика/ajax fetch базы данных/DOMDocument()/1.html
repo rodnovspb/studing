@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+
+<select name="select">
+  <option value="">Выберите</option>
+  <option value="Gary">Gary Moore</option>
+  <option value="Van Morrison">Van Morrison</option>
+  <option value="Jorn Hoel">Jorn Hoel</option>
+</select>
+<div class="text">Здесь будет текст</div>
+
+
+<script>
+
+let select = document.querySelector('select[name="select"]')
+let text = document.querySelector('.text')
+select.onchange = async function (){
+  
+  if(this.value === ''){
+    text.innerHTML = ''
+    return false
+  }
+  
+  try {
+    let response = await fetch(`ajax.php?artist=${this.value}`)
+    if(response.ok){
+      text.innerHTML = await response.text();
+    }
+  } catch (e){
+    console.log(e)
+  }
+  
+}
+
+
+
+
+</script>
+</body>
+</html>

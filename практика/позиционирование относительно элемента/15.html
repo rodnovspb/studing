@@ -11,17 +11,13 @@
       margin: 50px 50px;
       position: relative;
     }
-    .elem {
-      display: none;
-    }
   </style>
 </head>
-<body>
+<body style="height: 2000px">
 
 
   <div class="anchor"></div>
-
-  <div class="elem">Заметка</div>
+  
 
   
 
@@ -29,16 +25,19 @@
 <script>
 
   let anchor = document.querySelector('.anchor')
-  let elem = document.querySelector('.elem')
+  
   
 
-  positionAt(anchor, 'right', elem)
+  positionAt(anchor, 'right-in')
 
-  function positionAt(anchor, position, elem){
-    elem.style.display = 'inline-block'
+  function positionAt(anchor, position){
+    let elem = document.createElement('div')
+    elem.className = 'elem'
+    elem.innerHTML = 'Заметка'
     elem.style.position = 'absolute'
+    // добавляем перед измерением elem.offsetWidth, так как при display: none размеры скрытого элемента равны 0
+    document.body.append(elem)
     let placeAnchor = anchor.getBoundingClientRect()
-    console.log(placeAnchor)
     switch (position) {
       case 'top':
         elem.style.left = placeAnchor.left + 'px'
@@ -56,7 +55,25 @@
          elem.style.left = placeAnchor.right + 'px'
          elem.style.top = placeAnchor.top + anchor.offsetHeight/2 - elem.offsetHeight/2 + 'px'
          break;
+       case 'top-in':
+         elem.style.left = placeAnchor.left + 'px'
+         elem.style.top = placeAnchor.top + 'px'
+         break;
+      case 'left-in':
+        elem.style.left = placeAnchor.left + 'px'
+        elem.style.top = placeAnchor.top + anchor.offsetHeight/2 - elem.offsetHeight/2 + 'px'
+        break;
+      case 'bottom-in':
+        elem.style.top = placeAnchor.bottom  - elem.offsetHeight + 'px'
+        elem.style.left = placeAnchor.left + 'px'
+        break;
+      case 'right-in':
+        elem.style.left = placeAnchor.right - elem.offsetWidth + 'px'
+        elem.style.top = placeAnchor.top + anchor.offsetHeight/2 - elem.offsetHeight/2 + 'px'
+        break;
     }
+    
+    
   }
   
   
