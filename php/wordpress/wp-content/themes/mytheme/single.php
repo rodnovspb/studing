@@ -1,15 +1,5 @@
 	<?php get_header(); ?>
-	<?php
-	require_once 'show.php';
-
-
-	foreach(get_tags() as $tag){
-	  echo '<a href="' . get_tag_link($tag->term_id) .'">' . $tag->name . '</a><br>';
-	};
-
-
-	?>
-
+	<?php 	the_post_navigation(['prev_text' => 'Предыдущая страница', 'next_text' =>'Следующая страница']); ?>
 	<div class="middle">
 		<?php the_post(); ?>
 	  	<h1><?php the_title(); ?></h1>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .anchor {
+      width: 100px;
+      height: 100px;
+      border: 1px solid blue;
+      margin: 50px 50px;
+      position: relative;
+    }
+    .elem {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+
+  <div class="anchor"></div>
+
+  <div class="elem">Заметка</div>
+
+  
+
+
+<script>
+
+  let anchor = document.querySelector('.anchor')
+  let elem = document.querySelector('.elem')
+  
+
+  positionAt(anchor, 'right', elem)
+
+  function positionAt(anchor, position, elem){
+    elem.style.display = 'inline-block'
+    elem.style.position = 'absolute'
+    let placeAnchor = anchor.getBoundingClientRect()
+    console.log(placeAnchor)
+    switch (position) {
+      case 'top':
+        elem.style.left = placeAnchor.left + 'px'
+        elem.style.top = placeAnchor.top - elem.offsetHeight + 'px'
+        break;
+      case 'left':
+        elem.style.left = placeAnchor.left - elem.offsetWidth + 'px'
+        elem.style.top = placeAnchor.top + anchor.offsetHeight/2 - elem.offsetHeight/2 + 'px'
+        break;
+      case 'bottom':
+        elem.style.top = placeAnchor.bottom  + 'px'
+        elem.style.left = placeAnchor.left + 'px'
+        break;
+       case 'right':
+         elem.style.left = placeAnchor.right + 'px'
+         elem.style.top = placeAnchor.top + anchor.offsetHeight/2 - elem.offsetHeight/2 + 'px'
+         break;
+    }
+  }
+  
+  
+  
+  
+
+
+</script>
+</body>
+</html>
