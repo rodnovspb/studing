@@ -15,30 +15,36 @@
 
 <script>
 
-    ;(async()=>{
-      try {
-        throw new Error('ошибка 1')
-      } catch (e){
-        console.log(e)
-      }
-    })()
+    // ;(async()=>{
+    //   try {
+    //     throw new Error('ошибка 1')
+    //   } catch (e){
+    //     console.log(e)
+    //   }
+    // })()
 
   ;(async()=>{
     try {
-      setTimeout(()=> {throw new Error('ошибка 2')}, 1000)
+      await f()
     } catch (e){
       console.log(e)
     }
   })()
 
+    function f(){
+      return new Promise(((resolve, reject) => {
+        reject(new Error('ошибка'))
+      }))
+    }
+    
 
-  try {
-    (async ()=>{
-      throw new Error('ошибка 3')
-    })()
-  } catch (e){
-    console.log(e)
-  }
+  // try {
+  //   (async ()=>{
+  //     throw new Error('ошибка 3')
+  //   })()
+  // } catch (e){
+  //   console.log(e)
+  // }
 
   
   

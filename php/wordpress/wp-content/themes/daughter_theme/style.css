@@ -1,0 +1,25 @@
+/*
+Theme Name: Моя дочерняя тема
+Template: mytheme
+
+Не обязательные параметры:
+Theme URI: http://example.com/
+Description: Дочерняя тема для темы twentyfifteen
+Author: Kama
+Author URI: http://example.com/about/
+Version: 1.0
+*/
+
+@import url('../mytheme/style.css');
+@import url('../mytheme/style1.css');
+@import url('../mytheme/style2.css');
+
+body {
+	background-color: rgba(150, 169, 245, 0.27);
+}
+
+.daughter_footer,
+.daughter_header {
+	text-align: center;
+	font-weight: 700;
+}

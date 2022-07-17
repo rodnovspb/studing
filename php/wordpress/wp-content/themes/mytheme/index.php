@@ -1,4 +1,8 @@
 	<?php get_header(); ?>
+	<?php
+	echo has_post_thumbnail(95);
+
+	?>
 	<div class="middle">
 		<div class="main">
 		  <div class="content">

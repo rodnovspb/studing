@@ -103,10 +103,14 @@ function add_class($content){
 
 add_action( 'the_excerpt', 'add_recommend');
 
-function add_recommend($excerpt){
-    $arr = ["Рекомендую: ", "Интересная статья: ", "Популярная запись: "];
-    return "<div class='recommend'>" . $arr[array_rand($arr)] . "</div>" . $excerpt;
+// условие добавляем, чтобы сработала функция из дочерней темы, если есть
+if(!function_exists('add_recommend')){
+    function add_recommend($excerpt){
+        $arr = ["Рекомендую: ", "Интересная статья: ", "Популярная запись: "];
+        return "<div class='recommend'>" . $arr[array_rand($arr)] . "</div>" . $excerpt;
+    }
 }
+
 
 // задевает также заголовки меню
 //add_filter('the_title', 'add_to_title');

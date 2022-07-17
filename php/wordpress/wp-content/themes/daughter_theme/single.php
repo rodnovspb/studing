@@ -1,5 +1,5 @@
 	<?php get_header(); ?>
-	<?php 	the_post_navigation(['prev_text' => 'Предыдущая страница', 'next_text' =>'Следующая страница']); ?>
+	<div class="daughter_header">Эта надпись загружена с дочерней темы</div>
 	<div class="middle">
 		<?php the_post(); ?>
 	  	<h1><?php the_title(); ?></h1>
