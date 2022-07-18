@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    .search {
+      width: 200px;
+    }
+    ul {
+      list-style-type: none;
+      margin: 0;
+      border: 1px solid #ccc;
+      width: 100%;
+      padding: 0 0 0 5px;
+    }
+    
+    input {
+      width: 100%;
+      padding-left: 5px;
+    }
+  </style>
+</head>
+<body>
+
+
+<div class="search">
+  <input id="input" type="text">
+  <div>
+    <ul id="result"></ul>
+  </div>
+</div>
+
+
+
+
+
+
+<script>
+
+  
+  input.addEventListener('keyup', function (){
+    if(this.value.length === 0){
+      result.innerHTML = ''
+    } else {
+      getList(this.value.trim())
+    }
+  })
+
+  async function getList(str){
+    try {
+      let response = await fetch(`ajax.php?str=${str}`)
+      if(response.ok){
+        let text = await response.text()
+        result.innerHTML = text
+      }
+    } catch (e){
+      console.log(e)
+    }
+  }
+
+
+
+
+
+</script>
+</body>
+</html>
