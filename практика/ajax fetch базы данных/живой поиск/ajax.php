@@ -17,6 +17,6 @@ if(!empty($_REQUEST['str'])){
             $result .= "<li>$item</li>";
         }
     }
-    if(strlen($result) === 0) $result = "<li>Нет результатов</li>";
+    $result === '' ? $result = "<li>Нет результатов</li>" : $result;
     exit($result);
 }
