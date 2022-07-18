@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    body {
+      padding: 30px;
+    }
+    
+    .carousel {
+      position: relative;
+      background-color: #eee;
+      width: 398px;
+      border-radius: 15px;
+      border: 1px solid #ccc;
+      padding: 10px 40px;
+    }
+    
+    img {
+      width: 130px;
+      height: 130px;
+      display: block;
+    }
+    
+    .gallery {
+      width: 390px;
+      overflow: hidden;
+    }
+    
+    ul {
+      width: 9999px;
+      height: 130px;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      transition: margin-left .25s;
+      font-size: 0;
+    }
+    
+    li {
+      display: inline-block;
+      
+    }
+    
+    .arrow {
+      position: absolute;
+      font-size: 24px;
+      line-height: 1;
+      border-radius: 15px;
+      border: 1px solid gray;
+      color: #444;
+      top: 50%;
+      transform: translateY(-50%);
+      display: block;
+      padding: 2px;
+    }
+    
+    .arrow:focus {
+      outline: 0;
+    }
+
+    .arrow:hover {
+      cursor: pointer;
+      background-color: #ccc;
+    }
+    
+    .left {
+      left: 7px;
+    }
+    
+    .right {
+      right: 7px;
+    }
+    
+  </style>
+</head>
+<body>
+
+
+
+<div class="carousel" id="carousel">
+  <button class="arrow left">⇦</button>
+  <div class="gallery" id="gallery">
+    <ul id="ul">
+      <li><img src="1.png" alt=""></li>
+      <li><img src="2.png" alt=""></li>
+      <li><img src="3.png" alt=""></li>
+      <li><img src="4.png" alt=""></li>
+      <li><img src="5.png" alt=""></li>
+      <li><img src="6.png" alt=""></li>
+      <li><img src="7.png" alt=""></li>
+      <li><img src="8.png" alt=""></li>
+      <li><img src="9.png" alt=""></li>
+      <li><img src="10.png" alt=""></li>
+    </ul>
+  </div>
+  <button class="arrow right">⇨</button>
+</div>
+
+
+
+
+<script>
+
+  let list = document.querySelectorAll('#ul li')
+  let width = 130 //ширина картинки
+  let count = 3 //количество картинок
+  let position = 0
+  
+  carousel.querySelector('.left').addEventListener('click', function () {
+    position += width*count
+    position = Math.min(0, position)
+    ul.style.marginLeft = position + 'px'
+  })
+
+  carousel.querySelector('.right').addEventListener('click', function () {
+    position -= width*count
+    position = Math.max(position, -(width*(list.length-1)))
+    ul.style.marginLeft = position + 'px'
+  })
+  
+  
+
+
+</script>
+</body>
+</html>
