@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    
+    * {
+      box-sizing: border-box;
+      user-select: none;
+      
+    }
+    .wrapper {
+      width: 700px;
+      margin: 50px auto;
+    }
+    
+    .carousel {
+      width: 300px;
+      margin: 0 auto;
+      border: 1px solid #bbb7b7;
+      background-color: #eee;
+      border-radius: 10px;
+      height: 100px;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .carousel_items {
+      display: flex;
+      transition: all .5s linear;
+      margin-left: 6px;
+    }
+    
+    .image {
+      display: inline-block;
+      max-width: 100px;
+      flex: 0 0 95px;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      pointer-events: none;
+    }
+
+    .left,
+    .right {
+      position: absolute;
+      color: #a5a2a2;
+      font-size: 30px;
+      line-height: 1;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
+
+    .right {
+      right: 2px;
+    }
+
+    .left {
+      left: 2px;
+    }
+    
+  </style>
+</head>
+<body>
+
+<!--Хуета, одно хорошо - сделано через items.style.transform  - не грузит комп-->
+
+  <div class="wrapper">
+    <div class="carousel">
+      <div class="carousel_items">
+        <div class="image">
+        <img src="1.png" alt="">
+      </div>
+      <div class="image">
+        <img src="2.png" alt="">
+      </div>
+      <div class="image">
+        <img src="3.png" alt="">
+      </div>
+      <div class="image">
+        <img src="4.png" alt="">
+      </div>
+      <div class="image">
+        <img src="5.png" alt="">
+      </div>
+      <div class="image">
+        <img src="6.png" alt="">
+      </div>
+      <div class="image">
+        <img src="7.png" alt="">
+      </div>
+      <div class="image">
+        <img src="8.png" alt="">
+      </div>
+      <div class="image">
+        <img src="9.png" alt="">
+      </div>
+      <div class="image">
+        <img src="10.png" alt="">
+      </div>
+      </div>
+      <span class="left">&#10096;</span>
+      <span class="right">&#10097;</span>
+    </div>
+  </div>
+
+
+
+
+<script>
+  let carousel = document.querySelector('.carousel')
+  let items = document.querySelector('.carousel_items')
+  let left = document.querySelector('.left')
+  let right = document.querySelector('.right')
+  
+  let scrollWidth = items.scrollWidth
+ 
+  
+  
+  left.addEventListener('click', function () {
+    let leftMove = (parseInt(items.style.transform.match(/\d+/)) || 0) + 281
+    items.style.transform = `translate(-${leftMove}px)`
+    if(leftMove > scrollWidth) items.style.transform = `translate(0px)`
+  })
+
+  right.addEventListener('click', function () {
+    let rightMove = parseInt(items.style.transform.match(/\d+/))
+    if(rightMove === 0){
+      return false
+    } else {
+      rightMove = - rightMove + 281
+      items.style.transform = `translate(${rightMove}px)`
+    }
+    
+  
+ 
+  
+  })
+  
+  
+  
+  
+</script>
+</body>
+</html>

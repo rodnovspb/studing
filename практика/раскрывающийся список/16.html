@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .menu {
+      margin: 50px;
+    }
+    ul {
+      padding: 0;
+      margin: 0;
+      list-style-type: none;
+    }
+    span {
+      position: relative;
+      cursor: pointer;
+    }
+    /*Треугольник с помощью бордер*/
+    /*span:before {*/
+    /*  position: absolute;*/
+    /*  content: '';*/
+    /*  width: 0;*/
+    /*  height: 0;*/
+    /*  border-style: solid;*/
+    /*  border-color: transparent;*/
+    /*  border-left-width: 10px;*/
+    /*  border-top-width: 5px;*/
+    /*  border-bottom-width: 5px;*/
+    /*  border-left-color: green;*/
+    /*  left: -15px;*/
+    /*  top: 50%;*/
+    /*  transform: translateY(-50%);*/
+    /*}*/
+    
+    /*span.open:before {*/
+    /*  border-color: transparent;*/
+    /*  border-top-width: 10px;*/
+    /*  border-left-width: 5px;*/
+    /*  border-right-width: 5px;*/
+    /*  border-top-color: green;*/
+    /*  top: 60%;*/
+    /*}*/
+    
+    /*Этот способ проще, но надпись трясется*/
+    span:before {
+      /*в юникоде есть куча значков*/
+      content: '▼ ';
+      color: green;
+      font-size: 80%;
+    }
+
+    span.open:before {
+      content: '▶ ';
+    }
+    
+    
+  </style>
+</head>
+<body>
+
+
+  <div class="menu">
+    <span><b>Нажми</b></span>
+    <ul class="list">
+      <li>Пончик</li>
+      <li>Пирожное</li>
+      <li>Беляш</li>
+      <li>Чебурек</li>
+    </ul>
+  </div>
+
+
+
+
+
+
+<script>
+
+  let ul = document.querySelector('ul')
+let span = document.querySelector('span')
+  span.addEventListener('click', function () {
+    ul.hidden = !ul.hidden
+    span.classList.toggle('open')
+  })
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
