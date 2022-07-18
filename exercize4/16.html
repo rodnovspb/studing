@@ -10,37 +10,20 @@
 <body style="height: 1000px;">
 
 
-
-
-
-
+<button id="button">Скрыть</button>
+<div id="div">Текст</div>
 
 
 
 
 <script>
 
-
- 
- class Menu {
-   handleEvent(event){
-     this[event.type]()
-   }
-   mousedown(event){
-     console.log('mousedown')
-   }
-   mouseup(event){
-     console.log('mouseup')
-   }
- }
-
-let elem = new Menu;
+button.addEventListener('click', function () {
+  div.hidden = true
+  this.hidden = true
+}, {once: true})
 
 
-document.body.addEventListener('mousedown', elem)
-document.body.addEventListener('mouseup', elem)
-
-console.log(elem)
 
 
 
