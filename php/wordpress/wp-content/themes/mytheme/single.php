@@ -3,11 +3,7 @@
 	<?php
 	require_once 'show.php';
 
-	if(is_user_logged_in()){
-        show(wp_get_current_user()->user_login);
-        show(wp_get_current_user()->user_pass);
-        show(wp_get_current_user()->roles[0]);
-	}
+	show(get_user_by('ID', 1)->user_login);
 
 
 	?>
