@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .form_span {
+      display: inline-block;
+      width: 30px;
+    }
+    
+    #form_yes,
+    #form_no {
+      display: inline-block;
+      background-color: #6176f4;
+      height: 16px;
+    }
+    .perce {
+      margin-left: 5px;
+    }
+  </style>
+</head>
+<body>
+
+
+<div class="wrapper">
+  <form id="form">
+    <div><span class="form_span"><label for="yes">Да</label></span><input name="radio"  value="1" id="yes" type="radio"><span id="form_yes"></span><span class="perce yes_perce"></span></div>
+    <div><span class="form_span"><label for="no">Нет</label></span><input name="radio" value="0" id="no" type="radio"><span id="form_no"></span><span class="perce no_perce"></span></div>
+  </form>
+  <div class="total"></div>
+</div>
+
+
+
+<script>
+  let total = document.querySelector('.total')
+  let yesPercent = document.querySelector('.yes_perce')
+  let noPercent = document.querySelector('.no_perce')
+  let elem_yes = document.querySelector('#form_yes')
+  let elem_no = document.querySelector('#form_no')
+  let inputs = document.querySelectorAll('input[name="radio"]')
+  inputs.forEach(elem=>{
+    elem.addEventListener('click', async function (){
+        try {
+          let response = await fetch(`ajax.php?num=${this.value}`)
+          if(response.ok){
+            let data = await response.text()
+            createColumn(data)
+          }
+        } catch (e) {console.log(e)}
+    })
+  })
+
+  function createColumn(data){
+    let obj = JSON.parse(data)
+    let yes = +obj['yes'];
+    let no = +obj['no'];
+    // способ через базу не дает ключ all поэтому делаем сумму сами
+    let all = obj['all'] ?? (yes + no) ;
+    let elemYesPerce = Math.round(yes/all*100)
+    let elemNoPerce = Math.round(no/all*100)
+    elem_yes.style.width = elemYesPerce + 'px'
+    elem_no.style.width = elemNoPerce + 'px'
+    yesPercent.textContent = elemYesPerce + '%'
+    noPercent.textContent = elemNoPerce + '%'
+    total.textContent = `Всего проголосовало: ${all}`
+    document.querySelector('#yes').disabled = true
+    document.querySelector('#no').disabled = true
+    
+  }
+  
+  
+
+</script>
+</body>
+</html>
