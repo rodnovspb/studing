@@ -8,6 +8,7 @@
 
 
 
+
 	?>
 
 	<?php 	the_post_navigation(['prev_text' => 'Предыдущая страница', 'next_text' =>'Следующая страница']); ?>
