@@ -18,11 +18,24 @@
 
 
 <script>
+  
+  
+  
+    let elems = document.querySelectorAll('*')
+    elems.forEach(elem=>{
+      elem.addEventListener('click', function (e) {
+          console.log(elem.tagName)
+          console.log(e.eventPhase)
+      }, {capture: true});
+      elem.addEventListener('click', function (e) {
+        console.log(elem.tagName)
+        console.log(e.eventPhase)
+      })
+    })
 
-  div.onclick = ()=>{console.log('Клик на диве')}
-  p.onclick = ()=>{console.log('Клик на p')}
-  span.onclick = ()=>{console.log('Клик на спане')}
-  document.onclick = ()=>{console.log('Клик на document')}
+
+    
+  
 
 
 
