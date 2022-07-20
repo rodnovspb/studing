@@ -8,16 +8,32 @@
 
 
 
-
+<div id="div">
+  <p id="p">
+    <span id="span">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis, soluta.</span>
+  </p>
+</div>
 
 
 
 
 <script>
 
-let str = '[abc] {abc} abc (abc) [abc]';
+  div.onclick = ()=>{console.log('Клик на диве')}
+  p.onclick = ()=>{console.log('Клик на p')}
+  span.onclick = ()=>{console.log('Клик на спане')}
+  document.onclick = ()=>{console.log('Клик на document')}
 
-console.log(str.replace(/\[.+\]/g, '!'))
+
+
+
+
+
+
+
+
+
+
 
 </script>
 </body>
