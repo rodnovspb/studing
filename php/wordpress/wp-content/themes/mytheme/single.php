@@ -3,7 +3,9 @@
 	<?php
 	require_once 'show.php';
 
-	show(get_user_by('ID', 1)->user_login);
+
+
+
 
 
 	?>
