@@ -5,35 +5,34 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Документ</title>
 <style>
-    td {
-        border: 1px solid blue;
-        padding: 20px;
+    input[type="email"]:invalid {
+        outline: 2px solid red;
     }
     
-    .light {
-        background-color: yellow;
-    }
-
 </style>
 </head>
 <body>
 
 
 
-<input id="input1" type="button"  value="1" data-counter>
-<input id="input2" type="button"  value="1" data-counter>
+<button data-toggle-id = "mail">Показать форму</button>
 
+<form id="mail" hidden>
+    <input type="email">
+    <input type="submit">
+</form>
 
 
 
 <script>
 
 document.addEventListener('click', function (e) {
-      if(e.target.dataset.counter !== null){
-        e.target.value ++
-      }
+        if(e.target.dataset.toggleId){
+        	let id = e.target.dataset.toggleId
+            let elem = document.querySelector(`#${id}`)
+			elem.hidden = !elem.hidden
+        }
   })
-
 
 
 </script>
