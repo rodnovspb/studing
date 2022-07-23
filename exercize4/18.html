@@ -5,35 +5,66 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Документ</title>
 <style>
-    input[type="email"]:invalid {
-        outline: 2px solid red;
-    }
-    
+
+
 </style>
 </head>
 <body>
-
-
-
-<button data-toggle-id = "mail">Показать форму</button>
-
-<form id="mail" hidden>
-    <input type="email">
-    <input type="submit">
-</form>
-
-
-
+  
+  <ul class="tree" id="tree">
+    <li>Животные
+      <ul>
+        <li class="elem">Млекопитающие
+          <ul>
+            <li>Коровы</li>
+            <li>Ослы</li>
+            <li>Собаки</li>
+            <li>Тигры</li>
+          </ul>
+        </li>
+        <li>Другие
+          <ul>
+            <li>Змеи</li>
+            <li>Птицы</li>
+            <li>Ящерицы</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>Рыбы
+      <ul>
+        <li>Аквариумные
+          <ul>
+            <li>Гуппи</li>
+            <li>Скалярии</li>
+          </ul>
+        </li>
+        <li>Морские
+          <ul>
+            <li>Морская форель</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  
+  
+  
 <script>
+    
+    
 
-document.addEventListener('click', function (e) {
-        if(e.target.dataset.toggleId){
-        	let id = e.target.dataset.toggleId
-            let elem = document.querySelector(`#${id}`)
-			elem.hidden = !elem.hidden
-        }
-  })
-
+    document.addEventListener('click', function (e) {
+          if(e.target.nodeName !== 'LI') return
+          if(e.target.children.length === 0) return
+		  let elems = e.target.querySelectorAll('ul')
+		    elems.forEach(elem=>{
+				elem.hidden = !elem.hidden
+            })
+      })
+    
+    
+    
 
 </script>
 
