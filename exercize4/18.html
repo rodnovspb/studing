@@ -19,40 +19,46 @@
 <body>
 
 
-<table id="table" style="border-collapse: collapse" >
-    <tr>
-        <td><span>2</span></td>
-        <td>1</td>
-        <td>1</td>
-    </tr>
-        <tr>
-        <td>1</td>
-        <td>1</td>
-        <td>1</td>
-    </tr>
-        <tr>
-        <td>1</td>
-        <td>1</td>
-        <td>1</td>
-    </tr>
-</table>
+<div id="menu">
+  <button data-action="save">Сохранить</button>
+  <button data-action="load">Загрузить</button>
+  <button data-action="search">Поиск</button>
+</div>
 
 
 
 
 <script>
 
-    table.onclick = function (e) {
-        let td = e.target.closest('td')
-        if(!td) return
-        if(!table.contains(td)) return
-		td.classList.toggle('light')
-	}
+    class Menu {
+    	constructor(elem) {
+    		elem.onclick = this.onClick.bind(this)
+		}
+
+		onClick(event){
+    		let action = event.target.dataset.action
+            this[action]()
+        }
+		
+        save(){
+    		console.log('save')
+        }
+
+		load(){
+			console.log('load')
+		}
+
+		search(){
+			console.log('search')
+		}
+    
+    }
  
  
  
  
- 
+   new Menu(menu)
+
 
 
 </script>
