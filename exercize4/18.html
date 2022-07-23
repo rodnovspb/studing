@@ -14,7 +14,7 @@
   <ul class="tree" id="tree">
     <li>Животные
       <ul>
-        <li class="elem">Млекопитающие
+        <li>Млекопитающие
           <ul>
             <li>Коровы</li>
             <li>Ослы</li>
@@ -51,20 +51,25 @@
   
   
 <script>
-    
-    
 
-    document.addEventListener('click', function (e) {
-          if(e.target.nodeName !== 'LI') return
-          if(e.target.children.length === 0) return
-		  let elems = e.target.querySelectorAll('ul')
-		    elems.forEach(elem=>{
-				elem.hidden = !elem.hidden
-            })
-      })
-    
-    
-    
+
+  for (let li of tree.querySelectorAll('li')) {
+       let span = document.createElement('span')
+       li.prepend(span)
+        span.append(span.nextSibling)
+  }
+  
+  document.addEventListener('click', function (e) {
+        if(e.target.tagName !== 'SPAN') return
+        let elems = e.target.parentNode.querySelector('ul')
+        if(!elems) return;
+        elems.hidden = !elems.hidden
+        
+    })
+
+
+
+
 
 </script>
 
