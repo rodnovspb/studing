@@ -3,10 +3,7 @@
 	<?php
 	require_once 'show.php';
 
-
-
-
-
+    wp_maintenance();
 
 
 	?>
