@@ -19,45 +19,20 @@
 <body>
 
 
-<div id="menu">
-  <button data-action="save">Сохранить</button>
-  <button data-action="load">Загрузить</button>
-  <button data-action="search">Поиск</button>
-</div>
+
+<input id="input1" type="button"  value="1" data-counter>
+<input id="input2" type="button"  value="1" data-counter>
 
 
 
 
 <script>
 
-    class Menu {
-    	constructor(elem) {
-    		elem.onclick = this.onClick.bind(this)
-		}
-
-		onClick(event){
-    		let action = event.target.dataset.action
-            this[action]()
-        }
-		
-        save(){
-    		console.log('save')
-        }
-
-		load(){
-			console.log('load')
-		}
-
-		search(){
-			console.log('search')
-		}
-    
-    }
- 
- 
- 
- 
-   new Menu(menu)
+document.addEventListener('click', function (e) {
+      if(e.target.dataset.counter !== null){
+        e.target.value ++
+      }
+  })
 
 
 
