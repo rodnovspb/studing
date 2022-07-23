@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Документ</title>
+<style>
+    td {
+        border: 1px solid blue;
+        padding: 20px;
+    }
+    
+    .light {
+        background-color: yellow;
+    }
+
+</style>
+</head>
+<body>
+
+
+<table id="table" style="border-collapse: collapse" >
+    <tr>
+        <td><span>2</span></td>
+        <td>1</td>
+        <td>1</td>
+    </tr>
+        <tr>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+    </tr>
+        <tr>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+    </tr>
+</table>
+
+
+
+
+<script>
+
+    table.onclick = function (e) {
+        let td = e.target.closest('td')
+        if(!td) return
+        if(!table.contains(td)) return
+		td.classList.toggle('light')
+	}
+ 
+ 
+ 
+ 
+ 
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
