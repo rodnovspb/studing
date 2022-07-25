@@ -736,7 +736,7 @@ class random_quotes_widget extends WP_Widget {
 
     public function widget( $args, $instance ) {
        require_once 'quotes.php';
-       $count = count($quotes);
+       $count = count($quotes) - 1;
        $random_num = random_int(0, $count);
        $str = $quotes[$random_num];
 
@@ -756,6 +756,57 @@ class random_quotes_widget extends WP_Widget {
             $title = $instance[ 'title' ];
         else
             $title = __( 'Случайная цитата ', 'random_quotes_widget_domain' );
+        ?>
+	  <p>
+<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
+<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
+</p>
+        <?php
+    }
+
+    public function update( $new_instance, $old_instance ) {
+        $instance = array();
+        $instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
+        return $instance;
+    }
+}
+
+
+//-------------------------------------------------------------------
+//    Мой виджет поздравляет, если праздничный день
+
+//Регистрируем нижесделанный виджет
+function congratulate_widget_register() {
+    register_widget( 'congratulate_widget' );
+}
+add_action( 'widgets_init', 'congratulate_widget_register' );
+
+//Код виджета
+class congratulate_widget extends WP_Widget {
+
+    function __construct() {
+        parent::__construct('congratulate_widget', __('Поздравляем: ', 'congratulate_widget_domain'), array( 'description' => __( 'Поздравялем', 'congratulate_widget_domain' ), ));
+    }
+
+    public function widget( $args, $instance ) {
+        require_once 'holidays.php';
+        $today = date('d.m.Y');
+        if(array_key_exists($today, $holidays)){
+            $holiday = $holidays[$today];
+            $title = apply_filters( 'widget_title', $instance['title'] );
+            if ( ! empty( $title ) )
+                echo $args['before_title'] . $title . $args['after_title'];
+            echo 'Сегодня: ' . $holiday;
+		} else {
+          	echo 'Сегодня ' . $today;
+		}
+    }
+
+    public function form( $instance ) {
+        if ( isset( $instance[ 'title' ] ) )
+            $title = $instance[ 'title' ];
+        else
+            $title = __( 'Поздравляем ', 'congratulate_widget_domain' );
         ?>
 	  <p>
 <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
