@@ -72,7 +72,7 @@ function normalize(url) {
 }
 function getPath(root, url) {
 	if (url.match(/\/$/)) {
-		url = url + '18.html';
+		url = url + 'сортировка.html';
 	}
 
 	return root + url;

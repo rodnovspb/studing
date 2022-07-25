@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .wrap {
+      width: 50vw;
+      margin: 50px auto;
+    }
+    
+    .tooltip {
+      position: absolute;
+      padding: 5px 10px;
+      border: 1px solid #ccc;
+      background-color: #EEEEEE;
+      box-shadow: 0px 0px 5px rgba(0 0 0 .3);
+      text-align: center;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+
+
+<div class="wrap">
+  <button data-tooltip="Длинная подсказка">Кнопка №1</button>
+  <button data-tooltip="Высокая подсказка">Кнопка №2</button>
+</div>
+
+
+<script>
+
+  document.addEventListener('mouseover', function (e) {
+        if(e.target.dataset.tooltip){
+          let text = e.target.dataset.tooltip
+          let span = document.createElement('span')
+          span.textContent = text
+          span.className = 'tooltip'
+          let coords = e.target.getBoundingClientRect()
+          document.body.append(span)
+          let left = coords.left; // начинаем вычислять координаты span.left
+          let difference = span.offsetWidth - e.target.offsetWidth // узнаем больше кнопка или подсказка  и в зависимости от этого центрируем их
+          if(difference > 0) left = coords.left - difference/2
+          if(difference < 0) left = coords.left + Math.abs(difference/2)
+          if(left < 0) left = 0 // если подсказка выходит за край экрана делаем left = 0
+          
+          let top = coords.top - span.offsetHeight - 5
+          if(top < 0) top = coords.bottom + 5 // если подсказка выходит за край экрана делаем top = 0
+          
+          span.style.left = left + 'px'
+          span.style.top = top + 'px'
+          
+          e.target.addEventListener('mouseout', function (e) {
+            span.remove()
+          })
+        }
+    })
+  
+  
+
+
+  
+
+</script>
+</body>
+</html>
