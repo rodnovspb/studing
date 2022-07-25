@@ -5,71 +5,80 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Документ</title>
 <style>
-
+  table {
+    border-collapse: collapse;
+  }
+  
+  th {
+    background-color: yellow;
+  }
+  
+  td, th {
+    padding: 10px;
+    border: 1px solid blue;
+  }
 
 </style>
 </head>
 <body>
   
-  <ul class="tree" id="tree">
-    <li>Животные
-      <ul>
-        <li>Млекопитающие
-          <ul>
-            <li>Коровы</li>
-            <li>Ослы</li>
-            <li>Собаки</li>
-            <li>Тигры</li>
-          </ul>
-        </li>
-        <li>Другие
-          <ul>
-            <li>Змеи</li>
-            <li>Птицы</li>
-            <li>Ящерицы</li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li>Рыбы
-      <ul>
-        <li>Аквариумные
-          <ul>
-            <li>Гуппи</li>
-            <li>Скалярии</li>
-          </ul>
-        </li>
-        <li>Морские
-          <ul>
-            <li>Морская форель</li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-  </ul>
-  
-  
+  <table id="table">
+    <thead>
+      <tr>
+        <th data-type="number">Возраст</th>
+        <th data-type="string">Имя</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>50</td>
+        <td>Денис</td>
+      </tr>
+      <tr>
+        <td>29</td>
+        <td>Василий</td>
+      </tr>
+      <tr>
+        <td>35</td>
+        <td>Семен</td>
+      </tr>
+      <tr>
+        <td>49</td>
+        <td>Дмитрий</td>
+      </tr>
+    </tbody>
+  </table>
   
 <script>
 
-
-  for (let li of tree.querySelectorAll('li')) {
-       let span = document.createElement('span')
-       li.prepend(span)
-        span.append(span.nextSibling)
-  }
-  
   document.addEventListener('click', function (e) {
-        if(e.target.tagName !== 'SPAN') return
-        let elems = e.target.parentNode.querySelector('ul')
-        if(!elems) return;
-        elems.hidden = !elems.hidden
+        if(e.target.tagName !== 'TH') return;
+        let tbody = document.querySelector('tbody')
+        let rows = Array.from(tbody.rows)
+        if(e.target.dataset.type == 'number' && rows) {
+          rows.sort(function (a,b) {
+            return a.cells[0].textContent - b.cells[0].textContent
+          })
+        }
+  
+        if(e.target.dataset.type == 'string' && rows) {
+          rows.sort(function (a,b) {
+            return a.cells[1].textContent > b.cells[1].textContent ? 1:-1
+          })
+        }
         
+        tbody.append(...rows)
     })
 
+  
+  
+  
 
+  
 
-
+  
+  
+ 
 
 </script>
 
