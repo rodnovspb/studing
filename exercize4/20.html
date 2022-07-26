@@ -12,7 +12,7 @@
 <body>
 
 
-<div id="div">Lorem ipsum <a href="https://yandex.ru/">dolor</a> sit amet, consectetur adipisicing elit. Accusantium, enim.</div>
+<div id="div">Lorem ipsum <a href="yandex.ru">dolor</a> sit amet, consectetur adipisicing elit. Accusantium, enim.</div>
 
 
 
@@ -22,7 +22,8 @@
         if(e.target.nodeName === 'A'){
           e.preventDefault()
           if(confirm('Перейти?', '')){
-            document.location = e.target.href
+            console.log(e.target.getAttribute('href'))
+            console.log(e.target.href)
           }
         }
         
