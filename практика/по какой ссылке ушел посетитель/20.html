@@ -21,6 +21,7 @@
   
   
   div.addEventListener('click', function (e) {
+  	    // Делаем так, на случай если innerHtml формируется скриптом
         let link = e.target.closest('a')
         if(link && div.contains(link)){
         	// Здесь можно выполнить другой код, например, отправить на сервер аякс с информацией по какой ссылке ушел посетитель
