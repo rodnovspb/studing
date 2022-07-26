@@ -3,9 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <title>Title</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <style>
     div {
-      width: 25vw;
+      width: 80vw;
     }
     
     img {
@@ -20,8 +22,9 @@
 
 <div>
   <picture>
-    <img src="1.jpg" alt="">
-    <source srcset="">
+    <source srcset="small.jpg" media="(max-width: 600px)">
+    <source srcset="middle.jpg" media="(max-width: 992px)">
+    <img src="big.jpg" alt=""> <!--По умолчанию-->
   </picture>
 </div>
 
