@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    li {
+      cursor: pointer;
+      user-select: none;
+    }
+    .selected {
+      background-color: yellowgreen;
+    }
+  </style>
+</head>
+<body>
+
+
+<ul id="ul">
+  <li>Lorem ipsum dolor sit amet.</li>
+  <li>Lorem ipsum dolor sit amet.</li>
+  <li>Lorem ipsum dolor sit amet.</li>
+  <li>Lorem ipsum dolor sit amet.</li>
+  <li>Lorem ipsum dolor sit amet.</li>
+</ul>
+
+
+<script>
+  
+  ul.addEventListener('click', function (e) {
+        let list = this.querySelectorAll('li.selected')
+        if(e.target.nodeName !== "LI") return
+        // metaKey - это ctrl для Мака
+        if(!e.ctrlKey && (!e.ctrlKey && !e.metaKey)) {
+          list.forEach(elem=>elem.classList.remove('selected'))
+        }
+        e.target.classList.toggle('selected')
+        
+    })
+  
+  
+  
+
+
+</script>
+</body>
+</html>
