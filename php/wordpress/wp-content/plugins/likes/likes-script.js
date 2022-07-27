@@ -20,10 +20,11 @@ icon.addEventListener('mouseup', function (e){
 icon.addEventListener('click', function incrementCounter(e){
   counter.textContent++
   incrementDBCounter();
+  //отменяем повторное нажатие
   icon.removeEventListener('click', incrementCounter)
 })
 
-
+//запрашиваем количество лайков из базы
 fetch(`wp-content/plugins/likes/ajax.php?count=how_much&id=${id}`)
 .then(res=>res.text())
 .then(res=>setCount(res))
@@ -33,8 +34,8 @@ function setCount(num){
   counter.textContent = num;
 }
 
+//увеличиваем количество лайков в базе
 function incrementDBCounter(){
   fetch(`wp-content/plugins/likes/ajax.php?count=increment&id=${id}`)
-  .then(res=>res.text())
   .catch(e=>console.log(e))
 }
