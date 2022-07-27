@@ -28,10 +28,12 @@
     })
     event.clientX = 300
     event.clientY = 300
+    event.detail.name = '1234'
   
   div.addEventListener('click', function (e) {
         console.log(e.clientX)
         console.log(e.clientY)
+        console.log(e.detail)
     })
 
     span.dispatchEvent(event)
