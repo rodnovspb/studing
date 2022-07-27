@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    div {
+      height: 500px;
+      background-color: #eee;
+    }
+  </style>
+</head>
+<body>
+
+
+<div id="div"></div>
+
+
+<script>
+
+    document.body.addEventListener('qwerty', function (e) {
+          console.log(`Привет от ${e.currentTarget.tagName}`)
+      })
+
+    let event = new Event('qwerty', {bubbles: true})
+    div.dispatchEvent(event)
+
+
+
+</script>
+</body>
+</html>

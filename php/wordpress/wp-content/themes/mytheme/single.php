@@ -17,6 +17,7 @@
 		  <div>Дата публикации: <?php the_date();?></div>
 		</div>
 	  	<?php the_content();?>
+		<div>Количество просмотров: <?= get_count_viewing();?></div>
         <?php echo do_shortcode("[site_url]")?>
 		<?php comments_template(); ?>
 

@@ -821,3 +821,58 @@ class congratulate_widget extends WP_Widget {
         return $instance;
     }
 }
+//	Конец работы с виджетами
+//--------------------------------------------------------------
+
+	function get_count_viewing(){
+  		global $wpdb, $post;
+  		$result = $wpdb->get_results("SELECT count FROM wp_views WHERE id = $post->ID");
+  		return $result[0]->count;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

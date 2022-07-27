@@ -1,0 +1,20 @@
+.like {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	gap: 5px;
+}
+
+.like__icon {
+	background-image: url("like.svg");
+	width: 40px;
+	height: 40px;
+	cursor: pointer;
+	transition: all .2s linear;
+}
+
+.like__counter {
+	font-size: 20px;
+	color: blue;
+}
+

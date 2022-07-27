@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="likes-style.css">
 <title>Документ</title>
 <style>
 
@@ -11,14 +12,17 @@
 </head>
 <body>
   
-  <div class="elem elem1"></div>
+  <div class="post">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, illo?</div>
   
   
   
 <script>
 
- 
-  console.log(document.querySelector('div').matches('.elem1'))
+ let post = document.querySelector('.post')
+ let like = document.createElement('div')
+ like.className = 'like'
+ post.after(like)
+
 
 </script>
 
