@@ -1,0 +1,25 @@
+.like-comment {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+}
+
+.like-comment__icon {
+	background-image: url("like.svg");
+	width: 30px;
+	height: 30px;
+	cursor: pointer;
+	transition: all .2s linear;
+}
+
+.like-comment__counter {
+	font-size: 15px;
+	color: blue;
+}
+
+.comment_p {
+	display: flex;
+	align-items: center;
+	gap: 30px;
+}
+
