@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    body {
+      height: 2000px;
+    }
+    
+    .parent {
+      width: 300px;
+      margin: 100px auto;
+      position: relative;
+    }
+    .roof {
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 150px 50px 150px;
+      border-color: transparent transparent #bb2d3b transparent;
+    }
+    
+    .text {
+      margin: 10px;
+      text-align: justify;
+    }
+
+    .inner {
+      border: 3px solid #bb2d3b;
+    }
+    
+    .tooltip {
+      position: absolute;
+      border: 2px solid #bfbfbf;
+      padding: 5px 10px;
+      color: black;
+      box-shadow: 0 0 5px rgba(0 0 0 .3);
+      border-radius: 5px;
+    }
+    
+  </style>
+</head>
+<body>
+
+
+<div class="parent">
+  <div class="roof" data-tooltip="Это крыша"></div>
+  <div class="inner">
+    <p class="text" data-tooltip="Внутри здания мебель">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias ducimus enim inventore iure laboriosam pariatur quaerat qui repellendus reprehenderit, tempore! Accusantium cupiditate delectus ducimus itaque libero nihil numquam .</p> <a href="#" data-tooltip="Другая информация">Читать далее</a>
+  </div>
+</div>
+
+
+<script>
+
+    let tooltips = document.querySelectorAll('[data-tooltip]')
+    tooltips.forEach(elem=>{
+      elem.addEventListener('mouseenter', function (e) {
+            let span = document.createElement('span')
+            span.classList.add('tooltip')
+            span.textContent = this.dataset.tooltip
+            document.body.append(span)
+            
+        elem.addEventListener('mouseout', function (e) {
+          span.remove()
+          })
+        
+        
+        })
+      
+    })
+
+
+
+</script>
+</body>
+</html>
