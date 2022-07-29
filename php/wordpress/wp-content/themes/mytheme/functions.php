@@ -122,6 +122,7 @@ if(!function_exists('add_recommend')){
 
 // шорткоды
 
+
 add_shortcode('site_url', 'add_site_url');
 
 function add_site_url(){
@@ -150,6 +151,8 @@ add_action( 'admin_post_nopriv_contact_form', 'prefix_send_email_to_admin' );
 add_action( 'admin_post_contact_form', 'prefix_send_email_to_admin' );
 add_action( 'admin_post_nopriv_phone_form', 'phone_received' );
 add_action( 'admin_post_phone_form', 'phone_received' );
+add_action( 'admin_post_contact_form-plugin', 'phone_received' );
+add_action( 'admin_post_nopriv_contact_form-plugin', 'phone_received' );
 
 function prefix_send_email_to_admin (){
     echo 'Сработала функция prefix_send_email_to_admin для обработки формы';

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .wrapper {
+      width: 50vw;
+      margin: 100px auto;
+    }
+    
+    #clock {
+      padding: 10px 20px;
+      background-color: #EEEEEE;
+      display: inline-block;
+      min-width: 70px;
+      text-align: center;
+      position: relative;
+    }
+    
+    .tooltip {
+      border-radius: 5px;
+      border: 2px solid #ccc;
+      padding: 5px 10px;
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+
+
+<div class="wrapper">
+  <div id="clock">
+    <span id="hour"></span>:<span id="minutes"></span>:<span id="seconds"></span>
+  </div>
+</div>
+
+
+<script>
+
+  // чтоб не мигала, если быстро провести
+  
+  setInterval(()=>{
+    let time = new Date()
+    hour.textContent = time.getHours()
+    minutes.textContent = time.getMinutes()
+    seconds.textContent = time.getSeconds()
+  }, 1000)
+
+  clock.addEventListener('mouseenter', function (e) {
+        let id = setTimeout(()=>{
+          let elem = document.createElement('span')
+          elem.className = 'tooltip'
+          elem.textContent = 'Подсказка'
+          document.body.append(elem)
+          
+          let coords = this.getBoundingClientRect()
+          
+          let top = coords.top - elem.offsetHeight - 5
+          if(top < 0) top = 0;
+          elem.style.top = top + 'px'
+          
+          let left = coords.left + (coords.width - elem.offsetWidth)/2
+          if(left < 0) left = 0
+          elem.style.left = left + 'px'
+          
+        }, 1000)
+    
+    this.addEventListener('mouseleave', function (e) {
+          clearTimeout(id)
+          if(document.querySelector('.tooltip')) {
+            document.querySelector('.tooltip').remove()
+          }
+      })
+    })
+  
+  
+  
+  
+  
+
+
+</script>
+</body>
+</html>
