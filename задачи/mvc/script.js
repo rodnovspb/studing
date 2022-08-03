@@ -13,12 +13,16 @@ let view = {
 }
 }
 
+
+
 let controller = {
 	handle: function () {
 		model.calc(1000,1000)
 	}
 }
 
+
+// swerwer
 
 ;(function () {
 		let app = {
@@ -38,3 +42,31 @@ let controller = {
 	app.init()
 
 })()
+
+let elems = document.querySelectorAll('')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
