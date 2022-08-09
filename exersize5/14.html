@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    div {
+      position: relative;
+    }
+    .slider {
+      width: 1000px;
+    }
+  </style>
+</head>
+<body>
+
+
+    <div id="thumb" style="width: 10px; height: 300px; border: 2px #07a0f9 solid;"></div>
+
+
+
+
+
+
+
+
+<script>
+
+thumb.onpointerdown = function(event) {
+  // все события указателя перенаправить на thumb (пока не произойдёт 'pointerup')
+  thumb.setPointerCapture(event.pointerId);
+};
+
+thumb.onpointermove = function(event) {
+  // перемещение ползунка: все события перенаправлены на этот обработчик
+  let newLeft = event.clientX ;
+  thumb.style.left = newLeft + 'px';
+};
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
