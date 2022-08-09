@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+      .wrapper {
+        width: 100vw;
+        height: 600px;
+        margin: 50px auto;
+        border: 1px solid blue;
+        
+      }
+      .field {
+        width: 80%;
+        height: 50%;
+        background-color: greenyellow;
+        transform: translateY(50%);
+      }
+      .heroes {
+        position: absolute;
+        justify-content: left;
+        left: 80px;
+        top: 80px;
+        display: flex;
+        gap: 10px;
+      }
+      .hero {
+        width: 50px;
+        height: 50px;
+        background-color: red;
+        cursor: pointer;
+      }
+      .draggable {
+        position: absolute;
+        z-index: 1000;
+      }
+  </style>
+</head>
+<body>
+
+
+<div class="wrapper">
+  <div class="heroes">
+    <div class="first hero"></div>
+    <div class="second hero"></div>
+    <div class="third hero"></div>
+    <div class="four hero"></div>
+  </div>
+  <div class="field">
+</div>
+</div>
+
+
+<script>
+
+  document.addEventListener('mousedown', function (e) {
+       let flag = false;
+       if(!e.target.matches('.hero')) return
+        flag = true;
+        let elem = e.target
+        elem.classList.add('draggable')
+        let coords = elem.getBoundingClientRect()
+        let topDistance = coords.top
+        let leftDistance = coords.left
+        let topStyle = parseInt(elem.style.top) || 0
+        let leftStyle = parseInt(elem.style.left) || 0
+        document.addEventListener('mousemove', function func(e) {
+          elem.style.top = e.clientY - topDistance  + topStyle  - elem.offsetHeight/2 +'px'
+          elem.style.left = e.clientX - leftDistance + leftStyle - elem.offsetWidth/2 + 'px'
+          if(flag) {
+            document.addEventListener('mouseup', function func2(e) {
+              document.removeEventListener('mousemove', func)
+              document.removeEventListener('mouseup', func2)
+              flag = false
+              })
+          }
+  
+        })
+  })
+  
+  
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<input type="text" id="input">
+
+
+
+
+<script>
+
+  function runOnKeys(func, code1, code2){
+    let arr = []
+    document.addEventListener('keydown', function (e) {
+        if((e.code == code1 || e.code == code2) && !arr.includes(e.code)){
+          arr.push(e.code)
+          if(arr.length >1) console.log('!!!')
+        }
+        })
+    
+    document.addEventListener('keyup', function (e) {
+          for(let i=0; i<arr.length; i++){
+            if(arr[i] == e.code){
+              arr.splice(i, 1)
+            }
+          }
+      })
+    }
+    
+    
+    
+
+  runOnKeys(
+          () => alert("Привет!"),
+          "KeyQ",
+          "KeyW"
+  )
+  
+  
+  
+
+</script>
+</body>
+</html>

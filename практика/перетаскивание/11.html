@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+      body {
+        margin: 0;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      #div {
+        overflow: hidden;
+        position: relative;
+      }
+      #elem {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+      }
+  </style>
+</head>
+<body>
+
+
+<div id="div" style="width: 600px; height: 600px; border: 2px #07a0f9 solid;">
+  <div id="ball" style="width: 100px; height: 100px; border: 2px #07a0f9 solid; border-radius: 100%; background-color: #0dcaf0"></div>
+  <div id="elem" style="width: 150px; height: 150px; border: 2px #07a0f9 solid;"></div>
+</div>
+
+
+
+
+<script>
+
+  ball.addEventListener('mousedown', function (e) {
+        let left, top;
+        // Границы родителя
+        let border = div.getBoundingClientRect()
+    
+        //Начальные координаты мяча
+        let ballCoord = this.getBoundingClientRect()
+    
+        // Высчитываем разницу между координатами клика и углами мяча, чтобы мяч не перепрыгивал центром в курсор
+        let shiftX = e.clientX - ballCoord.left
+        let shiftY = e.clientY - ballCoord.top
+    
+        this.style.position = 'absolute'
+        this.style.zIndex = '1000';
+        
+        // document.body.append(ball)
+  
+        document.addEventListener('mousemove', onMouseMove)
+    
+        function onMouseMove(e){
+          moveAt(e.pageX, e.pageY)
+          ball.hidden = true
+          if(elem === document.elementFromPoint(e.pageX, e.pageY)){
+            elem.style.backgroundColor = "blue"
+          } else {
+            elem.style.backgroundColor = null
+          }
+          ball.hidden = false
+        }
+        
+        function moveAt (x, y){
+          left = x - shiftX
+          top = y - shiftY
+          let maxRight = border.right - ball.offsetWidth
+          let minLeft = border.left
+          let minTop = border.top
+          let maxTop = border.bottom - ball.offsetHeight
+          if(left > maxRight) left = maxRight
+          if(left < minLeft) left = minLeft
+          if(top > maxTop) top = maxTop
+          if(top < minTop) top = minTop
+          ball.style.left = left +  'px'
+          ball.style.top = top +  'px'
+          
+        }
+  
+        document.addEventListener('mouseup', function func (e) {
+              this.removeEventListener('mousemove', onMouseMove)
+              this.removeEventListener('mouseup', func)
+          })
+    })
+
+
+
+
+</script>
+</body>
+</html>

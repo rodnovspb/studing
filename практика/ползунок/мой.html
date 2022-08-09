@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .wrapper {
+      width: 300px;
+      margin: 150px auto;
+    }
+    .wheel {
+      background-color: #00d084;
+      height: 35px;
+      width: 15px;
+      border-radius: 5px;
+      position: absolute;
+      transform: translateY(-25%);
+      cursor: pointer;
+    }
+    #div {
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+
+
+<div class="wrapper">
+  <div id="div" style="width: 300px; height: 15px; background-color: #07a0f9">
+    <div id="wheel" class="wheel"></div>
+  </div>
+</div>
+
+
+
+
+
+<script>
+
+  wheel.addEventListener('mousedown', function (e) {
+        e.preventDefault(); // предотвратить запуск выделения (действие браузера)
+        let left, flag = true;
+        let lineCoords = div.getBoundingClientRect()
+        let maxRight = lineCoords.width - wheel.offsetWidth
+        document.addEventListener('mousemove', function func(e) {
+              left = e.pageX - lineCoords.left - wheel.offsetWidth/2
+              if(left < 0) left = 0
+              if(left > maxRight) left = maxRight
+              wheel.style.left = left + 'px'
+              if(flag){
+                document.addEventListener('mouseup', function func2(e) {
+                      document.removeEventListener('mousemove', func)
+                      document.removeEventListener('mouseup', func2)
+                      flag = false
+                  })
+              }
+          })
+    })
+
+
+</script>
+</body>
+</html>
