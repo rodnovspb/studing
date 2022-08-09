@@ -13,22 +13,26 @@
 
 <script>
 
-  function runOnKeys(func, code1, code2){
-    let arr = []
-    document.addEventListener('keydown', function (e) {
-        if((e.code == code1 || e.code == code2) && !arr.includes(e.code)){
-          arr.push(e.code)
-          if(arr.length >1) console.log('!!!')
+  function runOnKeys(func, ...codes){
+      let set = new Set()
+      document.addEventListener('keydown', function (e) {
+        set.add(e.code)
+        //прогоняем коллекцию если хоть одно значение не найдено выходим из функции,
+        for(let code of codes){
+          if(!set.has(code)){
+            return
+          }
         }
+        //если цикл сверху не вышел из функции и все нашел, то срабатывает этот этап
+        set.clear()
+        func()
         })
     
-    document.addEventListener('keyup', function (e) {
-          for(let i=0; i<arr.length; i++){
-            if(arr[i] == e.code){
-              arr.splice(i, 1)
-            }
-          }
-      })
+        document.addEventListener('keyup', function (e) {
+            set.delete(e.code)
+          })
+    
+
     }
     
     
