@@ -145,6 +145,7 @@
 
 <script>
 
+  // флаг для возможности редактирования только одной ячейки
   let flag = true
   let textarea, td, text;
   table.addEventListener('click', function (e) {
@@ -154,8 +155,8 @@
           td.classList.add('edit')
           text = td.innerHTML
           textarea = document.createElement('textarea')
-          textarea.style.width = td.clientWidth + 'px'
-          textarea.style.height = td.clientHeight + 'px'
+          textarea.style.width = td.offsetWidth + 'px'
+          textarea.style.height = td.offsetHeight + 'px'
           textarea.innerHTML = text
           td.innerHTML = ''
           td.append(textarea)
@@ -165,11 +166,15 @@
         } else if(e.target.id === 'ok'){
           let newText = textarea.value
           td.innerHTML = newText
+          td.classList.remove('edit')
           flag = true
         } else if(e.target.id === 'cancel'){
           td.innerHTML = text
+          td.classList.remove('edit')
           flag = true
         }
+  
+        textarea, td, text = null
   })
   
   
