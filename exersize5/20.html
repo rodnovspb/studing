@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    pre {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+      padding: 0;
+      margin: 0;
+    }
+    pre:focus {
+      outline: 1px dashed blue;
+    }
+  </style>
+</head>
+<body>
+
+
+<pre id="mouse" tabindex="0"> _   _
+(q\_/p)
+ /. .\
+=\_t_/=   __
+ /   \   (
+((   ))   )
+/\) (/\  /
+\  Y  /-'
+ nn^nn
+</pre>
+
+
+
+<script>
+
+  mouse.addEventListener('focus', function (e) {
+    let flag = true
+        document.addEventListener('keydown', function move(e) {
+              let left = parseFloat(mouse.style.left) || 0
+              let top = parseFloat(mouse.style.top) || 0
+              switch (e.key) {
+                case 'ArrowRight':
+                  mouse.style.left  = left + 10 + 'px'
+                  break
+                case 'ArrowUp':
+                  mouse.style.top  = top - 10 + 'px'
+                  break
+                case 'ArrowLeft':
+                  mouse.style.left  = left - 10 + 'px'
+                  break
+                case 'ArrowDown':
+                  mouse.style.top  = top + 10 + 'px'
+                  break
+              }
+  
+          if(flag){
+            mouse.addEventListener('blur', function del() {
+              document.removeEventListener('keydown', move)
+              mouse.removeEventListener('blur', del)
+            })
+          }
+          
+          flag = false
+          })
+    
+    })
+  
+
+
+</script>
+</body>
+</html>

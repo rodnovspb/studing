@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    th {
+      text-align: center;
+      font-weight: bold;
+    }
+
+    td {
+      width: 150px;
+      white-space: nowrap;
+      text-align: center;
+      vertical-align: middle;
+      padding: 10px;
+    }
+
+    .nw {
+      background-color: #999;
+    }
+
+    .n {
+      background-color: #03f;
+      color: #fff;
+    }
+
+    .ne {
+      background-color: #ff6;
+    }
+
+    .w {
+      background-color: #ff0;
+    }
+
+    .c {
+      background-color: #60c;
+      color: #fff;
+    }
+
+    .e {
+      background-color: #09f;
+      color: #fff;
+    }
+
+    .sw {
+      background-color: #963;
+      color: #fff;
+    }
+
+    .s {
+      background-color: #f60;
+      color: #fff;
+    }
+
+    .se {
+      background-color: #0c3;
+      color: #fff;
+    }
+
+    textarea {
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      border: none;
+      outline: none;
+      resize: none;
+      display: block;
+    }
+    
+    .edit {
+      position: relative;
+      padding: 0;
+    }
+
+    .wrap {
+      position: absolute;
+      top: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <table id="table">
+    <tr>
+      <th colspan="3">Квадрат <em>Bagua</em>: Направление, Элемент, Цвет, Значение</th>
+    </tr>
+    <tr>
+      <td class="nw"><strong>Северо-Запад</strong>
+        <br>Металл
+        <br>Серебро
+        <br>Старейшины
+      </td>
+      <td class="n"><strong>Север</strong>
+        <br>Вода
+        <br>Синий
+        <br>Перемены
+      </td>
+      <td class="ne"><strong>Северо-Восток</strong>
+        <br>Земля
+        <br>Жёлтый
+        <br>Направление
+      </td>
+    </tr>
+    <tr>
+      <td class="w"><strong>Запад</strong>
+        <br>Металл
+        <br>Золото
+        <br>Молодость
+      </td>
+      <td class="c"><strong>Центр</strong>
+        <br>Всё
+        <br>Пурпурный
+        <br>Гармония
+      </td>
+      <td class="e"><strong>Восток</strong>
+        <br>Дерево
+        <br>Синий
+        <br>Будущее
+      </td>
+    </tr>
+    <tr>
+      <td class="sw"><strong>Юго-Запад</strong>
+        <br>Земля
+        <br>Коричневый
+        <br>Спокойствие
+      </td>
+      <td class="s"><strong>Юг</strong>
+        <br>Огонь
+        <br>Оранжевый
+        <br>Слава
+      </td>
+      <td class="se"><strong>Юго-Восток</strong>
+        <br>Дерево
+        <br>Зеленый
+        <br>Роман
+      </td>
+    </tr>
+
+</table>
+
+
+<script>
+
+  // флаг для возможности редактирования только одной ячейки
+  let flag = true
+  let textarea, td, text;
+  table.addEventListener('click', function (e) {
+        if(flag){
+          if(!e.target.closest('td')) return
+          td = e.target.closest('td')
+          td.classList.add('edit')
+          text = td.innerHTML
+          textarea = document.createElement('textarea')
+          textarea.style.width = td.offsetWidth + 'px'
+          textarea.style.height = td.offsetHeight + 'px'
+          textarea.innerHTML = text
+          td.innerHTML = ''
+          td.append(textarea)
+          textarea.focus()
+          flag = false
+          td.insertAdjacentHTML('beforeend', `<div class="wrap"><button id="ok">Ок</button><button id="cancel">Отмена</button></div>`)
+        } else if(e.target.id === 'ok'){
+          let newText = textarea.value
+          td.innerHTML = newText
+          td.classList.remove('edit')
+          flag = true
+        } else if(e.target.id === 'cancel'){
+          td.innerHTML = text
+          td.classList.remove('edit')
+          flag = true
+        }
+  
+        textarea, td, text = null
+  })
+  
+  
+  
+  
+
+
+</script>
+</body>
+</html>
