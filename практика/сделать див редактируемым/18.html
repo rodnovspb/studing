@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Документ</title>
+<style>
+  div, textarea {
+    width: 300px;
+    height: 100px;
+    border: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    display: block;
+  }
+  
+  div {
+    padding: 2px;
+    border: 1px solid blue;
+  }
+  
+  textarea {
+    padding: 0;
+    border: 3px solid blue;
+  }
+  
+  .textarea:focus {
+    /* удаление обводки фокуса в Safari */
+    outline: none;
+  }
+  
+</style>
+</head>
+<body>
+
+  <div tabindex="1" id="div">Это див превращающийся в textarea</div>
+  <br>
+  <div contenteditable>Это див с атрибутом contenteditable</div>
+  
+
+<script>
+  let area;
+  let div = document.querySelector('#div')
+  div.addEventListener('click', edit)
+
+  function edit() {
+    let text = div.textContent
+    area =  document.createElement('textarea')
+    area.textContent = text
+  
+    area.addEventListener('blur', function (e) {
+          endEdit()
+      })
+  
+    area.addEventListener('keydown', function (e) {
+      if(e.key === "Enter"){
+        endEdit()
+      }
+    })
+    
+    div.replaceWith(area)
+    area.focus()
+  }
+
+  function endEdit(){
+    div.textContent = area.value
+    area.replaceWith(div)
+  }
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
