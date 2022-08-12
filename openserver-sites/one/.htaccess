@@ -1,0 +1,7 @@
+AddDefaultCharset UTF-8
+
+#Делаем, чтобы в браузере ссылка была без php. Говорит, что на хостинге будет работать
+#RewriteRule ^about?$ about.php [NC,L]
+#RewriteRule ^404?$ 404.php [NC,L]
+
+ErrorDocument 404 /404.php
