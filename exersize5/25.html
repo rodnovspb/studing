@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<style>
+  .spreadBody {
+    height: 100%;
+    overflow: hidden;
+  }
+  .spreadBody .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 10;
+    display: block;
+  }
+  .spreadBody .form {
+    position: absolute;
+    z-index: 11;
+    background: #fff;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 30px 50px;
+    display: block;
+  }
+</style>
+<body>
+
+
+
+<button id="button">Показать форму</button>
+<div class="form" hidden>
+  <form action="" id="form" name="form">
+    <input type="text" name="text">
+    <input type="button" value="ОК" id="ok">
+    <input type="button" value="Отмена" id="cancel">
+  </form>
+</div>
+<div class="overlay" hidden></div>
+
+
+
+<script>
+  
+  button.addEventListener('click', function (e) {
+      document.body.classList.add('spreadBody')
+    })
+
+  ok.onclick = send
+  cancel.onclick = close
+  
+  function send(){
+    let text = form.text.value
+    if(text === '') return
+    alert(text)
+    //страница перезагружается поэтому стили у body можно не удалять
+    form.submit()
+  }
+  
+  function close(){
+    alert(null)
+    form.submit()
+  }
+  
+  
+  
+
+</script>
+</body>
+</html>
