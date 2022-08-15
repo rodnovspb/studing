@@ -38,7 +38,7 @@
 <div><label>Депозит <input id="dep"  type="number"></label></div>
 <div>
   <label>Срок вклада <select name="select" id="select">
-  <option value="1">1 год</option>
+  <option value="1" selected>1 год</option>
   <option value="2">2 года</option>
   <option value="3">3 года</option>
   <option value="4">4 года</option>
@@ -55,7 +55,7 @@
 <script>
 
   let amount = dep.value = 10000
-  let years = select.value = 2
+  let years = select.value
   percent.value = 5
 
   function count(){
@@ -69,9 +69,7 @@
 
   count()
 
-  dep.oninput = select.oninput = percent.oninput = (e)=>{
-    count()
-  }
+  dep.oninput = select.oninput = percent.oninput = count
 
 
 
