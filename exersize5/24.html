@@ -14,25 +14,27 @@
 
 
 
-
-  <form action="" name="form" id="form">
-    <input type="text" name="name">
-    <input type="text" name="surname">
-    <input type="submit" name="send" id="send">
-  </form>
   
-  <div id="div" style="width: 300px; height: 300px; border: 2px #07a0f9 solid;"></div>
+
+
+  
 
 
   <script>
-   
+  
+  let form = document.createElement('form')
+  
+  form.action = 'https://google.com/search'
+  form.method = 'GET'
+  let input = document.createElement('input')
+  form.append(input)
+  
+  document.body.append(form)
+  
 
-    
-    console.log(send)
-
-    
-    
-    
+  
+  
+  
   </script>
 
 
