@@ -37,7 +37,7 @@
 <button id="button">Показать форму</button>
 <div class="form" hidden>
   <form action="" id="form" name="form">
-    <input type="text" name="text">
+    <input type="text" name="text" id="input">
     <input type="button" value="ОК" id="ok">
     <input type="button" value="Отмена" id="cancel">
   </form>
@@ -50,6 +50,8 @@
   
   button.addEventListener('click', function (e) {
       document.body.classList.add('spreadBody')
+      input.focus()
+      return false
     })
 
   ok.onclick = send
