@@ -24,34 +24,46 @@
 
 <script>
   
-  let src = [
+  let arr = [
           'https://s1.1zoom.ru/big3/474/354282-admin.jpg',
           'https://postila.ru/data/c8/e0/5a/ef/c8e05aefda9fa631f10424621924f0eee7f97e11d5b83e0199fc1e1982682287.jpg',
           'https://basik.ru/images/landscapes_walls/08_landscape.jpg'
   ];
+
+  function preloadImages(sources, callback){
+    let counter = 0;
   
-  let arr = []
-  let count = 0;
-  for(let elem of src){
-    elem = elem + `?time=` + Date.now()
-    let img = document.createElement('img')
-    img.src = elem
-    arr.push(img)
-  }
-  
-  
-  
-  for(let elem of arr){
-    elem.onload = ()=>{
-      count++
-      if(count == 3){
-        for(let elem of arr){
-          document.body.append(elem)
-        }
-      }
+    function onLoad(){
+      counter++
+      if(counter === arr.length) callback()
     }
-   
+    
+    for(let i = 0; i < arr.length; i++){
+      let elem = document.createElement('img')
+      arr[i] += `?${Math.random()}`
+      elem.src = arr[i]
+      elem.onload = elem.onerror = onLoad
+    }
+    
   }
+
+  preloadImages(arr, func)
+  
+  function func(){
+    console.log('все в кеше')
+    console.log(arr)
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   
   
