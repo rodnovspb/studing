@@ -57,6 +57,7 @@
   
   function func(){
     for (let image of images) {
+      // проверяем, что ошибки загрузки не было
       if(image.width > 0){
         document.body.append(image)
       }

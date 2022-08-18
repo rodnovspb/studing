@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<button id="btn">Добавить</button>
+<ul id="ul">
+  <li>1</li>
+</ul>
+
+
+
+
+
+<script>
+  btn.onclick = func;
+  
+  function func(){
+    let li = ul.lastElementChild
+    let number = +li.textContent
+    ul.insertAdjacentHTML('beforeend', `<li>${++number}</li>`)
+  }
+  
+  let observer = new MutationObserver((obj)=>{
+    console.log(obj[0].addedNodes[0].textContent)
+    
+  })
+
+  observer.observe(ul, {
+    subtree: true,
+    childList: true
+  })
+  
+  
+  
+
+</script>
+</body>
+</html>
