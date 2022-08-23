@@ -17,24 +17,7 @@
 
 <script>
   console.log(ul.nodeValue)
-  console.log(ul.children)
-  btn.onclick = func;
-  
-  function func(){
-    let li = ul.lastElementChild
-    let number = +li.textContent
-    ul.insertAdjacentHTML('beforeend', `<li>${++number}</li>`)
-  }
-  
-  let observer = new MutationObserver((obj)=>{
-    console.log(obj[0].addedNodes[0].textContent)
-    
-  })
-
-  observer.observe(ul, {
-    subtree: true,
-    childList: true
-  })
+ 
   
   
   
