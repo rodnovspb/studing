@@ -17,29 +17,23 @@
 <script>
 
   
-  async function getUsers(names){
+  (async ()=>{
     let arr = []
-    try {
-      for(let name of names){
-        let response = await fetch(`https://api.github.com/users/${name}`)
-        if(response.ok) {
-          let user = await response.json()
-          arr.push(user)
-        } else {
-          arr.push(null)
-        }
-      }
-    } catch (e){
-      console.log(e)
+    for(let name of ['cined', 'qwerty', 'robot', 'qqq']){
+      let res = fetch(`https://api.github.com/users/${name}`)
+      .then(res=>res.json())
+      arr.push(res)
     }
-    
     let results = await Promise.all(arr)
     console.log(results)
-  }
+  })()
+  
+  
+ 
 
 
 
-  getUsers(['cined', 'qwerty', 'robot', 'qqq'])
+ 
 
 
 
