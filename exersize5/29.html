@@ -4,46 +4,40 @@
   <meta charset="UTF-8">
   <title>Title</title>
   <style>
-    *::selection {
-      background: transparent;
-      color: transparent;
-    }
-    
+  
   </style>
 </head>
 <body>
 
 
 
-  <p id="elem">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A alias animi, aspernatur autem dicta ea eligendi, enim fugiat ipsa laudantium, minus molestiae mollitia nobis nulla quos repellendus rerum vel voluptatum?</p>
-
-
-  <button id="btn">Показать</button>
+<div id="progress">111111111111111</div>
 
 <script>
+  setTimeout(()=>{
+    alert('асинхр таймаут - макрозадача')
+  })
 
-
+  Promise.resolve().then(()=>{
+    alert('асинхр промис - микрозадача')
+  })
+  
+  alert('синхронный алерт')
   
   
-  let i = 0;
-  let now = Date.now()
-  function func(){
-    for(let j = 0; ; j++){
-      i++
-      if( i%1000000000 == 0){
-        alert(Date.now() - now)
-        return false
-      } else if(i%1000000 == 0){
-        setTimeout(func)
-        return false
-      }
-    }
-  }
-
-  func()
-
-
-
+  
+  
+  
+  
 </script>
+
+
+
+
+
+
+
+
+
 </body>
 </html>

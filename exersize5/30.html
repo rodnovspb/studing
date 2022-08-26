@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+  
+  </style>
+</head>
+<body>
+
+
+
+
+
+
+<script>
+
+  
+  async function getUsers(names){
+    let arr = []
+    try {
+      for(let name of names){
+        let response = await fetch(`https://api.github.com/users/${name}`)
+        if(response.ok) {
+          let user = await response.json()
+          arr.push(user)
+        } else {
+          arr.push(null)
+        }
+      }
+    } catch (e){
+      console.log(e)
+    }
+    
+    let results = await Promise.all(arr)
+    console.log(results)
+  }
+
+
+
+  getUsers(['cined', 'qwerty', 'robot', 'qqq'])
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
