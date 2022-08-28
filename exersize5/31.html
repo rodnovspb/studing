@@ -14,15 +14,16 @@
 
 
 <script>
-  let controller = new AbortController();
- fetch('29.html', {signal: controller.signal})
-         .then(res=>res.text())
-         .then(res=>console.log(res))
-         .catch(e=>{
-           if(e.name == 'AbortError') { console.log('Прервано') }
-           else {console.log(e)}
-         })
-  controller.abort()
+
+ 
+
+  (async ()=>{
+    try {
+      let res = await fetch('30.html')
+    } catch (e){
+      console.log(e)
+    }
+  })()
  
 
 
@@ -32,9 +33,7 @@
 
 
 
-
-
-  
+ 
 
 
 </script>
