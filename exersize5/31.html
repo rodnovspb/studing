@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+
+
+
+
+
+
+
+<script>
+  let controller = new AbortController();
+ fetch('29.html', {signal: controller.signal})
+         .then(res=>res.text())
+         .then(res=>console.log(res))
+         .catch(e=>{
+           if(e.name == 'AbortError') { console.log('Прервано') }
+           else {console.log(e)}
+         })
+  controller.abort()
+ 
+
+
+
+
+
+
+
+
+
+
+  
+
+
+</script>
+</body>
+</html>
