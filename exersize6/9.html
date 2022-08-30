@@ -7,11 +7,18 @@
     div {
       position: fixed;
       background-color: #0a4b78;
-      transition: transform .5s linear;
+      transition: width .5s linear, height .5s linear;
       border-radius: 50%;
-      width: 10px;
-      height: 10px;
-      /*transform: translateX(-50%) translateY(-50%);*/
+      width: 0;
+      height: 0;
+      transform: translateX(-50%) translateY(-50%);
+    }
+    .message-ball {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 20px;
+      color: #fff;
     }
     
   </style>
@@ -26,14 +33,20 @@
 
 
 <script>
-  btn.onclick = ()=> showCircle(100, 100, 100)
+  btn.onclick = ()=> showCircle(300, 300, 300, ()=>{
+    div.classList.add('message-ball');
+    div.append("Hello, world!");
+  })
   
-  function showCircle(x, y, radius){
+  function showCircle(x, y, radius, callback){
     div.style.left = x + 'px'
     div.style.top = y + 'px'
-    div.style.transform = "scale(5)"
-    // div.style.width = radius + 'px'
-    // div.style.height = radius + 'px'
+    div.style.width = radius + 'px'
+    div.style.height = radius + 'px'
+    div.addEventListener('transitionend', function (e) {
+      callback()
+      }, {once: true})
+   
   }
   
 
