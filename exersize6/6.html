@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .img {
+      width: 50px;
+      height: auto;
+      transition: width 1s cubic-bezier(0.32, 1.52, 1, 1);
+    }
+    .big {
+      width: 300px;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+
+
+
+<div class="wrapper">
+  <img id="img" class="img" src="https://avatanplus.com/files/resources/mid/5981ea41dc5f115da37b116f.jpg" alt="">
+</div>
+
+
+
+
+<script>
+
+  img.addEventListener('click', function (e) {
+        this.classList.add('big')
+    img.addEventListener('transitionend', function (e) {
+        console.log('!!')
+      })
+    
+    }, {once: true})
+
+  
+
+
+</script>
+</body>
+</html>

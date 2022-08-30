@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    #div {
+      width: 50px;
+    }
+    #child {
+      transition: all 3s linear -1.5s;
+      font: 30px monospace;
+      display: inline-block;
+      
+    }
+    .move {
+      transform: translateX(-90%);
+    }
+  </style>
+</head>
+<body>
+
+<div id="div" style="height: 300px; border: 2px #07a0f9 solid;">
+  <div id="child">123456789</div>
+</div>
+
+
+
+
+<script>
+  div.onclick = ()=>{
+    child.classList.toggle('move')
+  }
+
+  console.log(child.offsetWidth)
+
+</script>
+</body>
+</html>

@@ -18,7 +18,7 @@
         </div>
     </div>
 </section>
-<div class="course-content">
+<section class="course-content">
     <div class="container">
         <div class="text-block">
             <p>Процедура ботулинотерапия - это инъекционная методика для устранения и профилактики морщин.Также, процедура помогает бороться сопущением уголков рта, потерей четкости овала лица, гипергидрозом.</p>
@@ -26,7 +26,7 @@
             <p>Курс по ботулинотерапии необходим, чтобы вы были увереныв своих знаниях и приносили желаемый результат своим клиентам.</p>
         </div>
     </div>
-</div>
+</section>
 <section class="course-program">
     <div class="container">
         <div class="course-title">Программа курса</div>
