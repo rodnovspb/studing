@@ -7,11 +7,11 @@
     div {
       position: fixed;
       background-color: #0a4b78;
-      transition: width .5s linear, height .5s linear;
+      transition: transform .5s linear;
       border-radius: 50%;
-      width: 0;
-      height: 0;
-      transform: translateX(-50%) translateY(-50%);
+      width: 10px;
+      height: 10px;
+      /*transform: translateX(-50%) translateY(-50%);*/
     }
     
   </style>
@@ -31,8 +31,9 @@
   function showCircle(x, y, radius){
     div.style.left = x + 'px'
     div.style.top = y + 'px'
-    div.style.width = radius + 'px'
-    div.style.height = radius + 'px'
+    div.style.transform = "scale(5)"
+    // div.style.width = radius + 'px'
+    // div.style.height = radius + 'px'
   }
   
 
