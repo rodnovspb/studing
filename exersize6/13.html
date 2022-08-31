@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="style1.css">
+  <style>
+    #my-element {
+      position: absolute;
+      left: 0;
+      width: 200px;
+      height: 200px;
+      padding: 1em;
+      background: tomato;
+      color: #FFF;
+      font-size: 2em;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+
+
+
+<div id="my-element">Щелкните, чтобы начать анимацию</div>
+
+
+
+<script>
+  var elem = document.getElementById('my-element'),
+      startTime = null,
+      endPos = 500, // в пикселях
+      duration = 1000; // в миллисекундах
+
+  function render(time) {
+    if (time === undefined) {
+      time = new Date().getTime();
+    }
+    if (startTime === null) {
+      startTime = time;
+    }
+    
+    console.log(((time - startTime)  % endPos))
+    elem.style.left = ((time - startTime) / duration * endPos  % endPos) + 'px';
+  }
+
+  elem.onclick = function() {
+    (function animationLoop(){
+      render();
+      requestAnimationFrame(animationLoop, elem);
+    })();
+  };
+
+  console.log(501%500)
+
+</script>
+</body>
+</html>
