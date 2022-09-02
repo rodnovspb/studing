@@ -8,13 +8,13 @@
                     <li>Вебинары</li>
                 </ul>
                 <div class="table-content">
-                    <ul class="lister top-l">
-                    <li class="active">Мелитополь</li>
-                    <li>Херсон</li>
-                    <li>Львов</li>
-                    <li>Днепр</li>
-                    <li>Полтава</li>
-                    <li>Харьков</li>
+                    <ul id="my_ul" class="lister top-l">
+                        <li class="active">Мелитополь</li>
+                        <li>Херсон</li>
+                        <li>Львов</li>
+                        <li>Днепр</li>
+                        <li>Полтава</li>
+                        <li>Харьков</li>
                     </ul>
                     <div class="inner-tab-content">
                         <img src="assets/img/google.jpg" alt="">

@@ -3,6 +3,8 @@
     <section class="price-block">
         <div class="container">
             <div class="all-title">Стоимость обучения</div>
+        </div>
+        <div class="container os">
             <div class="price-table">
                 <div class="table-head">
                     <div class="td w100">Курс обучения</div>
