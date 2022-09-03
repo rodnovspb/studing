@@ -3,33 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <title>Title</title>
+  <style>
+  
+  </style>
 </head>
 <body>
 
 
+  
 
+  <div id="elem" style="border: 3px solid green">light</div>
 
-
-<my-el></my-el>
 
 
 <script>
 
-  class MyElement extends HTMLElement {
-    connectedCallback(){
-      this.timer =  setInterval(()=> {this.innerHTML = this.update()}, 1000)
-    }
-    update(){
-      let date = new Date()
-      return `${date.getDate()} : ${date.getMonth()} : ${date.getFullYear()} : ${date.getSeconds()}`
-    }
-    disconnectedCallback(){
-      clearInterval(this.timer)
-    }
-  }
+  let shadow = elem.attachShadow({mode: 'open'})
+  shadow.innerHTML = `<style> p { font-weight: bold; background-color: red} </style>
+    <p>Hello, John!</p>`
+  console.log(shadow)
+  
 
 
-  customElements.define("my-el", MyElement);
+
+
+
+
+
+
+
+
 
 
 </script>
