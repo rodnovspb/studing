@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+
+
+<my-el></my-el>
+
+
+
+
+<script>
+  
+  class MyElement extends HTMLElement {
+    connectedCallback() {
+      let date = new Date()
+      this.innerHTML = date
+      this.style.color = this.getAttribute('color') || 'red'
+    }
+  }
+  
+  customElements.define('my-el', MyElement)
+  
+  let elem = document.querySelector('my-el')
+  elem.setAttribute('time', '111')
+ 
+  // setTimeout(()=>elem.setAttribute('time', '111'))
+
+
+</script>
+
+
+</body>
+</html>
