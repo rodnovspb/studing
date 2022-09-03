@@ -8,27 +8,28 @@
 
 
 
+
+
 <my-el></my-el>
 
 
-
-
 <script>
-  
+
   class MyElement extends HTMLElement {
-    connectedCallback() {
+    connectedCallback(){
+      this.timer =  setInterval(()=> {this.innerHTML = this.update()}, 1000)
+    }
+    update(){
       let date = new Date()
-      this.innerHTML = date
-      this.style.color = this.getAttribute('color') || 'red'
+      return `${date.getDate()} : ${date.getMonth()} : ${date.getFullYear()} : ${date.getSeconds()}`
+    }
+    disconnectedCallback(){
+      clearInterval(this.timer)
     }
   }
-  
-  customElements.define('my-el', MyElement)
-  
-  let elem = document.querySelector('my-el')
-  elem.setAttribute('time', '111')
- 
-  // setTimeout(()=>elem.setAttribute('time', '111'))
+
+
+  customElements.define("my-el", MyElement);
 
 
 </script>
