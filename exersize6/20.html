@@ -4,43 +4,39 @@
   <meta charset="UTF-8">
   <title>Title</title>
   <style>
-  
+    my-el {
+      color: red;
+    }
+    p {
+      color: #0a58ca;
+    }
   </style>
 </head>
 <body>
 
 
-<user-card>
-  <span slot="username">Иван Иванов</span>
-  <span slot="surname">2222</span>
-  <span slot="surname111">3333</span>
-</user-card>
 
+
+<my-el></my-el>
 
 
 <script>
-
-
-  customElements.define('user-card', class extends HTMLElement {
-    connectedCallback(){
-      let root = this.attachShadow({mode: 'open'})
-      root.innerHTML = 'Имя <slot name="username">0000000</slot><slot name="surname"></slot>'
-    }
-  })
-
-
-
-
-
-
-
-
-
-
-
-
-
+  	class MyElement extends HTMLElement {
+      connectedCallback(){
+        this.innerHTML = `<style>my-el {
+      color: green;
+    }</style>${new Date()}<p>Синий цвет</p>`
+      }
+  }
+    customElements.define('my-el', MyElement)
 </script>
+
+
+
+
+
+
+
 
 
 </body>
