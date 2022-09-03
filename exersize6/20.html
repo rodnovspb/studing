@@ -4,16 +4,10 @@
   <meta charset="UTF-8">
   <title>Title</title>
   <style>
-    my-el {
-      color: red;
-    }
-    p {
-      color: #0a58ca;
-    }
+  
   </style>
 </head>
 <body>
-
 
 
 
@@ -21,14 +15,23 @@
 
 
 <script>
+   document.addEventListener('click', function (e) {
+     console.log(e.target.tagName)
+   })
+  
   	class MyElement extends HTMLElement {
       connectedCallback(){
-        this.innerHTML = `<style>my-el {
-      color: green;
-    }</style>${new Date()}<p>Синий цвет</p>`
+        this.innerHTML = `<p><button>Из теневого дома</button></p>`
+        this.firstElementChild.addEventListener('click', function (e) {
+                console.log(e.target.tagName)
+          })
       }
   }
     customElements.define('my-el', MyElement)
+    
+   
+    
+    
 </script>
 
 
