@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="ru">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,9 +16,12 @@
 
 
 
-<h1>Главная страница</h1>
+<h1>Контакты</h1>
 
-<p>Имя {{ $res }}</p>
+{{ $slug }}
+
+
+
 
 
 
