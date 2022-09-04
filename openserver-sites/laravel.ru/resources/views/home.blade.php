@@ -16,13 +16,11 @@
 
 
 
-<h1>Привет</h1>
+<h1>Главная страница</h1>
 
-{{ $res }}<br>
-{{ $name }}
+{{--<a href="{{ route('link1', ['slug'=>'dasdasdasd', 'get'=>555]) }}">Ссылка</a>--}}
 
-
-
+<a href="{{ route('admin.contact') }}">Ссылка на форму</a>
 
 
 
