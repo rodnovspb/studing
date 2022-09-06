@@ -17,13 +17,12 @@
   
   
   
-  let regexp = /<!--.*?-->/gs;
-
-  let str = `... <!-- My -- comment
- test --> ..  <!----> ..
-  `;
-
-console.log( str.match(regexp).toString() );
+  let str = '<> <a href="/"> <input type="radio" checked> <b>';
+  
+  console.log(str.match(/<[^><]+>/g))
+  
+  
+  
 
 
 
