@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+
+
+
+
+
+
+
+<script>
+  
+  
+  
+  let regexp = /<!--.*?-->/gs;
+
+  let str = `... <!-- My -- comment
+ test --> ..  <!----> ..
+  `;
+
+console.log( str.match(regexp).toString() );
+
+
+
+
+</script>
+</body>
+</html>
