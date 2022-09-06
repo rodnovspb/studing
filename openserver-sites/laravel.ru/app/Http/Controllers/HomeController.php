@@ -10,10 +10,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-//        return date("Y-m-d h-i-s");
-        return now();
-
-//        DB::update("UPDATE posts SET title = ? WHERE id = ?", ['rrrrr', 5]);
+        DB::delete("DELETE FROM posts WHERE id = :id", ["id"=>1]);
 
     }
 
