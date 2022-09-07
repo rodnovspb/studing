@@ -18,11 +18,10 @@
 
 
   let str = "2020-05-10 2019-04-30";
+  let results = str.matchAll(/(\d{4})-(\d{2})-(\d{2})/g)
+  for (let res of results) {
+    console.log(res) }
   
-  let res = str.replace(/(\d{4})-(\d{2})-(\d{2})/g, '$3-$2-$1')
-
-  console.log(res)
-
 
 
 
