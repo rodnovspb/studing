@@ -1,6 +1,7 @@
 @import url("blocks/header.css");
 @import url("blocks/home.css");
 @import url("blocks/btn.css");
+@import url("blocks/how-it-works.css");
 body {
     font-family: 'Lato', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
     font-weight: 400;

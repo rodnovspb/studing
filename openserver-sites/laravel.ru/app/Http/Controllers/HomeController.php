@@ -10,7 +10,11 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $data = DB::table('city')->select('CountryCode')->distinct()->get();
+        $data = DB::table('city')
+            ->select('city.ID', 'city.Name as city_name', 'country.Code', 'country.Name as country_name')
+            ->limit(10)->join('country', 'city.CountryCode', '=', 'country.Code')
+            ->orderBy('city.ID')
+            ->get();
 
 
           dump($data) ;
