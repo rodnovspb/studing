@@ -17,11 +17,10 @@
 
 
 
-  let str = "2020-05-10 2019-04-30";
-  let results = str.matchAll(/(\d{4})-(\d{2})-(\d{2})/g)
-  for (let res of results) {
-    console.log(res) }
-  
+  let regexp = /-?[\d]+(\.\d+)?/g;
+  let str = "-1.5 0 2 -123.4.";
+
+  console.log(str.match(regexp))
 
 
 
