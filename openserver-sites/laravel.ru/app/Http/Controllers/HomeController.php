@@ -10,7 +10,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $data = DB::table('country')->avg('Capital');
+        $data = DB::table('city')->select('CountryCode')->distinct()->get();
 
 
           dump($data) ;
