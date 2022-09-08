@@ -15,8 +15,7 @@ class HomeController extends Controller
     public function index()
     {
 
-        Post::query()->create(['title'=>'1111', 'content'=> '22222'], ['title'=>'1111', 'content'=> '22222']);
-
+        (new Post())->fill(['title'=>'1111', 'content'=> '22222'])->save();
 
     }
 
