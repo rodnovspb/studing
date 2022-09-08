@@ -4,20 +4,19 @@
 namespace App\Http\Controllers;
 
 
+use App\Models\Post;
 use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        $data = DB::table('city')
-            ->select('city.ID', 'city.Name as city_name', 'country.Code', 'country.Name as country_name')
-            ->limit(10)->join('country', 'city.CountryCode', '=', 'country.Code')
-            ->orderBy('city.ID')
-            ->get();
 
+        $post = new Post();
+        $post->title = 'Статья 1';
+//        $post->content = 'Контент 1';
+        $post->save();
 
-          dump($data) ;
 
     }
 
