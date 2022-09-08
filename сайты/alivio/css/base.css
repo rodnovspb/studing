@@ -35,6 +35,9 @@ body {
     margin-right: auto;
 }
 
+.container.container--wide {
+    width: 1535px;
+}
 
 
 
