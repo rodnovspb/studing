@@ -15,14 +15,28 @@
 
 <script>
 
-  let str = 'lorem ipsum lorem ipsum'
-  let regexp = /(\w+)\s(\w+)\s\1\s\2/
-  console.log(regexp.test(str))
+  let str = 'Java JavaScript PHP C++ C'
   
+  let res = str.match(/Java|JavaScript|PHP|C\+\+|C/g)
   
+  console.log(res)
   
   
 
 </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
