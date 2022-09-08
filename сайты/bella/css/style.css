@@ -1,0 +1,315 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: #737373;
+    line-height: 1.5;
+    font-size: 1rem;
+}
+
+.container {
+    max-width: 1080px;
+    min-width: 320px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 15px;
+    max-width: 1330px;
+    margin: 0 auto;
+}
+
+.menu {
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+}
+
+.menu li {
+    margin-left: 94px;
+}
+
+.menu li a {
+    color: #252B42;
+    text-decoration: none;
+}
+
+.menu li a:hover {
+    color: #FA4A0C;
+}
+
+.download__wrap {
+    background-image: url("../images/back.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 75px 0 145px;
+}
+
+.download {
+    color: #fff;
+    text-align: center;
+}
+
+.download__text {
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    margin-bottom: 20px;
+}
+
+.download__title {
+    font-weight: 700;
+    font-size: 3rem;
+    line-height: 5rem;
+    margin-bottom: 30px;
+}
+
+.download__subtitle {
+    font-weight: 500;
+    font-size: 1.5rem;
+    line-height: 2.375rem;
+    margin-bottom: 48px;
+}
+
+.btn {
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 2.25rem;
+    color: #fff;
+    text-decoration: none;
+    padding: 16px 58px;
+    border-radius: 30px;
+    border: 1px solid #FFFFFF;
+    display: inline-block;
+    margin: 0 15px;
+}
+
+.btn--red {
+    background-color: #FA4A0C;
+    border-color: #FA4A0C;
+}
+
+.workapp__wrap {
+    padding: 50px 0;
+}
+
+.parttitle {
+    font-weight: 600;
+    font-size: 2.75rem;
+    line-height: 2.25rem;
+    color: #000;
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.workapp--item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 100px;
+}
+
+.workapp--item:nth-child(even){
+    flex-direction: row-reverse;
+}
+
+.workapp--item:last-child{
+    margin-bottom: 0;
+}
+
+.workapp__image {
+    width: 50%;
+    text-align: center;
+}
+
+.workapp__txt {
+    width: 47%;
+}
+
+.workapp__txt h3 {
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 2.25rem;
+    color: #FA4A0C;
+    margin-bottom: 7px;
+}
+
+.workapp__txt h2 {
+    font-weight: 700;
+    font-size: 2.5rem;
+    line-height: 3.56rem;
+    color: #000;
+    margin-bottom: 17px;
+}
+
+.workapp__txt p {
+    font-weight: 500;
+    font-size: 1.5rem;
+    line-height: 2.375rem;
+    color: #737373;
+}
+
+.footer__wrap {
+    padding: 70px 0;
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #5c5c5c;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+@media (max-width: 800px) {
+    .header {
+        flex-direction: column;
+    }
+    .logo {
+        margin-bottom: 30px;
+    }
+    .menu li {
+        margin-left: 25px;
+        margin-right: 25px;
+    }
+    .download__text {
+        font-weight: 500;
+        font-size: 1.25rem;
+    }
+    .download__title {
+        font-size: 2rem;
+        line-height: 3.5rem;
+    }
+    .download__subtitle {
+        font-size: 1.25rem;
+    }
+    .download__wrap {
+        padding: 40px 0 70px;
+    }
+    .parttitle {
+        font-size: 2rem;
+        margin-bottom: 50px;
+    }
+    .workapp--item {
+        flex-direction: column-reverse;
+    }
+    .workapp--item:nth-child(even){
+        flex-direction: column-reverse;
+    }
+    .workapp__txt,
+    .workapp__image {
+        width: 100%;
+    }
+    .workapp__txt {
+        margin-bottom: 40px;
+    }
+    .workapp__txt h3 {
+        font-size: 1.25rem;
+        line-height: 2.5rem;
+    }
+    .workapp__txt h2 {
+        font-size: 2rem;
+        line-height: 3rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .btn {
+        display: block;
+        margin: 30px auto;
+        width: 290px;
+    }
+    .footer {
+        flex-direction: column;
+    }
+    .footer img {
+        margin-bottom: 30px;
+    }
+    .footer__wrap {
+        padding: 20px 0;
+    }
+    .menu {
+        justify-content: center;
+    }
+    .menu li {
+        margin: 10px 15px;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

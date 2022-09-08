@@ -1,0 +1,32 @@
+.intro__text {
+  font-size: 1.2rem;
+  color: $gray_dark;
+}
+
+.intro__title {
+  font-size: 3.2rem;
+  color: $black;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+
+  @media (max-width: $breakpoint_sm) {
+    font-size: 2rem;
+  }
+}
+
+.intro__subtitle {
+  font-size: 1.6rem;
+  color: $black;
+  font-weight: 400;
+  margin-bottom: 2rem;
+
+  @media (max-width: $breakpoint_sm) {
+    font-size: 1.2rem;
+  }
+
+  &--pink {
+    color: $pink;
+  }
+
+}

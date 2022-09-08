@@ -1,0 +1,48 @@
+.about {
+  margin: 8.4rem 0;
+}
+.about__inner {
+  display: flex;
+  max-width: 1090px;
+}
+.about__photo {
+  width: 50%;
+  position: relative;
+}
+.about__photo:before {
+  content: '';
+  display: block;
+  height: 413px;
+  width: 413px;
+  background-color: #EFEFEF;
+  position: absolute;
+  left: 1rem;
+  bottom: 0;
+  z-index: -1;
+}
+.about__content {
+  width: 50%;
+  padding-left: 3.1rem;
+  margin-top: 2rem;
+}
+.about__title {
+  font-size: 3rem;
+  font-weight: 700;
+}
+.about__bigtitle {
+  font-size: 6.13rem;
+  color: rgba(43, 42, 44, 0.15);
+  line-height: 1.1;
+  font-weight: 700;
+  margin-bottom: 21px;
+  position: relative;
+  left: -10px;
+}
+.about__text {
+  font-size: 0.8rem;
+  line-height: 1.6rem;
+  font-weight: 300;
+  color: #6A696B;
+  margin-bottom: 2.66rem;
+}
+/*# sourceMappingURL=about.css.map */

@@ -1,0 +1,18 @@
+.reviews {
+  background: #332F30;
+  background-size: cover;
+  padding: 4.53rem 0;
+}
+.reviews__text {
+  color: #fff;
+  font-size: 0.93rem;
+  font-weight: 500;
+  line-height: 2.13rem;
+}
+.reviews__name {
+  color: #fff;
+  font-size: 0.93rem;
+  font-weight: 500;
+  line-height: 2.13rem;
+}
+/*# sourceMappingURL=reviews.css.map */

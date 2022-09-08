@@ -1,0 +1,137 @@
+.present__photo {
+	width: 100%;
+	object-fit: cover;
+	margin-bottom: 20px;
+}
+.present__group-title {
+	margin-bottom: 18px;
+}
+
+.present__title {
+	margin-bottom: 10px;
+	font-weight: bold;
+  font size: 34px;
+	line height: 41px;
+	text-transform: uppercase;
+	
+}
+
+.present__subtitle {
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 120%;
+	text-transform: uppercase;
+}
+
+.present__description {
+	margin-bottom: 20px;
+	font-size: 14px;
+	line-height: 140%;
+}
+
+.present__order-btn {
+	padding: 16px 60px;
+	width: 190px;
+	height: 52px;
+	background-color: #E87C40;
+	border-radius: 4px;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 140%;
+	text-transform: uppercase;
+	color: white;
+}
+
+@media (min-width: 480px) {
+	.present__container{
+		display: flex;
+	}
+	.present__photo{
+		width: 50%;
+		margin-right: 15px;
+		margin-bottom: 0;
+	}
+	.present__content{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: flex-start;
+	}
+	.present__title{
+		font-size: 40px;
+	}
+	
+	.present__description{
+		font-size: 16px;
+	}
+	.present__subtitle{
+		font-size: 18px;
+	}
+	.present__order-btn{
+		font-size: 18px;
+		padding-left: 40px;
+		padding-right: 40px;
+	}
+}
+
+@media (min-width: 768px){
+	.present{
+		padding-top: 70px;
+	}
+	.present__title{
+		margin-bottom: 24px;
+		font-weight: 700;
+	}
+	.present__group-title{
+		margin-bottom: 40px;
+	
+	}
+	.present__description{
+		margin-bottom: 60px;
+	}
+	.present__order-btn{
+		padding: 24px 82px;
+		width: 254px;
+		height: 73px;
+	}
+	.present__photo{
+		width: 370px;
+		margin-right: 30px;
+	}
+}
+
+@media (min-width: 992px) {
+	.present {
+		position: relative;
+	}
+	.present:before{
+		content: '';
+		position: absolute;
+		width: 40%;
+		height: 100%;
+		left: 0;
+		top: 0;
+		display: block;
+		z-index: -1;
+		background-color: #A1B7C8;
+	}
+}
+
+@media (min-width: 1440px){
+	.present__photo{
+		width: 445px;
+	}
+	.present__group-title{
+		margin-bottom: 60px;
+	}
+	.present__title{
+		margin-bottom: 20px;
+		font-size: 50px;
+	}
+	.present__subtitle{
+		font-size: 20px;
+	}
+	.present__description{
+		font-size: 18px;
+	}
+}
