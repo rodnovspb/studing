@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Country;
 use App\Models\Post;
+use App\Models\City;
 use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
@@ -13,9 +14,11 @@ class HomeController extends Controller
     public function index()
     {
 
-        $data = Country::query()->limit(5)->get();
+        $data = new Post();
+        $data->title = 'asdasd';
+        $data->content = 'asdasd';
+        $data->save();
 
-        dd($data[0]);
 
     }
 
