@@ -1,0 +1,160 @@
+/**
+Theme Name: Моя первая тема
+Author: Денис
+*/
+
+body {
+    background: #F2F1EC;
+    max-width: 700px;
+    margin: 2em auto;
+}
+
+.footer {
+    margin: 2em auto;
+    text-align: center;
+}
+
+.header {
+    margin: 0 auto 0;
+    text-align: center;
+    position: relative;
+}
+
+.above {
+    display: flex;
+    align-items: center;
+    margin-top: -20px;
+    margin-bottom: 10px;
+    justify-content: space-between;
+}
+
+#loginform {
+    position: relative;
+}
+
+#loginform p {
+    margin: 5px;
+    text-align: right;
+}
+
+.login-remember,
+.login-submit {
+    display: inline-block;
+}
+
+.login-submit {
+    position: absolute;
+    right: 0;
+}
+
+.logout_btn,
+.admin_link a {
+    text-decoration: none;
+    padding: 2px 7px;
+    background-color: #F0F0F0;
+    border: 1px solid black;
+    border-radius: 3px;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    cursor: default;
+    color: #000;
+}
+
+.logout_btn:hover,
+.admin_link a:hover {
+    background-color: #e6e4e4;
+}
+
+.logout_btn:active,
+.admin_link a:active {
+    background-color: #f0eded;
+}
+
+.auth {
+    position: absolute;
+    left: 10px;
+    top: 5px;
+}
+
+.searchform {
+    text-align: right;
+}
+
+.menu {
+    display: flex;
+    list-style-type: none;
+    padding: 10px;
+    background-color: #f17d7d;
+    margin: 0;
+    justify-content: space-between;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #fff;
+    padding: 10px 15px;
+    transition: all .1s ease;
+}
+
+.menu a:hover{
+    background-color: #f25e5e;
+}
+
+.main {
+    display: flex;
+}
+
+.content {
+    padding-right: 10px;
+    flex: 1 1 75%;
+}
+
+.main__sidebar {
+    flex: 1 1 25%;
+    margin-top: 18px;
+    padding-left: 20px;
+}
+
+.main__sidebar li {
+    list-style-type: none;
+}
+
+.wp-block-categories-list {
+    padding: 0;
+}
+
+.wp-block-categories-list {
+    background-color: #7380b0;
+    border-radius: 5px;
+}
+
+.cat-item a{
+    padding: 5px 0 10px 10px;
+    display: block;
+    color: #fff;
+    text-decoration: none;
+}
+
+.cat-item a:hover {
+    background-color: #8499ee;
+    cursor: pointer;
+}
+
+.recommend {
+    font-style: italic;
+}
+
+.recommend + p {
+    margin-top: 5px;
+}
+
+#content {
+    padding-top: 20px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+
