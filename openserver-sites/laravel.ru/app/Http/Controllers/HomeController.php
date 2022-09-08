@@ -15,7 +15,7 @@ class HomeController extends Controller
     public function index()
     {
 
-        (new Post())->fill(['title'=>'1111', 'content'=> '22222'])->save();
+        Post::query()->where('id', '>', 5)->update(['updated_at'=>NOW()]);
 
     }
 
