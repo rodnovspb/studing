@@ -15,8 +15,7 @@ class HomeController extends Controller
     public function index()
     {
 
-        Post::query()->where('id', '>', 5)->update(['updated_at'=>NOW()]);
-
+        Post::destroy(10,11,12);
     }
 
     public function test()

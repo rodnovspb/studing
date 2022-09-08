@@ -1,0 +1,56 @@
+.story {
+    background-color: #245852;
+    color: white;
+    padding: 229px 206px 176px;
+}
+
+.story-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.story-content {
+    margin-right: 30px;
+    max-width: 580px;
+    margin-left: -10px;
+}
+
+.story-heading {
+    font-family: 'Georgia', Serif;
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 157%;
+    margin-bottom: 33px;
+}
+
+.story-text {
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 157%;
+    margin-bottom: 57px;
+}
+
+.story-btn {
+    display: flex;
+    position: absolute;
+}
+
+
+.story-video {
+    width: 895px;
+}
+
+.story-video-btn {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.story-video-overlay {
+}
+
+.story-video-object {
+
+}
