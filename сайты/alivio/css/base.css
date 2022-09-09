@@ -3,6 +3,9 @@
 @import url("blocks/btn.css");
 @import url("blocks/how-it-works.css");
 @import url("blocks/story.css");
+@import url("blocks/product.css");
+@import url("blocks/card.css");
+@import url("blocks/footer.css");
 body {
     font-family: 'Lato', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
     font-weight: 400;

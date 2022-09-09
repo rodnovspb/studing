@@ -1,0 +1,35 @@
+.footer {
+    padding-top: 104px;
+    padding-bottom: 144px;
+    background-color: #245852;
+    color: white;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-logo {
+    width: 106px;
+    height: auto;
+}
+
+.footer-logo + * {
+    margin-top: 82px;
+}
+
+.footer-list li + li {
+    margin-top: 63px;
+}
+
+.footer-list-link {
+    color: white;
+    font-size: 25px;
+    line-height: 1;
+    font-weight: 600;
+}
+
+.footer-list-link:hover {
+    text-decoration: underline;
+}

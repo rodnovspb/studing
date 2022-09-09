@@ -15,7 +15,7 @@ class HomeController extends Controller
     public function index()
     {
 
-        Post::destroy(10,11,12);
+        return 1;
     }
 
     public function test()
