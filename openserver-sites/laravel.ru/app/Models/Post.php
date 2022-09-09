@@ -7,11 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    use HasFactory;
-//    protected $attributes = [
-//        'content' => 'Lorem ipsum',
-//    ];
+    public function rubric(){
+        return $this->belongsTo(Rubric::class);
+    }
 
-//    protected $fillable = ['title', 'content'];
-    protected $guarded = [];
+    public function tags(){
+        return $this->belongsToMany(Tag::class);
+    }
+
 }
