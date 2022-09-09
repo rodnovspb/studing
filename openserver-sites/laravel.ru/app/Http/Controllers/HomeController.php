@@ -10,6 +10,7 @@ use App\Models\Phone;
 use App\Models\Post;
 use App\Models\City;
 use App\Models\Rubric;
+use App\Models\Tag;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
@@ -17,12 +18,23 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $rubrics = Rubric::get();
+        $tag = Tag::query()->find(6);
+        dump($tag->title);
 
-        foreach ($rubrics as $rubric){
-            dump($rubric->post->title);
+        foreach ($tag->posts as $post){
+            dump($post->title);
         }
     }
+
+
+
+
+
+
+
+
+
+
 
     public function test()
     {
