@@ -162,14 +162,9 @@
     </div>
   </div>
 
-    @for($i=0; $i < count($data1); $i++)
-        @if($data1[$i] < 8)
-            {{ $data1[$i] }}
-        @elseif($data1[$i] === 10)
-            @break
-        @endif
-
-    @endfor
+    @foreach($data2 as $key=>$value)
+        <p>{{ $data2[$key] }}</p>
+    @endforeach
 
 
 @endsection
