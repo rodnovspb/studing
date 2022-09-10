@@ -18,12 +18,15 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $tag = Tag::query()->find(6);
-        dump($tag->title);
-
-        foreach ($tag->posts as $post){
-            dump($post->title);
-        }
+        $title = 'Домашняя страница';
+        $h1 = '<h1>home page</h1>';
+        $data1 = range(1,21);
+        $data2 = [
+            'title' => 'Title',
+            'content' => 'Content',
+            'keys' => 'Keywords',
+        ];
+        return view('home', compact('title', 'h1', 'data1', 'data2'));
     }
 
 

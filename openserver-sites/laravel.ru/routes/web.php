@@ -21,16 +21,9 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
-//Route::get('/test', [HomeController::class, 'test']);
-//Route::get('/page/{slug}', [PageController::class, 'show']);
-//Route::get('/test2', [TestController::class, 'test']);
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/page/about', [PageController::class, 'show'])->name('page.about');
 
-Route::resource('/posts', PostController::class, ['parameters' => [
-    'posts' => 'slug'
-]]);
-
-Route::resource('/robots', RobotController::class);
 
 
 

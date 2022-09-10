@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 
 class PageController extends Controller
 {
-    public function show($slug)
+    public function show()
     {
-        return view("pages.$slug", compact('slug'));
+        return view("pages.about");
     }
 }
