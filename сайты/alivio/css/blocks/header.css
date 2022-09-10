@@ -23,6 +23,7 @@
 
 .header-nav ul {
     display: flex;
+    align-items: center;
 }
 
 .header-nav li:not(:last-child) {
@@ -56,7 +57,26 @@
     color: #01996D;
 }
 
+@media (max-width: 1199px) {
+    .header-logo {
+        margin-right: unset;
+    }
+    .header-row {
+        justify-content: space-between;
+    }
+    .header-login {
+        margin-left: unset;
+    }
+    .header-nav li:not(:last-child) {
+        margin-right: 52px;
+    }
+}
 
+@media (max-width: 991px) {
+    .header-nav, .header-login {
+        display: none;
+    }
+}
 
 
 

@@ -19,3 +19,11 @@
     opacity: .8;
     color: #fff;
 }
+
+@media (max-width: 576px) {
+    .btn--big, a.btn--big {
+        min-height: 55px;
+        padding-left: 33px;
+        padding-right: 33px;
+    }
+}

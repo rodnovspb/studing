@@ -11,6 +11,11 @@ body {
     font-weight: 400;
     font-size: 20px;
     color: #424242;
+    /*min-width: 1600px;*/
+}
+
+@media (max-width: 991px) {
+    font-size: 18px;
 }
 
 .none {
@@ -31,7 +36,8 @@ body {
 
 /*Grid*/
 .container {
-    width: 1400px;
+    max-width: 1400px;
+    width: 100%;
     padding-left: 15px;
     padding-right: 15px;
     margin-left: auto;
@@ -41,6 +47,7 @@ body {
 .container.container--wide {
     width: 1535px;
 }
+
 
 
 
