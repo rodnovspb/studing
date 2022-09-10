@@ -162,9 +162,9 @@
     </div>
   </div>
 
-    @production
-        <h1>Продакшн</h1>
-    @endproduction
+    @for($i=0; $i < count($data1); $i++)
+        {{ $data1[$i] }}
+    @endfor
 
 
 @endsection
