@@ -162,9 +162,9 @@
     </div>
   </div>
 
-    @empty($data12)
-        существует
-    @endempty
+    @production
+        <h1>Продакшн</h1>
+    @endproduction
 
 
 @endsection
