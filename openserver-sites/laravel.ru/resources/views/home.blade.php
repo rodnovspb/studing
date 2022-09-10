@@ -162,14 +162,9 @@
     </div>
   </div>
 
-    @if(count($data1) > 20)
-        <p>count > 20</p>
-    @elseif(count($data1) < 20)
-        <p>count < 20</p>
-    @else
-        <p>count = 20</p>
-
-    @endif
+    @empty($data12)
+        существует
+    @endempty
 
 
 @endsection
