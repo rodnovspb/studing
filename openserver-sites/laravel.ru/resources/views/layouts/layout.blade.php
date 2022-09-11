@@ -22,6 +22,7 @@
       </a>
       <a href="{{ route('home') }}" class="">Главная</a>
       <a href="{{ route('page.about') }}" class="">О нас</a>
+      <a href="{{ route('posts.create') }}" class="">Создать пост</a>
     </div>
   </div>
 </header>

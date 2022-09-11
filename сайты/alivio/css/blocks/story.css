@@ -39,7 +39,7 @@
 
 
 .story-video {
-    width: 895px;
+    max-width: 895px;
     position: relative;
     border-radius: 18px;
     overflow: hidden;
@@ -63,4 +63,44 @@
 
 .story-video-object {
     border-radius: 14px;
+}
+
+@media (max-width: 1199px) {
+    .story-row {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 1100px) {
+    .story {
+        padding-top: 120px;
+        padding-bottom: 120px;
+
+    }
+}
+
+@media (max-width: 675.5px) {
+    .story {
+        padding-top: 54px;
+        padding-bottom: 139px;
+    }
+
+    .story-row {
+        flex-direction: column-reverse
+    }
+
+    .story-heading {
+        margin-top: 120px;
+    }
+}
+    @media (max-width: 575px) {
+        .story-heading {
+            font-size: 40px;
+        }
+    }
+
+@media (max-width: 450px) {
+    .story-heading {
+        font-size: 35px;
+    }
 }

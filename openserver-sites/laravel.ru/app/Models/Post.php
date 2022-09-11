@@ -17,7 +17,9 @@ class Post extends Model
     }
 
     public function getPostDate(){
-        return Carbon::parse($this->created_at)->diffForHumans()
+        return Carbon::parse($this->created_at)->diffForHumans();
     }
+
+    protected $fillable = ['title', 'content', 'rubric_id'];
 
 }

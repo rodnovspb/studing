@@ -45,8 +45,11 @@ body {
 }
 
 .container.container--wide {
-    width: 1535px;
+    max-width: 1535px;
+    width: 100%;
 }
+
+
 
 
 

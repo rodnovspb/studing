@@ -1,8 +1,3 @@
-<?php
-use Carbon\Carbon;
-
-?>
-
 @extends('layouts.layout')
 
 @section('title')
@@ -35,7 +30,8 @@ use Carbon\Carbon;
                   <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
                 </div>
                 <small class="text-muted">
-                    {{ Carbon::createFromFormat('Y-m-d H:i:s', $post->created_at)->format('j.m.Y') }}
+{{--                    {{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $post->created_at)->format('d.m.Y') }}--}}
+                        {{ $post->getPostDate(); }}
                 </small>
               </div>
             </div>
