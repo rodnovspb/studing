@@ -6,22 +6,21 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>Документ</title>
 <style>
-
+    #div1, #div2, #div3 {
+        float: left;
+    }
+    .parent {
+        border: 1px solid blue;
+    }
 </style>
 </head>
 <body>
 
-   <div style="display: table; border:1px solid blue;">
-       <div style="display: table-row">
-           <div style="display: table-cell">123</div>
-           <div style="display: table-cell">123</div>
-           <div style="display: table-cell">123</div>
-       </div>
-       <div style="display: table-row">
-           <div style="display: table-cell">123</div>
-           <div style="display: table-cell">123</div>
-           <div style="display: table-cell">123</div>
-       </div>
+   <div class="parent">
+       <div id="div1" style="width: 180px; height: 180px; border: 2px #00d084 solid; background-color: #00d084"></div>
+       <div id="div2" style="width: 180px; height: 180px; border: 2px #00d084 solid; background-color: #00d084"></div>
+       <div id="div3" style="width: 180px; height: 180px; border: 2px #00d084 solid; background-color: #00d084"></div>
+       <div style="clear: both"></div>
    </div>
 
 
