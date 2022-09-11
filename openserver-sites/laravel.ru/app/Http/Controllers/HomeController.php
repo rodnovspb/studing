@@ -18,31 +18,14 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $title = 'Домашняя страница';
-        $h1 = '<h1>home page</h1>';
-        $data1 = range(1,21);
-        $data2 = [
-            'title' => 'Title',
-            'content' => 'Content',
-            'keys' => 'Keywords',
-        ];
-        return view('home', compact('title', 'h1', 'data1', 'data2'));
+        $posts = Post::orderBy('id', 'desc')->get();
+        $title = 'Заголовок';
+        return view('home', compact('title', 'posts'));
     }
 
 
 
-
-
-
-
-
-
-
-
-    public function test()
-    {
-        return __METHOD__;
-    }
 
 
 }
+
