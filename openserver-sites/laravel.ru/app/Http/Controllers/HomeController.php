@@ -20,9 +20,7 @@ class HomeController extends Controller
 {
     public function index(Request $request)
     {
-//        session(['test'=>'value']);
-
-        session()->forget('test');
+        session()->flush();
         dump(session()->all());
 
         $posts = Post::orderBy('id', 'desc')->get();
