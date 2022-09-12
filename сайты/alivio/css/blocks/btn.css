@@ -27,3 +27,9 @@
         padding-right: 33px;
     }
 }
+
+@media (max-width: 654px) {
+    .product-content-btn {
+        justify-content: center;
+    }
+}
