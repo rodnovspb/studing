@@ -20,8 +20,8 @@ class HomeController extends Controller
 {
     public function index(Request $request)
     {
-        session()->flush();
-        dump(session()->all());
+
+//        dd(session()->all());
 
         $posts = Post::orderBy('id', 'desc')->get();
         $title = 'Заголовок';
@@ -42,7 +42,10 @@ class HomeController extends Controller
         ]);
 
         Post::query()->create($request->all());
-        return redirect()->route('home');
+
+        session()->flash('success', 'Данные сохранены');
+
+        return redirect()->route('posts.create');
     }
 
 

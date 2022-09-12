@@ -8,7 +8,7 @@
 @section('content')
 
 <div class="container">
-  @include('layouts.errors')
+  @include('layouts.alerts')
   <form class="mt-5 mb-5" method="post" action="{{ route('home') }}">
     @csrf
     <div class="form-group">
