@@ -14,6 +14,7 @@ use App\Models\Tag;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class HomeController extends Controller
 {
@@ -30,8 +31,27 @@ class HomeController extends Controller
     }
 
     public function store(Request $request){
-//        Post::query()->create($request->all());
-        (new Post())->fill(['title'=> $request->input('title'), 'content'=> $request->input('content'), 'rubric_id' => $request->input('rubric_id')])->save();
+
+        $request->validate([
+            'title' => 'required|min:5|max:100',
+            'content' => 'required',
+            'rubric_id' => 'integer',
+        ]);
+
+
+        $rules = [
+
+        ];
+
+        $messages = [
+            'title.required' => 'Заполните название',
+            'title.min' => 'Минимум 5 символов в названии',
+            'rubric_id.integer' => 'Выберите рубрику'
+        ];
+
+        Validator::make($request->all(), $rules, $messages)->validate();
+
+        Post::query()->create($request->all());
         return redirect()->route('home');
     }
 
