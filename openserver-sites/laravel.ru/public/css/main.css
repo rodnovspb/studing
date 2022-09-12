@@ -48,3 +48,12 @@
     white-space: nowrap;
     -webkit-overflow-scrolling: touch;
 }
+
+.form-control.is-invalid {
+    border-width: 3px;
+}
+
+.invalid-feedback {
+    margin-top: 0 !important;
+    margin-bottom: 10px;
+}

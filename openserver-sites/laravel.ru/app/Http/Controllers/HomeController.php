@@ -18,8 +18,13 @@ use Illuminate\Support\Facades\Validator;
 
 class HomeController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+//        session(['test'=>'value']);
+
+        session()->forget('test');
+        dump(session()->all());
+
         $posts = Post::orderBy('id', 'desc')->get();
         $title = 'Заголовок';
         return view('home', compact('title', 'posts'));
@@ -37,19 +42,6 @@ class HomeController extends Controller
             'content' => 'required',
             'rubric_id' => 'integer',
         ]);
-
-
-        $rules = [
-
-        ];
-
-        $messages = [
-            'title.required' => 'Заполните название',
-            'title.min' => 'Минимум 5 символов в названии',
-            'rubric_id.integer' => 'Выберите рубрику'
-        ];
-
-        Validator::make($request->all(), $rules, $messages)->validate();
 
         Post::query()->create($request->all());
         return redirect()->route('home');
