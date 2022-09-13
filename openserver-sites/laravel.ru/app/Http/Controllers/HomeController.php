@@ -23,13 +23,6 @@ class HomeController extends Controller
     public function index(Request $request)
     {
 
-
-
-
-
-        dump(Cache::pull('key'));
-        dump(Cache::get('key'));
-
 //            if(Cache::has('posts')){
 //                $posts = Cache::get('posts');
 //            } else {
