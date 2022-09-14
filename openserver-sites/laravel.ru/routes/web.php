@@ -7,6 +7,7 @@ use App\Http\Controllers\RobotController;
 use App\Http\Controllers\Test\TestController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ContactController;
 
 
 
@@ -27,7 +28,8 @@ Route::post('/', [HomeController::class, 'store'])->name('posts.store');
 Route::get('/page/about', [PageController::class, 'show'])->name('page.about');
 
 
-
+Route::get('/send', [ContactController::class, 'create_mail'])->name('create_mail');
+Route::post('/send', [ContactController::class, 'send']);
 
 
 
