@@ -24,18 +24,25 @@
 
 <body>
 
-
+  
   <div id="field">
     <img src="https://js.cx/clipart/ball.svg" id="ball"> . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
     . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
   </div>
+  
+  <img id="img" src="https://cherepah.ru/wp-content/uploads/0/6/4/0648d5a82fc15f5dc5da45476bc3c3f1.jpe" alt="">
 
     <script>
-        
+        console.log(window.getComputedStyle(ball, null).width)
         window.onload = ()=>{
 			ball.style.marginLeft = `-${ball.offsetWidth/2}px`
 			ball.style.marginTop = `-${ball.offsetHeight/2}px`
+			console.log(img.clientWidth)
         }
+        
+        document.addEventListener('DOMContentLoaded', function (e) {
+              console.log(img.naturalWidth)
+          })
         
     </script>
 
