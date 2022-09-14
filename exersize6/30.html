@@ -9,12 +9,12 @@
         background-color: #00FF00;
         position: relative;
     }
+    
 
     #ball {
         position: absolute;
         left: 50%;
         top: 50%;
-        transform: translate(-50%, -50%);
     }
     
     
@@ -30,6 +30,14 @@
     . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
   </div>
 
+    <script>
+        
+        window.onload = ()=>{
+			ball.style.marginLeft = `-${ball.offsetWidth/2}px`
+			ball.style.marginTop = `-${ball.offsetHeight/2}px`
+        }
+        
+    </script>
 
 </body>
 
