@@ -37,6 +37,5 @@
 
 @include('layouts.footer')
 
-@yield('scripts')
 
 

@@ -43,14 +43,3 @@
 
 @endsection
 
-@section('scripts')
-
-
-    <script>
-        window.addEventListener('load', function (e) {
-            alert(111111111111111)
-          })
-
-    </script>
-
-@endsection
