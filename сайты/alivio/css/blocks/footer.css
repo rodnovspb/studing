@@ -33,3 +33,40 @@
 .footer-list-link:hover {
     text-decoration: underline;
 }
+
+@media (max-width: 991px) {
+    .footer-logo + * {
+        margin-top: 53px;
+    }
+    .footer-list li + li {
+        margin-top: 52px;
+    }
+    .footer {
+        padding-bottom: 104px;
+    }
+}
+
+@media (max-width: 576px) {
+    .footer {
+        padding-bottom: 58px;
+        padding-top: 58px;
+    }
+
+    .footer-logo {
+        width: 86px;
+    }
+
+    .footer-list-link {
+        font-size: 21px;
+        letter-spacing: 2px;
+    }
+    .footer-list li + li {
+        margin-top: 40px;
+    }
+    .footer-logo {
+        margin: 0 auto;
+    }
+    .footer-content {
+        text-align: center;
+    }
+}

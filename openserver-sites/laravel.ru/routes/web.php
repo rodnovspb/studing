@@ -28,8 +28,7 @@ Route::post('/', [HomeController::class, 'store'])->name('posts.store');
 Route::get('/page/about', [PageController::class, 'show'])->name('page.about');
 
 
-Route::get('/send', [ContactController::class, 'create_mail'])->name('create_mail');
-Route::post('/send', [ContactController::class, 'send']);
+Route::match(['get', 'post'], '/send', [ContactController::class, 'send'])->name('create_mail');
 
 
 

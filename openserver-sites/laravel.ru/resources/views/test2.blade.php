@@ -1,1 +1,29 @@
-<h1>{{ $text }}</h1>
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Документ</title>
+</head>
+<body>
+
+
+{!! $body !!}
+
+<img src="{{ $message->embed(url('img/2.jpg')) }}" alt="">
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

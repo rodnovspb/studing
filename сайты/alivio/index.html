@@ -31,9 +31,28 @@
                     <a class="header-login-link" href="#">Sign in</a>
                     <a href="#" class="btn">Start Trial</a>
                 </div>
+                <button type="button" class="mobile-nav-button">
+                    <span class="mobile-nav-button__icon"></span>
+                </button>
             </div>
         </div>
     </header>
+    
+    <div class="mobile-nav">
+        <img class="mobile-nav-logo"  src="img/logo.svg" alt="">
+        <nav class="mobile-nav-list">
+            <ul>
+                <li><a href="#">Why Alivio</a></li>
+                <li><a href="#">Solutions</a></li>
+                <li><a href="#">Community</a></li>
+                <li><a href="#">Pricing</a></li>
+            </ul>
+        </nav>
+        <div class="mobile-login">
+            <a class="" href="#">Sign in</a>
+            <a href="#" class="btn btn--big ">Start Trial</a>
+        </div>
+    </div>
     
     <main>
         <section class="home">
@@ -108,11 +127,13 @@
                     </div>
                     <div class="story-video">
                         <div class="story-video-overlay">
-                            <button class="story-video-btn">
-                                <img src="img/story/play-white.svg" alt="">
+                            <button id="video-story-btn" class="story-video-btn">
+                                <img id="video-story-btn-icon" width="82"  height="82" src="img/story/play-white.svg" alt="">
                             </button>
                         </div>
-                        <img class="story-video-object" src="img/story/video.jpg" alt="">
+                            <video class="story-video-object" id="video-story">
+                                <source src="video/video.mp4" type="video/mp4">
+                            </video>
                     </div>
                 </div>
             </div>
@@ -175,13 +196,7 @@ Let Alivio guide you, in a personalized journal experience, to<br> overcome your
             </div>
         </div>
     </footer>
-
-
-
-
-
-
-
-
+    
+    <script src="js/main.js"></script>
 </body>
 </html>

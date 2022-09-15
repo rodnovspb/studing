@@ -6,6 +6,8 @@
 @import url("blocks/product.css");
 @import url("blocks/card.css");
 @import url("blocks/footer.css");
+@import url("blocks/mobile-nav-button.css");
+@import url("blocks/mobile-nav.css");
 body {
     font-family: 'Lato', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
     font-weight: 400;
@@ -47,6 +49,11 @@ body {
 .container.container--wide {
     max-width: 1535px;
     width: 100%;
+}
+
+.no-scroll {
+    overflow: hidden;
+    height: 100%;
 }
 
 
