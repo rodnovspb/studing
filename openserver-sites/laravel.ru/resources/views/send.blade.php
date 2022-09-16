@@ -8,7 +8,6 @@
 @section('content')
     <div class="container">
 
-        @include('layouts.alerts')
         <form class="mt-5" method="post" action="{{ route('create_mail') }}">
             @csrf
             <div class="form-group">

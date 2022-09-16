@@ -13,7 +13,7 @@
 <body>
 
 
-  <h1>Ошибка</h1>
+  <h1>Ошибка 404</h1>
 <h2>{{ $exception->getMessage() }}</h2>
 
 

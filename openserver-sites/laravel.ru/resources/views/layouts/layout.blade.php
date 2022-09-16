@@ -23,6 +23,25 @@
       <a href="{{ route('page.about') }}" class="">О нас</a>
       <a href="{{ route('create_mail') }}" class="">Создать письмо</a>
       <a href="{{ route('posts.create') }}" class="">Создать пост</a>
+
+{{--        @if(Auth::check())--}}
+{{--            <a href="#">{{ Auth::user()->name }}</a>--}}
+{{--            <a href="{{ route('logout') }}" class="">Выйти</a>--}}
+{{--        @else--}}
+{{--            <a href="{{ route('login.form') }}" class="">Войти</a>--}}
+{{--            <a href="{{ route('create.user') }}" class="">Зарегистрироваться</a>--}}
+{{--        @endif--}}
+
+        @auth
+           <a href="#">{{ Auth::user()->name }}</a>
+           <a href="{{ route('logout') }}" class="">Выйти</a>
+        @endauth
+
+        @guest
+            <a href="{{ route('login.form') }}" class="">Войти</a>
+            <a href="{{ route('create.user') }}" class="">Зарегистрироваться</a>
+        @endguest
+
     </div>
   </div>
 </header>
@@ -31,7 +50,8 @@
 
 <main>
 
-  @yield('content')
+    @include('layouts.alerts')
+    @yield('content')
 
 </main>
 

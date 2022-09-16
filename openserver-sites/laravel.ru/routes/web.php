@@ -8,6 +8,8 @@ use App\Http\Controllers\Test\TestController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\Admin\MainController;
 
 
 
@@ -30,6 +32,20 @@ Route::get('/page/about', [PageController::class, 'show'])->name('page.about');
 
 Route::match(['get', 'post'], '/send', [ContactController::class, 'send'])->name('create_mail');
 
+Route::group(['middleware' => 'guest'], function(){
+    Route::get('/register', [UserController::class, 'create'])->name('create.user');
+    Route::post('/register', [UserController::class, 'store'])->name('store.user');
+
+    Route::get('/login', [UserController::class, 'loginForm'])->name('login.form');
+    Route::post('/login', [UserController::class, 'login'])->name('login');
+});
+
+
+Route::group(['middleware' => 'admin', 'prefix'=> 'admin'], function(){
+    Route::get('/', [MainController::class, 'index']);
+});
+
+Route::get('/logout', [UserController::class, 'logout'])->name('logout')->middleware('auth');
 
 
 
