@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
+use App\Models\Rubric;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Pagination\Paginator;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -22,10 +24,10 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
-    {
-//        DB::listen(function ($query){
-//            dump($query->sql, $query->bindings);
-//        });
+    public function boot(){
+        Paginator::useBootstrap();
+        view()->composer('layouts.footer', function($view){
+            $view->with('rubrics', Rubric::all());
+        });
     }
 }

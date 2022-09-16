@@ -39,6 +39,10 @@
         </div>
           @endforeach
 
+          <div class="col-md-12">
+              {{ $posts->appends(request()->query())->links() }}
+          </div>
+
       </div>
     </div>
   </div>

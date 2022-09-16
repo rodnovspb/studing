@@ -7,7 +7,7 @@
 @section('content')
 <div class="container">
 
-    <form class="mt-5" method="post" action="{{ route('store.user') }}">
+    <form class="mt-5" method="post" action="{{ route('store.user') }}" enctype="multipart/form-data">
     @csrf
          <div class="form-group">
              <label for="name">Ваше имя</label>
@@ -24,6 +24,10 @@
         <div class="form-group">
               <label for="password_confirmation">Пароль</label>
               <input type="password" class="form-control" id="password_confirmation" placeholder="Повторите пароль" name="password_confirmation">
+        </div>
+        <div class="form-group mt-3">
+             <label for="avatar">Аватар</label>
+             <input type="file" class="form-control-file" id="avatar" name="avatar">
         </div>
 
         <button type="submit" class="btn btn-primary mt-3">Зарегистрироваться</button>

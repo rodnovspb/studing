@@ -18,18 +18,22 @@ use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
+
 class HomeController extends Controller
 {
     public function index(Request $request)
     {
-        $posts = Post::orderBy('id', 'desc')->get();
+//        $posts = Post::orderBy('id', 'desc')->get();
+        $posts = Post::orderBy('id', 'desc')->paginate(3);
         $title = 'Заголовок';
+
+
         return view('home', compact('title', 'posts'));
     }
 
     public function create(){
         $rubrics = Rubric::query()->pluck('title', 'id')->all();
-        return view('create', ['title' => 'Создать пост', 'rubrics'=>$rubrics]);
+        return view('posts.create', ['title' => 'Создать пост', 'rubrics'=>$rubrics]);
     }
 
     public function store(Request $request){
