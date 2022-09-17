@@ -1,5 +1,6 @@
 <template>
-  <p>{{ currentDate() }}</p>
+  <button @mouseover="currentDate">Дата</button>
+
 
 </template>
 
@@ -14,7 +15,7 @@
     methods: {
         currentDate(){
           let date = new Date;
-          return `${date.getDate()}:${date.getMonth()+1}:${date.getFullYear()}`
+          alert (`${date.getDate()}:${date.getMonth()+1}:${date.getFullYear()}`)
         }
     }
   }
