@@ -5,19 +5,21 @@
 
 
 <script>
+
   export default {
       data() {
       return {
-       text: 'lorem'
+       num: 5,
       }
     },
     methods: {
-       show(){
-         console.log(this.cape(this.text))
-       },
-       cape(str){
-         return str[0].toUpperCase() + str.slice(1)
-       }
+      show(){
+        console.log(this.dayOfWeek(this.num))
+      },
+      dayOfWeek(num){
+        return ['п', 'в', "с", "ч", "пт", "сб", "вск"][num+1]
+      }
     }
   }
+
 </script>
