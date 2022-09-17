@@ -1,5 +1,5 @@
 <template>
-  <button @mouseover="currentDate">Дата</button>
+  <button @click="show">Дата</button>
 
 </template>
 
@@ -8,19 +8,16 @@
   export default {
       data() {
       return {
-        num1: 1,
-        num2: 2,
+       text: 'lorem'
       }
     },
     methods: {
-        currentDate(){
-          let date = new Date;
-          alert (`${date.getDate()}:${date.getMonth()+1}:${date.getFullYear()}`)
-        },
-        func(){
-          let sum = this.num1 + this.num2
-          alert(sum)
-        }
+       show(){
+         console.log(this.cape(this.text))
+       },
+       cape(str){
+         return str[0].toUpperCase() + str.slice(1)
+       }
     }
   }
 </script>
