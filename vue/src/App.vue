@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>{{ uppercase(name) }}</h1>
+    <h1>{{ lowercase(name) }}</h1>
   </div>
 </template>
 
@@ -13,8 +13,8 @@ export default {
     };
   },
   methods: {
-    uppercase: function(value) {
-      return value.toUpperCase();
+    lowercase: function(value) {
+      return value.toLowerCase();
     }
   }
 };
