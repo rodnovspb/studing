@@ -1,25 +1,21 @@
 <template>
-  <p>{{ text }}</p>
-  <button @click="show1">Одно</button>
-  <button @click="show2">Второе</button>
+  <div>
+    <h1>{{ uppercase(name) }}</h1>
+  </div>
 </template>
 
-<script>
 
-  export default {
-      data() {
-      return {
-        text: ""
-      }
-    },
-    methods: {
-      show1(){
-          this.text = "O4wM29XOxUJ03tAq7d3LND29Q4DY4bHxs"
-      },
-      show2(){
-        this.text = "m28lp9JSF"
-      }
+<script>
+export default {
+  data: function() {
+    return {
+      name: "geeksforgeeks"
+    };
+  },
+  methods: {
+    uppercase: function(value) {
+      return value.toUpperCase();
     }
   }
-
+};
 </script>
