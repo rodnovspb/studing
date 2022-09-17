@@ -1,6 +1,5 @@
 <template>
   <button @mouseover="currentDate">Дата</button>
-  <p @load="func"></p>
 
 </template>
 
