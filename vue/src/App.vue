@@ -9,7 +9,7 @@
 export default {
   data: function() {
     return {
-      num: "5321234324234234322411d32"
+      num: "5321234324234234322411d322"
     };
   },
   methods: {
