@@ -10,11 +10,9 @@
 
 <script>
   export default {
-    name: "App",
     data(){
       return {
-        text: 'page',
-        href: 'page.html',
+        num: 5
       }
     }
   }
