@@ -1,7 +1,6 @@
 <template>
-  <button @click="square(5)">qqq</button>
-  <button @click="square(6)">www</button>
-  <button @click="square(7)">eee</button>
+  <div>Записано: {{ text }}</div>
+  <button @click="increment">Увеличить</button>
 </template>
 
 
@@ -10,12 +9,12 @@
   export default {
       data() {
       return {
-
+        text: 0
       }
     },
     methods: {
-      square(num){
-        alert(num**2)
+      increment(){
+        this.text+=1
       }
     }
   }
