@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>{{ lowercase(name) }}</h1>
+    <h1>{{ capitalizeWords(name) }}</h1>
   </div>
 </template>
 
@@ -9,12 +9,12 @@
 export default {
   data: function() {
     return {
-      name: "geeksforgeeks"
+      name: "geeksforgeeks werfwe werwer wersadfstd werwer"
     };
   },
   methods: {
-    lowercase: function(value) {
-      return value.toLowerCase();
+    capitalizeWords: function(value) {
+      return value.split(' ').map(elem=>{return elem[0].toUpperCase() + elem.slice(1)}).join(' ');
     }
   }
 };
