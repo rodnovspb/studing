@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>{{ capitalizeWords(name) }}</h1>
+    <h1>{{ formatDate(date) }}</h1>
   </div>
 </template>
 
@@ -9,12 +9,14 @@
 export default {
   data: function() {
     return {
-      name: "geeksforgeekswerfwe werwer wersadfstd werwer"
+      date: "2020-10-05"
     };
   },
   methods: {
-    capitalizeWords: function(value) {
-      return value.split(/\s+/).map(elem=>{return elem[0].toUpperCase() + elem.slice(1)}).join(' ');
+    formatDate: function(value) {
+      let arr = value.split('-')
+
+      return arr[2] + '-' + arr[1] + '-' + arr[0]
     }
   }
 };
