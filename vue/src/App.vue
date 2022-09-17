@@ -1,20 +1,19 @@
 <template>
-  <div>Записано: {{ text }}</div>
-  <button @click="increment">Увеличить</button>
+  <p>{{ text }}</p>
+  <button @click="show">Увеличить</button>
 </template>
-
 
 <script>
 
   export default {
       data() {
       return {
-        text: 0
+        text: ""
       }
     },
     methods: {
-      increment(){
-        this.text+=1
+      show(){
+        this.text = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid autem mollitia vitae. Facere illum inventore ipsa iure non sed suscipit? Ad enim in labore nesciunt quam repudiandae sint ut voluptas?\n'
       }
     }
   }
