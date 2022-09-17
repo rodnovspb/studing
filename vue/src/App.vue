@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>{{ cut3(num) }}</h1>
+    <h1>{{ round(root(num)) }}</h1>
   </div>
 </template>
 
@@ -9,14 +9,15 @@
 export default {
   data: function() {
     return {
-      num: "5321234324234234322411d322"
+      num: 12124
     };
   },
   methods: {
-    cut3: function(value) {
-      return String(value).match(/.{1,3}/g).map(elem=>elem+=' ').join('')
-
-
+    root: function(value) {
+      return Math.sqrt(value)
+    },
+    round(num){
+      return num.toFixed(2)
     }
   }
 };
