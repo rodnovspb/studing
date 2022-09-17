@@ -8,6 +8,7 @@
     "prop-types": "^15.7.2",
     "request": "^2.88.2",
     "require": "^2.4.20",
+    "vue": "^3.2.36",
     "ws": "^8.8.1"
   },
   "devDependencies": {
