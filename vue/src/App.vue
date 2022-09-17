@@ -9,12 +9,12 @@
 export default {
   data: function() {
     return {
-      name: "geeksforgeeks werfwe werwer wersadfstd werwer"
+      name: "geeksforgeekswerfwe werwer wersadfstd werwer"
     };
   },
   methods: {
     capitalizeWords: function(value) {
-      return value.split(' ').map(elem=>{return elem[0].toUpperCase() + elem.slice(1)}).join(' ');
+      return value.split(/\s+/).map(elem=>{return elem[0].toUpperCase() + elem.slice(1)}).join(' ');
     }
   }
 };
