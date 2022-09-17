@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Facade;
 
 return [
 
+
     /*
     |--------------------------------------------------------------------------
     | Application Name
@@ -14,6 +15,7 @@ return [
     | any other location as required by the application or its packages.
     |
     */
+
 
     'name' => env('APP_NAME', 'Laravel'),
 
@@ -108,7 +110,7 @@ return [
     |
     */
 
-    'faker_locale' => 'en_US',
+    'faker_locale' => 'ru_RU',
 
     /*
     |--------------------------------------------------------------------------

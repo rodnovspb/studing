@@ -4,7 +4,6 @@
     @parent
     {{ $title }}
 @endsection
-
 @section('content')
     <section class="py-5 text-center container">
     <div class="row py-lg-5">
@@ -31,7 +30,8 @@
                 </div>
                 <small class="text-muted">
 {{--                    {{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $post->created_at)->format('d.m.Y') }}--}}
-                        {{ $post->getPostDate(); }}
+{{--                        {{ $post->getPostDate(); }}--}}
+                    {{ $post->created_at->format('d.m.Y') }}
                 </small>
               </div>
             </div>
@@ -40,7 +40,7 @@
           @endforeach
 
           <div class="col-md-12">
-              {{ $posts->appends(request()->query())->links() }}
+              {{ $posts->onEachSide(2)->links() }}
           </div>
 
       </div>
