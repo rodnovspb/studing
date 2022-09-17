@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>{{ formatDate(date) }}</h1>
+    <h1>{{ getDay(num) }}</h1>
   </div>
 </template>
 
@@ -9,14 +9,13 @@
 export default {
   data: function() {
     return {
-      date: "2020-10-05"
+      num: 5
     };
   },
   methods: {
-    formatDate: function(value) {
-      let arr = value.split('-')
-
-      return arr[2] + '-' + arr[1] + '-' + arr[0]
+    getDay: function(value) {
+      const week = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'];
+      return week[value-1]
     }
   }
 };
