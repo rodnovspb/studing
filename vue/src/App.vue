@@ -4,6 +4,7 @@
   </div>
   <div>Имя: {{ name }}</div>
   <div>Фамилия: {{ surname }}</div>
+  <a :href="href">{{ text }}</a>
 </template>
 
 
