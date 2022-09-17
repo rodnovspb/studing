@@ -1,6 +1,7 @@
 <template>
   <p>{{ text }}</p>
-  <button @click="show">Увеличить</button>
+  <button @click="show1">Одно</button>
+  <button @click="show2">Второе</button>
 </template>
 
 <script>
@@ -8,13 +9,15 @@
   export default {
       data() {
       return {
-        text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid autem mollitia vitae. Facere illum inventore ipsa iure non sed suscipit? Ad enim in labore nesciunt quam repudiandae sint ut voluptas?"
+        text: ""
       }
     },
     methods: {
-      show(){
-        this.text = this.text.split('').sort(function(){return 0.5-Math.random()}).join('');
-
+      show1(){
+          this.text = "O4wM29XOxUJ03tAq7d3LND29Q4DY4bHxs"
+      },
+      show2(){
+        this.text = "m28lp9JSF"
       }
     }
   }
