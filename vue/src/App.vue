@@ -1,18 +1,16 @@
 <template>
-  <div>
-    <b>Привет, мир!</b>
-  </div>
-  <div>Имя: {{ name }}</div>
-  <div>Фамилия: {{ surname }}</div>
-  <a :href="href">{{ text }}</a>
+  <p>{{ arr[0] }}</p>
+  <p>{{ arr[1] }}</p>
+  <p>{{ arr[2] }}</p>
+
 </template>
 
 
 <script>
   export default {
-    data(){
+      data() {
       return {
-        num: 5
+        arr: ['x', 'y', 'z'],
       }
     }
   }
