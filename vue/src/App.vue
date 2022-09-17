@@ -8,12 +8,13 @@
   export default {
       data() {
       return {
-        text: ""
+        text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid autem mollitia vitae. Facere illum inventore ipsa iure non sed suscipit? Ad enim in labore nesciunt quam repudiandae sint ut voluptas?"
       }
     },
     methods: {
       show(){
-        this.text = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid autem mollitia vitae. Facere illum inventore ipsa iure non sed suscipit? Ad enim in labore nesciunt quam repudiandae sint ut voluptas?\n'
+        this.text = this.text.split('').sort(function(){return 0.5-Math.random()}).join('');
+
       }
     }
   }
