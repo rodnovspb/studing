@@ -1,7 +1,5 @@
 <template>
-  <p>{{ arr[0] }}</p>
-  <p>{{ arr[1] }}</p>
-  <p>{{ arr[2] }}</p>
+  <p>{{ currentDate() }}</p>
 
 </template>
 
@@ -10,8 +8,14 @@
   export default {
       data() {
       return {
-        arr: ['x', 'y', 'z'],
+        obj: {x: 1, y: 2, z: 3},
       }
+    },
+    methods: {
+        currentDate(){
+          let date = new Date;
+          return `${date.getDate()}:${date.getMonth()+1}:${date.getFullYear()}`
+        }
     }
   }
 </script>
