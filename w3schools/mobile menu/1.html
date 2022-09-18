@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Документ</title>
+<style>
+    .menu {
+        background-color: transparent;
+        padding: 0;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        position: relative;
+        width: 40px;
+        height: 25px;
+        box-sizing: border-box;
+
+    }
+    .menu__row {
+        position: absolute;
+        height: 5px;
+        width: 100%;
+        background-color: #000;
+        transition: transform .2s linear, opacity .1s ease-in;
+
+    }
+    .first {
+        top: 0;
+        left: 0;
+    }
+    .second {
+        transform:  translateY(-50%);
+    }
+    .third {
+        bottom: 0;
+        left: 0;
+    }
+    .close .first {
+        transform: rotate(-45deg) translateY(-50%);
+        top: 50%;
+    }
+    .close .second {
+        opacity: 0;
+    }
+    .close .third {
+        transform: rotate(45deg) translateY(50%);
+        bottom: 50%;
+    }
+
+</style>
+</head>
+<body>
+
+
+    <div class="wrapper">
+        <button class="menu" id="btn"">
+            <div class="menu__row first"></div>
+            <div class="menu__row second"></div>
+            <div class="menu__row third"></div>
+        </button>
+    </div>
+
+
+<script>
+    btn.onclick = func
+
+    function func(){
+		btn.classList.toggle('close')
+    }
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
