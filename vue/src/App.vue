@@ -1,6 +1,7 @@
 <template>
   <div>
-    <h1>{{ price }}</h1>
+    <p>Стоимость: {{ price }}</p>
+    <button @click="inc">Увеличить</button>
   </div>
 </template>
 
@@ -10,20 +11,22 @@
   export default {
     data(){
       return {
-        cost : 200,
-        amount: 15,
+        cost: 100,
+        amount: 20
       }
     },
     methods: {
-
+      inc(){
+        this.amount++
+      }
     },
     computed: {
       price(){
         return this.cost*this.amount
       }
     }
-
   }
+
 
 
 
