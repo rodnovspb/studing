@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>{{ round(2) }}</h1>
+    <h1>{{ price }}</h1>
   </div>
 </template>
 
@@ -10,12 +10,16 @@
   export default {
     data(){
       return {
-        num: 100.6857489,
+        cost : 200,
+        amount: 15,
       }
     },
     methods: {
-      round(count){
-        return this.num.toFixed(count)
+
+    },
+    computed: {
+      price(){
+        return this.cost*this.amount
       }
     }
 
