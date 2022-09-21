@@ -12,10 +12,21 @@
 </head>
 <body>
 
+<!--   Вариант для удаления-->
     <form action="" name="form">
        <button id="button" type="submit" onclick="return confirm('Подтвердите')">Кнопка</button>
     </form>
 
+<!--    Вариант для перехода по ссылке-->
+    <a href="#" onclick="return confirm('Вы уверены?')">Link</a>
+
+<!--    Вариант без встроенного js-->
+<br>
+<button id="btn">Без встроенного js</button>
+
+
+<br>
+<button id="btn1" onclick="return false">ываывавыа</button>
 
 
 <script>
@@ -24,6 +35,16 @@
           console.log('Сработало')
       })
 
+	btn.addEventListener('click', function (e) {
+	      let flag = confirm('Вы уверены')
+          if(!flag) return false
+
+          alert('Это выполнилось так как согласились')
+	  })
+
+	btn1.addEventListener('click', function (e) {
+	      alert('обычный js')
+	  })
 
 </script>
 

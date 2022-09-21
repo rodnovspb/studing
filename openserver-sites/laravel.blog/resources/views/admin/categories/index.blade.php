@@ -58,7 +58,9 @@
                                  <i class="fas fa-pencil-alt"></i>
                              </a>
                              <form action="" method="post" class="float-left">
-                                 <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Подтвердите удаление')"></button>
+                                 <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Подтвердите удаление')">
+                                     <i class="fas fa-trash-alt"></i>
+                                 </button>
                              </form>
                          </td>
                        </tr>
