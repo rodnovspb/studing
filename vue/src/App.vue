@@ -1,6 +1,6 @@
 <template>
   <div>
-    <a href="https://ya.ru/" @click.prevent>Ссылка</a>
+    <button @click.once="show">Нажать</button>
   </div>
 </template>
 
@@ -10,18 +10,12 @@
   export default {
     data(){
       return {
-        cost: 100,
-        amount: 20
+       text: "Текст"
       }
     },
     methods: {
-      inc(){
-        this.amount++
-      }
-    },
-    computed: {
-      price(){
-        return this.cost*this.amount
+      show(){
+        alert(this.text)
       }
     }
   }
