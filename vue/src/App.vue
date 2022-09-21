@@ -1,7 +1,6 @@
 <template>
   <div>
-    <p>Стоимость: {{ price }}</p>
-    <button @click="inc">Увеличить</button>
+    <a href="https://ya.ru/" @click.prevent>Ссылка</a>
   </div>
 </template>
 
