@@ -1,7 +1,6 @@
 <template>
-  <div>
-    <button @click.once="show">Нажать</button>
-  </div>
+  <p v-if="visible">lorem1</p>
+  <p v-if="!visible">lorem2</p>
 </template>
 
 
@@ -10,15 +9,11 @@
   export default {
     data(){
       return {
-       text: "Текст"
-      }
-    },
-    methods: {
-      show(){
-        alert(this.text)
+        visible: false
       }
     }
   }
+
 
 
 
