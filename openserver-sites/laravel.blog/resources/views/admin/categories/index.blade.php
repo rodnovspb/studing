@@ -38,8 +38,9 @@
         </div>
         <div class="card-body">
             <a class="btn btn-primary mb-3"  href="{{ route('categories.create') }}">Добавить категорию</a>
-            @if(!empty($categories))
-          <table class="table table-bordered">
+            @if($categories->count())
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover text-nowrap">
                 <thead>
                     <tr>
                       <th style="width: 10px">#</th>
@@ -49,26 +50,33 @@
                     </tr>
                 </thead>
                 <tbody>
-                       <tr>
-                         <td>1.</td>
-                         <td>Title</td>
-                         <td>slug</td>
+                @foreach($categories as $category)
+                    <tr>
+                         <td>{{ $category->id }}.</td>
+                         <td>{{ $category->title }}</td>
+                         <td>{{ $category->slug }}</td>
                          <td>
-                             <a href="#" class="btn btn-info btn-sm float-left mr-1">
+                             <a href="{{ route('categories.edit', ['category'=>$category->id]) }}" class="btn btn-info btn-sm float-left mr-1">
                                  <i class="fas fa-pencil-alt"></i>
                              </a>
-                             <form action="" method="post" class="float-left">
+                             <form action="{{ route('categories.destroy', ['category'=>$category->id]) }}" method="post"  @csrf @method('DELETE')  class="float-left">
                                  <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Подтвердите удаление')">
                                      <i class="fas fa-trash-alt"></i>
                                  </button>
                              </form>
                          </td>
                        </tr>
+                @endforeach
                 </tbody>
           </table>
+                </div>
+
             @else
             <p>Категорий нет</p>
             @endif
+            <div>
+                {{ $categories->links() }}
+            </div>
         </div>
           <!-- /.card-body -->
         <div class="card-footer">

@@ -191,31 +191,25 @@
               <p>Главная</p>
             </a>
           </li>
-          <li class="nav-item <!--menu-open-->">
+          <li class="nav-item <!--menu-open--> list-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Dashboard
+                Категории
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
-            <ul class="nav nav-treeview">
+            <ul class="nav nav-treeview ">
               <li class="nav-item">
-                <a href="../../index.html" class="nav-link">
+                <a href="{{ route('categories.index') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v1</p>
+                  <p>Список категорий</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../../index2.html" class="nav-link">
+                <a href="{{ route('categories.create') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v2</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../../index3.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v3</p>
+                  <p>Создать категорию</p>
                 </a>
               </li>
             </ul>
@@ -248,6 +242,23 @@
 <!-- ./wrapper -->
 
 <script src="{{ asset('assets/admin/js/admin.js') }}"></script>
+<script>
+    let url = location.origin + location.pathname
+    let links = document.querySelectorAll('.nav-sidebar a')
+    links.forEach(elem=>{
+        if(elem.href === url){
+            elem.classList.add('active')
+            elem.closest('.list-item').classList.add('menu-open')
+        }
+    })
+
+
+
+
+
+
+
+</script>
 </body>
 </html>
 
