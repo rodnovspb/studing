@@ -1,6 +1,6 @@
 <template>
-	<p v-if="hidden">text</p>
-  <button @click="hide">Скрыть</button>
+	<p v-if="!hidden">Абзац</p>
+  <button @click="show">Показать</button>
 </template>
 
 
@@ -13,8 +13,8 @@
       }
     },
     methods: {
-      hide(){
-        this.hidden = false
+      show(){
+        this.hidden = !this.hidden
       }
     }
   }
