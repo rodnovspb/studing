@@ -1,7 +1,7 @@
 <template>
-  <button @click="toggle1">Абзац 1</button>
-  <button @click="toggle2">Абзац 2</button>
-  <button @click="toggle3">Абзац 3</button>
+  <button @click="toggle1">{{ hidden1? 'показать':"скрыть" }}</button>
+  <button @click="toggle2">{{ hidden2? 'показать':"скрыть" }}</button>
+  <button @click="toggle3">{{ hidden3? 'показать':"скрыть" }}</button>
   <p v-if="!hidden1">Абзац 1</p>
   <p v-if="!hidden2">Абзац 2</p>
   <p v-if="!hidden3">Абзац 3</p>
