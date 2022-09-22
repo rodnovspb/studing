@@ -1,7 +1,9 @@
 <template>
-  <p v-if="age < 18">Подросток</p>
-  <p v-else-if="age > 18 && age < 26">МЧ</p>
-  <p v-else-if="age >= 26">Мужчина</p>
+  <template v-if="show">
+    <p>Lorem ipsum dolor sit amet.</p>
+    <p>Lorem ipsum dolor sit amet.</p>
+    <p>Lorem ipsum dolor sit amet.</p>
+  </template>
 </template>
 
 
@@ -10,7 +12,7 @@
   export default {
     data(){
       return {
-        age: 5
+        show: false
       }
     }
   }
