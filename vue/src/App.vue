@@ -1,25 +1,21 @@
 <template>
-	<p v-if="!hidden">Абзац</p>
-  <button @click="show" v-if="hidden">Показать</button>
-  <button @click="hide" v-if="!hidden">Скрыть</button>
+  <button @click="toggle">изменить</button>
+	<p v-if="!hidden">ыфвфывфы</p>
 </template>
 
 
 <script>
 
   export default {
-    data(){
-      return {
-        hidden: true
-      }
-    },
+   data(){
+     return {
+       hidden: false
+     }
+   },
     methods: {
-      show(){
-        this.hidden = false
-      },
-      hide(){
-        this.hidden = true
-      }
+     toggle(){
+       this.hidden = !this.hidden
+     }
     }
   }
 
