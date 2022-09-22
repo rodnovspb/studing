@@ -1,7 +1,7 @@
 <template>
 	<p v-if="!hidden">Абзац</p>
-  <button @click="show">Показать</button>
-  <button @click="hide">Скрыть</button>
+  <button @click="show" v-if="hidden">Показать</button>
+  <button @click="hide" v-if="!hidden">Скрыть</button>
 </template>
 
 
