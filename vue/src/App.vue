@@ -1,10 +1,6 @@
 <template>
-  <button @click="toggle">{{ show ? 'скрыть':'показать'}}</button>
-  <template v-if="show">
-    <p>Lorem ipsum dolor sit amet.</p>
-    <p>Lorem ipsum dolor sit amet.</p>
-    <p>Lorem ipsum dolor sit amet.</p>
-  </template>
+  <button @click="show">{{ isAuth? "Скрыть":"Показать" }}</button>
+  <p v-show="isAuth">Lorem ipsum dolor sit amet.</p>
 </template>
 
 
@@ -13,12 +9,12 @@
   export default {
     data(){
       return {
-        show: false
+        isAuth: true
       }
     },
     methods: {
-      toggle(){
-        this.show = !this.show
+      show(){
+        this.isAuth = !this.isAuth
       }
     }
   }
