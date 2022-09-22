@@ -1,6 +1,6 @@
 <template>
-  <p v-if="visible">lorem1</p>
-  <p v-if="!visible">lorem2</p>
+	<p v-if="hidden">text</p>
+  <button @click="hide">Скрыть</button>
 </template>
 
 
@@ -9,10 +9,17 @@
   export default {
     data(){
       return {
-        visible: false
+        hidden: true
+      }
+    },
+    methods: {
+      hide(){
+        this.hidden = false
       }
     }
   }
+
+
 
 
 
