@@ -1,7 +1,6 @@
 @extends('admin.layouts.layout')
 
 @section('content')
-    <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <div class="container-fluid">
@@ -59,7 +58,9 @@
                              <a href="{{ route('categories.edit', ['category'=>$category->id]) }}" class="btn btn-info btn-sm float-left mr-1">
                                  <i class="fas fa-pencil-alt"></i>
                              </a>
-                             <form action="{{ route('categories.destroy', ['category'=>$category->id]) }}" method="post"  @csrf @method('DELETE')  class="float-left">
+                             <form action="{{ route('categories.destroy', ['category'=>$category->id]) }}" method="post">
+                                 @csrf
+                                 @method('DELETE')
                                  <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Подтвердите удаление')">
                                      <i class="fas fa-trash-alt"></i>
                                  </button>
@@ -88,5 +89,4 @@
 
     </section>
     <!-- /.content -->
-  </div>
 @endsection
