@@ -19,35 +19,33 @@
 
      .tabs {
          display: flex;
+         background-color: #eee;
      }
-
      .btn {
          padding: 10px 25px;
          border: none;
          outline: none;
          cursor: pointer;
-         background-color: #eee;
          transition: background-color .1s;
      }
-     .btn:hover {
-         outline: 1px #ccc solid;
+
+     .active, .btn:hover {
+         background-color: #ccc;
      }
 
      .item {
          padding: 10px;
      }
-     :focus {
-         background-color: #ccc;
-     }
+
 
 </style>
 </head>
 <body>
     <div class="wrap">
        <div class="tabs">
-           <button class="btn" tabindex="1">Москва</button>
-           <button class="btn" tabindex="1">Севастополь</button>
-           <button class="btn" tabindex="1">Южноуральск</button>
+           <button class="btn">Москва</button>
+           <button class="btn">Севастополь</button>
+           <button class="btn">Южноуральск</button>
        </div>
         <div class="text">
             <div class="item">
