@@ -52,12 +52,8 @@
         font-size: 13px;
         background-color: white;
         overflow: hidden;
-        max-height: 0;
-        transition: max-height .2s;
-    }
-    #div {
-        display: none;
-        overflow: hidden;
+        height: 0;
+        transition: height .2s;
     }
 
 </style>
@@ -83,7 +79,6 @@
     </div>
 
 
-    <div id="div" style="width: 180px;  background-color: #00d084">sfert</div>
 
 
 <script>
@@ -91,11 +86,10 @@
 		elem.addEventListener('click', function (e) {
 			this.classList.toggle('active')
             let panel = this.nextElementSibling
-            console.log(panel.clientHeight)
-            if(panel.style.maxHeight) {
-				panel.style.maxHeight = null;
+            if(panel.style.height) {
+				panel.style.height = null;
             } else {
-            	panel.style.maxHeight = panel.offsetHeight + 'px'
+            	panel.style.height = panel.scrollHeight + 'px'
             }
 		  })
     })
