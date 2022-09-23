@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Документ</title>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+    .wrap {
+        width: 50vw;
+        margin: 0 auto;
+    }
+    .accord {
+        width: 100%;
+        border: none;
+        text-align: left;
+        padding: 5px 15px;
+        cursor: pointer;
+        outline: none;
+        background-color: #eee;
+        color: #444;
+        transition: background-color .1s linear;
+        position: relative;
+    }
+
+    .accord:after {
+        position: absolute;
+        right: 10px;
+        content: '\002B';
+        font-size: 13px;
+        color: #777;
+    }
+
+    .accord.active:after {
+        content: '\002D';
+    }
+
+    .active, .accord:hover {
+        background-color: #ccc;
+    }
+
+    .active + .panel {
+
+    }
+    .panel {
+        width: 100%;
+        padding: 0 10px;
+        margin: 0;
+        font-size: 13px;
+        background-color: white;
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height .2s;
+    }
+    #div {
+        display: none;
+        overflow: hidden;
+    }
+
+</style>
+</head>
+<body>
+
+    <div class="wrap">
+    <button class="accord">Секция 1</button>
+    <div class="panel">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur dolores ducimus, exercitationem impedit libero magnam magni maiores non quod vel.</p>
+    </div>
+
+    <button class="accord">Секция 2</button>
+    <div class="panel">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur dolores ducimus, exercitationem impedit libero magnam magni maiores non quod vel.</p>
+    </div>
+
+    <button class="accord">Секция 3</button>
+    <div class="panel">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur dolores ducimus, exercitationem impedit libero magnam magni maiores non quod vel.</p>
+    </div>
+
+    </div>
+
+
+    <div id="div" style="width: 180px;  background-color: #00d084">sfert</div>
+
+
+<script>
+    document.querySelectorAll('.accord').forEach(elem=>{
+		elem.addEventListener('click', function (e) {
+			this.classList.toggle('active')
+            let panel = this.nextElementSibling
+            console.log(panel.clientHeight)
+            if(panel.style.maxHeight) {
+				panel.style.maxHeight = null;
+            } else {
+            	panel.style.maxHeight = panel.offsetHeight + 'px'
+            }
+		  })
+    })
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
