@@ -29,12 +29,33 @@
          transition: background-color .1s;
      }
 
-     .active, .btn:hover {
+     .active {
          background-color: #ccc;
+     }
+
+     .btn:hover:not(.active) {
+         background-color: #e7e6e6;
      }
 
      .item {
          padding: 10px;
+         display: none;
+         animation-name: show;
+         animation-duration: 1s;
+
+     }
+     .activeBlock {
+         display: block;
+
+     }
+
+     @keyframes show {
+         0% {
+            opacity: 0;
+         }
+         100% {
+             opacity: 1;
+         }
      }
 
 
@@ -67,6 +88,32 @@
 
 
 <script>
+    let tabs = document.querySelector('.tabs')
+
+	tabs.addEventListener('click', function (e) {
+	      if(e.target.classList.contains('btn')){
+	      	document.querySelectorAll('.btn').forEach(elem=>{
+				if(elem.classList.contains('active')){
+					elem.classList.remove('active')
+                }
+				e.target.classList.add('active')
+                show(e.target.textContent)
+            })
+          }
+	  })
+
+	tabs.firstElementChild.click()
+
+    function show(city){
+    	document.querySelectorAll('.item').forEach(elem=>{
+			if(elem.classList.contains('activeBlock')){
+				elem.classList.remove('activeBlock')
+			} else if(elem.firstElementChild.textContent === city){
+				elem.classList.add('activeBlock')
+            }
+
+        })
+    }
 
 
 
