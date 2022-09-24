@@ -1,8 +1,6 @@
 <template>
 
- <template v-for="elem of items" :key="elem">
-    <p v-if="elem > 0"> {{ elem }}</p>
- </template>
+  <p v-for="elem in users" :key="elem.id">{{ elem.name }}</p>
 
 
 </template>
@@ -13,7 +11,23 @@
   export default {
     data(){
       return {
-        items: [1, -2, 3, -4, 5],
+        users: [
+          {
+            id: 1,
+            name: 'name1',
+            surn: 'surn1',
+          },
+          {
+            id: 2,
+            name: 'name2',
+            surn: 'surn2',
+          },
+          {
+            id: 3,
+            name: 'name3',
+            surn: 'surn3',
+          },
+        ],
       }
     },
     methods: {
