@@ -1,10 +1,9 @@
 <template>
-  <ul>
-    <template v-for="elem of items" :key="elem">
-      <li>{{ elem }}</li>
-      <li class="divider"></li>
-    </template>
-  </ul>
+
+  <div v-for="elem in users" :key="elem">
+    <p>{{ elem.name }} {{ elem.surn }}</p>
+  </div>
+
 
 
 
@@ -16,7 +15,20 @@
   export default {
     data(){
       return {
-        items: [1, 2, 3],
+        users: [
+          {
+            name: 'name1',
+            surn: 'surn1',
+          },
+          {
+            name: 'name2',
+            surn: 'surn2',
+          },
+          {
+            name: 'name3',
+            surn: 'surn3',
+          },
+        ],
       }
     },
     methods: {
