@@ -1,6 +1,10 @@
 <template>
 
-  <p v-for="num of 10" :key="num">qwe</p>
+  <ul>
+    <template v-for="elem of arr" :key="elem">
+      <li v-if=" elem % 2 === 0 ">{{ elem }}</li>
+    </template>
+  </ul>
 
 
 </template>
@@ -11,7 +15,7 @@
   export default {
     data(){
       return {
-
+        arr: [1, 2, 3, 4, 5],
       }
     },
     methods: {
