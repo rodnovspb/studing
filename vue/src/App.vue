@@ -1,6 +1,6 @@
 <template>
 
-  <p v-for="elem of items" :key="elem">{{ elem }}</p>
+  <p v-for="elem of items" :key="elem">{{ Math.pow(elem, 2) }}</p>
 
 </template>
 
