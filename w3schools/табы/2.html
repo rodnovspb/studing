@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Документ</title>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+    .wrap {
+        width: 100%;
+        border: 1px solid #ccc;
+        height: 200px;
+        display: flex;
+    }
+    .tabs {
+        display: flex;
+        flex-direction: column;
+        width: 40%;
+        background-color: #eee;
+        height: 100%;
+    }
+    .tab {
+        padding: 10px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        background-color: #eee;
+        transition: background-color .1s;
+
+    }
+    .tab:hover {
+        background-color: #dedddd;
+    }
+    .text  {
+        width: 60%;
+    }
+
+    .text__item {
+        display: none;
+        animation: fade .9s;
+    }
+
+    @keyframes fade {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+    .text p,
+    .text h2 {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        padding-left: 5px;
+        padding-right: 5px;
+        font-size: 16px;
+    }
+    .text__item.active {
+        display: block;
+    }
+    .tab.active {
+        background-color: #c9c7c7;
+    }
+
+</style>
+</head>
+<body>
+
+<div class="wrap">
+    <div class="tabs">
+        <button class="tab">Москва</button>
+        <button class="tab">Челябинск</button>
+        <button class="tab">С.Петербург</button>
+    </div>
+    <div class="text">
+        <div class="text__item">
+            <h2>Москва</h2>
+            <p>Lorem ipsum dolor sit amet</p>
+        </div>
+        <div class="text__item">
+            <h2>Челябинск</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, voluptatibus?</p>
+        </div>
+        <div class="text__item">
+            <h2>С.Петербург</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur.</p>
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+    let buttons = document.querySelectorAll('.tab')
+    let texts = document.querySelectorAll('.text__item')
+
+	buttons.forEach((elem, index)=>{
+		elem.addEventListener('click', function (e) {
+			if(document.querySelector('.text .text__item.active')){
+				document.querySelector('.text .text__item.active').classList.remove('active')
+				document.querySelector('.tab.active').classList.remove('active')
+            }
+			texts[index].classList.add('active')
+			elem.classList.add('active')
+		  })
+    })
+
+	buttons[0].click()
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

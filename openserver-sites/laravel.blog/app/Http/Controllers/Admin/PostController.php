@@ -9,16 +9,13 @@ use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
+
 class PostController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        $posts = Post::paginate(20);
+        $posts = Post::with('tags', 'category')->paginate(20);
         return view('admin.posts.index', compact('posts'));
     }
 
@@ -90,8 +87,12 @@ class PostController extends Controller
         $data = $request->all();
         $data['thumbnail'] = Post::uploadImage($request, $post->thumbnail);
 
+
+        if(count($post->tags) > 0){
+            $post->tags()->sync($request->tags);
+        }
+
         $post->update($data);
-        $post->tags()->sync($request->tags);
 
         session()->flash('success', 'Обновлено');
         return redirect()->route('posts.index');
@@ -100,7 +101,13 @@ class PostController extends Controller
 
     public function destroy($id)
     {
+        $post = Post::find($id);
 
+        $post->tags()->sync([]);
+        if($post->thumbnail){
+            Storage::delete($post->thumbnail);
+        }
+        $post->delete();
         session()->flash('success', 'Удалено');
         return redirect()->route('posts.index');
     }

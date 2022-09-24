@@ -58,7 +58,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="tags">Теги</label>
-                                    <select id="tags" name="tags[]" class="select2 select2-hidden-accessible" multiple="" data-placeholder="Выберите тег" style="width: 100%;" data-select2-id="7" tabindex="-1" aria-hidden="true">
+                                    <select id="tags" name="tags[]" class="select2 select2-hidden-accessible" multiple="" data-placeholder="Выберите тег" style="width: 100%;" data-select2-id="7" aria-hidden="true">
                                         @foreach($tags as $k=>$v)
                                             <option value="{{ $k }}" @if(in_array($k, $post->tags->pluck('id')->all())) selected @endif>{{ $v }}</option>
                                         @endforeach
@@ -72,7 +72,7 @@
                                         <label class="custom-file-label" for="thumbnail">Выберите изображение</label>
                                       </div>
                                     </div>
-                                    <div>{{ $post->thumbnail }}</div>
+                                    <div><img class="img-thumbnail mt-2" width="60" src="{{ $post->getImage() }}" alt=""></div>
                                 </div>
                             </div>
                             <!-- /.card-body -->
