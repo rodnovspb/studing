@@ -20,7 +20,7 @@
     },
     methods: {
       sort(){
-        this.arr = this.arr.sort()
+        this.arr = this.arr.sort().reverse()
       }
 
     }
