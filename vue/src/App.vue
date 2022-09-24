@@ -1,5 +1,5 @@
 <template>
-    <button @click="add">Удалить</button>
+    <button @click="sort">Сортировать</button>
     <ul>
       <li v-for="elem of arr" :key="elem">{{ elem }}</li>
     </ul>
@@ -15,15 +15,16 @@
     data(){
       return {
         arr: ["Distance", "Anything", "Businessman", "Sacrifice", "Headache", "Reproduce", "Excessive", "Pretense", "Discover", "Christmas", "Calculate"],
+
       }
     },
     methods: {
-      add(){
-        this.arr.splice(this.arr.length-2,1)
+      sort(){
+        this.arr = this.arr.sort()
       }
+
     }
   }
-
 
 
 
