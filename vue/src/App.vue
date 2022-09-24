@@ -1,8 +1,8 @@
 <template>
 
-  <div v-for="elem in users" :key="elem">
-    <p>{{ elem.name }} {{ elem.surn }}</p>
-  </div>
+  <ul>
+    <li v-for="elem of hrefs" :key="elem"><a href="{{ elem.href }}">{{ elem.text }}</a></li>
+  </ul>
 
 
 
@@ -15,19 +15,10 @@
   export default {
     data(){
       return {
-        users: [
-          {
-            name: 'name1',
-            surn: 'surn1',
-          },
-          {
-            name: 'name2',
-            surn: 'surn2',
-          },
-          {
-            name: 'name3',
-            surn: 'surn3',
-          },
+        hrefs: [
+          {href: `https://ya.ru/`, text: 'text1'},
+          {href: '2.html', text: 'text2'},
+          {href: '3.html', text: 'text3'},
         ],
       }
     },
