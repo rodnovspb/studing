@@ -1,8 +1,11 @@
 <template>
-  <div v-for="elem in items" :key="elem">
-    <p>{{ elem }}</p>
-    <p class="divider"></p>
-  </div>
+  <ul>
+    <template v-for="elem of items" :key="elem">
+      <li>{{ elem }}</li>
+      <li class="divider"></li>
+    </template>
+  </ul>
+
 
 
 </template>
