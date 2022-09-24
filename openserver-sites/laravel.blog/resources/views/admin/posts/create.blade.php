@@ -40,15 +40,15 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="description">Цитата</label>
-                                    <textarea id="description" name="description" class="form-control" rows="2" placeholder="Введите описание">{{ old('description') }}</textarea>
+                                    <textarea id="description" name="description" class="form-control @error('description') is-invalid @enderror" rows="2" placeholder="Введите описание">{{ old('description') }}</textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="content">Текст</label>
-                                    <textarea id="content" name="content" class="form-control" rows="4" placeholder="Введите текст">{{ old('content') }}</textarea>
+                                    <textarea id="content" name="content" class="form-control @error('content') is-invalid @enderror" rows="4" placeholder="Введите текст">{{ old('content') }}</textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="category_id">Категория</label>
-                                    <select id="category_id" class="form-control" name="category_id">
+                                    <select id="category_id" class="form-control @error('category_id') is-invalid @enderror" name="category_id">
                                         @foreach($categories as $k=>$v)
                                             <option value="{{ $k }}">{{ $v }}</option>
                                         @endforeach
@@ -63,6 +63,7 @@
                                         @endforeach
                                     </select>
                                 </div>
+                                <div class="form-group">
                                     <label for="thumbnail">Изображение</label>
                                     <div class="input-group">
                                       <div class="custom-file">

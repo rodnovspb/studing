@@ -6,7 +6,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Категории</h1>
+            <h1>Статьи</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -25,11 +25,11 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Редактирование категории</h3>
+                            <h3 class="card-title">Редактирование статьи</h3>
                         </div>
                         <!-- /.card-header -->
 
-                        <form role="form" method="post" action="{{ route('categories.update', ['category'=> $category->id]) }}">
+                        <form role="form" method="post" action="{{ route('posts.update', ['post'=>$post->id]) }}" enctype="multipart/form-data">
                             @csrf
                             @method('put')
                             <div class="card-body">
@@ -37,7 +37,42 @@
                                     <label for="title">Название</label>
                                     <input type="text" name="title"
                                            class="form-control @error('title') is-invalid @enderror" id="title"
-                                           value="{{ $category->title }}">
+                                           value="{{ $post->title }}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="description">Цитата</label>
+                                    <textarea id="description" name="description" class="form-control @error('description') is-invalid @enderror" rows="2" >{{ $post->description }}</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="content">Текст</label>
+                                    <textarea id="content" name="content" class="form-control @error('content') is-invalid @enderror" rows="4">{{ $post->content }}</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="category_id">Категория</label>
+                                    <select id="category_id" class="form-control @error('category_id') is-invalid @enderror" name="category_id">
+                                        @foreach($categories as $k=>$v)
+                                            <option value="{{ $k }}" @if($k === $post->category_id) selected @endif>{{ $v }}</option>
+                                        @endforeach
+
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="tags">Теги</label>
+                                    <select id="tags" name="tags[]" class="select2 select2-hidden-accessible" multiple="" data-placeholder="Выберите тег" style="width: 100%;" data-select2-id="7" tabindex="-1" aria-hidden="true">
+                                        @foreach($tags as $k=>$v)
+                                            <option value="{{ $k }}" @if(in_array($k, $post->tags->pluck('id')->all())) selected @endif>{{ $v }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="thumbnail">Изображение</label>
+                                    <div class="input-group">
+                                      <div class="custom-file">
+                                        <input name="thumbnail" type="file" class="custom-file-input" id="thumbnail">
+                                        <label class="custom-file-label" for="thumbnail">Выберите изображение</label>
+                                      </div>
+                                    </div>
+                                    <div>{{ $post->thumbnail }}</div>
                                 </div>
                             </div>
                             <!-- /.card-body -->
@@ -58,5 +93,4 @@
     </section>
     <!-- /.content -->
 @endsection
-
 
