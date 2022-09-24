@@ -1,10 +1,8 @@
 <template>
 
-  <ul>
-    <template v-for="elem of arr" :key="elem">
-      <li v-if=" elem % 2 === 0 ">{{ elem }}</li>
-    </template>
-  </ul>
+ <template v-for="elem of items" :key="elem">
+    <p v-if="elem > 0"> {{ elem }}</p>
+ </template>
 
 
 </template>
@@ -15,7 +13,7 @@
   export default {
     data(){
       return {
-        arr: [1, 2, 3, 4, 5],
+        items: [1, -2, 3, -4, 5],
       }
     },
     methods: {
