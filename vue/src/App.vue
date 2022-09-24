@@ -1,6 +1,8 @@
 <template>
-  <button @click="show">{{ isAuth? "Скрыть":"Показать" }}</button>
-  <p v-show="isAuth">Lorem ipsum dolor sit amet.</p>
+
+  <p v-for="elem of arr" :key="elem">{{ elem }}</p>
+
+
 </template>
 
 
@@ -9,13 +11,11 @@
   export default {
     data(){
       return {
-        isAuth: true
+        items: [1, 2, 3, 4, 5],
       }
     },
     methods: {
-      show(){
-        this.isAuth = !this.isAuth
-      }
+
     }
   }
 
