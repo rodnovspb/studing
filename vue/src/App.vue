@@ -1,6 +1,9 @@
 <template>
 
-  <p v-for="elem in users" :key="elem.id">{{ elem.name }}</p>
+    <ul>
+      <li v-for="elem of products" :key="elem.id">{{ elem.name }}</li>
+    </ul>
+
 
 
 </template>
@@ -11,21 +14,18 @@
   export default {
     data(){
       return {
-        users: [
+        products: [
           {
             id: 1,
-            name: 'name1',
-            surn: 'surn1',
+            name: 'product1',
           },
           {
             id: 2,
-            name: 'name2',
-            surn: 'surn2',
+            name: 'product2',
           },
           {
             id: 3,
-            name: 'name3',
-            surn: 'surn3',
+            name: 'product3',
           },
         ],
       }
