@@ -1,5 +1,5 @@
 <template>
-    <button @click="add">Добавить</button>
+    <button @click="add">Удалить</button>
     <ul>
       <li v-for="elem of arr" :key="elem">{{ elem }}</li>
     </ul>
@@ -14,15 +14,17 @@
   export default {
     data(){
       return {
-        arr: ['a', 'b', 'c', 'd'],
+        arr: ["Distance", "Anything", "Businessman", "Sacrifice", "Headache", "Reproduce", "Excessive", "Pretense", "Discover", "Christmas", "Calculate"],
       }
     },
     methods: {
       add(){
-        this.arr.pop()
+        this.arr.splice(this.arr.length-2,1)
       }
     }
   }
+
+
 
 
 
