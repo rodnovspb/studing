@@ -1,7 +1,10 @@
 <template>
 
-  <ul v-for="(elem, key, index) in obj" :key="key">
-    <li>{{ key + '-' + elem + '/'}}{{index + 1}}</li>
+  <ul>
+    <template v-for="(elem, key, index) in obj" :key="key">
+          <li>{{ key + '-' + elem + '/'}}{{index + 1}}</li>
+          <hr>
+    </template>
   </ul>
 
 </template>
