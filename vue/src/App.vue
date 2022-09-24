@@ -14,12 +14,12 @@
   export default {
     data(){
       return {
-        arr: ['a', 'b', 'c'],
+        arr: ['a', 'b', 'c', 'd'],
       }
     },
     methods: {
       add(){
-        this.arr.push('xxx')
+        this.arr.pop()
       }
     }
   }
