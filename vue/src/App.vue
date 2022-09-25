@@ -1,10 +1,12 @@
 <template>
-  <p :class="obj">Lorem ipsum dolor sit amet.</p>
+  <p :class="styles">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, voluptate.</p>
+
+  <button @click="change">Зачеркнуть</button>
 </template>
 
 <style>
-  .done {
-    background-color: blue;
+  .through {
+    text-decoration: line-through;
   }
 </style>
 
@@ -13,13 +15,18 @@
   export default {
       data(){
         return {
-         obj: {
-           done: true,
-           selected: false
+         styles: {
+           through: false
+          }
          }
+        },
+      methods: {
+        change(){
+          this.styles.through = true
         }
       }
-  }
+      }
+
 
 
 
