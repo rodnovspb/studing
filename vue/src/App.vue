@@ -1,6 +1,5 @@
 <template>
-  <p :class="str">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, temporibus!</p>
-
+  <p :class="cssClasses">Lorem ipsum dolor sit amet.</p>
 </template>
 
 <style>
@@ -15,7 +14,7 @@
   export default {
       data(){
         return {
-          str: 'active'
+          cssClasses: 'active valid'
         }
       }
   }
