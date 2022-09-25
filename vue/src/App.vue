@@ -1,13 +1,10 @@
 <template>
-    <span :class="{active: true, valid: false}">Lorem ipsum dolor sit amet.</span>
+  <p :class="{red: isActive}">Lorem ipsum dolor sit amet.</p>
 </template>
 
 <style>
-  .active {
-    text-decoration: underline;
-  }
-  .valid {
-    color: #f00;
+  .red {
+    color: red;
   }
 </style>
 
@@ -16,12 +13,10 @@
   export default {
         data(){
           return {
+            isActive: true,
 
           }
         },
-        methods: {
-
-        }
       }
 
 
