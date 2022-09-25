@@ -1,34 +1,23 @@
 <template>
-    <button @click="sort">Сортировать</button>
-    <ul>
-      <li v-for="elem of arr" :key="elem">{{ elem }}</li>
-    </ul>
-
-
+  <p :class="str">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, temporibus!</p>
 
 </template>
 
 <style>
-  ul {
-    background-color: #eee;
+  .active {
+    border: 1px solid blue;
+
   }
 </style>
 
 <script>
 
   export default {
-    data(){
-      return {
-        arr: ["Distance", "Anything", "Businessman", "Sacrifice", "Headache", "Reproduce", "Excessive", "Pretense", "Discover", "Christmas", "Calculate"],
-
+      data(){
+        return {
+          str: 'active'
+        }
       }
-    },
-    methods: {
-      sort(){
-        this.arr = this.arr.sort().reverse()
-      }
-
-    }
   }
 
 
