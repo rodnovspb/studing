@@ -1,5 +1,5 @@
 <template>
-  <p :class="obj">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, voluptate.</p>
+  <div :class="styles">Lorem ipsum dolor sit amet.</div>
 
   <button @click="change">Зачеркнуть</button>
 </template>
@@ -13,18 +13,18 @@
 <script>
 
   export default {
-      data(){
-        return {
-          obj: {
-            hidden: false,
-          },
-         }
+        data(){
+          return {
+            styles: {
+              hidden: false
+            }
+          }
         },
-      methods: {
-        change(){
-          this.obj.hidden = !this.obj.hidden
+        methods: {
+          change(){
+            this.styles.hidden = !this.styles.hidden
+          }
         }
-      }
       }
 
 
