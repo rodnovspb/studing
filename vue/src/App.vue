@@ -8,6 +8,11 @@
 
 </template>
 
+<style>
+  ul {
+    background-color: #eee;
+  }
+</style>
 
 <script>
 
