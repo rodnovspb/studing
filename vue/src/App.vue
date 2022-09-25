@@ -1,12 +1,10 @@
 <template>
-  <div :class="styles">Lorem ipsum dolor sit amet.</div>
-
-  <button @click="change">Зачеркнуть</button>
+    <p :class="{active: true}">Lorem ipsum dolor sit amet.</p>
 </template>
 
 <style>
-  .hidden {
-    display: none;
+  .active {
+    text-decoration: underline;
   }
 </style>
 
@@ -15,15 +13,11 @@
   export default {
         data(){
           return {
-            styles: {
-              hidden: false
-            }
+
           }
         },
         methods: {
-          change(){
-            this.styles.hidden = !this.styles.hidden
-          }
+
         }
       }
 
