@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+* img {
+    max-width: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+:root {
+  --bg-color: #121B25;
+  --accent-color: #1AA090;
+  --text-color: #D6D6D6;
+}
+
+body {
+  font-family: 'Work Sans', sans-serif;
+  background-color: var(--bg-color);
+}
+
+[class *="__container"] {
+  max-width: 1450px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/*=======================Header=======================*/
+
+.header {
+  padding: 40px 0;
+}
+
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.header__logo {
+  max-width: 200px;
+}
+
+.header__navigation {
+  display: flex;
+  align-items: center;
+  gap: 74px;
+}
+
+.header__menu.menu {
+}
+
+.menu__body {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.menu__item {
+}
+
+.menu__link {
+  font-size: 16px;
+  line-height: 19px;
+  text-transform: capitalize;
+  color: var(--text-color);
+  text-decoration: none;
+  transition: color .2s;
+  position: relative;
+  &:before {
+    content: '';
+    position: absolute;
+    height: 3px;
+    background-color: var(--accent-color);
+    left: 0;
+    right: 0;
+    bottom: -5px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .2s;
+  }
+  @media(any-hover: hover){
+    &:hover {
+      color: white;
+      &:before {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+}
+
+.header__buttons {
+}
+
+.login.header__btn {
+}
+
+.register.header__btn {
+}
