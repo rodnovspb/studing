@@ -1,10 +1,13 @@
 <template>
-  <p :class="{red: isActive}">Lorem ipsum dolor sit amet.</p>
+  <p :class="{black: isActive, white: isDisabled}">Lorem ipsum dolor sit amet.</p>
 </template>
 
 <style>
-  .red {
-    color: red;
+  .black {
+    background-color: #bf1f1f;
+  }
+  .white {
+    color: #fff;
   }
 </style>
 
@@ -14,7 +17,7 @@
         data(){
           return {
             isActive: true,
-
+            isDisabled: false,
           }
         },
       }
