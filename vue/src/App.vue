@@ -1,12 +1,12 @@
 <template>
-    <p :class="{active: true, 'with-error': true}">Lorem ipsum dolor sit amet.</p>
+    <span :class="{active: true, valid: false}">Lorem ipsum dolor sit amet.</span>
 </template>
 
 <style>
   .active {
     text-decoration: underline;
   }
-  .with-error {
+  .valid {
     color: #f00;
   }
 </style>
