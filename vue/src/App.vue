@@ -1,6 +1,6 @@
 <template>
   <input type="text" v-model="message">
-  <p>{{ upper }}</p>
+  <p>{{ square() }}</p>
 
 </template>
 
@@ -9,7 +9,12 @@
   export default {
         data(){
           return {
-           message: "hello",
+           message: 1,
+          }
+        },
+        methods: {
+          square(){
+            return this.message**2
           }
         },
         computed: {
