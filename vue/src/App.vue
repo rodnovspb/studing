@@ -1,6 +1,7 @@
 <template>
   <textarea v-model="text"></textarea>
-  <p>{{ text }}</p>
+  <button @click="cut">Показать</button>
+  <ul></ul>
 
 </template>
 
@@ -9,13 +10,26 @@
   export default {
         data(){
           return {
-            text: ''
+            text: '',
+            result: ''
+
+          }
+        },
+        methods: {
+          cut(){
+            let text = this.text
+            let arr = text.match(/\p{L}+/gu)
+            let inner = ''
+            arr.forEach(elem=>{
+              inner += `<li>${elem}</li>`
+            })
+            document.querySelector('ul').innerHTML = inner
           }
         }
       }
 
 
-console.log('Роднов Ёенисё Анатольевич'.match(/[А-яЁё]+/ug))
+
 
 
 
