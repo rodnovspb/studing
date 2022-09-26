@@ -16,7 +16,7 @@
         },
         methods: {
           calc(){
-            this.res = Math.pow(this.num, 2)
+            this.res = Math.sqrt(this.num)
           }
         },
       }
