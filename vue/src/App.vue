@@ -1,8 +1,8 @@
 <template>
-  <input type="text" v-model="num1">
-  <input type="text" v-model="num2">
-  <button @click="calc">Вычислить</button>
-  <p>{{ res }}</p>
+  <input type="text" v-model="text1">
+  <input type="text" v-model="text2">
+  <button @click="replace">Поменять</button>
+
 
 </template>
 
@@ -11,14 +11,13 @@
   export default {
         data(){
           return {
-            num1: '',
-            num2: '',
-            res: 0,
+            text1: '',
+            text2: '',
           }
         },
         methods: {
-          calc(){
-            this.res = ~~this.num1 + ~~this.num2
+          replace(){
+            [this.text1, this.text2] = [this.text2, this.text1]
           }
         },
       }
