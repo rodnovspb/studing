@@ -1,8 +1,9 @@
 <template>
-  <input type="text" v-model="text1">
-  <input type="text" v-model="text2">
-  <button @click="replace">Поменять</button>
-
+  <input type="text" v-model="text">
+  <button @click="cut">Разбить</button>
+  <p>{{ surname }}</p>
+  <p>{{ name }}</p>
+  <p>{{ patronymic }}</p>
 
 </template>
 
@@ -11,20 +12,24 @@
   export default {
         data(){
           return {
-            text1: '',
-            text2: '',
+            surname: '',
+            name: '',
+            patronymic: '',
+            text: ''
           }
         },
         methods: {
-          replace(){
-            [this.text1, this.text2] = [this.text2, this.text1]
+          cut(){
+            let arr = this.text.match(/\p{L}+/gui);
+            this.surname = arr[0]
+            this.name = arr[1]
+            this.patronymic = arr[2]
           }
-        },
+        }
       }
 
 
-
-
+console.log('Роднов Ёенисё Анатольевич'.match(/[А-яЁё]+/ug))
 
 
 
