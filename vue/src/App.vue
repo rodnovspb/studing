@@ -1,7 +1,7 @@
 <template>
-  <textarea v-model="text"></textarea>
-  <button @click="cut">Показать</button>
-  <ul></ul>
+
+  <input type="checkbox" v-model="checked">
+  <p v-show="checked">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, aspernatur autem. Alias, consectetur dicta distinctio ducimus exercitationem molestiae nulla omnis pariatur perspiciatis, porro, rem saepe sit suscipit ullam voluptatem voluptates.</p>
 
 </template>
 
@@ -10,22 +10,10 @@
   export default {
         data(){
           return {
-            text: '',
-            result: ''
-
+            checked: true
           }
         },
-        methods: {
-          cut(){
-            let text = this.text
-            let arr = text.match(/\p{L}+/gu)
-            let inner = ''
-            arr.forEach(elem=>{
-              inner += `<li>${elem}</li>`
-            })
-            document.querySelector('ul').innerHTML = inner
-          }
-        }
+
       }
 
 
