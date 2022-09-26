@@ -1,24 +1,22 @@
 <template>
-
-
-  <p :style="{color: 'green', backgroundColor: 'yellow'}">Lorem ipsum dolor sit amet.</p>
-  <p :style="{fontWeight: 'bold', 'font-style': 'Italic'}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, ratione.</p>
+  <input type="text" v-model="message">
+  <p>{{ upper }}</p>
 
 </template>
-
-<style>
-
-</style>
 
 <script>
 
   export default {
         data(){
           return {
-            isActive: true,
-            isDisabled: false,
+           message: "hello",
           }
         },
+        computed: {
+          upper(){
+            return this.message.toUpperCase()
+          }
+        }
       }
 
 
