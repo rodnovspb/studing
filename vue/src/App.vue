@@ -1,6 +1,7 @@
 <template>
-  <input type="text" v-model="message">
-  <p>{{ square() }}</p>
+  <input type="text" v-model="num">
+  <button @click="calc">Вычислить</button>
+  <p>{{ res }}</p>
 
 </template>
 
@@ -9,19 +10,15 @@
   export default {
         data(){
           return {
-           message: 1,
+            num: 0,
+            res: 0,
           }
         },
         methods: {
-          square(){
-            return this.message**2
+          calc(){
+            this.res = Math.pow(this.num, 2)
           }
         },
-        computed: {
-          upper(){
-            return this.message.toUpperCase()
-          }
-        }
       }
 
 
