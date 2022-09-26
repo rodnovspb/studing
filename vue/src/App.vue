@@ -1,7 +1,10 @@
 <template>
 
-  <input type="checkbox" v-model="checked">
-  <p v-show="checked">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, aspernatur autem. Alias, consectetur dicta distinctio ducimus exercitationem molestiae nulla omnis pariatur perspiciatis, porro, rem saepe sit suscipit ullam voluptatem voluptates.</p>
+  <label>русский <input type="checkbox" v-model="arr" value="русский"></label><br>
+  <label>английский <input type="checkbox" v-model="arr" value="английский"></label><br>
+  <label>немецкий <input type="checkbox" v-model="arr" value="немецкий"></label>
+  <button @click="show">Показать</button>
+  <p>{{ text }}</p>
 
 </template>
 
@@ -10,9 +13,17 @@
   export default {
         data(){
           return {
-            checked: true
+            arr: [],
+            text: ''
           }
         },
+        methods: {
+          show(){
+            this.arr.forEach(elem=>{
+              this.text += elem +", "
+            })
+          }
+        }
 
       }
 
