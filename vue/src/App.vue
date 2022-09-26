@@ -1,5 +1,6 @@
 <template>
-  <input type="text" v-model="num">
+  <input type="text" v-model="num1">
+  <input type="text" v-model="num2">
   <button @click="calc">Вычислить</button>
   <p>{{ res }}</p>
 
@@ -10,13 +11,14 @@
   export default {
         data(){
           return {
-            num: 0,
+            num1: '',
+            num2: '',
             res: 0,
           }
         },
         methods: {
           calc(){
-            this.res = Math.sqrt(this.num)
+            this.res = ~~this.num1 + ~~this.num2
           }
         },
       }
