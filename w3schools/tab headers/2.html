@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Документ</title>
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    .wrap {
+        width: 80vw;
+        margin: 30px auto;
+    }
+    .header {
+        display: flex;
+        flex-direction: column;
+    }
+    .header__item {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 150px;
+        color: white;
+    }
+    .header__city {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+    .header_tabs {
+        display: flex;
+        background-color: #eee;
+        justify-content: space-around;
+
+    }
+    .header__btn {
+        border: none;
+        outline: none;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        width: 25%;
+        cursor: pointer;
+    }
+    .header__btn:hover {
+        background-color: #e0e0e0;
+    }
+    .header__btn.active {
+        background-color: #ccc;
+        color: white;
+    }
+    .header__item.active {
+        display: flex;
+    }
+
+</style>
+</head>
+<body>
+
+    <div class="wrap">
+        <header class="header">
+            <div class="header_tabs">
+                <button class="header__btn" data-num="0">Москва</button>
+                <button class="header__btn" data-num="1">Челябинск</button>
+                <button class="header__btn" data-num="2">Подольск</button>
+                <button class="header__btn" data-num="3">С.Петербург</button>
+            </div>
+            <div class="header__top">
+                <div class="header__item">
+                    <h2 class="header__city">Москва</h2>
+                    <p class="header__desc">Lorem ipsum dolor sit amet.</p>
+                </div>
+                <div class="header__item">
+                    <h2 class="header__city">Челябинск</h2>
+                    <p class="header__desc">Lorem ipsum dolor sit amet</p>
+                </div>
+                <div class="header__item">
+                    <h2 class="header__city">Подольск</h2>
+                    <p class="header__desc">Lorem ipsum dolor.</p>
+                </div>
+                <div class="header__item">
+                    <h2 class="header__city">С.Петербург</h2>
+                    <p class="header__desc">Lorem ipsum dolor sit amet</p>
+                </div>
+            </div>
+        </header>
+    </div>
+
+
+
+
+<script>
+    let tabs = document.querySelectorAll('.header__btn')
+    let texts = document.querySelectorAll('.header__item')
+    let colors = ['red', 'green', 'blue', 'orange']
+
+	tabs.forEach((elem, index)=>{
+		elem.addEventListener('click', function (e) {
+			if(document.querySelector('.header__item.active')){
+				document.querySelector('.header__btn.active').classList.remove('active')
+				document.querySelector('.header__item.active').classList.remove('active')
+			}
+
+			tabs.forEach(elem=>{
+                elem.style.backgroundColor = '#eee'
+            })
+
+			tabs[index].style.backgroundColor = colors[index]
+			texts[index].style.backgroundColor = colors[index]
+			elem.classList.add('active')
+			texts[index].classList.add('active')
+
+		  })
+    })
+
+	tabs[0].click()
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

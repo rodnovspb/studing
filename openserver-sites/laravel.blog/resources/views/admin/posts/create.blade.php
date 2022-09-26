@@ -92,3 +92,17 @@
     <!-- /.content -->
 @endsection
 
+@push('styles')
+    <link rel="stylesheet" href="{{ asset('modules/summernote/summernote-bs4.min.css') }}">
+@endpush
+
+@push('scripts')
+    <script src="{{ asset('modules/summernote/summernote-bs4.min.js') }}"></script>
+    <script src="{{ asset('modules/summernote/lang/summernote-ru-RU.min.js') }}"></script>
+    <script>
+        $("#content").summernote({
+            lang: "ru-RU",
+            height: 160,
+        });
+    </script>
+@endpush

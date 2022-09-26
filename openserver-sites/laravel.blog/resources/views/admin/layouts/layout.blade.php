@@ -317,14 +317,12 @@
             elem.closest('.list-item').classList.add('menu-open')
         }
     })
-
-
-
-
-
-
-
 </script>
+
+@stack('styles')
+@stack('scripts')
+
+
 </body>
 </html>
 
