@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Документ</title>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    ul {
+        list-style: none;
+    }
+    .wrapper {
+        display: flex;
+        margin: 20px;
+        height: 200px;
+        border: 1px solid #eee;
+        font-family: Tahoma, sans-serif;
+
+    }
+    .list {
+        flex-basis: 30%;
+        background-color: #eee;
+        display: flex;
+        flex-direction: column;
+
+    }
+    .list__item {
+        cursor: pointer;
+        padding: 10px;
+    }
+    .list__item.active {
+        background-color: #ccc;
+    }
+    .text {
+        padding: 10px;
+    }
+    h4 {
+        margin-bottom: 10px;
+    }
+    .text__item:not(.active) {
+        display: none;
+    }
+
+</style>
+</head>
+<body>
+
+
+    <div class="wrapper">
+        <ul class="list">
+            <li class="list__item">Москва</li>
+            <li class="list__item">Челябинск</li>
+            <li class="list__item">Караганда</li>
+        </ul>
+        <div class="text">
+            <div class="text__item">
+                <h4>Москва</h4>
+                <p>Столица</p>
+            </div>
+            <div class="text__item">
+                <h4>Челябинск</h4>
+                <p>Родина</p>
+            </div>
+            <div class="text__item">
+                <h4>Караганда</h4>
+                <p>Казахстан</p>
+            </div>
+        </div>
+    </div>
+
+
+<script>
+    let tabs = document.querySelectorAll('.list__item')
+    let texts = document.querySelectorAll('.text__item')
+
+	tabs.forEach((elem, index)=>{
+		elem.addEventListener('mouseenter', function (e) {
+			removeClass()
+			elem.classList.add('active')
+			texts[index].classList.add('active')
+		  })
+
+    })
+
+
+    function removeClass(){
+		tabs.forEach(elem=>{
+			if(elem.classList.contains('active')){
+				elem.classList.remove('active')
+            }
+        })
+		texts.forEach(elem=>{
+			if(elem.classList.contains('active')){
+				elem.classList.remove('active')
+			}
+		})
+    }
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
