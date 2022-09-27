@@ -11,6 +11,7 @@ mix.styles([
 
 mix.scripts([
     'resources/assets/admin/plugins/jquery/jquery.min.js',
+    'resources/assets/admin/plugins/bs-custom-file-input/bs-custom-file-input.js',
     'resources/assets/admin/plugins/bootstrap/js/bootstrap.bundle.min.js',
     'resources/assets/admin/plugins/select2/js/select2.full.js',
     'resources/assets/admin/js/adminlte.min.js/',

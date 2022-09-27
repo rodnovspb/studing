@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Документ</title>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: system-ui, sans-serif;
+    }
+    .wrapper {
+        width: 80vw;
+        margin: 30px auto;
+
+    }
+    .menu {
+        display: flex;
+        list-style: none;
+        background-color: #000;
+        overflow: hidden;
+        position: relative;
+    }
+    .menu_link {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-right: clamp(15px, 2.5vw ,30px);
+        padding-left: clamp(15px, 2.5vw ,30px);
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+        color: white;
+    }
+    .menu_link:hover {
+        background-color: #ddd;
+        color: #000;
+    }
+    .menu_link.active {
+        background-color: #04AA6D;
+        color: white;
+    }
+    .menu__item:last-child {
+        margin-left: auto;
+        display: flex;
+    }
+    .mobile-menu {
+        right: 10px;
+        top: 11px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        background-color: transparent;
+        position: absolute;
+        width: 27px;
+        height: 20px;
+        display: none;
+    }
+    .mobile-menu span {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+        height: 3px;
+        background-color: #fff;
+    }
+    .mobile-menu:before {
+        position: absolute;
+        content: '';
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background-color: #fff;
+        transition: all .2s;
+    }
+    .mobile-menu:after {
+        position: absolute;
+        content: '';
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background-color: #fff;
+        transition: all .2s;
+    }
+
+    .close.mobile-menu span {
+        display: none;
+    }
+    .close.mobile-menu:before {
+        top: 50%;
+        transform: translateY(-50%) rotate(-45deg);
+    }
+    .close.mobile-menu:after {
+        top: 50%;
+        transform: translateY(-50%) rotate(45deg);
+    }
+
+
+    @media (max-width: 600px) {
+        .mobile-menu {
+            display: block;
+        }
+        .menu {
+            flex-direction: column;
+        }
+        .menu:not(.show) .menu__item:not(:first-child) {
+            display: none;
+        }
+    }
+
+
+
+
+</style>
+</head>
+<body>
+
+    <div class="wrapper">
+        <ul class="menu" id="menu">
+            <li class="menu__item"><a class="menu_link active" href="#">Главная</a></li>
+            <li class="menu__item"><a class="menu_link" href="#">Цены</a></li>
+            <li class="menu__item"><a class="menu_link" href="#">О нас</a></li>
+            <li class="menu__item"><a class="menu_link" href="#">Гарантия</a></li>
+            <li class="menu__item"><a class="menu_link" href="#">Контакты</a></li>
+            <button  id='btn' class="mobile-menu" href="#"><span></span></button>
+       </ul>
+    </div>
+
+    <script>
+        btn.onclick = show
+
+        function show(){
+			menu.classList.toggle('show')
+			btn.classList.toggle('close')
+        }
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
