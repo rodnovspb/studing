@@ -54,8 +54,8 @@
         cursor: pointer;
         background-color: transparent;
         position: absolute;
-        width: 27px;
-        height: 20px;
+        width: 30px;
+        height: 18px;
         display: none;
     }
     .mobile-menu span {
@@ -64,8 +64,9 @@
         top: 50%;
         transform: translateY(-50%);
         width: 100%;
-        height: 3px;
+        height: 2px;
         background-color: #fff;
+        transition: all .3s ease 0s;
     }
     .mobile-menu:before {
         position: absolute;
@@ -73,9 +74,9 @@
         top: 0;
         left: 0;
         width: 100%;
-        height: 3px;
+        height: 2px;
         background-color: #fff;
-        transition: all .2s;
+        transition: all .3s ease 0s;
     }
     .mobile-menu:after {
         position: absolute;
@@ -83,13 +84,13 @@
         bottom: 0;
         left: 0;
         width: 100%;
-        height: 3px;
+        height: 2px;
         background-color: #fff;
-        transition: all .2s;
+        transition: all .3s ease 0s;
     }
 
     .close.mobile-menu span {
-        display: none;
+        transform: scale(0);
     }
     .close.mobile-menu:before {
         top: 50%;
@@ -110,6 +111,9 @@
         }
         .menu:not(.show) .menu__item:not(:first-child) {
             display: none;
+        }
+        .menu_link {
+            width: 100%;
         }
     }
 
