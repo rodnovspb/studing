@@ -20,7 +20,7 @@
         },
         methods: {
           add(){
-            this.items.push(this.newItem)
+            this.items.unshift(this.newItem)
           }
         }
       }
