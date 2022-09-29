@@ -1,7 +1,7 @@
 <template>
 
-  <input type="text" @keyup.enter="func" v-model="text">
-  <p>{{ par }}</p>
+  <a href="#" @click.ctrl="func">Ссылка</a>
+  <p>{{ text }}</p>
 
 </template>
 
@@ -11,12 +11,12 @@
         data(){
           return {
             text: '',
-            par: ''
+
           }
         },
         methods: {
           func(){
-            this.par = this.text
+            this.text = 1111111111
           }
         }
       }
