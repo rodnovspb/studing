@@ -24,9 +24,9 @@
             days: [1,2,3,4,5,6,7],
             months: [21,2,3,4,5,6,7],
             years: [31,2,3,4,5,6,7],
-            day: '',
-            month: '',
-            year: '',
+            day: (new Date).getDate(),
+            month: (new Date).getMonth(),
+            year: (new Date).getFullYear(),
           }
         },
       }
