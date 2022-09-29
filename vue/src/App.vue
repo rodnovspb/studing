@@ -1,7 +1,11 @@
 <template>
 
-  <a href="#" @click.left="func('left')" @click.right="func('right')" @click.middle="func('middle')">Ссылка</a>
-  <p>{{ text }}</p>
+  <input type="text" v-model="newItem">
+  <button @click="add">Добавить</button>
+  <ul>
+    <li v-for="item of items" :key="item">{{ item }}</li>
+  </ul>
+
 
 </template>
 
@@ -10,13 +14,13 @@
   export default {
         data(){
           return {
-            text: '',
-
+            items: ['a', 'b', 'c', 'd', 'e'],
+            newItem: ''
           }
         },
         methods: {
-          func(str){
-            this.text = str
+          add(){
+            this.items.push(this.newItem)
           }
         }
       }
