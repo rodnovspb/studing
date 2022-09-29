@@ -1,9 +1,10 @@
 <template>
 
-  <input type="text" v-model="newItem">
-  <button @click="add">Добавить</button>
   <ul>
-    <li v-for="item of items" :key="item">{{ item }}</li>
+    <li v-for="(item, index) of items" :key="index">
+      {{ item }}
+      <button @click="remove(index)">удалить</button>
+    </li>
   </ul>
 
 
@@ -15,12 +16,11 @@
         data(){
           return {
             items: ['a', 'b', 'c', 'd', 'e'],
-            newItem: ''
           }
         },
         methods: {
-          add(){
-            this.items.unshift(this.newItem)
+          remove(i){
+            this.items.splice(i, 1)
           }
         }
       }
