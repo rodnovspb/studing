@@ -1,17 +1,8 @@
 <template>
 
-  <select v-model="day">
-    <option v-for="day of days" :key="day">{{ day }}</option>
-  </select>
-  <select v-model="month">
-    <option v-for="month of months" :key="month">{{ month }}</option>
-  </select>
-  <select v-model="year">
-    <option v-for="year of years" :key="year">{{ year }}</option>
-  </select>
+  <input type="text" v-bind:disabled="isDisabled">
 
-<p>{{ day }} {{ month }} {{ year }}</p>
-
+  <button @click="func">Переключить</button>
 
 
 </template>
@@ -21,14 +12,14 @@
   export default {
         data(){
           return {
-            days: [1,2,3,4,5,6,7],
-            months: [21,2,3,4,5,6,7],
-            years: [31,2,3,4,5,6,7],
-            day: (new Date).getDate(),
-            month: (new Date).getMonth(),
-            year: (new Date).getFullYear(),
+            isDisabled: false
           }
         },
+        methods: {
+          func(){
+            this.isDisabled = !this.isDisabled
+          }
+        }
       }
 
 
