@@ -1,8 +1,8 @@
 <template>
 
-  <input type="text" v-bind:disabled="isDisabled">
+  <input type="text" v-bind:disabled="dis">
 
-  <button @click="func">Переключить</button>
+  <input type="checkbox" v-model="dis">
 
 
 </template>
@@ -12,7 +12,7 @@
   export default {
         data(){
           return {
-            isDisabled: false
+            dis: false
           }
         },
         methods: {
