@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Документ</title>
+<style>
+    .nav {
+        display: flex;
+        background-color: #424141;
+        overflow: hidden;
+    }
+    .nav__link {
+        text-decoration: none;
+        color: white;
+        padding: 10px 15px;
+        font-family: system-ui;
+        font-size: 17px;
+        display: flex;
+        align-items: center;
+    }
+    .nav__link:hover {
+        background-color: #000;
+    }
+    .nav__icon {
+        fill: white;
+        height: 25px;
+        max-width: 26px;
+        margin-right: 10px;
+    }
+
+    @media (max-width: 500px) {
+        .nav {
+            flex-direction: column;
+        }
+    }
+
+
+</style>
+</head>
+<body>
+
+<header class="header">
+    <nav class="nav">
+
+            <a href="#" class="nav__link">
+                <svg class="nav__icon home">
+                    <use href="sprite.svg#home"></use>
+                </svg>
+                <span>Главная</span>
+            </a>
+
+
+            <a href="#" class="nav__link">
+                <svg class="nav__icon search">
+                    <use href="sprite.svg#search"></use>
+                </svg>
+                <span>Цены</span>
+            </a>
+
+
+            <a href="#" class="nav__link">
+                <svg class="nav__icon email">
+                    <use href="sprite.svg#email"></use>
+                </svg>
+                <span>Гарантия</span>
+            </a>
+
+
+            <a href="#" class="nav__link">
+                <svg class="nav__icon login">
+                    <use href="sprite.svg#login"></use>
+                </svg>
+                <span>Контакты</span>
+            </a>
+
+    </nav>
+</header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

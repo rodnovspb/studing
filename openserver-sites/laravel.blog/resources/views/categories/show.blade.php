@@ -1,29 +1,23 @@
-@extends('layouts.layout');
+@extends('layouts.category_layout');
 
-@section('title', 'Список статей')
+@section('title',  $category->title )
 
-@section('header')
-    <section id="cta" class="section">
+@section('page-title')
+    <div class="page-title db">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-8 col-md-12 align-self-center">
-                        <h2>A digital marketing blog</h2>
-                        <p class="lead"> Aenean ut hendrerit nibh. Duis non nibh id tortor consequat cursus at mattis felis. Praesent sed lectus et neque auctor dapibus in non velit. Donec faucibus odio semper risus rhoncus rutrum. Integer et ornare mauris.</p>
-                        <a href="#" class="btn btn-primary">Try for free</a>
-                    </div>
-                    <div class="col-lg-4 col-md-12">
-                        <div class="newsletter-widget text-center align-self-center">
-                            <h3>Subscribe Today!</h3>
-                            <p>Subscribe to our weekly Newsletter and receive updates via email.</p>
-                            <form class="form-inline" method="post">
-                                <input type="text" name="email" placeholder="Add your email here.." required class="form-control"/>
-                                <input type="submit" value="Subscribe" class="btn btn-default btn-block"/>
-                            </form>
-                        </div><!-- end newsletter -->
-                    </div>
-                </div>
-            </div>
-        </section>
+                    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                        <h2>{{ $category->title }} </h2>
+                    </div><!-- end col -->
+                    <div class="col-lg-4 col-md-4 col-sm-12 hidden-xs-down hidden-sm-down">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
+                            <li class="breadcrumb-item active">{{ $category->title }}</li>
+                        </ol>
+                    </div><!-- end col -->
+                </div><!-- end row -->
+            </div><!-- end container -->
+        </div><!-- end page-title -->
 @endsection
 
 @section('content')
@@ -52,7 +46,7 @@
                                         </div><!-- end post-sharing -->
                                         <h4><a href="{{ route('posts.single', ['slug' => $post->slug]) }}" title="">{{ $post->title }}</a></h4>
                                         <p>{!! $post->description !!} </p>
-                                        <small><a href="{{ route('categories.single', ['slug' => $post->category->slug]) }}" title="">{{ $post->category->title }}</a></small>
+                                        <small><a href="{{ route('categories.single', ['slug' => $category->slug]) }}" title="">{{ $category->title }}</a></small>
                                         <small>{{ $post->getPostDate() }}</small>
                                         <small><i class="fa fa-eye"></i>{{ $post->views }}</small>
                                     </div><!-- end meta -->
