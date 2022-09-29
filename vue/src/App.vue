@@ -1,9 +1,7 @@
 <template>
 
-  <input type="text" v-bind:disabled="dis">
-
-  <input type="checkbox" v-model="dis">
-
+  <input type="text" @keyup.enter="func" v-model="text">
+  <p>{{ par }}</p>
 
 </template>
 
@@ -12,12 +10,13 @@
   export default {
         data(){
           return {
-            dis: false
+            text: '',
+            par: ''
           }
         },
         methods: {
           func(){
-            this.isDisabled = !this.isDisabled
+            this.par = this.text
           }
         }
       }
