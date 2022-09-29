@@ -1,12 +1,10 @@
 <template>
 
- <select v-model="city">
-   <option>Челябинск</option>
-   <option>СПб</option>
-   <option>Москва</option>
+ <select v-model="day">
+   <option v-for="day of days" :key="day">{{ day }}</option>
  </select>
 
-  <p>{{ city }}</p>
+  <p>{{ day }}</p>
 
 
 </template>
@@ -16,7 +14,8 @@
   export default {
         data(){
           return {
-            city: 'Челябинск'
+            days: [1,2,3,4,5,6,7],
+            day: ''
           }
         },
       }
