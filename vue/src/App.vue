@@ -1,6 +1,6 @@
 <template>
 
-  <a href="#" @click.ctrl="func">Ссылка</a>
+  <a href="#" @click.left="func('left')" @click.right="func('right')" @click.middle="func('middle')">Ссылка</a>
   <p>{{ text }}</p>
 
 </template>
@@ -15,8 +15,8 @@
           }
         },
         methods: {
-          func(){
-            this.text = 1111111111
+          func(str){
+            this.text = str
           }
         }
       }
