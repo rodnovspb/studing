@@ -1,8 +1,7 @@
 <template>
-  {{ name }}
-  {{ surname }}
-  {{ age }}
-
+  <div>{{ name }}</div>
+  <div>{{ surname }}</div>
+  <div>{{ age }}</div>
 </template>
 
 <script>
