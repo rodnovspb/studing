@@ -1,5 +1,5 @@
 <template>
-  <MyEmployee name='Денис' surname="Роднов" age="35"/>
+  <MyEmployee :arr="[1,2,3,4,5,6]"/>
 </template>
 
 <script>

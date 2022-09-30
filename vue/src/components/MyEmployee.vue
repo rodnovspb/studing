@@ -1,12 +1,10 @@
 <template>
-  <div>{{ name }}</div>
-  <div>{{ surname }}</div>
-  <div>{{ age }}</div>
+  <p v-for="elem of arr" :key="elem">{{ elem }}</p>
 </template>
 
 <script>
   export default {
-    props: ['name', 'surname', 'age'],
+    props: ['arr'],
     data(){
       return {
 
