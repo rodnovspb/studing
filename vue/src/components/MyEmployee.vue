@@ -1,5 +1,8 @@
 <template>
-  <p v-for="elem of arr" :key="elem">{{ elem }}</p>
+  <ul>
+    <li v-for="elem of arr" :key="elem">{{ elem }}</li>
+  </ul>
+
 </template>
 
 <script>
