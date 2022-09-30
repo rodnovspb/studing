@@ -23,6 +23,7 @@ ul {
 body {
   font-family: 'Work Sans', sans-serif;
   background-color: var(--bg-color);
+  color: #fff;
   &._lock {
     overflow: hidden;
   }
@@ -32,6 +33,13 @@ body {
   max-width: 1450px;
   margin: 0 auto;
   padding: 0 15px;
+}
+
+.text {
+  font-size: 18px;
+  line-height: 1.7;
+  font-weight: 400;
+  color: var( --text-color);
 }
 
 /*=======================Header=======================*/
@@ -197,3 +205,152 @@ body {
   }
 }
 
+/*=======================Hero=======================*/
+
+.hero {
+  margin-top: clamp(1.875rem, 1.184rem + 3.45vw, 4.25rem);
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__content {
+    flex-basis: 49%;
+    margin-bottom: 160px;
+  }
+  &__img {
+
+  }
+  &__title {
+    font-weight: 600;
+    font-size: clamp(1.875rem, 1.184rem + 3.45vw, 4.25rem);
+    line-height: 1.26;
+    text-transform: capitalize;
+  }
+  &__text {
+    margin-top: 18px;
+  }
+  &__filter {
+    height: 100px;
+    width: 880px;
+    background-color: #fff;
+    margin-top: 60px;
+    position: absolute;
+  }
+}
+
+/*=======================Filter=======================*/
+
+.filter {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 165px;
+  color: #000;
+  &__block {
+    &:nth-child(2){
+      border-right: 1px solid #e8e8e8;
+      border-left: 1px solid #e8e8e8;
+    }
+  }
+  &__btn {
+    padding: 5px;
+    button {
+      cursor: pointer;
+      background-color: var(--accent-color);
+      height: 100%;
+      width: 100%;
+      border: none;
+      font-weight: 500;
+      font-size: 24px;
+      color: #fff;
+      &:active {
+        background-color: #189384;
+      }
+    }
+  }
+
+}
+
+.block-filter {
+  position: relative;
+  cursor: pointer;
+  &__button {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    flex-direction: column;
+    padding-left: 40px;
+  }
+  &__dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all .2s;
+    &._active {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: all;
+      transform: translateY(5px);
+    }
+
+  }
+  &__type {
+    padding-right: 2px;
+    font-size: 16px;
+    color: #858585;
+  }
+  &__icon {
+    background: url("../img/icons/arrow.svg") center bottom no-repeat;
+    width: 10px;
+    height: 7px;
+    transition: transform .2s;
+    &._active {
+      transform: rotate(180deg);
+    }
+  }
+  &__header {
+    display: flex;
+    align-items: center;
+  }
+  &__value {
+    color: var(--background-color);
+    font-weight: 600;
+    font-size: 18px;
+    text-transform: capitalize;
+  }
+  &__item {
+    padding: 10px;
+    transition: background-color .2s linear;
+    cursor: pointer;
+    text-transform: capitalize;
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: #adadad;
+      }
+    }
+  }
+}
+
+.block-filter__button {
+}
+
+.block-filter__header {
+}
+
+.block-filter__icon {
+}
+
+.block-filter__value {
+}
+
+.block-filter__dropdown {
+}
+
+.block-filter__item {
+}
