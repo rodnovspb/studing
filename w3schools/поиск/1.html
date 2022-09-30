@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Документ</title>
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: system-ui;
+        font-size: 18px;
+    }
+    .wrapper {
+        margin: 40px;
+    }
+    .left {
+        background-color: #ccc;
+        padding-top: 10px;
+        padding-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        flex-basis: 35%;
+    }
+    .left h2 {
+        padding-left: 20px;
+        padding-bottom: 20px;
+    }
+    .left__search {
+        width: 100%;
+        padding: 5px;
+
+    }
+    .right {
+        background-color: #eee;
+        padding: 20px;
+        flex-basis: 65%;
+    }
+    .row {
+        display: flex;
+    }
+    .list {
+        list-style: none;
+    }
+    .list__link {
+        text-decoration: none;
+        padding: 10px 0 10px 20px;
+        display: block;
+    }
+    .list__link:hover {
+        background-color: #ebe8e8;
+    }
+
+</style>
+</head>
+<body>
+
+    <div class="wrapper">
+        <div class="row">
+            <div class="left">
+                <h2 class="left__title">Меню</h2>
+                <input type="text" id="search" class="left__search" placeholder="Поиск">
+                <ul class="left__list list">
+                    <li class="list__item"><a class="list__link" href="#">HTML</a></li>
+                    <li class="list__item"><a class="list__link" href="#">CSS</a></li>
+                    <li class="list__item"><a class="list__link" href="#">JavaScript</a></li>
+                    <li class="list__item"><a class="list__link" href="#">PHP</a></li>
+                    <li class="list__item"><a class="list__link" href="#">Python</a></li>
+                    <li class="list__item"><a class="list__link" href="#">jQuery</a></li>
+                    <li class="list__item"><a class="list__link" href="#">SQL</a></li>
+                    <li class="list__item"><a class="list__link" href="#">Bootstrap</a></li>
+                    <li class="list__item"><a class="list__link" href="#">Node.js</a></li>
+                </ul>
+            </div>
+            <div class="right">
+                <h2 class="right__title">Текст</h2>
+                <p class="right__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci ipsum nemo officia quo quos repudiandae sint soluta. Minus, quae sequi.</p>
+            </div>
+        </div>
+
+    </div>
+
+
+
+<script>
+    let input = document.querySelector('#search')
+    let items = document.querySelectorAll('.list .list__link')
+
+	input.addEventListener('input', function (e) {
+	        let textInput = this.value.toUpperCase()
+		    items.forEach(elem=>{
+                let textOfTable = elem.textContent.toUpperCase()
+		    	if(!textOfTable.includes(textInput)){
+					elem.closest('.list__item').style.display = 'none'
+                } else {
+					elem.closest('.list__item').style.display = null
+                }
+            })
+	  })
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
