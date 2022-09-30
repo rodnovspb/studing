@@ -13,7 +13,7 @@
       return {
         name: 'Денис',
         surname: 'Роднов',
-        age: '35'
+        age: 35
       }
 
     }

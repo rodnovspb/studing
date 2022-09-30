@@ -7,7 +7,11 @@
 
 <script>
   export default {
-   props: ['a','b','c'],
+   props: {
+     a: String,
+     b: String,
+     c: Number
+   },
     data(){
       return {
 
