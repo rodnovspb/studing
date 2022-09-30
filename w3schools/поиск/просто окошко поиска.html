@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Документ</title>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+    .nav {
+        display: flex;
+        align-items: center;
+        background-color: #eee;
+    }
+    .nav__link {
+        font-size: 17px;
+        font-family: system-ui;
+        padding: 10px;
+        cursor: pointer;
+    }
+    .nav__link:hover {
+        background-color: #ddd;
+        color: black;
+    }
+    .nav__link.active {
+        background-color: #2196F3;
+        color: white;
+    }
+    .search__input {
+        font-size: 17px;
+        border: none;
+        margin-left: auto;
+        margin-right: 5px;
+        padding-left: 10px;
+    }
+    .search__btn {
+        outline: none;
+        border: none;
+        background-color: #d8d6d6;
+        cursor: pointer;
+        height: 23px;
+        padding: 3px;
+        border-radius: 3px;
+        margin-right: 10px;
+    }
+    .search__btn:hover {
+        background-color: #c4c1c1;
+    }
+    img {
+        height: 100%;
+        width: auto;
+    }
+    @media (max-width: 530px) {
+        .nav {
+            flex-direction: column;
+        }
+        .nav__link {
+            width: 100%;
+        }
+        .search__input {
+            width: 100%;
+            height: 35px;
+            margin-bottom: 10px;
+        }
+        .search__btn {
+            width: 100%;
+            height: 35px;
+            text-align: left;
+            margin-right: 0;
+            padding: 7px 7px 7px 10px;
+        }
+
+    }
+
+</style>
+</head>
+<body>
+
+    <header class="header">
+        <nav class="nav">
+            <a class="nav__link active">Главная</a>
+            <a class="nav__link">Цены</a>
+            <a class="nav__link">Контакты</a>
+            <input type="text" class="search__input" placeholder="Искать">
+            <button class="search__btn">
+                <img src="magnifier-1_icon-icons.com_56924.svg" alt="">
+            </button>
+
+
+        </nav>
+
+    </header>
+
+
+
+<script>
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
