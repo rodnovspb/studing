@@ -1,16 +1,16 @@
 <template>
-  <div>{{ a }}</div>
-  <div>{{ b }}</div>
-  <div>{{ c }}</div>
+  <div>{{ name }}</div>
+  <div>{{ salary }}</div>
+  <div>{{ age }}</div>
 
 </template>
 
 <script>
   export default {
    props: {
-     a: String,
-     b: String,
-     c: Number
+     name: String,
+     salary: Number,
+     age: Number
    },
     data(){
       return {
