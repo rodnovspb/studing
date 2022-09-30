@@ -1,5 +1,5 @@
 <template>
-  <MyEmployee :arr="[1,2,3,4,5,6]"/>
+  <MyEmployee :a="name" :b="surname" :c="age"/>
 </template>
 
 <script>
@@ -9,6 +9,14 @@
     components: {
       MyEmployee
     },
+    data(){
+      return {
+        name: 'Денис',
+        surname: 'Роднов',
+        age: '35'
+      }
+
+    }
   }
 
 

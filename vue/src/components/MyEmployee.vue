@@ -1,13 +1,13 @@
 <template>
-  <ul>
-    <li v-for="elem of arr" :key="elem">{{ elem }}</li>
-  </ul>
+  <div>{{ a }}</div>
+  <div>{{ b }}</div>
+  <div>{{ c }}</div>
 
 </template>
 
 <script>
   export default {
-    props: ['arr'],
+   props: ['a','b','c'],
     data(){
       return {
 
