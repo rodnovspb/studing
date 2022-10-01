@@ -1,7 +1,7 @@
 <template>
 
 
-  <MyComponent :funcMin="funcMin" :funcPlus="funcPlus"/>
+  <MyComponent :func="func"/>
 
 
 </template>
@@ -19,11 +19,8 @@
       }
     },
     methods: {
-      funcMin(){
-        console.log('-')
-      },
-      funcPlus(){
-        console.log('+')
+      func(name) {
+        console.log(name);
       }
     }
   }
