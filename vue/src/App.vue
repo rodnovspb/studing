@@ -1,8 +1,8 @@
 <template>
 
-<!--  хуйня какая-то-->
+
   <MyComponent v-for="user of users" :key="user.id" :id="user.id" :name="user.name" :surn="user.surn" :remove="remove"/>
-  <button @click="remove(2)">удалить</button>
+
 
 </template>
 
