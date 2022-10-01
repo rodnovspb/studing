@@ -19,8 +19,8 @@
       }
     },
     methods: {
-      func(name) {
-        console.log(name);
+      func(name, salary) {
+        console.log(name, salary);
       }
     }
   }

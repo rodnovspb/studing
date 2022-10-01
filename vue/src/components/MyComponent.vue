@@ -1,16 +1,15 @@
 <template>
-    <button @click="func('Денис')">ыфваыфа</button>
+    <button @click="func(a,b)">ыфваыфа</button>
 
 </template>
 
 <script>
   export default {
-    props: {
-      func: Function,
-    },
+    props: ['func'],
     data(){
       return {
-
+        a: 'Денис',
+        b: 800000,
       }
     },
 
