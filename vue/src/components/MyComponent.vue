@@ -1,15 +1,15 @@
 <template>
-    <button @click="func(a,b)">ыфваыфа</button>
+  <div>{{ name }} {{ surn }} <button @click="remove(id)">Удалить</button></div>
+
 
 </template>
 
 <script>
   export default {
-    props: ['func'],
+    props: ['id', 'name', 'surn', 'remove'],
     data(){
       return {
-        a: 'Денис',
-        b: 800000,
+
       }
     },
 
