@@ -6,7 +6,42 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>Документ</title>
 <style>
-
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    .wrapper {
+        display: flex;
+    }
+    .nav {
+        width: 30%;
+        background-color: #000;
+        padding: clamp(0.5rem, 0.278rem + 1.11vw, 1.25rem);
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: 1;
+        height: 100%;
+        overflow: hidden;
+    }
+    .nav__item {
+        display: block;
+        color: #ccc;
+        text-decoration: none;
+        font-family: system-ui;
+        margin-bottom: clamp(0.313rem, -0.15rem + 2.31vw, 1.875rem);
+        font-size: clamp(1rem, 0.926rem + 0.37vw, 1.25rem);
+    }
+    .nav__item:hover {
+        color: #fff;
+    }
+    .content {
+        margin-left: 30%;
+        padding: clamp(0.5rem, 0.278rem + 1.11vw, 1.25rem);
+        font-size: clamp(1rem, 0.926rem + 0.37vw, 1.25rem);
+        text-align: justify;
+    }
 
 </style>
 </head>
@@ -15,12 +50,24 @@
 
 
 
-
-<script>
-
-
-
-</script>
+<div class="wrapper">
+    <div class="nav">
+        <a href="#" class="nav__item">О нас</a>
+        <a href="#" class="nav__item">Цены</a>
+        <a href="#" class="nav__item">Гарантия</a>
+        <a href="#" class="nav__item">Сотрудничество</a>
+        <a href="#" class="nav__item">Контакты</a>
+    </div>
+    <div class="content">
+        <h3 class="content__title">Заголовок</h3>
+        <p class="content__text">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis commodi debitis delectus eos id magnam modi molestiae, natus nemo neque pariatur, provident reprehenderit, repudiandae rerum ut vitae voluptate voluptatem? Corporis cupiditate, deleniti error et eum eveniet in laboriosam laborum minima natus nemo nisi officiis, omnis praesentium quasi qui quibusdam quod sit! Accusamus alias assumenda consequatur debitis dolor dolore dolorem dolorum esse est eveniet fugiat harum illum incidunt inventore ipsa ipsam, laborum libero magnam minus nihil, nisi, non numquam odit perspiciatis quae quam quibusdam quod repudiandae velit voluptatem. Beatae facilis ipsam quos? A beatae consectetur cupiditate distinctio nam veniam voluptate voluptatibus.
+        </p>
+        <p class="content__text">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis commodi debitis delectus eos id magnam modi molestiae, natus nemo neque pariatur, provident reprehenderit, repudiandae rerum ut vitae voluptate voluptatem? Corporis cupiditate, deleniti error et eum eveniet in laboriosam laborum minima natus nemo nisi officiis, omnis praesentium quasi qui quibusdam quod sit! Accusamus alias assumenda consequatur debitis dolor dolore dolorem dolorum esse est eveniet fugiat harum illum incidunt inventore ipsa ipsam, laborum libero magnam minus nihil, nisi, non numquam odit perspiciatis quae quam quibusdam quod repudiandae velit voluptatem. Beatae facilis ipsam quos? A beatae consectetur cupiditate distinctio nam veniam voluptate voluptatibus.
+        </p>
+    </div>
+</div>
 
 
 
