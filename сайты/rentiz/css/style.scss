@@ -35,11 +35,19 @@ body {
   padding: 0 15px;
 }
 
+/*=======================General=======================*/
+
 .text {
   font-size: 18px;
   line-height: 1.7;
   font-weight: 400;
   color: var( --text-color);
+}
+
+.title {
+  font-size: clamp(1.875rem, 1.542rem + 1.67vw, 3rem);
+  line-height: 1.2;
+  font-weight: 600;
 }
 
 /*=======================Header=======================*/
@@ -159,6 +167,7 @@ body {
     background-color: var(--accent-color);
     padding: 20px 0;
     transition: left .2s;
+    z-index: 10;
     &._active {
       left: 0;
     }
@@ -208,18 +217,37 @@ body {
 /*=======================Hero=======================*/
 
 .hero {
-  margin-top: clamp(1.875rem, 1.184rem + 3.45vw, 4.25rem);
+  margin-top: clamp(1.25rem, -0.66rem + 6.11vw, 4.688rem);
+  position: relative;
+  padding-bottom: clamp(1.25rem, -1.181rem + 7.78vw, 5.625rem);
+  .hero-deco {
+    position: absolute;
+    bottom: -97px;
+    right: 0;
+    z-index: -1;
+    @media (max-width: 576px) {
+      height: 300px;
+    }
+  }
   &__container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    @media (max-width: 992px) {
+      flex-direction: column;
+    }
   }
   &__content {
     flex-basis: 49%;
     margin-bottom: 160px;
+    @media (max-width: 760px) {
+      margin-bottom: 10px;
+    }
   }
   &__img {
-
+    @media (min-width: 768px) and (max-width: 992px) {
+      display: none;
+    }
   }
   &__title {
     font-weight: 600;
@@ -236,6 +264,10 @@ body {
     background-color: #fff;
     margin-top: 60px;
     position: absolute;
+    @media (max-width: 992px){
+      position: static;
+      width: 100%;
+    }
   }
 }
 
@@ -245,6 +277,15 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 165px;
   color: #000;
+  @media (max-width: 576px){
+    grid-template-columns: repeat(3, 1fr);
+    padding: 5px;
+    height: auto;
+  }
+  @media (max-width: 475px){
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
   &__block {
     &:nth-child(2){
       border-right: 1px solid #e8e8e8;
@@ -262,9 +303,13 @@ body {
       font-weight: 500;
       font-size: 24px;
       color: #fff;
+      padding: 10px;
       &:active {
         background-color: #189384;
       }
+    }
+    @media (max-width: 576px) and (min-width: 475px) {
+      grid-column: 1/4;
     }
   }
 
@@ -278,10 +323,11 @@ body {
     justify-content: center;
     height: 100%;
     flex-direction: column;
-    padding-left: 40px;
+    padding-left: clamp(1rem, -1rem + 4vw, 2.5rem);
   }
   &__dropdown {
     position: absolute;
+    z-index: 3;
     top: 100%;
     left: 0;
     right: 0;
@@ -292,6 +338,7 @@ body {
     visibility: hidden;
     pointer-events: none;
     transition: all .2s;
+    box-shadow: 0 0 5px #000;
     &._active {
       opacity: 1;
       visibility: visible;
@@ -337,20 +384,32 @@ body {
   }
 }
 
-.block-filter__button {
+.featured {
+  padding-top: clamp(1.25rem, -1.181rem + 15vw, 5.625rem);
+  &__box {
+    margin-top: clamp(1.875rem, 1.181rem + 2.22vw, 3.125rem);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: auto;
+    gap: 30px;
+  }
+  &__item{
+    flex: 0 0 auto;
+  }
 }
 
-.block-filter__header {
+.featured__container {
 }
 
-.block-filter__icon {
+.featured__title.title {
 }
 
-.block-filter__value {
+.featured__box {
 }
 
-.block-filter__dropdown {
+.featured__item {
 }
 
-.block-filter__item {
+.featured__img {
 }
