@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Документ</title>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+    body {
+        font-family: sans-serif;
+        font-size: 25px;
+        margin: 0;
+    }
+    .nav {
+        position: fixed;
+        height: 100%;
+        background-color: #111;
+        width: 0;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+        transition: width .5s;
+        padding-top: 50px;
+    }
+    .nav a {
+        display: block;
+        text-decoration: none;
+        color: #818181;
+        margin-bottom: 10px;
+        transition: color .1s;
+        padding-left: 20px;
+    }
+    .nav a:hover {
+        color: #fff;
+    }
+    a.nav__close {
+        position: absolute;
+        right: 10px;
+        top: 15px;
+        font-size: 55px;
+        line-height: 0.5;
+        margin-bottom: 0;
+    }
+    .content {
+        padding-left: 15px;
+        transition: margin-left .5s;
+    }
+    .content.move {
+        margin-left: 250px;
+    }
+    .open {
+        cursor: pointer;
+        display: inline-block;
+    }
+    .active {
+        width: 250px;
+    }
+
+
+</style>
+</head>
+<body>
+
+    <div class="nav" id="nav">
+        <a href="#" class="nav__close" id="closeBtn">&times;</a>
+        <a href="#">Главная</a>
+        <a href="#">Цены</a>
+        <a href="#">Гарантия</a>
+        <a href="#">Контакты</a>
+    </div>
+    <div class="content" id="content">
+        <h2 class="content__title">Заголовок</h2>
+        <p class="content__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque inventore mollitia repellendus. Alias consectetur debitis ex maiores praesentium quasi ut.</p>
+        <div class="open" id="openBtn">&#9776;</div>
+    </div>
+
+
+
+
+<script>
+
+    openBtn.addEventListener('click', function (e) {
+		nav.classList.toggle('active')
+		content.classList.toggle('move')
+      })
+
+	closeBtn.addEventListener('click', function (e) {
+		nav.classList.remove('active')
+		content.classList.remove('move')
+	  })
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
