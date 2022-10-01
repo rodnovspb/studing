@@ -1,20 +1,20 @@
 <template>
-    <button v-on:click="func">Нажать</button>
+    <button v-on:click="funcPlus">Показать +</button>
+    <button v-on:click="funcMin">Показать -</button>
 </template>
 
 <script>
   export default {
     props: {
-      func: Function,
+      funcPlus: Function,
+      funcMin: Function,
     },
     data(){
       return {
 
       }
     },
-    methods: {
 
-    }
   }
 
 </script>
