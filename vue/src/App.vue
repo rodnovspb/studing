@@ -1,6 +1,6 @@
 <template>
 
-
+<!--  получилось-->
   <MyComponent v-for="user of users" :key="user.id" :id="user.id" :name="user.name" :surn="user.surn" :remove="remove"/>
 
 
@@ -36,7 +36,7 @@
     },
     methods: {
       remove(id){
-        this.users = this.users.slice(id, 1)
+        this.users = this.users.filter(user=>user.id != id)
       }
     }
   }
