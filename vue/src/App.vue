@@ -1,7 +1,7 @@
 <template>
 
-<!--  получилось-->
-  <MyComponent v-for="user of users" :key="user.id" :id="user.id" :name="user.name" :surn="user.surn" :remove="remove"/>
+
+  <MyComponent v-for="user of users" :id="user.id"  :name="user.name" :surn="user.surn" :change="change" :key="user.id"/>
 
 
 </template>
@@ -35,8 +35,13 @@
       }
     },
     methods: {
-      remove(id){
-        this.users = this.users.filter(user=>user.id != id)
+      change(id, name, surn){
+        this.users = this.users.map((user)=>{
+          if(user.id == id){
+            user.name = name
+            user.surn = surn
+          }
+        })
       }
     }
   }
