@@ -6,22 +6,28 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>Документ</title>
 <style>
-   :invalid {
-       background-color: #ea6d6d;
-   }
+
 </style>
 </head>
 <body>
 
 
 
-
-    <input type="email">
-
+<input type="email" id="input">
 
 
 
 
+
+
+<script>
+    input.addEventListener('input', function (e) {
+		console.log(input.checkValidity())
+      })
+
+
+
+</script>
 
 
 

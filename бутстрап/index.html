@@ -22,21 +22,64 @@
 <div class="container">
 
 
+<form class="row g-3 needs-validation" novalidate>
+  <div class="col-md-4 position-relative">
+    <label for="validationTooltip01" class="form-label">Имя</label>
+    <input type="text" class="form-control" id="validationTooltip01" value="Иван" required>
+    <div class="valid-tooltip">
+      Все хорошо!
+    </div>
+  </div>
+  <div class="col-md-4 position-relative">
+    <label for="validationTooltip02" class="form-label">Фамилия</label>
+    <input type="text" class="form-control" id="validationTooltip02" value="Петров" required>
+    <div class="valid-tooltip">
+      Все хорошо!
+    </div>
+  </div>
+  <div class="col-md-4 position-relative">
+    <label for="validationTooltipUsername" class="form-label">Имя пользователя</label>
+    <div class="input-group has-validation">
+      <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
+      <input type="text" class="form-control" id="validationTooltipUsername" aria-describedby="validationTooltipUsernamePrepend" required>
+      <div class="invalid-tooltip">
+        Пожалуйста, выберите уникальное и действительное имя пользователя.
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6 position-relative">
+    <label for="validationTooltip03" class="form-label">Город</label>
+    <input type="text" class="form-control" id="validationTooltip03" required>
+    <div class="invalid-tooltip">
+      Укажите действующий город.
+    </div>
+  </div>
+  <div class="col-md-3 position-relative">
+    <label for="validationTooltip04" class="form-label">Область</label>
+    <select class="form-select" id="validationTooltip04" required>
+      <option selected disabled value="">Выберите...</option>
+      <option>...</option>
+    </select>
+    <div class="invalid-tooltip">
+      Пожалуйста, выберите корректный город.
+    </div>
+  </div>
+  <div class="col-md-3 position-relative">
+    <label for="validationTooltip05" class="form-label">Индекс</label>
+    <input type="text" class="form-control" id="validationTooltip05" required>
+    <div class="invalid-tooltip">
+      Пожалуйста, предоставьте действующий почтовый индекс.
+    </div>
+  </div>
+  <div class="col-12">
+    <button class="btn btn-primary" type="submit">Отправить форму</button>
+  </div>
+</form>
 
 
-<div class="form-check">
-      <input class="form-check-input is-valid" type="checkbox" value="" id="invalidCheck3" aria-describedby="invalidCheck3Feedback" required>
-      <label class="form-check-label" for="invalidCheck3">
-        Примите условия и соглашения
-      </label>
 
 
 
-</div>
-
-<script>
-
-</script>
 
 
 
