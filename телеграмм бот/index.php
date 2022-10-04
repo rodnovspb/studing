@@ -4,15 +4,26 @@ const TOKEN = '5681045251:AAHbkoI4TJcgzn8CPo7vax6p_Ne4HPJ9SwU';
 
 const BASE_URL = 'https://api.telegram.org/bot' . TOKEN . '/';
 
-$url = BASE_URL . 'getUpdates?offset=96752917';
+$url = BASE_URL . 'getUpdates';
+$send_url = BASE_URL . 'sendMessage';
 
-$send_url = BASE_URL . 'sendMessage?chat_id=1894725120&text=';
+//$res = json_decode(file_get_contents($url));
+//
+//if(!empty($res->result)){
+//    foreach ($res->result as $item){
+//        echo "{$item->message->text}<br><hr>";
+//        $text = "Вы написали: {$item->message->text}";
+//        $send_url = BASE_URL . 'sendMessage';
+//        $send_url .= "?chat_id={$item->message->chat->id}&text={$text}";
+//        $send = json_decode(file_get_contents($send_url));
+//        show($send);
+//    }
+//}
 
-$res = json_decode(file_get_contents($url), 1);
 
-$chat_id = $res['result'][0]['message']['chat']['id'];
+file_get_contents($send_url . "?chat_id=1894725120&text=Здрасьте");
 
-show($chat_id);
+//show($send);
 
 
 
