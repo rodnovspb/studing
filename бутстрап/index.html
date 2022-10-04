@@ -21,15 +21,17 @@
 
 
 
-<div class="toast align-items-center" role="alert" aria-live="assertive" aria-atomic="true">
-  <div class="d-flex">
-    <div class="toast-body">
-    Привет, мир! Это тост-сообщение.
-   </div>
-    <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Закрыть"></button>
+<!-- Блочный уровень -->
+<div class="row">
+  <div class="col-2 text-truncate">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse est in inventore ipsum nam odit porro reiciendis repellat saepe, tenetur.
   </div>
 </div>
 
+<!-- Строчный уровень -->
+<span class="d-inline-block text-truncate" style="max-width: 150px;">
+  Этот текст довольно длинный и будет обрезан при отображении.
+</span>
 
 
 
@@ -53,7 +55,10 @@
 
 
 
-
+<script>
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+	const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+</script>
 
 
 
