@@ -25,48 +25,26 @@
 
 
 
-<div class="btn-group">
-  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Раскрывающийся список по умолчанию
-  </button>
-  <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="#">Элемент меню</a></li>
-    <li><a class="dropdown-item" href="#">Элемент меню</a></li>
-    <li><a class="dropdown-item" href="#">Элемент меню</a></li>
-  </ul>
-</div>
-
-<div class="btn-group">
-  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Кликабельно снаружи
-  </button>
-  <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="#">Элемент меню</a></li>
-    <li><a class="dropdown-item" href="#">Элемент меню</a></li>
-    <li><a class="dropdown-item" href="#">Элемент меню</a></li>
-  </ul>
-</div>
-
-<div class="btn-group">
-  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Кликабельно внутри
-  </button>
-  <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="#">Элемент меню</a></li>
-    <li><a class="dropdown-item" href="#">Элемент меню</a></li>
-    <li><a class="dropdown-item" href="#">Элемент меню</a></li>
-  </ul>
-</div>
-
-<div class="btn-group">
-  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Ручное закрытие
-  </button>
-  <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="#">Элемент меню</a></li>
-    <li><a class="dropdown-item" href="#">Элемент меню</a></li>
-    <li><a class="dropdown-item" href="#">Элемент меню</a></li>
-  </ul>
+<p>
+  <a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Переключить первый элемент</a>
+  <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Переключить второй элемент</button>
+  <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2">Переключить оба элемента</button>
+</p>
+<div class="row">
+  <div class="col">
+    <div class="collapse multi-collapse" id="multiCollapseExample1">
+      <div class="card card-body">
+        Некоторый заполнитель для первого компонента сворачивания в этом примере множественного сворачивания. Эта панель по умолчанию скрыта, но открывается, когда пользователь активирует соответствующий триггер.
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="collapse multi-collapse" id="multiCollapseExample2">
+      <div class="card card-body">
+        Некоторое содержимое заполнителя для второго компонента сворачивания в этом примере множественного сворачивания. Эта панель по умолчанию скрыта, но открывается, когда пользователь активирует соответствующий триггер.
+      </div>
+    </div>
+  </div>
 </div>
 
 
