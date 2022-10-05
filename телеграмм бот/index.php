@@ -5,57 +5,38 @@ const TOKEN = '5681045251:AAHbkoI4TJcgzn8CPo7vax6p_Ne4HPJ9SwU';
 const BASE_URL = 'https://api.telegram.org/bot' . TOKEN . '/';
 
 while (true){
-    $url = BASE_URL . 'getUpdates';
     if(isset($last_update)){
         $params = [
             'offset' => $last_update + 1
         ];
-        $url .= '?' . http_build_query($params);
+    } else {
+        $params = [];
     }
-    $res = json_decode(file_get_contents($url));
+    $updates = send_request('getUpdates', $params);
     
-//    send message
-    if(!empty($res->result)){
-        file_put_contents(__DIR__ . '/logs.txt', print_r($res, 1), FILE_APPEND);
-    foreach ($res->result as $item){
-        echo $item->message->text . PHP_EOL;
-        $last_update = $item->update_id;
-        $send_url = BASE_URL . 'sendMessage';
-        $send_params = [
-            'chat_id' => $item->message->chat->id,
-            'text' => "Вы написали: {$item->message->text}",
-        
-        ];
-        
-        $send_url .= "?" . http_build_query($send_params);
-        $send = json_decode(file_get_contents($send_url));
-       
+    if($updates->result){
+        foreach ($updates->result as $update){
+            $last_update = $update->update_id;
+    
+            send_request('sendMessage', [
+                'chat_id' => $update->message->chat->id,
+                'text' => "Привет, {$update->message->from->first_name}! Вы написали: {$update->message->text}",
+            ]);
+        }
     }
-}
     sleep(3);
-
 }
 
 
+function send_request($method, $params = []){
+    $url = BASE_URL . $method;
+    if(!empty($params)){
+        $url = BASE_URL . $method . "?" . http_build_query($params);
+    }
+    return json_decode(file_get_contents($url));
+}
 
-//$url = BASE_URL . 'getUpdates';
-//$send_url = BASE_URL . 'sendMessage';
-//
-//$res = json_decode(file_get_contents($url));
-//
-//if(!empty($res->result)){
-//    foreach ($res->result as $item){
-//        echo "{$item->message->text}<br><hr>";
-//        $text = "Вы написали: {$item->message->text}";
-//        $send_url = BASE_URL . 'sendMessage';
-//        $send_url .= "?chat_id={$item->message->chat->id}&text={$text}";
-//        $send = json_decode(file_get_contents($send_url));
-//        show($send);
-//    }
-//}
-//
-//
-//file_get_contents($send_url . "?chat_id=1894725120&text=Здрасьте");
+
 
 
 

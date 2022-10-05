@@ -1,7 +1,7 @@
 <template>
-	<template v-if="isEdit">
+	<template v-if="!isEdit">
 		{{ name }}
-		{{ surn }}
+		{{ surname }}
 		<button @click="edit">
 			edit
 		</button>
@@ -20,13 +20,14 @@
     props: {
       id: Number,
       name: String,
-      surn: String,
+      surname: String,
     },
+    emits: ['change'],
     data() {
       return {
         isEdit: false,
-        newName: name,
-        newSurn: surn,
+        newName: this.name,
+        newSurn: this.surname,
       }
     },
     methods: {
@@ -35,7 +36,7 @@
       },
       save() {
         this.isEdit = false;
-        $emit('change', newName, newSurn);
+        this.$emit('change', this.id, this.newName, this.newSurn);
       }
     }
   }

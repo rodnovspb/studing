@@ -1,7 +1,7 @@
 <template>
 
 
-  <MyComponent v-for="user in users" :id="user.id"  :name="user.name" :surn="user.surn" :key="user.id"/>
+  <MyComponent v-for="user in users"  @change="change" :id="user.id"  :name="user.name" :surname="user.surn" :key="user.id"/>
 
 
 </template>
@@ -40,7 +40,9 @@
           if (user.id === id) {
             user.name = name;
             user.surn = surn;
+            user.id = id;
           }
+          return user
         })
       }
     }

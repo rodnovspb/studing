@@ -399,17 +399,33 @@ body {
   }
 }
 
-.featured__container {
+.popular {
+  background: url("../img/icons/slider-bg.png") center center/cover no-repeat;
+  &__container{
+
+  }
+  &__title{
+
+  }
+  &__slider{
+
+  }
 }
 
-.featured__title.title {
+.swiper {
 }
 
-.featured__box {
+.swiper-wrapper {
 }
 
-.featured__item {
+.swiper-slide {
 }
 
-.featured__img {
+.slider-buttons {
+}
+
+.swiper-button-prev {
+}
+
+.swiper-button-next {
 }
