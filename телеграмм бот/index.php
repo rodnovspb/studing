@@ -16,6 +16,7 @@ while (true){
     
 //    send message
     if(!empty($res->result)){
+        file_put_contents(__DIR__ . '/logs.txt', print_r($res, 1), FILE_APPEND);
     foreach ($res->result as $item){
         echo $item->message->text . PHP_EOL;
         $last_update = $item->update_id;
