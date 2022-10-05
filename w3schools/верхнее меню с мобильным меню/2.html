@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Документ</title>
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    .wrapper {
+        display: flex;
+        position: relative;
+        font-family: system-ui;
+    }
+    .menu {
+        background-color: #ccc;
+        position: fixed;
+        height: 100%;
+        width: 30%;
+
+    }
+    .nav {
+        display: flex;
+        flex-direction: column;
+
+
+    }
+    .nav__link {
+        text-decoration: none;
+        padding: 8px 15px 8px;
+        color: #000;
+    }
+    .nav__link.active {
+        background-color: #04AA6D;
+        color: white;
+    }
+    .nav__link:not(.active):hover {
+        background-color: black;
+        color: #fff;
+    }
+    .content {
+        margin-left: 35%;
+        padding-top: 8px;
+    }
+
+    @media (max-width: 700px) {
+        .wrapper {
+            flex-direction: column;
+        }
+        .menu {
+            position: static;
+            width: 100%;
+        }
+        .nav {
+            flex-direction: row;
+         }
+        .content {
+            margin-left: unset;
+            padding: 15px;
+        }
+    }
+
+    @media (max-width: 400px) {
+        .nav {
+            flex-direction: column;
+        }
+    }
+
+
+</style>
+</head>
+<body>
+
+
+<div class="wrapper">
+    <div class="menu">
+        <div class="nav">
+            <a href="#" class="nav__link active">Главная</a>
+            <a href="#" class="nav__link">о нас</a>
+            <a href="#" class="nav__link">Цены</a>
+            <a href="#" class="nav__link">Контакты</a>
+        </div>
+    </div>
+    <div class="content">
+        <h2 class="content__title">Заголовок</h2>
+        <p class="content__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste, nisi.</p>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

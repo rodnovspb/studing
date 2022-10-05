@@ -1,7 +1,7 @@
 <template>
 
 
-  <MyComponent v-for="user of users" :id="user.id"  :name="user.name" :surn="user.surn" :change="change" :key="user.id"/>
+  <MyComponent v-for="user in users" :id="user.id"  :name="user.name" :surn="user.surn" :key="user.id"/>
 
 
 </template>
@@ -35,11 +35,11 @@
       }
     },
     methods: {
-      change(id, name, surn){
-        this.users = this.users.map((user)=>{
-          if(user.id == id){
-            user.name = name
-            user.surn = surn
+      change(id, name, surn) {
+        this.users = this.users.map((user) => {
+          if (user.id === id) {
+            user.name = name;
+            user.surn = surn;
           }
         })
       }

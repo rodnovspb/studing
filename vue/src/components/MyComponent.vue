@@ -1,13 +1,18 @@
 <template>
-  <template v-if="!isEdit">
-    <div>{{ name }} {{ surn }} <button @click="edit">редактировать</button></div>
-  </template>
-  <template v-else>
-    <div><input v-model="newName"> <input v-model="newSurn"><button @click="save">сохранить</button></div>
-</template>
-
-
-
+	<template v-if="isEdit">
+		{{ name }}
+		{{ surn }}
+		<button @click="edit">
+			edit
+		</button>
+	</template>
+	<template v-else>
+		<input v-model="newName">
+		<input v-model="newSurn">
+		<button @click="save">
+			save
+		</button>
+	</template>
 </template>
 
 <script>
@@ -16,23 +21,21 @@
       id: Number,
       name: String,
       surn: String,
-      change: Function,
     },
-    data(){
+    data() {
       return {
         isEdit: false,
-        newName: this.name,
-        newSurn: this.surn,
+        newName: name,
+        newSurn: surn,
       }
     },
     methods: {
-      edit(){
-        this.isEdit = true
+      edit() {
+        this.isEdit = true;
       },
-      save(){
-        this.isEdit = false
-        this.change(this.id, this.newName, this.newSurn)
-
+      save() {
+        this.isEdit = false;
+        $emit('change', newName, newSurn);
       }
     }
   }
