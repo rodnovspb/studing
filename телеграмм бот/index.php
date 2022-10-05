@@ -12,9 +12,30 @@ while (true){
         ];
         $url .= '?' . http_build_query($params);
     }
+    $res = json_decode(file_get_contents($url));
+    
+//    send message
+    if(!empty($res->result)){
+    foreach ($res->result as $item){
+        echo $item->message->text . PHP_EOL;
+        $last_update = $item->update_id;
+        $send_url = BASE_URL . 'sendMessage';
+        $send_params = [
+            'chat_id' => $item->message->chat->id,
+            'text' => "Вы написали: {$item->message->text}",
+        
+        ];
+        
+        $send_url .= "?" . http_build_query($send_params);
+        $send = json_decode(file_get_contents($send_url));
+       
+    }
+}
+    sleep(3);
+
 }
 
-http_build_cookie()
+
 
 //$url = BASE_URL . 'getUpdates';
 //$send_url = BASE_URL . 'sendMessage';
