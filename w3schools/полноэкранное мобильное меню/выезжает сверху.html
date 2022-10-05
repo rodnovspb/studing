@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Документ</title>
+<style>
+    .wrapper {
+        position: relative;
+    }
+    .mobile-menu {
+        position: fixed;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        left: 0;
+        top: 0;
+        right: 0;
+        height: 0;
+        background-color: rgba(0,0,0, .8);
+        z-index: 10;
+        overflow: hidden;
+        transition: height .3s;
+    }
+    .mobile-menu.active {
+        height: 100%;
+    }
+    .closeBtn {
+        position: absolute;
+        padding: 0;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        font-size: 50px;
+        right: 20px;
+        top: 20px;
+        color: #eee;
+        cursor: pointer;
+        transition: color .2s;
+        user-select: none;
+    }
+    .closeBtn:hover {
+        color: #fff;
+    }
+    .mobile-menu-block {
+        display: flex;
+        flex-direction: column;
+    }
+    .mobile-menu-block a {
+        font-family: system-ui;
+        text-decoration: none;
+        font-size: 30px;
+        color: #eee;
+        transition: color .2s;
+        user-select: none;
+    }
+    .mobile-menu-block a:hover {
+        color: #fff;
+    }
+
+
+</style>
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="content">
+    <h2>Заголовок</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque ipsam nemo porro quasi veniam voluptas! Aliquid mollitia necessitatibus numquam vero.</p>
+    <button class="menu" id="openBtn">Меню</button>
+</div>
+
+<div class="mobile-menu" id="menu">
+    <button class="closeBtn" id="closeBtn">&times;</button>
+    <div class="mobile-menu-block">
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Clients</a>
+        <a href="#">Contact</a>
+    </div>
+</div>
+</div>
+
+
+
+
+
+
+
+<script>
+
+    openBtn.addEventListener('click', function (e) {
+		menu.classList.add('active')
+      })
+	closeBtn.addEventListener('click', function (e) {
+		menu.classList.remove('active')
+	  })
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
