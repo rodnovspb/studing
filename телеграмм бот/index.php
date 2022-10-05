@@ -4,9 +4,21 @@ const TOKEN = '5681045251:AAHbkoI4TJcgzn8CPo7vax6p_Ne4HPJ9SwU';
 
 const BASE_URL = 'https://api.telegram.org/bot' . TOKEN . '/';
 
-$url = BASE_URL . 'getUpdates';
-$send_url = BASE_URL . 'sendMessage';
+while (true){
+    $url = BASE_URL . 'getUpdates';
+    if(isset($last_update)){
+        $params = [
+            'offset' => $last_update + 1
+        ];
+        $url .= '?' . http_build_query($params);
+    }
+}
 
+http_build_cookie()
+
+//$url = BASE_URL . 'getUpdates';
+//$send_url = BASE_URL . 'sendMessage';
+//
 //$res = json_decode(file_get_contents($url));
 //
 //if(!empty($res->result)){
@@ -19,11 +31,11 @@ $send_url = BASE_URL . 'sendMessage';
 //        show($send);
 //    }
 //}
+//
+//
+//file_get_contents($send_url . "?chat_id=1894725120&text=Здрасьте");
 
 
-file_get_contents($send_url . "?chat_id=1894725120&text=Здрасьте");
-
-//show($send);
 
 
 
