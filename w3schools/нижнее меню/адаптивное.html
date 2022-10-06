@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Документ</title>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+    .menu {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: #000;
+        display: flex;
+        overflow: hidden;
+    }
+    .menu a {
+        padding: 8px clamp(0.313rem, -0.71rem + 5.11vw, 3.125rem);
+        color: #fff;
+        text-decoration: none;
+        font-family: system-ui;
+    }
+    .menu a:not(.active):hover {
+        background-color: #ccc;
+        color: #000;
+    }
+    .menu a.active {
+        background-color: green;
+    }
+    .open_menu {
+        margin-left: auto;
+        display: none;
+    }
+
+    @media (max-width: 600px) {
+        .open_menu {
+            display: block;
+        }
+        .menu a:not(.active):not(.open_menu) {
+            display: none;
+        }
+        .menu.open {
+            flex-direction: column;
+        }
+        .menu.open a:not(.open_menu){
+            display: block;
+        }
+    }
+
+</style>
+</head>
+<body>
+
+<h2>Lorem ipsum dolor.</h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda debitis delectus dolor error obcaecati odit quaerat quis reiciendis vel voluptatum?</p>
+
+<div class="menu" id="menu">
+    <a href="#" class="active">Главная</a>
+    <a href="#">О нас</a>
+    <a href="#">Цены</a>
+    <a href="#">Доставка</a>
+    <a href="#">Контакты</a>
+    <a href="#" class="open_menu" id="openMenu">&#9776;</a>
+</div>
+
+
+
+<script>
+    openMenu.addEventListener('click', function (e) {
+		menu.classList.toggle('open')
+      })
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
