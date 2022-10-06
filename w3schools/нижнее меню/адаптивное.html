@@ -18,7 +18,7 @@
         display: flex;
         overflow: hidden;
     }
-    .menu a {
+    .menu a:not(.open_menu) {
         padding: 8px clamp(0.313rem, -0.71rem + 5.11vw, 3.125rem);
         color: #fff;
         text-decoration: none;
@@ -32,8 +32,13 @@
         background-color: green;
     }
     .open_menu {
-        margin-left: auto;
+        position: absolute;
+        right: 0;
+        bottom: 0;
         display: none;
+        padding: 8px 20px;
+        color: #fff;
+        text-decoration: none;
     }
 
     @media (max-width: 600px) {
