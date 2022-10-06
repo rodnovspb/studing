@@ -1,7 +1,14 @@
 <?php
 
-require_once 'classes/FirstClass.php';
+require_once 'classes/Car.php';
+require_once 'show.php';
 
-$o1 = new FirstClass();
+$car1 = new Car;
 
-var_dump($o1);
+
+$car1->brand = 'Вольво';
+
+$car1->year = 2018;
+
+
+show($car1);

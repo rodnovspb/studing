@@ -1,13 +1,12 @@
 <template>
 
 
-  <MyComponent v-for="user in users"  @change="change" :id="user.id"  :name="user.name" :surname="user.surn" :key="user.id"/>
-
+<UserForm  :add="add"/>
 
 </template>
 
 <script>
-  import MyComponent from "@/components/MyComponent";
+  import UserForm from "@/components/UserForm";
 
   export default {
     components: {
@@ -35,14 +34,12 @@
       }
     },
     methods: {
-      change(id, name, surn) {
-        this.users = this.users.map((user) => {
-          if (user.id === id) {
-            user.name = name;
-            user.surn = surn;
-            user.id = id;
-          }
-          return user
+      add(name, surn){
+        let id = this.users.length
+        this.users.push({
+          id,
+          name,
+          surn
         })
       }
     }
