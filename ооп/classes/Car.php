@@ -3,12 +3,21 @@
 
 class Car
 {
-    public $color;
-    public $wheels = 4;
-    public $speed;
-    var $brand;
-    public function func(){
-        return 1;
+    public $color = 'black';
+    public $speed = 300;
+    
+    public function getCarInfo(){
+        return $this->wheels;
     }
-
+    
+    public function __construct($a, $b){
+        $this->color = $a;
+        $this->speed = $b;
+    }
+    
+    public function __destruct()
+    {
+        var_dump($this);
+    }
+    
 }
