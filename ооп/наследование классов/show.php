@@ -1,8 +1,8 @@
 <?php
 
 function show($arr){
-    echo "<pre><p style='background-color: rgba(51,204,255,0.53);
-color: maroon; padding: 10px; margin: 5px; border: 1px maroon solid;'>";
+    echo "<pre><p style='background-color: beige;
+color: maroon; padding: 10px; margin: 5px; border: 1px maroon solid; text-align:left;'>";
     if(is_bool($arr)){
         if($arr == 'bool(true)') {
             print_r('true');

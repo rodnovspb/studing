@@ -27,10 +27,18 @@ class Product
         return $this->numPages;
     }
     
-    public function getProduct() {
+    public function getProduct($type = 'notebook') {
         $out = "<hr><b>О товаре</b><br>
                 Наименование: {$this->name}<br>
-                Цена: {$this->price}";
+                Цена: {$this->price}<br>";
+        
+        if($type === 'notebook') {
+            $out .= "Процессор: {$this->cpu}<br>";
+        } else {
+            $out .= "Количество страниц: {$this->numPages}";
+        }
+        
+        return $out;
     }
     
 }
