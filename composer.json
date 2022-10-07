@@ -1,0 +1,14 @@
+{
+  "name": "vendor_name/studing",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Owner",
+      "email": "email@example.com"
+    }
+  ],
+  "require": {
+  }
+}
