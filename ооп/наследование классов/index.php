@@ -8,12 +8,10 @@ require_once 'show.php';
 
 $book = new BookProduct("Три мушкетера", 200, 'Дюма');
 
-$notebook = new NotebookProduct("DELL", 20000, 'intel');
+show($book);
 
 
 
-show($book->getProduct());
-show($notebook->getProduct());
 
 
 

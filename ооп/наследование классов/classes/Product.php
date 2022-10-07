@@ -6,10 +6,15 @@ class Product
     public $name;
     public $price;
     
+    public $public = 'PUBLIC';
+    protected $protected = "PROTECTED";
+    private $private = "PRIVATE";
+    
     public function __construct($name, $price)
     {
          $this->name = $name;
          $this->price = $price;
+         
     }
     
     public function getProduct() {
