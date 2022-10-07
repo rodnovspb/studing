@@ -8,7 +8,11 @@ require_once 'show.php';
 
 $book = new BookProduct("Три мушкетера", 200, 'Дюма');
 
+$book->discount = 50;
+
 show($book);
+show($book->getProduct());
+show($book->getDiscount());
 
 
 

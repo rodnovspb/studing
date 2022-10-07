@@ -9,6 +9,7 @@ class BookProduct extends Product
     {
         parent::__construct($name, $price);
         $this->author = $author;
+        $this->setDiscount(5);
         
     }
     
@@ -20,6 +21,8 @@ class BookProduct extends Product
     public function getProduct() {
         $out = parent::getProduct();
         $out .= "Автор: {$this->author}<br>";
+        $out .= "Цена без скидки: {$this->price}<br>";
+        $out .= "Скидка: {$this->getDiscount()}<br>";
         return $out;
     }
 }

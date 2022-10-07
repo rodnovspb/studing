@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Документ</title>
+<style>
+    .parent {
+        width: 800px;
+        border: 1px solid blue;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .child {
+        height: 200px;
+        width: 250px;
+        border: 1px solid blue;
+    }
+    .last:last-child {
+        visibility: hidden;
+    }
+    .last:nth-child(3n+1) {
+        display: none;
+    }
+</style>
+</head>
+<body>
+
+<div class="parent">
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child last"></div>
+
+</div>
+
+
+
+<script>
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
