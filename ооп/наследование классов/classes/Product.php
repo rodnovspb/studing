@@ -14,7 +14,6 @@ class Product
     
     public function getProduct() {
         return  "<b>О товаре</b><br>Наименование: {$this->name}<br>Цена: {$this->price}<br>";
-        
     }
     
     public function getName()

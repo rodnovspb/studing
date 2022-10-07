@@ -1,18 +1,20 @@
 <?php
 error_reporting(-1);
 require_once 'classes/Product.php';
+require_once 'classes/NotebookProduct.php';
+require_once 'classes/BookProduct.php';
 require_once 'show.php';
 
 
-$book = new Product("Три мушкетера", 200, null, 1000);
+$book = new BookProduct("Три мушкетера", 200, 'Дюма');
 
-$notebook = new Product("DELL", 20000, 'intel');
+$notebook = new NotebookProduct("DELL", 20000, 'intel');
 
-show($book);
-show($notebook);
 
-show($book->getProduct('book'));
-show($notebook->getProduct('notebook'));
+
+show($book->getProduct());
+show($notebook->getProduct());
+
 
 
 
