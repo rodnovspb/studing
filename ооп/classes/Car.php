@@ -3,21 +3,24 @@
 
 class Car
 {
+    public $brand = 'BMW';
     public $color = 'black';
     public $speed = 300;
+    const OWNER = 'Василий';
+    const TEST_CAR_SPEED = 300;
+    
+    public static $countCar = 0;
+    
+    public function __construct() {
+        Car::$countCar++;
+    }
     
     public function getCarInfo(){
-        return $this->wheels;
+        return $this->brand;
     }
     
-    public function __construct($a, $b){
-        $this->color = $a;
-        $this->speed = $b;
-    }
-    
-    public function __destruct()
-    {
-        var_dump($this);
+    public function getSpeed(){
+        return self::TEST_CAR_SPEED;
     }
     
 }
