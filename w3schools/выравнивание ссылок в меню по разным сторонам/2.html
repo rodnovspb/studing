@@ -31,14 +31,31 @@
     .right {
         margin-left: auto;
     }
+    .center {
+        margin-left: auto;
+    }
+
+    @media (max-width: 600px) {
+        .menu {
+            flex-direction: column;
+        }
+        .menu a {
+            margin: unset;
+            width: 100%;
+            text-align: center;
+        }
+        .center {
+            order: -1;
+        }
+    }
 </style>
 </head>
 <body>
 
     <nav class="menu">
-        <a href="#" class="active">Главная</a>
-        <a href="#">О нас</a>
         <a href="#">Цены</a>
+        <a href="#">О нас</a>
+        <a href="#" class="center active">Главная</a>
         <a href="#" class="right">Гарантии</a>
         <a href="#">Контакты</a>
     </nav>
