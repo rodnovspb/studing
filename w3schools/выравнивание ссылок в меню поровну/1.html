@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Документ</title>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+    .menu {
+        display: flex;
+        justify-content: space-around;
+        background-color: rgba(0, 0, 0, 0.78);
+    }
+    .menu a {
+        padding-top: 8px;
+        padding-bottom: 8px;
+        font-size: clamp(0.8rem, 0.909rem + 0.3vw, 1.25rem);
+        font-family: system-ui;
+        text-decoration: none;
+        color: #fff;
+        width: 100%;
+        text-align: center;
+    }
+    .menu a:not(.active):hover {
+        background-color: #000;
+    }
+    .active {
+        background-color: #04AA6D;
+    }
+
+    @media (max-width: 500px) {
+        .menu {
+            flex-direction: column;
+        }
+        .menu a {
+            text-align: left;
+            padding-left: 20px;
+        }
+    }
+
+</style>
+</head>
+<body>
+
+<div class="content">
+    <h2>Lorem ipsum dolor sit amet.</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate itaque praesentium rem repellat. Ad aliquid debitis perspiciatis possimus repellendus tenetur!</p>
+</div>
+<nav class="menu">
+    <a href="#" class="center active">Главная</a>
+   <a href="#">Цены</a>
+   <a href="#">О нас</a>
+   <a href="#">Гарантии</a>
+   <a href="#">Контакты</a>
+</nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
