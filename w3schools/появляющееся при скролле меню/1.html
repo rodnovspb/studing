@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Документ</title>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+    .nav {
+        position: fixed;
+        left: 0;
+        top: -100%;
+        right: 0;
+        background-color: #333;
+        overflow: hidden;
+        transition: top 0.3s cubic-bezier(0.15, 1.06, 0.86, 0.97);
+    }
+    .nav a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 24px;
+        font-family: system-ui;
+        padding: 8px 25px;
+        float: left;
+    }
+    .nav a:hover {
+        background-color: #eee;
+        color: #333;
+    }
+    .content {
+        padding-top: 10px;
+    }
+
+</style>
+</head>
+<body style="height: 1000px;">
+    <nav class="nav" id="nav">
+        <a href="#">Главная</a>
+        <a href="#">О нас</a>
+        <a href="#">Цены</a>
+        <a href="#">Контакты</a>
+    </nav>
+    <div class="content">
+        <h2>Lorem ipsum dolor sit amet.</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ducimus pariatur soluta? Adipisci asperiores, assumenda aut consectetur cum earum, harum id labore laboriosam, nobis provident reiciendis soluta! Accusamus debitis, doloribus in minima minus modi natus nobis quasi quidem? Blanditiis doloremque error et, fuga id impedit inventore, ipsam molestiae nam possimus sapiente vitae! Dolor est inventore iste nemo optio rerum vitae voluptatibus voluptatum? Ab adipisci commodi est ex excepturi harum iusto minus non nostrum officia, placeat quis, reprehenderit saepe! Accusantium dolores doloribus ipsam nobis non rerum tempora voluptatem. Aliquam aut consectetur, doloremque earum illum minima nostrum odit pariatur perspiciatis reiciendis veritatis? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ad, blanditiis ducimus itaque pariatur vitae voluptas. Aspernatur id minus voluptatibus!</p>
+    </div>
+
+
+
+
+<script>
+    window.onscroll = function (){showMenu()}
+
+    function showMenu(){
+    	if(document.body.scrollTop > 20 || document.documentElement.scrollTop > 20){
+			nav.style.top = '0'
+        } else {
+			nav.style.top = '-100%'
+        }
+    }
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
