@@ -20,33 +20,28 @@
         top: 0;
         right: 0;
         padding: 30px 20px;
-        /*transition: padding .3s;*/
     }
     .header.big {
         padding: 80px 20px;
     }
-    .logo {
+    a.logo {
         margin-right: auto;
         font-size: 40px;
         cursor: pointer;
-        /*transition: font-size .3s;*/
     }
     .big .logo{
         font-size: 60px;
-    }
-    .menu {
-        display: flex;
     }
     a {
         text-decoration: none;
         color: #000;
     }
-    .menu a {
+    .header a:not(.logo) {
         font-size: 24px;
         padding: 10px 20px;
         border-radius: 5px;
     }
-    .menu a:not(.active):hover {
+    .header a:not(.active):hover {
         background-color: #ddd;
         color: black;
     }
@@ -58,6 +53,20 @@
         margin-top: 250px;
         font-size: 24px;
     }
+
+    @media (max-width: 700px) {
+        .header {
+            flex-direction: column;
+            padding: 0 20px 20px 20px !important;
+        }
+        .header a {
+            width: 100%;
+        }
+        a.logo {
+            display: none;
+        }
+    }
+
 </style>
 </head>
 <body style="height: 2000px">
@@ -65,11 +74,10 @@
 
     <header id="header" class="header">
         <a class="logo" id="logo" href="#">Логотип</a>
-        <div class="menu">
-            <a href="#" class="active">Главная</a>
-            <a href="#">О нас</a>
-            <a href="#">Контакты</a>
-        </div>
+        <a href="#" class="active">Главная</a>
+        <a href="#">О нас</a>
+        <a href="#">Контакты</a>
+
     </header>
     <div class="content">
         <h2>Lorem ipsum dolor sit amet.</h2>
