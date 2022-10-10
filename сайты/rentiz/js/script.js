@@ -49,16 +49,9 @@ const reviewsSlider = new Swiper('.slider-reviews', {
 	spaceBetween: 20,
 	slidesPerView: 1,
 	loop: true,
+	autoHeight: true,
 	navigation: {
 		nextEl: '.slider-reviews-next',
 		prevEl: '.slider-reviews-prev',
 	},
-	breakpoints: {
-		992: {
-			slidesPerView: 3,
-		},
-		660: {
-			slidesPerView: 2,
-		},
-	}
 });

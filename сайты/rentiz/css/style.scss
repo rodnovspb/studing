@@ -590,8 +590,30 @@ body {
 /*=======================Reviews=======================*/
 
 .reviews {
-  &__quotes {
+  position: relative;
+  &-deco {
+    position: absolute;
+    top: -500px;
+    left: -100px;
+    z-index: -1;
 
+  }
+  .swiper-wrapper {
+    align-items: flex-start;
+  }
+  &__container {
+    max-width: 1020px;
+    margin: 0 auto;
+    position: relative;
+    padding-top: 195px;
+  }
+  &__quotes {
+    color: var(--accent-color);
+    text-transform: capitalize;
+    font-size: 260px;
+    position: absolute;
+    top: 0;
+    left: 0;
   }
   &__slider {
 
@@ -603,23 +625,52 @@ body {
 
   }
   &__text {
-
+    font-size: clamp(1.25rem, 1.032rem + 1.09vw, 2rem);
+    line-height: 1.57;
+    text-transform: capitalize;
   }
   &__info {
-
+    margin-top: 40px;
   }
   &__name {
-
+    font-weight: 600;
+    font-size: 22px;
+    text-transform: capitalize;
   }
   &__job {
 
   }
   &__buttons {
-
+    display: flex;
+    gap: 69px;
+    width: 115px;
+    height: 60px;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    right: 15px;
+    &:before {
+      content: '';
+      position: absolute;
+      width: 1px;
+      background-color: #353F49;
+      display: inline-block;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+    }
   }
 }
 
 .slider-reviews-btn {
+  &.swiper-button-disabled {
+    svg {
+      fill: #767F89;
+    }
+  }
+  svg {
+    fill: #fff;
+  }
 
 }
 
@@ -628,5 +679,5 @@ body {
 }
 
 .slider-reviews-next {
-
+  transform: translateY(-2px);
 }
