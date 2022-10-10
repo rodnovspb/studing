@@ -501,12 +501,12 @@ body {
   }
 }
 
-.swiper-button-prev {
+.popular-slider-prev {
   position: absolute;
   left: -90px;
 }
 
-.swiper-button-next {
+.popular-slider-next {
   position: absolute;
   right: -90px;
 }
@@ -587,3 +587,46 @@ body {
   }
 }
 
+/*=======================Reviews=======================*/
+
+.reviews {
+  &__quotes {
+
+  }
+  &__slider {
+
+  }
+}
+
+.slider-reviews {
+  &__slide {
+
+  }
+  &__text {
+
+  }
+  &__info {
+
+  }
+  &__name {
+
+  }
+  &__job {
+
+  }
+  &__buttons {
+
+  }
+}
+
+.slider-reviews-btn {
+
+}
+
+.slider-reviews-prev{
+
+}
+
+.slider-reviews-next {
+
+}

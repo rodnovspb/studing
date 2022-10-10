@@ -27,13 +27,31 @@ if(filter){
 }
 
 // ---------Swiper-----------------------------//
-const swiper = new Swiper('.popular-slider', {
+const popularSlider = new Swiper('.popular-slider', {
 	spaceBetween: 20,
 	slidesPerView: 1,
 	loop: true,
 	navigation: {
-		nextEl: '.swiper-button-next',
-		prevEl: '.swiper-button-prev',
+		nextEl: '.popular-slider-next',
+		prevEl: '.popular-slider-prev',
+	},
+	breakpoints: {
+		992: {
+			slidesPerView: 3,
+		},
+		660: {
+			slidesPerView: 2,
+		},
+	}
+});
+
+const reviewsSlider = new Swiper('.slider-reviews', {
+	spaceBetween: 20,
+	slidesPerView: 1,
+	loop: true,
+	navigation: {
+		nextEl: '.slider-reviews-next',
+		prevEl: '.slider-reviews-prev',
 	},
 	breakpoints: {
 		992: {
