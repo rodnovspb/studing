@@ -12,11 +12,11 @@
     .nav {
         position: fixed;
         left: 0;
-        top: -100%;
+        top: 0;
         right: 0;
         background-color: #333;
         overflow: hidden;
-        transition: top 0.3s cubic-bezier(0.15, 1.06, 0.86, 0.97);
+        transition: transform 0.2s cubic-bezier(0.15, 1.06, 0.86, 0.97);
     }
     .nav a {
         color: #fff;
@@ -31,12 +31,12 @@
         color: #333;
     }
     .content {
-        padding-top: 10px;
+        padding-top: 25px;
     }
 
 </style>
 </head>
-<body style="height: 1000px;">
+<body style="height: 3000px;">
     <nav class="nav" id="nav">
         <a href="#">Главная</a>
         <a href="#">О нас</a>
@@ -52,14 +52,15 @@
 
 
 <script>
-    window.onscroll = function (){showMenu()}
+    let currentScroll = window.pageYOffset
 
-    function showMenu(){
-    	if(document.body.scrollTop > 20 || document.documentElement.scrollTop > 20){
-			nav.style.top = '0'
+    window.onscroll = () => {
+        if(window.pageYOffset > currentScroll){
+        	nav.style.transform = 'translateY(-100%)'
         } else {
-			nav.style.top = "-50px";
+			nav.style.transform = 'translateY(0%)'
         }
+		currentScroll = window.pageYOffset
     }
 
 </script>
