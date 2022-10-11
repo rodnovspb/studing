@@ -2,16 +2,18 @@
 
 
 
-spl_autoload_register('load');
 
-function load($class) {
-    $path = __DIR__ . "/classes/{$class}.php";
-    if(file_exists($path)) {
-        require_once $path;
-    }
-    
+
+
+spl_autoload_register('load1');
+spl_autoload_register('load2', true, true);
+
+function load1($class) {
+   echo 1;
 }
 
-$book = new Book;
+function load2($class) {
+    echo 2;
+}
 
-echo $book->book;
+
