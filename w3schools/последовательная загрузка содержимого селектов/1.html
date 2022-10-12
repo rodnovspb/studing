@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Документ</title>
+<style>
+    #form {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        width: 230px;
+    }
+    #form select {
+        width: 100%;
+    }
+
+</style>
+</head>
+<body>
+
+
+
+    <form action="" name="form" id="form">
+        <div>
+            <select name="side" id="side">
+                <option selected="selected">Выберите область разработки</option>
+            </select>
+        </div>
+        <div>
+            <select name="tech" id="tech">
+                <option selected="selected">Выберите технологию</option>
+            </select>
+        </div>
+        <div>
+            <select name="theme" id="theme">
+                <option selected="selected">Выберите тему</option>
+            </select>
+        </div>
+
+    </form>
+
+
+
+<script>
+    let list = {
+		"Front-end": {
+			"HTML": ["Links", "Images", "Tables", "Lists"],
+			"CSS": ["Borders", "Margins", "Backgrounds", "Float"],
+			"JavaScript": ["Variables", "Operators", "Functions", "Conditions"]
+		},
+		"Back-end": {
+			"PHP": ["Variables", "Strings", "Arrays"],
+			"SQL": ["SELECT", "UPDATE", "DELETE"]
+		}
+	}
+
+	window.onload = () => {
+        for(let key in list) {
+        	let option = document.createElement('option')
+			option.textContent = key;
+			side.append(option)
+        }
+    }
+
+	side.addEventListener('change', function (e) {
+		tech.length = 1
+		theme.length = 1
+	      if(list[side.value]) {
+	      	for(let key in list[side.value]){
+				let option = document.createElement('option')
+				option.textContent = key;
+				tech.append(option)
+            }
+          }
+	  })
+
+	tech.addEventListener('change', function (e) {
+		theme.length = 1
+		if(list[side.value][tech.value]) {
+			for(let key of list[side.value][tech.value]){
+				let option = document.createElement('option')
+				option.textContent = key;
+				theme.append(option)
+			}
+		}
+	})
+
+
+    let elem = document.querySelector('')
+
+
+
+</script>
+
+
+
+
+
+
+
+</body>
+</html>

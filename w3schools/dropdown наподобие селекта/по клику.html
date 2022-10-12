@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Документ</title>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+    .select {
+        margin-left: 50px;
+        margin-top: 20px;
+        width: 150px;
+        position: relative;
+    }
+    .choose {
+        background-color: #04AA6D;
+        padding: 8px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        border: 1px solid transparent;
+        color: #fff;
+        width: 100%;
+        border-radius: 5px;
+    }
+    .choose:hover {
+        background-color: #038450;
+    }
+
+    .choose.active + .list{
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        background-color: #eee;
+        border-radius: 5px;
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 36px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+        visibility: hidden;
+        opacity: 0;
+        transition: all .2s;
+        z-index: 1;
+    }
+
+    li {
+        padding: 8px 25px;
+        border: 1px solid transparent;
+        cursor: pointer;
+    }
+    li:hover {
+        background-color: #ccc;
+    }
+
+</style>
+</head>
+<body>
+
+    <div class="select">
+        <span class="choose" id="choose">Выберите</span>
+        <ul class="list">
+            <li>Пункт 1</li>
+            <li>Пункт 2</li>
+            <li>Пункт 3</li>
+            <li>Пункт 4</li>
+        </ul>
+    </div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum earum fuga iste iusto labore laboriosam minus neque sint sit vero.</p>
+
+
+
+<script>
+    let btn = document.querySelector('.choose')
+	btn.addEventListener('click', function (e) {
+	      this.classList.toggle('active')
+	  })
+    window.addEventListener('click', function (e) {
+    	if(!e.target.matches('.choose') && !e.target.matches('.list li')){
+			btn.classList.toggle('active')
+        }
+      })
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
