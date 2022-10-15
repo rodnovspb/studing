@@ -11,3 +11,5 @@ new \wfm\App();
 
 show(\wfm\App::$app->getProperties());
 
+
+// начинать с класса обработки ошибок
