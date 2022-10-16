@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Документ</title>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+    a {
+        text-decoration: none;
+        color: #818181;
+        padding: 15px 25px;
+        display: block;
+    }
+    a:hover {
+        color: #eee;
+    }
+    body {
+        margin: 0;
+        font-family: sans-serif;
+    }
+    .wrapper {
+        display: flex;
+    }
+    .menu {
+        background-color: #000;
+        height: 100vh;
+        padding-top: 10px;
+        min-width: 150px;
+    }
+    .content {
+        padding-left: 10px;
+    }
+    .dropdown {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .dropdown span {
+        font-size: 12px;
+    }
+    .list {
+        display: none;
+        background-color: #292929;
+    }
+    .active {
+        background-color: green;
+        color: #fff;
+    }
+    .active + .list {
+        display: block;
+    }
+
+
+</style>
+</head>
+<body>
+
+    <div class="wrapper">
+        <div class="menu">
+            <a href="#">Главная</a>
+            <a href="#" class="dropdown" id="dropdown">Цены<span>▼</span></a>
+            <div class="list">
+                <a href="#">Товар 1</a>
+                <a href="#">Товар 2</a>
+                <a href="#">Товар 3</a>
+                <a href="#">Товар 4</a>
+            </div>
+            <a href="#">Контакты</a>
+            <a href="#">О нас</a>
+        </div>
+        <div class="content">
+            <h2>Lorem ipsum dolor sit amet.</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque autem cupiditate dolorum ex in iste magni perferendis placeat rerum ullam?</p>
+        </div>
+    </div>
+
+
+
+<script>
+    dropdown.addEventListener('click', function (e) {
+          this.classList.toggle('active')
+      })
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
