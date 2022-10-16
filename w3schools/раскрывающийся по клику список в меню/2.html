@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Документ</title>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+    body {
+        font-family: sans-serif;
+        margin: 0;
+    }
+    a {
+        text-decoration: none;
+    }
+    .menu {
+        display: flex;
+        background-color: #000;
+        position: relative;
+    }
+    .menu_list {
+        display: flex;
+        align-items: center;
+    }
+    .menu_list > * {
+        color: #fff;
+        padding: 10px 25px;
+        cursor: pointer;
+    }
+    .menu_list > *:not(.active):hover {
+        background-color: #ccc;
+        color: #000;
+    }
+    .list {
+        display: none;
+    }
+    .burger {
+        margin-left: auto;
+        color: #fff;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        width: 100px;
+    }
+    .burger:hover {
+        background-color: #ccc;
+        color: #000;
+    }
+    .active {
+        background-color: green;
+    }
+    .content {
+        padding: 10px;
+    }
+
+    @media (max-width: 600px) {
+        .burger {
+            display: flex;
+        }
+        .menu_list {
+            flex-direction: column;
+        }
+    }
+
+</style>
+</head>
+<body>
+
+    <div class="wrapper">
+        <div class="menu">
+            <div class="menu_list">
+                <a href="#" class="active">Главная</a>
+                <a href="#">О нас</a>
+                <div class="dropdown">
+                <span>Цены</span>
+                <span>▼</span>
+                <div class="list">
+                    <a href="#">Товар 1</a>
+                    <a href="#">Товар 2</a>
+                    <a href="#">Товар 3</a>
+                    <a href="#">Товар 4</a>
+                </div>
+            </div>
+                <a href="#">Контакты</a>
+            </div>
+            <a href="#" class="burger">☰</a>
+        </div>
+        <div class="content">
+            <h3>Lorem ipsum dolor sit amet.</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis, eum?</p>
+        </div>
+    </div>
+
+
+
+
+<script>
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
