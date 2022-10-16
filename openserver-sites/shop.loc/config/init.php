@@ -22,7 +22,7 @@ require_once ROOT.'/vendor/autoload.php';
 
 function show($arr){
     echo "<pre><p style='background-color: beige;
-color: maroon; padding: 10px; margin: 5px; border: 1px maroon solid'>";
+color: maroon; padding: 10px; margin: 5px; border: 1px maroon solid; font-size: 20px;'>";
     if(is_bool($arr)){
         if($arr == 'bool(true)') {
             print_r('true');
@@ -31,7 +31,13 @@ color: maroon; padding: 10px; margin: 5px; border: 1px maroon solid'>";
         }  else {
             var_dump($arr);
         }
-    } else print_r($arr);
+    } elseif($arr === '') {
+        print_r('пустая строка ""');
+    } elseif($arr === null) {
+        print_r('null');
+    } else {
+        print_r($arr);
+    }
     echo "</p></pre>";
 }
 

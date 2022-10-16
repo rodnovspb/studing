@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Документ</title>
+<style>
+
+
+</style>
+</head>
+<body>
+
+<h1>Авторы</h1>
+
+<a href="/admin/login">В админ-панель</a>
+
+<ul>
+
+@foreach($users as $user)
+    <li><a href="author.php?id={{ $user->id }}">{{ $user->firstname }} {{ $user->lastname }}</a></li>
+        <ul>
+            @foreach($user->books as $book)
+                <li>{{ $book->name }}</li>
+            @endforeach
+        </ul>
+@endforeach
+
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

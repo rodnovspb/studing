@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Документ</title>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+    .nav {
+        display: flex;
+        flex-wrap: wrap;
+        background-color: #000;
+    }
+    .nav > * {
+        font-family: sans-serif;
+        color: #fff;
+        text-decoration: none;
+        padding: 8px clamp(0.5rem, 0.146rem + 1.89vw, 1.563rem);
+    }
+    .nav > *:hover {
+        background-color: #f00;
+        cursor: pointer;
+    }
+    .dropdown {
+        position: relative;
+    }
+    .dropdown:hover .dropdown-menu{
+        visibility: visible;
+        opacity: 1;
+    }
+    .dropdown-menu {
+        position: absolute;
+        display: flex;
+        left: 0;
+        bottom: -137px;
+        background-color: #f9f9f9;
+        flex-direction: column;
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        min-width: 120px;
+        visibility: hidden;
+        opacity: 0;
+        transition: all .3s;
+    }
+    .dropdown-menu a {
+        text-decoration: none;
+        padding: 8px;
+    }
+    .dropdown-menu a:hover {
+        background-color: #eee;
+    }
+
+</style>
+</head>
+<body>
+
+
+<nav class="nav">
+    <a href="#">Главная</a>
+    <div class="dropdown">
+        Цены
+        <div class="dropdown-menu">
+            <a href="#">Товар 1</a>
+            <a href="#">Товар 2</a>
+            <a href="#">Товар 3</a>
+            <a href="#">Товар 4</a>
+        </div>
+    </div>
+    <a href="#">О нас</a>
+    <a href="#">Контакты</a>
+</nav>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
