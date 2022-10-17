@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Документ</title>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+    body {
+        margin: 0;
+    }
+    .content {
+        padding: 10px;
+    }
+    .dropdown {
+        outline: none;
+        border: none;
+        background-color: red;
+        color: #fff;
+        padding: 8px 25px;
+        font-size: 18px;
+        cursor: pointer;
+        transition: all .2s;
+        position: relative;
+    }
+    .dropdown-wrapper {
+        display: inline-block;
+    }
+    .dropdown-wrapper:hover .dropdown__list {
+        visibility: visible;
+        opacity: 1;
+    }
+    .dropdown:hover {
+        background-color: #e40202;
+    }
+    .dropdown + .dropdown__list {
+        display: flex;
+        flex-direction: column;
+        background-color: #f1f1f1;
+        position: absolute;
+        border-radius: 0 0 5px 5px;
+        width: 160px;
+        visibility: hidden;
+        opacity: 0;
+        transition: all .2s;
+    }
+    .dropdown__list a {
+        padding: 8px 25px;
+        text-decoration: none;
+    }
+    .dropdown__list a:hover {
+        background-color: #d9d3d3;
+    }
+</style>
+</head>
+<body>
+
+
+<div class="wrapper">
+    <div class="content">
+        <h2>Lorem ipsum dolor sit amet.</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo perspiciatis temporibus ullam vitae? Alias cum dicta doloremque magnam maiores veniam.</p>
+        <div class="dropdown-wrapper">
+            <button class="dropdown">Список</button>
+            <div class="dropdown__list">
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
