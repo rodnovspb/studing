@@ -11,50 +11,50 @@
     }
     body {
         margin: 0;
+        font-size: 16px;
         font-family: sans-serif;
     }
-    a {
-        text-decoration: none;
-        font-size: 16px;
+    a.active {
+        background-color: green;
     }
     .menu {
         background-color: #000;
         display: flex;
         position: relative;
-
     }
     .menu > * {
-        padding: 8px 25px;
         color: #fff;
-        cursor: pointer;
+        text-decoration: none;
+        padding: 8px 25px;
     }
     .menu > *:not(.active):hover {
         background-color: #555;
+        cursor: pointer;
     }
-    .content {
-        padding: 10px;
-    }
-    a.burger {
+    .burger {
         position: absolute;
         right: 0;
-        color: #fff;
+        top: 0;
         font-size: 14px;
         display: none;
     }
-    .active {
-        background-color: green;
+    .menu.active {
+        flex-direction: column;
+        overflow: visible;
+    }
+    .menu.active > *:not(:first-child):not(.burger) {
+        display: block;
     }
     .dropdown {
         position: relative;
     }
-    .dropdown:hover .list {
-        display: flex;
+    .dropdown:hover .list{
+        display: block;
     }
     .list {
         position: absolute;
-        flex-direction: column;
         left: 0;
-        top: 34px;
+        top: 35px;
         background-color: #f9f9f9;
         min-width: 160px;
         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -62,50 +62,65 @@
         display: none;
     }
     .list a {
+        display: block;
         padding: 8px 25px;
+        text-decoration: none;
         color: #000;
     }
     .list a:hover {
-        background-color: #ddd;
-        color: black;
+        background-color: #ccc;
+    }
+    .arrow {
+        font-size: 11px;
     }
 
-    @media (max-width: 600px) {
-        .menu {
-            flex-direction: column;
-            overflow: hidden;
+    @media (max-width: 500px) {
+        .menu > *:not(:first-child):not(.burger) {
+            display: none;
         }
-        a.burger {
+        .burger {
             display: block;
-            z-index: 1;
         }
+        .menu > *:hover {
+            background-color: #555;
+        }
+        .dropdown:hover .list{
+            display: block;
+            width: 100%;
+        }
+
     }
+
+    @media (min-width: 500px) {
+        .menu.active {
+            flex-direction: row;
+        }
+
+    }
+
+
 
 </style>
 </head>
 <body>
 
-
 <div class="wrapper">
-    <div class="menu">
+    <div class="menu" id="menu">
         <a href="#" class="active">Главная</a>
         <div href="#" class="dropdown">
-            Цены
-            <span>▼</span>
+            Цены<span class="arrow">▼</span>
             <div class="list">
-            <a href="#">Товар 1</a>
-            <a href="#">Товар 2</a>
-            <a href="#">Товар 3</a>
-            <a href="#">Товар 4</a>
+                <a href="#">Товар 1</a>
+                <a href="#">Товар 2</a>
+                <a href="#">Товар 3</a>
+            </div>
         </div>
-        </div>
-        <a href="#">О нас</a>
         <a href="#">Контакты</a>
-        <a href="#" class="burger">☰</a>
+        <a href="#" class="burger" id="burger">&#9776;</a>
     </div>
     <div class="content">
         <h2>Lorem ipsum dolor sit amet.</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum expedita minima natus soluta voluptatum! Amet aspernatur modi nesciunt quam unde.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem, impedit?</p>
     </div>
 </div>
 
@@ -113,6 +128,14 @@
 
 
 
+<script>
+    burger.addEventListener('click', function (e) {
+		menu.classList.toggle('active')
+      })
+
+
+
+</script>
 
 
 
