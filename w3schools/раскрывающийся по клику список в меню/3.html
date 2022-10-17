@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Документ</title>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+    body {
+        margin: 0;
+        font-family: sans-serif;
+        font-size: 18px;
+    }
+    a {
+        text-decoration: none;
+        color: #fff;
+    }
+    .menu {
+        display: flex;
+        background-color: #000;
+    }
+    .menu > * {
+        padding: 8px 25px;
+        cursor: pointer;
+    }
+    .menu > *:hover {
+        background-color: red;
+    }
+    .navbar > span {
+        color: #fff;
+    }
+    .navbar__content {
+        position: absolute;
+        background-color: red;
+        left: 0;
+        top: 37px;
+        width: 100%;
+        display: none;
+        z-index: 1;
+    }
+    .navbar__content a {
+        padding: 8px 25px;
+    }
+    .navbar__content a:hover {
+        color: #000;
+        background-color: #eee;
+    }
+    .navbar:hover .navbar__content {
+        display: flex;
+    }
+
+
+</style>
+</head>
+<body>
+
+
+<div class="wrapper">
+    <div class="menu">
+        <a href="#">Главная</a>
+        <div href="#" class="navbar">
+            <span>О нас ▼</span>
+            <div class="navbar__content">
+                <a href="#">Ссылка 1</a>
+                <a href="#">Ссылка 2</a>
+                <a href="#">Ссылка 3</a>
+                <a href="#">Ссылка 4</a>
+            </div>
+        </div>
+        <div href="#" class="navbar">
+            <span>Цены ▼</span>
+            <div class="navbar__content">
+                <a href="#">Ссылка 5</a>
+                <a href="#">Ссылка 6</a>
+                <a href="#">Ссылка 7</a>
+                <a href="#">Ссылка 8</a>
+            </div>
+        </div>
+        <div href="#" class="navbar">
+            <span>Гарантии ▼</span>
+            <div class="navbar__content">
+                <a href="#">Ссылка 9</a>
+                <a href="#">Ссылка 10</a>
+                <a href="#">Ссылка 11</a>
+                <a href="#">Ссылка 12</a>
+            </div>
+        </div>
+        <a href="#">Контакты</a>
+    </div>
+    <div class="content">
+        <h2>Lorem ipsum dolor sit.</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, officiis?</p>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
