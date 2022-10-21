@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Документ</title>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+    h3 {
+        margin-top: 0;
+    }
+    body {
+        margin: 0;
+        font-family: sans-serif;
+    }
+    .menu {
+        background-color: #000;
+        display: flex;
+        align-items: center;
+        position: relative;
+    }
+    .menu > a {
+        font-size: 20px;
+        color: #fff;
+        text-decoration: none;
+        padding: 8px 20px;
+    }
+    .menu a:hover {
+        background-color: red;
+        cursor: pointer;
+    }
+    .content {
+        padding: 15px;
+    }
+    .submenu {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 42px;
+        display: none;
+    }
+    .top {
+        background-color: red;
+        padding: 15px;
+        color: #fff;
+    }
+    .bottom {
+        padding: 15px;
+        display: flex;
+        background-color: #ccc;
+        justify-content: space-between;
+    }
+    .list {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .list a {
+        text-decoration: none;
+        padding: 8px 25px 8px 0;
+    }
+    .list a:hover {
+        background-color: #b5b3b3;
+    }
+    .item {
+        width: 30%;
+    }
+    .dropdown:hover + .submenu,
+    .submenu:hover {
+        display: block;
+    }
+</style>
+</head>
+<body>
+
+
+
+<div class="wrapper">
+    <div class="menu">
+        <a href="#">Главная</a>
+        <a href="#">О нас</a>
+        <a href="#" class="dropdown">Цены ⏷</a>
+        <div class="submenu">
+            <div class="top">Субменю</div>
+            <div class="bottom">
+                <div class="item">
+                    <h3 class="header">Заголовок</h3>
+                    <div class="list">
+                        <a href="#">Ссылка</a>
+                        <a href="#">Ссылка</a>
+                        <a href="#">Ссылка</a>
+                    </div>
+                </div>
+                <div class="item">
+                    <h3 class="header">Заголовок</h3>
+                    <div class="list">
+                        <a href="#">Ссылка</a>
+                        <a href="#">Ссылка</a>
+                        <a href="#">Ссылка</a>
+                    </div>
+                </div>
+                <div class="item">
+                    <h3 class="header">Заголовок</h3>
+                    <div class="list">
+                        <a href="#">Ссылка</a>
+                        <a href="#">Ссылка</a>
+                        <a href="#">Ссылка</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <h2>Lorem ipsum dolor sit amet.</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem perferendis reprehenderit repudiandae totam voluptatibus! Et exercitationem maiores necessitatibus perferendis voluptatibus.</p>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

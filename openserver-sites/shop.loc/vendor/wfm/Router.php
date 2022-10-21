@@ -23,11 +23,36 @@ class Router
         return self::$route;
     }
     
+    protected static function removeQueryString($url) {
+        if($url){
+            $params = explode('&', $url, 2);
+            if(false === str_contains($params[0], '=')){
+                return rtrim($params[0], '/');
+            }
+        }
+        return '';
+    }
+    
     public static function dispatch($url) {
+        $url = self::removeQueryString($url);
         if(self::matchRoot($url)){
-            show('ok');
+            $controller = 'app\controllers\\' . self::$route['admin_prefix'] . self::$route['controller'] . 'Controller';
+            if(class_exists($controller)) {
+                $controllerObject = new $controller(self::$route);
+                $controllerObject->getModel();
+                
+                $action = self::lowerCamelCase(self::$route['action'] . 'Action');
+                if(method_exists($controllerObject, $action)) {
+                    $controllerObject->$action();
+                    $controllerObject->getView();
+                } else {
+                    throw new \Exception("Метод {$controller}::{$action} не найден", 404);
+                }
+            } else {
+                throw new \Exception("Контроллер {$controller} не найден", 404);
+            }
         } else {
-            show('no');
+            throw new \Exception('Страница не найдена', 404);
         }
     }
     
@@ -45,9 +70,10 @@ class Router
                 if(!isset($route['admin_prefix'])){
                     $route['admin_prefix'] = '';
                 } else {
-                    $route['admin_prefix'] = '\\';
+                    $route['admin_prefix'] .= '\\';
                 }
                 $route['controller'] = self::upperCamelCase($route['controller']);
+                self::$route = $route;
                 return true;
             }
         }
