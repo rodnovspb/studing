@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Документ</title>
+<style>
+    body {
+        font-family: sans-serif;
+        font-size: 20px;
+        margin: 0;
+    }
+    .wrapper {
+
+    }
+    .menu {
+        display: flex;
+        background-color: #000;
+    }
+    .menu a {
+        padding: 10px;
+        color: #fff;
+        cursor: pointer;
+    }
+    .menu a:hover {
+        background-color: #eee;
+        color: #000;
+    }
+    .submenu {
+        display: none;
+    }
+    .submenu.active {
+        display: flex;
+    }
+    .submenu a {
+        text-decoration: none;
+        color: #fff;
+        padding: 10px;
+    }
+    .submenu a:hover {
+        background-color: #eee;
+        color: #000;
+    }
+    .burger {
+        margin-left: auto;
+        background-color: #000;
+    }
+    .logo {
+        background-color: #03b603;
+        color: #fff;
+    }
+
+</style>
+</head>
+<body>
+
+
+
+
+<div class="wrapper">
+    <div class="menu">
+        <a class="logo">Логотип</a>
+        <div class="submenu" id="submenu">
+        <a href="#">Ссылка 1</a>
+        <a href="#">Ссылка 2</a>
+        <a href="#">Ссылка 3</a>
+    </div>
+        <a class="burger" id="burger">☰</a>
+    </div>
+    <div class="content">
+        <h3>Заголовок</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta eos inventore iste iure labore maiores molestiae nemo quidem quo velit.</p>
+    </div>
+</div>
+
+
+
+<script>
+    burger.addEventListener('click', function (e) {
+		submenu.classList.toggle('active')
+      })
+
+
+
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>

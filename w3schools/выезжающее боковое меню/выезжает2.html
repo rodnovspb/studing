@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Документ</title>
+<style>
+    .body, a {
+        font-family: sans-serif;
+    }
+    .overlay {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 0%;
+        height: 100%;
+        background-color: rgba(0,0,0, 0.9);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        visibility: hidden;
+        z-index: 10;
+        transition: all .5s;
+    }
+    .overlayFromTop {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 0;
+        background-color: rgba(0,0,0, 0.9);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        visibility: hidden;
+        z-index: 10;
+        transition: all .5s;
+    }
+    .overlay.active {
+        width: 100%;
+        visibility: visible;
+    }
+    .overlayFromTop.active {
+        height: 100%;
+        visibility: visible;
+    }
+    .block {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    a {
+        text-decoration: none;
+        color: #ccc;
+        font-size: 30px;
+        transition: all .2s;
+    }
+    .close {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+
+    }
+    a:hover {
+        color: #fff;
+    }
+
+</style>
+</head>
+<body>
+
+
+<div class="wrapper">
+    <div class="overlay" id="overlay">
+        <div class="block">
+            <a href="#">Главная</a>
+            <a href="#">О нас</a>
+            <a href="#">Цены</a>
+            <a href="#">Контакты</a>
+        </div>
+        <a href="#" class="close" id="closeBtn">&times;</a>
+    </div>
+    <div class="overlayFromTop" id="overlayFromTop">
+        <div class="block">
+            <a href="#">Главная</a>
+            <a href="#">О нас</a>
+            <a href="#">Цены</a>
+            <a href="#">Контакты</a>
+        </div>
+        <a href="#" class="close" id="closeBtnTop">&times;</a>
+    </div>
+    <div class="content">
+        <h2>Lorem ipsum dolor sit amet.</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis corporis deleniti ducimus ea expedita maxime molestias nemo quasi sapiente tenetur.</p>
+        <button id="right">Сбоку</button>
+        <button id="topBtn">Сверху</button>
+    </div>
+</div>
+
+<script>
+    right.addEventListener('click', function (e) {
+		overlay.classList.add('active')
+      })
+
+	closeBtn.addEventListener('click', function (e) {
+		overlay.classList.remove('active')
+	  })
+
+	topBtn.addEventListener('click', function (e) {
+		overlayFromTop.classList.add('active')
+	})
+
+	closeBtnTop.addEventListener('click', function (e) {
+		overlayFromTop.classList.remove('active')
+	})
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
