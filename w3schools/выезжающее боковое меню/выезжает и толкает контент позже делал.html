@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Документ</title>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+    body {
+        margin: 0;
+        font-family: sans-serif;
+    }
+    .wrapper {
+        display: flex;
+        overflow: hidden;
+    }
+    .menu {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100vh;
+        background-color: #000;
+        width: 0;
+        gap: 15px;
+        overflow: hidden;
+        transition: all .2s;
+    }
+    .menu.active {
+        width: 140px;
+    }
+    .menu a {
+        font-size: 20px;
+        color: #ccc;
+        text-decoration: none;
+    }
+    .menu a:hover {
+        color: #fff;
+    }
+    .menu.active + .content {
+        margin-left: 150px;
+    }
+    .content {
+        transition: all .2s;
+    }
+    a.close {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        font-size: 40px;
+    }
+
+
+</style>
+</head>
+<body>
+
+
+
+<div class="wrapper">
+    <div class="menu" id="menu_block">
+        <a href="#" class="close" id="closeBtn">&times;</a>
+        <a href="#">Главная</a>
+        <a href="#">О нас</a>
+        <a href="#">Цены</a>
+        <a href="#">Контакты</a>
+    </div>
+    <div class="content">
+        <h2>Lorem ipsum dolor sit amet.</h2>
+        <button id="menu">Меню</button>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet animi assumenda dolores illo ipsa ipsum itaque, libero nemo neque odio, perspiciatis quae qui quia quibusdam rem repellendus voluptatibus. Asperiores blanditiis corporis dolore ducimus ea earum est eveniet illo, inventore molestias praesentium quaerat quo repellat suscipit unde? Ad assumenda aut autem, commodi culpa cupiditate dolore eius eligendi expedita explicabo facere laboriosam neque nesciunt perspiciatis provident quia quibusdam velit voluptates. Accusamus alias architecto, assumenda at commodi cumque deserunt dolore eligendi expedita fuga hic maiores maxime nobis odit omnis perferendis perspiciatis quibusdam quidem repellat sapiente sit, tempore temporibus voluptatem. Aspernatur assumenda, aut commodi corporis doloremque eius esse in ipsa iste labore maxime minima minus natus neque nesciunt numquam omnis quia quos recusandae repellendus sed tempore totam ullam veniam voluptatibus? Commodi cum delectus eum nulla tempore! Animi beatae corporis cupiditate distinctio eum fuga id molestias nesciunt nostrum officiis quae quam quas recusandae totam, ut? Cumque dolor error explicabo modi nemo nostrum sapiente sed soluta totam voluptatibus! Aut harum laborum, neque obcaecati quos reprehenderit. At commodi cumque delectus, dolorum error ipsam iusto magnam molestias nesciunt non odit, officia porro quaerat sit suscipit ullam voluptates! Aliquam consequuntur, dolor dolore dolorem doloribus earum enim esse facilis fugiat harum id ipsam iure labore laudantium libero maiores minima minus nesciunt nisi optio porro quae quas quasi quis reprehenderit rerum sapiente, voluptate. Aliquam asperiores, atque debitis doloribus enim et eum nesciunt officia officiis praesentium provident recusandae reiciendis tenetur. Aliquam consequatur culpa error quae quos recusandae sit. Asperiores, corporis delectus, doloremque earum et eum exercitationem hic ipsa iure iusto laborum nemo non officia quaerat, quam quidem ratione rem repellendus repudiandae sit? Accusantium alias aliquam, aut debitis deserunt dicta distinctio doloribus eius eligendi, facilis fuga illum ipsa ipsum laudantium magnam nam natus neque omnis optio perferendis possimus praesentium quibusdam rem unde voluptas!</p>
+    </div>
+</div>
+
+
+<script>
+    menu.addEventListener('click', function (e) {
+		menu_block.classList.toggle('active')
+      })
+
+	closeBtn.addEventListener('click', function (e) {
+	      if(menu_block.classList.contains('active')){
+			  menu_block.classList.remove('active')
+          }
+	  })
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

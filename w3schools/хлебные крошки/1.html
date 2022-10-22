@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Документ</title>
+<style>
+    .breadcrumb {
+        display: flex;
+        list-style: none;
+        font-size: 20px;
+        font-family: sans-serif;
+        background-color: #eee;
+    }
+    li {
+        padding: 8px 0;
+    }
+    a {
+        text-decoration: none;
+    }
+    li:not(:last-child) a:hover {
+        text-decoration: underline;
+    }
+    li:last-child a {
+        color: #000;
+        cursor: text;
+    }
+
+    li + li:before {
+        padding: 10px;
+        color: blue;
+        content: "/\00a0";
+    }
+
+
+</style>
+</head>
+<body>
+
+
+
+<ul class="breadcrumb">
+    <li><a href="#">Главная</a></li>
+    <li><a href="#">Цены</a></li>
+    <li><a href="#">Перфораторы</a></li>
+    <li><a href="#">Макита</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

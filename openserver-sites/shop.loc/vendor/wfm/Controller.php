@@ -9,7 +9,7 @@ use function Symfony\Component\String\s;
 abstract class Controller
 {
     public array $data = [];
-    public array $meta = [];
+    public array $meta = ['title' => '', 'keywords' => '', 'description' => ''];
     public false | string $layout = '';
     public string $view = '';
     public object $model;
