@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Документ</title>
+<style>
+    body {
+        margin: 0;
+    }
+    .menu {
+        background-color: #eee;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+
+    }
+    .menu a {
+        text-decoration: none;
+        font-family: sans-serif;
+        padding: 8px 25px;
+        border-radius: 5px;
+    }
+    .menu a:not(.active):hover {
+        background-color: #ccc;
+    }
+    .logo {
+        margin-right: auto;
+        font-size: 24px;
+    }
+    .active {
+        background-color: dodgerblue;
+        color: #fff;
+    }
+
+    @media (max-width: 600px) {
+        .menu {
+            flex-direction: column;
+        }
+        .menu a {
+            width: 100%;
+        }
+        .logo {
+            margin-right: unset;
+        }
+
+    }
+
+</style>
+</head>
+<body>
+
+
+<div class="menu">
+    <a href="#" class="logo">Логотип</a>
+    <a href="#" class="active">Главная</a>
+    <a href="#">О нас</a>
+    <a href="#">Контакты</a>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
