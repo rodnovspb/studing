@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Документ</title>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+    .container {
+        width: 100%;
+        position: relative;
+    }
+    .row {
+        display: flex;
+    }
+    .column {
+        flex-basis: calc(100% / 6);
+        height: 70px;
+    }
+    .column img {
+        max-width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .slide:not(.active){
+        display: none;
+    }
+    .slide__img {
+        width: 100%;
+        height: auto;
+        vertical-align: top;
+    }
+    .slide {
+
+    }
+    .slide__number {
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        color: #fff;
+    }
+    .arrow {
+        position: absolute;
+        top: 30%;
+        color: #ffffff;
+        font-size: 24px;
+        padding: 10px;
+        text-decoration: none;
+    }
+    .arrow.next {
+        right: 0;
+    }
+    .arrow:hover {
+        background-color: rgba(0,0,0, .7);
+    }
+    .column {
+        cursor: pointer;
+        transition: opacity .1s;
+    }
+    .row .column:not(.active){
+        opacity: 0.7;
+    }
+    .row .column:not(.active):hover {
+        opacity: 1;
+    }
+    .caption-container {
+        background-color: #000;
+        text-align: center;
+    }
+    .caption-container p {
+        margin: 0;
+        padding: 10px;
+        color: #fff;
+        font-size: 20px;
+        font-family: sans-serif;
+    }
+
+</style>
+</head>
+<body>
+
+<div class="wrapper">
+    <h2>Галерея изображений</h2>
+    <div class="container">
+        <div class="slide active" data-num="0">
+            <div class="slide__number">1 / 6</div>
+            <img class="slide__img" src="1.jpg" alt="">
+        </div>
+        <div class="slide" data-num="1">
+            <div class="slide__number">2 / 6</div>
+            <img class="slide__img" src="2.jpg" alt="">
+        </div>
+        <div class="slide" data-num="2">
+            <div class="slide__number">3 / 6</div>
+            <img class="slide__img" src="3.jpg" alt="">
+        </div>
+        <div class="slide" data-num="3">
+            <div class="slide__number">4 / 6</div>
+            <img class="slide__img" src="4.jpg" alt="">
+        </div>
+        <div class="slide" data-num="4">
+            <div class="slide__number">5 / 6</div>
+            <img class="slide__img" src="5.jpg" alt="">
+        </div>
+        <div class="slide" data-num="5">
+            <div class="slide__number">6 / 6</div>
+            <img class="slide__img" src="6.jpg" alt="">
+        </div>
+        <a href="#" class="prev arrow">❮</a>
+        <a href="#" class="next arrow">❯</a>
+        <div class="caption-container">
+            <p id="caption">Лес</p>
+        </div>
+        <div class="row">
+            <div class="column active" data-num="0">
+                <img src="1.jpg" alt="Лес">
+            </div>
+            <div class="column" data-num="1">
+                <img src="2.jpg" alt="Скала">
+            </div>
+            <div class="column" data-num="2">
+                <img src="3.jpg" alt="Дорога">
+            </div>
+            <div class="column" data-num="3">
+                <img src="4.jpg" alt="Сияние">
+            </div>
+            <div class="column" data-num="4">
+                <img src="5.jpg" alt="Закат">
+            </div>
+            <div class="column" data-num="5">
+                <img src="6.jpg" alt="Снежная вершина">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+    let slides = document.querySelectorAll('.slide')
+    let slidesSmall = document.querySelectorAll('.column')
+    let caption = document.querySelector('#caption')
+    let arrows = document.querySelectorAll('.arrow')
+
+
+    function deleteActive(arr){
+		arr.forEach(elem=>{
+			if(elem.classList.contains('active')){
+				elem.classList.remove('active')
+            }
+        })
+    }
+
+	slidesSmall.forEach(elem=>{
+		elem.addEventListener('click', function (e) {
+			deleteActive(slidesSmall)
+			deleteActive(slides)
+            this.classList.add('active')
+			caption.textContent = this.children[0].alt
+            let num = this.dataset.num
+			slides[num].classList.add('active')
+		  })
+    })
+
+	arrows.forEach(elem=>{
+		elem.addEventListener('click', function (e) {
+			let count = document.querySelector('.column.active').dataset.num
+			let length = slidesSmall.length
+			if(this.classList.contains('prev')){
+				count --
+			} else if(this.classList.contains('next')){
+				count ++
+			}
+			if(count < 0){
+				count = length-1
+			} else if(count >= length) {
+				count = 0
+			}
+			slidesSmall[count].click()
+
+		})
+    })
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
