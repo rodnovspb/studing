@@ -20,7 +20,7 @@ define("NO_IMAGE", 'uploads/no_image.jpg');
 
 require_once ROOT.'/vendor/autoload.php';
 
-function show($arr){
+function show($arr, $die=false){
     echo "<pre><p style='background-color: beige;
 color: maroon; padding: 10px; margin: 5px; border: 1px maroon solid; font-size: 20px;'>";
     if(is_bool($arr)){
@@ -39,5 +39,7 @@ color: maroon; padding: 10px; margin: 5px; border: 1px maroon solid; font-size: 
         print_r($arr);
     }
     echo "</p></pre>";
+    if($die) {
+        die;
+    }
 }
-
