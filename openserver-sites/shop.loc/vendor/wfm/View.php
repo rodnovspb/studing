@@ -46,7 +46,7 @@ class View
     }
     
     public function getMeta() {
-        $out = "<title>" . h($this->meta['title']) . "</title>" . PHP_EOL;
+        $out = "<title>" . App::$app->getProperty('site_name') . ' :: ' . h($this->meta['title']) . "</title>" . PHP_EOL;
         $out .= "<meta name='description' content='" . h($this->meta['description']) . "'>" . PHP_EOL;
         $out .= "<meta name='keywords' content='" . h($this->meta['keywords']) . "'>" . PHP_EOL;
         
@@ -55,13 +55,13 @@ class View
     
     public function getDbLogs() {
         if(DEBUG){
-            $logs = R::getDatabaseAdapter()
-                ->getDatabase()
-                ->getLogger();
-            
-            $logs = array_merge($logs->grep('SELECT'), $logs->grep('select'), $logs->grep('INSERT'), $logs->grep('UPDATE'), $logs->grep('DELETE'));
-            debug($logs);
-        }
+                $logs = R::getDatabaseAdapter()
+                    ->getDatabase()
+                    ->getLogger();
+    
+                $logs = array_merge($logs->grep('SELECT'), $logs->grep('select'), $logs->grep('INSERT'), $logs->grep('UPDATE'), $logs->grep('DELETE'));
+                debug($logs);
+            }
     }
     
     public function getPart($file, $data = null) {

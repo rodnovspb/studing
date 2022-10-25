@@ -7,12 +7,12 @@
             <div class="caption">
               <h3>{{ $product->name }}</h3>
               <p>{{ $product->price }}</p>
-                {{ $product->category->name }}
               <p>
-                <form action="{{ route('basket') }}" method="POST">
+                <form action="{{ route('busket-add', $product) }}" method="POST">
+                  @csrf
+                  <a href="{{ route('product', ['category' => $product->category->code, 'product' => $product->code]) }}" class="btn btn-default" role="button">Подробнее</a>
                   <button type="submit" class="btn btn-primary" role="button">В корзину</button>
-                  <a href="https://internet-shop.tmweb.ru/mobiles/iphone_x_64" class="btn btn-default" role="button">Подробнее</a>
-                  <input type="hidden" name="_token" value="XXIBcC9neFJUjWNMQcqQku8MX4qRFLRICLnTDHz2"> </form>
+                </form>
                 </p>
             </div>
           </div>

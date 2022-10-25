@@ -1,4 +1,6 @@
 <?php
+
+use wfm\App;
 use wfm\View;
 //* @var $this View *//
 ?>
@@ -79,7 +81,7 @@ use wfm\View;
 
 					<nav class="navbar navbar-expand-lg navbar-light">
 						<div class="container-fluid p-0">
-							<a class="navbar-brand" href="index.html">Shop Brand</a>
+							<a class="navbar-brand" href="/"><?= \wfm\App::$app->getProperty('site_name'); ?></a>
 							<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 								<span class="navbar-toggler-icon"></span>
 							</button>
