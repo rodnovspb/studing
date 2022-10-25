@@ -36,6 +36,9 @@ class Router
     public static function dispatch($url) {
         $url = self::removeQueryString($url);
         if(self::matchRoot($url)){
+            if(!empty(self::$route['lang'])){
+               App::$app->setProperty('lang', self::$route['lang']);
+            }
             $controller = 'app\controllers\\' . self::$route['admin_prefix'] . self::$route['controller'] . 'Controller';
             if(class_exists($controller)) {
                 $controllerObject = new $controller(self::$route);
