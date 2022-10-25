@@ -49,6 +49,11 @@
 
   <div class="container">
       <div class="starter-template">
+          @if(session()->has('success'))
+              <p class="alert alert-success">{{ session('success') }}</p>
+          @elseif(session()->has('warning'))
+              <p class="alert alert-warning">{{ session('warning') }}</p>
+          @endif
         @yield('content')
       </div>
   </div>

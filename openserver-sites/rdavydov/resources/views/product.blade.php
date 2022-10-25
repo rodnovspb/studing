@@ -10,10 +10,10 @@
       <img src="http://internet-shop.tmweb.ru/storage/products/iphone_x.jpg">
       <p>Отличный продвинутый телефон с памятью на 64 gb</p>
 
-      <form action="https://internet-shop.tmweb.ru/basket/add/1" method="POST">
+      <form action="{{ route('busket-add', $product) }}" method="POST">
+          @csrf
         <button type="submit" class="btn btn-success" role="button">Добавить в корзину</button>
-
-        <input type="hidden" name="_token" value="9K1rPzy9cvTf0qeweEFGX09t5yLebfIn2mmizoEe"> </form>
+        </form>
 @endsection
 
 
