@@ -1,0 +1,73 @@
+@import "fonts/stylesheet.css";
+
+:root {
+    /*colors*/
+    --primary: #FDB827;
+    --dark: #233506;
+    --light: #fff;
+    --bg: #FFF9F2;
+
+    /*sizes*/
+    --content_width: 1170px;
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Gilroy, sans-serif;
+    background-color: #fff;
+}
+
+/*Layout*/
+
+.content {
+    max-width: var(--content_width);
+    padding: 0 16px;
+}
+
+.first-screen {
+
+}
+
+.first-screen__bg-segment {
+    position: absolute;
+    background-color: var(--primary);
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 33%;
+    z-index: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -45,3 +45,10 @@ span.badge.badge-danger {
 div.filters {
     padding-bottom: 5px;
 }
+
+div.header_auth {
+    color: #000;
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
