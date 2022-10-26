@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Документ</title>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+    }
+
+    .modal {
+        position: fixed;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, .8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1;
+        flex-direction: column;
+        display: none;
+    }
+
+    #modal_img {
+        max-width: 200px;
+        height: auto;
+        animation-name: zoom;
+        animation-duration: 2s;
+        animation-fill-mode: forwards;
+
+    }
+
+    @keyframes zoom {
+        0% {
+            max-width: 200px;
+        }
+        100% {
+            max-width: 600px;
+        }
+    }
+
+    .close {
+        position: absolute;
+        right: 30px;
+        top: 30px;
+        color: #fff;
+        font-size: 50px;
+        cursor: pointer;
+        line-height: 1;
+    }
+    #caption {
+        font-size: 20px;
+        font-family: sans-serif;
+        color: #fff;
+        margin-top: 20px;
+    }
+    #img {
+        cursor: pointer;
+    }
+
+</style>
+</head>
+<body>
+
+
+
+    <div class="wrapper">
+        <h2>Заголовок</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur atque corporis cupiditate dolorem est ex illo in minus molestiae nam, non perferendis praesentium qui, quia quod rem reprehenderit repudiandae ullam!</p>
+        <img src="1.jpg" alt="" width="300" id="img">
+    </div>
+
+    <div class="modal" id="modal">
+       <span class="close" id="closeBtn">&times;</span>
+       <img alt="" id="modal_img" src="1.jpg">
+       <div id="caption">Остров Врангеля</div>
+    </div>
+
+
+
+
+
+<script>
+    img.addEventListener('click', function (e) {
+		modal.style.display = 'flex'
+      })
+	closeBtn.addEventListener('click', function (e) {
+		modal.style.display = 'none'
+	  })
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
