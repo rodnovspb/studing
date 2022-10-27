@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Документ</title>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .column {
+        padding: 5px;
+    }
+    .one .column {
+        flex-basis: 100%;
+    }
+    .two .column {
+        flex-basis: 50%;
+    }
+    .three .column {
+        flex-basis: 25%;
+    }
+    .column img {
+        width: 100%;
+        height: auto;
+        vertical-align: top;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .group__btn {
+        text-align: center;
+    }
+    .group__btn button {
+        background-color: #eee;
+        cursor: pointer;
+        border: 1px solid black;
+        padding: 10px;
+        line-height: 1;
+    }
+    .group__btn button:hover {
+        background-color: #ccc;
+    }
+    .group__btn button.active {
+        background-color: black;
+        color: #fff;
+    }
+
+</style>
+</head>
+<body>
+
+
+
+    <div class="wrapper">
+        <div class="group__btn">
+            <button data-num="1">1</button>
+            <button class="active" data-num="2">2</button>
+            <button data-num="3">3</button>
+        </div>
+        <div class="row two">
+            <div class="column">
+                <img src="1%20(1).jpg" alt="">
+                <img src="1%20(2).jpg" alt="">
+                <img src="1%20(3).jpg" alt="">
+                <img src="1%20(4).jpg" alt="">
+                <img src="1%20(5).jpg" alt="">
+                <img src="1%20(6).jpg" alt="">
+            </div>
+            <div class="column">
+                <img src="1%20(6).jpg" alt="">
+                <img src="1%20(5).jpg" alt="">
+                <img src="1%20(4).jpg" alt="">
+                <img src="1%20(3).jpg" alt="">
+                <img src="1%20(2).jpg" alt="">
+                <img src="1%20(1).jpg" alt="">
+            </div>
+            <div class="column">
+                <img src="1%20(1).jpg" alt="">
+                <img src="1%20(2).jpg" alt="">
+                <img src="1%20(3).jpg" alt="">
+                <img src="1%20(4).jpg" alt="">
+                <img src="1%20(5).jpg" alt="">
+                <img src="1%20(6).jpg" alt="">
+            </div>
+            <div class="column">
+                <img src="1%20(6).jpg" alt="">
+                <img src="1%20(5).jpg" alt="">
+                <img src="1%20(4).jpg" alt="">
+                <img src="1%20(3).jpg" alt="">
+                <img src="1%20(2).jpg" alt="">
+                <img src="1%20(1).jpg" alt="">
+            </div>
+        </div>
+    </div>
+
+
+<script>
+    let buttons = document.querySelectorAll('.group__btn button')
+    let row = document.querySelector('.row')
+	buttons.forEach(elem=>{
+		elem.addEventListener('click', function (e) {
+			  removeClassAll()
+              this.classList.add('active')
+		      let num = this.dataset.num
+              if(num == 1) {
+				  row.className = 'row one'
+              } else if(num == 2) {
+				  row.className = 'row two'
+              } else if(num == 3) {
+				  row.className = 'row three'
+			  }
+		  })
+    })
+
+
+
+
+    function removeClassAll(){
+		buttons.forEach(elem=>{
+			if(elem.classList.contains('active')){
+				elem.classList.remove('active')
+            }
+        })
+    }
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
