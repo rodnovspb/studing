@@ -29,7 +29,8 @@ body {
 }
 
 .first-screen {
-
+    position: relative;
+    min-height: 100vh;
 }
 
 .first-screen__bg-segment {
@@ -40,6 +41,13 @@ body {
     right: 0;
     width: 33%;
     z-index: 0;
+}
+
+.first-screen__bg-segment img {
+    position: absolute;
+    top: 0;
+    left: -160%;
+    width: 260%;
 }
 
 
