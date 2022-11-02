@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Документ</title>
+<style>
+    .block {
+        width: 400px;
+        height: 300px;
+        position: relative;
+    }
+    .block img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+    .block-1 {
+        width: 400px;
+        height: 300px;
+        position: relative;
+    }
+    .block-1 img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+    .wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 300px;
+    }
+    .overlay-1 {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background-color: dodgerblue;
+        opacity: 0;
+        transition: opacity .4s;
+    }
+    .overlay-1:hover {
+        opacity: 1;
+    }
+    .overlay-1 * {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        color: #fff;
+        font-size: 30px;
+    }
+
+    .block-1 button {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        color: #fff;
+        font-size: 30px;
+        background-color: #04b004;
+        border: none;
+        padding: 8px 25px;
+        cursor: pointer;
+        opacity: 0;
+        transition: all .4s;
+    }
+
+    .block-1 button:hover {
+        background-color: #039803;
+    }
+    .block-1 button:active {
+        background-color: #048704;
+    }
+    .block-1 img {
+        opacity: 1;
+        transition: all .4s;
+    }
+    .block-1:hover img {
+        opacity: .5;
+    }
+
+    .block-1:hover button {
+        opacity: 1;
+    }
+
+</style>
+</head>
+<body>
+
+
+<div class="wrapper">
+    <div class="block">
+        <img src="1.jpeg" alt="">
+        <div class="overlay-1">
+            <span>Текст</span>
+        </div>
+    </div>
+</div>
+<div class="wrapper">
+    <div class="block-1">
+        <img src="1.jpeg" alt="">
+        <button>Кнопка</button>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
