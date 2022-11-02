@@ -8,6 +8,7 @@ use RedBeanPHP\R;
 use wfm\App;
 use wfm\Controller;
 
+
 /** @property Main $model **/
 
 class MainController extends AppController

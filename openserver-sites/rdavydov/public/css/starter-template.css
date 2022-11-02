@@ -52,3 +52,7 @@ div.header_auth {
     text-align: center;
     margin-bottom: 20px;
 }
+
+select#category_id {
+    height: auto;
+}
