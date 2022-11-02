@@ -1,6 +1,7 @@
 <?php
 
 use wfm\App;
+use wfm\Language;
 
 function debug($data, $die = false){
     show($data);
@@ -64,6 +65,13 @@ function post($key, $type = 's') {
     }
 }
 
+function __($key) {
+    echo Language::get($key);
+}
+
+function ___($key) {
+    return Language::get($key);
+}
 
 
 
