@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Документ</title>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+    body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
+    .container {
+        position: relative;
+        width: 300px;
+        height: auto;
+        cursor: pointer;
+    }
+    .container:hover .overlay {
+        height: 100%;
+        top: 0;
+    }
+    .container img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+    .overlay {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        height: 0;
+        background-color: dodgerblue;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all .4s;
+        overflow: hidden;
+    }
+    .text {
+        font-size: 30px;
+        font-weight: 700;
+        color: #fff;
+    }
+</style>
+</head>
+<body>
+
+
+
+
+
+<div class="container">
+    <img src="1.jpg" alt="">
+    <div class="overlay">
+        <div class="text">Текст</div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
