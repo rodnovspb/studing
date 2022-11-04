@@ -22,8 +22,7 @@
         cursor: pointer;
     }
     .container:hover .overlay {
-        height: 100%;
-        top: 0;
+        opacity: 1;
     }
     .container img {
         width: 100%;
@@ -32,21 +31,22 @@
     }
     .overlay {
         position: absolute;
-        top: 100%;
+        bottom: 0;
         left: 0;
         right: 0;
-        height: 0;
-        background-color: dodgerblue;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: all .4s ease;
-        overflow: hidden;
+        opacity: 0;
+        transition: all .3s;
     }
     .text {
         font-size: 30px;
         font-weight: 700;
         color: #fff;
+        text-align: center;
+        height: 50px;
+        background-color: rgba(0,0,0, .3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 </style>
 </head>

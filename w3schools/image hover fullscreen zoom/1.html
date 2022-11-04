@@ -22,8 +22,7 @@
         cursor: pointer;
     }
     .container:hover .overlay {
-        height: 100%;
-        top: 0;
+        transform: scale(1);
     }
     .container img {
         width: 100%;
@@ -32,16 +31,17 @@
     }
     .overlay {
         position: absolute;
-        top: 100%;
+        top: 0;
+        bottom: 0;
         left: 0;
         right: 0;
-        height: 0;
         background-color: dodgerblue;
         display: flex;
         align-items: center;
         justify-content: center;
-        transition: all .4s ease;
+        transition: all .3s ease;
         overflow: hidden;
+        transform: scale(0);
     }
     .text {
         font-size: 30px;

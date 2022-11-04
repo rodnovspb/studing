@@ -23,12 +23,11 @@
       </div>
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="{{ route('index') }}">@lang('main.all_goods')</a></li>
-          <li><a href="{{ route('categories') }}">Категории</a>
-          </li>
-          <li><a href="{{ route('basket') }}">В корзину</a></li>
+          <li @routeactive('index')><a href="{{ route('index') }}">@lang('main.all_goods')</a></li>
+          <li @routeactive('categor*')><a href="{{ route('categories') }}">Категории</a></li>
+          <li @routeactive('basket*')><a href="{{ route('basket') }}">В корзину</a></li>
           <li><a href="{{ route('index') }}">Сбросить проект в начальное состояние</a></li>
-            <li><a href="{{ route('locale', __('main.set_lang')) }}">@lang('main.set_lang')</a></li>
+          <li><a href="{{ route('locale', __('main.set_lang')) }}">@lang('main.set_lang')</a></li>
 
 
 {{--          <li><a href="/locale/en">en</a></li>--}}
@@ -48,7 +47,11 @@
                 <li><a href="{{ route('login') }}">Войти</a></li>
             @endguest
             @auth
-                <li><a href="{{ route('home') }}">Панель администратора</a></li>
+                @admin
+                        <li><a href="{{ route('home') }}">Панель администратора</a></li>
+                @else
+                        <li><a href="{{ route('person.orders.index') }}">Мои заказы</a></li>
+                @endadmin
                 <li><a href="{{ route('get-logout') }}">Выйти</a></li>
             @endauth
         </ul>
