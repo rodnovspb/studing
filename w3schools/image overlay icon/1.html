@@ -5,18 +5,54 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>Документ</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-
+    .wrapper {
+        width: 300px;
+        height: 300px;
+        position: relative;
+    }
+    .wrapper img {
+        width: 100%;
+        height: auto;
+    }
+    .overlay {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #f00;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all .2s;
+        opacity: 0;
+    }
+    .overlay i {
+        font-size: 150px;
+        color: #fff;
+    }
+    .overlay i:hover {
+        color: #eee;
+    }
+    .overlay:hover {
+        opacity: 1;
+    }
 
 </style>
 </head>
 <body>
 
 
-
-
-
-рпрп
+<div class="wrapper">
+    <img src="1.png" alt="">
+    <div class="overlay">
+        <a href="#">
+            <i class="fa fa-user"></i>
+        </a>
+    </div>
+</div>
 
 
 
