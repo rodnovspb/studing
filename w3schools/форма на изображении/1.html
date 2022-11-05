@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Документ</title>
+<style>
+    body, h1 {
+        margin: 0;
+        padding: 0;
+    }
+    * {
+        box-sizing: border-box;
+        font-family: sans-serif;
+    }
+    .block {
+        position: relative;
+        height: 50vh;
+    }
+    .bg {
+        height: 100%;
+        width: 100vw;
+        background-image: url("1.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        position: absolute;
+    }
+    #form {
+        position: absolute;
+        z-index: 1;
+        background-color: #fff;
+        padding: 20px;
+        right: 20px;
+        bottom: 20px;
+        max-width: 40%;
+        width: 300px;
+    }
+    h1 {
+        margin-bottom: 20px;
+    }
+    label {
+        display: block;
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 7px;
+    }
+    input {
+        width: 100%;
+        padding: 10px 10px;
+        background-color: #eee;
+        outline: none;
+        border: none;
+    }
+    input:focus {
+        background-color: #dcd9d9;
+    }
+    .input-group {
+        margin-bottom: 20px;
+    }
+    .submit {
+        width: 100%;
+        padding: 10px;
+        background-color: #04b504;
+        opacity: .8;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        font-size: 24px;
+        color: #fff;
+    }
+    .submit:hover {
+        opacity: .9;
+    }
+    .submit:active {
+        opacity: 1;
+    }
+
+</style>
+</head>
+<body>
+
+
+
+<div class="block">
+    <div class="bg"></div>
+    <form action="" id="form">
+        <h1>Форма</h1>
+        <div class="input-group">
+            <label for="name">Имя</label>
+            <input type="text" id="name" required>
+        </div>
+        <div class="input-group">
+            <label for="email">Почта</label>
+            <input type="text" id="email" required>
+        </div>
+        <div class="input-group">
+            <button type="submit" class="submit">Отправить</button>
+        </div>
+    </form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
