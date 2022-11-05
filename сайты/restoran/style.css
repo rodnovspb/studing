@@ -1,12 +1,204 @@
+:root {
+    --orange: #FF7400;
+    --dark-orange: #D67E35;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+.btn {
+    color: #fff;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 14px 18px;
+    background-color: var(--orange);
+    cursor: pointer;
+    text-transform: uppercase;
+}
+.btn:hover {
+    background-color: #ef7805;
+}
+.btn:active {
+    background-color: #e37306;
+}
+
 body {
     margin: 0;
+    font-family: 'Tinos', serif;
 }
 .container {
-    margin: 0 166px;
+    max-width: 1140px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 15px;
 }
 .header {
-    background-image: url('bg.jpg');
-    height: 100vh;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    padding: 50px 0;
+}
+.header-line {
+    display: flex;
+    align-items: center;
+    font-family: "Open Sans", sans-serif;
+}
+.header-logo {
+    margin-right: auto;
+    width: 100px;
+    height: auto;
+}
+
+.nav {
+    display: flex;
+    gap: 23px;
+    margin-right: 29px;
+}
+
+.nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.cart {
+    position: relative;
+    margin-right: 50px;
+}
+
+.cart:after {
+    position: absolute;
+    content: '';
+    height: 51px;
+    width: 1px;
+    background-color: #fff;
+    display: inline-block;
+    right: -23px;
+    top: -20px;
+}
+
+.cart a {
+    display: inline-block;
+}
+
+.cart__icon {
+    width: 20px;
+    height: 20px;
+    fill: #fff;
+    transition: all .2s;
+}
+
+.cart__icon:hover {
+    fill: #ccc;
+}
+
+.phone__icon {
+    width: 25px;
+    height: 25px;
+    fill: #fff;
+    margin-right: 5px;
+}
+
+.phone {
+    color: #fff;
+    max-width: 167px;
+    margin-right: 44px;
+}
+
+.phone__number {
+    margin-bottom: 5px;
+}
+
+.phone a {
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    fill: #fff;
+    transition: all .2s;
+}
+
+.phone a svg {
+    transition: all .2s;
+}
+
+.phone a:hover {
+    color: #eee;
+
+}
+
+.phone a:hover svg {
+    fill: #eee;
+}
+
+.phone__text {
+    padding-left: 5px;
+}
+
+.welcome {
+    height: 800px;
+    background-image: url('images/bg.jpg');
+    background-color: #050304;
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
+    padding-top: 323px;
+}
+
+.welcome__block {
+    max-width: 503px;
+    text-align: center;
+}
+
+.welcome__title {
+    font-family: Tinos, serif;
+    font-weight: 400;
+    font-size: 50px;
+    color: var(--dark-orange);
+    margin-bottom: 5px;
+}
+
+.welcome__title span {
+    font-size: 80px;
+}
+
+.welcome__subtitle {
+    font-size: 18px;
+    color: #fff;
+    font-family: "Open Sans", sans-serif;
+    text-align: center;
+    position: relative;
+    padding-left: 16px;
+    margin-bottom: 21px;
+}
+
+.welcome__subtitle:before,
+.welcome__subtitle:after {
+    position: absolute;
+    content: '';
+    width: 61px;
+    height: 2px;
+    background-color: #fff;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.welcome__subtitle:before {
+    left: 107px;
+}
+
+.welcome__subtitle:after {
+    right: 91px;
+}
+
+.welcome__button {
+    width: 137px;
 }

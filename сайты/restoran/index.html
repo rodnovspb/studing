@@ -4,6 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="stylesheet" href="reset.css">
+<link href="https://fonts.googleapis.com/css2?family=Cookie&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&family=Tinos&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <title>Ресторан</title>
 </head>
@@ -12,27 +14,46 @@
 <div class="header">
     <div class="container">
         <div class="header-line">
-        <div class="header-logo">
-            <img src="logo.png" alt="">
-        </div>
-
-        <div class="nav">
-            <a href="#">ГЛАВНАЯ</a>
-            <a href="#">МЕНЮ</a>
-            <a href="#">О НАС</a>
-            <a href="#">БРОНЬ</a>
-        </div>
+            <div class="header-logo">
+                <img src="images/logo.png" alt="">
+            </div>
+            <div class="nav">
+                <a href="#">ГЛАВНАЯ</a>
+                <a href="#">МЕНЮ</a>
+                <a href="#">О НАС</a>
+                <a href="#">БРОНЬ</a>
+            </div>
             <div class="cart">
                 <a href="#">
-                    <img src="cart.png" alt="">
+                    <svg class="cart__icon">
+                        <use href="./images/sprite.svg#cart"></use>
+                    </svg>
                 </a>
             </div>
+            <div class="phone">
+                <div class="phone__number">
+                    <a href="tel:+9998887654">
+                        <svg class="phone__icon">
+                        <use href="./images/sprite.svg#phone"></use>
+                    </svg>
+                        <span>+999-888-76-54</span>
+                    </a>
+                </div>
+                <div class="phone__text">Свяжитесь с нами для бронирования</div>
+            </div>
+            <button class="header__btn btn">ЗАКАЗ СТОЛИКА</button>
     </div>
     </div>
 </div>
-
-
-
+<section class="welcome">
+    <div class="container">
+        <div class="welcome__block">
+              <div class="welcome__title">Добро пожаловать в <span>Наш ресторан</span></div>
+    <div class="welcome__subtitle">ДОМ ЛУЧШЕЙ ЕДЫ</div>
+    <button class="welcome__button btn">VIEW MENU</button>
+        </div>
+    </div>
+</section>
 
 
 
