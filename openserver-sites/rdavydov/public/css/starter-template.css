@@ -56,3 +56,10 @@ div.header_auth {
 select#category_id {
     height: auto;
 }
+
+footer {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    color: #99979c;
+    background-color: #2a2730;
+}

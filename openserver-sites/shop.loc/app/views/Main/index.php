@@ -35,6 +35,8 @@ use wfm\View;
 </div>
 <?php endif; ?>
 
+<?php show($_SESSION); ?>
+
 <?php if(!empty($products)): ?>
 
 <section class="featured-products">
