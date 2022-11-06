@@ -7,13 +7,8 @@
 <title>Документ</title>
 <style>
     .block {
-        margin: 30px auto;
-        cursor: pointer;
-        width: 500px;
-        height: 300px;
-        border: 2px solid #ccc;
-        background-color: transparent;
         perspective: 1000px;
+        width: 500px;
     }
     img {
         width: 100%;
@@ -23,7 +18,6 @@
     .block__inner {
         transition: all .8s;
         position: relative;
-        backface-visibility: hidden;
         transform-style: preserve-3d;
     }
 
@@ -32,8 +26,9 @@
     }
 
     .block__front {
-        background-color: #bbb;
+        backface-visibility: hidden;
     }
+
     .block__back {
         position: absolute;
         top: 0;
@@ -48,10 +43,6 @@
         align-items: center;
         justify-content: center;
     }
-    .block__text {
-        text-align: center;
-    }
-
 </style>
 </head>
 <body>
@@ -61,15 +52,8 @@
 
 <div class="block">
     <div class="block__inner">
-        <div class="block__front">
-            <img src="2.jpg" alt="">
-        </div>
-        <div class="block__back">
-            <div class="block__text">
-                <h2>Field</h2>
-                <p>Nature is beautiful</p>
-            </div>
-        </div>
+        <img class="block__front" src="2.jpg">
+        <div class="block__back">Текст</div>
     </div>
 </div>
 
