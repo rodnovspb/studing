@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Документ</title>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+    body {
+        background-color: #eee;
+        margin: 0;
+    }
+    .container {
+        width: 90%;
+        margin: 0 auto;
+        padding-right: 15px;
+        padding-left: 15px;
+
+    }
+    .inner {
+        margin-right: -15px;
+        margin-left: -15px;
+    }
+    img {
+        width: 100%;
+        height: auto;
+    }
+    .gallery {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 10px;
+    }
+    .gallery__item {
+        width: 25%;
+        padding: 5px;
+        background-color: #fff;
+    }
+    .picture {
+        background-color: #fff;
+        padding: 5px;
+    }
+
+    @media (max-width: 900px) {
+        .gallery {
+            flex-wrap: wrap;
+        }
+        .gallery__item {
+            width: 48%;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .gallery__item {
+            width: 100%;
+        }
+    }
+</style>
+</head>
+<body>
+
+
+<div class="wrapper">
+    <div class="container">
+        <div class="inner">
+            <h2>Название</h2>
+            <hr>
+            <h3>Заголовок 2</h3>
+            <div class="gallery">
+                <div class="gallery__item">
+                    <img class="gallery__img" src="lights.jpg" alt="">
+                    <h3 class="gallery__title">Заголовок</h3>
+                    <p class="gallery__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, vel.</p>
+                </div>
+                <div class="gallery__item">
+                    <img class="gallery__img" src="mountains.jpg" alt="">
+                    <h3 class="gallery__title">Заголовок</h3>
+                    <p class="gallery__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, vel.</p>
+                </div>
+                <div class="gallery__item">
+                    <img class="gallery__img" src="nature.jpg" alt="">
+                    <h3 class="gallery__title">Заголовок</h3>
+                    <p class="gallery__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, vel.</p>
+                </div>
+                <div class="gallery__item">
+                    <img class="gallery__img" src="lights.jpg" alt="">
+                    <h3 class="gallery__title">Заголовок</h3>
+                    <p class="gallery__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, vel.</p>
+                </div>
+            </div>
+            <div class="picture">
+                <img src="p3.jpg" alt="">
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
