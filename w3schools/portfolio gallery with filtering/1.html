@@ -70,10 +70,10 @@
             <hr>
             <h3>Заголовок 2</h3>
             <div class="btn-group">
-                <button class="btn active" onclick="show('all')">Все</button>
-                <button class="btn" onclick="show('nature')">Природа</button>
-                <button class="btn" onclick="show('cars')">Машины</button>
-                <button class="btn" onclick="show('people')">Люди</button>
+                <button class="btn active" onclick="show(this, 'all')">Все</button>
+                <button class="btn" onclick="show(this,'nature')">Природа</button>
+                <button class="btn" onclick="show(this, 'cars')">Машины</button>
+                <button class="btn" onclick="show(this, 'people')">Люди</button>
             </div>
             <div class="content">
                 <div class="item nature">
@@ -129,9 +129,17 @@
 </div>
 
 
+
 <script>
 
-    function show(value){
+    function show(node, value){
+    	let buttons = document.querySelectorAll('.btn')
+		buttons.forEach(elem=>{
+			elem.className = elem.className.replace(' active', '')
+            if(elem === node) {
+            	elem.classList.add('active')
+            }
+        })
     	let items = document.querySelectorAll('.item')
 		items.forEach(elem=>{
 			elem.classList.add('dn')
