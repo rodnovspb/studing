@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Документ</title>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+    body {
+        background-color: #eee;
+        margin: 0;
+    }
+    .container {
+        width: 90%;
+        margin: 0 auto;
+        padding-right: 15px;
+        padding-left: 15px;
+
+    }
+    .inner {
+        margin-right: -15px;
+        margin-left: -15px;
+    }
+    img {
+        width: 100%;
+        height: auto;
+    }
+    .btn-group {
+        margin-bottom: 20px;
+    }
+    .btn {
+        border: none;
+        outline: none;
+        padding: 8px 25px;
+        background-color: #fff;
+        cursor: pointer;
+    }
+    .btn:hover {
+        background-color: #eee;
+    }
+    .btn.active {
+        background-color: black;
+        color: #fff;
+    }
+    .content {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    .item {
+        width: 30%;
+        padding: 10px;
+        background-color: #fff;
+    }
+    .dn {
+        display: none;
+    }
+</style>
+</head>
+<body>
+
+
+<div class="wrapper">
+    <div class="container">
+        <div class="inner">
+            <h2>Название</h2>
+            <hr>
+            <h3>Заголовок 2</h3>
+            <div class="btn-group">
+                <button class="btn active" onclick="show('all')">Все</button>
+                <button class="btn" onclick="show('nature')">Природа</button>
+                <button class="btn" onclick="show('cars')">Машины</button>
+                <button class="btn" onclick="show('people')">Люди</button>
+            </div>
+            <div class="content">
+                <div class="item nature">
+                    <img src="lights.jpg" alt="">
+                    <h3>Заголовок</h3>
+                    <p>Lorem ipsum dolor sit amet.</p>
+                </div>
+                <div class="item nature">
+                    <img src="mountains%20(1).jpg" alt="">
+                    <h3>Заголовок</h3>
+                    <p>Lorem ipsum dolor sit amet.</p>
+                </div>
+                <div class="item nature">
+                    <img src="nature.jpg" alt="">
+                    <h3>Заголовок</h3>
+                    <p>Lorem ipsum dolor sit amet.</p>
+                </div>
+                <div class="item cars">
+                    <img src="cars1.jpg" alt="">
+                    <h3>Заголовок</h3>
+                    <p>Lorem ipsum dolor sit amet.</p>
+                </div>
+                <div class="item cars">
+                    <img src="cars2.jpg" alt="">
+                    <h3>Заголовок</h3>
+                    <p>Lorem ipsum dolor sit amet.</p>
+                </div>
+                <div class="item cars">
+                    <img src="cars3.jpg" alt="">
+                    <h3>Заголовок</h3>
+                    <p>Lorem ipsum dolor sit amet.</p>
+                </div>
+                <div class="item people">
+                    <img src="people1.jpg" alt="">
+                    <h3>Заголовок</h3>
+                    <p>Lorem ipsum dolor sit amet.</p>
+                </div>
+                <div class="item people">
+                    <img src="people2.jpg" alt="">
+                    <h3>Заголовок</h3>
+                    <p>Lorem ipsum dolor sit amet.</p>
+                </div>
+                <div class="item people">
+                    <img src="people3.jpg" alt="">
+                    <h3>Заголовок</h3>
+                    <p>Lorem ipsum dolor sit amet.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+    function show(value){
+    	let items = document.querySelectorAll('.item')
+		items.forEach(elem=>{
+			elem.classList.add('dn')
+			if(elem.classList.contains(value) || value === 'all'){
+				elem.classList.remove('dn')
+            }
+        })
+
+    }
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
