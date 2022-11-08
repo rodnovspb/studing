@@ -368,7 +368,7 @@ body {
 }
 
 .dishes {
-    padding-top: 132px;
+    padding-top: 137px;
     padding-bottom: 150px;
 }
 
@@ -401,11 +401,28 @@ body {
     align-items: center;
     gap: 30px;
 }
+.list__img {
+    max-width: 160px;
+    max-height: 140px;
+}
 .list__dish {
     display: flex;
     justify-content: space-between;
     flex-grow: 1;
+    font-size: 26px;
+    gap: 7px;
 }
+.list__price {
+    margin-right: -18px;
+}
+.list__line {
+    flex-grow: 1;
+    background-image: linear-gradient(90deg, black 0%,  black 50%, transparent 50%, transparent 100%);
+    background-size: 6px 1px;
+    background-position: center;
+    background-repeat: repeat-x;
+}
+
 
 
 
