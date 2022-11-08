@@ -189,6 +189,10 @@ li a.dropdown-item:focus, li a.dropdown-item:hover {
 .modal-body a {
 	color: #ee6e73;
 }
+
+.cart-table img {
+	max-height: 50px;
+}
 /* Header top */
 
 /* Header bottom */

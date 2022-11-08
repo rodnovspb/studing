@@ -58,6 +58,10 @@ class CartController extends AppController
         $_SESSION['cart.sum'] = !empty($_SESSION['cart.sum']) ? $_SESSION['cart.sum'] + $qty * $product['price'] : $qty * $product['price'];
         return true;
     }
+    
+    public function showAction() {
+        $this->loadView('cart_modal');
+    }
 
 }
 

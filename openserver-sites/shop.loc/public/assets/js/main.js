@@ -9,6 +9,22 @@ $(function() {
 			modal.show()
 		}
 
+		$('#get-cart').on('click', function (e){
+			e.preventDefault()
+
+			$.ajax({
+				url: 'cart/show',
+				type: 'get',
+				success: function (res){
+					showCart(res)
+				},
+				error: function (){
+					alert('error')
+				}
+			})
+
+		})
+
 		$('.add-to-cart').on('click', function (e){
 			e.preventDefault();
 			let id = $(this).data('id')
