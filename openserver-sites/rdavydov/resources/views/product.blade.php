@@ -10,7 +10,7 @@
           @if($product->isRecommend()) <span class="badge badge-warning">Рекомендуемое</span>  @endif
           @if($product->isHit()) <span class="badge badge-danger">Хит продаж</span>  @endif
       </div>
-      <p>Цена: <b>71990 ₽</b></p>
+      <p>Цена: <b>{{ $product->price }}</p>
       <img src="{{ Storage::url($product->image) }}" height="300" width="auto">
       <p>{{ $product->description }}</p>
 

@@ -50,6 +50,6 @@
 
             </tbody>
         </table>
-
+        <div class="text-center">{{ $orders->links() }}</div>
     </div>
 @endsection

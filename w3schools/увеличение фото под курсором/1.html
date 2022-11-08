@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Документ</title>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+    .for-zoom {
+        width: 100%;
+        height: 332.49px;
+    }
+    .my_image {
+        width: 500px;
+        height: 332.49px;
+        position: relative;
+        background-size: ;
+    }
+    .my_result {
+        width: 500px;
+        height: 500px;
+        border: 2px solid #ccc;
+    }
+    .img-zoom-lens {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        border: 1px solid #d4d4d4;
+    }
+</style>
+</head>
+<body>
+
+
+<div class="wrapper">
+    <div class="my_image" id="container">
+        <img class="for-zoom" id="myimage"  src="1.jpg" alt="">
+    </div>
+    <div class="my_result" id="myresult"></div>
+</div>
+
+
+
+
+
+<script>
+
+    function imageZoom(imageID, resultID){
+        let img, result, lens, cx, cy;
+        img = document.querySelector("#" + imageID)
+		result = document.querySelector("#" + resultID)
+
+        lens = document.createElement('div')
+		lens.setAttribute('class', 'img-zoom-lens')
+
+		container.insertBefore(lens, img)
+
+        cx = result.offsetWidth / lens.offsetWidth
+        cy = result.offsetHeight / lens.offsetHeight
+
+		result.style.backgroundImage = "url('" + img.src + "')"
+		result.style.backgroundSize = (img.width * cx) + "px " + (img.height * cy) + "px";
+
+
+
+
+    }
+
+
+		imageZoom('myimage', 'myresult')
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

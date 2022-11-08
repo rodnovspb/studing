@@ -44,5 +44,6 @@
         </table>
         <a class="btn btn-success" href="{{ route('categories.create') }}">Добавить категорию</a>
 
+        <div class="text-center">{{ $categories->links() }}</div>
 
     @endsection
