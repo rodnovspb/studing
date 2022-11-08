@@ -22,6 +22,7 @@ img {
     background-color: var(--orange);
     cursor: pointer;
     text-transform: uppercase;
+    font-family: "Open Sans", sans-serif;
 }
 .btn:hover {
     background-color: #ef7805;
@@ -32,6 +33,10 @@ img {
 
 .orange-title {
     color: var(--dark-orange);
+}
+
+.block-title {
+    font-size: 54px;
 }
 
 body {
@@ -327,6 +332,81 @@ body {
     top: 33px;
     left: -11px;
 }
+
+.order {
+    background-image: url('images/order-bg.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.order__block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.order__text {
+    max-width: 601px;
+    padding-top: 80px;
+    padding-bottom: 104px;
+}
+.order__title {
+    color: var(--dark-orange);
+    font-size: 52px;
+    line-height: 115%;
+    margin-bottom: 20px;
+}
+.order__subtitle {
+    color: #fff;
+    font-family: "Open Sans", sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+}
+.order__btn {
+    margin-right: 20px;
+}
+
+.dishes {
+    padding-top: 132px;
+    padding-bottom: 150px;
+}
+
+.dishes__title {
+    text-align: center;
+    margin-bottom: 139px;
+}
+.dishes__menu {
+    display: flex;
+    gap: 30px;
+}
+.dishes__list {
+    flex-grow: 1;
+}
+.dishes__bg {
+    background-image: url('images/dishes-bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right;
+    height: 474px;
+    flex-basis: 40%;
+}
+.list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.list__item {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+.list__dish {
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
 
 
 
