@@ -17,7 +17,7 @@
         width: 500px;
         height: 332.49px;
         position: relative;
-        background-size: ;
+        overflow: hidden;
     }
     .my_result {
         width: 500px;
@@ -64,8 +64,48 @@
 		result.style.backgroundImage = "url('" + img.src + "')"
 		result.style.backgroundSize = (img.width * cx) + "px " + (img.height * cy) + "px";
 
+		lens.addEventListener('mousemove', moveLens)
+		lens.addEventListener('touchmove', moveLens)
+		img.addEventListener('mousemove', moveLens)
+		img.addEventListener('touchmove', moveLens)
 
+        function moveLens(e){
+			let pos, x, y
+            e.preventDefault()
 
+            pos = getCursorPos(e)
+
+            x = pos.x - lens.offsetWidth/2
+            y = pos.y - lens.offsetHeight/2
+
+            if(x > img.width - lens.offsetWidth) {
+            	x = img.width - lens.offsetWidth;
+            } else if(x < 0) {
+            	x = 0
+            }
+
+			if(y > img.height - lens.offsetHeight) {
+				y = img.height - lens.offsetHeight;
+			} else if(y < 0) {
+				y = 0
+			}
+
+			lens.style.left = x + 'px'
+            lens.style.top = y + 'px'
+
+            result.style.backgroundPosition = "-" + (x * cx) + "px -" + (y * cy) + "px";
+        }
+
+        function getCursorPos(e){
+			let a, x=0, y=0;
+			e = e || window.event
+
+            a = img.getBoundingClientRect()
+            x = e.pageX - a.left - window.pageXOffset
+            y = e.pageY - a.top - window.pageYOffset
+
+            return {x: x, y: y}
+        }
 
     }
 
