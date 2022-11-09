@@ -73,7 +73,7 @@ class BusketController extends Controller
             }
         }
         $product = Product::query()->find($productId);
-        Order::changeFullSum($product->price);
+        Order::changeFullSum(- $product->price);
 
         session()->flash('warning', "Удален товар " . $product->name);
         return redirect()->route('basket');
@@ -91,6 +91,9 @@ class BusketController extends Controller
         } else {
             session()->flash('warning', 'Произошла ошибка');
         }
+
+        Order::eraseOrderSum();
+
         return redirect()->route('index');
     }
 }

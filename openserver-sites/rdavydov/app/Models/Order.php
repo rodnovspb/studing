@@ -29,11 +29,14 @@ class Order extends Model
         return session('full_order_sum', 0);
     }
 
-    public function changeFullSum($changeSum) {
+    public static function changeFullSum($changeSum) {
         $sum = self::getFullSum();
-        $sum += $changeSum;
+        $sum = $sum + $changeSum;
         session(['full_order_sum' => $sum]);
+    }
 
+    public static function eraseOrderSum() {
+        session()->forget('full_order_sum');
     }
 
     public function saveOrder($name, $phone){

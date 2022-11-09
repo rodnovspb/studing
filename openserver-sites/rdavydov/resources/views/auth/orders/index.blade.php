@@ -33,7 +33,7 @@
                     <td>{{ $order->name }}</td>
                     <td>{{ $order->phone }}</td>
                     <td>{{ $order->created_at->format('H:i:s d/m/Y') }}</td>
-                    <td>{{ $order->getFullPrice() }}</td>
+                    <td>{{ $order->calculateFullSum() }}</td>
                     <td>
                         <div class="btn-group" role="group">
                             <a
