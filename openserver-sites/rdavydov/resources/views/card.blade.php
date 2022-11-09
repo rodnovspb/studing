@@ -12,7 +12,7 @@
               <p>
                 <form action="{{ route('busket-add', $product) }}" method="POST">
                   @csrf
-                  <a href="{{ route('product', ['category' => $product->category->code, 'product' => $product->code]) }}" class="btn btn-default" role="button">Подробнее</a>
+                  <a href="{{ route('product', [isset($category) ? $category->code : $product->category->code, 'product' => $product->code]) }}" class="btn btn-default" role="button">Подробнее</a>
                   <button type="submit" class="btn btn-primary" role="button">В корзину</button>
                 </form>
                 </p>

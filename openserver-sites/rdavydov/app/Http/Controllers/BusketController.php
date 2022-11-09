@@ -48,7 +48,11 @@ class BusketController extends Controller
             $order->save();
         }
 
-        session()->flash('success', "В корзину добавлен " . Product::query()->find($productId)->name);
+        $product =  Product::query()->find($productId);
+
+        Order::changeFullSum($product->price);
+
+        session()->flash('success', "В корзину добавлен " . $product->name);
         return redirect()->route('basket');
     }
 
@@ -68,7 +72,10 @@ class BusketController extends Controller
                 $pivotRow->update();
             }
         }
-        session()->flash('warning', "Удален товар " . Product::query()->find($productId)->name);
+        $product = Product::query()->find($productId);
+        Order::changeFullSum($product->price);
+
+        session()->flash('warning', "Удален товар " . $product->name);
         return redirect()->route('basket');
     }
 

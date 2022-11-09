@@ -13,16 +13,27 @@ class Order extends Model
         return $this->belongsToMany(Product::class)->withPivot('count')->withTimestamps();
     }
 
-//    public function user() {
-//        return $this->belongsTo(User::class);
-//    }
+    public function scopeActive($query) {
+        return $query->where('status', 1);
+    }
 
-    public function getFullPrice() {
+    public function calculateFullSum(){
         $sum = 0;
         foreach ($this->products as $product){
             $sum += $product->getPriceForCount();
         }
         return $sum;
+    }
+
+    public static function getFullSum() {
+        return session('full_order_sum', 0);
+    }
+
+    public function changeFullSum($changeSum) {
+        $sum = self::getFullSum();
+        $sum += $changeSum;
+        session(['full_order_sum' => $sum]);
+
     }
 
     public function saveOrder($name, $phone){
