@@ -7,7 +7,46 @@ $(function() {
 			let myModalEl = document.querySelector('#cart-modal')
 			let modal = bootstrap.Modal.getOrCreateInstance(myModalEl)
 			modal.show()
+
+			if($('.cart-qty').text()){
+				$('.count-items').text($('.cart-qty').text());
+			} else {
+				$('.count-items').text('0');
+			}
 		}
+
+		$('#cart-modal .modal-cart-content').on('click', '.del-item', function (e){
+			e.preventDefault()
+			const id = $(this).data('id')
+
+			$.ajax({
+				url: 'cart/delete',
+				type: 'get',
+				data: {id: id},
+				success: function (res){
+					showCart(res)
+				},
+				error: function (){
+					alert('error')
+				}
+			})
+
+		})
+
+	$('#cart-modal .modal-cart-content').on('click', '#clear-cart', function (){
+
+		$.ajax({
+			url: 'cart/clear',
+			type: 'get',
+			success: function (res){
+				showCart(res)
+			},
+			error: function (){
+				alert('error')
+			}
+		})
+
+	})
 
 		$('#get-cart').on('click', function (e){
 			e.preventDefault()
