@@ -11,17 +11,13 @@ class BusketController extends Controller
 {
     public function basket(){
         $orderId = session('orderId');
-        if(!is_null($orderId)){
-            $order = Order::query()->findOrFail($orderId);
-        }
+        $order = Order::query()->findOrFail($orderId);
+
         return view('basket', compact('order'));
     }
 
     public function basketPlace(){
         $orderId = session('orderId');
-        if(is_null($orderId)){
-            return redirect()->route('index');
-        }
         $order = Order::query()->find($orderId);
         return view('order', compact('order'));
     }
@@ -81,9 +77,6 @@ class BusketController extends Controller
 
     public function basketConfirm(Request $request){
         $orderId = session('orderId');
-        if(is_null($orderId)){
-            return redirect()->route('index');
-        }
         $order = Order::find($orderId);
         $success = $order->saveOrder($request->name, $request->phone);
         if($success){

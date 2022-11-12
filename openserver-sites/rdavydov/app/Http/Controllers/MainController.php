@@ -42,8 +42,8 @@ class MainController extends Controller
         return view('category', compact('category'));
     }
 
-    public function product($category, $product=null){
-        $product = Product::query()->where('code', $product)->first();
+    public function product($category, $productCode){
+        $product = Product::withTrashed()->byCode($productCode)->first();
         return view('product', compact('product'));
     }
 

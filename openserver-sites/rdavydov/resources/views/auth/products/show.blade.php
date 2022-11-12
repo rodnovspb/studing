@@ -57,6 +57,14 @@
        </tr>
        <tr>
            <td>
+               Количество
+           </td>
+           <td>
+               {{ $product->count }}
+           </td>
+       </tr>
+       <tr>
+           <td>
                Картинка
            </td>
            <td>

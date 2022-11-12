@@ -16,7 +16,11 @@
 
       <form action="{{ route('busket-add', $product) }}" method="POST">
           @csrf
-        <button type="submit" class="btn btn-success" role="button">Добавить в корзину</button>
+          @if($product->isAvailable())
+              <button type="submit" class="btn btn-success" role="button">В корзину</button>
+          @else
+              <button type="submit" class="btn btn-primary" role="button" disabled>Товар не доступен</button>
+          @endif
         </form>
 @endsection
 
