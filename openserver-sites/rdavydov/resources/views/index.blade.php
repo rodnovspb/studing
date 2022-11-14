@@ -15,17 +15,17 @@
                 </label>
             </div>
             <div class="col-sm-2 col-md-2">
-                <label for="hit">Хит
+                <label for="hit">@lang('main.properties.hit')
                     <input type="checkbox" name="hit" id="hit" @if(request()->has('hit')) checked  @endif>
                 </label>
             </div>
             <div class="col-sm-2 col-md-2">
-                <label for="new">Новинка
+                <label for="new">@lang('main.properties.new')
                     <input type="checkbox" name="new" id="new" @if(request()->has('new')) checked  @endif>
                 </label>
             </div>
             <div class="col-sm-2 col-md-2">
-                <label for="recommend">Рекомендуем
+                <label for="recommend">@lang('main.properties.recommend')
                     <input type="checkbox" name="recommend" id="recommend" @if(request()->has('recommend')) checked  @endif>
                 </label>
             </div>

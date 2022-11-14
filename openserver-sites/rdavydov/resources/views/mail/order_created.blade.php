@@ -1,2 +1,2 @@
-<p>Добрый день, {{ $name }}! Ваш заказ на сумму {{ $fullSum }} получен.	</p>
+<p>Добрый день, {{ $name }}! @lang('mail.order_created.your_order') {{ $fullSum }} получен.	</p>
 

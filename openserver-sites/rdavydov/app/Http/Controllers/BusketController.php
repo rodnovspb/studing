@@ -69,7 +69,7 @@ class BusketController extends Controller
         $email = Auth::check() ? Auth::user()->email : $request->email;
 
         if((new Basket())->saveOrder($request->name, $request->phone, $email)){
-            session()->flash('success', 'Ваш заказ принят в обработку');
+            session()->flash('success', __('basket.your_order_confirmed'));
         } else {
             session()->flash('warning', 'Произошла ошибка');
         }
