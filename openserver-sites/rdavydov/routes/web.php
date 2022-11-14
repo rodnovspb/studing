@@ -58,6 +58,7 @@ Route::get('locale/{locale}', [MainController::class, 'changeLocale'])->name('lo
 
 Route::group(['middleware' => 'set_locale'], function(){
     Route::get('/', [MainController::class, 'index'])->name('index');
+    Route::post('/subscription/{product}', [MainController::class, 'subscribe'])->name('subscription');
     Route::get('/categories', [MainController::class, 'categories'])->name('categories');
 
     Route::group(['prefix' => 'basket'], function(){

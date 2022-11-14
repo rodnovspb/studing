@@ -14,14 +14,24 @@
       <img src="{{ Storage::url($product->image) }}" height="300" width="auto">
       <p>{{ $product->description }}</p>
 
-      <form action="{{ route('busket-add', $product) }}" method="POST">
-          @csrf
+
           @if($product->isAvailable())
+              <form action="{{ route('busket-add', $product) }}" method="POST">
+          @csrf
               <button type="submit" class="btn btn-success" role="button">В корзину</button>
+              </form>
           @else
-              <button type="submit" class="btn btn-primary" role="button" disabled>Товар не доступен</button>
+              <span class="badge bg-secondary" style="padding: 10px 25px;">Товар не доступен</span>
+              <div style="margin-top: 20px;"><span>Сообщить, когда товар появится</span></div>
+              <form action="{{ route('subscription', $product) }}" method="POST">
+                  @csrf
+                  <span class="badge badge-danger">@error('email') {{ $message }}  @enderror</span>
+                  <br>
+                  <input type="text" name="email" placeholder="Ваша почта">
+                  <button type="submit">Отправить</button>
+              </form>
           @endif
-        </form>
+
 @endsection
 
 

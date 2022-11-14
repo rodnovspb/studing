@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Classes\Basket;
 use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -10,15 +11,16 @@ use Illuminate\Support\Facades\Auth;
 class BusketController extends Controller
 {
     public function basket(){
-        $orderId = session('orderId');
-        $order = Order::query()->findOrFail($orderId);
+
+        $order = (new Basket())->getOrder();
 
         return view('basket', compact('order'));
     }
 
     public function basketPlace(){
-        $orderId = session('orderId');
-        $order = Order::query()->find($orderId);
+
+        $order = (new Basket())->getOrder();
+
         return view('order', compact('order'));
     }
 
@@ -28,7 +30,7 @@ class BusketController extends Controller
             $order = Order::query()->create();
             session(['orderId'=> $order->id]);
         } else {
-            $order = Order::query()->find($orderId);
+            $order = Order::query()->findOrFail($orderId);
         }
 
         if($order->products->contains($productId)) {
@@ -44,7 +46,7 @@ class BusketController extends Controller
             $order->save();
         }
 
-        $product =  Product::query()->find($productId);
+        $product =  Product::query()->findOrFail($productId);
 
         Order::changeFullSum($product->price);
 
@@ -53,33 +55,20 @@ class BusketController extends Controller
     }
 
     public function basketRemove($productId) {
-        $orderId = session('orderId');
-        if(is_null($orderId)){
-            return redirect()->route('basket');
-        }
-        $order = Order::query()->find($orderId);
 
-        if($order->products->contains($productId)) {
-            $pivotRow = $order->products()->where('product_id', $productId)->first()->pivot;
-            if($pivotRow->count < 2) {
-                $order->products()->detach($productId);
-            } else {
-                $pivotRow->count--;
-                $pivotRow->update();
-            }
-        }
-        $product = Product::query()->find($productId);
-        Order::changeFullSum(- $product->price);
+        (new Basket())->removeProduct($productId);
+
+        $product = Product::query()->findOrFail($productId);
 
         session()->flash('warning', "Удален товар " . $product->name);
         return redirect()->route('basket');
     }
 
     public function basketConfirm(Request $request){
-        $orderId = session('orderId');
-        $order = Order::find($orderId);
-        $success = $order->saveOrder($request->name, $request->phone);
-        if($success){
+
+        $email = Auth::check() ? Auth::user()->email : $request->email;
+
+        if((new Basket())->saveOrder($request->name, $request->phone, $email)){
             session()->flash('success', 'Ваш заказ принят в обработку');
         } else {
             session()->flash('warning', 'Произошла ошибка');

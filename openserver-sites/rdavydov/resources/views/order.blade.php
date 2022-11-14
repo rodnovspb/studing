@@ -3,13 +3,13 @@
 @section('title', "Оформить заказ")
 
 @section('content')
-      <h1>Подтвердите заказ:</h1>
-      <div class="container">
+    <h1>Подтвердите заказ:</h1>
+    <div class="container">
         <div class="row justify-content-center">
           <p>Общая стоимость: <b>{{ $order->getFullSum() }} руб.</b></p>
           <form action="{{ route('basket-confirm') }}" method="POST">
               @csrf
-            <div>
+              <div>
               <p>Укажите свои имя и номер телефона, чтобы наш менеджер мог с вами связаться:</p>
 
               <div class="container">
@@ -27,9 +27,19 @@
                     <input type="text" name="phone" id="phone" value="" class="form-control">
                   </div>
                 </div>
-              </div>
-              <br>
-              <input type="submit" class="btn btn-success" value="Подтвердите заказ">
+                <br>
+                <br>
+                  @guest
+                      <div class="form-group">
+                    <label for="email" class="control-label col-lg-offset-3 col-lg-2">E-mail: </label>
+                    <div class="col-lg-4">
+                    <input type="text" name="email" id="email" value="" class="form-control">
+                    </div>
+                    </div>
+                    </div>
+                    <br>
+                  @endguest
+                  <input type="submit" class="btn btn-success" value="Подтвердите заказ">
             </div>
           </form>
         </div>
