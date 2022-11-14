@@ -38,7 +38,7 @@
         width: 50px;
         height: 50px;
         z-index: 2;
-        cursor: e-resize;
+        cursor: ew-resize;
         top: 50%;
         left: 350px;
         transform: translate(-50%, -50%);
@@ -69,7 +69,7 @@
 
 
     round.addEventListener('mousedown', function (e) {
-		round.addEventListener('mousemove', function moveFunc(e) {
+		wrapper.addEventListener('mousemove', function moveFunc(e) {
 			let flag = true
             let left = e.clientX - a
             if(left > wrapper.clientWidth) {
@@ -79,10 +79,11 @@
             }
 
 			img1.style.width = round.style.left = left + 'px'
+
             if(flag){
-				round.addEventListener('mouseup', function up(){
-					this.removeEventListener('mousemove', moveFunc)
-					this.removeEventListener('mouseup', up)
+				wrapper.addEventListener('mouseup', function up(){
+					wrapper.removeEventListener('mousemove', moveFunc)
+					wrapper.removeEventListener('mouseup', up)
                     flag = false
 				})
             }
