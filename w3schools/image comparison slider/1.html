@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Документ</title>
+<style>
+    * {
+        user-select: none;
+    }
+    .wrapper {
+        width: 700px;
+        height: 400px;
+        position: relative;
+    }
+    .wrapper img {
+        width: 700px;
+        height: auto;
+    }
+    .top-img, .bottom-img {
+        position: absolute;
+        overflow: hidden;
+    }
+    .top-img {
+        width: 350px;
+        z-index: 1;
+
+    }
+    .bottom-img {
+        z-index: 0;
+    }
+    .round {
+        position: absolute;
+        border-radius: 50%;
+        background-color: #7575e8;
+        opacity: .7;
+        width: 50px;
+        height: 50px;
+        z-index: 2;
+        cursor: e-resize;
+        top: 50%;
+        left: 350px;
+        transform: translate(-50%, -50%);
+    }
+
+</style>
+</head>
+<body>
+
+
+    <div class="container">
+        <div class="wrapper" id="wrapper">
+            <div class="img1 top-img" id="top_img">
+                <img src="1.jpg" alt="">
+            </div>
+            <div class="img2 bottom-img">
+                <img src="2.jpg" alt="">
+            </div>
+            <div class="round" id="round"></div>
+        </div>
+    </div>
+
+
+<script>
+
+    let img1 = document.querySelector('.top-img')
+    let a = img1.getBoundingClientRect().left
+
+
+    round.addEventListener('mousedown', function (e) {
+		round.addEventListener('mousemove', function moveFunc(e) {
+			let flag = true
+            let left = e.clientX - a
+            if(left > wrapper.clientWidth) {
+				left = wrapper.clientWidth
+            } else if(left<0) {
+				left = 0
+            }
+
+			img1.style.width = round.style.left = left + 'px'
+            if(flag){
+				round.addEventListener('mouseup', function up(){
+					this.removeEventListener('mousemove', moveFunc)
+					this.removeEventListener('mouseup', up)
+                    flag = false
+				})
+            }
+    	  })
+
+
+      })
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
