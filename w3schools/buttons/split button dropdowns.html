@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Документ</title>
+<style>
+    .wrapper {
+        display: inline-flex;
+    }
+    .btn {
+        padding: 14px 25px;
+        border: none;
+        background-color: #2196F3;
+        color: #fff;
+    }
+    .btn:hover {
+        background-color: #1c82d5;
+    }
+    .dropdown {
+        position: relative;
+    }
+    .dropdown:hover .dropdown__list{
+        display: block;
+    }
+    .arrow {
+        height: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .dropdown__list {
+        position: absolute;
+        top: 100%;
+        width: 150px;
+        background-color: #e7e7e7;
+        display: none;
+    }
+    .dropdown__list a {
+        display: block;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        padding-left: 8px;
+        text-decoration: none;
+    }
+    .dropdown__list a:hover {
+        background-color: #c7c7c7;
+    }
+
+</style>
+</head>
+<body style="padding: 50px;">
+
+
+<div class="wrapper">
+    <button class="btn">Button</button>
+    <div class="dropdown">
+        <button class="arrow btn">▼</button>
+        <div class="dropdown__list">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

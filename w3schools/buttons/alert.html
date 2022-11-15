@@ -8,11 +8,28 @@
 <link rel="stylesheet" href="bootstrap.min.css">
 <script src="bootstrap.bundle.min.js" defer></script>
 <style>
-
+    .my {
+        color: #04AA6D;
+        border-color: #04AA6D;
+        background-color: transparent;
+        padding: 14px 28px;
+        font-size: 16px;
+        outline: none;
+        border-width: 2px;
+        border-style: solid;
+    }
+    .my:hover {
+        background-color: #04AA6D;
+        color: #fff;
+    }
 
 </style>
 </head>
 <body style="padding: 30px;">
+
+
+
+<button class="my">Моя кнопка</button>
 
 
 
@@ -23,11 +40,17 @@
 <button class="btn-primary btn">Кнопка</button>
 <button class="btn-outline-primary btn">Кнопка</button>
 
+<button type="button" class="btn btn-secondary" data-toggle="tooltip" data-html="true" title="<em>Tooltip</em> <u>with</u> <b>HTML</b>">
+  Tooltip with HTML
+</button>
 
 
 
+<script>
+    $('#element').tooltip('update')
 
 
+</script>
 
 
 
