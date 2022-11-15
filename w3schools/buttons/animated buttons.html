@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Документ</title>
+<style>
+    .btn {
+        padding: 14px 25px;
+        font-size: 20px;
+        cursor: pointer;
+        background-color: #2196F3;
+        border: 0;
+        border-radius: 5px;
+        color: #fff;
+        margin: 20px;
+    }
+    .btn-1 {
+        box-shadow: 0 9px #999;
+    }
+    .btn-1:hover {
+        background-color: #1c7ed1;
+    }
+    .btn-1:active {
+        transform: translateY(5px);
+        box-shadow: 0 4px #666;
+    }
+
+    .btn-2 {
+        width: 200px;
+        transition: all .35s;
+        position: relative;
+    }
+    .btn-2 span {
+        position: relative;
+    }
+    .btn-2 span:after {
+        position: absolute;
+        content: '\00bb';
+        right: -20px;
+        transition: all .35s;
+        opacity: 0;
+    }
+    .btn-2:hover {
+        padding-left: 15px;
+    }
+    .btn-2:hover span:after {
+        opacity: 1;
+    }
+
+    .btn-3 {
+        position: relative;
+        overflow: hidden;
+    }
+    .btn-3:after {
+        content: "";
+        background: #90EE90;
+        display: block;
+        position: absolute;
+        left: 0;
+        padding-top: 300%;
+        padding-left: 350%;
+        margin-left: -20px!important;
+        margin-top: -120%;
+        opacity: 0;
+        transition: all 0.8s
+    }
+    .btn-3:active:after {
+        padding: 0;
+        margin: 0;
+        opacity: 1;
+        transition: 0s;
+    }
+
+
+</style>
+</head>
+<body style="padding: 50px;">
+
+
+<button class="btn btn-1">Кнопка 1</button>
+<button class="btn btn-2"><span>Кнопка 2</span></button>
+<button class="btn btn-3">Кнопка 3</button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
