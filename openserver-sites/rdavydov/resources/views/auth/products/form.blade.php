@@ -36,11 +36,20 @@
                     </div>
                     <br>
                     <div class="input-group row">
-                        <label for="code" class="col-sm-2 col-form-label">Название: </label>
+                        <label for="name" class="col-sm-2 col-form-label">Название: </label>
                         <div class="col-sm-6">
                              @include('auth.layouts.error', ['fieldName' => 'name'])
                                 <input type="text" class="form-control" name="name" id="name"
                                        value="@isset($product){{ $product->name }}@endisset">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="input-group row">
+                        <label for="name_en" class="col-sm-2 col-form-label">Название на англ: </label>
+                        <div class="col-sm-6">
+                             @include('auth.layouts.error', ['fieldName' => 'name_en'])
+                            <input type="text" class="form-control" name="name_en" id="name_en"
+                                   value="@isset($product){{ $product->name_en }} @endisset">
                         </div>
                     </div>
                     <br>
@@ -62,6 +71,15 @@
                             @include('auth.layouts.error', ['fieldName' => 'description'])
                                 <input type="text" class="form-control" name="description" id="description"
                                        value="@isset($product){{ $product->description }}@endisset">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="input-group row">
+                        <label for="description_en" class="col-sm-2 col-form-label">Описание на англ.: </label>
+                        <div class="col-sm-6">
+                            @include('auth.layouts.error', ['fieldName' => 'description_en'])
+                            <input type="text" class="form-control" name="description_en" id="description_en"
+                                   value="@isset($product){{ $product->description_en }}@endisset">
                         </div>
                     </div>
                     <br>

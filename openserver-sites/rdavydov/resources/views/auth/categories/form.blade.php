@@ -48,6 +48,17 @@
                 </div>
                 <br>
                 <div class="input-group row">
+                    <label for="name_en" class="col-sm-2 col-form-label">Название на англ.: </label>
+                    <div class="col-sm-6">
+                        @error('name_en')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                        <input type="text" class="form-control" name="name_en" id="name_en"
+                               value="@isset($category) {{ $category->name_en }}  @endisset">
+                    </div>
+                </div>
+                <br>
+                <div class="input-group row">
                     @error('description')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
@@ -55,6 +66,18 @@
                     <div class="col-sm-6">
                         <textarea name="description" id="description" cols="72">
                             @isset($category) {{ $category->description }}  @endisset
+                        </textarea>
+                    </div>
+                </div>
+                <br>
+                <div class="input-group row">
+                    @error('description_en')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                        <label for="description_en" class="col-sm-2 col-form-label">Описание на англ.: </label>
+                    <div class="col-sm-6">
+                        <textarea name="description_en" id="description_en" cols="72">
+                            @isset($category) {{ $category->description_en }}  @endisset
                         </textarea>
                     </div>
                 </div>

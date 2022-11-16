@@ -48,6 +48,8 @@ body {
     padding-bottom: 30px;
     border-top: 2px solid #D4D8DB;
     margin-top: auto;
+    background-color: #2196F3;
+    color: #fff;
 }
 
 .footer__row {

@@ -41,10 +41,26 @@
        </tr>
        <tr>
            <td>
+               Название на англ.
+           </td>
+           <td>
+               {{ $product->name_en }}
+           </td>
+       </tr>
+       <tr>
+           <td>
                Описание
            </td>
            <td>
                {{ $product->description }}
+           </td>
+       </tr>
+       <tr>
+           <td>
+               Описание на англ.
+           </td>
+           <td>
+               {{ $product->description_en }}
            </td>
        </tr>
        <tr>
