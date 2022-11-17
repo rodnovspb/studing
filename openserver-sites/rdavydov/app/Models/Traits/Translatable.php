@@ -23,10 +23,8 @@ trait Translatable
             throw new \LogicException('no such attribute for model ' . get_class($this));
         }
         if($locale === 'en' && (is_null($this->$fieldName) || empty($this->$fieldName))){
-            dd($this->$originFieldName);
             return $this->$originFieldName;
         }
-            dd($this->$fieldName);
         return $this->$fieldName;
     }
 

@@ -38,10 +38,9 @@ use wfm\View;
 						</div>
 
 						<div class="col-md-3 col-6">
-							<h4>Мы в сети</h4>
+							<h4><?php __('tpl_we_online') ?></h4>
 							<div class="footer-icons">
-								<a href="#"><i
-                                            class="fab fa-facebook-f"></i></a>
+								<a href="#"><i class="fab fa-facebook-f"></i></a>
 								<a href="#"><i class="fab fa-youtube"></i></a>
 								<a href="#"><i class="fab fa-instagram"></i></a>
 							</div>
