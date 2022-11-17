@@ -66,6 +66,23 @@ class Product extends Model
         $this->attributes['recommend'] = $value === 'on' ? 1 : 0;
     }
 
+    public function getPriceAttribute($value) {
+        $cur = session('currency', 'RUB');
+        $str = '';
+        if($cur === 'RUB'){
+            $str = ' руб.';
+        } elseif ($cur === 'EUR'){
+            $str = ' евро.';
+            $value = $value/70;
+        } elseif ($cur === 'USD'){
+            $str = ' долл.';
+            $value = $value/65;
+        }
+
+        return $value . $str;
+
+    }
+
     public function isAvailable() {
         return $this->count > 0 && !$this->trashed();
     }

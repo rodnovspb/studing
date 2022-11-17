@@ -55,6 +55,7 @@ Route::middleware(['auth'])->group(function (){
 });
 
 Route::get('locale/{locale}', [MainController::class, 'changeLocale'])->name('locale');
+Route::get('currency/{currency}', [MainController::class, 'changeCurrency'])->name('currency');
 
 Route::group(['middleware' => 'set_locale'], function(){
     Route::get('/', [MainController::class, 'index'])->name('index');
