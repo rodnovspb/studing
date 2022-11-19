@@ -4,10 +4,8 @@ require 'show.php';
 
 
 
-if(isset($_GET['date']) && !empty($_GET['date'])){
-    
-    $date = date_create($_GET['date']);
-    echo date_format($date, 'w');
+if(!empty($_GET['num1']) && !empty($_GET['num2'])){
+    echo rand($_GET['num1'], $_GET['num2']);
     
 } else {
     echo 'ошибка';
