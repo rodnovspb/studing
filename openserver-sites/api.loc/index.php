@@ -1,5 +1,15 @@
 <?php
+require 'show.php';
 
+$url1 = 'http://api.loc/hour.php';
+$url2 = 'http://api.loc/min.php';
+$url3 = 'http://api.loc/sec.php';
 
-echo date("H-i-s");
+$res1 = file_get_contents($url1);
+$res2 = file_get_contents($url2);
+$res3 = file_get_contents($url3);
+
+show($res1);
+show($res2);
+show($res3);
 
