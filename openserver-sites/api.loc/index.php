@@ -3,7 +3,18 @@
 require 'show.php';
 header('Content-Type: application/json'); // укажем MIME
 
-$arr = range($_GET['num1'], $_GET['num2']);
 
-exit(json_encode($arr));
+$url = 'https://kayaposoft.com/enrico/json/v2.0/?action=getHolidaysForYear&year=2022&country=rus&holidayType=public_holiday';
+
+
+$arr = json_decode(file_get_contents($url), 1);
+
+$res = [];
+
+foreach ($arr as $item){
+    array_push($res, $item['date']);
+}
+
+
+exit(json_encode($res));
 
