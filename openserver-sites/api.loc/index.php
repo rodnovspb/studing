@@ -3,7 +3,6 @@
 require 'show.php';
 
 
-
 if(!empty($_GET['date1']) && !empty($_GET['date2'])){
     
     $regxp = '#^\d{4}-\d{1,2}-\d{1,2}$#';
