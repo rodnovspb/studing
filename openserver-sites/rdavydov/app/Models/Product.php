@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Traits\Translatable;
+use App\Services\CurrencyConversion;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -67,23 +68,32 @@ class Product extends Model
     }
 
     public function getPriceAttribute($value) {
-        $cur = session('currency', 'RUB');
-        $str = '';
-        if($cur === 'RUB'){
-            $str = ' руб.';
-        } elseif ($cur === 'EUR'){
-            $str = ' евро.';
-            $value = $value/70;
-        } elseif ($cur === 'USD'){
-            $str = ' долл.';
-            $value = $value/65;
-        }
-
-        return $value . $str;
-
+        return CurrencyConversion::convert($value);
     }
+
 
     public function isAvailable() {
         return $this->count > 0 && !$this->trashed();
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

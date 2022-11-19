@@ -46,8 +46,5 @@ class Basket
         Order::changeFullSum(- $product->price);
     }
 
-    public function addProduct() {
-
-    }
 
 }

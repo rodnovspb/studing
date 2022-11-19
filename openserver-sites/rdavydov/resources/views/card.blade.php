@@ -8,7 +8,7 @@
             <img src="{{ Storage::url($product->image) }}" alt="" height="150px">
             <div class="caption">
               <h3>{{ $product->__('name') }}</h3>
-              <p>{{ $product->price }}</p>
+              <p>{{ $product->price }} {{ App\Services\CurrencyConversion::getCurrencySymbol() }}</p>
               <p>
                 <form action="{{ route('busket-add', $product) }}" method="POST">
                   @csrf

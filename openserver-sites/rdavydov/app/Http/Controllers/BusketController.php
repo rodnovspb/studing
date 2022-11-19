@@ -48,6 +48,7 @@ class BusketController extends Controller
 
         $product =  Product::query()->findOrFail($productId);
 
+
         Order::changeFullSum($product->price);
 
         session()->flash('success', "В корзину добавлен " . $product->name);

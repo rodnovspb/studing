@@ -5,6 +5,7 @@ return [
     'online_shop' => 'Online shop',
     'current_lang' => 'en',
     'set_lang'=> 'ru',
+    'rub' => 'RUB',
     'properties' => [
         'hit' => 'Hit',
         'new' => 'New',

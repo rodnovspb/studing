@@ -33,9 +33,10 @@
           <li><a href="/locale/en">en</a></li>
 
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ (App\Models\Currency::byCode(session('currency', 'RUB')))->first()->symbol }}<span class="caret"></span></a>
+
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ App\Services\CurrencyConversion::getCurrencySymbol() }}<span class="caret"></span></a>
             <ul class="dropdown-menu">
-                @foreach(App\Models\Currency::get() as $currency)
+                @foreach(App\Services\CurrencyConversion::getCurrencies() as $currency)
                     <li><a href="{{ route('currency', $currency->code) }}">{{ $currency->symbol }}</a></li>
                 @endforeach
             </ul>

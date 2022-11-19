@@ -10,6 +10,7 @@ class ResetController extends Controller
 {
     public function reset() {
 //        Artisan::call('migrate:fresh --seed');
+        session()->flush();
         session()->flash('success', 'Проект как бы сброшен в начальное состояние');
         return redirect()->route('index');
     }
