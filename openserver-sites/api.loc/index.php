@@ -1,5 +1,5 @@
 <?php
 
 
-exit(json_encode([1,2,3]));
+echo date("H-i-s");
 
