@@ -12,6 +12,7 @@ $id = $_GET['id'];
 
 $cities = R::getAll("SELECT * FROM city_ WHERE id_country = ?", [$id]);
 
+
 show($cities, 1);
 
 
