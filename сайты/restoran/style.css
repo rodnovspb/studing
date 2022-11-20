@@ -423,6 +423,101 @@ body {
     background-repeat: repeat-x;
 }
 
+.menu {
+    height: 1036px;
+    background-image: url('images/menu-bg.jpg');
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+    padding-top: 100px;
+    padding-bottom: 226px;
+}
+
+.menu__title {
+    color: #ffffff;
+    text-align: center;
+    text-shadow: 5px 5px 4px rgba(0,0,0, .25);
+    margin-bottom: 138px;
+}
+
+.menu__slider {
+    overflow: hidden;
+}
+
+.menu__slide {
+    background-color: #fff;
+    padding: 80px 63px 29px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+.card.recommended:before {
+    content: 'recommended';
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 7px 11px;
+    background-color: var(--dark-orange);
+    text-transform: uppercase;
+    font-size: 13px;
+    font-family: "Open Sans", sans-serif;
+    width: 124px;
+    height: 36px;
+}
+
+.card__top {
+    position: relative;
+    margin-bottom: 28px;
+    max-width: 225px;
+    max-height: 225px;
+}
+.card__price {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: var(--dark-orange);
+    border-radius: 50%;
+    bottom: -6px;
+    right: -5px;
+    border: 7px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 30px;
+    font-family: Cookie, serif;
+}
+.card__title {
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+.card__description {
+    text-align: center;
+    font-family: "Open Sans", sans-serif;
+    line-height: 120%;
+    max-width: 217px;
+    margin-bottom: 15px;
+}
+.card__btn {
+    background-color: var(--dark-orange);
+    width: 220px;
+    height: 50px;
+    box-shadow: 5px 5px 10px rgba(0,0,0, .25);
+}
+.card__btn:hover {
+    background-color: #ce7635;
+}
+.card__btn:active {
+    background-color: #c46d34;
+}
+
+
+
+
 
 
 
