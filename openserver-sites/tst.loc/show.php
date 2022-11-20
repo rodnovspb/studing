@@ -2,7 +2,7 @@
 
 function show($arr, $die=false){
     echo "<pre><p style='background-color: beige;
-color: maroon; padding: 10px; margin: 5px; border: 1px maroon solid; font-size: 20px;'>";
+color: maroon; padding: 10px; margin: 5px; border: 1px maroon solid; font-size: 20px; white-space: pre-wrap'>";
     if(is_bool($arr)){
         if($arr == 'bool(true)') {
             print_r('true');
