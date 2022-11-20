@@ -1,0 +1,15 @@
+{
+  "name": "vendor_name/api.loc",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Owner",
+      "email": "email@example.com"
+    }
+  ],
+  "require": {
+    "gabordemooij/redbean": "dev-master"
+  }
+}

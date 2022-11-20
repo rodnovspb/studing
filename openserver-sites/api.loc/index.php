@@ -1,29 +1,21 @@
 <?php
 
+require_once 'vendor/autoload.php';
 require 'show.php';
 
-$history = [
-    'day1' => 'История 1',
-    'day2' => 'История 2',
-    'day3' => 'История 3',
-    'day4' => 'История 4',
-    'day5' => 'История 5',
-    'day6' => 'История 6',
-    'day7' => 'История 7',
-];
+class_alias('\RedBeanPHP\R', '\R');
 
-$arr = json_decode($_POST['json']);
+R::setup( 'mysql:host=localhost;dbname=lists',
+    'root', '' );
 
-$res = [];
+$id = $_GET['id'];
 
-foreach ($arr as $item){
-    if(array_key_exists($item, $history)){
-        $res[$item] = $history[$item];
-    }
-}
+$cities = R::getAll("SELECT * FROM city_ WHERE id_country = ?", [$id]);
+
+show($cities, 1);
 
 
-echo json_encode($res);
+
 
 
 
