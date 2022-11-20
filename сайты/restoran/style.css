@@ -502,6 +502,7 @@ body {
     max-width: 217px;
     margin-bottom: 15px;
 }
+
 .card__btn {
     background-color: var(--dark-orange);
     width: 220px;
