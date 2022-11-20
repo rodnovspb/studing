@@ -1,20 +1,30 @@
 <?php
 
 require 'show.php';
-header('Content-Type: application/json'); // укажем MIME
 
+$history = [
+    'day1' => 'История 1',
+    'day2' => 'История 2',
+    'day3' => 'История 3',
+    'day4' => 'История 4',
+    'day5' => 'История 5',
+    'day6' => 'История 6',
+    'day7' => 'История 7',
+];
 
-$url = 'https://kayaposoft.com/enrico/json/v2.0/?action=getHolidaysForYear&year=2022&country=rus&holidayType=public_holiday';
-
-
-$arr = json_decode(file_get_contents($url), 1);
+$arr = json_decode($_POST['json']);
 
 $res = [];
 
 foreach ($arr as $item){
-    array_push($res, $item['date']);
+    if(array_key_exists($item, $history)){
+        $res[$item] = $history[$item];
+    }
 }
 
 
-exit(json_encode($res));
+echo json_encode($res);
+
+
+
 
