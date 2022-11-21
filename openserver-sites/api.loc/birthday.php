@@ -31,7 +31,6 @@ if(isset($_GET['token'])){
     }
     
     
-    
     if(!empty($_GET['date']) && preg_match('#^\d{4}-\d{2}-\d{2}$#', $_GET['date'])){
         $arr = explode('-', $_GET['date']);
         $year = $arr[0];
