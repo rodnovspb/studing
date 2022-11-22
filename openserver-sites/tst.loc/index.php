@@ -1,12 +1,18 @@
-<form action="http://api.loc/crud.php" method="post">
-    <input type="hidden" name="action" value="edit">
-    <input type="number" name="id" placeholder="id">
-    <input type="text" name="new_name" placeholder="Название">
-    <button type="submit">Отправить</button>
+<?php //header('HTTP-X-HTTP-METHOD: PUT'); ?>
+<?php $_SERVER['HTTP-X-HTTP-METHOD'] = 'DELETE' ?>
+
+<?php require 'show.php'?>
+
+<form action="" method="post">
+    <input type="text" name="name">
+    <input type="submit" value="Отправить">
 </form>
 
+<?php
 
+if(isset($_SERVER['HTTP-X-HTTP-METHOD'])){
+    show($_SERVER['HTTP-X-HTTP-METHOD']);
+}
 
-
-
+?>
 

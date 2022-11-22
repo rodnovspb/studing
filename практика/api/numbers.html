@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Документ</title>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+    .wrapper {
+        margin: 50px;
+        min-width: 600px;
+        display: flex;
+        width: 300px;
+        gap: 20px;
+        border: 1px solid blue;
+    }
+    #range {
+        width: 100%;
+    }
+    #number {
+        font-size: 24px;
+    }
+    #text, #aboutDate {
+        min-height: 100px;
+        border: 1px solid blue;
+        width: 100%;
+        padding: 10px;
+    }
+    .left, .right {
+        border: 1px solid blue;
+        flex-basis: 50%;
+    }
+    .right {
+        display: flex;
+        flex-direction: column;
+    }
+    #date {
+        margin-bottom: auto;
+    }
+
+</style>
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="left">
+        <input type="range" min="0" max="100000" id="range">
+        <div class="number" id="number"></div>
+        <div class="text" id="text"></div>
+    </div>
+    <div class="right">
+        <input type="date" id="date">
+        <div class="text" id="aboutDate"></div>
+    </div>
+</div>
+
+
+<script>
+    init()
+
+
+
+
+
+	function init(){
+		number.textContent = range.max/2
+
+		range.addEventListener('input', function (e) {
+			number.textContent = range.value
+		})
+
+		range.addEventListener('change', function (e) {
+			let num = this.value
+			fetch(`http://numbersapi.com/${num}`)
+					.then(res=>res.text())
+					.then(res=>showNum(res))
+                    .catch(e=>{console.log(e)})
+		  })
+
+		date.addEventListener('change', function (e) {
+		      let date = this.value.split('-')
+              let month = date[1]
+              let day = date[2]
+			fetch(`http://numbersapi.com/${month}/${day}/date`)
+					.then(res=>res.text())
+					.then(res=>showDate(res))
+					.catch(e=>{console.log(e)})
+		  })
+	}
+
+	function showNum(info){
+		text.textContent = info
+    }
+
+    function showDate(info){
+		aboutDate.textContent = info
+    }
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
