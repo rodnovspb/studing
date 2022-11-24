@@ -23,7 +23,7 @@ class CategoryController extends AppController
         $ids = $this->model->getIds($category['id']);
         $ids = !$ids ? $category['id'] : $ids . $category['id'];
         
-        $page = abs(get('page')) ?: 1;
+        $page = get('page');
         $perpage = App::$app->getProperty('pagination');
         $total = $this->model->get_count_products($ids);
         
