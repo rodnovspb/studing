@@ -36,8 +36,7 @@ class MainController extends Controller
     }
 
     public function categories(){
-        $categories = Category::query()->get();
-        return view('categories', compact('categories'));
+        return view('categories');
     }
 
     public function category($code){

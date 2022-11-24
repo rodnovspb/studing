@@ -30,7 +30,7 @@ class CurrencyRates
                     throw new Exception('Ошибка запроса валют' . $currency->code);
                 } else {
                     $currency->update(['rate' => $rates[$currency->code]]);
-                    $currency->touch();
+//                    $currency->touch(); много запросов к БД, не знаю как оптимизировать
                 }
             }
         }

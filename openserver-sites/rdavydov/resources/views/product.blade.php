@@ -10,7 +10,7 @@
           @if($product->isRecommend()) <span class="badge badge-warning">Рекомендуемое</span>  @endif
           @if($product->isHit()) <span class="badge badge-danger">Хит продаж</span>  @endif
       </div>
-      <p>Цена: <b>{{ $product->price }} {{ App\Services\CurrencyConversion::getCurrencySymbol() }}</p>
+      <p>Цена: <b>{{ $product->price }} {{ $currencySymbol }}</p>
       <img src="{{ Storage::url($product->image) }}" height="300" width="auto">
       <p>{{ $product->__('description') }}</p>
 

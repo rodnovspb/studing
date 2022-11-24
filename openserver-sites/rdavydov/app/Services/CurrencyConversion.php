@@ -11,6 +11,10 @@ class CurrencyConversion
 {
     protected static $container;
 
+    public static function getCurrencyFromSession() {
+        return session('currency', 'RUB');
+    }
+
     public static function loadContainer() {
         if(is_null(self::$container)){
             $currencies = Currency::get();
@@ -31,18 +35,18 @@ class CurrencyConversion
         $originCurrency = self::$container[$originCurrencyCode];
 
         if($originCurrency->rate !=0 || $originCurrency->updated_at->startOfDay() != Carbon::now()->startOfDay()){
-            CurrencyRates::getRates();
+//            CurrencyRates::getRates(); стоит ограничение на запросы, поэтому нафиг
             self::loadContainer();
             $originCurrency = self::$container[$originCurrencyCode];
         }
 
         if(is_null($targetCurrencyCode)){
-            $targetCurrencyCode = session('currency', 'RUB');
+            $targetCurrencyCode = self::getCurrencyFromSession();
         }
         $targetCurrency = self::$container[$targetCurrencyCode];
 
         if($originCurrency->rate !=0 || $originCurrency->updated_at->startOfDay() != Carbon::now()->startOfDay()){
-            CurrencyRates::getRates();
+//            CurrencyRates::getRates();
             self::loadContainer();
             $originCurrency = self::$container[$originCurrencyCode];
         }
@@ -53,7 +57,7 @@ class CurrencyConversion
     public static function getCurrencySymbol() {
         self::loadContainer();
 
-        $currencyFromSession = session('currency', 'RUB');
+        $currencyFromSession = self::getCurrencyFromSession();
         $currency = self::$container[$currencyFromSession];
         return $currency->symbol;
     }

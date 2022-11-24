@@ -18,7 +18,6 @@ class Basket
     {
         $orderId = session('orderId');
         $this->order = Order::query()->findOrFail($orderId);
-
     }
 
     public function getOrder()
