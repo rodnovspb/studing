@@ -7,6 +7,7 @@ Router::add('^admin/(?P<controller>[a-z-]+)/?(?P<action>[a-z-]+)?$', ['admin_pre
 
 Router::add('^(?P<lang>[a-z]+)?/?product/(?P<slug>[a-z0-9_-]+)/?$', ['controller' => 'Product', 'action'=>'view']);
 Router::add('^(?P<lang>[a-z]+)?/?category/(?P<slug>[a-z0-9_-]+)/?$', ['controller' => 'Category', 'action'=>'view']);
+Router::add('^(?P<lang>[a-z]+)?/?search/?$', ['controller' => 'Search', 'action'=>'index']);
 
 Router::add('^(?P<lang>[a-z]+)?/?$', ['controller' => 'Main', 'action' => 'index']);
 Router::add('^(?P<controller>[a-z-]+)/(?P<action>[a-z-]+)/?$');

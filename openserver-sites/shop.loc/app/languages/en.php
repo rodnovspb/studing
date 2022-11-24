@@ -41,6 +41,7 @@ return [
 
     'tpl_search_title' => 'Search',
     'tpl_search_query' => 'Search by: ',
+    'tpl_search_not_found' => 'No results were found',
 
     'tpl_wishlist_add_success' => 'Product added to favorites',
     'tpl_wishlist_add_error' => 'Error adding product to favorites',

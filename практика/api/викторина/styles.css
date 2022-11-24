@@ -1,0 +1,20 @@
+#rubrics_list {
+    list-style-type: disc;
+}
+
+#rubrics_list a.active {
+    background-color: dodgerblue;
+    color: #fff;
+}
+
+#textOfQuestion {
+    margin-top: 20px;
+}
+
+#skip, #answer {
+    display: none;
+}
+
+#answer {
+    min-width: 300px;
+}

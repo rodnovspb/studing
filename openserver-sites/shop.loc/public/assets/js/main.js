@@ -2,6 +2,10 @@ $(function() {
 
 	// CART
 
+		$('#input-sort').on('change', function (e){
+			window.location = PATH + window.location.pathname + '?' + $(this).val()
+		})
+
 		function showCart(cart){
 			$('#cart-modal .modal-cart-content').html(cart)
 			let myModalEl = document.querySelector('#cart-modal')
