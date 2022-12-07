@@ -28,7 +28,12 @@ $(function() {
 				type: 'get',
 				data: {id: id},
 				success: function (res){
-					showCart(res)
+					const url = window.location.toString()
+					if(url.indexOf('cart/view') !== -1){
+						window.location = url
+					} else {
+						showCart(res)
+					}
 				},
 				error: function (){
 					alert('error')
@@ -134,4 +139,81 @@ $(function() {
 		window.location = PATH + '/language/change?lang=' + lang_code;
 	})
 
+	$('.product-card').on('click', '.add-to-wishlist', function (e){
+		e.preventDefault()
+		const id = $(this).data('id')
+		const $this = $(this)
+		$.ajax({
+			url: 'wishlist/add',
+			type: 'GET',
+			data: {id: id},
+			success: function (res){
+				res = JSON.parse(res);
+				Swal.fire(
+						res.text,
+						'',
+						res.result
+				)
+				if(res.result === 'success'){
+					$this.removeClass('add-to-wishlist').addClass('delete-from-wishlist')
+					$this.find('i').removeClass('far fa-heart').addClass('fas fa-hand-holding-heart')
+				}
+			},
+			error: function (){
+				alert('error')
+			}
+		})
+	})
+
+	$('.product-card').on('click', '.delete-from-wishlist', function (e){
+		e.preventDefault()
+		const id = $(this).data('id')
+		const $this = $(this)
+		$.ajax({
+			url: 'wishlist/delete',
+			type: 'GET',
+			data: {id: id},
+			success: function (res){
+				const url = window.location.toString()
+				if(url.indexOf('wishlist') !== -1){
+					window.location = url
+				} else {
+					res = JSON.parse(res)
+					Swal.fire(
+							res.text,
+							'',
+							res.result
+					)
+					if(res.result == 'success'){
+						$this.removeClass('delete-from-wishlist').addClass('add-to-wishlist')
+						$this.find('i').removeClass('fas fa-hand-holding-heart').addClass('far fa-heart')
+					}
+				}
+			},
+			error: function (){
+				alert('error')
+			}
+		})
+	})
+
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductRequest;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Property;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -32,7 +33,8 @@ class ProductController extends Controller
     public function create()
     {
         $categories = Category::all();
-        return view('auth.products.form', compact('categories'));
+        $properties = Property::get();
+        return view('auth.products.form', compact('categories', 'properties'));
     }
 
     /**
@@ -73,7 +75,8 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         $categories = Category::all();
-        return view('auth.products.form', compact('product', 'categories'));
+        $properties = Property::get();
+        return view('auth.products.form', compact('product', 'categories', 'properties'));
 
     }
 
@@ -98,7 +101,7 @@ class ProductController extends Controller
                 $params[$fieldName] = 0;
             }
         }
-
+        $product->properties()->sync($request->property_id);
         $product->update($params);
         return redirect()->route('products.index');
     }

@@ -51,6 +51,9 @@ Route::middleware(['auth'])->group(function (){
 
         Route::resource('categories', 'App\Http\Controllers\Admin\CategoryController');
         Route::resource('products', 'App\Http\Controllers\Admin\ProductController');
+        Route::resource('products/{product}/skus/{sku}', 'App\Http\Controllers\Admin\SkuController');
+        Route::resource('properties', 'App\Http\Controllers\Admin\PropertyController');
+        Route::resource('properties/{property}/property-options', 'App\Http\Controllers\Admin\PropertyOptionController');
     });
 });
 

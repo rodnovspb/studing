@@ -82,7 +82,9 @@ function get_cart_icon($id) {
     return $icon;
 }
 
-
+function get_field_value($name) {
+    return isset($_SESSION['form_data'][$name]) ? h($_SESSION['form_data'][$name]) : '';
+}
 
 
 
