@@ -4,7 +4,9 @@
 namespace app\models;
 
 
+use PHPMailer\PHPMailer\PHPMailer;
 use RedBeanPHP\R;
+use wfm\App;
 
 class Order extends AppModel
 {
@@ -48,6 +50,37 @@ class Order extends AppModel
         }
         $sql_part = rtrim($sql_part, ',');
         R::exec("INSERT INTO order_product (order_id, product_id, title, slug, qty, price, sum) VALUES $sql_part", $binds);
+    }
+    
+    public static function mailOrder($order_id, $user_email, $tpl):bool {
+        $mail = new PHPMailer(true);
+    
+        try {
+            $mail->isSMTP();
+            $mail->SMTPDebug = 3;
+            $mail->CharSet = 'UTF-8';
+            $mail->Host = App::$app->getProperty('smtp_host');
+            $mail->SMTPAuth = App::$app->getProperty('smtp_auth');
+            $mail->Username = App::$app->getProperty('smtp_username');
+            $mail->Password = App::$app->getProperty('smtp_password');
+            $mail->SMTPSecure = App::$app->getProperty('smtp_secure');
+            $mail->Port = App::$app->getProperty('smtp_port');
+            $mail->isHTML(true);
+        
+            $mail->setFrom(App::$app->getProperty('smtp_from_email'), App::$app->getProperty('site_name'));
+            $mail->addAddress($user_email);
+            $mail->Subject = sprintf(___('cart_checkout_mail_subject'), $order_id);
+        
+            ob_start();
+            require \APP . "/views/mail/{$tpl}.php";
+            $body = ob_get_clean();
+        
+            $mail->Body = $body;
+            return $mail->send();
+        } catch (\Exception $e) {
+//            debug($e,1);
+            return false;
+        }
     }
     
 }
