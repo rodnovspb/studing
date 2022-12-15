@@ -6,7 +6,9 @@
 
     <section class="container mx-auto text-white text-center pt-10">
 
-        <p class="bg-sky-500 hover:bg-sky-700">Lorem ipsum dolor sit amet.</p>
+      <p class="shadow-lg rounded-3xl bg-gradient-to-r from-purple-500 to-pink-500 pb-[50px] pt-[20px]">Lorem ipsum dolor sit amet.</p>
+
+
 
     </section>
 </main>
