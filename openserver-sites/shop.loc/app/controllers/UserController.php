@@ -17,11 +17,11 @@ class UserController extends AppController
         }
         
         if(!empty($_POST)){
-            if(empty($_POST['password'])){
-                unset($_POST['password']);
-            }
             $this->model->load();
-            
+            if(empty($this->model->attributes['password'])){
+                unset($this->model->attributes['password']);
+            }
+            unset($this->model->attributes['email']);
             if(!$this->model->validate($this->model->attributes)){
                 $this->model->getErrors();
             } else {
