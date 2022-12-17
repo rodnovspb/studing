@@ -1,0 +1,9 @@
+body {
+    min-width: 320px !important;
+}
+
+@media (min-width: 992px) {
+    .logs {
+        margin-left: 250px;
+    }
+}
