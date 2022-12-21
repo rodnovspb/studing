@@ -2,6 +2,14 @@ body {
     min-width: 320px !important;
 }
 
+a {
+    color: #ee6e73;
+}
+
+a:hover {
+    color: #000;
+}
+
 @media (min-width: 992px) {
     .logs {
         margin-left: 250px;
