@@ -4,10 +4,9 @@
 
 
 
-    <form action="" method="post">
+    <form action="" method="post" enctype="multipart/form-data">
         @csrf
-        <input type="text" name="name">
-        <input type="text" name="surname">
+        <input type="file" name="file">
         <input type="submit">
     </form>
 
