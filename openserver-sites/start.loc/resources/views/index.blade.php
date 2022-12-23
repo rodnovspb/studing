@@ -4,7 +4,7 @@
 
 
 
-   <p>Lorem ipsum dolor sit amet. {{ $key }}</p>
+   <p>Lorem ipsum dolor sit amet. {{ $key }}{{ $eee }}</p>
 
     @foreach($qqq as $item)
         <div>{{ $item->name }}</div>
