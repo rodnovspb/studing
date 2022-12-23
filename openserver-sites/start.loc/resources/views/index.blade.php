@@ -4,11 +4,9 @@
 
 
 
-   <p>Lorem ipsum dolor sit amet. {{ $key }}{{ $eee }}</p>
-
-    @foreach($qqq as $item)
-        <div>{{ $item->name }}</div>
-    @endforeach
+   @@if(1)
+        <div>1111</div>
+   @@endif
 
 
 
