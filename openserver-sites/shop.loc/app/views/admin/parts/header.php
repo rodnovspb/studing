@@ -14,6 +14,8 @@
     <!-- Theme style -->
   <link rel="stylesheet" href="<?= PATH ?>/adminlte/dist/css/adminlte.min.css?v=<?= rand(1,10) ?>">
   <link rel="stylesheet" href="<?= PATH ?>/adminlte/main.css?v=<?= rand(1,10) ?>"
+
+
 </head>
 <body class="hold-transition sidebar-mini">
 <!-- Site wrapper -->

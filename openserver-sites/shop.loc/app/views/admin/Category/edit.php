@@ -76,30 +76,4 @@
 </div>
 <!-- /.card -->
 
-<script>
-    window.editors = {};
-    document.querySelectorAll( '.editor' ).forEach( ( node, index ) => {
-        ClassicEditor
-            .create( node, {
-                ckfinder: {
-                    uploadUrl: '<?= PATH ?>/adminlte/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',
-                },
-                toolbar: [ 'ckfinder', '|', 'heading', '|', 'bold', 'italic', '|', 'undo', 'redo', '|', 'link', 'bulletedList', 'numberedList', 'insertTable', 'blockQuote' ],
-                image: {
-                    toolbar: [ 'imageTextAlternative', '|', 'imageStyle:alignLeft', 'imageStyle:alignCenter', 'imageStyle:alignRight' ],
-                    styles: [
-                        'alignLeft',
-                        'alignCenter',
-                        'alignRight'
-                    ]
-                }
-            } )
-            .then( newEditor => {
-                window.editors[ index ] = newEditor
-            } )
-            .catch( error => {
-                console.error( error );
-            } );
-    });
 
-</script>

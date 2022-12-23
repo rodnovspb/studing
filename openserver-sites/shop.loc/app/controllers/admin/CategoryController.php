@@ -5,6 +5,7 @@ namespace app\controllers\admin;
 
 
 use RedBeanPHP\R;
+use wfm\App;
 
 class CategoryController extends AppController
 {
@@ -38,9 +39,11 @@ class CategoryController extends AppController
     public function addAction() {
         if(!empty($_POST)){
             if($this->model->category_validate()){
-                $_SESSION['success'] = 'Категория сохранена';
-            } else {
-            
+                if($this->model->save_category()){
+                    $_SESSION['success'] = 'Категория сохранена';
+                } else {
+                    $_SESSION['errors'] = 'Ошибка';
+                }
             }
             redirect();
         }
@@ -48,4 +51,41 @@ class CategoryController extends AppController
         $this->setMeta("Админка :: {$title}");
         $this->set(compact('title'));
     }
+    
+    public function editAction() {
+        $id = get('id');
+        if(!empty($_POST)){
+        
+        }
+        $category = $this->model->get_category($id);
+        if(!$category){
+            throw new \Exception('Не нашлась категория', 404);
+        }
+        $lang = App::$app->getProperty('language')['id'];
+        App::$app->setProperty('parent_id', $category[$lang]['parent_id']);
+        $title = 'Редактирование категории';
+        $this->setMeta("Админка :: {$title}");
+        $this->set(compact('title', 'category'));
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
