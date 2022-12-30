@@ -24,8 +24,7 @@
 
 
 
-
-
+@stack('text')
 
 
 </body>
