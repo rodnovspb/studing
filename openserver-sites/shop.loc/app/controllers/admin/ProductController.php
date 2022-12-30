@@ -34,7 +34,9 @@ class ProductController extends AppController
     }
     
     public function getDownloadAction() {
-        echo json_encode([1,2,3]);
+        $q = get('q', 's');
+        $downloads = $this->model->get_downloads($q);
+        echo json_encode($downloads);
         die();
     }
 

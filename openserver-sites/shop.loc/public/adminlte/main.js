@@ -5,6 +5,8 @@ $(function () {
 		if (!res) return false;
 	});
 
+
+
 	$(".is-download").select2({
 		placeholder: "Начните вводить наименование файла",
 		minimumInputLength: 1,
