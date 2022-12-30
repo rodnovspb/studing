@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="<?= PATH ?>/adminlte/plugins/fontawesome-free/css/all.min.css?v=<?= rand(1,10) ?>">
     <!-- Theme style -->
   <link rel="stylesheet" href="<?= PATH ?>/adminlte/dist/css/adminlte.min.css?v=<?= rand(1,10) ?>">
+  <link rel="stylesheet" href="<?= PATH ?>/adminlte/plugins/select2/css/select2.min.css"
   <link rel="stylesheet" href="<?= PATH ?>/adminlte/main.css?v=<?= rand(1,10) ?>"
 
 

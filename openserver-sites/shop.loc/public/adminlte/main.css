@@ -15,3 +15,10 @@ a:hover {
         margin-left: 250px;
     }
 }
+
+.select2-container .select2-selection--single {
+    height: 38px !important;
+}
+.select2-selection__arrow {
+    height: 34px !important;
+}

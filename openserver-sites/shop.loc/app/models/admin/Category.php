@@ -59,6 +59,34 @@ class Category extends AppModel
     public function get_category($id):array {
         return R::getAssoc("SELECT cd.language_id, cd.*, c.* FROM category_description cd JOIN category c on c.id = cd.category_id WHERE cd.category_id =?", [$id]);
     }
+    
+    public function update_category($id):bool {
+        R::begin();
+        try {
+            $category = R::load('category', $id);
+            if(!$category){
+                return false;
+            }
+            $category->parent_id = post('parent_id', 'i');
+            R::store($category);
+            
+            foreach ($_POST['category_description'] as $lang_id => $item) {
+                R::exec("UPDATE category_description SET title = ?, description = ?, keywords = ?, content = ? WHERE category_id = ? AND language_id = ?", [
+                    $item['title'],
+                    $item['description'],
+                    $item['keywords'],
+                    $item['content'],
+                    $id,
+                    $lang_id
+                ]);
+            }
+            R::commit();
+            return true;
+        } catch (\Exception $e) {
+            R::rollback();
+            return false;
+        }
+    }
 
 }
 

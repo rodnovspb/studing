@@ -4,10 +4,9 @@
 
 
 
-   @@if(1)
+   @production
         <div>1111</div>
-   @@endif
-
+   @endproduction
 
 
 
