@@ -2,7 +2,7 @@
     <div class="content">
         <div class="container">
             <div class="content__block">
-                <div class="content__date">{{ $bill[0]->bill_date }}</div>
+                <div class="content__date">{{ $date }}</div>
                 <div class="bills">
                     <div class="bills__item">
                         Электроснабжение: <span>{{ $bill[0]->electricity }} р.</span>
@@ -158,8 +158,8 @@
                         <td>{{ $sumElect }}</td>
                         <td>{{ $costElect }}</td>
                         <td>{{ $diffElect }}</td>
-                        <td>{{ round($bill[0]->tko) }}</td>
-                        <td>{{ round($bill[0]->ku) }}</td>
+                        <td>{{ $bill[0]->tko }}</td>
+                        <td>{{ $bill[0]->ku }}</td>
                     </tr>
                 </table>
                 <div class="table-pagination">{{ $bill->links() }}</div>
