@@ -111,6 +111,11 @@ body {
     background-color: rgba(248, 196, 196, 0.55);
 }
 
+.table-pagination {
+    width: 20%;
+    margin: 0 auto;
+}
+
 
 
 
