@@ -16,7 +16,7 @@ define("CONFIG", ROOT.'/config');
 define("LAYOUT", 'shop');
 define("PATH", 'http://shop.loc');
 define("ADMIN", 'http://shop.loc/admin');
-define("NO_IMAGE", 'uploads/no_image.jpg');
+define("NO_IMAGE", 'public/uploads/no_image.jpg');
 
 require_once ROOT.'/vendor/autoload.php';
 

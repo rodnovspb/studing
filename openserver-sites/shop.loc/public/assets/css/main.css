@@ -553,3 +553,9 @@ a.thumbnail.active, a.thumbnail:focus, a.thumbnail:hover {
     }
 }
 
+label.required::before {
+	content: '* ';
+	color: #F00;
+	font-weight: bold;
+}
+

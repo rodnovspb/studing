@@ -2,335 +2,164 @@
     <div class="content">
         <div class="container">
             <div class="content__block">
+                <div class="content__date">{{ $date }}</div>
+                <div class="bills">
+                    <div class="bills__item">
+                        Элекстроснабжение: <span>{{ $lastTotalEl }} р.</span>
+                    </div>
+                    <div class="bills__item">
+                        Обращение с ТКО: <span>{{ $lastTko }} р.</span>
+                    </div>
+                    <div class="bills__item">
+                        Коммунальные услуги: <span>{{ $lastKu }} р.</span>
+                    </div>
+                </div>
+
+
+
                 <table class="table content__price">
-                    <caption>Стоимость к/у в СПб</caption>
-                    <tr>
-                        <th>Электроэнергия (руб/квт.ч)</th>
-                        <th>Холодная вода (руб/м3)</th>
-                        <th>Горячая вода (руб/м3)</th>
-                    </tr>
-                    <tr>
-                        <td>11111</td>
-                        <td>11111</td>
-                        <td>11111</td>
-                    </tr>
-                </table>
-                <table class="table content__bills">
-                    <caption>Счета</caption>
-                    <tr>
-                        <th></th>
-                        <th>Электроэнергия</th>
-                        <th>Холодная вода</th>
-                        <th>Отопление</th>
-                        <th>Капитальный ремонт</th>
-                        <th>Прочее</th>
-                    </tr>
-                    <tr>
-                        <th>Сумма</th>
-                        <td>11111</td>
-                        <td>11111</td>
-                        <td>11111</td>
-                        <td>11111</td>
-                        <td>11111</td>
-                    </tr>
-                    <tr>
-                        <th>Метод расчета</th>
-                        <td>11111</td>
-                        <td>По счетчикам</td>
-                        <td>По площади</td>
-                        <td>По площади</td>
-                        <td>По площади</td>
-                    </tr>
-                </table>
-                <table class="table content__counters">
-                    <caption>Показания счетчиков</caption>
                     <tr>
                         <th>Студия</th>
-                        <th>Электроэнергия</th>
-                        <th>Горячая вода</th>
-                        <th>Холодная вода</th>
+                        <th>Сумма</th>
+                        <th>Площадь (м2)</th>
+                        <th>% площади</th>
+                        <th>Э/э за текущий месяц</th>
+                        <th>Э/э за прошлый мес.</th>
+                        <th>Расход э/э</th>
+                        <th>*6 руб</th>
+                        <th>Э/э общая</th>
+                        <th>ТКО</th>
+                        <th>К/У</th>
                     </tr>
                     <tr>
                         <td>1</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                        <td>1234</td>
+                        <td>1000</td>
+                        <td>16,74</td>
+                        <td>0,13169</td>
+                        <td>{{ $st1_newBill }}</td>
+                        <td>{{ $st1_oldBill }}</td>
+                        <td>{{ $st1_diffEl }}</td>
+                        <td>{{ $st1_costEl }}</td>
+                        <td>{{ $st1_costEl }}</td>
+                        <td>140</td>
+                        <td>1200</td>
                     </tr>
                     <tr>
                         <td>2</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                        <td>1234</td>
+                        <td>1000</td>
+                        <td>14,88</td>
+                        <td>0,11706</td>
+                        <td>{{ $st2_newBill }}</td>
+                        <td>{{ $st2_oldBill }}</td>
+                        <td>{{ $st2_diffEl }}</td>
+                        <td>{{ $st2_costEl }}</td>
+                        <td>867</td>
+                        <td>140</td>
+                        <td>1200</td>
                     </tr>
                     <tr>
                         <td>3</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                        <td>1234</td>
+                        <td>1000</td>
+                        <td>12,31</td>
+                        <td>0,09684</td>
+                        <td>{{ $st3_newBill }}</td>
+                        <td>{{ $st3_oldBill }}</td>
+                        <td>{{ $st3_diffEl }}</td>
+                        <td>{{ $st3_costEl }}</td>
+                        <td>867</td>
+                        <td>140</td>
+                        <td>1200</td>
                     </tr>
                     <tr>
                         <td>4</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                        <td>1234</td>
+                        <td>1000</td>
+                        <td>14,46</td>
+                        <td>0,11375</td>
+                        <td>{{ $st4_newBill }}</td>
+                        <td>{{ $st4_oldBill }}</td>
+                        <td>{{ $st4_diffEl }}</td>
+                        <td>{{ $st4_costEl }}</td>
+                        <td>867</td>
+                        <td>140</td>
+                        <td>1200</td>
                     </tr>
                     <tr>
                         <td>5</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                        <td>1234</td>
+                        <td>1000</td>
+                        <td>14,46</td>
+                        <td>0,11375</td>
+                        <td>{{ $st5_newBill }}</td>
+                        <td>{{ $st5_oldBill }}</td>
+                        <td>{{ $st5_diffEl }}</td>
+                        <td>{{ $st5_costEl }}</td>
+                        <td>867</td>
+                        <td>140</td>
+                        <td>1200</td>
                     </tr>
                     <tr>
                         <td>6</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                        <td>1234</td>
+                        <td>1000</td>
+                        <td>12,89</td>
+                        <td>0,1014</td>
+                        <td>{{ $st6_newBill }}</td>
+                        <td>{{ $st6_oldBill }}</td>
+                        <td>{{ $st6_diffEl }}</td>
+                        <td>{{ $st6_costEl }}</td>
+                        <td>867</td>
+                        <td>140</td>
+                        <td>1200</td>
                     </tr>
                     <tr>
                         <td>7</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                        <td>1234</td>
+                        <td>1000</td>
+                        <td>11,6</td>
+                        <td>0,09125</td>
+                        <td>{{ $st7_newBill }}</td>
+                        <td>{{ $st7_oldBill }}</td>
+                        <td>{{ $st7_diffEl }}</td>
+                        <td>{{ $st7_costEl }}</td>
+                        <td>867</td>
+                        <td>140</td>
+                        <td>1200</td>
                     </tr>
                     <tr>
                         <td>8</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                        <td>1234</td>
+                        <td>1000</td>
+                        <td>14,46</td>
+                        <td>0,11375</td>
+                        <td>{{ $st8_newBill }}</td>
+                        <td>{{ $st8_oldBill }}</td>
+                        <td>{{ $st8_diffEl }}</td>
+                        <td>{{ $st8_costEl }}</td>
+                        <td>867</td>
+                        <td>140</td>
+                        <td>1200</td>
                     </tr>
                     <tr>
                         <td>9</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                        <td>1234</td>
+                        <td>1000</td>
+                        <td>15,31</td>
+                        <td>0,12044</td>
+                        <td>{{ $st9_newBill }}</td>
+                        <td>{{ $st9_oldBill }}</td>
+                        <td>{{ $st9_diffEl }}</td>
+                        <td>{{ $st9_costEl }}</td>
+                        <td>867</td>
+                        <td>140</td>
+                        <td>1200</td>
                     </tr>
-                </table>
-                <table class="table content__count">
-                    <caption>Расход за месяц</caption>
-                    <tr>
-                        <th>Студия</th>
-                        <th>Электроэнергия</th>
-                        <th>Горячая вода</th>
-                        <th>Холодная вода</th>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                    </tr>
-                    <tr>
-                        <td>6</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                    </tr>
-                    <tr>
-                        <td>7</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                    </tr>
-                    <tr>
-                        <td>8</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                    </tr>
-                    <tr>
-                        <td>9</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                    </tr>
-                </table>
-                <table class="table content__count">
-                    <caption>Расчет по счетчикам </caption>
-                    <tr>
-                        <th>Студия</th>
-                        <th>Электроэнергия ( 1квт.ч = 4.98 руб )</th>
-                        <th>Горячая вода ( 1м3 = 112 руб )</th>
-                        <th>Холодная вода ( 1м3 = 33 руб )</th>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                    </tr>
-                    <tr>
-                        <td>6</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                    </tr>
-                    <tr>
-                        <td>7</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                    </tr>
-                    <tr>
-                        <td>8</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                    </tr>
-                    <tr>
-                        <td>9</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                    </tr>
-                    <tr>
-                        <th>Сумма</th>
-                        <th class="sum">5000</th>
-                        <td>-</td>
-                        <td>-</td>
-                    </tr>
-                </table>
-                <table class="table content__count">
-                    <caption>Разность счетов за э/э</caption>
-                    <tr>
-                        <th>Общий счет</th>
-                        <th>Сумма по счетчикам </th>
-                        <th>Остаток</th>
-                    </tr>
-                    <tr>
-                        <td>9000</td>
-                        <td>5000</td>
-                        <td>4000</td>
-                    </tr>
-                </table>
-                <table class="table content__counters">
-                    <caption>Общий расчет</caption>
-                    <tr>
-                        <th>Студия / м2 / % от общ. 127,11 м2</th>
-                        <th>Электроэнергия</th>
-                        <th>Горячая вода</th>
-                        <th>Холодная вода</th>
-                        <th>Кап. ремонт</th>
-                        <th>Сумма</th>
-                    </tr>
-                    <tr>
-                        <td>1 / 16,74 / 13,169</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                    </tr>
-                    <tr>
-                        <td>2 / 14,88 / 11,706</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                    </tr>
-                    <tr>
-                        <td>3 / 12,31 / 9,684</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                    </tr>
-                    <tr>
-                        <td>4 / 14,46 / 11,375</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                    </tr>
-                    <tr>
-                        <td>5 / 14,46 / 11,375</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                    </tr>
-                    <tr>
-                        <td>6 / 12,89 / 10,140</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                    </tr>
-                    <tr>
-                        <td>7 / 11,60 / 9,125</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                    </tr>
-                    <tr>
-                        <td>8 / 14,46 / 11,375</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                    </tr>
-                    <tr>
-                        <td>9 / 15,31 / 12,044</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                        <td>1234</td>
-                        <td>1234</td>
+                    <tr class="result">
+                        <td>Общ.</td>
+                        <td>1000</td>
+                        <td>127,11</td>
+                        <td>0,99993</td>
+                        <td>2000</td>
+                        <td>2500</td>
+                        <td>500</td>
+                        <td>3000</td>
+                        <td>867</td>
+                        <td>140</td>
+                        <td>1200</td>
                     </tr>
                 </table>
             </div>

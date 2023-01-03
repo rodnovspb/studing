@@ -15,7 +15,7 @@ body {
 .container {
     padding-left: 15px;
     padding-right: 15px;
-    max-width: 1200px;
+    max-width: 1400px;
     width: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -72,22 +72,48 @@ body {
     margin-bottom: 40px;
     border: 1px solid #dddddd;
     border-collapse: collapse;
+
 }
 .table caption {
     font-weight: bold;
-    padding: 8px 25px;
+    padding: 8px 15px;
     font-size: 20px;
 
 }
 .table th {
     font-weight: bold;
-    padding: 8px 25px;
+    padding: 15px 15px;
     background: #efefef;
     border: 1px solid #dddddd;
 }
 .table td {
     border: 1px solid #dddddd;
-    padding: 8px 25px;
+    padding: 8px 15px;
     text-align: center;
 }
+.content__date {
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.bills {
+    display: flex;
+    justify-content: space-around;
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+.bills__item {
+    border: 2px solid blue;
+    padding: 5px 10px;
+    border-radius: 8px;
+}
+.result {
+    background-color: rgba(248, 196, 196, 0.55);
+}
+
+
+
+
+
+
 
