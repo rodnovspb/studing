@@ -12,7 +12,7 @@ function debug($data, $die = false){
 }
 
 function h($str) {
-    return htmlspecialchars($str);
+    return htmlspecialchars($str, ENT_QUOTES);
 }
 
 function redirect($http = false){
