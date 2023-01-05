@@ -117,6 +117,21 @@ body {
 }
 
 
+/*-----------------Страница входа------------------- */
+
+.login {
+    width: 100vw;
+    display: flex;
+    height: 100vh;
+}
+.login__form {
+    margin: auto;
+    max-width: 100%;
+    min-width: 320px;
+
+}
+
+
 
 
 
