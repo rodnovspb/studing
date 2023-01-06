@@ -57,7 +57,7 @@ class MainController extends Controller
         /*получим общую сумму*/
         $sumForAll = array_sum($result);
         /*получим дату строкой*/
-        $date = self::getDateString($bill[0]->bill_date);
+        $date = getDateString($bill[0]->bill_date);
 
         return view('index', compact('bill', 'nowBillElectArr', 'lastBillElectArr', 'diffElectArr', 'costElectArr', 'lastElectSum', 'nowElectSum', 'sumElect', 'costElect', 'diffElect', 'electBySquareArr', 'tkoBySquareArr', 'kuBySquareArr', 'result', 'sumForAll', 'date'));
     }
@@ -136,10 +136,5 @@ class MainController extends Controller
         return $arr;
     }
 
-    public function getDateString($date){
-        $arr = explode('-', $date);
-        $str = $arr[2] . ' ' . MainController::$months[$arr[1]] . ' ' . $arr[0] . ' г.';
-        return $str;
-    }
 
 }
