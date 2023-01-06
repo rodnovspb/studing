@@ -21,7 +21,6 @@ class Language
         if(file_exists($lang_view)){
             self::$lang_view = require_once $lang_view;
         }
-        
         self::$lang_data = array_merge(self::$lang_layout, self::$lang_view);
         
     }
