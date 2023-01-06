@@ -41,7 +41,7 @@ class Download extends AppModel
     
     public function upload_file():array|false {
         $file_name = $_FILES['file']['name'] . uniqid();
-        $path = WWW . '/' . '/downloads' . $file_name;
+        $path = WWW  . '/downloads/' . $file_name;
         if(move_uploaded_file($_FILES['file']['tmp_name'], $path)){
             return ['original_name' => $_FILES['file']['name'], 'filename' =>  $file_name];
         }
