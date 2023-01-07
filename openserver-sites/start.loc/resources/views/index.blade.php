@@ -25,6 +25,7 @@
         <input type="text" name="name" value="{{ old('name') }}"><span>@error('name') {{ $message }} @enderror</span><br>
         <input type="text" name="surname" value="{{ old('surname') }}"><span>@error('surname') {{ $message }} @enderror</span><br>
         <input type="submit">
+
     </form>
 
 
