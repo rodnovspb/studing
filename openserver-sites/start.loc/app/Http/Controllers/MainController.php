@@ -19,8 +19,8 @@ class MainController extends Controller
 {
     public function index(Request $request) {
 
-            $collection = collect([1,2,3,4,5]);
-            dd(collect(['key1' => 3, 'key2' => 6])->avg());
+
+            dd(collect([])->isEmpty() );
 
 //        return view('index')->with('eee', 333);
     }
