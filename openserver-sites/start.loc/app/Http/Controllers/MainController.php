@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Student;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Cookie;
@@ -18,8 +19,8 @@ class MainController extends Controller
 {
     public function index(Request $request) {
 
-            $collection = collect([1,2,3]);
-            dd($collection);
+            $collection = collect([1,2,3,4,5]);
+            dd(collect(['key1' => 3, 'key2' => 6])->avg());
 
 //        return view('index')->with('eee', 333);
     }
