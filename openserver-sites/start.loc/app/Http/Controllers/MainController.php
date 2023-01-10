@@ -20,7 +20,7 @@ class MainController extends Controller
     public function index(Request $request) {
 
 
-            dd(collect([])->isEmpty() );
+            dd(collect([1,2,3])->max());
 
 //        return view('index')->with('eee', 333);
     }

@@ -33,4 +33,61 @@ class PageController extends AppController
         }
         redirect();
     }
+    
+    public function addAction() {
+        if(!empty($_POST)){
+            if($this->model->page_validate()){
+                if($this->model->save_page()){
+                    $_SESSION['success'] = 'Добавлена';
+                } else {
+                    $_SESSION['errors'] = 'Ошибка сохранения';
+                }
+            }
+            redirect();
+        }
+        $title = 'Новая страница';
+        $this->setMeta("Админка :: {$title}");
+        $this->set(compact('title'));
+    }
+    
+    public function editAction() {
+        $id = get('id');
+        if(!empty($_POST)){
+            if($this->model->page_validate()){
+                if($this->model->update_page($id)){
+                    $_SESSION['success'] = 'Сохранена';
+                } else {
+                    $_SESSION['errors'] = 'Ошибка обновления';
+                }
+            }
+            redirect();
+        }
+        $page = $this->model->get_page($id);
+        if(!$page){
+            throw new \Exception('Не найдена страница', 404);
+        }
+        $title = 'Редактирование';
+        $this->setMeta("Админка :: {$title}");
+        $this->set(compact('title', 'page'));
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
