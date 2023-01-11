@@ -20,7 +20,7 @@ class MainController extends Controller
     public function index(Request $request) {
 
 
-            dd(collect([1, 2, 3, 4, 5])->take(3)->all());
+            dd(collect([1,2,3])->transform(function ($item){return $item*2;})->all());
 
 //        return view('index')->with('eee', 333);
     }
