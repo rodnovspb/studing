@@ -19,15 +19,8 @@ class MainController extends Controller
 {
     public function index(Request $request) {
 
-            $users = User::cursor()->filter(function ($item){
-                return $item;
-            });
-            foreach ($users as $user){
-                echo $user->name .  "<br>";
-            }
+        return view('index');
 
-
-//        return view('index')->with('eee', 333);
     }
 
     public function store(Request $request) {

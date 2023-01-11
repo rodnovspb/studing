@@ -3,10 +3,7 @@
 @section('content')
 
 
-<div class="indent-5 decoration-2 text-4xl tracking-widest underline decoration-amber-600 decoration-wavy">12323547568678967800-й</div>
-<div class="text-4xl tabular-nums text-rose-600">123235475686789678-й</div>
-<a href="#" class="text-4xl decoration-0 underline-offset-4 hover:underline text-blue-600 hover:text-blue-800 visited:text-purple-600underline text-blue-600 hover:text-blue-800 visited:text-purple-600">Lorem ipsum dolor sit amet.</a>
-
+<div class="border-4 m-8 rounded-md bg-gradient-to-r from-violet-500 to-fuchsia-500">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut dolor, dolore eius facere, ipsum laudantium magni minus obcaecati quaerat quam reiciendis similique suscipit totam voluptatem voluptates? Commodi consequatur in inventore ipsam itaque iusto labore nostrum odit quam sed. Cupiditate delectus ea et id iste iure magni minus officiis rerum, temporibus.</div>
 
 
 
