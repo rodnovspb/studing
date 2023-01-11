@@ -157,8 +157,16 @@ body {
     margin: auto;
     max-width: 100%;
     min-width: 320px;
-
 }
+
+td.buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+
+
+
 
 
 

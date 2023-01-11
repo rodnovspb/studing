@@ -10,6 +10,7 @@
             <th colspan="3">Счета</th>
             <th colspan="9">Показания э/э по студиям</th>
             <th rowspan="2">Дата счета</th>
+            <th rowspan="2">Действия</th>
           </tr>
           <tr>
             <th>Э/Э</th>
@@ -41,6 +42,7 @@
                   <td>{{ $bill->st8_elect }}</td>
                   <td>{{ $bill->st9_elect }}</td>
                   <td>{{ getDateString($bill->bill_date) }}</td>
+                  <td class="buttons"><a href="#" data-delete="<?= $bill->id ?>" class="btn-delete" title="Удалить">❌</a></td>
               </tr>
           @endforeach
               <tr class="load">
