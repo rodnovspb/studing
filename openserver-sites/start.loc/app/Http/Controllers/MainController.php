@@ -19,8 +19,13 @@ class MainController extends Controller
 {
     public function index(Request $request) {
 
+            $users = User::cursor()->filter(function ($item){
+                return $item;
+            });
+            foreach ($users as $user){
+                echo $user->name .  "<br>";
+            }
 
-            dd(collect([1,2,3])->transform(function ($item){return $item*2;})->all());
 
 //        return view('index')->with('eee', 333);
     }
