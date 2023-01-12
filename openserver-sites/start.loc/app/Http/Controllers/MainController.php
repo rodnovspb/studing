@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Storage;
 class MainController extends Controller
 {
     public function index() {
-        dd(Storage::files('files'));
+        Storage::deleteDirectory('folders');
         return view('index');
     }
 
