@@ -16,10 +16,7 @@ class MainController extends Controller
         return view('index');
     }
 
-    public function store(Request $request) {
-        dd($request->file('file')->hashName());
-        return $request->file('file')->store('files');
-    }
+
 
 
 
