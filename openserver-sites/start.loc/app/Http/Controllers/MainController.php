@@ -13,7 +13,12 @@ class MainController extends Controller
 {
     public function index(Request $request) {
 
-        Storage::disk('public')->put('example.txt', 'Contents');
+        $data = Storage::get('/files/1.jpeg');
+
+        Storage::put('file.jpg', $data);
+        return Storage::path('/files/1.jpeg');
+
+
 
 //        return view('index');
 
