@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\File;
 use Illuminate\Http\Request;
 
 
@@ -13,10 +14,14 @@ class MainController extends Controller
 {
     public function index(Request $request) {
 
+        $path = Storage::putFile('photos', new File('/files/1.jpeg'));
+
         $data = Storage::get('/files/1.jpeg');
 
         Storage::put('file.jpg', $data);
-        return Storage::path('/files/1.jpeg');
+
+        return Storage::url('file.jpg');
+
 
 
 
