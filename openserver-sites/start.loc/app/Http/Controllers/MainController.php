@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Storage;
 class MainController extends Controller
 {
     public function index() {
+
+        dd(Storage::get('files/UWq550R8TDRERgYTo0UKIiQmcxsAz7fS6FOhhnEo.txt'));
+        return Storage::get('files/UWq550R8TDRERgYTo0UKIiQmcxsAz7fS6FOhhnEo.txt');
         return view('index');
     }
 
@@ -20,9 +23,8 @@ class MainController extends Controller
         if (!$request->hasFile('file')){ return redirect()->back(); }
         $file = $request->file('file');
         $originalName = $file->getClientOriginalName();
-        dd($originalName);
         $path = Storage::putFile('files', new File($file));
-        dd($path);
+
     }
 
 
