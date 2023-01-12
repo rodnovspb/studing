@@ -12,22 +12,20 @@ use Illuminate\Support\Facades\Storage;
 
 class MainController extends Controller
 {
-    public function index(Request $request) {
-
-        $path = Storage::putFile('photos', new File('/files/1.jpeg'));
-
-        $data = Storage::get('/files/1.jpeg');
-
-        Storage::put('file.jpg', $data);
-
-        return Storage::url('file.jpg');
-
-
-
-
-//        return view('index');
-
+    public function index() {
+        return view('index');
     }
+
+    public function store(Request $request) {
+        if (!$request->hasFile('file')){ return redirect()->back(); }
+        $file = $request->file('file');
+        $originalName = $file->getClientOriginalName();
+        dd($originalName);
+        $path = Storage::putFile('files', new File($file));
+        dd($path);
+    }
+
+
 
 
 }
