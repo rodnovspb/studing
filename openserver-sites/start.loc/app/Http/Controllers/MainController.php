@@ -6,13 +6,20 @@ use Illuminate\Http\Request;
 
 
 use Barryvdh\Debugbar\Facades\Debugbar;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Storage;
 
 
 class MainController extends Controller
 {
     public function index() {
-        Storage::deleteDirectory('folders');
+
+        dd(__('passwords.reset'));
+
+
+
+
+
         return view('index');
     }
 
