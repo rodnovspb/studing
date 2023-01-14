@@ -15,7 +15,8 @@ class MainController extends Controller
 {
     public function index() {
 
-        dd(Str::before('В лесу родилась елочка', ' родилась елочка'));
+        dd(Str::camel('get age'));
+
 
 
 
