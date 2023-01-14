@@ -15,7 +15,7 @@ class MainController extends Controller
 {
     public function index() {
 
-        dd(Str::remove('https://', 'https://lenta.ru'));
+        dd(Str::slug('my first page'));
 
 
 
