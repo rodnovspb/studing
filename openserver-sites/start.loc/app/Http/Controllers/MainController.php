@@ -15,7 +15,7 @@ class MainController extends Controller
 {
     public function index() {
 
-        dd(Str::kebab('myFuncGetCount'));
+        dd(Str::limit('В лесу родилась', 6));
 
 
 
