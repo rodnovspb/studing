@@ -15,7 +15,7 @@ class MainController extends Controller
 {
     public function index() {
 
-        dd(Str::camel('get age'));
+        dd(Str::finish('/page/loc', '/'));
 
 
 
