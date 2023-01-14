@@ -3,7 +3,8 @@
 @section('content')
 
 
-{{ fake()->unique()->safeEmail() }}
+{{ today() }}
+
 
 
 

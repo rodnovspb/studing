@@ -14,7 +14,7 @@ class MainController extends Controller
 {
     public function index() {
 
-        report('Something went wrong.');
+        return value(111);
 
 
         return view('index');
