@@ -14,7 +14,7 @@ class MainController extends Controller
 {
     public function index() {
 
-        dd(fake()->word(10));
+        report('Something went wrong.');
 
 
         return view('index');
