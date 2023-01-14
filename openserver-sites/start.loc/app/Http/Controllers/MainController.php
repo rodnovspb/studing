@@ -14,7 +14,7 @@ class MainController extends Controller
 {
     public function index() {
 
-        dd(__('passwords.reset'));
+        dd(preg_replace_array('/:[a-z]+/', ['10:00', '18:00'], 'Работаем с :a до :b'));
 
 
 
