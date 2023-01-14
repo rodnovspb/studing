@@ -15,7 +15,7 @@ class MainController extends Controller
 {
     public function index() {
 
-        dd(Str::finish('/page/loc', '/'));
+        dd(Str::kebab('myFuncGetCount'));
 
 
 
