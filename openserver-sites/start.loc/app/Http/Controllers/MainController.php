@@ -15,7 +15,7 @@ class MainController extends Controller
 {
     public function index() {
 
-        dd(Str::plural('car'));
+        dd(Str::remove('https://', 'https://lenta.ru'));
 
 
 
