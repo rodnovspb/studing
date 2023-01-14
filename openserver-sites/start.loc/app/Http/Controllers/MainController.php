@@ -6,23 +6,23 @@ use Illuminate\Http\Request;
 
 
 use Barryvdh\Debugbar\Facades\Debugbar;
-use Illuminate\Support\Arr;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
-
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Auth;
 
 class MainController extends Controller
 {
     public function index() {
 
-        dd((string) Str::uuid());
+        dd(Auth::user());
+        dd(auth()->user());
 
 
 
 
 
 
-        return view('index');
+
+//        return view('index');
     }
 
 
