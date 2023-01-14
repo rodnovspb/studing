@@ -15,7 +15,7 @@ class MainController extends Controller
 {
     public function index() {
 
-        dd(Str::mask('89514466332', '*', 5));
+        dd(Str::plural('car'));
 
 
 
