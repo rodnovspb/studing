@@ -15,7 +15,7 @@ class MainController extends Controller
 {
     public function index() {
 
-        dd(Str::title('вот такой случай'));
+        dd((string) Str::uuid());
 
 
 
