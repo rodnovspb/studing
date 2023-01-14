@@ -14,14 +14,10 @@ class MainController extends Controller
 {
     public function index() {
 
-        dd(Hash::check('1', bcrypt('1'))  );
+        dd(fake()->word(10));
 
 
-
-
-
-
-//        return view('index');
+        return view('index');
     }
 
 
