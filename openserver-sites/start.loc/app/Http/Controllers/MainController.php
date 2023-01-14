@@ -15,7 +15,7 @@ class MainController extends Controller
 {
     public function index() {
 
-        dd(Str::after('В лесу родилась елочка', 'В лесу '));
+        dd(Str::before('В лесу родилась елочка', ' родилась елочка'));
 
 
 
