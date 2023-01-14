@@ -15,7 +15,7 @@ class MainController extends Controller
 {
     public function index() {
 
-        dd(Str::slug('my first page'));
+        dd(Str::title('вот такой случай'));
 
 
 
