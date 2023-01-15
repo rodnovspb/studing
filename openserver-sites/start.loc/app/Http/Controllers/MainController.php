@@ -15,12 +15,11 @@ class MainController extends Controller
     public function index() {
 
 
-        return  Http::get('https://lenta.ru/');
+
+        echo trans_choice('auth.apple|apples', 3);
 
 
-
-
-        return view('main');
+//        return view('index');
 
 
 
