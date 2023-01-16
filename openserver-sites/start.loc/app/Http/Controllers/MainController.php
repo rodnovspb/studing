@@ -16,9 +16,6 @@ class MainController extends Controller
 {
     public function index() {
 
-        Mail::to('rodnovspb@mail.ru')->later(now()->addMinutes(10), new OrderShipped('Б-325'));
-
-
 
 
         return view('index');
