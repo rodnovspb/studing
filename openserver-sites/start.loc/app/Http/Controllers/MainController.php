@@ -16,12 +16,12 @@ class MainController extends Controller
 {
     public function index() {
 
-        Mail::to('rodnovspb@mail.ru')->send(new OrderShipped('32'));
+        Mail::to('rodnovspb@mail.ru')->later(now()->addMinutes(10), new OrderShipped('Б-325'));
 
 
 
 
-//        return view('index');
+        return view('index');
 
 
 
