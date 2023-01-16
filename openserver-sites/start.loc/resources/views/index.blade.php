@@ -3,8 +3,8 @@
 @section('content')
 
 
-    <img class="w-1/2 m-3 brightness-200" src="{{ asset('file1.jpg') }}" alt="">
 
+    <div class="backdrop-invert h-80 w-80 border border-black m-52"></div>
 
 
 
