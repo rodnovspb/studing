@@ -8,7 +8,7 @@
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 <title>Документ</title>
 </head>
-<body class="{{--bg-gradient-to-r from-cyan-500 to-blue-500--}} h-screen">
+<body class="bg-gradient-to-r from-cyan-500 to-blue-500 h-screen">
 
 @yield('content')
 
