@@ -20,8 +20,7 @@ class MainController extends Controller
     public function index() {
         $user = User::query()->find('120');
 
-        Notification::route('mail', 'rodnovspb@mail.ru')->notify(new OrderReady($user));
-
+        $user->notify((new OrderReady($user)));
 
         return view('index');
 
