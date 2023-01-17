@@ -4,25 +4,29 @@
 
 
 
-    <table class="border-separate border-spacing-2 table-auto border border-slate-400 ...">
+    <table class="table-fixed">
   <thead>
     <tr>
-      <th class="border border-slate-300 ...">Штат</th>
-      <th class="border border-slate-300 ...">Город</th>
+      <th>Песня</th>
+      <th>Артист</th>
+      <th>Год</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td class="border border-slate-300 ...">Индиана</td>
-      <td class="border border-slate-300 ...">Индианаполис</td>
+      <td>The Sliding Mr. Bones (Next Stop, Pottersville)</td>
+      <td>Malcolm Lockyer</td>
+      <td>1961</td>
     </tr>
     <tr>
-      <td class="border border-slate-300 ...">Огайо</td>
-      <td class="border border-slate-300 ...">Колумбус</td>
+      <td>Witchy Woman</td>
+      <td>The Eagles</td>
+      <td>1972</td>
     </tr>
     <tr>
-      <td class="border border-slate-300 ...">Мичиган</td>
-      <td class="border border-slate-300 ...">Детройт</td>
+      <td>Shining Star</td>
+      <td>Earth, Wind, and Fire</td>
+      <td>1975</td>
     </tr>
   </tbody>
 </table>
