@@ -4,13 +4,19 @@
 
 
 
-    <div class="h-40 w-40 m-28 bg-blue-500 skew-y-12 origin-bottom"></div>
 
-    <input type="text">
+    <select >
+  <option>Да</option>
+  <option>Нет</option>
+  <option>Возможно</option>
+</select>
 
+    <input type="text" style="appearance: none;">
+    <input type="text" >
 
 
 @endsection
+
 
 
 
