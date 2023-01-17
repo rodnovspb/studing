@@ -4,34 +4,9 @@
 
 
 
-    <table class="table-fixed">
-  <thead>
-    <tr>
-      <th>Песня</th>
-      <th>Артист</th>
-      <th>Год</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>The Sliding Mr. Bones (Next Stop, Pottersville)</td>
-      <td>Malcolm Lockyer</td>
-      <td>1961</td>
-    </tr>
-    <tr>
-      <td>Witchy Woman</td>
-      <td>The Eagles</td>
-      <td>1972</td>
-    </tr>
-    <tr>
-      <td>Shining Star</td>
-      <td>Earth, Wind, and Fire</td>
-      <td>1975</td>
-    </tr>
-  </tbody>
-</table>
+    <div class="h-40 w-40 m-28 bg-blue-500 skew-y-12 origin-bottom"></div>
 
-
+    <input type="text">
 
 
 

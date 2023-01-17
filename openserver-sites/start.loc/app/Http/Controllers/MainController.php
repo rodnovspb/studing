@@ -18,13 +18,6 @@ use Illuminate\Support\Facades\Notification;
 class MainController extends Controller
 {
     public function index() {
-        $user = User::query()->find('120');
-
-        $user->notify((new OrderReady($user)));
-
-        $user->unreadNotifications()->update(['read_at' => now()]);
-
-
 
         return view('index');
 
