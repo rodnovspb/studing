@@ -22,6 +22,10 @@ class MainController extends Controller
 
         $user->notify((new OrderReady($user)));
 
+        $user->unreadNotifications()->update(['read_at' => now()]);
+
+
+
         return view('index');
 
 
