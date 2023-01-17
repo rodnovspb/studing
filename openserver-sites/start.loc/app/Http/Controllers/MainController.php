@@ -18,10 +18,10 @@ use Illuminate\Support\Facades\Notification;
 class MainController extends Controller
 {
     public function index() {
-
         $user = User::query()->find('120');
 
-        $user->notify((new OrderReady($user))->delay(now()->addMinutes(10)));
+        Notification::route('mail', 'rodnovspb@mail.ru')->notify(new OrderReady($user));
+
 
         return view('index');
 
