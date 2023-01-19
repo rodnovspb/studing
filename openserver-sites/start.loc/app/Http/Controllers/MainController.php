@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\SendMessage;
 use App\Mail\OrderShipped;
 use App\Models\User;
 use App\Notifications\OrderReady;
@@ -19,8 +20,9 @@ class MainController extends Controller
 {
     public function index() {
 
-        return view('index');
+        SendMessage::dispatchSync('Тестовая строка');
 
+        return view('index');
 
     }
 
