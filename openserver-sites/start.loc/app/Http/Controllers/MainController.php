@@ -24,11 +24,6 @@ class MainController extends Controller
 {
     public function index() {
 
-        Bus::chain([
-            new PrepareJob('Подготовка'),
-            new PublishMessage('Публикация'),
-            new SendMessage('Успешно'),
-        ])->catch(function (Throwable $e){info($e);})->dispatch();
 
 
         return view('index');
