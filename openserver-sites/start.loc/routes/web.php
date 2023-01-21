@@ -23,6 +23,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [MainController::class, 'index'])->name('main');
 Route::post('/', [MainController::class, 'store'])->name('store');
 
+
+Route::get('/register', [MainController::class, 'register'])->name('register');
+Route::post('/register', [MainController::class, 'create_user'])->name('create_user');
+Route::get('/logout', [MainController::class, 'logout'])->name('logout');
+
 Route::any('/page', [PageController::class, 'index'])->name('page');
 
 Route::get('/user/{user}', function (User $user) {
