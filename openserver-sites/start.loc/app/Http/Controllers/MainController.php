@@ -43,9 +43,7 @@ class MainController extends Controller
     }
 
     public function inner() {
-        Gate::allowIf(fn ($user) => $user->isAdministrator());
-
-        Gate::authorize('show-protected-part');
+        Gate::allowIf(fn ($user) => $user->email=='cinedsms@mail.ru');
         return 'Вы попали в защищенный раздел';
     }
 
