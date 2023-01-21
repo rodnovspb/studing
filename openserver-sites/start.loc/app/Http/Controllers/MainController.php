@@ -9,12 +9,14 @@ use Barryvdh\Debugbar\Facades\Debugbar;
 use Illuminate\Support\Facades\App;
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
 
 
 class MainController extends Controller
 {
-    public function index() {
+    public function index(Request $request) {
+        $request->session()->regenerate();
         return view('index');
     }
 
@@ -36,7 +38,16 @@ class MainController extends Controller
         return redirect()->route('main');
     }
 
+    public function cabinet() {
+        return 'Кабинет';
+    }
 
+    public function inner() {
+        Gate::allowIf(fn ($user) => $user->isAdministrator());
+
+        Gate::authorize('show-protected-part');
+        return 'Вы попали в защищенный раздел';
+    }
 
 
 

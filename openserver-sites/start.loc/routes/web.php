@@ -28,6 +28,10 @@ Route::get('/register', [MainController::class, 'register'])->name('register');
 Route::post('/register', [MainController::class, 'create_user'])->name('create_user');
 Route::get('/logout', [MainController::class, 'logout'])->name('logout');
 
+Route::get('/inner', [MainController::class, 'inner'])->middleware('can:')->name('inner');
+
+Route::get('/cabinet', [MainController::class, 'cabinet'])->middleware('auth.basic');
+
 Route::any('/page', [PageController::class, 'index'])->name('page');
 
 Route::get('/user/{user}', function (User $user) {
