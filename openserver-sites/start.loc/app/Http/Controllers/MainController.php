@@ -10,6 +10,7 @@ use Barryvdh\Debugbar\Facades\Debugbar;
 use Illuminate\Support\Facades\App;
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
 
@@ -17,8 +18,13 @@ use Illuminate\Support\Facades\Hash;
 class MainController extends Controller
 {
     public function index(Request $request) {
-        $request->session()->regenerate();
-        return view('index');
+         $b = Crypt::encrypt('qedfdsg sdf sdf');
+         dd($b);
+
+
+
+//        $request->session()->regenerate();
+//        return view('index');
     }
 
 
