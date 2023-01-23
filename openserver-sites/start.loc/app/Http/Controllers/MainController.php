@@ -42,9 +42,13 @@ class MainController extends Controller
         return 'Кабинет';
     }
 
-    public function inner() {
-        Gate::allowIf(fn ($user) => $user->email=='cinedsms@mail.ru');
-        return 'Вы попали в защищенный раздел';
+    public function inner(Request $request) {
+        $user = $request->user();
+        if($user->can('delete', $user)){
+            return view('index', compact('user'));
+        } else {
+            return view('index', compact('user'));
+        }
     }
 
 
