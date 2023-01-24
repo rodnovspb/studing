@@ -18,8 +18,10 @@ use Illuminate\Support\Facades\Hash;
 class MainController extends Controller
 {
     public function index(Request $request) {
-         $b = Crypt::encrypt('qedfdsg sdf sdf');
-         dd($b);
+
+         $a= Crypt::encrypt('111');
+
+         dd(decrypt($a));
 
 
 
