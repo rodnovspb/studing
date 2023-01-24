@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Документ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    .wrapper {
+        padding: 50px;
+    }
+    .btn {
+        background-color: #04AA6D;
+        border: none;
+        padding: 16px 25px;
+        color: #fff;
+        font-size: 18px;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        margin: 20px;
+    }
+    .loading {
+        width: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .loading svg {
+        animation-name: spin;
+        animation-iteration-count: infinite;
+        animation-duration: 2s;
+        animation-timing-function: linear;
+
+    }
+    @keyframes spin {
+        100% {
+            transform: rotate(360deg);
+
+        }
+    }
+
+</style>
+</head>
+<body>
+
+
+    <div class="wrapper">
+        <button class="btn"><span class="loading"><svg  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+</svg></span>Загрузка</button>
+        <button class="btn"><i class="fa fa-spinner fa-spin"></i>Загрузка</button>
+
+        <button class="btn">
+  <i class="fa fa-circle-o-notch fa-spin"></i>Loading
+</button>
+
+<button class="btn">
+  <i class="fa fa-refresh fa-spin"></i>Loading
+</button>
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
