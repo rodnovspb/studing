@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Документ</title>
+<style>
+    .dn {
+        display: none;
+    }
+
+</style>
+</head>
+<body>
+
+    <h2>Read More Read Less Button</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas vitae scel<span id="dots">...</span><span class="dn" id="more">erisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta.</span></p>
+    <button id="myBtn">Read more</button>
+
+
+
+
+<script>
+
+    let btn = document.querySelector('#myBtn')
+    let text = document.querySelector('#more')
+    let dots = document.querySelector('#dots')
+
+	btn.addEventListener('click', function (e) {
+		text.classList.toggle('dn')
+		dots.classList.toggle('dn')
+        if(this.textContent == 'Read more'){
+			this.textContent = 'Read less'
+        } else {
+			this.textContent = 'Read more'
+        }
+
+	  })
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
