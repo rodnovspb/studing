@@ -21,11 +21,12 @@ class MainController extends Controller
     public function index(Request $request)
     {
 
-        info(DB::connection('sqlite')->insert("INSERT INTO users (name, email, password) VALUES (?, ?, ?)", ['Денис', '1@mail.ru', '111']));
+        $users = DB::table('users')->get();
 
-        info(DB::insert("INSERT INTO users (name, email, password) VALUES (?, ?, ?)", ['Денис', '1@mail.ru', '111']));
 
-        return 1;
+        foreach ($users as $user) {
+            echo $user->name;
+        }
 
 
 
