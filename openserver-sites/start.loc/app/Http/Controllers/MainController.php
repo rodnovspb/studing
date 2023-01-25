@@ -21,9 +21,9 @@ class MainController extends Controller
     public function index(Request $request)
     {
 
-        $users = DB::table('users')->groupBy('id')->having('id', '>', 100)->get();
+        $id = DB::table('users')->where('id', 202)->dd();
 
-        dump($users);
+//        dump( $id);
 
 
 
