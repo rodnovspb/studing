@@ -20,13 +20,14 @@ class MainController extends Controller
 {
     public function index(Request $request)
     {
-//        dd(DB::update("UPDATE users SET name = 'sd' WHERE id = ?", ['Гриша']));
+
+        info(DB::connection('sqlite')->insert("INSERT INTO users (name, email, password) VALUES (?, ?, ?)", ['Денис', '1@mail.ru', '111']));
+
+        info(DB::insert("INSERT INTO users (name, email, password) VALUES (?, ?, ?)", ['Денис', '1@mail.ru', '111']));
+
+        return 1;
 
 
-        DB::transaction(function (){
-            DB::delete("DELETE  FROM users WHERE id = ?", [157]);
-            DB::update("UPDATE users SET name = ? WHERE id = ?", [157, 'Гриша']);
-        });
 
 
     }
