@@ -21,7 +21,7 @@ class MainController extends Controller
     public function index(Request $request)
     {
 
-        $var = DB::table('users')->where('id', 100)->exists();
+        $var = DB::table('users')->select('name', 'email')->get();
 
         dump($var);
 
