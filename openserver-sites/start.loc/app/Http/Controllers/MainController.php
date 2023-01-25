@@ -21,13 +21,6 @@ class MainController extends Controller
     public function index(Request $request)
     {
 
-        $id = DB::table('users')->where('id', 202)->dd();
-
-//        dump( $id);
-
-
-
-
     return 1;
 
 
