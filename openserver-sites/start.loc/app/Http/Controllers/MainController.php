@@ -11,45 +11,27 @@ use Illuminate\Support\Facades\App;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
 
 
 class MainController extends Controller
 {
-    public function index(Request $request) {
-
-         $a= Crypt::encrypt('111');
-
-         dd(decrypt($a));
+    public function index(Request $request)
+    {
+//        dd(DB::update("UPDATE users SET name = 'sd' WHERE id = ?", ['Гриша']));
 
 
+        DB::transaction(function (){
+            DB::delete("DELETE  FROM users WHERE id = ?", [157]);
+            DB::update("UPDATE users SET name = ? WHERE id = ?", [157, 'Гриша']);
+        });
 
-//        $request->session()->regenerate();
-//        return view('index');
+
     }
 
 
-    public function register() {
-        return view('register');
-    }
-
-    public function create_user(Request $request) {
-        $user = User::create(['name'=>$request->name, 'email'=>$request->email, 'password'=>Hash::make($request->password)]);
-        Auth::login($user);
-        event(new Registered($user));
-
-        return redirect()->route('verification.notice');
-    }
-
-    public function logout() {
-        Auth::logout();
-        return redirect()->route('main');
-    }
-
-    public function cabinet() {
-        return 'Кабинет';
-    }
 
 
 
