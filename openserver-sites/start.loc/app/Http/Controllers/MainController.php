@@ -21,14 +21,14 @@ class MainController extends Controller
     public function index(Request $request)
     {
 
-        $users = DB::table('users')->get();
+        $var = DB::table('users')->where('id', 100)->exists();
+
+        dump($var);
 
 
-        foreach ($users as $user) {
-            echo $user->name;
-        }
 
 
+    return 1;
 
 
     }
