@@ -21,6 +21,11 @@ class MainController extends Controller
     public function index(Request $request)
     {
 
+        $users = User::paginate(5)->fragment('photo');
+        return view('index', compact('users'));
+
+
+
     return 1;
 
 

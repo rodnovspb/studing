@@ -6,6 +6,7 @@ namespace App\Providers;
 use App\Models\User;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\RateLimiter;
@@ -49,6 +50,9 @@ class AppServiceProvider extends ServiceProvider
        /* DB::listen(function ($query){
             dd($query);
         });*/
+
+//        Paginator::useBootstrapFive();
+//        Paginator::defaultSimpleView('pagination::simple-default');
 
     }
 }
