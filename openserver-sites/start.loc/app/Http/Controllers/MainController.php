@@ -21,19 +21,20 @@ class MainController extends Controller
     public function index(Request $request)
     {
 
-        $users = User::paginate(5)->fragment('photo');
-        return view('index', compact('users'));
+        User::chunk(10, function ($users){
+            foreach ($users as $user){
+                echo $user->name;
+            }
+        });
+
+
+        return view('index');
 
 
 
-    return 1;
 
 
     }
-
-
-
-
 
 
 
