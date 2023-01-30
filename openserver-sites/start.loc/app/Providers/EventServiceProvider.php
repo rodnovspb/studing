@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Events\GoodDeleted;
 use App\Events\OrderEvent;
+use App\Listeners\DeleteGoodListener;
 use App\Listeners\RequestListener;
 use App\Listeners\TelegramListener;
 use Illuminate\Auth\Events\Registered;
@@ -30,6 +32,8 @@ class EventServiceProvider extends ServiceProvider
         RequestSending::class => [
             RequestListener::class
         ],
+        GoodDeleted::class => [DeleteGoodListener::class],
+        Good1Deleted::class => [DeleteGoodListener1::class],
     ];
 
     /**

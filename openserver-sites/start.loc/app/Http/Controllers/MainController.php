@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Events\GoodDeleted;
+use App\Models\Good;
 use App\Models\User;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
@@ -21,11 +23,10 @@ class MainController extends Controller
     public function index(Request $request)
     {
 
-        User::chunk(10, function ($users){
-            foreach ($users as $user){
-                echo $user->name;
-            }
-        });
+        $good = Good::find(64);
+        $good->name = '12312йцц42ц434' . now();
+        $good->save();
+
 
 
         return view('index');
