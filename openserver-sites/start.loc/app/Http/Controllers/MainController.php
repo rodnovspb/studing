@@ -23,17 +23,15 @@ class MainController extends Controller
     public function index(Request $request)
     {
 
-        $good = Good::find(64);
-        $good->name = '12312йцц42ц434' . now();
-        $good->save();
+        $users = User::all()->toArray();
+
+        dd($users);
+
+
 
 
 
         return view('index');
-
-
-
-
 
     }
 
