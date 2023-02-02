@@ -23,10 +23,11 @@ class MainController extends Controller
     public function index(Request $request)
     {
 
-        $users = User::all()->toArray();
+        $user = User::find(1);
 
-        dd($users);
-
+        $user->my_word = 'Денис';
+        dd($user->attributes[]);
+        $user->save();
 
 
 
@@ -34,7 +35,5 @@ class MainController extends Controller
         return view('index');
 
     }
-
-
 
 }

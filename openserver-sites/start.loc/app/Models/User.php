@@ -18,6 +18,24 @@ class User extends Authenticatable implements MustVerifyEmail
 
     protected $fillable = ['name', 'email', 'password'];
 
-//    protected $hidden = ['name', 'email', 'password'];
+//    protected $hidden = ['name', 'email'];
+
+//    public function getNameAttribute($name) {
+//        return strtoupper($name);
+//    }
+//
+//    public function getFullNameAttribute(){
+//        return "{$this->name} {$this->password}";}
+//
+//    public function setMyWordAttribute($value){
+//        dd($this->attributes);
+//        $this->attributes['name'] = $value;
+//    }
+
+    protected $casts = [
+        'name' => 'boolean'
+    ];
+
+
 
 }
