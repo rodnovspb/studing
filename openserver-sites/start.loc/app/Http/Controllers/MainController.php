@@ -23,11 +23,9 @@ class MainController extends Controller
     public function index(Request $request)
     {
 
-        $user = User::find(1);
+        $user = User::find(41)->toJson();
 
-        $user->my_word = 'Денис';
-        dd($user->attributes[]);
-        $user->save();
+        dump($user);
 
 
 

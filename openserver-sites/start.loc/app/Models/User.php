@@ -4,7 +4,9 @@ namespace App\Models;
 
 
 
+use DateTimeInterface;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Casts\AsStringable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
@@ -31,10 +33,6 @@ class User extends Authenticatable implements MustVerifyEmail
 //        dd($this->attributes);
 //        $this->attributes['name'] = $value;
 //    }
-
-    protected $casts = [
-        'name' => 'boolean'
-    ];
 
 
 
