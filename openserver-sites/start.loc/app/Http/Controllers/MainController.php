@@ -25,10 +25,10 @@ class MainController extends Controller
 {
     public function index(Request $request)
     {
-        $user = User::find(41);
+        $user = User::all();
 
 
-        dd($user);
+        return UserResource::collection($user);
 
 
 
