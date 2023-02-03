@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Events\GoodDeleted;
+use App\Http\Resources\UserResource;
 use App\Models\Good;
 use App\Models\User;
 use Illuminate\Auth\Events\Registered;
@@ -17,15 +18,20 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
 
+use function MongoDB\BSON\toJSON;
+
 
 class MainController extends Controller
 {
     public function index(Request $request)
     {
+        $user = User::find(41);
 
-        $user = User::find(41)->toJson();
 
-        dump($user);
+        dd($user);
+
+
+
 
 
 
