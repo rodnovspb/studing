@@ -6,6 +6,7 @@ namespace App\Providers;
 use App\Models\User;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\DB;
@@ -53,6 +54,8 @@ class AppServiceProvider extends ServiceProvider
 
 //        Paginator::useBootstrapFive();
 //        Paginator::defaultSimpleView('pagination::simple-default');
+
+        JsonResource::withoutWrapping();
 
     }
 }

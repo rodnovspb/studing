@@ -25,10 +25,11 @@ class MainController extends Controller
 {
     public function index(Request $request)
     {
-        $user = User::all();
 
 
-        return UserResource::collection($user);
+
+        return User::find(41)->toArray();
+
 
 
 

@@ -20,6 +20,17 @@ class User extends Authenticatable implements MustVerifyEmail
 
     protected $fillable = ['name', 'email', 'password'];
 
+//    protected $visible = ['id', 'name'];
+
+
+
+    public function getIsAdminAttribute()
+    {
+        $this->attributes['is_admin'] = 'yes';
+        return $this->attributes['is_admin'];
+    }
+
+
 //    protected $hidden = ['name', 'email'];
 
 //    public function getNameAttribute($name) {
