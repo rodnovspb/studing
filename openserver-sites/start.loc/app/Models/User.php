@@ -20,15 +20,27 @@ class User extends Authenticatable implements MustVerifyEmail
 
     protected $fillable = ['name', 'email', 'password'];
 
+
+//    protected $casts = [
+//        'created_at' => 'date:Y-m-d',
+//        'joined_at' => 'datetime:Y-m-d H:00',
+//    ];
+
+//    protected function serializeDate(DateTimeInterface $date)
+//    {
+//        return $date->format('Y-m-d');
+//    }
+
+
+
 //    protected $visible = ['id', 'name'];
 
 
-
-    public function getIsAdminAttribute()
-    {
-        $this->attributes['is_admin'] = 'yes';
-        return $this->attributes['is_admin'];
-    }
+//    public function getIsAdminAttribute()
+//    {
+//        $this->attributes['is_admin'] = 'yes';
+//        return $this->attributes['is_admin'];
+//    }
 
 
 //    protected $hidden = ['name', 'email'];
