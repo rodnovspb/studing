@@ -1,0 +1,128 @@
+:root {
+    --width-wrapper: 1200px;
+    --color: #000;
+    --font-size: 16px;
+    --font-family: Lab Grotes, BlinkMacSystemFont, Roboto, Open Sans, Helvetica Neue, sans-serif;
+    --bg: #fff;
+}
+
+
+body {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: var(--font-size);
+    color: var(--color);
+    background-color: var(--bg);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow: hidden;
+    min-height: 100vh;
+}
+
+.container {
+    position: relative;
+    max-width: var(--width-wrapper);
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.header {
+
+}
+
+.header__contacts {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.contacts__logo {
+    flex-basis: 20%;
+}
+
+.contacts__place {
+    flex-basis: 25%;
+    text-align: center;
+}
+
+.contacts__time {
+    font-size: 26px;
+    margin-bottom: 5px;
+}
+
+.contacts__address {
+    font-size: 18px;
+}
+
+.contacts__phone {
+    display: flex;
+    align-items: center;
+    flex-basis: 25%;
+}
+
+.contacts__messengers {
+    display: flex;
+    margin-right: 10px;
+}
+
+.contacts__number {
+    font-size: 30px;
+}
+
+.contacts__email {
+    flex-basis: 25%;
+    font-size: 30px;
+}
+
+.header__delivery {
+    min-height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.delivery__cities {
+    flex-basis: 20%;
+}
+
+.delivery__services {
+    display: flex;
+    flex-basis: 80%;
+    justify-content: space-between;
+}
+
+.delivery__service {
+    display: flex;
+
+}
+
+.header__links {
+    display: flex;
+    justify-content: space-between;
+    min-height: 35px;
+    font-size: 24px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+
+
