@@ -1,10 +1,10 @@
 @include('parts.head')
 
-@section('sticky')
-    для внутренних
-@show
+@include('parts.sticky')
 
 @include('parts.header')
+
+@yield('sticky-inner', null)
 
 @yield('content')
 

@@ -26,7 +26,7 @@
           </div>
         </div>
         <div class="header__links">
-          <a href="#">Главная</a>
+          <a href="{{ route('index') }}">Главная</a>
           <a href="#">Каталог</a>
           <a href="#">Оплата и доставка</a>
           <a href="#">Акции</a>
