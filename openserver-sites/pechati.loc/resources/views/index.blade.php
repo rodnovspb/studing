@@ -1,120 +1,68 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<link rel="stylesheet" href="{{ asset('storage/fonts/fonts.css') }}">
-@vite(['resources/css/app.css', 'resources/js/app.js'])
-<title>Главная страница | Печати и штампы</title>
-</head>
-<body>
-<div class="wrapper">
-    <header class="header">
-        <div class="container">
-            <div class="header__contacts contacts">
-                <div class="contacts__logo">
-                    <img src="{{ asset('storage/images/decoration/logo.jpg') }}" alt="Логотип">
-                </div>
-                <div class="contacts__place">
-                    <div class="contacts__time">пн-пт с 10:00 до 18:00</div>
-                    <div class="contacts__address">Челябинск, Елькина, 63Б-102</div>
-                </div>
-                <div class="contacts__phone">
-                    <div class="contacts__messengers">
-                        <div class="contacts__whatsapp">
-                            <img src="{{ asset('storage/images/decoration/whatsapp.jpg') }}" alt="">
-                        </div>
-                        <div class="contacts__viber">
-                            <img src="{{ asset('storage/images/decoration/viber.jpg') }}" alt="">
-                        </div>
-                        <div class="contacts__telegram">
-                            <img src="{{ asset('storage/images/decoration/telegram.jpg') }}" alt="">
-                        </div>
-                    </div>
-                    <div class="contacts__number">
-                        <a href="tel:+79514466332">89514466332</a>
-                    </div>
-                </div>
-                <div class="contacts__email">
-                        <a href="mailto:cinedrodnov@mail.ru">cinedrodnov@mail.ru</a>
-                    </div>
-            </div>
-            <div class="header__delivery delivery">
-                <div class="delivery__cities">
-                    <select name="" id="">
-                        <option value="">Доставить в</option>
-                        <option value="">Челябинск</option>
-                        <option value="">Москва</option>
-                        <option value="">Санкт-Петербург</option>
-                        <option value="">Южно-Сахалинск</option>
-                    </select>
-                </div>
-                <div class="delivery__services">
-                    <div class="delivery__service service-1">
-                        <div class="service-1__logo">Яндекс</div>
-                        <div class="service-1__description">Отправим сразу</div>
-                    </div>
-                    <div class="delivery__service service-2">
-                        <div class="service-1__logo">Курьером</div>
-                        <div class="service-1__description">Отправим завтра</div>
-                    </div>
-                    <div class="delivery__service service-3">
-                        <div class="service-1__logo">СДЭК</div>
-                        <div class="service-1__description">1 день - 200 р.</div>
-                    </div>
-                </div>
-            </div>
-            <div class="header__links">
-                <a href="#">Главная</a>
-                <a href="#">Каталог</a>
-                <a href="#">Оплата и доставка</a>
-                <a href="#">Акции</a>
-                <a href="#">Контакты</a>
-                <a href="#">Быстрый заказ</a>
-            </div>
+@extends('layouts.layout', ['title' => 'Главная страница'])
+
+@section('sticky')
+    <div class="sticky">
+        <div class="sticky__logo">
+            <a href="{{ route('index') }}">
+                <img class="sticky__img" src="{{ asset('storage/images/decoration/logo.jpg') }}" alt="Логотип">
+            </a>
         </div>
-    </header>
-    <main class="main">
-        <section class="block1">
-            <div class="container">
-
+        <div class="sticky__place">
+          <div class="sticky__time">пн-пт с 10:00 до 18:00</div>
+          <div class="sticky__address">Челябинск, Елькина, 63Б-102</div>
+        </div>
+        <div class="sticky__phone">
+          <div class="sticky__messengers">
+            <div class="sticky__whatsapp">
+              <img src="{{ asset('storage/images/decoration/whatsapp.jpg') }}" alt="">
             </div>
+            <div class="sticky__viber">
+              <img src="{{ asset('storage/images/decoration/viber.jpg') }}" alt="">
+            </div>
+            <div class="sticky__telegram">
+              <img src="{{ asset('storage/images/decoration/telegram.jpg') }}" alt="">
+            </div>
+          </div>
+          <div class="sticky__number">
+            <a href="tel:+79514466332">89514466332</a>
+          </div>
+        </div>
+        <div class="sticky__email">
+          <a href="mailto:cinedrodnov@mail.ru">cinedrodnov@mail.ru</a>
+        </div>
+    </div>
+@endsection
+
+@section('content')
+    <main class="main">
+      <div class="container">
+        <section class="display">
+          <a class="display__item" href="#">
+            <h1 class="display__title">Печать ИП</h1>
+          </a>
+          <a class="display__item" href="#">
+            <h1 class="display__title">Печать организации</h1>
+          </a>
+          <a class="display__item" href="#">
+            <h1 class="display__title">Штампы</h1>
+          </a>
+          <a class="display__item" href="#">
+            <h1 class="display__title">По оттиску</h1>
+          </a>
+          <a class="display__item" href="#">
+            <h1 class="display__title">Печать врача</h1>
+          </a>
+          <a class="display__item" href="#">
+            <h1 class="display__title">Факсимиле</h1>
+          </a>
+          <a class="display__item" href="#">
+            <h1 class="display__title">Другая печать</h1>
+          </a>
+          <a class="display__item" href="#">
+            <h1 class="display__title">Каталог</h1>
+          </a>
         </section>
+      </div>
     </main>
-</div>
+@endsection
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<a href="{{ route('clear') }}">Очистить кеш</a>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</body>
-</html>

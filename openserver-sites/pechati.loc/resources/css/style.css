@@ -2,7 +2,7 @@
     --width-wrapper: 1200px;
     --color: #000;
     --font-size: 16px;
-    --font-family: Lab Grotes, BlinkMacSystemFont, Roboto, Open Sans, Helvetica Neue, sans-serif;
+    --font-family: Lab Grotesque, BlinkMacSystemFont, Roboto, Open Sans, Helvetica Neue, sans-serif;
     --bg: #fff;
 }
 
@@ -24,7 +24,6 @@ img {
     display: flex;
     flex-direction: column;
     width: 100%;
-    overflow: hidden;
     min-height: 100vh;
 }
 
@@ -42,49 +41,59 @@ img {
 
 }
 
-.header__contacts {
+.sticky {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 8px 15px 8px 15px;
     border-bottom: 1px solid #ccc;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: #fff;
+    max-width: var(--width-wrapper);
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.contacts__logo {
-    flex-basis: 20%;
+.sticky__logo {
+    flex-basis: 15%;
 }
 
-.contacts__place {
+.sticky__img {
+    max-height: 50px;
+}
+
+.sticky__place {
     flex-basis: 25%;
     text-align: center;
 }
 
-.contacts__time {
+.sticky__time {
     font-size: 26px;
-    margin-bottom: 5px;
 }
 
-.contacts__address {
-    font-size: 18px;
+.sticky__address {
+    font-size: 20px;
 }
 
-.contacts__phone {
+.sticky__phone {
     display: flex;
     align-items: center;
     flex-basis: 25%;
 }
 
-.contacts__messengers {
+.sticky__messengers {
     display: flex;
     margin-right: 10px;
 }
 
-.contacts__number {
+.sticky__number {
     font-size: 30px;
 }
 
-.contacts__email {
+.sticky__email {
     flex-basis: 25%;
     font-size: 30px;
 }
@@ -122,6 +131,42 @@ img {
     padding-top: 10px;
     padding-bottom: 10px;
     border-bottom: 1px solid #ccc;
+}
+
+.main {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.display {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.display__item {
+    flex-basis: 24%;
+    height: 200px;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .15s ease;
+    margin-bottom: 30px;
+}
+
+.display__title {
+    font-size: 30px;
+    text-align: center;
+}
+
+.display__item:hover {
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+.footer__content {
+    display: flex;
+    justify-content: space-between;
 }
 
 
