@@ -159,6 +159,7 @@ h1 {
 .order-text {
     font-size: 23px;
     text-align: center;
+    margin-bottom: 10px;
 }
 
 .order-img {
@@ -168,6 +169,11 @@ h1 {
 }
 .order-img a:not(:last-child) {
     margin-right: 2px;
+}
+
+.steps {
+    text-align: center;
+    font-size: 24px;
 }
 
 .footer {
