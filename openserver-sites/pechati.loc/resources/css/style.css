@@ -230,4 +230,67 @@ h1 {
 
 
 
+/*******************Формы входа**********************/
+
+.admin-entrance {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #312e81;
+}
+
+.admin-form {
+    background-color: #e4e4e7;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.admin-form div {
+    margin-bottom: 20px;
+}
+
+.admin-form input:not([type="checkbox"]) {
+    border: 1px solid grey;
+    padding: 8px;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.admin-form-error {
+    font-size: 14px;
+    color: red;
+}
+
+.admin-form-btn {
+    background-color: #16a34a;
+    color: #fff;
+    padding: 8px 25px;
+    display: inline-block;
+    width: 100%;
+    transition: background-color .1s;
+}
+
+.admin-form-btn:hover {
+    background-color: #15803d;
+}
+
+.admin-form-btn:active {
+    background-color: #166534;
+}
+
+.already-registered {
+    text-align: center;
+    font-size: 15px;
+}
+
+.admin-form .remember_me {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+
+
+
 

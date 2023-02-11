@@ -26,12 +26,11 @@
           </div>
         </div>
         <div class="header__links">
-          <a href="{{ route('index') }}">Главная</a>
-          <a href="#">Каталог</a>
-          <a href="#">Оплата и доставка</a>
-          <a href="#">Акции</a>
-          <a href="#">Контакты</a>
-          <a href="#">Быстрый заказ</a>
+          @foreach($articleMenu as $item)
+            <a href="{{ env('ABS_URL') . $item->uri }}" title="{{ $item->link_title }}">{{ $item->top_header }}</a>
+          @endforeach
         </div>
       </div>
     </header>
+
+
