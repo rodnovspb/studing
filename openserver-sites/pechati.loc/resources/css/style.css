@@ -39,8 +39,27 @@ img {
     padding-right: 15px;
 }
 
+.container-admin {
+    max-width: unset;
+}
+
+.df {
+    display: flex;
+}
+
+.dfc {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 h1 {
     font-size: 27px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+h2 {
+    font-size: 25px;
     text-align: center;
     margin-bottom: 10px;
 }
@@ -290,6 +309,97 @@ h1 {
     gap: 8px;
 }
 
+
+/*******************Административная панель**********************/
+
+.header__admin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #ccc;
+    background-color: #000;
+    color: #fff;
+}
+
+.footer__admin {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #ccc;
+    background-color: #000;
+    color: #fff;
+}
+
+.footer__links {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer__links a,  .footer__links button{
+    color: #fff;
+    border: 1px solid white;
+    padding: 8px 25px;
+    border-radius: 7px;
+}
+
+.footer__links a:hover, .footer__links button:hover {
+    box-shadow: 0 0 10px white;
+}
+
+.footer__links a:active, .footer__links button:active {
+    box-shadow: 0 0 5px white;
+}
+
+
+.admin {
+    display: flex;
+}
+
+.admin__left {
+    flex-basis: 12%;
+    background-color: #cbd5e1;
+    padding: 12px;
+}
+
+.admin__right {
+    flex-basis: 88%;
+    padding: 12px;
+    background-color: #e2e8f0;
+    height: 100vh;
+}
+
+.admin__list li {
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+table.admin__table {
+    width: 100%;
+    border: none;
+}
+
+table.admin__table th {
+    font-weight: bold;
+    text-align: left;
+    border: none;
+    padding: 10px 15px;
+    background: #cbd5e1;
+
+}
+
+table.admin__table td {
+    text-align: left;
+    border: none;
+    padding: 10px 15px;
+    vertical-align: top;
+}
+
+table.admin__table tr:nth-child(even){
+    background: #f3f3f3;
+}
 
 
 
