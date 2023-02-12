@@ -11,6 +11,7 @@
             <th style="text-align: center;">Опубликовано</th>
             <th style="text-align: center;">Действие</th>
         </tr>
+        </thead>
         <tbody>
         @foreach($pages as $page)
             <tr>
@@ -30,7 +31,6 @@
             </tr>
         @endforeach
         </tbody>
-    </thead>
     </table>
     <div class="admin__pagination">{{ $pages->links() }}</div>
 
