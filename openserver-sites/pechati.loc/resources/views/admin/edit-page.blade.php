@@ -9,7 +9,7 @@
             <th>Содержание</th>
             <th>Ссылка</th>
             <th style="text-align: center;">Опубликовано</th>
-            <th style="text-align: center;">Действие</th>
+            <th>Действие</th>
         </tr>
         <tbody>
         @foreach($pages as $page)
@@ -19,19 +19,13 @@
                 <td class="clip-text">{{ $page->content }}</td>
                 <td>{{ $page->uri }}</td>
                 <td style="text-align: center;">{{ $page->publish ? 'Да':'Нет' }}</td>
-                <td>
-                    <a class="admin__btn" href="{{ route('pages.edit', ['page' => $page->id]) }}">Редактировать</a>
-                    <form style="display: inline-block;" action="{{ route('pages.destroy', ['page' => $page->id]) }}" method="post">
-                        @csrf
-                        @method('delete')
-                        <button class="admin__btn" {{ $page->uri === '' ? 'disabled': null }}>{{ $page->publish ? 'Снять с публикации':'Опубликовать' }}</button>
-                    </form>
-                </td>
+                <td><a href="{{ route('pages.edit', ['page' => $page->id]) }}">Редактировать</a></td>
             </tr>
         @endforeach
         </tbody>
-    </thead>
+        </thead>
     </table>
     <div class="admin__pagination">{{ $pages->links() }}</div>
 
 @endsection
+

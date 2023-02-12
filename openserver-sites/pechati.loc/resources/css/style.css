@@ -394,12 +394,53 @@ table.admin__table td {
     text-align: left;
     border: none;
     padding: 10px 15px;
-    vertical-align: top;
+    vertical-align: middle;
 }
+
+table.admin__table td.clip-text {
+    max-width: 300px;
+    overflow: hidden;
+    white-space : nowrap;
+    text-overflow: ellipsis;
+}
+
 
 table.admin__table tr:nth-child(even){
     background: #f3f3f3;
 }
+
+.admin__btn {
+    padding: 5px 8px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    color: #334155;
+    transition: box-shadow .1s linear;
+}
+
+.admin__btn:hover {
+    box-shadow: 0 0 3px #1d4ed8;
+}
+
+.admin__btn:active {
+    box-shadow: 0 0 1px #1d4ed8;
+}
+
+.admin__pagination nav {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.admin__pagination {
+    margin-top: 20px;
+}
+
+.admin__pagination nav a {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+
 
 
 
