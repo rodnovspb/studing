@@ -6,6 +6,7 @@
               <section class="admin">
                   <div class="admin__left">
                       <ul class="admin__list">
+                          <li><a href="{{ route('index') }}" target="_blank">На сайт</a></li>
                           <li><a href="{{ route('orders.index') }}">Список заказов</a></li>
                           <li><a href="{{ route('pages.index') }}">Страницы сайта</a></li>
                           <li><a href="#">Настройки</a></li>

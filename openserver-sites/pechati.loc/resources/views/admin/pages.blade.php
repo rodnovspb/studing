@@ -15,7 +15,7 @@
         <tbody>
         @foreach($pages as $page)
             <tr>
-                <td>{{ $page->template }}</td>
+                <td>{{ $page->template->name }}</td>
                 <td>{{ $page->meta_title }}</td>
                 <td class="clip-text">{{ $page->content }}</td>
                 <td>{{ $page->uri }}</td>

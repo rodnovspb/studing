@@ -29,6 +29,12 @@ img {
     min-height: 100vh;
 }
 
+.main {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
 .container {
     position: relative;
     max-width: var(--width-wrapper);
@@ -199,6 +205,11 @@ h2 {
     margin-top: auto;
 }
 
+.footer__main {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
 .footer__content {
     display: flex;
     justify-content: space-between;
@@ -329,6 +340,7 @@ h2 {
     border-bottom: 1px solid #ccc;
     background-color: #000;
     color: #fff;
+    margin-top: auto;
 }
 
 .footer__links {
@@ -356,6 +368,7 @@ h2 {
 
 .admin {
     display: flex;
+    flex-grow: 1;
 }
 
 .admin__left {
@@ -368,7 +381,6 @@ h2 {
     flex-basis: 88%;
     padding: 12px;
     background-color: #e2e8f0;
-    height: 100vh;
 }
 
 .admin__list li {
@@ -387,7 +399,14 @@ table.admin__table th {
     border: none;
     padding: 10px 15px;
     background: #cbd5e1;
+}
 
+table.admin__table .first_col {
+    width: 25%;
+}
+
+table.admin__table .second_col {
+    width: 75%;
 }
 
 table.admin__table td {
@@ -439,6 +458,29 @@ table.admin__table tr:nth-child(even){
     text-decoration: underline;
     text-underline-offset: 2px;
 }
+
+.admin__table textarea {
+    width: 100%;
+}
+
+.admin__table input[type='text'],
+.admin__table input[type='number'],
+.admin__table select {
+    width: 40%;
+}
+
+.admin__table input[type='text'],
+.admin__table input[type='number'],
+.admin__table select,
+.admin__table textarea
+{
+    border: 1px solid #a09f9f;
+    padding: 8px;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+
 
 
 
