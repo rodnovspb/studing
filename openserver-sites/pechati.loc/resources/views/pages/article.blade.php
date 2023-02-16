@@ -8,7 +8,7 @@
     <main class="main main-page">
       <div class="container">
         <section class="ip">
-            <h1>Статья</h1>
+            {!! $data->content !!}
         </section>
       </div>
     </main>

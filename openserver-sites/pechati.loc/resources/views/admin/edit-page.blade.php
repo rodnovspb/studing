@@ -35,7 +35,7 @@
             <tr>
                 <td style="color: red; font-weight: bold;">Заголовок браузера - обязательное поле</td>
                 <td>
-                    <input type="text" name="meta_title" {{--required--}} value="{{ $page->meta_title }}">
+                    <input type="text" name="meta_title" required value="{{ $page->meta_title }}">
                     <span style="margin-left: 20px; color: red; font-weight: bold;">@error('meta_title') {{ $message }} @enderror</span>
                 </td>
             </tr>
@@ -82,7 +82,7 @@
 
             <tr>
                 <td>Текст страницы</td>
-                <td><textarea name="content" id="" cols="30" rows="10">{{ old('content') ?? $page->content }}</textarea></td>
+                <td><textarea name="content" id="ckeditor" cols="30" rows="10">{{ old('content') ?? $page->content }}</textarea></td>
             </tr>
 
             <tr>
@@ -113,7 +113,7 @@
         </tbody>
 
     </table>
-        <div style="margin-top: 20px; margin-right: 50px; text-align: right;">
+        <div style="margin-top: 20px;  text-align: center;">
             <button class="admin__btn" type="submit">Сохранить</button>  {{--- здесь нужно будет перекешировать --}}
         </div>
     </form>

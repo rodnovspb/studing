@@ -9,6 +9,7 @@
       <div class="container">
         <section class="ip">
             <h1>Каталог</h1>
+            @dd($data)
         </section>
       </div>
     </main>

@@ -14,10 +14,10 @@
         </thead>
         <tbody>
         @foreach($pages as $page)
-            <tr>
+            <tr class="admin__tr">
                 <td>{{ $page->template->name }}</td>
                 <td>{{ $page->meta_title }}</td>
-                <td class="clip-text">{{ $page->content }}</td>
+                <td class="clip-text">{{ $page->content }} </td>
                 <td>{{ $page->uri }}</td>
                 <td style="text-align: center;">{{ $page->publish ? 'Да':'Нет' }}</td>
                 <td>

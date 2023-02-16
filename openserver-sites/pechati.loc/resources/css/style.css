@@ -64,11 +64,6 @@ h1 {
     text-align: center;
     margin-bottom: 10px;
 }
-h2 {
-    font-size: 25px;
-    text-align: center;
-    margin-bottom: 10px;
-}
 
 .sticky {
     display: flex;
@@ -423,13 +418,12 @@ table.admin__table td.clip-text {
     text-overflow: ellipsis;
 }
 
-
 table.admin__table tr:nth-child(even){
     background: #f3f3f3;
 }
 
 .admin__btn {
-    padding: 5px 8px;
+    padding: 10px 25px;
     border: 1px solid grey;
     border-radius: 5px;
     color: #334155;
@@ -480,6 +474,9 @@ table.admin__table tr:nth-child(even){
     background-color: #fff;
 }
 
+#ckeditor {
+    min-height: 100px;
+}
 
 
 
