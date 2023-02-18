@@ -7,7 +7,7 @@
 @section('content')
     <main class="main main-page">
       <div class="container">
-        <section class="ip">
+        <section>
             {!! $data->content !!}
         </section>
       </div>

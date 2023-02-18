@@ -21,6 +21,10 @@ class MainController extends Controller
         0.12044
     ];
 
+    /*Процент за ПЭС*/
+    static $comission = 1;
+
+
     public function index() {
         $bill = Bill::query()->orderBy('id', 'desc')->simplePaginate(1);
         $billArr = $bill[0];
@@ -56,10 +60,15 @@ class MainController extends Controller
         $result = self::getResultSum($costElectArr, $electBySquareArr, $tkoBySquareArr, $kuBySquareArr);
         /*получим общую сумму*/
         $sumForAll = array_sum($result);
+        /*получим итоговую сумму за все по студиям + 1 % за ПЭС*/
+        $resultWithComission = self::getResultSumWithCommission($costElectArr, $electBySquareArr, $tkoBySquareArr, $kuBySquareArr);
+        /*получим общую сумму + 1 процент ПЭС*/
+        $sumForAllWithComission = array_sum($resultWithComission);
         /*получим дату строкой*/
         $date = getDateString($bill[0]->bill_date);
 
-        return view('index', compact('bill', 'nowBillElectArr', 'lastBillElectArr', 'diffElectArr', 'costElectArr', 'lastElectSum', 'nowElectSum', 'sumElect', 'costElect', 'diffElect', 'electBySquareArr', 'tkoBySquareArr', 'kuBySquareArr', 'result', 'sumForAll', 'date'));
+
+        return view('index', compact('bill', 'nowBillElectArr', 'lastBillElectArr', 'diffElectArr', 'costElectArr', 'lastElectSum', 'nowElectSum', 'sumElect', 'costElect', 'diffElect', 'electBySquareArr', 'tkoBySquareArr', 'kuBySquareArr', 'result', 'sumForAll', 'resultWithComission', 'sumForAllWithComission', 'date'));
     }
 
     public function getBillElect($bill) {
@@ -134,6 +143,18 @@ class MainController extends Controller
         }
 
         return $arr;
+    }
+
+    public function getResultSumWithCommission($arr1, $arr2, $arr3, $arr4) {
+        $arr = [];
+        for($i = 1; $i <= count($arr1); $i++){
+            $arr[$i] = ceil($arr1[$i] * self::getPercent() + $arr2[$i] * self::getPercent() + $arr3[$i] * self::getPercent() + $arr4[$i]);
+        }
+        return $arr;
+    }
+
+    public static function getPercent(){
+        return  1 + (self::$comission / 100);
     }
 
 

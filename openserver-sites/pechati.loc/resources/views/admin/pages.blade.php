@@ -4,9 +4,8 @@
     <table class="admin__table">
         <thead>
         <tr>
+            <th>Страница</th>
             <th>Шаблон</th>
-            <th>Заголовок</th>
-            <th>Содержание</th>
             <th>Ссылка</th>
             <th style="text-align: center;">Опубликовано</th>
             <th style="text-align: center;">Действие</th>
@@ -15,9 +14,8 @@
         <tbody>
         @foreach($pages as $page)
             <tr class="admin__tr">
-                <td>{{ $page->template->name }}</td>
                 <td>{{ $page->meta_title }}</td>
-                <td class="clip-text">{{ $page->content }} </td>
+                <td>{{ $page->template->name }}</td>
                 <td>{{ $page->uri }}</td>
                 <td style="text-align: center;">{{ $page->publish ? 'Да':'Нет' }}</td>
                 <td>
@@ -32,6 +30,7 @@
         @endforeach
         </tbody>
     </table>
+    <div class="dfc" style="margin-top: 20px;"><a class="admin__btn" href="{{ route('pages.create') }}">Создать страницу</a></div>
     <div class="admin__pagination">{{ $pages->links() }}</div>
 
 @endsection

@@ -27,14 +27,18 @@
           <div>
             <a href="{{ route('clear') }}">Очистить кеш</a>
           </div>
+          <div>
+            <a href="{{ route('set_cache') }}">Закешировать</a>
+          </div>
         </div>
       </div>
       <script>
           window.addEventListener('load', ()=>{
-              CKEDITOR.replace('ckeditor', {
-                  filebrowserBrowseUrl:  "/ckeditor/ckfinder/ckfinder.html",
-                  filebrowserUploadUrl:  '/ckeditor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files'
-          })})
+              if(document.body.querySelector('#ckeditor')){
+                  CKEDITOR.replace('ckeditor', {
+                      filebrowserBrowseUrl:  "/ckeditor/ckfinder/ckfinder.html",
+                      filebrowserUploadUrl:  '/ckeditor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files'
+                  })}})
       </script>
 
     </footer>

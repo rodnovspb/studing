@@ -35,6 +35,10 @@ img {
     flex-grow: 1;
 }
 
+.main section {
+    line-height: 1.4;
+}
+
 .container {
     position: relative;
     max-width: var(--width-wrapper);
@@ -62,7 +66,13 @@ img {
 h1 {
     font-size: 27px;
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
+}
+
+h3 {
+    font-size: 23px;
+    text-align: center;
+    margin-bottom: 5px;
 }
 
 .sticky {
@@ -85,8 +95,9 @@ h1 {
     flex-basis: 15%;
 }
 
-.sticky__img {
+a.sticky__img {
     max-height: 50px;
+    display: inline-block;
 }
 
 .sticky__place {
@@ -428,6 +439,7 @@ table.admin__table tr:nth-child(even){
     border-radius: 5px;
     color: #334155;
     transition: box-shadow .1s linear;
+    display: inline-block;
 }
 
 .admin__btn:hover {
@@ -446,6 +458,7 @@ table.admin__table tr:nth-child(even){
 
 .admin__pagination {
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .admin__pagination nav a {
@@ -476,6 +489,11 @@ table.admin__table tr:nth-child(even){
 
 #ckeditor {
     min-height: 100px;
+}
+
+.admin__table input[type='text'].create_input,
+.admin__table input[type='number'].create_input {
+    width: 100%;
 }
 
 

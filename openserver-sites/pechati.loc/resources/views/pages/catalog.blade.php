@@ -7,9 +7,9 @@
 @section('content')
     <main class="main main-page">
       <div class="container">
-        <section class="ip">
+        <section>
             <h1>Каталог</h1>
-            @dd($data)
+
         </section>
       </div>
     </main>

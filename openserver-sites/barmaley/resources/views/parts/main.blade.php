@@ -20,6 +20,7 @@
                 <table class="table content__price">
                     <tr>
                         <th>Студия</th>
+                        <th>Сумма + 1% ПЭС</th>
                         <th>Сумма</th>
                         <th>Площадь (м2)</th>
                         <th>% площади</th>
@@ -33,6 +34,7 @@
                     </tr>
                     <tr>
                         <td>1</td>
+                        <td>{{ $resultWithComission[1] }}</td>
                         <td>{{ $result[1] }}</td>
                         <td>16,74</td>
                         <td>0,13169</td>
@@ -46,6 +48,7 @@
                     </tr>
                     <tr>
                         <td>2</td>
+                        <td>{{ $resultWithComission[2] }}</td>
                         <td>{{ $result[2] }}</td>
                         <td>14,88</td>
                         <td>0,11706</td>
@@ -59,6 +62,7 @@
                     </tr>
                     <tr>
                         <td>3</td>
+                        <td>{{ $resultWithComission[3] }}</td>
                         <td>{{ $result[3] }}</td>
                         <td>12,31</td>
                         <td>0,09684</td>
@@ -72,6 +76,7 @@
                     </tr>
                     <tr>
                         <td>4</td>
+                        <td>{{ $resultWithComission[4] }}</td>
                         <td>{{ $result[4] }}</td>
                         <td>14,46</td>
                         <td>0,11375</td>
@@ -85,6 +90,7 @@
                     </tr>
                     <tr>
                         <td>5</td>
+                        <td>{{ $resultWithComission[5] }}</td>
                         <td>{{ $result[5] }}</td>
                         <td>14,46</td>
                         <td>0,11375</td>
@@ -98,6 +104,7 @@
                     </tr>
                     <tr>
                         <td>6</td>
+                        <td>{{ $resultWithComission[6] }}</td>
                         <td>{{ $result[6] }}</td>
                         <td>12,89</td>
                         <td>0,1014</td>
@@ -111,6 +118,7 @@
                     </tr>
                     <tr>
                         <td>7</td>
+                        <td>{{ $resultWithComission[7] }}</td>
                         <td>{{ $result[7] }}</td>
                         <td>11,6</td>
                         <td>0,09125</td>
@@ -124,6 +132,7 @@
                     </tr>
                     <tr>
                         <td>8</td>
+                        <td>{{ $resultWithComission[8] }}</td>
                         <td>{{ $result[8] }}</td>
                         <td>14,46</td>
                         <td>0,11375</td>
@@ -137,6 +146,7 @@
                     </tr>
                     <tr>
                         <td>9</td>
+                        <td>{{ $resultWithComission[9] }}</td>
                         <td>{{ $result[9] }}</td>
                         <td>15,31</td>
                         <td>0,12044</td>
@@ -150,6 +160,7 @@
                     </tr>
                     <tr class="result">
                         <td>Общ.</td>
+                        <td>{{ $sumForAllWithComission }}</td>
                         <td>{{ $sumForAll }}</td>
                         <td>127,11</td>
                         <td>0,99993</td>
