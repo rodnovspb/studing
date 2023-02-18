@@ -36,7 +36,7 @@
             <tr>
                 <td style="color: red; font-weight: bold;">Заголовок браузера - обязательное поле</td>
                 <td>
-                    <input type="text" name="meta_title" {{--required--}} value="{{ $page->meta_title }}">
+                    <input type="text" name="meta_title" required value="{{ $page->meta_title }}">
                     <span style="margin-left: 20px; color: red; font-weight: bold;">@error('meta_title') {{ $message }} @enderror</span>
                 </td>
             </tr>
@@ -74,7 +74,7 @@
             <tr>
                 <td>Ссылка (писать в транскрипции)</td>
                 <td>
-                    <input type="text" name="uri" value="{{ old('uri') ?? $page->uri }}"  pattern="[a-z0-9-]{2,1000}" @if($page->uri === '') disabled @endif>
+                    <input type="text" name="uri" value="{{ old('uri') ?? $page->uri }}"  pattern="[a-z0-9-]{2,1000}" @if($page->uri === null) disabled @endif>
                     <span style="margin-left: 20px; color: red; font-weight: bold;">@error('uri') {{ $message }} @enderror</span>
                 </td>
             </tr>
