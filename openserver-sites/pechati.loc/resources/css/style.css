@@ -371,18 +371,27 @@ a.sticky__img {
 .cases__item {
     flex-basis: 16%;
     padding: 5px;
-    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
+}
+
+.cases__top {
+    height: 250px;
+    position: relative;
+}
+
+.cases__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .cases__item label {
     display: inline-block;
-    height: 250px;
-    width: auto;
+    height: 100%;
 }
 
 .cases__item input[type="radio"] {
@@ -401,24 +410,36 @@ a.sticky__img {
 .cases__price {
     position: absolute;
     font-size: 20px;
-    right: -3px;
-    bottom: 39px;
+    right: -22px;
+    bottom: -7px;
     line-height: 1;
     color: #3b82f6;
 }
 
 .cases__name {
     display: flex;
-    justify-content: center;
-    gap: 10px;
+    justify-content: space-around;
     align-items: center;
-    height: 25px;
     font-size: 18px;
 }
 
-.cases__name a {
-    display: inline-block;
-    height: 100%;
+.cases__title {
+    margin-right: 8px;
+    flex-basis: 80%;
+    word-wrap: anywhere;
+    text-align: center;
+}
+
+.cases__video {
+    flex-basis: 20%;
+}
+
+.cases__video a {
+
+}
+
+.cases__youtube {
+    height: 25px;
 }
 
 
