@@ -1,10 +1,11 @@
 /*******************Общие стили**********************/
 :root {
-    --width-wrapper: 1200px;
+    --width-wrapper: 1350px;
     --color: #000;
     --font-size: 16px;
     --font-family: Lab Grotesque, BlinkMacSystemFont, Roboto, Open Sans, Helvetica Neue, sans-serif;
     --bg: #fff;
+    --padding-side: 20px;
 }
 
 
@@ -33,9 +34,6 @@ img {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-}
-
-.main section {
     line-height: 1.4;
 }
 
@@ -45,8 +43,8 @@ img {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: var(--padding-side);
+    padding-right: var(--padding-side);
 }
 
 .container-admin {
@@ -89,6 +87,16 @@ h3 {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
+}
+
+.sticky__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrapper-place {
+    flex-direction: column;
 }
 
 .sticky__logo {
@@ -190,7 +198,6 @@ a.sticky__img {
 .order-text {
     font-size: 23px;
     text-align: center;
-    margin-bottom: 10px;
 }
 
 .order-img {
@@ -260,6 +267,166 @@ a.sticky__img {
 }
 
 /*******************Печать ИП**********************/
+
+.templates {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.templates__list {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.templates__images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    position: relative;
+}
+
+.templates__item {
+    flex-basis: 16%;
+    padding: 5px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.templates__item input[type="radio"] {
+    display: none;
+}
+
+.templates__item label {
+    display: inline-block;
+    border-radius: 50%;
+}
+
+.templates__img {
+    transition: transform .3s ease-in-out;
+    cursor:pointer;
+}
+
+.templates__img:hover {
+    transform: scale(1.05);
+}
+
+.templates__number {
+    position: absolute;
+    font-size: 20px;
+    left: 7px;
+    top: 7px;
+    line-height: 1;
+    color: #3b82f6;
+}
+
+.templates__price {
+    position: absolute;
+    font-size: 20px;
+    right: 7px;
+    bottom: 7px;
+    line-height: 1;
+    color: #3b82f6;
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 50px;
+    width: 30px;
+    font-size: 30px;
+}
+
+.left-arrow {
+    left: -30px;
+}
+
+.right-arrow {
+    right: -30px;
+}
+
+.cases {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.cases__list {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.cases__images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    position: relative;
+}
+
+.cases__item {
+    flex-basis: 16%;
+    padding: 5px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.cases__item label {
+    display: inline-block;
+    height: 250px;
+    width: auto;
+}
+
+.cases__item input[type="radio"] {
+    display: none;
+}
+
+.cases__img {
+    transition: transform .3s ease-in-out;
+    cursor:pointer;
+}
+
+.cases__img:hover {
+    transform: scale(1.05);
+}
+
+.cases__price {
+    position: absolute;
+    font-size: 20px;
+    right: -3px;
+    bottom: 39px;
+    line-height: 1;
+    color: #3b82f6;
+}
+
+.cases__name {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+    height: 25px;
+    font-size: 18px;
+}
+
+.cases__name a {
+    display: inline-block;
+    height: 100%;
+}
+
+
+
+
+
+
+
 
 
 
@@ -423,7 +590,7 @@ table.admin__table td {
 }
 
 table.admin__table td.clip-text {
-    max-width: 300px;
+    max-width: 500px;
     overflow: hidden;
     white-space : nowrap;
     text-overflow: ellipsis;
