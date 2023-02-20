@@ -12,7 +12,7 @@
 
         <form action="#" method="post" enctype="multipart/form-data">
         @csrf
-        <section class="templates">
+        <section class="templates section">
             <h3>{!! $options['step_1'] ?? null !!}</h3>
             <div class="templates__list">
                 <a href="#">Стандартные (22 шт.)</a>
@@ -37,7 +37,7 @@
             </div>
         </section>
 
-        <section class="cases">
+        <section class="cases section">
             <h3>{!! $options['step_2'] ?? null !!}</h3>
             <div class="cases__list">
                 <a href="#">Часто выбирают</a>
@@ -71,10 +71,25 @@
             </div>
         </section>
 
-        <section class="requisites">
+        <section class="section requisites">
             <h3>{!! $options['step_3'] ?? null !!}</h3>
-            <div style="text-align: center;">Блок с реквизитами</div>
-            <button id="inn" type="button">Получить</button>
+            <div class="requisites__wrapper">
+                <div class="requisites__urgency urgency">
+                    <div class="urgency__title">Срочность</div>
+                    <div class="urgency__time">
+                        <input type="radio" name="urgency" id="urgency__input_1" checked><label for="urgency__input_1" class="urgency__label urgency__4hour">4 часа</label>
+                        <input type="radio" name="urgency" id="urgency__input_2"><label for="urgency__input_2" class="urgency__label urgency__30min">30 минут</label>
+                    </div>
+                </div>
+                <div class="requisites__inn inn">
+                    <div class="inn__title">ИНН или ОГРН</div>
+                    <input class="form-input" type="text" name="requisites__inn" id="inn">
+                </div>
+                <div class="requisites__inn inn">
+                    <div class="inn__title">Наименование</div>
+                    <input id="input_name" class="form-input" type="text" name="requisites__name" placeholder="ИП Фамилия Имя Отчество">
+                </div>
+            </div>
         </section>
 
       <section class="delivery">
@@ -96,12 +111,38 @@
 
       </form>
 
-
-
-
-
-
-
   </div>
 </main>
+@endsection
+
+@section('script')
+    <script>
+    let inputInn = document.querySelector('#inn');
+    let inputName = document.querySelector('#input_name');
+    if((typeof(inputInn) != 'undefined' && inputInn != null) && (typeof(inputName) != 'undefined' && inputName != null)){
+        inputInn.addEventListener('input', function (e) {
+            if(inputInn.value.length >=12){
+                // ищем числа состоящие из 12 или 15 цифр
+                 let number = inputInn.value.match(/\b\d{15}\b|\b\d{12}\b/g)
+                 if(number && number.length > 0){
+                     fetch('/dadata/ip', {
+                         headers: {
+                             'X-CSRF-TOKEN': document.querySelector('input[name=_token]').value,
+                             'Content-Type': 'application/json',
+                             'Accept': 'application/json',
+                         },
+                         method: "POST",
+                         body: JSON.stringify({inn: number[0]})})
+                         .then(response => response.json())
+                         .then(result => {
+                             if(result.suggestions[0]){
+                                 inputName.value = result.suggestions[0].value
+                             }
+                         })
+                         .catch(error => console.log("error", error));
+                 }
+            }
+        })
+    }
+    </script>
 @endsection

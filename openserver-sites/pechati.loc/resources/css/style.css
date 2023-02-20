@@ -268,9 +268,9 @@ a.sticky__img {
 
 /*******************Печать ИП**********************/
 
-.templates {
-    padding-top: 10px;
-    padding-bottom: 10px;
+.section {
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .templates__list {
@@ -347,11 +347,6 @@ a.sticky__img {
 
 .right-arrow {
     right: -30px;
-}
-
-.cases {
-    padding-top: 10px;
-    padding-bottom: 10px;
 }
 
 .cases__list {
@@ -442,6 +437,65 @@ a.sticky__img {
     height: 25px;
 }
 
+.urgency {
+    display: flex;
+}
+
+.requisites__wrapper {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    font-size: 20px;
+    gap: 20px;
+    padding-top: 10px;
+}
+
+.requisites__urgency,
+.requisites__inn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.urgency__time {
+    width: 600px;
+    display: flex;
+    gap: 10px;
+}
+
+input[name='urgency'] {
+    display: none;
+}
+
+.urgency__label {
+    padding: 10px 40px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: inline-block;
+    width: 50%;
+    text-align: center;
+}
+
+input:checked + label {
+    box-shadow: 0 0 5px #3b82f6;
+}
+
+.form-input {
+    padding: 10px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: inline-block;
+    width: 600px;
+}
+
+.form-input:focus {
+    box-shadow: 0 0 3px #3b82f6;
+}
+
+.form-input::placeholder {
+
+}
 
 
 
@@ -454,7 +508,8 @@ a.sticky__img {
 
 
 
-/*******************Формы входа**********************/
+
+    /*******************Формы входа**********************/
 
 .admin-entrance {
     height: 100vh;

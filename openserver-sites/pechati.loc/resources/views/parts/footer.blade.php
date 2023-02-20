@@ -12,6 +12,8 @@
     </footer>
 </div>
 
+@yield('script', null);
+
 </body>
 
 </html>
