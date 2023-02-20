@@ -74,6 +74,7 @@
         <section class="requisites">
             <h3>{!! $options['step_3'] ?? null !!}</h3>
             <div style="text-align: center;">Блок с реквизитами</div>
+            <button id="inn" type="button">Получить</button>
         </section>
 
       <section class="delivery">

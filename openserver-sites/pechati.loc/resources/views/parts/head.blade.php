@@ -7,6 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="description" content="{{ $data->meta_description }}" />
   <meta name="keywords" content="{{ $data->meta_keywords }}" />
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   <link rel="stylesheet" href="{{ asset('storage/fonts/fonts.css') }}">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
   <title>{{ $data->meta_title }}</title>
