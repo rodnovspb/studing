@@ -10,12 +10,14 @@ use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
-    public function show_cabinet() {
+    public function show_cabinet()
+    {
         $bills = Bill::query()->orderBy('id', 'asc')->simplePaginate(5);
         return view('cabinet', compact('bills'));
     }
 
-    public function save(Request $request) {
+    public function save(Request $request)
+    {
         $arr = $request->all();
         $arr = str_replace(',', '.', $arr);
         $bill = Bill::query()->create($arr);

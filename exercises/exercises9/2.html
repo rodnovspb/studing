@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Документ</title>
+<style>
+
+
+</style>
+</head>
+<body>
+
+
+<form action="form.php" enctype="multipart/form-data" method="post">
+
+<div>
+  <input type="file" name="files[]">
+</div>
+
+    <input type="submit">
+</form>
+
+
+
+
+
+
+
+
+
+<script>
+
+    function add(){
+    	let node = document.querySelector('div input');
+        node.style.display='none'
+
+		document.querySelector('div').insertAdjacentHTML('beforeend', `<input type="file" name="files[]"> `)
+
+    }
+
+    document.querySelector('input').addEventListener('change', add)
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

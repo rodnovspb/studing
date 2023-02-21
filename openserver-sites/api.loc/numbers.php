@@ -16,18 +16,17 @@ $url = $_SERVER['REQUEST_URI'];
 //}
 
 
-
 //проверка на високосность
-if(preg_match('#^/leap/([0-9]{1,4})/?$#', $url, $match)){
-    $year =  $match[1];
-    if(date('L', strtotime("$year-10-10"))){
+if (preg_match('#^/leap/([0-9]{1,4})/?$#', $url, $match)) {
+    $year = $match[1];
+    if (date('L', strtotime("$year-10-10"))) {
         echo '<div>Високосный год</div>';
     } else {
         echo '<div>Невисокосный год</div>';
     }
-} elseif (preg_match('#^/diff/(\d{4})/(\d{4})/?$#', $url, $match)){
-    $year1 =  $match[1];
-    $year2 =  $match[2];
+} elseif (preg_match('#^/diff/(\d{4})/(\d{4})/?$#', $url, $match)) {
+    $year1 = $match[1];
+    $year2 = $match[2];
     $diff = abs($match[2] - $match[1]);
     echo "<div>Разница между годами $diff лет</div>";
 } else {
