@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="{{ asset('storage/fonts/fonts.css') }}">
   <script src="{{ env('APP_URL') . '/ckeditor/ckeditor/ckeditor.js' }}"></script>
   <script src="{{ env('APP_URL') . '/ckeditor/ckfinder/ckfinder.js' }}"></script>
+  <script src="{{ env('APP_URL') . '/ckeditor/ckfinder/ckfinder.js' }}"></script>
 
   <title>Административная панель</title>
 </head>
@@ -39,6 +40,7 @@
                       filebrowserBrowseUrl:  "/ckeditor/ckfinder/ckfinder.html",
                       filebrowserUploadUrl:  '/ckeditor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files'
                   })}})
+
       </script>
 
     </footer>

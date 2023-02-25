@@ -61,7 +61,7 @@
                 </div>
                 <div class="cases__bottom">
                   <div class="cases__name">
-                    <div class="cases__title">Shiny-542</div>
+                    <label for="cases_radio_{{ $i }}" class="cases__title">Shiny-542</label>
                     <div class="cases__video">
                       <a href="#"><img class="cases__youtube" src="/storage/images/youtube.png" alt=""></a>
                     </div>
@@ -78,8 +78,8 @@
             <div class="requisites__urgency urgency">
               <div class="urgency__title">Срочность</div>
               <div class="urgency__time">
-                <input type="radio" name="urgency" id="urgency__input_1" checked><label for="urgency__input_1" class="urgency__label urgency__4hour">4 часа</label>
-                <input type="radio" name="urgency" id="urgency__input_2"><label for="urgency__input_2" class="urgency__label urgency__30min">30 минут <span style="vertical-align: top; font-size: 80%;">(+350 р.)</span></label>
+                <input type="radio" name="urgency" value="4hour" id="urgency__input_1" checked><label for="urgency__input_1" class="urgency__label urgency__4hour">4 часа</label>
+                <input type="radio" name="urgency" value="30min" id="urgency__input_2"><label for="urgency__input_2" class="urgency__label urgency__30min">30 минут <span style="vertical-align: top; font-size: 80%;">(+350 р.)</span></label>
               </div>
             </div>
               <div class="requisites__inn inn">
@@ -100,30 +100,84 @@
             </div>
             <div class="requisites__files files">
               <div class="file__wrapper">
-                <button class="requisites__file button_file" type="button">Прикрепить файл</button>
+                <label class="requisites__file label_file">Прикрепить файл<input class="attach_input" name="files[]" type="file"></label>
                 <ul class="file__list">
                 </ul>
               </div>
-
             </div>
           </div>
         </section>
 
-        <section class="delivery">
+        <section class="section delivery">
           <h3>{!! $options['step_4'] ?? null !!}</h3>
-          <div style="text-align: center;">Блок доставки</div>
-        </section>
-
-        <section class="order-btn">
-          <div class="dfc">
-            <h3>Общая стоимость</h3>
-            <button type="submit">Заказать</button>
-            <button>Добавить в корзину</button>
+          <div class="delivery__wrapper">
+              <div class="delivery__list">
+                <div class="delivery__item">
+                  <div class="delivery__logo">
+                    <input type="radio" name="delivery" value="office" id="delivery__input_1" checked>
+                    <label for="delivery__input_1" class="delivery__label">
+                      Забрать в офисе
+                    </label>
+                  </div>
+                </div>
+                <div class="delivery__item">
+                  <div class="delivery__logo">
+                    <input type="radio" name="delivery" value="yandex" id="delivery__input_2">
+                    <label for="delivery__input_2" class="delivery__label">
+                      <img src="/storage/images/yandex.png" alt="">
+                    </label>
+                  </div>
+                </div>
+                <div class="delivery__item">
+                  <div class="delivery__logo">
+                    <input type="radio" name="delivery" value="sdek" id="delivery__input_3">
+                    <label for="delivery__input_3" class="delivery__label">
+                      <img src="/storage/images/sdek.png" alt="">
+                    </label>
+                  </div>
+                </div>
+                <div class="delivery__item">
+                  <div class="delivery__logo">
+                    <input type="radio" name="delivery" value="pochta" id="delivery__input_4">
+                    <label for="delivery__input_4" class="delivery__label">
+                      <img src="/storage/images/pochta.png" alt="">
+                    </label>
+                  </div>
+                </div>
+              </div>
           </div>
         </section>
 
+        <div class="order-btn">
+          <div class="order-btn__wrapper">
+            <h3 class="order-btn__cost">Общая стоимость: 800 ₽</h3>
+            <div class="order-btn__block">
+              <button class="order-btn__button order-btn__send" type="submit">Заказать</button>
+              <button class="order-btn__button order-btn__cart" type="button">Добавить в корзину</button>
+            </div>
+          </div>
+        </div>
+
         <section class="other-goods">
           <h3>Вас также могут заинтересовать</h3>
+          <div class="other-goods__wrapper">
+            <div class="other-goods__list">
+              <button class="arrow left-arrow" id="other_left_arrow" type="button">❮</button>
+              <button class="arrow right-arrow" id="other_right_arrow" type="button">❯</button>
+              @for($i = 0; $i < 8; $i++)
+                <div class="other-goods__item">
+                  <div class="other-goods__image">
+                    <label for="other_radio_{{ $i }}">
+                      <img class="other-goods__img" src="https://pechati-m.com/wp-content/uploads/2019/12/izgotovlenie_jelektronnoj_pechati.jpg" alt="">
+                    </label>
+                    <input id="other_radio_{{ $i }}" type="checkbox" name="other_good_{{ $i }}" value="{{ $i }}">
+                    <div class="other-good__price">300 р.</div>
+                  </div>
+                  <label class="other-goods__text" for="other_radio_{{ $i }}">Синяя печать в электронном виде</label>
+                </div>
+              @endfor
+            </div>
+          </div>
         </section>
 
       </form>

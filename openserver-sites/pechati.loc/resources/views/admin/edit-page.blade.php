@@ -118,7 +118,8 @@
 
     </table>
         <div style="margin-top: 20px;  text-align: center;">
-            <button class="admin__btn" type="submit">Сохранить</button>  {{--- здесь нужно будет перекешировать --}}
+            <button class="admin__btn" type="submit" style="margin-right: 20px;">Сохранить</button>  {{--- здесь нужно будет перекешировать --}}
+            <a class="admin__btn" href="{{ route('pages.show', ['page' => $page->id]) }}">Удалить страницу</a>
         </div>
     </form>
 

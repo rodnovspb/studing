@@ -16,7 +16,7 @@
                 <td>
                     <select name="template_id">
                         @foreach($templates as $template)
-                            <option value="{{ $template->id }}" @if(!empty(old('template_id')) && old('template_id') == $template->id) selected @endif>{{ $template->name }}</option>
+                            <option value="{{ $template->id }}" @if(!empty(old('template_id')) && old('template_id') == $template->id) selected @elseif($template->id == 3) selected @endif>{{ $template->name }}</option>
                         @endforeach
                     </select>
                 </td>
@@ -26,8 +26,8 @@
                 <td>Опубликовано</td>
                 <td>
                     <select name="publish">
-                        <option value="0" @if(!empty(old('publish')) && old('publish') == 0) selected @endif>Нет</option>
                         <option value="1" @if(!empty(old('publish')) && old('publish') == 1) selected @endif>Да</option>
+                        <option value="0" @if(!empty(old('publish')) && old('publish') == 0) selected @endif>Нет</option>
                     </select>
                 </td>
             </tr>
@@ -47,7 +47,7 @@
 
             <tr>
                 <td>Порядок ссылки в шапке (0 - не показывать)</td>
-                <td><input type="number" name="top_menu_order" value="{{ old('top_menu_order') ?? null }}"></td>
+                <td><input type="number" name="top_menu_order" value="{{ old('top_menu_order') ?? 0 }}"></td>
             </tr>
 
             <tr>
@@ -57,7 +57,7 @@
 
             <tr>
                 <td>Порядок ссылки на витрине (0 - не показывать)</td>
-                <td><input type="number" name="main_menu_order" value="{{ old('main_menu_order') ?? null }}"></td>
+                <td><input type="number" name="main_menu_order" value="{{ old('main_menu_order') ?? 0 }}"></td>
             </tr>
 
              <tr>
@@ -67,7 +67,7 @@
 
             <tr>
                 <td>Порядок ссылки в подвале (0 - не показывать)</td>
-                <td><input type="number" name="footer_menu_order" value="{{ old('footer_menu_order') ?? null }}"></td>
+                <td><input type="number" name="footer_menu_order" value="{{ old('footer_menu_order') ?? 0 }}"></td>
             </tr>
 
             <tr>
