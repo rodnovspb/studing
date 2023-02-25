@@ -939,6 +939,7 @@ table.admin__table tr:nth-child(even) {
   color: #334155;
   transition: box-shadow .1s linear;
   display: inline-block;
+  font-size: 16px;
 }
 
 .admin__btn:hover {
