@@ -8,6 +8,8 @@
   <meta name="description" content="{{ $data->meta_description }}" />
   <meta name="keywords" content="{{ $data->meta_keywords }}" />
   <link rel="stylesheet" href="{{ asset('fonts/fonts.css') }}">
+  <link rel="prerender" href="https://lenta.ru/">
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
   <title>{{ $data->meta_title }}</title>
 </head>
