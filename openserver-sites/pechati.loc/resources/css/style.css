@@ -79,6 +79,10 @@ h3 {
   margin-bottom: 5px;
 }
 
+.help {
+  text-decoration: underline;
+}
+
 label, button {
   font-size: 20px;
 }

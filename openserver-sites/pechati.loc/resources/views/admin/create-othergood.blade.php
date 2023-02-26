@@ -13,7 +13,7 @@
         <tbody>
 
           <tr>
-            <td>Название</td>
+            <td style="color: red; font-weight: bold;">Название - обязательное поле</td>
             <td>
               <input type="text" name="name" required value="{{ old('name') ?? null }}">
               <span style="margin-left: 20px; color: red; font-weight: bold;">@error('name') {{ $message }} @enderror</span>
@@ -29,9 +29,9 @@
           </tr>
 
           <tr>
-            <td>Изображение</td>
+            <td style="color: red; font-weight: bold;">Изображение - обязательное поле</td>
             <td>
-              <input type="file" name="src" accept="image/*">
+              <input type="file" name="src" accept="image/*" required>
               <span style="margin-left: 20px; color: red; font-weight: bold;">@error('src') {{ $message }} @enderror</span>
             </td>
           </tr>
@@ -51,21 +51,9 @@
           </tr>
 
           <tr>
-            <td>На каких типах страниц показывать</td>
+            <td>Страницы показа <span class="help" title="если не выберете, то будет показываться на всех страницах | чтобы отменить выделение зажмите Ctrl">?</span><br> (выделение нескольких через Ctrl)</td>
             <td>
-              <select name="tmpl_for_othergoods[]" multiple>
-                  <option value="0">Все</option>
-                @foreach($templates as $template)
-                  <option value="{{ $template->id }}">{{ $template->name }}</option>
-                @endforeach
-              </select>
-            </td>
-          </tr>
-
-          <tr>
-            <td>Либо страницы показа</td>
-            <td>
-              <select name="pages_for_othergoods[]" multiple>
+              <select name="pages_for_othergoods[]" multiple style="height: 200px;">
                   <option value="0">Все</option>
                 @foreach($pages as $page)
                   <option value="{{ $page->id }}">{{ $page->meta_title}}</option>
@@ -76,7 +64,10 @@
 
           <tr>
             <td>Порядок (приоритет)</td>
-            <td><input type="number" name="order" value="1"></td>
+            <td>
+              <input type="number" name="order" value="1">
+              <span style="margin-left: 20px; color: red; font-weight: bold;">@error('order') {{ $message }} @enderror</span>
+            </td>
           </tr>
 
 

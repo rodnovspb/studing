@@ -16,7 +16,7 @@
           <tr class="admin__tr">
                 <td class="clip-text">{{ $good->name }}</td>
                 <td style="text-align: center;">{{ $good->price }}</td>
-                <td style="height: 100px; width: auto; display: flex; justify-content: center; align-items: center;"><img src="{{ $good->src }}" alt=""></td>
+                <td style="height: 100px; width: auto; display: flex; justify-content: center; align-items: center;"><img src="{{ asset('/' . $good->src) }}" alt=""></td>
                 <td style="text-align: center">{{ $good->publish ? 'Да':'Нет' }}</td>
                 <td style="text-align: center;">
                     <a class="admin__btn" href="{{ route('othergoods.edit', ['othergood' => $good->id]) }}">Редактировать</a>
