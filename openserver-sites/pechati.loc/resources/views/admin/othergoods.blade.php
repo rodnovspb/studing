@@ -16,11 +16,19 @@
           <tr class="admin__tr">
                 <td class="clip-text">{{ $good->name }}</td>
                 <td style="text-align: center;">{{ $good->price }}</td>
-                <td style="height: 100px; width: auto; display: flex; justify-content: center; align-items: center;"><img src="{{ asset('/' . $good->src) }}" alt=""></td>
+                <td style="width: auto; display: flex; justify-content: center; align-items: center;">
+                  <div class="preview_img_wrapper">
+                    <img id="img_file" src="{{ $good->src }}" alt="{{ $good->alt }}" title="{{ $good->title }}">
+                  </div>
+                </td>
                 <td style="text-align: center">{{ $good->publish ? 'Да':'Нет' }}</td>
                 <td style="text-align: center;">
                     <a class="admin__btn" href="{{ route('othergoods.edit', ['othergood' => $good->id]) }}">Редактировать</a>
-                    <a class="admin__btn" href="{{ route('othergoods.show', ['othergood' => $good->id]) }}">{{ $good->publish == 1 ? 'Снять с публикации':'Опубликовать' }}</a>
+                    <form action="{{ route('othergoods.destroy', ['othergood' => $good->id]) }}" method="post" style="display: inline-block;">
+                      @csrf
+                      @method('delete')
+                      <button class="admin__btn"  type="submit">{{ $good->publish ? 'Снять с публикации':'Опубликовать' }}</button>
+                    </form>
                 </td>
             </tr>
         @endforeach

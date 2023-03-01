@@ -71,13 +71,16 @@
                 <td><input type="number" name="footer_menu_order" value="{{ old('footer_menu_order') ?? $page->footer_menu_order }}"></td>
             </tr>
 
+            {{--чтобы не могли редактировать ссылки магазина, так как через них подключаются формы--}}
+            @if($page->template_id !== 5)
             <tr>
-                <td>Ссылка (писать в транскрипции)</td>
+                <td>Ссылка (писать латиницей)</td>
                 <td>
                     <input type="text" name="uri" value="{{ old('uri') ?? $page->uri }}"  pattern="[a-z0-9-]{2,1000}" @if($page->uri === null) disabled @endif>
                     <span style="margin-left: 20px; color: red; font-weight: bold;">@error('uri') {{ $message }} @enderror</span>
                 </td>
             </tr>
+            @endif
 
             <tr>
                 <td>Надпись при наведении</td>

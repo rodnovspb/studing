@@ -2,6 +2,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
   fetchGetIp();
   attachFiles();
   mark();
+  slider();
+
 });
 
 /*Счетчик прикрепленных файлов*/
@@ -113,6 +115,10 @@ function mark(){
   }
 
 
+
+}
+
+function slider(){
 
 }
 

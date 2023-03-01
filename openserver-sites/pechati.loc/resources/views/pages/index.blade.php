@@ -1,6 +1,5 @@
 @extends('layouts.layout')
 
-
 @section('content')
     <main class="main main-index">
       <div class="container">

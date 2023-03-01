@@ -41,6 +41,19 @@
                       filebrowserUploadUrl:  '/ckeditor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files'
                   })}})
 
+          /*Функция загрузки файла через ckfinder*/
+          function openPopup() {
+            CKFinder.popup( {
+              chooseFiles: true,
+              onInit: function( finder ) {
+                finder.on( 'files:choose', function( evt ) {
+                  let file = evt.data.files.first();
+                  document.getElementById( 'img_file' ).src = file.getUrl(); // показываем изображение
+                  document.getElementById( 'input_file' ).value = file.getUrl();} ); // показываем путь к файлу
+                finder.on( 'file:choose:resizedImage', function( evt ) { // срабатывает если меняли размеры
+                  document.getElementById( 'img_file' ).src = evt.data.resizedUrl; // показываем изображение
+                  document.getElementById( 'input_file' ).value = file.getUrl();} );}} );} // показываем путь к файлу
+
       </script>
 
     </footer>
