@@ -700,11 +700,6 @@ section.other-goods {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  position: relative;
-}
-
-.other-goods__list .arrow {
-  top: 37%;
 }
 
 .other-goods__item {
@@ -739,6 +734,12 @@ section.other-goods {
 
 .other-goods__wrapper {
   padding-top: 10px;
+  position: relative;
+  /*display: inline-block;*/
+}
+
+.other-goods__wrapper .arrow {
+  top: 37%;
 }
 
 .other-goods__text {

@@ -1,11 +1,9 @@
-{{--
-@if($othergoods)
 <section class="other-goods">
   <h3>Вас также могут заинтересовать</h3>
   <div class="other-goods__wrapper">
-    <div class="other-goods__list">
       <button class="arrow left-arrow" id="other_left_arrow" type="button">❮</button>
       <button class="arrow right-arrow" id="other_right_arrow" type="button">❯</button>
+      <div class="other-goods__list">
       @foreach($othergoods as $good)
         <div class="other-goods__item">
           <div class="other-goods__image">
@@ -21,4 +19,31 @@
     </div>
   </div>
 </section>
-@endif--}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

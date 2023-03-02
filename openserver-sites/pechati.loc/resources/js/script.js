@@ -1,9 +1,7 @@
 document.addEventListener("DOMContentLoaded", ()=>{
   fetchGetIp();
   attachFiles();
-  mark();
-  slider();
-
+  fetchProducts();
 });
 
 /*Счетчик прикрепленных файлов*/
@@ -88,38 +86,104 @@ function mark(){
   let templateInputs = document.querySelectorAll('input[name="template"]')
   if(templateInputs && templateInputs.length > 0){
     templateInputs.forEach(elem => {
-      elem.addEventListener('change', function (e) {
+      elem.onchange = ()=>{  //использую onchange чтобы не навешивалась куча событий при resize
         templateInputs.forEach(elem => elem.closest('.templates__item').classList.remove('mark'))
-        this.closest('.templates__item').classList.add('mark')
-        })
+        elem.closest('.templates__item').classList.add('mark')
+      }
     })
   }
 
   let casesInputs = document.querySelectorAll('input[name="case"]')
   if(casesInputs && casesInputs.length > 0){
     casesInputs.forEach(elem => {
-      elem.addEventListener('change', function (e) {
+      elem.onchange = ()=> {
         casesInputs.forEach(elem => elem.closest('.cases__item').classList.remove('mark'))
-        this.closest('.cases__item').classList.add('mark')
-      })
+        elem.closest('.cases__item').classList.add('mark')
+      }
     })
   }
 
   let otherGoodsInputs = document.querySelectorAll('.other-goods__item input[type="checkbox"]')
   if(otherGoodsInputs && otherGoodsInputs.length > 0){
     otherGoodsInputs.forEach(elem => {
-      elem.addEventListener('change', function (e) {
-        this.closest('.other-goods__item').classList.toggle('mark')
-      })
+      elem.onchange = ()=> {
+        elem.closest('.other-goods__item').classList.toggle('mark')
+      }
     })
   }
 
-
-
 }
 
-function slider(){
+/*Функция показа слайдеров*/
+function showOtherGoods(other_goods){
+  let breakpoints = {
+    300: 2,
+    575: 4,
+    767: 5,
+    990: 6,
+    1200: 7,
+    1350: 8
+  }
 
+  let list = document.querySelector('.other-goods__list');
+  let containerWidth = document.querySelector('.container').clientWidth;
+  let count;
+  let html = '';
+
+  for (let key in breakpoints){
+    if(containerWidth >= key){
+      count = breakpoints[key]
+    }
+  }
+
+  for(let i=0; i < count; i++){
+    let good = other_goods[i]
+
+    if(!good || good == 'undefined'){ break; }
+
+    html += `<div class="other-goods__item">
+          <div class="other-goods__image">
+            <label for="other_radio_${good['id']}">
+              <img class="other-goods__img" src="${good['src']}" alt="${good['alt']}" title="${good['title']}">
+            </label>
+            <input id="other_radio_${good['id']}" type="checkbox" name="other_good_${good['id']}" value="{${good['id']}">
+            <div class="other-good__price">${good['price']}</div>
+          </div>
+          <label class="other-goods__text" for="other_radio_${good['id']}">${good['name']}</label>
+        </div>`
+  }
+
+  list.innerHTML = null;
+  list.insertAdjacentHTML('afterbegin', html);
+
+  window.addEventListener('resize', function redraw(){
+    /*отвяжем, чтобы не тормозило, иначе навешиваются множество функций одинаковых*/
+    window.removeEventListener('resize', redraw)
+
+    showOtherGoods(other_goods)
+  })
+
+  /*Запускаем навешивание класса mark для выбранных картинок*/
+  mark();
 }
+
+/*Функция показа запроса картинок для слайдеров*/
+function fetchProducts(){
+  let other_goods = document.querySelector('.other-goods__list')
+  if(typeof (other_goods) != 'undefined' && other_goods != null){
+    fetch("/slider", {
+      method: "POST",
+      headers: {
+        'X-CSRF-TOKEN' : document.querySelector('input[name="_token"]').value
+      }})
+      .then(res => res.json())
+      .then(res => showOtherGoods(res))
+      .catch(e => console.log(e))
+  }
+}
+
+
+
+
 
 
