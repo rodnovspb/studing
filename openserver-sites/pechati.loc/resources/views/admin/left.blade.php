@@ -9,6 +9,7 @@
                           <li><a href="{{ route('index') }}" target="_blank">На сайт</a></li>
                           <li><a href="{{ route('orders.index') }}">Список заказов</a></li>
                           <li><a href="{{ route('pages.index') }}">Страницы сайта</a></li>
+                          <li><a href="{{ route('pages.index') }}">Макеты и оснастки</a></li>
                           <li><a href="{{ route('othergoods.index') }}">Другие товары</a></li>
                           <li><a href="{{ route('file-manager') }}">Файловый менеджер</a></li>
                           <li><a href="{{ route('options.index') }}">Настройки</a></li>

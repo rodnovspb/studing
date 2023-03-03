@@ -1,8 +1,7 @@
 @extends('layouts.admin-layout')
 
 @section('right')
-
-  <form action="{{ route('othergoods.update', ['othergood' => $good->id]) }}" method="post" enctype="multipart/form-data">
+  <form action="{{ route('othergoods.update', ['othergood' => $good->id, 'page' => request()->page, 'filter'=> request()->filter]) }}" method="post" enctype="multipart/form-data">
     @method('put')
     @csrf
     <table class="admin__table">

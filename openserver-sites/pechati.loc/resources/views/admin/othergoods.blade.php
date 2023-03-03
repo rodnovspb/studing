@@ -40,7 +40,7 @@
                 <td style="text-align: center">{{ $good->publish ? 'Да':'Нет' }}</td>
 
                 <td style="text-align: center;">
-                    <a class="admin__btn" href="{{ route('othergoods.edit', ['othergood' => $good->id]) }}">Редактировать</a>
+                    <a class="admin__btn" href="{{ route('othergoods.edit', ['othergood' => $good->id, 'page' => request()->page, 'filter' => request()->filter]) }}">Редактировать</a>
                     <form action="{{ route('othergoods.destroy', ['othergood' => $good->id]) }}" method="post" style="display: inline-block;">
                       @csrf
                       @method('delete')
@@ -51,7 +51,7 @@
         @endforeach
         </tbody>
     </table>
-  <div class="dfc" style="margin-top: 20px;"><a class="admin__btn" href="{{ route('othergoods.create') }}">Создать</a></div>
+  <div class="dfc" style="margin-top: 20px;"><a class="admin__btn" href="{{ route('othergoods.create', ['page' => request()->page]) }}">Создать</a></div>
   <div class="admin__pagination">{{ $othergoods->links() }}</div>
 
 @endsection
