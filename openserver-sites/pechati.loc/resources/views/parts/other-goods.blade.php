@@ -1,3 +1,4 @@
+@if($othergoods)
 <section class="other-goods">
   <h3>Вас также могут заинтересовать</h3>
   <div class="other-goods__wrapper">
@@ -5,7 +6,7 @@
       <button class="arrow right-arrow" id="other_right_arrow" type="button">❯</button>
       <div class="other-goods__list">
       @foreach($othergoods as $good)
-        <div class="other-goods__item">
+        <div class="other-goods__item dn">
           <div class="other-goods__image">
             <label for="other_radio_{{ $good->id }}">
               <img class="other-goods__img" src="{{ $good->src }}" alt="{{ $good->alt }}" title="{{ $good->title }}">
@@ -19,7 +20,7 @@
     </div>
   </div>
 </section>
-
+@endif
 
 
 

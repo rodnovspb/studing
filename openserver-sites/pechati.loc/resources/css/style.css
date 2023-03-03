@@ -67,6 +67,14 @@ img {
   align-items: center;
 }
 
+.dn {
+  display: none;
+}
+
+.other-goods__item.dn {
+  display: none;
+}
+
 h1 {
   font-size: 27px;
   text-align: center;
