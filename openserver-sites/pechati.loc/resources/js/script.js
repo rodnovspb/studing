@@ -3,7 +3,11 @@ document.addEventListener("DOMContentLoaded", ()=>{
   attachFiles();
   mark();
   showProducts()
+  otherGoodsBtn()
 });
+
+/*Сколько показывать других товаров*/
+let countOtherGoods;
 
 /*Счетчик прикрепленных файлов*/
 let counterOfAttachFiles = 1;
@@ -117,8 +121,7 @@ function mark(){
 
 }
 
-/*Функция показа слайдеров*/
-function showProducts(){
+function setCountsByBreakpoints(){
   let breakpoints = {
     300: 2,
     575: 4,
@@ -128,16 +131,21 @@ function showProducts(){
     1350: 8
   }
 
-
-  let listOtherGoods = document.querySelectorAll('.other-goods__item');
   let containerWidth = document.querySelector('.container').clientWidth;
-  let countOtherGoods;
 
   for (let key in breakpoints){
     if(containerWidth >= key){
       countOtherGoods = breakpoints[key]
     }
   }
+
+}
+
+/*Функция показа слайдеров*/
+function showProducts(){
+  setCountsByBreakpoints()
+
+  let listOtherGoods = document.querySelectorAll('.other-goods__item');
 
   for(let i=0; i<listOtherGoods.length; i++){
     listOtherGoods[i].classList.add('dn')
@@ -149,9 +157,52 @@ function showProducts(){
   window.addEventListener('resize', function redraw(){
     /*отвяжем, чтобы не тормозило, иначе навешиваются множество функций одинаковых*/
     window.removeEventListener('resize', redraw)
-
     showProducts()
+    otherGoodsBtn()
   })
+
+}
+
+/*Функция разбиения массива на подмассивы*/
+function unflat(src, count) {
+  const result = [];
+  for (let s = 0, e = count; s < src.length; s += count, e += count)
+    result.push(src.slice(s, e));
+  return result;
+}
+
+/*Функция добавления всем другим товарам display:none*/
+function setNoneForOtherGoods(listOtherGoods){
+  listOtherGoods.forEach(elem => elem.classList.add('dn'))
+}
+
+function otherGoodsBtn(){
+  let listOtherGoods = Array.from(document.querySelectorAll('.other-goods__item'));
+  if(listOtherGoods.length === 0) { return false; }
+  let rightBtn = document.querySelector('#other_right_arrow');
+  let leftBtn = document.querySelector('#other_left_arrow');
+  let res = unflat(listOtherGoods, countOtherGoods);
+  let countShowArr = 0;
+
+  rightBtn.addEventListener('click', function (e) {
+      if(countShowArr === res.length - 1) {
+        countShowArr = 0;
+      } else {
+        countShowArr++;
+      }
+      setNoneForOtherGoods(listOtherGoods)
+      res[countShowArr].forEach(elem => elem.classList.remove('dn'))
+    })
+
+  leftBtn.addEventListener('click', function (e) {
+      if(countShowArr === 0) {
+        countShowArr = res.length - 1;
+      } else {
+        countShowArr--;
+      }
+      setNoneForOtherGoods(listOtherGoods)
+      res[countShowArr].forEach(elem => elem.classList.remove('dn'))
+    })
 
 }
 
