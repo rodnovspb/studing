@@ -54,6 +54,34 @@
                   document.getElementById( 'img_file' ).src = evt.data.resizedUrl; // показываем изображение
                   document.getElementById( 'input_file' ).value = file.getUrl();} );}} );} // показываем путь к файлу
 
+          document.addEventListener('DOMContentLoaded', function (e) {
+              togglePartsCreateProductPage()
+            })
+
+          function togglePartsCreateProductPage(){
+            let select = document.querySelector('#select_product_type')
+            let nameTr = document.querySelector('#name_create_product_page')
+            let videoTr = document.querySelector('#video_create_product_page')
+
+            if( typeof(select) == 'undefined' || select == null ) return false;
+            if( typeof(nameTr) == 'undefined' || nameTr == null ) return false;
+
+            if(select.value == 'template'){
+              nameTr.classList.add('dn')
+              videoTr.classList.add('dn')
+            }
+
+            select.addEventListener('change', function (e) {
+                select.value == 'template' ? nameTr.classList.add('dn') : nameTr.classList.remove('dn')
+                select.value == 'template' ? videoTr.classList.add('dn') : videoTr.classList.remove('dn')
+
+              })
+
+          }
+
+
+
+
       </script>
 
     </footer>

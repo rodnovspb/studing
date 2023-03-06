@@ -121,6 +121,7 @@ function mark(){
 
 }
 
+/*Функция установки количества колонок слайдера в зав. от ширины контейнера сайта*/
 function setCountsByBreakpoints(){
   let breakpoints = {
     300: 2,

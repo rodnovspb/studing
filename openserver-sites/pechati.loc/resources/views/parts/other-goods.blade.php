@@ -12,7 +12,7 @@
               <img class="other-goods__img" src="{{ $good->src }}" alt="{{ $good->alt }}" title="{{ $good->title }}">
             </label>
             <input id="other_radio_{{ $good->id }}" type="checkbox" name="other_good[]" value="{{ $good->id }}">
-            <div class="other-good__price">{{ $good->price }}</div>
+            <div class="other-good__price">{{ $good->price }} р.</div>
           </div>
           <label class="other-goods__text" for="other_radio_{{ $good->id }}">{{ $good->name }}</label>
         </div>
