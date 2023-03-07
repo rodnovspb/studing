@@ -23,6 +23,19 @@
                    <span style="margin-left: 20px; color: red; font-weight: bold;">@error('type') {{ $message }} @enderror</span>
               </td>
             </tr>
+            <tr>
+              <td>
+                Подтип
+              </td>
+              <td>
+                   <select name="subtypes_for_products[]" id="select_product_subtype" multiple style="height: 90px">
+                        @foreach($subtypes as $subtype)
+                          <option @if(in_array($subtype->id, [1,2,3])) class="subtype_templates" @elseif(in_array($subtype->id, [4,5,6,7])) class="subtype_cases" @endif  value="{{ $subtype->id }}" @if(in_array($subtype->id, old('subtypes_for_products') ?? [])) selected @endif>{{ $subtype->name }}</option>
+                        @endforeach
+                   </select>
+                   <span style="margin-left: 20px; color: red; font-weight: bold;">@error('subtypes_for_products') {{ $message }} @enderror</span>
+              </td>
+            </tr>
             <tr id="name_create_product_page">
               <td style="color: red; font-weight: bold;">
                 Название*
@@ -36,7 +49,7 @@
                 Цена
               </td>
               <td>
-                    <input type="number" name="price" value="{{ old('price') ?? null }}">
+                    <input type="number" step="any" name="price" value="{{ old('price') ?? null }}">
                     <span style="margin-left: 20px; color: red; font-weight: bold;">@error('price') {{ $message }} @enderror</span>
               </td>
             </tr>
@@ -69,7 +82,7 @@
           <tr>
             <td>Порядок (приоритет)</td>
             <td>
-              <input type="number" name="order" value="{{ old('order') ?? 1 }}">
+              <input type="number" step="any" name="order" value="{{ old('order') ?? 1 }}">
               <span style="margin-left: 20px; color: red; font-weight: bold;">@error('order') {{ $message }} @enderror</span>
             </td>
           </tr>

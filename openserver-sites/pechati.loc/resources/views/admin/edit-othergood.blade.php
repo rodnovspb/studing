@@ -25,7 +25,7 @@
           <tr>
             <td>Цена</td>
             <td>
-              <input type="number" name="price" value="{{ old('price') ?? $good->price }}">
+              <input type="number" step="any" name="price" value="{{ old('price') ?? $good->price }}">
               <span style="margin-left: 20px; color: red; font-weight: bold;">@error('price') {{ $message }} @enderror</span>
             </td>
           </tr>
@@ -76,7 +76,7 @@
           <tr>
             <td>Порядок (приоритет)</td>
             <td>
-              <input type="number" name="order" value="{{ old('order') ?? $good->order }}">
+              <input type="number" step="any" name="order" value="{{ old('order') ?? $good->order }}">
               <span style="margin-left: 20px; color: red; font-weight: bold;">@error('order') {{ $message }} @enderror</span>
             </td>
           </tr>

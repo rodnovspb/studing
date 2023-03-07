@@ -60,8 +60,11 @@
 
           function togglePartsCreateProductPage(){
             let select = document.querySelector('#select_product_type')
+            let selectSubtype = document.querySelector('#select_product_subtype')
             let nameTr = document.querySelector('#name_create_product_page')
             let videoTr = document.querySelector('#video_create_product_page')
+            let subTemplates = document.querySelectorAll('.subtype_templates')
+            let subCases = document.querySelectorAll('.subtype_cases')
 
             if( typeof(select) == 'undefined' || select == null ) return false;
             if( typeof(nameTr) == 'undefined' || nameTr == null ) return false;
@@ -69,12 +72,26 @@
             if(select.value == 'template'){
               nameTr.classList.add('dn')
               videoTr.classList.add('dn')
+              subCases.forEach(elem => elem.classList.add('dn'))
+              subTemplates.forEach(elem => elem.classList.remove('dn'))
+            } else if(select.value == 'case'){
+              nameTr.classList.remove('dn')
+              videoTr.classList.remove('dn')
+              subCases.forEach(elem => elem.classList.remove('dn'))
+              subTemplates.forEach(elem => elem.classList.add('dn'))
             }
 
             select.addEventListener('change', function (e) {
+                selectSubtype.querySelectorAll('option').forEach(elem => elem.selected = false)
                 select.value == 'template' ? nameTr.classList.add('dn') : nameTr.classList.remove('dn')
                 select.value == 'template' ? videoTr.classList.add('dn') : videoTr.classList.remove('dn')
-
+                if(select.value == 'template'){
+                  subCases.forEach(elem => elem.classList.add('dn'))
+                  subTemplates.forEach(elem => elem.classList.remove('dn'))
+                } else if(select.value == 'case'){
+                  subCases.forEach(elem => elem.classList.remove('dn'))
+                  subTemplates.forEach(elem => elem.classList.add('dn'))
+                }
               })
 
           }
