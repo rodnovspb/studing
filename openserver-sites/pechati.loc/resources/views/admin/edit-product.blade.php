@@ -29,7 +29,7 @@
                 Подтип
               </td>
               <td>
-                   <select name="subtypes_for_products[]" id="select_product_subtype" multiple style="height: 90px">
+                   <select name="subtypes_for_products[]" id="select_product_subtype" required multiple style="height: 90px">
                      @foreach($subtypes as $subtype)
                        <option value="{{ $subtype->id }}" @if(in_array($subtype->id, old('subtypes_for_products') ?? $selectedSubtypes)) selected @endif @if(in_array($subtype->id, [1,2,3])) class="subtype_templates" @elseif(in_array($subtype->id, [4,5,6,7])) class="subtype_cases" @endif>{{ $subtype->name }}</option>
                      @endforeach
