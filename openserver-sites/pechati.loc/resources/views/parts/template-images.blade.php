@@ -3,6 +3,7 @@
   <button class="arrow right-arrow" type="button">❯</button>
   <?php $i=1 ?>
   @foreach($templateProducts as $product)
+{{--    можеть быть data-des="1" делать ++--}}
     <div class="templates__item dn" @foreach($product->subtypes as $subtype) @if($subtype->id == 2) data-des="1" @elseif($subtype->id == 3) data-logo="1" @endif @endforeach>
        <div class="templates__number">{{ $i }}</div>
        <label for="templates_radio_{{ $product->id }}">
