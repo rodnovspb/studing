@@ -27,6 +27,8 @@ img {
   max-width: 100%;
   height: auto;
   max-height: 100%;
+  pointer-events: none;
+  user-select: none;
 }
 
 .wrapper {
@@ -68,11 +70,7 @@ img {
 }
 
 .dn {
-  display: none;
-}
-
-.other-goods__item.dn {
-  display: none;
+  display: none !important;
 }
 
 h1 {

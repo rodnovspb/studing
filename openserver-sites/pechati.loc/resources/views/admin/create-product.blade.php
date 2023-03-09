@@ -58,7 +58,7 @@
               <td style="display: flex; justify-content: flex-start; align-items: center;">
 
               <div class="preview_img_wrapper">
-                <img id="img_file" src="{{ old('src') ?? asset('images/no-photo.jpg') }}" alt="" class="preview_img">
+                <img id="img_file" src="{{ old('src') ?? asset('storage/images/no-photo.jpg') }}" alt="" class="preview_img">
               </div>
               <button onclick="openPopup()" class="admin__btn" type="button">Выберите файл</button>
               <input type="text" name="src" id="input_file" readonly value="{{ old('src') ?? null }}" />

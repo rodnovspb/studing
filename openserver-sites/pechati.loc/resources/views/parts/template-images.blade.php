@@ -1,15 +1,17 @@
 <div class="templates__images">
   <button class="arrow left-arrow" type="button">❮</button>
   <button class="arrow right-arrow" type="button">❯</button>
-  @for($i=1; $i<=6; $i++)
-    <div class="templates__item">
+  <?php $i=1 ?>
+  @foreach($templateProducts as $product)
+    <div class="templates__item dn" @foreach($product->subtypes as $subtype) @if($subtype->id == 2) data-des="1" @elseif($subtype->id == 3) data-logo="1" @endif @endforeach>
        <div class="templates__number">{{ $i }}</div>
-       <label for="templates_radio_{{ $i }}">
-         <img class="templates__img" src="https://via.placeholder.com/300x300/33CCFF/FFF/" alt=""
+       <label for="templates_radio_{{ $product->id }}">
+         <img class="templates__img" src="{{ $product->src }}" alt=""
               style="border-radius: 50%">
        </label>
-       <input id="templates_radio_{{ $i }}" type="radio" name="template" value="{{ $i }}">
-       <div class="templates__price">300 р</div>
+       <input id="templates_radio_{{ $product->id }}" type="radio" name="template" value="{{ $product->id }}">
+       <div class="templates__price">{{ $product->price }} р</div>
     </div>
-  @endfor
+    <?php $i++ ?>
+  @endforeach
 </div>

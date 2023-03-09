@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="IE=edge"> @vite(['resources/css/app.css', 'resources/js/app.js'])
-  <link rel="stylesheet" href="{{ asset('fonts/fonts.css') }}">
+  <link rel="stylesheet" href="{{ asset('storage/fonts/fonts.css') }}">
   <script src="{{ env('APP_URL') . '/ckeditor/ckeditor/ckeditor.js' }}"></script>
   <script src="{{ env('APP_URL') . '/ckeditor/ckfinder/ckfinder.js' }}"></script>
   <script src="{{ env('APP_URL') . '/ckeditor/ckfinder/ckfinder.js' }}"></script>
