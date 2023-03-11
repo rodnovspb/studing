@@ -8,12 +8,7 @@
 
   <section class="cases section">
     <h3>{!! $options['step_2'] ?? null !!}</h3>
-    <div class="cases__list">
-      <a href="#">Часто выбирают</a>
-      <a href="#">Автоматические</a>
-      <a href="#">Карманные</a>
-      <a href="#">Металлические</a>
-    </div>
+    @include('parts.selectTypeCaseBtns')
 
     @include('parts.cases-images')
 
@@ -26,9 +21,9 @@
         <div class="urgency__title">Срочность</div>
         <div class="urgency__time">
           <input type="radio" name="urgency" value="4hour" id="urgency__input_1" checked>
-          <label for="urgency__input_1" class="urgency__label urgency__4hour">4 часа</label>
+          <label for="urgency__input_1" class="urgency__label urgency__4hour mark" data-price="0">4 часа</label>
           <input type="radio" name="urgency" value="30min" id="urgency__input_2">
-          <label for="urgency__input_2" class="urgency__label urgency__30min">30 минут <span style="vertical-align: top; font-size: 80%;">(+350 р.)</span></label>
+          <label for="urgency__input_2" class="urgency__label urgency__30min" data-price="{{ $options['stand_urgency_price'] }}">30 минут <span style="vertical-align: top; font-size: 80%;">(+{{ $options['stand_urgency_price'] }} р.)</span></label>
         </div>
       </div>
       <div class="requisites__inn inn">

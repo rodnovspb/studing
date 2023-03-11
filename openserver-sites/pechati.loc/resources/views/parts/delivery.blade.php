@@ -4,7 +4,7 @@
               <div class="delivery__list">
                 <div class="delivery__item">
                   <div class="delivery__logo">
-                    <input type="radio" name="delivery" value="office" id="delivery__input_1" checked>
+                    <input class="remove_delivery" type="radio" name="delivery" value="office" id="delivery__input_1" checked>
                     <label for="delivery__input_1" class="delivery__label">
                       Забрать в офисе
                     </label>
@@ -12,7 +12,7 @@
                 </div>
                 <div class="delivery__item">
                   <div class="delivery__logo">
-                    <input type="radio" name="delivery" value="yandex" id="delivery__input_2">
+                    <input class="add_delivery" type="radio" name="delivery" value="yandex" id="delivery__input_2">
                     <label for="delivery__input_2" class="delivery__label">
                       <img src="/storage/images/yandex.png" alt="">
                     </label>
@@ -20,7 +20,7 @@
                 </div>
                 <div class="delivery__item">
                   <div class="delivery__logo">
-                    <input type="radio" name="delivery" value="sdek" id="delivery__input_3">
+                    <input class="add_delivery" type="radio" name="delivery" value="sdek" id="delivery__input_3">
                     <label for="delivery__input_3" class="delivery__label">
                       <img src="/storage/images/sdek.png" alt="">
                     </label>
@@ -28,7 +28,7 @@
                 </div>
                 <div class="delivery__item">
                   <div class="delivery__logo">
-                    <input type="radio" name="delivery" value="pochta" id="delivery__input_4">
+                    <input class="add_delivery" type="radio" name="delivery" value="pochta" id="delivery__input_4">
                     <label for="delivery__input_4" class="delivery__label">
                       <img src="/storage/images/pochta.png" alt="">
                     </label>

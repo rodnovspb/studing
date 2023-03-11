@@ -4,22 +4,34 @@
     fetchGetIp();
     attachFiles();
     mark();
-    showProducts('data-stand')
+    showProducts('data-stand') // макеты
+    showProductsCases('data-often') // оснастки
     otherGoodsBtn()
     selectTypeProductBtns()
+    selectTypeCaseBtns()
     templatesBtn()
+    casesBtn()
+    setMarkForUrgency()
+    addCostDelivery()
   });
 
   /*Сколько показывать товаров*/
   let countOtherGoods;
-  let countProducts;
+  let countProducts; // это макеты
+  let countProductCases; // это оснастки
 
-  /*Номер выбранного массива: все, дизайнерские, с лого*/
+  /*Номер выбранного массива макетов: все, дизайнерские, с лого*/
   // [[все, кроме диз и лого...],[диз...],[с лого...]]
   let numOfArrSubTempl = 0;
 
-  /*номер элемента в подмассиве*/
+  /*номер элемента в подмассиве макетов*/
   let numTempl = 0;
+
+  /*Номер выбранного массива оснасток: часто, авт., карм., металл.*/
+  let numOfArrSubCase = 0;
+
+  /*номер элемента в подмассиве оснасток*/
+  let numCase = 0;
 
   /*Счетчик прикрепленных файлов*/
   let counterOfAttachFiles = 1;
@@ -106,6 +118,7 @@
         elem.addEventListener('change', function (e) {
           templateInputs.forEach(elem => elem.closest('.templates__item').classList.remove('mark'))
           this.closest('.templates__item').classList.add('mark')
+          changeOrderSum()
         })
       })
     }
@@ -116,6 +129,7 @@
         elem.addEventListener('change', function (e) {
           casesInputs.forEach(elem => elem.closest('.cases__item').classList.remove('mark'))
           this.closest('.cases__item').classList.add('mark')
+          changeOrderSum()
         })
       })
     }
@@ -125,6 +139,7 @@
       otherGoodsInputs.forEach(elem => {
         elem.addEventListener('change', function (e) {
           this.closest('.other-goods__item').classList.toggle('mark')
+          changeOrderSum()
         })
       })
     }
@@ -144,7 +159,15 @@
         1200: 7,
         1350: 8
       },
-      products: {
+      productsTempl: {
+        300: 2,
+        575: 3,
+        767: 3,
+        990: 5,
+        1200: 6,
+        1350: 6
+      },
+      productsCases: {
         300: 2,
         575: 3,
         767: 3,
@@ -163,15 +186,21 @@
       }
     }
 
-    for (let key in breakpoints.products){
+    for (let key in breakpoints.productsTempl){
       if(containerWidth >= key){
-        countProducts = breakpoints.products[key]
+        countProducts = breakpoints.productsTempl[key]
+      }
+    }
+
+    for (let key in breakpoints.productsCases){
+      if(containerWidth >= key){
+        countProductCases = breakpoints.productsCases[key]
       }
     }
 
   }
 
-  /*Функция показа слайдеров*/
+  /*Функция показа слайдеров для других товаров и макетов*/
   function showProducts(dataType){
     let listOtherGoods = document.querySelectorAll('.other-goods__item');
     let listProducts = document.querySelectorAll('.templates__item');
@@ -192,13 +221,11 @@
     listProducts.forEach(elem => elem.classList.add('dn'))
 
     for(let i=0; i<countProducts; i++){
-      if(dataType === null){
-          listProducts[i].classList.remove('dn')
-      } else if(listSelectedProducts[i]){
+        if(listSelectedProducts[i]){
           listSelectedProducts[i].classList.remove('dn')
-      } else {
+        } else {
         break
-      }
+        }
     }
 
     window.addEventListener('resize', function redraw(){
@@ -206,6 +233,32 @@
       window.removeEventListener('resize', redraw)
       showProducts(dataType)
       otherGoodsBtn()
+    })
+
+  }
+
+  /*Функция показа слайдера для оснасток*/
+  function showProductsCases(dataType){
+    let listCases = document.querySelectorAll('.cases__item');
+    let listSelectedCases = document.querySelectorAll(`[${dataType}]`)
+
+    /*если на странице не найдется макетов отменим функцию*/
+    if(!listCases || listCases.length === 0){ return false; }
+
+    listCases.forEach(elem => elem.classList.add('dn'))
+
+    for(let i=0; i<countProductCases; i++){
+      if(listSelectedCases[i]){
+        listSelectedCases[i].classList.remove('dn')
+      } else {
+        break
+      }
+    }
+
+    window.addEventListener('resize', function redraw2(){
+      /*отвяжем, чтобы не тормозило, иначе навешиваются множество функций одинаковых*/
+      window.removeEventListener('resize', redraw2)
+      showProductsCases(dataType)
     })
 
   }
@@ -258,6 +311,7 @@
 
   }
 
+  /*Функция для кнопок макетов: Стандартные, дизайнерские и пр.*/
   function selectTypeProductBtns(){
     let standTemplatesBtn = document.querySelector('#standTemplatesBtn');
     if(typeof (standTemplatesBtn) == 'undefined' || standTemplatesBtn == null) return false
@@ -294,6 +348,51 @@
 
   }
 
+  /*Функция для кнопок оснасток: часто, авт., карм. и пр.*/
+  function selectTypeCaseBtns(){
+    let oftenCasesBtn = document.querySelector('#oftenCaseBtn');
+    if(typeof (oftenCasesBtn) == 'undefined' || oftenCasesBtn == null) return false
+    let autCaseBtn = document.querySelector('#autCaseBtn');
+    let pockCaseBtn = document.querySelector('#pockCaseBtn');
+    let metCaseBtn = document.querySelector('#metCaseBtn');
+
+    let oftenCases = document.querySelectorAll('.cases__item[data-often]')
+    let autCases = document.querySelectorAll('.cases__item[data-aut]')
+    let pocketCases = document.querySelectorAll('.cases__item[data-pocket]')
+    let metCases = document.querySelectorAll('.cases__item[data-met]')
+
+
+    oftenCasesBtn.textContent += ` (${oftenCases.length ? oftenCases.length : '0'} шт.)`
+    autCaseBtn.textContent += ` (${autCases.length ? autCases.length : '0'} шт.)`
+    pockCaseBtn.textContent += ` (${pocketCases.length ? pocketCases.length : '0'} шт.)`
+    metCaseBtn.textContent += ` (${metCases.length ? metCases.length : '0'} шт.)`
+
+
+    document.querySelector('.cases__list').addEventListener('click', function (e){
+      if(e.target.classList.contains('selectSubTypeCase')){
+        deleteClassForAll(document.querySelectorAll('.selectSubTypeCase'), 'selectedBtn')
+        e.target.classList.add('selectedBtn')
+        if(e.target === oftenCasesBtn){
+          showProductsCases('data-often')
+          numOfArrSubCase = 0
+          numCase = 0
+        } else if(e.target === autCaseBtn){
+          showProductsCases('data-aut')
+          numOfArrSubCase = 1
+          numCase = 0
+        } else if(e.target === pockCaseBtn){
+          showProductsCases('data-pocket')
+          numOfArrSubCase = 2
+          numCase = 0
+        } else if(e.target === metCaseBtn){
+          showProductsCases('data-met')
+          numOfArrSubCase = 3
+          numCase = 0
+        }
+      }
+    })
+  }
+
   function cutTemplates(){
     let templateList = document.querySelectorAll('.templates__item')
     if(!templateList || templateList.length === 0){ return false; }
@@ -315,10 +414,34 @@
 
   }
 
+  function cutCases(){
+    let caseList = document.querySelectorAll('.cases__item')
+    if(!caseList || caseList.length === 0){ return false; }
+
+    let resultArr = [[],[],[],[]];
+
+    caseList.forEach(elem => {
+      if(elem.hasAttribute('data-often')){
+        resultArr[0].push(elem)
+      }
+      if(elem.hasAttribute('data-aut')){
+        resultArr[1].push(elem)
+      }
+      if(elem.hasAttribute('data-pocket')){
+        resultArr[2].push(elem)
+      }
+      if(elem.hasAttribute('data-met')){
+        resultArr[3].push(elem)
+      }
+    })
+    return  resultArr.map(elem => unflat(elem, countProducts))
+
+  }
+
   function templatesBtn(){
     let leftArrow = document.querySelector('#template_left_arrow')
     let rightArrow = document.querySelector('#template_right_arrow')
-    if(typeof (leftArrow) == 'undefined' || rightArrow == null) return false
+    if(typeof (leftArrow) === 'undefined' || leftArrow === null) return false
 
     let allSubtypeTmplBtns = document.querySelectorAll('.selectSubTypeTmpl')
 
@@ -358,6 +481,96 @@
 
       })
 
+  }
+
+  function casesBtn(){
+    let leftArrow = document.querySelector('#case_left_arrow')
+    let rightArrow = document.querySelector('#case_right_arrow')
+    if(typeof (leftArrow) === 'undefined' || leftArrow === null) return false
+
+    let allSubtypeCaseBtns = document.querySelectorAll('.selectSubTypeCase')
+
+    let cuttedCaseArr = cutCases()
+    let caseList = document.querySelectorAll('.cases__item')
+
+    leftArrow.addEventListener('click', function func1(e) {
+      if(numOfArrSubCase === 0 && numCase === 0) {
+        numOfArrSubCase = cuttedCaseArr.length - 1;
+      } else if(numCase === 0 && numOfArrSubCase > 0){
+        numOfArrSubCase--;
+        numCase = cuttedCaseArr[numOfArrSubCase].length - 1
+      } else {
+        numCase--
+      }
+      setClassForAll(caseList, 'dn')
+      deleteClassForAll(allSubtypeCaseBtns, 'selectedBtn')
+      allSubtypeCaseBtns[numOfArrSubCase].classList.add('selectedBtn')
+      cuttedCaseArr[numOfArrSubCase][numCase].forEach(elem => elem.classList.remove('dn'))
+
+    })
+
+    rightArrow.addEventListener('click', function func2(e) {
+      if(numOfArrSubCase === cuttedCaseArr.length - 1 && numCase === cuttedCaseArr[cuttedCaseArr.length - 1].length - 1){
+        numOfArrSubCase = 0;
+        numCase = 0
+      } else if(numCase === cuttedCaseArr[numOfArrSubCase].length - 1){
+        numOfArrSubCase ++
+        numCase = 0
+      } else {
+        numCase++
+      }
+      setClassForAll(caseList, 'dn')
+      deleteClassForAll(allSubtypeCaseBtns, 'selectedBtn')
+      allSubtypeCaseBtns[numOfArrSubCase].classList.add('selectedBtn')
+      cuttedCaseArr[numOfArrSubCase][numCase].forEach(elem => elem.classList.remove('dn'))
+    })
+  }
+
+  function setMarkForUrgency(){
+    let labels = document.querySelectorAll('.urgency__label')
+    if(!labels || labels.length === 0) { return false; }
+    labels.forEach(elem => {
+      elem.addEventListener('click', function (e){
+        labels.forEach(el => el.classList.remove('mark'))
+        elem.classList.add('mark')
+        changeOrderSum()
+      })
+    })
+  }
+
+  function changeOrderSum(){
+    let span = document.querySelector('#order_sum')
+    if(typeof (span) == 'undefined' || span == null) return false
+
+    let hiddenInp = document.querySelector('#inp_order_sum')
+    let prices = document.querySelectorAll('.mark')
+    let sum = 0;
+    for (let elem of prices) {
+      if(elem.dataset.price && elem.dataset.price !== '' && elem.dataset.price !== null && typeof (elem.dataset.price) !== "undefined"){
+        sum += Number(elem.dataset.price)
+      } else {
+        sum = 'рассчитаем'
+        break
+      }
+    }
+    if(typeof (sum) === 'number' && !isNaN(sum)){
+      sum += ' ₽'
+    }
+    hiddenInp.value = span.textContent = sum
+  }
+
+  function addCostDelivery(){
+    let span = document.querySelector('#add_delivery')
+    if(typeof (span) == 'undefined' || span == null) return false
+
+    let delivery__list = document.querySelector('.delivery__list')
+    delivery__list.addEventListener('click', function (e) {
+          if(e.target.classList.contains('add_delivery')){
+            span.textContent = ' + доставка'
+          } else if(e.target.classList.contains('remove_delivery')){
+            span.textContent = null
+          }
+      })
   }
 
 

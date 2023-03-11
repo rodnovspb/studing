@@ -9,9 +9,10 @@
   --time-for-transition: 0.3s;
   --func-for-transition: ease-in-out;
   --scale: scale(1.05);
-  --outline-marked: 3px solid #eee;
+  --outline-marked: 3px solid #eee; /*не использую*/
   --border-radius-marked: 10px;
   --color-price: #3b82f6;
+  --selected--box-shadow: 0 0 5px #3b82f6;
 }
 
 
@@ -27,7 +28,6 @@ img {
   max-width: 100%;
   height: auto;
   max-height: 100%;
-  pointer-events: none;
   user-select: none;
 }
 
@@ -92,12 +92,15 @@ h3 {
 .preview_img_wrapper {
   height: 100px;
   width: 100px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
 }
 
 .preview_img_wrapper img {
-  width: 100%;
   height: 100%;
-  object-fit: cover;
+  width: 100%;
+  object-fit: contain;
 }
 
 label, button {
@@ -337,7 +340,7 @@ a.sticky__img {
 }
 
 .templates__item.mark {
-  outline: var(--outline-marked);
+  box-shadow: var(--selected--box-shadow);
   border-radius: var(--border-radius-marked);
 }
 
@@ -346,7 +349,9 @@ a.sticky__img {
 }
 
 .templates__item label {
-  display: inline-block;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 50%;
 }
 
@@ -376,6 +381,7 @@ a.sticky__img {
   line-height: 1;
   color: var(--color-price);
   pointer-events: none;
+  background-color: #fff;
 }
 
 .arrow {
@@ -416,27 +422,35 @@ a.sticky__img {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 15px;
+
 }
 
 .cases__item.mark {
-  outline: var(--outline-marked);
+  box-shadow: var(--selected--box-shadow);
   border-radius: var(--border-radius-marked);
 }
 
 .cases__top {
-  height: 250px;
+  height: 230px;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
 .cases__bottom {
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 44px; /*чтобы не пригало, если две строки в названии*/
+
 }
 
 .cases__item label {
-  display: inline-block;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   height: 100%;
 }
 
@@ -456,15 +470,17 @@ a.sticky__img {
 .cases__price {
   position: absolute;
   font-size: 20px;
-  right: -22px;
-  bottom: -7px;
+  right: 5px;
+  bottom: 9px;
   line-height: 1;
   color: var(--color-price);
   pointer-events: none;
+  background-color: #fff;
 }
 
 .cases__name {
   display: flex;
+  width: 100%;
   justify-content: space-around;
   align-items: center;
   font-size: 18px;
@@ -479,7 +495,8 @@ a.sticky__img {
 }
 
 .cases__video {
-  flex-basis: 20%;
+  /*flex-basis: 20%;*/
+  width: 50px;
 }
 
 .cases__video a {
@@ -533,8 +550,8 @@ input[name='urgency'] {
   text-align: center;
 }
 
-input:checked + label {
-  box-shadow: 0 0 5px #3b82f6;
+.urgency__label.mark {
+  box-shadow: var(--selected--box-shadow);
 }
 
 .form-input {
@@ -663,6 +680,10 @@ input[name='delivery'] {
   display: none;
 }
 
+.delivery__wrapper input:checked + label {
+  box-shadow: var(--selected--box-shadow);
+}
+
 .order-btn {
   padding-top: 20px;
   padding-bottom: 20px;
@@ -722,7 +743,6 @@ section.other-goods {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  gap: 10px;
   padding: 5px;
 
 }
@@ -761,6 +781,7 @@ section.other-goods {
   text-align: center;
   margin-top: auto;
   font-size: 16px;
+  height: 44px; /*чтобы не прыгало, если 2 строки в названии*/
 }
 
 .other-goods__item input[type="checkbox"] {
@@ -782,6 +803,8 @@ section.other-goods {
   color: var(--color-price);
   font-size: 20px;
   pointer-events: none;
+  background-color: #fff;
+  line-height: 1;
 }
 
 
