@@ -2,12 +2,8 @@
   @csrf
   <section class="templates section">
     <h3>{!! $options['step_1'] ?? null !!}</h3>
-    <div class="templates__list">
-      <a href="#">Стандартные (22 шт.)</a>
-      <a href="#">Дизайнерские (15 шт.)</a>
-      <a href="#">С лого и цветные (9 шт.)</a>
-      <a href="#">Все (52 шт.)</a>
-    </div>
+
+    @include('parts.selectTypeTemplateBtns')
 
     @include('parts.template-images')
 

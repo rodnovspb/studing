@@ -104,6 +104,14 @@ label, button {
   font-size: 20px;
 }
 
+.selectSubType {
+  font-size: 16px;
+}
+
+.selectedBtn {
+  border-bottom: 2px solid #ccc;
+}
+
 .sticky {
   display: flex;
   align-items: center;
