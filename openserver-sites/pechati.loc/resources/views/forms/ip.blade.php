@@ -28,11 +28,11 @@
       </div>
       <div class="requisites__inn inn">
         <div class="inn__title">ИНН или ОГРН</div>
-        <input class="form-input" type="text" name="requisites__inn" id="inn">
+        <input class="form-input" type="text" name="requisites__inn" id="inn__ip">
       </div>
       <div class="requisites__name name">
-        <div class="name__title">Наименование</div>
-        <input id="input_name" class="form-input" type="text" name="requisites__name" placeholder="ИП Фамилия Имя Отчество">
+        <div class="name__title">ФИО</div>
+        <input id="input_name" class="form-input" type="text" name="requisites__name">
       </div>
       <div class="requisites__contacts">
         <div class="contacts__title">Ваши контакты</div>

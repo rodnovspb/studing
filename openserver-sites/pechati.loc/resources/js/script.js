@@ -2,9 +2,11 @@
 
   document.addEventListener("DOMContentLoaded", ()=>{
     fetchGetIp();
+    fetchGetOrg();
     attachFiles();
     mark();
     showProducts('data-stand') // макеты
+    showOtherGoods()
     showProductsCases('data-often') // оснастки
     otherGoodsBtn()
     selectTypeProductBtns()
@@ -36,9 +38,42 @@
   /*Счетчик прикрепленных файлов*/
   let counterOfAttachFiles = 1;
 
-  /*Функция получения названия по ИНН/ОГРН*/
+  /*Функция получения названия ИП по ИНН/ОГРН*/
+  function  fetchGetOrg(){
+    let inputInn = document.querySelector('#inn_org');
+    let inputName = document.querySelector('#input_name');
+    if ((typeof (inputInn) != 'undefined' && inputInn != null) && (typeof (inputName) != 'undefined' && inputName != null)) {
+      inputInn.addEventListener('input', function (e) {
+        if (inputInn.value.length >= 10) {
+          // ищем числа состоящие из 10 или 13 цифр
+          let number = inputInn.value.match(/\b\d{13}\b|\b\d{10}\b/g);
+          if (number && number.length > 0) {
+            fetch('/dadata/org', {
+              headers: {
+                'X-CSRF-TOKEN': document.querySelector('input[name=_token]').value,
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+              },
+              method: "POST",
+              body: JSON.stringify({inn: number[0]})
+            })
+              .then(response => response.json())
+              .then(result => {
+                if (result.suggestions[0]) {
+                  inputName.value = `${result.suggestions[0].data.opf.short} "${result.suggestions[0].data.name.full}"`;
+                  if(inputName.value.length > 43) { inputName.rows = 2 }
+                }
+              })
+              .catch(error => console.log("error", error));
+          }
+        }
+      });
+    }
+  }
+
+  /*Функция получения названия ООО по ИНН/ОГРН*/
   function  fetchGetIp(){
-    let inputInn = document.querySelector('#inn');
+    let inputInn = document.querySelector('#inn__ip');
     let inputName = document.querySelector('#input_name');
     if ((typeof (inputInn) != 'undefined' && inputInn != null) && (typeof (inputName) != 'undefined' && inputName != null)) {
       inputInn.addEventListener('input', function (e) {
@@ -144,6 +179,17 @@
       })
     }
 
+    let stampsInputs = document.querySelectorAll('input[name="stamp"]')
+    if(typeof (stampsInputs) !== 'undefined' || stampsInputs !== null) {
+      stampsInputs.forEach(elem => {
+        elem.addEventListener('change', function (e) {
+          stampsInputs.forEach(elem => elem.closest('.stamp__item').classList.remove('mark'))
+          this.closest('.stamp__item').classList.add('mark')
+          changeOrderSum()
+        })
+      })
+    }
+
 
 
   }
@@ -200,14 +246,10 @@
 
   }
 
-  /*Функция показа слайдеров для других товаров и макетов*/
-  function showProducts(dataType){
+  function showOtherGoods(){
     let listOtherGoods = document.querySelectorAll('.other-goods__item');
-    let listProducts = document.querySelectorAll('.templates__item');
-    let listSelectedProducts = document.querySelectorAll(`[${dataType}]`)
-
     /*если на странице не найдется товаров отменим функцию*/
-    if(!listProducts || listProducts.length === 0){ return false; }
+    if(!listOtherGoods || listOtherGoods.length === 0){ return false; }
 
     setCountsByBreakpoints()
 
@@ -217,6 +259,25 @@
         listOtherGoods[i].classList.remove('dn')
       }
     }
+
+    window.addEventListener('resize', function redraw1(){
+      /*отвяжем, чтобы не тормозило, иначе навешиваются множество функций одинаковых*/
+      window.removeEventListener('resize', redraw1)
+      showOtherGoods()
+      otherGoodsBtn()
+    })
+
+  }
+
+  /*Функция показа слайдеров для других товаров и макетов*/
+  function showProducts(dataType){
+    let listProducts = document.querySelectorAll('.templates__item');
+    let listSelectedProducts = document.querySelectorAll(`[${dataType}]`)
+
+    /*если на странице не найдется товаров отменим функцию*/
+    if(!listProducts || listProducts.length === 0){ return false; }
+
+    setCountsByBreakpoints()
 
     listProducts.forEach(elem => elem.classList.add('dn'))
 
@@ -231,8 +292,7 @@
     window.addEventListener('resize', function redraw(){
       /*отвяжем, чтобы не тормозило, иначе навешиваются множество функций одинаковых*/
       window.removeEventListener('resize', redraw)
-      showProducts(dataType)
-      otherGoodsBtn()
+      showProducts('data-stand')
     })
 
   }
@@ -284,6 +344,7 @@
   function otherGoodsBtn(){
     let listOtherGoods = Array.from(document.querySelectorAll('.other-goods__item'));
     if(listOtherGoods.length === 0) { return false; }
+
     let rightBtn = document.querySelector('#other_right_arrow');
     let leftBtn = document.querySelector('#other_left_arrow');
     let res = unflat(listOtherGoods, countOtherGoods);
@@ -550,11 +611,13 @@
         sum += Number(elem.dataset.price)
       } else {
         sum = 'рассчитаем'
+        document.querySelector('#add_delivery').classList.add('dn')
         break
       }
     }
     if(typeof (sum) === 'number' && !isNaN(sum)){
       sum += ' ₽'
+      document.querySelector('#add_delivery').classList.remove('dn')
     }
     hiddenInp.value = span.textContent = sum
   }

@@ -19,12 +19,13 @@
               <td>
                    <select name="type" id="select_product_type">
                      <option value="template" @if((empty(old('type')) &&  $product->type == 'template') || old('type') == 'template') selected @endif>Макет</option>
+                     <option value="template_stamp" @if((empty(old('type')) &&  $product->type == 'template_stamp') || old('type') == 'template_stamp') selected @endif>Макет штампа и факсимиле</option>
                      <option value="case" @if((empty(old('type')) &&  $product->type == 'case') || old('type') == 'case') selected @endif>Оснастка</option>
                    </select>
                    <span style="margin-left: 20px; color: red; font-weight: bold;">@error('type') {{ $message }} @enderror</span>
               </td>
             </tr>
-            <tr>
+            <tr id="subtype_tr">
               <td>
                 Подтип
               </td>

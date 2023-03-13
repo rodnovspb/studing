@@ -116,25 +116,24 @@ label, button {
 }
 
 .sticky {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 8px 15px 8px 15px;
-  border-bottom: 1px solid #ccc;
   position: sticky;
   top: 0;
   z-index: 10;
   background-color: #fff;
-  max-width: var(--width-wrapper);
   width: 100%;
-  margin-left: auto;
-  margin-right: auto;
+}
+
+.sticky__block {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .sticky__wrapper {
   display: flex;
   align-items: center;
-  justify-content: center;
 }
 
 .wrapper-place {
@@ -166,6 +165,7 @@ a.sticky__img {
 .sticky__phone {
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-basis: 25%;
 }
 
@@ -181,50 +181,34 @@ a.sticky__img {
 .sticky__email {
   flex-basis: 25%;
   font-size: 30px;
+  text-align: right;
 }
 
 .sticky-inner {
-  display: flex;
-  justify-content: space-between;
   min-height: 35px;
   font-size: 24px;
-  border-bottom: 1px solid #ccc;
+
   position: sticky;
-  top: 72px;
+  top: 71px;
   z-index: 10;
   background-color: #fff;
-  align-items: center;
-  padding: 8px 15px 8px 15px;
-  border-bottom: 1px solid #ccc;
-  max-width: var(--width-wrapper);
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
 }
 
-.header__delivery {
-  min-height: 50px;
+.sticky-inner-block {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.container-sticky-inner {
+  border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
 }
 
-.delivery__cities {
-  flex-basis: 20%;
-}
-
-.delivery__services {
-  display: flex;
-  flex-basis: 80%;
-  justify-content: space-between;
-}
-
-.delivery__service {
-  display: flex;
-
+.container-header {
+  border-top: 1px solid #ccc;
 }
 
 .header__links {
@@ -234,7 +218,7 @@ a.sticky__img {
   font-size: 24px;
   padding-top: 10px;
   padding-bottom: 10px;
-  border-bottom: 1px solid #ccc;
+
 }
 
 .order-text {
@@ -525,7 +509,8 @@ a.sticky__img {
 .requisites__inn,
 .requisites__name,
 .requisites__contacts,
-.requisites__other {
+.requisites__other,
+.requisites__text {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -562,13 +547,18 @@ input[name='urgency'] {
   width: 600px;
 }
 
+textarea:focus {
+  outline: none;
+}
+
+textarea.form-input {
+  overflow-y: auto;
+}
+
 .form-input:focus {
   box-shadow: 0 0 3px #3b82f6;
 }
 
-.form-input::placeholder {
-
-}
 
 textarea.form-input {
   resize: vertical;
@@ -640,6 +630,9 @@ textarea.form-input {
   color: #3b82f6;
 }
 
+
+/*******************Доставка**********************/
+
 section.delivery {
   padding-top: 10px;
 }
@@ -684,6 +677,10 @@ input[name='delivery'] {
   box-shadow: var(--selected--box-shadow);
 }
 
+
+
+/*******************Кнопки заказа**********************/
+
 .order-btn {
   padding-top: 20px;
   padding-bottom: 20px;
@@ -725,6 +722,10 @@ h3.order-btn__cost {
   margin-bottom: 0;
   margin-right: 30px;
 }
+
+
+/*******************Другие товары**********************/
+
 
 section.other-goods {
   margin-top: 20px;
@@ -808,7 +809,58 @@ section.other-goods {
 }
 
 
+/******************* Штампы **********************/
 
+.stamp__images {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  position: relative;
+}
+
+.stamp__item {
+  flex-basis: 16%;
+  padding: 10px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stamp__item.mark {
+  box-shadow: var(--selected--box-shadow);
+  border-radius: var(--border-radius-marked);
+}
+
+.stamp__item input[type="radio"] {
+  display: none;
+}
+
+.stamp__item label {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.stamp__img {
+  transition: transform var(--time-for-transition) var(--func-for-transition);
+  cursor: pointer;
+}
+
+.stamp__img:hover {
+  transform: var(--scale);
+}
+
+.stamp__price {
+  position: absolute;
+  font-size: 20px;
+  right: 7px;
+  bottom: 7px;
+  line-height: 1;
+  color: var(--color-price);
+  pointer-events: none;
+  background-color: #fff;
+}
 
 
 

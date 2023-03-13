@@ -1,8 +1,8 @@
 <div class="sticky">
+  <div class="container container-sticky">
+    <div class="sticky__block">
         <div class="sticky__logo">
-            <div class="sticky__wrapper">
-                <a href="{{ route('index') }}" class="sticky__img">{!! $options['logo'] ?? null !!}</a>
-            </div>
+          <a href="{{ route('index') }}" class="sticky__img">{!! $options['logo'] ?? null !!}</a>
         </div>
         <div class="sticky__place">
             <div class="sticky__wrapper wrapper-place">
@@ -21,6 +21,8 @@
             </div>
         </div>
         <div class="sticky__email">
-            <div class="sticky__wrapper">{!! $options['email'] ?? null !!}</div>
+            {!! $options['email'] ?? null !!}
         </div>
     </div>
+  </div>
+</div>

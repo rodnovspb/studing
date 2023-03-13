@@ -63,6 +63,7 @@
             let selectSubtype = document.querySelector('#select_product_subtype')
             let nameTr = document.querySelector('#name_create_product_page')
             let videoTr = document.querySelector('#video_create_product_page')
+            let subtypeTr = document.querySelector('#subtype_tr')
             let subTemplates = document.querySelectorAll('.subtype_templates')
             let subCases = document.querySelectorAll('.subtype_cases')
 
@@ -72,25 +73,45 @@
             if(select.value == 'template'){
               nameTr.classList.add('dn')
               videoTr.classList.add('dn')
+              subtypeTr.classList.remove('dn')
+              selectSubtype.required = true
               subCases.forEach(elem => elem.classList.add('dn'))
               subTemplates.forEach(elem => elem.classList.remove('dn'))
             } else if(select.value == 'case'){
               nameTr.classList.remove('dn')
               videoTr.classList.remove('dn')
+              subtypeTr.classList.remove('dn')
+              selectSubtype.required = true
               subCases.forEach(elem => elem.classList.remove('dn'))
               subTemplates.forEach(elem => elem.classList.add('dn'))
+            } else if(select.value == 'template_stamp'){
+              nameTr.classList.add('dn')
+              videoTr.classList.add('dn')
+              subtypeTr.classList.add('dn')
+              selectSubtype.required = false
             }
 
             select.addEventListener('change', function (e) {
                 selectSubtype.querySelectorAll('option').forEach(elem => elem.selected = false)
-                select.value == 'template' ? nameTr.classList.add('dn') : nameTr.classList.remove('dn')
-                select.value == 'template' ? videoTr.classList.add('dn') : videoTr.classList.remove('dn')
                 if(select.value == 'template'){
+                  subtypeTr.classList.remove('dn')
+                  nameTr.classList.add('dn')
+                  videoTr.classList.add('dn')
+                  selectSubtype.required = true
                   subCases.forEach(elem => elem.classList.add('dn'))
                   subTemplates.forEach(elem => elem.classList.remove('dn'))
                 } else if(select.value == 'case'){
+                  subtypeTr.classList.remove('dn')
+                  nameTr.classList.remove('dn')
+                  videoTr.classList.remove('dn')
+                  selectSubtype.required = true
                   subCases.forEach(elem => elem.classList.remove('dn'))
                   subTemplates.forEach(elem => elem.classList.add('dn'))
+                } else if(select.value == 'template_stamp'){
+                  subtypeTr.classList.add('dn')
+                  nameTr.classList.add('dn')
+                  videoTr.classList.add('dn')
+                  selectSubtype.required = false
                 }
               })
 

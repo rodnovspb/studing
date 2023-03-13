@@ -1,6 +1,10 @@
 <div class="sticky-inner">
-    @foreach($topMenu as $item)
+  <div class="container container-sticky-inner">
+    <div class="sticky-inner-block">
+      @foreach($topMenu as $item)
         <a href="{{ env('ABS_URL') . $item->uri }}" title="{{ $item->link_title }}">{{ $item->top_header }}</a>
-    @endforeach
+      @endforeach
+    </div>
+  </div>
 </div>
 
