@@ -2,14 +2,14 @@
           <h3>{!! $options['step_4'] ?? null !!}</h3>
           <div class="delivery__wrapper">
               <div class="delivery__list">
-                <div class="delivery__item">
-                  <div class="delivery__logo">
-                    <input class="remove_delivery" type="radio" name="delivery" value="office" id="delivery__input_1" checked>
-                    <label for="delivery__input_1" class="delivery__label">
-                      Забрать в офисе
-                    </label>
-                  </div>
-                </div>
+{{--                <div class="delivery__item">--}}
+{{--                  <div class="delivery__logo">--}}
+{{--                    <input class="remove_delivery" type="radio" name="delivery" value="office" id="delivery__input_1" checked>--}}
+{{--                    <label for="delivery__input_1" class="delivery__label">--}}
+{{--                      Забрать в офисе--}}
+{{--                    </label>--}}
+{{--                  </div>--}}
+{{--                </div>--}}
                 <div class="delivery__item">
                   <div class="delivery__logo">
                     <input class="add_delivery" type="radio" name="delivery" value="yandex" id="delivery__input_2">

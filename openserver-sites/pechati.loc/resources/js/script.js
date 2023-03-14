@@ -48,7 +48,7 @@
           // ищем числа состоящие из 10 или 13 цифр
           let number = inputInn.value.match(/\b\d{13}\b|\b\d{10}\b/g);
           if (number && number.length > 0) {
-            fetch('/dadata/org', {
+            fetch('/get/org', {
               headers: {
                 'X-CSRF-TOKEN': document.querySelector('input[name=_token]').value,
                 'Content-Type': 'application/json',
@@ -85,7 +85,7 @@
           let number = inputInn.value.match(/\b(\d{15})\b|\b(\d{12})\b/g);
 
           if (number && number.length > 0) {
-            fetch('/dadata/ip', {
+            fetch('/get/ip', {
               headers: {
                 'X-CSRF-TOKEN': document.querySelector('input[name=_token]').value,
                 'Content-Type': 'application/json',
@@ -140,14 +140,6 @@
       attachFiles()
 
     })
-
-
-
-
-
-
-
-
 
   }
 

@@ -88,6 +88,10 @@ h3 {
   margin-bottom: 5px;
 }
 
+p {
+  text-indent: 1.5%;
+}
+
 .help {
   text-decoration: underline;
 }
@@ -937,6 +941,13 @@ section.other-goods {
   color: var(--color-price);
   pointer-events: none;
   background-color: #fff;
+}
+
+/******************* Другая печать **********************/
+
+.section_other {
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 
