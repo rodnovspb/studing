@@ -19,7 +19,7 @@
     <div class="requisites__wrapper">
       @include('parts.urgency')
       <div class="requisites__inn inn">
-        <div class="inn__title">ИНН или ОГРН</div>
+        <div class="inn__title">ИНН или ОГРНИП</div>
         <input class="form-input" type="text" name="requisites__inn" id="inn__ip">
       </div>
       <div class="requisites__name name">

@@ -6,7 +6,7 @@
     <div class="templates__item dn" data-price="{{ $product->price }}" @foreach($product->subtypes as $subtype) @if($subtype->id == 1) data-stand="1" @elseif($subtype->id == 2) data-des="1" @elseif($subtype->id == 3) data-logo="1" @endif @endforeach>
        <div class="templates__number">{{ $i }}</div>
        <label for="templates_radio_{{ $product->id }}">
-         <img class="templates__img" src="{{ $product->src }}" alt="{{ $product->alt }}" title="{{ $product->title }}"
+         <img class="templates__img" src="{{ secure_asset($product->src) }}" alt="{{ $product->alt }}" title="{{ $product->title }}"
               style="border-radius: 50%">
        </label>
        <input id="templates_radio_{{ $product->id }}" type="radio" name="template" value="{{ $product->id }}">

@@ -61,7 +61,10 @@
               .then(result => {
                 if (result.suggestions[0]) {
                   inputName.value = `${result.suggestions[0].data.opf.short} "${result.suggestions[0].data.name.full}"`;
-                  if(inputName.value.length > 43) { inputName.rows = 2 }
+                  if(inputName.value.length > 47) { inputName.rows = 2 }
+                  inputInn.value = `ИНН: ${result.suggestions[0].data.inn} ОГРН: ${result.suggestions[0].data.ogrn}`
+                  document.querySelector('input[name="requisites__contact"]').focus()
+                  console.log(result.suggestions[0])
                 }
               })
               .catch(error => console.log("error", error));
@@ -79,7 +82,8 @@
       inputInn.addEventListener('input', function (e) {
         if (inputInn.value.length >= 12) {
           // ищем числа состоящие из 12 или 15 цифр
-          let number = inputInn.value.match(/\b\d{15}\b|\b\d{12}\b/g);
+          let number = inputInn.value.match(/\b(\d{15})\b|\b(\d{12})\b/g);
+
           if (number && number.length > 0) {
             fetch('/dadata/ip', {
               headers: {
@@ -95,6 +99,8 @@
                 if (result.suggestions[0]) {
                   inputName.value = result.suggestions[0].value;
                 }
+                inputInn.value = `ИНН: ${result.suggestions[0].data.inn} ОГРНИП: ${result.suggestions[0].data.ogrn}`
+                document.querySelector('input[name="requisites__contact"]').focus()
               })
               .catch(error => console.log("error", error));
           }
@@ -185,6 +191,17 @@
         elem.addEventListener('change', function (e) {
           stampsInputs.forEach(elem => elem.closest('.stamp__item').classList.remove('mark'))
           this.closest('.stamp__item').classList.add('mark')
+          changeOrderSum()
+        })
+      })
+    }
+
+    let faksimileInputs = document.querySelectorAll('input[name="faksimile"]')
+    if(typeof (faksimileInputs) !== 'undefined' || faksimileInputs !== null) {
+      faksimileInputs.forEach(elem => {
+        elem.addEventListener('change', function (e) {
+          faksimileInputs.forEach(elem => elem.closest('.faksimile__item').classList.remove('mark'))
+          this.closest('.faksimile__item').classList.add('mark')
           changeOrderSum()
         })
       })

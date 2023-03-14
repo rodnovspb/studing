@@ -1,6 +1,6 @@
 <form action="#" method="post" enctype="multipart/form-data">
   @csrf
-  <section class="section">
+<section class="section">
     <h3>{!! $options['step_1_stamp'] ?? null !!}</h3>
     <div style="text-align: center; margin-bottom: 10px; margin-top: -7px;">{!! $options['step_1_stamp_subtype'] ?? null !!}</div>
 
@@ -8,7 +8,7 @@
       @foreach($stampProducts as $product)
         <div class="stamp__item" data-price="{{ $product->price }}">
         <label for="stamp_radio_{{ $product->id }}">
-         <img class="stamp__img" src="{{ $product->src }}" alt="{{ $product->alt }}" title="{{ $product->title }}">
+         <img class="stamp__img" src="{{ secure_asset($product->src) }}" alt="{{ $product->alt }}" title="{{ $product->title }}">
        </label>
        <input id="stamp_radio_{{ $product->id }}" type="radio" name="stamp" value="{{ $product->id }}">
        <div class="stamp__price">@isset($product->price) {{ $product->price }} р @endisset</div>

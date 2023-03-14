@@ -14,7 +14,7 @@
                   <div class="delivery__logo">
                     <input class="add_delivery" type="radio" name="delivery" value="yandex" id="delivery__input_2">
                     <label for="delivery__input_2" class="delivery__label">
-                      <img src="/storage/images/yandex.png" alt="">
+                      <img src="{{ secure_asset('/storage/images/yandex.png') }}" alt="яндекс доставка печатей">
                     </label>
                   </div>
                 </div>
@@ -22,7 +22,7 @@
                   <div class="delivery__logo">
                     <input class="add_delivery" type="radio" name="delivery" value="sdek" id="delivery__input_3">
                     <label for="delivery__input_3" class="delivery__label">
-                      <img src="/storage/images/sdek.png" alt="">
+                      <img src="{{ secure_asset('/storage/images/sdek.png') }}" alt="сдэк доставка печатей">
                     </label>
                   </div>
                 </div>
@@ -30,7 +30,7 @@
                   <div class="delivery__logo">
                     <input class="add_delivery" type="radio" name="delivery" value="pochta" id="delivery__input_4">
                     <label for="delivery__input_4" class="delivery__label">
-                      <img src="/storage/images/pochta.png" alt="">
+                      <img src="{{ secure_asset('/storage/images/pochta.png') }}" alt="доставка печатей почтой">
                     </label>
                   </div>
                 </div>

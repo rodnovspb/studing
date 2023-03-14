@@ -595,6 +595,7 @@ textarea.form-input {
   transition: box-shadow .1s linear;
   margin-right: 30px;
   flex-shrink: 0;
+
 }
 
 .label_file:hover {
@@ -874,6 +875,60 @@ section.other-goods {
 }
 
 .stamp__price {
+  position: absolute;
+  font-size: 20px;
+  right: 7px;
+  bottom: 7px;
+  line-height: 1;
+  color: var(--color-price);
+  pointer-events: none;
+  background-color: #fff;
+}
+
+/******************* Факсимиле **********************/
+
+.faksimile__images {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+}
+
+.faksimile__item {
+  flex-basis: 16%;
+  padding: 10px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.faksimile__item.mark {
+  box-shadow: var(--selected--box-shadow);
+  border-radius: var(--border-radius-marked);
+}
+
+.faksimile__item input[type="radio"] {
+  display: none;
+}
+
+.faksimile__item label {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.faksimile__img {
+  transition: transform var(--time-for-transition) var(--func-for-transition);
+  cursor: pointer;
+}
+
+.faksimile__img:hover {
+  transform: var(--scale);
+}
+
+.faksimile__price {
   position: absolute;
   font-size: 20px;
   right: 7px;

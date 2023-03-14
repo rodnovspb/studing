@@ -1,58 +1,37 @@
-{{--не забыть про urgency--}}
-
 <form action="#" method="post" enctype="multipart/form-data">
   @csrf
-  <section class="templates section">
-    <h3>{!! $options['step_1'] ?? null !!}</h3>
-    <div class="templates__list">
-      <a href="#">Стандартные (22 шт.)</a>
-      <a href="#">Дизайнерские (15 шт.)</a>
-      <a href="#">С лого и цветные (9 шт.)</a>
-      <a href="#">Все (52 шт.)</a>
+
+<section class="section">
+    <h3>{!! $options['step_1_faksimile'] ?? null !!}</h3>
+    <div style="text-align: center; margin-bottom: 10px; margin-top: -7px;">{!! $options['step_1_stamp_subtype'] ?? null !!}</div>
+
+<div class="faksimile__images">
+      @foreach($stampProducts as $product)
+    <div class="faksimile__item" data-price="{{ $product->price }}">
+        <label for="faksimile_radio_{{ $product->id }}">
+         <img class="faksimile__img" src="{{ secure_asset($product->src) }}" alt="{{ $product->alt }}" title="{{ $product->title }}">
+       </label>
+       <input id="faksimile_radio_{{ $product->id }}" type="radio" name="faksimile" value="{{ $product->id }}">
+       <div class="faksimile__price">@isset($product->price) {{ $product->price }} р @endisset</div>
     </div>
+  @endforeach
+</div>
+</section>
 
-    @include('parts.template-images')
-
-  </section>
-
-  <section class="cases section">
-    <h3>{!! $options['step_2'] ?? null !!}</h3>
-    <div class="cases__list">
-      <a href="#">Часто выбирают</a>
-      <a href="#">Автоматические</a>
-      <a href="#">Карманные</a>
-      <a href="#">Металлические</a>
+<section class="section requisites">
+  <div class="requisites__wrapper">
+    @include('parts.urgency_faks')
+    @include('parts.attach-files')
+    <div class="requisites__other">
+      <div class="other__title">Пожелания</div>
+      <textarea name="requisites__other" class="form-input" rows="2"></textarea>
     </div>
-
-    @include('parts.cases-images')
-
-  </section>
-
-  <section class="section requisites">
-    <h3>{!! $options['step_3'] ?? null !!}</h3>
-    <div class="requisites__wrapper">
-      @include('parts.urgency_faks')
-      <div class="requisites__inn inn">
-        <div class="inn__title">ИНН или ОГРН</div>
-        <input class="form-input" type="text" name="requisites__inn" id="inn">
-      </div>
-      <div class="requisites__name name">
-        <div class="name__title">Наименование</div>
-        <input id="input_name" class="form-input" type="text" name="requisites__name" placeholder="ИП Фамилия Имя Отчество">
-      </div>
-      <div class="requisites__contacts">
-        <div class="contacts__title">Ваши контакты</div>
-        <input class="form-input" type="text" name="requisites__contact">
-      </div>
-      <div class="requisites__other">
-        <div class="other__title">Пожелания</div>
-        <textarea name="requisites__other" class="form-input" rows="2"></textarea>
-      </div>
-
-      @include('parts.attach-files')
-
+    <div class="requisites__contacts">
+      <div class="contacts__title">Ваши контакты</div>
+      <input class="form-input" type="text" name="requisites__contact">
     </div>
-  </section>
+  </div>
+</section>
 
   @include('parts.delivery')
 
