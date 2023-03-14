@@ -31,7 +31,7 @@
               <td>
                    <select name="subtypes_for_products[]" id="select_product_subtype" required multiple style="height: 90px">
                         @foreach($subtypes as $subtype)
-                          <option @if(in_array($subtype->id, [1,2,3])) class="subtype_templates" @elseif(in_array($subtype->id, [4,5,6,7])) class="subtype_cases" @endif  value="{{ $subtype->id }}" @if(in_array($subtype->id, old('subtypes_for_products') ?? [])) selected @endif>{{ $subtype->name }}</option>
+                          <option @if(in_array($subtype->id, [1,2,3])) class="subtype_templates" @elseif(in_array($subtype->id, [4,5,6])) class="subtype_cases" @endif  value="{{ $subtype->id }}" @if(in_array($subtype->id, old('subtypes_for_products') ?? [])) selected @endif>{{ $subtype->name }}</option>
                         @endforeach
                    </select>
                    <span style="margin-left: 20px; color: red; font-weight: bold;">@error('subtypes_for_products') {{ $message }} @enderror</span>
@@ -43,6 +43,7 @@
               </td>
               <td>
                     <input type="text" name="name" value="{{ old('name') ?? null }}">
+                    <span style="margin-left: 20px; color: red; font-weight: bold;">@error('name') {{ $message }} @enderror</span>
               </td>
             </tr>
             <tr>
@@ -92,6 +93,7 @@
             <td>Ссылка на видео</td>
             <td>
               <input type="text" name="video" placeholder="Например: https://youtu.be/940FmKntof0" value="{{ old('video') ?? null }}">
+              <span style="margin-left: 20px; color: red; font-weight: bold;">@error('video') {{ $message }} @enderror</span>
             </td>
           </tr>
 

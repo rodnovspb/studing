@@ -13,6 +13,9 @@
   --border-radius-marked: 10px;
   --color-price: #3b82f6;
   --selected--box-shadow: 0 0 5px #3b82f6;
+  --order-btn-bg: #22c55e;
+  --order-btn-bg-hover: #1bb65d;
+  --order-btn-bg-active: #1ca551;
 }
 
 
@@ -527,12 +530,11 @@ input[name='urgency'] {
 }
 
 .urgency__label {
-  padding: 10px 40px;
+  padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  display: inline-block;
-  width: 50%;
   text-align: center;
+  flex-basis: 33%;
 }
 
 .urgency__label.mark {
@@ -709,19 +711,33 @@ input[name='delivery'] {
   gap: 20px;
 }
 
-
-.order-btn__button:hover {
-  box-shadow: 0 0 3px #3b82f6;
-}
-
-.order-btn__button:active {
-  box-shadow: 0 0 1px #3b82f6;
-}
-
 h3.order-btn__cost {
   margin-bottom: 0;
   margin-right: 30px;
 }
+
+.order-btn__send {
+  background-color: var(--order-btn-bg);
+  color: #fff;
+}
+
+.order-btn__send:hover {
+  background-color: var(--order-btn-bg-hover);
+}
+
+.order-btn__send:active {
+  background-color: var(--order-btn-bg-active);
+}
+
+.order-btn__cart:hover {
+  box-shadow: 0 0 2px var(--order-btn-bg-hover);
+}
+
+.order-btn__cart:active {
+  box-shadow: 0 0 4px var(--order-btn-bg-hover);
+}
+
+
 
 
 /*******************Другие товары**********************/
@@ -815,16 +831,22 @@ section.other-goods {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  position: relative;
+  height: 400px;
+  overflow: auto;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: var(--border-radius-marked);
+
 }
 
 .stamp__item {
-  flex-basis: 16%;
+  flex-basis: 25%;
   padding: 10px;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 10px;
 }
 
 .stamp__item.mark {

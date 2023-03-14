@@ -415,18 +415,15 @@
     if(typeof (oftenCasesBtn) == 'undefined' || oftenCasesBtn == null) return false
     let autCaseBtn = document.querySelector('#autCaseBtn');
     let pockCaseBtn = document.querySelector('#pockCaseBtn');
-    let metCaseBtn = document.querySelector('#metCaseBtn');
 
     let oftenCases = document.querySelectorAll('.cases__item[data-often]')
     let autCases = document.querySelectorAll('.cases__item[data-aut]')
     let pocketCases = document.querySelectorAll('.cases__item[data-pocket]')
-    let metCases = document.querySelectorAll('.cases__item[data-met]')
 
 
     oftenCasesBtn.textContent += ` (${oftenCases.length ? oftenCases.length : '0'} шт.)`
     autCaseBtn.textContent += ` (${autCases.length ? autCases.length : '0'} шт.)`
     pockCaseBtn.textContent += ` (${pocketCases.length ? pocketCases.length : '0'} шт.)`
-    metCaseBtn.textContent += ` (${metCases.length ? metCases.length : '0'} шт.)`
 
 
     document.querySelector('.cases__list').addEventListener('click', function (e){
@@ -444,10 +441,6 @@
         } else if(e.target === pockCaseBtn){
           showProductsCases('data-pocket')
           numOfArrSubCase = 2
-          numCase = 0
-        } else if(e.target === metCaseBtn){
-          showProductsCases('data-met')
-          numOfArrSubCase = 3
           numCase = 0
         }
       }
@@ -479,7 +472,7 @@
     let caseList = document.querySelectorAll('.cases__item')
     if(!caseList || caseList.length === 0){ return false; }
 
-    let resultArr = [[],[],[],[]];
+    let resultArr = [[],[],[]];
 
     caseList.forEach(elem => {
       if(elem.hasAttribute('data-often')){
@@ -491,9 +484,7 @@
       if(elem.hasAttribute('data-pocket')){
         resultArr[2].push(elem)
       }
-      if(elem.hasAttribute('data-met')){
-        resultArr[3].push(elem)
-      }
+
     })
     return  resultArr.map(elem => unflat(elem, countProducts))
 
@@ -566,7 +557,10 @@
       setClassForAll(caseList, 'dn')
       deleteClassForAll(allSubtypeCaseBtns, 'selectedBtn')
       allSubtypeCaseBtns[numOfArrSubCase].classList.add('selectedBtn')
-      cuttedCaseArr[numOfArrSubCase][numCase].forEach(elem => elem.classList.remove('dn'))
+      if(cuttedCaseArr[numOfArrSubCase][numCase]){
+        cuttedCaseArr[numOfArrSubCase][numCase].forEach(elem => elem.classList.remove('dn'))
+      }
+
 
     })
 
@@ -580,10 +574,19 @@
       } else {
         numCase++
       }
+      // на случай, если оснастка не была добавлена и будет ошибка
+      if(!cuttedCaseArr[numOfArrSubCase][numCase]){
+        numOfArrSubCase=0;
+        numCase=0
+      }
       setClassForAll(caseList, 'dn')
       deleteClassForAll(allSubtypeCaseBtns, 'selectedBtn')
       allSubtypeCaseBtns[numOfArrSubCase].classList.add('selectedBtn')
       cuttedCaseArr[numOfArrSubCase][numCase].forEach(elem => elem.classList.remove('dn'))
+
+
+
+
     })
   }
 
