@@ -1,39 +1,18 @@
-<section class="section delivery">
-          <h3>{!! $options['step_4'] ?? null !!}</h3>
-          <div class="delivery__wrapper">
-              <div class="delivery__list">
-{{--                <div class="delivery__item">--}}
-{{--                  <div class="delivery__logo">--}}
-{{--                    <input class="remove_delivery" type="radio" name="delivery" value="office" id="delivery__input_1" checked>--}}
-{{--                    <label for="delivery__input_1" class="delivery__label">--}}
-{{--                      Забрать в офисе--}}
-{{--                    </label>--}}
-{{--                  </div>--}}
-{{--                </div>--}}
-                <div class="delivery__item">
+<div class="requisites__delivery">
+        <div class="delivery__wrapper">
+          <div class="delivery__title">Нужна доставка?</div>
+          <div class="delivery__list">
+            @foreach($deliveries as $delivery)
+              <div class="delivery__item" style="flex-basis: {{ (100/$deliveries->count()) - 3 }}%" data-price="0" data-text = "{{ $delivery->placeholder }}" title="{{ $delivery->title }}">
                   <div class="delivery__logo">
-                    <input class="add_delivery" type="radio" name="delivery" value="yandex" id="delivery__input_2">
-                    <label for="delivery__input_2" class="delivery__label">
-                      <img src="{{ secure_asset('/storage/images/yandex.png') }}" alt="яндекс доставка печатей">
+                    <input class="add_delivery" type="radio" name="delivery" value="{{ $delivery->id }}" id="delivery__input_{{ $delivery->id }}">
+                    <label for="delivery__input_{{ $delivery->id }}" class="delivery__label">
+                      <img src="{{ secure_asset($delivery->src) }}" alt="{{ $delivery->alt }}">
                     </label>
                   </div>
                 </div>
-                <div class="delivery__item">
-                  <div class="delivery__logo">
-                    <input class="add_delivery" type="radio" name="delivery" value="sdek" id="delivery__input_3">
-                    <label for="delivery__input_3" class="delivery__label">
-                      <img src="{{ secure_asset('/storage/images/sdek.png') }}" alt="сдэк доставка печатей">
-                    </label>
-                  </div>
-                </div>
-                <div class="delivery__item">
-                  <div class="delivery__logo">
-                    <input class="add_delivery" type="radio" name="delivery" value="pochta" id="delivery__input_4">
-                    <label for="delivery__input_4" class="delivery__label">
-                      <img src="{{ secure_asset('/storage/images/pochta.png') }}" alt="доставка печатей почтой">
-                    </label>
-                  </div>
-                </div>
+            @endforeach
               </div>
-          </div>
-        </section>
+        </div>
+        <textarea name="requisites__address" class="delivery__address form-input dn" rows="2"></textarea>
+      </div>

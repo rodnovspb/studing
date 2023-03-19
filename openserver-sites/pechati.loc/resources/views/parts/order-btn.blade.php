@@ -4,7 +4,6 @@
      <input type="hidden" name="price_hidden" value="" id="inp_order_sum">
      <div class="order-btn__block">
        <button class="order-btn__button order-btn__send" type="submit">Заказать</button>
-       <button class="order-btn__button order-btn__cart" type="button">Добавить в корзину</button>
      </div>
    </div>
 </div>

@@ -1,4 +1,4 @@
-<form action="#" method="post" enctype="multipart/form-data">
+<form action="#" class="order-form" method="post" enctype="multipart/form-data">
   @csrf
   <section class="templates section">
     <h3>{!! $options['step_1'] ?? null !!}</h3>
@@ -29,10 +29,11 @@
         <input class="form-input" type="text" name="requisites__contact">
       </div>
 
+      @include('parts.delivery')
+
     </div>
   </section>
 
-  @include('parts.delivery')
 
   @include('parts.order-btn')
 

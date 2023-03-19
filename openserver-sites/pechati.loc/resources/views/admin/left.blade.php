@@ -11,6 +11,7 @@
                           <li><a href="{{ route('pages.index') }}">Страницы сайта</a></li>
                           <li><a href="{{ route('products.index') }}">Макеты и оснастки</a></li>
                           <li><a href="{{ route('othergoods.index') }}">Другие товары</a></li>
+                          <li><a href="{{ route('deliveries.index') }}">Доставка</a></li>
                           <li><a href="{{ route('file-manager') }}">Файловый менеджер</a></li>
                           <li><a href="{{ route('options.index') }}">Настройки</a></li>
                       </ul>

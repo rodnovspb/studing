@@ -1,4 +1,4 @@
-<form action="#" method="post" enctype="multipart/form-data">
+<form action="#" class="order-form" method="post" enctype="multipart/form-data">
   @csrf
 <section class="section">
     <h3>{!! $options['step_1_stamp'] ?? null !!}</h3>
@@ -36,11 +36,11 @@
       </div>
 
       @include('parts.attach-files')
-
+      @include('parts.delivery')
     </div>
   </section>
 
-  @include('parts.delivery')
+
 
   @include('parts.order-btn')
 

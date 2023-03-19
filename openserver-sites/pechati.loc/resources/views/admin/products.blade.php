@@ -26,7 +26,7 @@
           <tr class="admin__tr">
                 <td>
                   <div class="preview_img_wrapper">
-                    <img id="img_file" src="{{ $product->src }}" alt="{{ $product->alt }}" title="{{ $product->title }}">
+                    <img class="img_file" src="{{ $product->src }}" alt="{{ $product->alt }}" title="{{ $product->title }}">
                   </div>
                 </td>
                 <td>{{ $product->price }}</td>

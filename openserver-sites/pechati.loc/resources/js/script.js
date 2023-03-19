@@ -14,7 +14,10 @@
     templatesBtn()
     casesBtn()
     setMarkForUrgency()
-    addCostDelivery()
+    setMarkForDelivery()
+    setDataFromLS()
+    deleteDelivery()
+    saveContacts()
   });
 
   /*Сколько показывать товаров*/
@@ -593,9 +596,6 @@
       allSubtypeCaseBtns[numOfArrSubCase].classList.add('selectedBtn')
       cuttedCaseArr[numOfArrSubCase][numCase].forEach(elem => elem.classList.remove('dn'))
 
-
-
-
     })
   }
 
@@ -634,20 +634,62 @@
     hiddenInp.value = span.textContent = sum
   }
 
-  function addCostDelivery(){
-    let span = document.querySelector('#add_delivery')
-    if(typeof (span) == 'undefined' || span == null) return false
-
-    let delivery__list = document.querySelector('.delivery__list')
-    delivery__list.addEventListener('click', function (e) {
-          if(e.target.classList.contains('add_delivery')){
-            span.textContent = ' + доставка'
-          } else if(e.target.classList.contains('remove_delivery')){
-            span.textContent = null
+  function setMarkForDelivery(){
+    let labels = document.querySelectorAll('.delivery__label')
+    if(!labels || labels.length === 0) { return false; }
+    let delivery = document.querySelector('#add_delivery')
+    let address = document.querySelector('.delivery__address')
+    labels.forEach(elem => {
+      elem.addEventListener('click', function (e){
+        labels.forEach(el => {
+          if(el != elem){
+            el.closest('.delivery__item').classList.remove('mark')
+          } else {
+            let item = elem.closest('.delivery__item')
+            item.classList.toggle('mark')
+            if(!item.classList.contains('mark')){
+              delivery.textContent = null
+              address.classList.add('dn')
+              address.placeholder = null
+            } else {
+              delivery.textContent = ' + доставка'
+              address.classList.remove('dn')
+              address.placeholder = item.dataset.text
+            }
           }
+        })
+
       })
+    })
   }
 
+  // загрузим контакты, если уже делали заказ и они есть в LocalStorage
+  function setDataFromLS() {
+    let contact
+    let input = document.querySelector('input[name="requisites__contact"]')
+    if((contact = localStorage.getItem('contact')) && input){
+      input.value = contact
+    }
+  }
+
+  // если нет ни одного способа доставки, то скрываем блок доставки
+  function deleteDelivery(){
+    let list = document.querySelector('.delivery__list')
+    if(!list) { return false}
+    if(list.children.length === 0){
+      document.querySelector('.requisites__delivery').classList.add('dn')
+    }
+  }
+
+  // запись контактов в LS
+  function saveContacts(){
+    let btn = document.querySelector('.order-btn__button')
+    if(typeof (btn) == 'undefined' || btn == null) return false
+    btn.addEventListener('click', function (e) {
+        localStorage.setItem('contact', document.querySelector('input[name="requisites__contact"]').value)
+      })
+
+  }
 
 
 })()

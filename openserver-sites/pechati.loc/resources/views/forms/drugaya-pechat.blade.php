@@ -1,4 +1,4 @@
-<form action="#" method="post" enctype="multipart/form-data">
+<form action="#" method="post" enctype="multipart/form-data" class="order-form">
   @csrf
   <section class="section section_other">
     <div>{!! $options['other_pechat'] ?? null !!}</div>
@@ -26,13 +26,11 @@
       <input class="form-input" type="text" name="requisites__contact">
     </div>
 
-
+    @include('parts.delivery')
 
 
     </div>
   </section>
-
-  @include('parts.delivery')
 
   @include('parts.order-btn')
 

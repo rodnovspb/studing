@@ -27,7 +27,7 @@
                 <td style="text-align: center;">{{ $good->price }}</td>
                 <td>
                   <div class="preview_img_wrapper">
-                    <img id="img_file" src="{{ $good->src }}" alt="{{ $good->alt }}" title="{{ $good->title }}">
+                    <img class="img_file" src="{{ $good->src }}" alt="{{ $good->alt }}" title="{{ $good->title }}">
                   </div>
                 </td>
                 <td>

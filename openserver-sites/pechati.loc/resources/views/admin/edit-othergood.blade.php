@@ -15,7 +15,7 @@
         <tbody>
 
           <tr>
-            <td style="color: red; font-weight: bold;">Название - обязательное поле</td>
+            <td style="color: red; font-weight: bold;">Название*</td>
             <td>
               <input type="text" name="name" required value="{{ old('name') ?? $good->name }}">
               <span style="margin-left: 20px; color: red; font-weight: bold;">@error('name') {{ $message }} @enderror</span>
