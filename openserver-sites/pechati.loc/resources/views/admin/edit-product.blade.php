@@ -43,7 +43,7 @@
                 Название*
               </td>
               <td>
-                    <input type="text" name="name" value="{{ old('name') ?? $product->name  }}">
+                    <input type="text" maxlength="255" name="name" value="{{ old('name') ?? $product->name  }}">
                     <span style="margin-left: 20px; color: red; font-weight: bold;">@error('name') {{ $message }} @enderror</span>
               </td>
             </tr>
@@ -52,7 +52,7 @@
                 Цена
               </td>
               <td>
-                    <input type="number" step="any" name="price" value="{{ old('price') ?? $product->price }}">
+                    <input type="number" max="999999" step="any" name="price" value="{{ old('price') ?? $product->price }}">
                     <span style="margin-left: 20px; color: red; font-weight: bold;">@error('price') {{ $message }} @enderror</span>
               </td>
             </tr>
@@ -64,7 +64,7 @@
                 <img id="img_file" src="{{ old('src') ?? $product->src ?? asset('storage/images/no-photo.jpg') }}" alt="" class="preview_img">
               </div>
               <button onclick="openPopup()" class="admin__btn" type="button">Выберите файл</button>
-              <input type="text" name="src" id="input_file" readonly value="{{ old('src') ?? $product->src ?? asset('storage/images/no-photo.jpg') }}" />
+              <input type="text" maxlength="255" name="src" id="input_file" readonly value="{{ old('src') ?? $product->src ?? asset('storage/images/no-photo.jpg') }}" />
               <span style="margin-left: 20px; color: red; font-weight: bold;">@error('src') {{ $message }} @enderror</span>
               </td>
             </tr>
@@ -85,7 +85,7 @@
           <tr>
             <td>Порядок (приоритет)</td>
             <td>
-              <input type="number" step="any" name="order" value="{{ old('order') ?? $product->order ?? 1 }}">
+              <input type="number" max="999999" step="any" name="order" value="{{ old('order') ?? $product->order ?? 1 }}">
               <span style="margin-left: 20px; color: red; font-weight: bold;">@error('order') {{ $message }} @enderror</span>
             </td>
           </tr>
@@ -93,7 +93,7 @@
           <tr id="video_create_product_page">
             <td>Ссылка на видео</td>
             <td>
-              <input type="text" name="video" placeholder="Например: https://youtu.be/940FmKntof0" value="{{ old('video') ?? $product->video }}">
+              <input type="text" maxlength="255" name="video" placeholder="Например: https://youtu.be/940FmKntof0" value="{{ old('video') ?? $product->video }}">
               <span style="margin-left: 20px; color: red; font-weight: bold;">@error('video') {{ $message }} @enderror</span>
             </td>
           </tr>
@@ -101,7 +101,7 @@
         <tr>
             <td style="color: red; font-weight: bold;">alt*</td>
             <td>
-              <input type="text" name="alt" value="{{ old('alt') ?? $product->alt }}">
+              <input type="text" maxlength="255" name="alt" value="{{ old('alt') ?? $product->alt }}">
               <span style="margin-left: 20px; color: red; font-weight: bold;">@error('alt') {{ $message }} @enderror</span>
             </td>
           </tr>
@@ -109,7 +109,7 @@
           <tr>
             <td>title</td>
             <td>
-              <input type="text" name="title" value="{{ old('title') ?? $product->title }}">
+              <input type="text" maxlength="255" name="title" value="{{ old('title') ?? $product->title }}">
               <span style="margin-left: 20px; color: red; font-weight: bold;">@error('title') {{ $message }} @enderror</span>
             </td>
           </tr>

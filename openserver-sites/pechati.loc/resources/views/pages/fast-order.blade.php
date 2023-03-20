@@ -8,7 +8,8 @@
     <main class="main main-page">
       <div class="container">
         <section class="ip">
-            <h1>Быстрый заказ</h1>
+            {!! $data->content !!}
+            @include("forms.{$data->uri}")
         </section>
       </div>
     </main>

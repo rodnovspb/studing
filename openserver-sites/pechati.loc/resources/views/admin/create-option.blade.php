@@ -13,7 +13,7 @@
         <tbody>
             <tr>
                 <td>
-                    <input class="create_input" type="text" name="name" value="{{ old('name') }}" required pattern="[a-zA-Z0-9_-]{1,255}" placeholder="Латинские буквы, тире, цифры">
+                    <input class="create_input" maxlength="255" type="text" name="name" value="{{ old('name') }}" required pattern="[a-zA-Z0-9_-]{1,255}" placeholder="Латинские буквы, тире, цифры">
                     <div style="color: red; font-weight: bold;">@error('name') {{ $message }} @enderror</div>
                 </td>
                 <td>

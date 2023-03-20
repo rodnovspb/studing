@@ -20,7 +20,7 @@
       @include('parts.urgency')
       <div class="requisites__inn inn">
         <div class="inn__title">ИНН или ОГРНИП</div>
-        <input class="form-input" type="text" name="requisites__inn" id="inn__ip">
+        <textarea id="inn__ip" name="requisites__inn" class="form-input" rows="1"></textarea>
       </div>
       <div class="requisites__name name">
         <div class="name__title">ФИО</div>

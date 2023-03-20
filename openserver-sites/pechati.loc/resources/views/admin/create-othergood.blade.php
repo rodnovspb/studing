@@ -13,9 +13,9 @@
         <tbody>
 
           <tr>
-            <td style="color: red; font-weight: bold;">Название - обязательное поле</td>
+            <td style="color: red; font-weight: bold;">Название*</td>
             <td>
-              <input type="text" name="name" required value="{{ old('name') ?? null }}">
+              <input type="text" maxlength="255" name="name" required value="{{ old('name') ?? null }}">
               <span style="margin-left: 20px; color: red; font-weight: bold;">@error('name') {{ $message }} @enderror</span>
             </td>
           </tr>
@@ -23,7 +23,7 @@
           <tr>
             <td>Цена</td>
             <td>
-              <input type="number" step="any" name="price" value="{{ old('price') ?? null }}">
+              <input type="number" max="999999" step="any" name="price" value="{{ old('price') ?? null }}">
               <span style="margin-left: 20px; color: red; font-weight: bold;">@error('price') {{ $message }} @enderror</span>
             </td>
           </tr>
@@ -36,7 +36,7 @@
                 <img id="img_file" src="{{ asset('storage/images/no-photo.jpg') }}" alt="" class="preview_img">
               </div>
               <button onclick="openPopup()" class="admin__btn" type="button">Выберите файл</button>
-              <input type="text" name="src" id="input_file" readonly />
+              <input type="text" maxlength="255" name="src" id="input_file" readonly />
 
               {{--раскомментировать если не работает ckfinder, плюс путь редактировать к файлам, добавить storage вроде--}}
              {{-- <input type="file" name="src" accept="image/*" required>--}}
@@ -47,14 +47,14 @@
           <tr>
             <td>alt</td>
             <td>
-              <input type="text" name="alt">
+              <input type="text" maxlength="255" name="alt">
             </td>
           </tr>
 
           <tr>
             <td>title</td>
             <td>
-              <input type="text" name="title">
+              <input type="text" maxlength="255" name="title">
             </td>
           </tr>
 
@@ -73,7 +73,7 @@
           <tr>
             <td>Порядок (приоритет)</td>
             <td>
-              <input type="number" step="any" name="order" value="1">
+              <input type="number" max="999999" step="any" name="order" value="1">
               <span style="margin-left: 20px; color: red; font-weight: bold;">@error('order') {{ $message }} @enderror</span>
             </td>
           </tr>

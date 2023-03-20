@@ -16,7 +16,7 @@
                 Название*
               </td>
               <td>
-                    <input type="text" name="name" value="{{ old('name') ?? null }}" required>
+                    <input type="text" maxlength="255" name="name" value="{{ old('name') ?? null }}" required>
                     <span style="margin-left: 20px; color: red; font-weight: bold;">@error('name') {{ $message }} @enderror</span>
               </td>
             </tr>
@@ -25,7 +25,7 @@
                 Текст*
               </td>
               <td>
-                    <input type="text" name="placeholder" value="{{ old('placeholder') ?? null }}" required>
+                    <input type="text" maxlength="255" name="placeholder" value="{{ old('placeholder') ?? null }}" required>
                     <span style="margin-left: 20px; color: red; font-weight: bold;">@error('placeholder') {{ $message }} @enderror</span>
               </td>
             </tr>
@@ -37,7 +37,7 @@
                 <img id="img_file" src="{{ old('src') ?? asset('storage/images/no-photo.jpg') }}" alt="" class="preview_img">
               </div>
               <button onclick="openPopup()" class="admin__btn" type="button">Выберите файл</button>
-              <input type="text" name="src" id="input_file" readonly value="{{ old('src') ?? null }}" />
+              <input type="text" maxlength="255" name="src" id="input_file" readonly value="{{ old('src') ?? null }}" />
               <span style="margin-left: 20px; color: red; font-weight: bold;">@error('src') {{ $message }} @enderror</span>
               </td>
             </tr>
@@ -46,7 +46,7 @@
           <tr>
             <td>Порядок (приоритет)</td>
             <td>
-              <input type="number" step="any" name="order" value="{{ old('order') ?? 1 }}">
+              <input type="number" step="any" max="999999" name="order" value="{{ old('order') ?? 1 }}">
               <span style="margin-left: 20px; color: red; font-weight: bold;">@error('order') {{ $message }} @enderror</span>
             </td>
           </tr>
@@ -55,14 +55,14 @@
         <tr>
             <td>alt</td>
             <td>
-              <input type="text" name="alt" value="{{ old('alt') ?? null }}">
+              <input type="text" maxlength="255" name="alt" value="{{ old('alt') ?? null }}">
             </td>
           </tr>
 
           <tr>
             <td>title</td>
             <td>
-              <input type="text" name="title" value="{{ old('title') ?? null }}">
+              <input type="text" maxlength="255" name="title" value="{{ old('title') ?? null }}">
             </td>
           </tr>
 

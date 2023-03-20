@@ -2,6 +2,7 @@
    <div class="order-btn__wrapper">
      <h3 class="order-btn__cost">Стоимость: &nbsp;<span id="order_sum"></span><span id="add_delivery" class="dn"></span></h3>
      <input type="hidden" name="price_hidden" value="" id="inp_order_sum">
+     <input type="hidden" name="page_hidden" value="{{ $data->meta_title }}" id="inp_order_page">
      <div class="order-btn__block">
        <button class="order-btn__button order-btn__send" type="submit">Заказать</button>
      </div>

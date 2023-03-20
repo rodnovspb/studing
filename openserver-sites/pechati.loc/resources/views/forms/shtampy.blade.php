@@ -10,7 +10,7 @@
         <label for="stamp_radio_{{ $product->id }}">
          <img class="stamp__img" src="{{ secure_asset($product->src) }}" alt="{{ $product->alt }}" title="{{ $product->title }}">
        </label>
-       <input id="stamp_radio_{{ $product->id }}" type="radio" name="stamp" value="{{ $product->id }}">
+       <input id="stamp_radio_{{ $product->id }}" type="radio" name="template_stamp" value="{{ $product->id }}">
        <div class="stamp__price">@isset($product->price) {{ $product->price }} р @endisset</div>
     </div>
       @endforeach

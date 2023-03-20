@@ -17,7 +17,7 @@
           <tr>
             <td style="color: red; font-weight: bold;">Название*</td>
             <td>
-              <input type="text" name="name" required value="{{ old('name') ?? $good->name }}">
+              <input type="text" maxlength="255" name="name" required value="{{ old('name') ?? $good->name }}">
               <span style="margin-left: 20px; color: red; font-weight: bold;">@error('name') {{ $message }} @enderror</span>
             </td>
           </tr>
@@ -25,7 +25,7 @@
           <tr>
             <td>Цена</td>
             <td>
-              <input type="number" step="any" name="price" value="{{ old('price') ?? $good->price }}">
+              <input type="number" max="999999" step="any" name="price" value="{{ old('price') ?? $good->price }}">
               <span style="margin-left: 20px; color: red; font-weight: bold;">@error('price') {{ $message }} @enderror</span>
             </td>
           </tr>
@@ -38,7 +38,7 @@
                 <img id="img_file" src="{{ $good->src }}" alt="{{ $good->alt }}" title="{{ $good->title }}">
               </div>
               <button onclick="openPopup()" class="admin__btn" type="button">Выберите файл</button>
-              <input type="text" value="{{ $good->src }}" name="src" id="input_file" readonly/>
+              <input type="text" maxlength="255" value="{{ $good->src }}" name="src" id="input_file" readonly/>
 
               {{--Это для обычного выбора файлов--}}
              {{-- <img src="{{  $good->src }}" alt="" style="margin-right: 30px;" class="preview_img">
@@ -50,14 +50,14 @@
           <tr>
             <td>alt</td>
             <td>
-              <input type="text" name="alt" value="{{ old('alt') ?? $good->alt }}">
+              <input type="text" maxlength="255" name="alt" value="{{ old('alt') ?? $good->alt }}">
             </td>
           </tr>
 
           <tr>
             <td>title</td>
             <td>
-              <input type="text" name="title" value="{{ old('title') ?? $good->title }}">
+              <input type="text" maxlength="255" name="title" value="{{ old('title') ?? $good->title }}">
             </td>
           </tr>
 
@@ -76,7 +76,7 @@
           <tr>
             <td>Порядок (приоритет)</td>
             <td>
-              <input type="number" step="any" name="order" value="{{ old('order') ?? $good->order }}">
+              <input type="number" max="999999" step="any" name="order" value="{{ old('order') ?? $good->order }}">
               <span style="margin-left: 20px; color: red; font-weight: bold;">@error('order') {{ $message }} @enderror</span>
             </td>
           </tr>

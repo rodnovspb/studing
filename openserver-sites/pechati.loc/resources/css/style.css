@@ -131,7 +131,7 @@ label, button {
 .sticky {
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 11;
   background-color: #fff;
   width: 100%;
 }
@@ -214,14 +214,23 @@ a.sticky__img {
   padding-bottom: 8px;
 }
 
-.container-sticky-inner {
-  border-top: 1px solid #ccc;
+.container-sticky {
   border-bottom: 1px solid #ccc;
+
+}
+
+.container-sticky-inner {
+  border-bottom: 1px solid #ccc;
+
+
 }
 
 .container-header {
-  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+
 }
+
+
 
 .header__links {
   display: flex;
@@ -557,6 +566,8 @@ input[name='urgency'] {
   border-radius: 5px;
   display: inline-block;
   width: 600px;
+  word-wrap: break-word;
+  /*word-break: break-all;*/
 }
 
 textarea:focus {
@@ -973,8 +984,19 @@ section.other-goods {
   padding-bottom: 5px;
 }
 
+/******************* Быстрый заказ **********************/
 
+.section_fast-order {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
+.fast-order {
+  align-items: flex-start;
+  padding-top: 0;
+  width: unset;
+}
 
 
 

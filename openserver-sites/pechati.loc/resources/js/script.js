@@ -41,12 +41,17 @@
   /*Счетчик прикрепленных файлов*/
   let counterOfAttachFiles = 1;
 
+  /*Флаг для того, чтобы фетч переставал работать если пользователь редактирует реквизиты*/
+  let flagForFetch = true;
+
   /*Функция получения названия ИП по ИНН/ОГРН*/
   function  fetchGetOrg(){
     let inputInn = document.querySelector('#inn_org');
     let inputName = document.querySelector('#input_name');
     if ((typeof (inputInn) != 'undefined' && inputInn != null) && (typeof (inputName) != 'undefined' && inputName != null)) {
       inputInn.addEventListener('input', function (e) {
+        if (inputInn.value.length < 10) flagForFetch = true
+        if(!flagForFetch) return false;
         if (inputInn.value.length >= 10) {
           // ищем числа состоящие из 10 или 13 цифр
           let number = inputInn.value.match(/\b\d{13}\b|\b\d{10}\b/g);
@@ -63,15 +68,27 @@
               .then(response => response.json())
               .then(result => {
                 if (result.suggestions[0]) {
-                  inputName.value = `${result.suggestions[0].data.opf.short} "${result.suggestions[0].data.name.full}"`;
-                  if(inputName.value.length > 47) { inputName.rows = 2 }
-                  inputInn.value = `ИНН: ${result.suggestions[0].data.inn} ОГРН: ${result.suggestions[0].data.ogrn}`
+                  let obj = result.suggestions[0];
+                  inputName.value = `${obj.data.opf.short} "${obj.data.name.full}"`;
+                  let city = null;
+                  if(obj.data.address.data.city_with_type){
+                    city = obj.data.address.data.city_with_type
+                  } else if(obj.data.address.data.settlement_with_type){
+                    city = result.suggestions[0].data.address.data.region_with_type + ', ' + result.suggestions[0].data.address.data.settlement_with_type;
+                  }
+                  inputInn.value = `ИНН: ${obj.data.inn} ОГРН: ${obj.data.ogrn}\r\n${city}`
                   document.querySelector('input[name="requisites__contact"]').focus()
-                  console.log(result.suggestions[0])
+                  flagForFetch = false
                 }
+                if(inputInn.value.length > 45) { inputInn.rows = 2 }
+                if(inputInn.value.length > 90) { inputInn.rows = 3 }
               })
               .catch(error => console.log("error", error));
           }
+          if(inputName.value.length > 47) { inputName.rows = 2 }
+          if(inputName.value.length > 97) { inputName.rows = 3 }
+          if(inputInn.value.length > 47) { inputInn.rows = 2 }
+          if(inputInn.value.length > 90) { inputInn.rows = 3 }
         }
       });
     }
@@ -83,6 +100,8 @@
     let inputName = document.querySelector('#input_name');
     if ((typeof (inputInn) != 'undefined' && inputInn != null) && (typeof (inputName) != 'undefined' && inputName != null)) {
       inputInn.addEventListener('input', function (e) {
+        if (inputInn.value.length < 10) flagForFetch = true
+        if(!flagForFetch) return false;
         if (inputInn.value.length >= 12) {
           // ищем числа состоящие из 12 или 15 цифр
           let number = inputInn.value.match(/\b(\d{15})\b|\b(\d{12})\b/g);
@@ -100,10 +119,15 @@
               .then(response => response.json())
               .then(result => {
                 if (result.suggestions[0]) {
-                  inputName.value = result.suggestions[0].value;
+                  let obj = result.suggestions[0];
+                  inputName.value = obj.value;
+                  inputInn.value = `ИНН: ${obj.data.inn} ОГРНИП: ${obj.data.ogrn}\r\n${obj.data.address ? obj.data.address.value: ''}`
+                  if(inputInn.value.length > 45) { inputInn.rows = 2 }
+                  if(inputInn.value.length > 90) { inputInn.rows = 3 }
+                  document.querySelector('input[name="requisites__contact"]').focus()
+                  flagForFetch = false
                 }
-                inputInn.value = `ИНН: ${result.suggestions[0].data.inn} ОГРНИП: ${result.suggestions[0].data.ogrn}`
-                document.querySelector('input[name="requisites__contact"]').focus()
+
               })
               .catch(error => console.log("error", error));
           }
@@ -180,8 +204,8 @@
       })
     }
 
-    let stampsInputs = document.querySelectorAll('input[name="stamp"]')
-    if(typeof (stampsInputs) !== 'undefined' || stampsInputs !== null) {
+    let stampsInputs = document.querySelectorAll('.stamp__images input[name="template_stamp"]')
+    if(stampsInputs && stampsInputs.length > 0) {
       stampsInputs.forEach(elem => {
         elem.addEventListener('change', function (e) {
           stampsInputs.forEach(elem => elem.closest('.stamp__item').classList.remove('mark'))
@@ -191,8 +215,8 @@
       })
     }
 
-    let faksimileInputs = document.querySelectorAll('input[name="faksimile"]')
-    if(typeof (faksimileInputs) !== 'undefined' || faksimileInputs !== null) {
+    let faksimileInputs = document.querySelectorAll('.faksimile__images input[name="faksimile"]')
+    if(faksimileInputs && faksimileInputs.length > 0) {
       faksimileInputs.forEach(elem => {
         elem.addEventListener('change', function (e) {
           faksimileInputs.forEach(elem => elem.closest('.faksimile__item').classList.remove('mark'))

@@ -11,7 +11,7 @@
         <label for="faksimile_radio_{{ $product->id }}">
          <img class="faksimile__img" src="{{ secure_asset($product->src) }}" alt="{{ $product->alt }}" title="{{ $product->title }}">
        </label>
-       <input id="faksimile_radio_{{ $product->id }}" type="radio" name="faksimile" value="{{ $product->id }}">
+       <input id="faksimile_radio_{{ $product->id }}" type="radio" name="template_stamp" value="{{ $product->id }}">
        <div class="faksimile__price">@isset($product->price) {{ $product->price }} р @endisset</div>
     </div>
   @endforeach

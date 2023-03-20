@@ -34,41 +34,41 @@
             </tr>
 
             <tr>
-                <td style="color: red; font-weight: bold;">Заголовок браузера - обязательное поле</td>
+                <td style="color: red; font-weight: bold;">Заголовок браузера*</td>
                 <td>
-                    <input type="text" name="meta_title" required value="{{ $page->meta_title }}">
+                    <input type="text" maxlength="255" name="meta_title" required value="{{ $page->meta_title }}">
                     <span style="margin-left: 20px; color: red; font-weight: bold;">@error('meta_title') {{ $message }} @enderror</span>
                 </td>
             </tr>
 
             <tr>
                 <td>Заголовок в шапке</td>
-                <td><input type="text" name="top_header" value="{{ old('top_header') ?? $page->top_header }}"/></td>
+                <td><input type="text" maxlength="255" name="top_header" value="{{ old('top_header') ?? $page->top_header }}"/></td>
             </tr>
 
             <tr>
                 <td>Порядок ссылки в шапке (0 - не показывать)</td>
-                <td><input type="number" name="top_menu_order" value="{{ old('top_menu_order') ?? $page->top_menu_order }}"></td>
+                <td><input type="number" max="999999" step="any" name="top_menu_order" value="{{ old('top_menu_order') ?? $page->top_menu_order }}"></td>
             </tr>
 
             <tr>
                 <td>Заголовок на витрине</td>
-                <td><input type="text" name="main_header" value="{{ old('main_header') ?? $page->main_header }}"></td>
+                <td><input type="text" maxlength="255" name="main_header" value="{{ old('main_header') ?? $page->main_header }}"></td>
             </tr>
 
             <tr>
                 <td>Порядок ссылки на витрине (0 - не показывать)</td>
-                <td><input type="number" name="main_menu_order" value="{{ old('main_menu_order') ?? $page->main_menu_order }}"></td>
+                <td><input type="number" max="999999" step="any" name="main_menu_order" value="{{ old('main_menu_order') ?? $page->main_menu_order }}"></td>
             </tr>
 
              <tr>
                 <td>Заголовок в подвале</td>
-                <td><input type="text" name="footer_header" value="{{ old('footer_header') ?? $page->footer_header }}"></td>
+                <td><input type="text" maxlength="255" name="footer_header" value="{{ old('footer_header') ?? $page->footer_header }}"></td>
             </tr>
 
             <tr>
                 <td>Порядок ссылки в подвале (0 - не показывать)</td>
-                <td><input type="number" name="footer_menu_order" value="{{ old('footer_menu_order') ?? $page->footer_menu_order }}"></td>
+                <td><input type="number" max="999999" step="any" name="footer_menu_order" value="{{ old('footer_menu_order') ?? $page->footer_menu_order }}"></td>
             </tr>
 
             {{--чтобы не могли редактировать ссылки магазина, так как через них подключаются формы--}}
@@ -76,7 +76,7 @@
             <tr>
                 <td>Ссылка (писать латиницей)</td>
                 <td>
-                    <input type="text" name="uri" value="{{ old('uri') ?? $page->uri }}"  pattern="[a-z0-9-]{2,1000}" @if($page->uri === null) disabled @endif>
+                    <input type="text" maxlength="255" name="uri" value="{{ old('uri') ?? $page->uri }}"  pattern="[a-z0-9-]{2,1000}" @if($page->uri === null) disabled @endif>
                     <span style="margin-left: 20px; color: red; font-weight: bold;">@error('uri') {{ $message }} @enderror</span>
                 </td>
             </tr>
@@ -84,7 +84,7 @@
 
             <tr>
                 <td>Надпись при наведении</td>
-                <td><input type="text" name="link_title" value="{{ old('link_title') ?? $page->link_title }}"></td>
+                <td><input type="text" maxlength="255" name="link_title" value="{{ old('link_title') ?? $page->link_title }}"></td>
             </tr>
 
             <tr>
@@ -94,27 +94,27 @@
 
             <tr>
                 <td>meta_description</td>
-                <td><input type="text" name="meta_description" value="{{ old('meta_description') ?? $page->meta_description }}"></td>
+                <td><input type="text" maxlength="255" name="meta_description" value="{{ old('meta_description') ?? $page->meta_description }}"></td>
             </tr>
 
             <tr>
                 <td>meta_keywords</td>
-                <td><input type="text" name="meta_keywords" value="{{ old('meta_keywords') ?? $page->meta_keywords }}"></td>
+                <td><input type="text" maxlength="255" name="meta_keywords" value="{{ old('meta_keywords') ?? $page->meta_keywords }}"></td>
             </tr>
 
             <tr>
                 <td>Изображение на витрине</td>
-                <td><input type="text" name="image_main_menu" value="{{ old('image_main_menu') ?? $page->image_main_menu }}"></td>
+                <td><input type="text" maxlength="255" name="image_main_menu" value="{{ old('image_main_menu') ?? $page->image_main_menu }}"></td>
             </tr>
 
             <tr>
                 <td>Надпись при наведении на изображение</td>
-                <td><input type="text" name="image_main_title" value="{{ old('image_main_title') ?? $page->image_main_title }}"></td>
+                <td><input type="text" maxlength="255" name="image_main_title" value="{{ old('image_main_title') ?? $page->image_main_title }}"></td>
             </tr>
 
             <tr>
                 <td>Альт изображения</td>
-                <td><input type="text" name="image_main_alt" value="{{ old('image_main_alt') ?? $page->image_main_alt }}"></td>
+                <td><input type="text" maxlength="255" name="image_main_alt" value="{{ old('image_main_alt') ?? $page->image_main_alt }}"></td>
             </tr>
 
         </tbody>

@@ -8,7 +8,7 @@
     <main class="main main-page">
       <div class="container">
         <section>
-            <h1>Каталог</h1>
+            {!! $data->content !!}
 
         </section>
       </div>
