@@ -570,6 +570,20 @@ input[name='urgency'] {
   /*word-break: break-all;*/
 }
 
+.error {
+  border: 2px solid red !important;
+}
+
+.errors-list {
+  background-color: #fca5a5;
+  border-radius: var(--border-radius-marked);
+  padding: 20px;
+  margin: 0 auto 20px;
+  text-align: center;
+  width: 50%;
+  color: #fff;
+}
+
 textarea:focus {
   outline: none;
 }

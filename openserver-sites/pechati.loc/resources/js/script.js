@@ -148,8 +148,12 @@
 
     attachInput.addEventListener('change', function (e){
       if(this.files.length === 0) { return false; }
-      if(this.files[0].size > 10485760) { alert('Файл не больше 10 Мб, пожалуйста'); return false; }
-      if(counterOfAttachFiles > 5) { alert('Не больше 5 файлов, пожалуйста. Либо отправьте файлы на почту'); return false; }
+      if(this.files[0].size > 10485760) {
+        alert('Файл не больше 10 Мб, пожалуйста');
+        return false; }
+      if(counterOfAttachFiles > 5) {
+        alert('Не больше 5 файлов, пожалуйста. Либо отправьте файлы на почту');
+        return false; }
 
       counterOfAttachFiles++;
 

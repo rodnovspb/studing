@@ -1,4 +1,4 @@
-<form action="#" method="post" enctype="multipart/form-data" class="order-form">
+<form action="{{ route('store-order', [$data->uri]) }}" method="post" enctype="multipart/form-data" class="order-form">
   @csrf
   <section class="section section_other">
     <div>{!! $options['other_pechat'] ?? null !!}</div>
@@ -18,12 +18,12 @@
 
     <div class="requisites__other">
       <div class="other__title">Пожелания</div>
-      <textarea name="requisites__other" class="form-input" rows="2"></textarea>
+      <textarea name="requisites__other"  class="form-input @error('requisites__other') error @enderror" rows="2" maxlength="1000">{{ old('requisites__other') }}</textarea>
     </div>
 
     <div class="requisites__contacts">
       <div class="contacts__title">Ваши контакты</div>
-      <input class="form-input" type="text" name="requisites__contact">
+      <input class="form-input @error('requisites__contact') error @enderror" type="text" name="requisites__contact" maxlength="255">
     </div>
 
     @include('parts.delivery')

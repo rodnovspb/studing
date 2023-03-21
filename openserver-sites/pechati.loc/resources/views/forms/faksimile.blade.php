@@ -1,4 +1,4 @@
-<form action="#" class="order-form" method="post" enctype="multipart/form-data">
+<form action="{{ route('store-order', [$data->uri]) }}" class="order-form" method="post" enctype="multipart/form-data">
   @csrf
 
 <section class="section">
@@ -24,11 +24,11 @@
     @include('parts.attach-files')
     <div class="requisites__other">
       <div class="other__title">Пожелания</div>
-      <textarea name="requisites__other" class="form-input" rows="2"></textarea>
+      <textarea name="requisites__other" class="form-input @error('requisites__other') error @enderror" rows="2" maxlength="1000">{{ old('requisites__other') }}</textarea>
     </div>
     <div class="requisites__contacts">
       <div class="contacts__title">Ваши контакты</div>
-      <input class="form-input" type="text" name="requisites__contact">
+      <input class="form-input @error('requisites__contact') error @enderror" maxlength="255" type="text" name="requisites__contact" value="{{ old('requisites__contact') }}">
     </div>
 
     @include('parts.delivery')

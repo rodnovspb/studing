@@ -1,4 +1,4 @@
-<form action="#" class="order-form" method="post" enctype="multipart/form-data">
+<form action="{{ route('store-order', [$data->uri]) }}" class="order-form" method="post" enctype="multipart/form-data">
   @csrf
   <section class="templates section">
     <h3>{!! $options['step_1'] ?? null !!}</h3>
@@ -20,15 +20,15 @@
       @include('parts.urgency')
       <div class="requisites__name name">
         <div class="name__title">ФИО</div>
-        <input id="input_name" class="form-input" type="text" name="requisites__name">
+        <input id="input_name" class="form-input @error('requisites__name') error @enderror" type="text" name="requisites__name" maxlength="255" value="{{ old('requisites__name') }}">
       </div>
       <div class="requisites__contacts">
         <div class="contacts__title">Ваши контакты</div>
-        <input class="form-input" type="text" name="requisites__contact">
+        <input class="form-input @error('requisites__contact') error @enderror" type="text" name="requisites__contact" maxlength="255" value="{{ old('requisites__contact') }}">
       </div>
       <div class="requisites__other">
         <div class="other__title">Пожелания</div>
-        <textarea name="requisites__other" class="form-input" rows="2"></textarea>
+        <textarea name="requisites__other" class="form-input @error('requisites__other') error @enderror" rows="2" maxlength="1000">{{ old('requisites__other') }}</textarea>
       </div>
 
       @include('parts.attach-files')
