@@ -19,7 +19,7 @@
     <div class="requisites__wrapper">
       @include('parts.urgency')
       <div class="requisites__inn inn">
-        <div class="inn__title">ИНН или ОГРНИП</div>
+        <div class="inn__title">ИНН или ОГРН</div>
         <textarea id="inn__ip" name="requisites__inn" class="form-input @error('requisites__inn') error @enderror" rows="1" maxlength="255">{{ old('requisites__inn') }}</textarea>
       </div>
       <div class="requisites__name name">

@@ -219,7 +219,7 @@
       })
     }
 
-    let faksimileInputs = document.querySelectorAll('.faksimile__images input[name="faksimile"]')
+    let faksimileInputs = document.querySelectorAll('.faksimile__images input[name="template_stamp"]')
     if(faksimileInputs && faksimileInputs.length > 0) {
       faksimileInputs.forEach(elem => {
         elem.addEventListener('change', function (e) {
@@ -659,7 +659,8 @@
       sum += ' ₽'
       document.querySelector('#add_delivery').classList.remove('dn')
     }
-    hiddenInp.value = span.textContent = sum
+    span.textContent = hiddenInp.value = sum
+
   }
 
   function setMarkForDelivery(){

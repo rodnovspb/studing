@@ -66,6 +66,7 @@ img {
 
 .df {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .dfc {
@@ -1240,7 +1241,8 @@ table.admin__table tr:nth-child(even) {
 .admin__table input[type='text'],
 .admin__table input[type='number'],
 .admin__table select,
-.admin__table textarea {
+.admin__table textarea,
+.input {
   border: 1px solid #a09f9f;
   padding: 8px;
   border-radius: 5px;
