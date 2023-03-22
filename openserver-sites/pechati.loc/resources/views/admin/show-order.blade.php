@@ -16,7 +16,7 @@
           </tr>
           <tr>
             <td>Дата</td>
-            <td>{{ $order->created_at }}</td>
+            <td>{{ $order->created_at->format('d-m-Y H:i:s') }}</td>
           </tr>
           @isset($order->page)
             <tr>

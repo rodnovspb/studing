@@ -17,7 +17,7 @@
                 <td style="text-align: center">{{ $order->id }}</td>
                 <td style="text-align: center">{{ $order->page }}</td>
                 <td style="text-align: center">{{ $order->requisites__name ?? $order->requisites__contact ?? $order->requisites__other ?? null }}</td>
-                <td style="text-align: center">{{ $order->created_at }}</td>
+                <td style="text-align: center">{{ $order->created_at->format('d-m-Y H:i:s') }}</td>
                 <td style="text-align: center">
                     <a class="admin__btn" href="{{ route('orders.show', ['order' => $order->id]) }}">Открыть</a>
                     <form style="display: inline-block;" action="{{ route('orders.destroy', ['order' => $order->id]) }}" method="post">
@@ -32,8 +32,8 @@
     </table>
   <div class="admin__pagination">{{ $orders->links() }}</div>
   <form action="{{ route('search_order') }}" method="get">
-    @csrf
     <input type="search" name="s" class="input">
+    <input type="date" name="searchByDate" class="input">
     <button class="admin__btn">Найти заказ</button>
   </form>
 
