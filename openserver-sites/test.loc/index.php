@@ -3,10 +3,18 @@ require_once 'show.php';
 
 
 
-$str = '<title>text</title>';
+$str = '<p>
+	text1
+</p>
+<p>
+	text2
+</p>
+<p class="block">
+	text3
+</p>';
 
-preg_match('#<title>(.+?)</title>#su', $str, $match);
+preg_match_all('#<p[^>]*(.+?)</p>#su', $str, $match, PREG_PATTERN_ORDER);
 
-show($match[1], 1);
+show($match[0], 1);
 
 
