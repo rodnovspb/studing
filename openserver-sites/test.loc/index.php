@@ -5,6 +5,10 @@ require_once 'show.php';
 
 $str = file_get_contents('http://targ.loc/');
 
-preg_match_all('#<a[^>]+href\s*=\s*(["\'])(.+?)\1#', $str, $match, PREG_PATTERN_ORDER);
+$str = preg_replace('#<style>.*?</style>#su', '', $str);
 
-show($match[2], 1);
+
+
+show($str, 1);
+
+
