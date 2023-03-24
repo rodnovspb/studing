@@ -47,7 +47,10 @@
 
             <tr>
                 <td>Порядок ссылки в шапке (0 - не показывать)</td>
-                <td><input type="number" max="999999" step="any" name="top_menu_order" value="{{ old('top_menu_order') ?? 0 }}"></td>
+                <td>
+                  <input type="number" max="999999" step="any" name="top_menu_order" value="{{ old('top_menu_order') ?? 0 }}">
+                  <span style="margin-left: 20px; color: red; font-weight: bold;">@error('top_menu_order') {{ $message }} @enderror</span>
+                </td>
             </tr>
 
             <tr>
@@ -57,7 +60,10 @@
 
             <tr>
                 <td>Порядок ссылки на витрине (0 - не показывать)</td>
-                <td><input type="number" max="999999" step="any" name="main_menu_order" value="{{ old('main_menu_order') ?? 0 }}"></td>
+                <td>
+                  <input type="number" max="999999" step="any" name="main_menu_order" value="{{ old('main_menu_order') ?? 0 }}">
+                  <span style="margin-left: 20px; color: red; font-weight: bold;">@error('main_menu_order') {{ $message }} @enderror</span>
+                </td>
             </tr>
 
              <tr>
@@ -67,7 +73,10 @@
 
             <tr>
                 <td>Порядок ссылки в подвале (0 - не показывать)</td>
-                <td><input type="number" max="999999" step="any" name="footer_menu_order" value="{{ old('footer_menu_order') ?? 0 }}"></td>
+                <td>
+                  <input type="number" max="999999" step="any" name="footer_menu_order" value="{{ old('footer_menu_order') ?? 0 }}">
+                  <span style="margin-left: 20px; color: red; font-weight: bold;">@error('footer_menu_order') {{ $message }} @enderror</span>
+                </td>
             </tr>
 
             <tr>
@@ -101,6 +110,19 @@
             <tr>
                 <td>Изображение на витрине</td>
                 <td><input type="text" maxlength="255" name="image_main_menu" value="{{ old('image_main_menu') ?? null }}"></td>
+            </tr>
+
+            <tr>
+              <td style="color: red; font-weight: bold;">Изображение на витрине</td>
+              <td style="display: flex; justify-content: flex-start; align-items: center;">
+
+              <div class="preview_img_wrapper">
+                <img id="img_file" src="{{ old('image_main_menu') ?? asset('storage/images/no-photo.jpg') }}" alt="" class="preview_img">
+              </div>
+              <button onclick="openPopup()" class="admin__btn" type="button">Выберите файл</button>
+              <input type="text" maxlength="255" name="image_main_menu" id="input_file" readonly value="{{ old('image_main_menu') ?? null }}" />
+              <span style="margin-left: 20px; color: red; font-weight: bold;">@error('image_main_menu') {{ $message }} @enderror</span>
+              </td>
             </tr>
 
             <tr>

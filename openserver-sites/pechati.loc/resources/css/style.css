@@ -304,7 +304,14 @@ a.sticky__img {
   justify-content: center;
   transition: all .15s ease;
   margin-bottom: 30px;
+
+  background-repeat: no-repeat;
+  background-size: 50%;
+  background-position: bottom right;
+
 }
+
+
 
 .display__title {
   font-size: 30px;
