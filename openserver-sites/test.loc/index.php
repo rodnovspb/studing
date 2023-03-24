@@ -5,12 +5,10 @@ require_once 'show.php';
 
 $str = file_get_contents('http://targ.loc/');
 
-preg_match_all('#<nav[^>]*>(.+?)</nav>#su', $str, $match, PREG_PATTERN_ORDER);
-
-$str1 = $match[1][0];
-
-preg_match_all('#<a[^>]*>(.+?)</a>#su', $str1, $match1, PREG_PATTERN_ORDER);
-
-show($match1[1]);
+preg_match_all('#<main[^>]*>(.+?)</main>#su', $str, $match, PREG_PATTERN_ORDER);
 
 
+
+preg_match_all('#src\s*=\s*(["\'])(.+?)\1#su', $match[1][0], $match1, PREG_PATTERN_ORDER);
+
+show($match1[2], 1);
