@@ -1,12 +1,15 @@
 <?php
 require_once 'show.php';
 
+require_once './vendor/autoload.php';
+use DiDom\Document;
+
+$url = 'http://targ.loc/';
+
+$document = new Document($url, true);
 
 
-$str = file_get_contents('http://targ.loc/');
+foreach ($document->find('div') as $item) {
+    echo $item->text() . "<br>";
+}
 
-preg_match('#<body[^>]*>(.+?)</body>#su', $str, $match);
-
-preg_match_all('#href\s*=\s*(["\'])(.+?)\1#', $match[1], $match1);
-
-show($match1[2], 1);

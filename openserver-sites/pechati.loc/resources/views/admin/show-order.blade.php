@@ -28,7 +28,7 @@
             <tr>
               <td>Оснастка</td>
               <td>
-                <div class="preview_img_wrapper">
+                <div class="preview_img_wrapper big">
                  <img class="img_file" src="{{ $caseSrc }}" alt="">
                 </div>
               </td>
@@ -38,7 +38,7 @@
             <tr>
             <td>Макет</td>
             <td>
-              <div class="preview_img_wrapper">
+              <div class="preview_img_wrapper big">
                  <img class="img_file" src="{{ $templateSrc }}" alt="">
               </div>
             </td>
@@ -102,7 +102,7 @@
             <tr>
             <td>Штамп</td>
             <td>
-              <div class="preview_img_wrapper">
+              <div class="preview_img_wrapper big">
                  <img class="img_file" src="{{ $stampSrc }}" alt="">
               </div>
             </td>
