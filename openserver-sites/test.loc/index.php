@@ -12,8 +12,8 @@ $document = new Document($url, true);
 
 
 
-foreach ($document->find('main img') as $item){
-    $arr[] = ['src' => $item->src, 'alt' => $item->alt];
+foreach ($document->find('main a') as $item){
+    $arr[] = $item->href;
 }
 
 
