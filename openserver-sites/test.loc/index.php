@@ -10,8 +10,11 @@ $url = 'http://targ.loc/';
 
 $document = new Document($url, true);
 
-foreach ($document->find('nav a') as $item){
-    echo $item->href . '<br>';
+
+
+foreach ($document->find('main img') as $item){
+    $arr[] = ['src' => $item->src, 'alt' => $item->alt];
 }
 
 
+show($arr, 1);
