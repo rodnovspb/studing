@@ -8,8 +8,9 @@ $url = 'http://targ.loc/';
 
 $document = new Document($url, true);
 
-
-foreach ($document->find('div') as $item) {
-    echo $item->text() . "<br>";
+$arr = [];
+foreach ($document->find('a') as $item) {
+    $arr[] = ['href' => $item->href, 'text' => $item->text()];
 }
 
+show($arr, 1);
