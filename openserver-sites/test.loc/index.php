@@ -13,13 +13,22 @@ $url = 'http://targ.loc/';
 $document = new Document($url, true);
 
 
-$items = $document->find('a');
+$items = $document->find('[href]');
+$items1 = $document->find('[src]');
 
 foreach ($items as $item){
     if(str_starts_with($item->href, 'http')){
         echo $item->href . "<br>";
     } else {
         echo $domain . $item->href . "<br>";
+    }
+}
+
+foreach ($items1 as $item){
+    if(str_starts_with($item->src, 'http')){
+        echo $item->src . "<br>";
+    } else {
+        echo $domain . $item->src . "<br>";
     }
 }
 
