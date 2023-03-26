@@ -6,6 +6,22 @@ use DiDom\Document;
 
 
 
+$domain = 'http://targ.loc/cat/';
+$domainS = 'https://targ.loc';
+
+$document = new Document('http://targ.loc', true);
+
+$links = $document->find('a');
+
+$arr = [];
+
+foreach ($links as $link){
+    if(str_starts_with($link->href, 'http://targ.loc') || str_starts_with($link->href, $domainS) || !preg_match('#^http#', $link->href)){
+        $arr[] = normalize($domain, $link->href);
+    }
+}
+
+show($arr, 1);
 
 function normalize($target, $path){
     preg_match('#(http://[^/]+)/?#', $target, $match);
@@ -27,37 +43,16 @@ function normalize($target, $path){
     } elseif (preg_match('#^/#', $path)){
         $res = $domain . $path;
         return $res;
-    } /*elseif (preg_match('#^\w+#', $path) || preg_match('#^\.\/#', $path)){*/
-        elseif (preg_match('#^(\w+|\.\/{1})#', $path)){
+    } elseif (preg_match('#^(\w+|\.\/{1})#', $path)){
         $path = preg_replace('#^\.\/#', '',$path);
         $res = $target . $path;
         return $res;
     }
 
-
 }
 
 
 
-foreach ($tests as $key => $test) {
-    $norm = normalize($test['targ'], $test['path']);
-
-    if ($norm === $test['norm']) {
-        echo "
-				<p style=\"color: green\">
-					тест $key пройден
-				</p>
-			";
-    } else {
-        echo "
-				<p style=\"color: red\">
-					тест $key не пройден<br>
-					ожидалось: '{$test['norm']}'<br>
-					получено: $norm
-				</p>
-			";
-    }
-}
 
 
 
