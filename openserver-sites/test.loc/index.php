@@ -3,45 +3,145 @@ require_once 'show.php';
 
 require_once './vendor/autoload.php';
 use DiDom\Document;
-use function Symfony\Component\String\s;
 
 
-$url = 'http://targ.loc/cat/sat/';
 
-$href = '../dir/page.html';
+$tests = [
+    [
+        'targ' => 'http://targ.loc/cat/sat/',
+        'path' => 'http://targ.loc/dir/page.html',
+        'norm' => 'http://targ.loc/dir/page.html',
+    ],
+    [
+        'targ' => 'http://targ.loc/cat/sat/',
+        'path' => '/',
+        'norm' => 'http://targ.loc/',
+    ],
+    [
+        'targ' => 'http://targ.loc/',
+        'path' => '/',
+        'norm' => 'http://targ.loc/',
+    ],
+    [
+        'targ' => 'http://targ.loc',
+        'path' => '/',
+        'norm' => 'http://targ.loc/',
+    ],
+    [
+        'targ' => 'http://targ.loc/',
+        'path' => '/dir/page.html',
+        'norm' => 'http://targ.loc/dir/page.html',
+    ],
+    [
+        'targ' => 'http://targ.loc/cat/',
+        'path' => '/dir/page.html',
+        'norm' => 'http://targ.loc/dir/page.html',
+    ],
+    [
+        'targ' => 'http://targ.loc/cat/sat/',
+        'path' => '/dir/page.html',
+        'norm' => 'http://targ.loc/dir/page.html',
+    ],
+    [
+        'targ' => 'http://targ.loc',
+        'path' => '/dir/page.html',
+        'norm' => 'http://targ.loc/dir/page.html',
+    ],
+    [
+        'targ' => 'http://targ.loc/',
+        'path' => 'dir/page.html',
+        'norm' => 'http://targ.loc/dir/page.html',
+    ],
+    [
+        'targ' => 'http://targ.loc/cat/',
+        'path' => 'dir/page.html',
+        'norm' => 'http://targ.loc/cat/dir/page.html',
+    ],
+    [
+        'targ' => 'http://targ.loc/cat/sat/',
+        'path' => './dir/page.html',
+        'norm' => 'http://targ.loc/cat/sat/dir/page.html',
+    ],
+    [
+        'targ' => 'http://targ.loc/cat/',
+        'path' => './dir/page.html',
+        'norm' => 'http://targ.loc/cat/dir/page.html',
+    ],
+    [
+        'targ' => 'http://targ.loc/',
+        'path' => './dir/page.html',
+        'norm' => 'http://targ.loc/dir/page.html',
+    ],
+    [
+        'targ' => 'http://targ.loc/cat/sat/',
+        'path' => '../dir/page.html',
+        'norm' => 'http://targ.loc/cat/dir/page.html',
+    ],
+    [
+        'targ' => 'http://targ.loc/cat/sat/',
+        'path' => '../../dir/page.html',
+        'norm' => 'http://targ.loc/dir/page.html',
+    ],
+    [
+        'targ' => 'http://targ.loc/cat/sat/',
+        'path' => '../../../dir/page.html',
+        'norm' => 'http://targ.loc/dir/page.html',
+    ],
 
-getUrl('http://targ.loc', $url, $href);
+];
 
-function getUrl($site, $domain, $href){
-    $arr = [];
-    if(str_starts_with($href, 'http')){
-        $arr[] = $href;
-    } elseif (str_starts_with($href, '../')){
-        preg_match_all('#\.\.\/#', $href, $match);
+
+function normalize($target, $path){
+    preg_match('#(http://[^/]+)/?#', $target, $match);
+    $domain = $match[1];
+
+    if(str_starts_with($path, 'http')){
+        return $path;
+    } elseif (str_starts_with($path, '../')){
+        preg_match_all('#\.\.\/#', $path, $match);
         $count = count($match[0]);
         for ($i = 0; $i < $count; $i++){
-            $href = preg_replace('#^\.\.\/#', '', $href);
-            $domain = preg_replace('#[^\/]+\/$#', '', $domain);
+            $path = preg_replace('#^\.\.\/#', '', $path);
+            $target = preg_replace('#[^\/]+\/$#', '', $target);
         }
-
-        $res = $domain . $href;
-        $arr[] = $res;
-    } elseif (str_starts_with($href, '/')){
-        $res = $site . $href;
-        $arr[] = $res;
-    } elseif (preg_match('#^\w+#', $href)){
-        $res = $domain . $href;
-        $arr[] = $res;
+        $res = $target . $path;
+        return $res;
+    } elseif ($path === '/'){
+        return $domain . '/';
+    } elseif (preg_match('#^/#', $path)){
+        $res = $domain . $path;
+        return $res;
+    } /*elseif (preg_match('#^\w+#', $path) || preg_match('#^\.\/#', $path)){*/
+        elseif (preg_match('#^(\w+|\.\/{1})#', $path)){
+        $path = preg_replace('#^\.\/#', '',$path);
+        $res = $target . $path;
+        return $res;
     }
 
-
-    show($arr, 1);
 
 }
 
 
 
+foreach ($tests as $key => $test) {
+    $norm = normalize($test['targ'], $test['path']);
 
+    if ($norm === $test['norm']) {
+        echo "
+				<p style=\"color: green\">
+					тест $key пройден
+				</p>
+			";
+    } else {
+        echo "
+				<p style=\"color: red\">
+					тест $key не пройден<br>
+					ожидалось: '{$test['norm']}'<br>
+					получено: $norm
+				</p>
+			";
+    }
+}
 
 
 
