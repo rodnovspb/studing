@@ -8,15 +8,26 @@ use DiDom\Document;
 
 $document = new Document('http://targ.loc', true);
 
-$charset = $document->first('meta')->charset ?? $document->first('meta')->content;
 
-if($charset = $document->first('meta')->charset){
-    echo $charset;
-} elseif ($charset = $document->first('meta')->content){
 
-    preg_match('#charset\s*=\s*([\w-]+)\s*#', $charset, $match);
-    echo $match[1];
+echo getCharset($document);
+
+
+
+
+
+function getCharset($document){
+    $charset = $document->first('meta')->charset ?? $document->first('meta')->content;
+    if($charset = $document->first('meta')->charset){
+        return $charset;
+    } elseif ($charset = $document->first('meta')->content){
+        preg_match('#charset\s*=\s*([\w-]+)\s*#', $charset, $match);
+        return $match[1];
+    }
 }
+
+
+
 
 
 
