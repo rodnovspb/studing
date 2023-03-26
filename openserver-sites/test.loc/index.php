@@ -8,21 +8,34 @@ use function Symfony\Component\String\s;
 
 $url = 'http://targ.loc/cat/sat/';
 
-$href = '../../dir/page.html';
+$href = '../dir/page.html';
 
-getUrl($url, $href);
+getUrl('http://targ.loc', $url, $href);
 
-function getUrl($domain, $href){
-    preg_match_all('#\.\.\/#', $href, $match);
-    $count = count($match[0]);
-    for ($i = 0; $i < $count; $i++){
-        $href = preg_replace('#\.\.\/#', '', $href);
-        $domain = preg_replace('#[^\/]+\/$#', '', $domain);
+function getUrl($site, $domain, $href){
+    $arr = [];
+    if(str_starts_with($href, 'http')){
+        $arr[] = $href;
+    } elseif (str_starts_with($href, '../')){
+        preg_match_all('#\.\.\/#', $href, $match);
+        $count = count($match[0]);
+        for ($i = 0; $i < $count; $i++){
+            $href = preg_replace('#^\.\.\/#', '', $href);
+            $domain = preg_replace('#[^\/]+\/$#', '', $domain);
+        }
+
+        $res = $domain . $href;
+        $arr[] = $res;
+    } elseif (str_starts_with($href, '/')){
+        $res = $site . $href;
+        $arr[] = $res;
+    } elseif (preg_match('#^\w+#', $href)){
+        $res = $domain . $href;
+        $arr[] = $res;
     }
 
-    $res = $domain . $href;
 
-    show($res, 1);
+    show($arr, 1);
 
 }
 
