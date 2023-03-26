@@ -5,16 +5,19 @@ require_once './vendor/autoload.php';
 use DiDom\Document;
 use function Symfony\Component\String\s;
 
+$domain = 'http://targ.loc';
 
 $url = 'http://targ.loc/';
+
 
 $document = new Document($url, true);
 
 
+$items = $document->find('a');
 
-foreach ($document->find('main a') as $item){
-    $arr[] = $item->href;
+foreach ($items as $item){
+    echo $domain . $item->href . "<br>";
 }
 
 
-show($arr, 1);
+
