@@ -16,7 +16,11 @@ $document = new Document($url, true);
 $items = $document->find('a');
 
 foreach ($items as $item){
-    echo $domain . $item->href . "<br>";
+    if(str_starts_with($item->href, 'http')){
+        echo $item->href . "<br>";
+    } else {
+        echo $domain . $item->href . "<br>";
+    }
 }
 
 
