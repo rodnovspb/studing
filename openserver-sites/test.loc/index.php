@@ -20,24 +20,23 @@ mysqli_query($link, "SET NAMES 'utf8'");
 
 
 
-
-$url = 'http://targ.loc/';
+$url  = 'http://targ.loc';
 
 $document = new Document($url, true);
 
 $items = $document->find('nav a');
 
-$client = new Client();
 
 foreach ($items as $item) {
-    $page = new Document($item->href, true);
-    $title = $page->first('title')->text();
-    $text = $page->first('main p')->text();
-
-    $query = "INSERT INTO pages SET title='$title', text='$text'";
-
-    mysqli_query($link, $query) or die(mysqli_error($link));
-
+    $page = new Document($url . $item->href, true);
+    $links = $page->find('nav a');
+        foreach ($links as $link1){
+            $page = new Document($url . $link1->href, true);
+            $title =  $page->first('title')->text();
+            $text =  $page->first('p')->text();
+            $query = "INSERT INTO pages SET title='$title', text='$text'";
+            mysqli_query($link, $query) or die(mysqli_error($link));
+        }
 }
 
 
