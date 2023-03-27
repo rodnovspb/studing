@@ -1,44 +1,49 @@
 <?php
+
 require_once 'show.php';
 
 require_once './vendor/autoload.php';
 use DiDom\Document;
 use GuzzleHttp\Client;
 
+mb_internal_encoding('UTF-8');
+error_reporting(E_ALL);
+ini_set('display_errors', 'on');
+$host = "localhost";
+$user = 'root';
+$pass = '';
+$name = 'parsing';
+$link = mysqli_connect($host, $user, $pass, $name);
+mysqli_query($link, "SET NAMES 'utf8'");
 
 
+
+
+
+
+$url = 'http://targ.loc/';
+
+$document = new Document($url, true);
+
+$items = $document->find('nav a');
 
 $client = new Client();
-$url = 'https://ya.ru';
-$response = $client->request('get', $url)->getBody()->getContents();
 
+foreach ($items as $item) {
+    $page = new Document($item->href, true);
+    $title = $page->first('title')->text();
+    $text = $page->first('main p')->text();
 
+    $query = "INSERT INTO pages SET title='$title', text='$text'";
 
-getPage($url);
+    mysqli_query($link, $query) or die(mysqli_error($link));
 
-
-function getPage($url) {
-    $document = new Document($url, true);
-
-    $links = $document->find('link');
-
-    $scripts = $document->find('script');
-
-    foreach ($links as $link){
-        if(str_starts_with($link->href, $url) || !preg_match('#^http#', $link->href)){
-            $link->setAttribute('href', normalize($url, $link->href));
-        }
-    }
-
-    foreach ($scripts as $script){
-//        if(str_starts_with($script->src, $url) || !preg_match('#^http#', $script->src)){
-//            $script->setAttribute('src', normalize($url, $script->src));
-//        }
-        echo $script->src;
-    }
-
-    echo $document->html();
 }
+
+
+
+
+
 
 
 
