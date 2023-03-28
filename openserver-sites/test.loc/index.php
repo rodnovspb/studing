@@ -11,24 +11,28 @@ require_once './vendor/autoload.php';
 use DiDom\Document;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\BadResponseException;
+use function Symfony\Component\String\s;
 
 
-$url = 'http://targ.loc/';
+$url = 'https://zagony.ru/2023/03/27/kak-pravilno-ispolzovat-gladilnuyu-dosku.html';
+$domain = 'https://zagony.ru';
 $client = new Client();
+
+
 
 try {
     $response = $client->request('get', $url)->getBody()->getContents();
-    $document = new Document($response);
-    $audios = $document->find('audio');
+    $document = new Document($url);
+    $videos = $document->find('video source');
 
-    foreach ($audios as $audio){
-        $name = preg_match('#/(\w+\.\w+)$#', $audio->src, $match);
-        $href = normalize($url, $url, $audio->src);
+    echo $document->html();
+
+    foreach ($videos as $video){
+        $name = preg_match('#/(\w+\.\w+)$#', $video->src, $match);
+        $href = normalize($domain, $url, $video->src);
         $data = file_get_contents($href);
         file_put_contents($match[1], $data);
     }
-
-    echo $document->html();
 
 } catch(GuzzleHttp\Exception\ClientException $e){
     $response = $e->getResponse();
