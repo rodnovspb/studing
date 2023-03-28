@@ -1,14 +1,21 @@
 <?php
 
+ini_set('max_execution_time', '10000');
+set_time_limit(0);
+ini_set('memory_limit', '2048M');
+ignore_user_abort(true);
+
 require_once 'show.php';
 
 require_once './vendor/autoload.php';
 use DiDom\Document;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\BadResponseException;
+use function Symfony\Component\String\s;
 
 mb_internal_encoding('UTF-8');
-error_reporting(E_ALL);
-ini_set('display_errors', 'on');
+//error_reporting(E_ALL);
+//ini_set('display_errors', 'on');
 $host = "localhost";
 $user = 'root';
 $pass = '';
@@ -19,107 +26,25 @@ mysqli_query($link, "SET NAMES 'utf8'");
 
 
 
-$paths = [
-    'https://pechat74.ru',
-];
+$data = file_get_contents('http://targ.loc/1.jpg');
 
-$i = 0;
-
-while ($i < count($paths)){
-    $path = $paths[$i];
-    $page = new Document($path, true);
-    $text = $page->first('span')->text();
-    $hrefs = $page->find('a');
-    foreach ($hrefs as $href){
-        $href = normalize($paths[0], $paths[$i], $href->href);
-        if(!in_array($href, $paths) && $href != null){
-            $paths[] = $href;
-        }
-    }
-    echo $i . ' '. $text . "<br>";
-    $i++;
-
-    if($i === 100){
-        break;
-    }
-
-    var_dump($paths);
-}
-
-
-
-//foreach ($items as $item) {
-//    $page = new Document($url . $item->href, true);
-//    $links = $page->find('nav a');
-//        foreach ($links as $link1){
-//            $page = new Document($url . $link1->href, true);
-//            $title =  $page->first('title')->text();
-//            $text =  $page->first('p')->text();
-//            $query = "INSERT INTO pages SET title='$title', text='$text'";
-//            mysqli_query($link, $query) or die(mysqli_error($link));
-//        }
-//}
+file_put_contents('img.jpg', $data);
 
 
 
 
 
 
-function normalize($domain, $target, $path){
-
-    if(str_starts_with($path, 'http')){
-        return $path;
-    } elseif (str_starts_with($path, '../')){
-        preg_match_all('#\.\.\/#', $path, $match);
-        $count = count($match[0]);
-        for ($i = 0; $i < $count; $i++){
-            $path = preg_replace('#^\.\.\/#', '', $path);
-            $target = preg_replace('#[^\/]+\/$#', '', $target);
-        }
-        return $target . $path;
-    } elseif ($path === '/'){
-        return $domain . '/';
-    } elseif (preg_match('#^/#', $path)){
-        return $domain . $path;
-    } elseif (preg_match('#^(\w+|\.\/{1})#', $path)){
-        $path = preg_replace('#^\.\/#', '', $path);
-        return $target . $path;
-    }
-
-}
 
 
 
 
 
 
-//function normalize($target, $path){
-//    preg_match('#(http://[^/]+)/?#', $target, $match);
-//    $domain = $match[1];
-//
-//    if(str_starts_with($path, 'http')){
-//        return $path;
-//    } elseif (str_starts_with($path, '../')){
-//        preg_match_all('#\.\.\/#', $path, $match);
-//        $count = count($match[0]);
-//        for ($i = 0; $i < $count; $i++){
-//            $path = preg_replace('#^\.\.\/#', '', $path);
-//            $target = preg_replace('#[^\/]+\/$#', '', $target);
-//        }
-//        $res = $target . $path;
-//        return $res;
-//    } elseif ($path === '/'){
-//        return $domain . '/';
-//    } elseif (preg_match('#^/#', $path)){
-//        $res = $domain . $path;
-//        return $res;
-//    } elseif (preg_match('#^(\w+|\.\/{1})#', $path)){
-//        $path = preg_replace('#^\.\/#', '',$path);
-//        $res = $target . $path;
-//        return $res;
-//    }
-//
-//}
+
+
+
+
 
 
 
