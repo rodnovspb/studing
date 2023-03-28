@@ -8,18 +8,17 @@
 		<form action="" method="POST">
 			<input name="num1">
 			<input name="num2">
-			<input type="hidden" name="eee" value="1">
 			<input type="submit">
 		</form>
-		
 		<?php
 			if (isset($_POST['num1']) and isset($_POST['num2'])) {
-				if (isset($_POST['eee']) and $_POST['eee'] == '1') {
+				if (isset($_POST['xxx']) and $_POST['xxx'] == '+++') {
 					echo '<p id="res">' . 
 						$_POST['num1'] * $_POST['num2'] 
 					. '</p>';
 				}
 			}
 		?>
+		<script src="script.js"></script>
 	<body>
 </html>
