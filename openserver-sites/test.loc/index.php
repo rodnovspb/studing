@@ -15,14 +15,23 @@ use function Symfony\Component\String\s;
 
 
 
-$url = 'http://targ.loc/?num1=10&num2=20';
+$url = 'http://targ.loc/form.php';
 
 $client = new Client();
 
 try {
-    $response = $client->request('GET', $url)->getBody()->getContents();
+    $response = $client->request('POST', $url, [
+        'form_params' => [
+            'num1' => 11,
+            'num2' => 22,
+            'submit' => 'submit',
+        ]
+    ])->getBody()->getContents();
+
     $document = new Document($response);
-    echo $document->first('#qqq')->text();
+    echo $document->first('#res')->text();
+
+
 } catch(GuzzleHttp\Exception\ClientException $e){
     $response = $e->getResponse();
     $responseBodyAsString = $response->getBody()->getContents();}
