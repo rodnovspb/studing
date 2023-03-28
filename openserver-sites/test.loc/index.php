@@ -11,24 +11,53 @@ require_once './vendor/autoload.php';
 use DiDom\Document;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\BadResponseException;
-use function Symfony\Component\String\s;
-
-mb_internal_encoding('UTF-8');
-//error_reporting(E_ALL);
-//ini_set('display_errors', 'on');
-$host = "localhost";
-$user = 'root';
-$pass = '';
-$name = 'parsing';
-$link = mysqli_connect($host, $user, $pass, $name);
-mysqli_query($link, "SET NAMES 'utf8'");
 
 
+$url = 'http://targ.loc';
+$client = new Client();
+
+try {
+    $response = $client->request('get', $url)->getBody()->getContents();
+    $document = new Document($response);
+    $imgs = $document->find('img');
+
+    foreach ($imgs as $img){
+        $name = preg_match('#/(\w+\.\w+)$#', $img->src, $match);
+        $href = normalize($url, $url, $img->src);
+        $data = file_get_contents($href);
+        file_put_contents($match[1], $data);
+    }
+    echo $document->html();
+
+} catch(GuzzleHttp\Exception\ClientException $e){
+    $response = $e->getResponse();
+    $responseBodyAsString = $response->getBody()->getContents();}
 
 
-$data = file_get_contents('http://targ.loc/1.jpg');
 
-file_put_contents('img.jpg', $data);
+
+function normalize($domain, $target, $path){
+
+    if(str_starts_with($path, 'http')){
+        return $path;
+    } elseif (str_starts_with($path, '../')){
+        preg_match_all('#\.\.\/#', $path, $match);
+        $count = count($match[0]);
+        for ($i = 0; $i < $count; $i++){
+            $path = preg_replace('#^\.\.\/#', '', $path);
+            $target = preg_replace('#[^\/]+\/$#', '', $target);
+        }
+        return $target . $path;
+    } elseif ($path === '/'){
+        return $domain . '/';
+    } elseif (preg_match('#^/#', $path)){
+        return $domain . $path;
+    } elseif (preg_match('#^(\w+|\.\/{1})#', $path)){
+        $path = preg_replace('#^\.\/#', '', $path);
+        return $target . $path;
+    }
+
+}
 
 
 
