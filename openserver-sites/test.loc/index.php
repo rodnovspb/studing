@@ -22,9 +22,9 @@ $client = new Client();
 try {
     $response = $client->request('POST', $url, [
         'form_params' => [
-            'num1' => 11,
-            'num2' => 22,
-            'submit' => 'submit',
+            'num1' => 1212,
+            'num2' => 121212,
+            'eee' => '1',
         ]
     ])->getBody()->getContents();
 
