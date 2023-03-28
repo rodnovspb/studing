@@ -14,26 +14,15 @@ use GuzzleHttp\Exception\BadResponseException;
 use function Symfony\Component\String\s;
 
 
-$url = 'https://zagony.ru/2023/03/27/kak-pravilno-ispolzovat-gladilnuyu-dosku.html';
-$domain = 'https://zagony.ru';
+
+$url = 'http://targ.loc/?num1=10&num2=20';
+
 $client = new Client();
 
-
-
 try {
-    $response = $client->request('get', $url)->getBody()->getContents();
-    $document = new Document($url);
-    $videos = $document->find('video source');
-
-    echo $document->html();
-
-    foreach ($videos as $video){
-        $name = preg_match('#/(\w+\.\w+)$#', $video->src, $match);
-        $href = normalize($domain, $url, $video->src);
-        $data = file_get_contents($href);
-        file_put_contents($match[1], $data);
-    }
-
+    $response = $client->request('GET', $url)->getBody()->getContents();
+    $document = new Document($response);
+    echo $document->first('#qqq')->text();
 } catch(GuzzleHttp\Exception\ClientException $e){
     $response = $e->getResponse();
     $responseBodyAsString = $response->getBody()->getContents();}
@@ -41,28 +30,14 @@ try {
 
 
 
-function normalize($domain, $target, $path){
 
-    if(str_starts_with($path, 'http')){
-        return $path;
-    } elseif (str_starts_with($path, '../')){
-        preg_match_all('#\.\.\/#', $path, $match);
-        $count = count($match[0]);
-        for ($i = 0; $i < $count; $i++){
-            $path = preg_replace('#^\.\.\/#', '', $path);
-            $target = preg_replace('#[^\/]+\/$#', '', $target);
-        }
-        return $target . $path;
-    } elseif ($path === '/'){
-        return $domain . '/';
-    } elseif (preg_match('#^/#', $path)){
-        return $domain . $path;
-    } elseif (preg_match('#^(\w+|\.\/{1})#', $path)){
-        $path = preg_replace('#^\.\/#', '', $path);
-        return $target . $path;
-    }
 
-}
+
+
+
+
+
+
 
 
 
