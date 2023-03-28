@@ -13,13 +13,15 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Exception\BadResponseException;
 
 
-$url = 'http://targ.loc';
+$url = 'http://targ.loc/';
 $client = new Client();
 
 try {
     $response = $client->request('get', $url)->getBody()->getContents();
     $document = new Document($response);
     $imgs = $document->find('img');
+    $styles = $document->find('link[rel=stylesheet]');
+    $scripts = $document->find('script');
 
     foreach ($imgs as $img){
         $name = preg_match('#/(\w+\.\w+)$#', $img->src, $match);
@@ -27,6 +29,21 @@ try {
         $data = file_get_contents($href);
         file_put_contents($match[1], $data);
     }
+
+    foreach ($styles as $style){
+        $name = $style->href;
+        $href = normalize($url, $url, $name);
+        $data = file_get_contents($href);
+        file_put_contents($name, $data);
+    }
+
+    foreach ($scripts as $script){
+        $name = $script->src;
+        $href = normalize($url, $url, $name);
+        $data = file_get_contents($href);
+        file_put_contents($name, $data);
+    }
+
     echo $document->html();
 
 } catch(GuzzleHttp\Exception\ClientException $e){

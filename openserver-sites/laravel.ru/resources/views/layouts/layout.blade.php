@@ -7,7 +7,7 @@
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <title>@section('title') Мой сайт:  @show</title>
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
-    <script defer src="{{ asset('js/scripts.js') }}"></script>
+    <script defer src="{{ asset('js/script1.js') }}"></script>
   </head>
   <body>
 
