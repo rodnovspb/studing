@@ -19,29 +19,13 @@ $client = new Client();
 try {
     $response = $client->request('get', $url)->getBody()->getContents();
     $document = new Document($response);
-    $imgs = $document->find('img');
-    $styles = $document->find('link[rel=stylesheet]');
-    $scripts = $document->find('script');
+    $audios = $document->find('audio');
 
-    foreach ($imgs as $img){
-        $name = preg_match('#/(\w+\.\w+)$#', $img->src, $match);
-        $href = normalize($url, $url, $img->src);
+    foreach ($audios as $audio){
+        $name = preg_match('#/(\w+\.\w+)$#', $audio->src, $match);
+        $href = normalize($url, $url, $audio->src);
         $data = file_get_contents($href);
         file_put_contents($match[1], $data);
-    }
-
-    foreach ($styles as $style){
-        $name = $style->href;
-        $href = normalize($url, $url, $name);
-        $data = file_get_contents($href);
-        file_put_contents($name, $data);
-    }
-
-    foreach ($scripts as $script){
-        $name = $script->src;
-        $href = normalize($url, $url, $name);
-        $data = file_get_contents($href);
-        file_put_contents($name, $data);
     }
 
     echo $document->html();
