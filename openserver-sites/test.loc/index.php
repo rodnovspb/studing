@@ -11,26 +11,39 @@ require_once './vendor/autoload.php';
 use DiDom\Document;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\BadResponseException;
-use function Symfony\Component\String\s;
-
-$jar = new \GuzzleHttp\Cookie\CookieJar;
-
-$url = 'http://pechati.loc/ooo';
-
-$client = new Client();
-
-$data = ['field1'=>'value1', 'field2'=>'value2'];
-var_dump(http_build_query($data, '', '&'));
-show(http_build_query($data), 1);
 
 
-$get = ['name'  => 'Alex', 'email' => 'mail@example.com'];
-show(http_build_query($get), 1);
-$curl = curl_init('https://www.youtube.com/?' . http_build_query($get));
+$money = 1000;
+
+$curl = curl_init('https://select.by/kurs/');
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
 $html = curl_exec($curl);
 
-echo $html;
+$document = new Document($html);
+
+$rows = $document->find('tr.tablesorter-hasChildRow');
+
+foreach ($rows as $row) {
+    $firstTd = $row->first('td');
+    $num = $firstTd->nextSibling('td')->text();
+    $num = str_replace(',', '.', $num);
+
+    $roubles = round($money/(float)$num, 3);
+    echo $firstTd->first('a')->text() . " " . $roubles . "<br>";
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
