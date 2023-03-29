@@ -13,28 +13,31 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Exception\BadResponseException;
 use function Symfony\Component\String\s;
 
+$jar = new \GuzzleHttp\Cookie\CookieJar;
 
-
-$url = 'http://targ.loc/form.php';
+$url = 'http://pechati.loc/ooo';
 
 $client = new Client();
 
-try {
-    $response = $client->request('POST', $url, [
-        'form_params' => [
-            'num1' => 22,
-            'num2' => 33,
-            'xxx' => '+++',
-        ]
-    ])->getBody()->getContents();
-
-    $document = new Document($response);
-    echo $document->first('#res')->text();
+$data = ['field1'=>'value1', 'field2'=>'value2'];
+var_dump(http_build_query($data, '', '&'));
+show(http_build_query($data), 1);
 
 
-} catch(GuzzleHttp\Exception\ClientException $e){
-    $response = $e->getResponse();
-    $responseBodyAsString = $response->getBody()->getContents();}
+$get = ['name'  => 'Alex', 'email' => 'mail@example.com'];
+show(http_build_query($get), 1);
+$curl = curl_init('https://www.youtube.com/?' . http_build_query($get));
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+$html = curl_exec($curl);
+
+echo $html;
+
+
+
+
+
+
+
 
 
 
