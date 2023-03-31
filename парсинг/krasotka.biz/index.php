@@ -1,57 +1,60 @@
 <?php
-mb_internal_encoding('UTF-8');
-error_reporting(E_ALL);
-ini_set('display_errors', 'on');
-$host = "localhost";
-$user = 'root';
-$pass = '';
-$name = 'amdy';
-$link = mysqli_connect($host, $user, $pass, $name);
-mysqli_query($link, "SET NAMES 'utf8'");
+require_once '../show.php';
+require 'bootstrap.php';
 
+use DiDom\Document;
 
 ini_set('max_execution_time', '10000');
 set_time_limit(0);
 ini_set('memory_limit', '2048M');
 ignore_user_abort(true);
 
-require_once '../show.php';
-
-require_once '../vendor/autoload.php';
-use DiDom\Document;
-use GuzzleHttp\Client;
-use GuzzleHttp\Exception\BadResponseException;
-
+$domain = 'https://www.krasotka.biz';
 
 $paths = [
-    'https://amdy.su',
+    'https://www.krasotka.biz',
 ];
-
 
 
 $i = 0;
 while ($i < count($paths)){
     $path = $paths[$i];
     $text  = getPage($path);
-    if(gettype($text) != 'string') { continue; }
+    $text = iconv('windows-1251', 'utf-8', $text);
     $document = new Document($text);
-    if($document->has('article')){
-        $text = $document->first('article')->text();
-        $text = preg_replace("/(^[\r\n]*|[\r\n]+)[\s\t]*[\r\n]+/", "\n", $text);
-        $query = "INSERT INTO pages SET url = '$path', text = '$text'";
-        mysqli_query($link, $query);
-    }
-    $hrefs = $document->find('a');
-    foreach ($hrefs as $href){
-        $url = $href->href;
-        $normUrl = normalize($paths[0], $path, $url);
-        $normUrl = preg_replace('#(/\?|/\#).*$#', '', $normUrl);
-        if (!in_array($normUrl, $paths) && str_starts_with($url, $paths[0])) {
-            $paths[] = $normUrl;
+    if($document->has('a')){
+        $links = $document->find('a');
+        foreach ($links as $link){
+            $href = normalize($domain, $path, $link->href);
+            $paths[] = $href;
+            if(str_contains($link->class, 'announce')){
+                Page::create(['url' => $href]);
+                show(111, 1);
+            }
         }
+        show(222, 1);
     }
+    
+    
+    
+    
     $i++;
 }
+
+
+
+
+
+$mainPageHtml = getPage('https://www.krasotka.biz');
+$mainPageHtml = iconv('windows-1251', 'utf-8', $mainPageHtml);
+
+
+$arr = [];
+
+
+show($arr, 1);
+
+
 
 
 
@@ -67,10 +70,6 @@ function getPage($path) {
     return $html;
 }
 
-function getHrefs($html){
-    $document = new Document($html);
-    return $document->find('a');
-}
 
 function normalize($domain, $target, $path){
 

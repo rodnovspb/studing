@@ -5,7 +5,7 @@ ini_set('display_errors', 'on');
 $host = "localhost";
 $user = 'root';
 $pass = '';
-$name = 'amdy';
+$name = 'pizza';
 $link = mysqli_connect($host, $user, $pass, $name);
 mysqli_query($link, "SET NAMES 'utf8'");
 
@@ -22,31 +22,26 @@ use DiDom\Document;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\BadResponseException;
 
+$domain = 'https://www.pizzatempo.by';
+
 
 $paths = [
-    'https://amdy.su',
+    'https://www.pizzatempo.by/menu/goryachee.html',
 ];
-
 
 
 $i = 0;
 while ($i < count($paths)){
     $path = $paths[$i];
     $text  = getPage($path);
-    if(gettype($text) != 'string') { continue; }
+    
     $document = new Document($text);
-    if($document->has('article')){
-        $text = $document->first('article')->text();
-        $text = preg_replace("/(^[\r\n]*|[\r\n]+)[\s\t]*[\r\n]+/", "\n", $text);
-        $query = "INSERT INTO pages SET url = '$path', text = '$text'";
-        mysqli_query($link, $query);
-    }
     $hrefs = $document->find('a');
     foreach ($hrefs as $href){
         $url = $href->href;
-        $normUrl = normalize($paths[0], $path, $url);
+        $normUrl = normalize($domain, $path, $url);
         $normUrl = preg_replace('#(/\?|/\#).*$#', '', $normUrl);
-        if (!in_array($normUrl, $paths) && str_starts_with($url, $paths[0])) {
+        if (!in_array($normUrl, $paths) && str_starts_with($normUrl, $domain) && str_ends_with($normUrl, '.html')) {
             $paths[] = $normUrl;
         }
     }
@@ -54,12 +49,29 @@ while ($i < count($paths)){
 }
 
 
+$client = new Client();
+
+try {
+    foreach ($paths as $path){
+        $response = $client->request('GET', $path)->getBody()->getContents();
+        $document = new Document($response);
+        $headers = $document->find('.previews h3 span');
+        foreach ($headers as $header){
+            echo $header->text() . "<br>";
+        }
+    }
+    
+} catch(GuzzleHttp\Exception\ClientException $e){
+    $response = $e->getResponse();
+    $responseBodyAsString = $response->getBody()->getContents();
+}
+
 
 function getPage($path) {
     $curl = curl_init($path);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($curl, CURLOPT_COOKIEFILE, 'cookie.txt');
-	curl_setopt($curl, CURLOPT_COOKIEJAR,  'cookie.txt');
+    curl_setopt($curl, CURLOPT_COOKIEFILE, './cookie.txt');
+    curl_setopt($curl, CURLOPT_COOKIEJAR,  './cookie.txt');
     curl_setopt($curl, CURLOPT_FOLLOWLOCATION, 1);
     curl_setopt($curl, CURLOPT_HEADER, false);
     $html = curl_exec($curl);
@@ -67,13 +79,9 @@ function getPage($path) {
     return $html;
 }
 
-function getHrefs($html){
-    $document = new Document($html);
-    return $document->find('a');
-}
 
 function normalize($domain, $target, $path){
-
+    
     if(str_starts_with($path, 'http')){
         return $path;
     } elseif (str_starts_with($path, '../')){
@@ -92,8 +100,24 @@ function normalize($domain, $target, $path){
         $path = preg_replace('#^\.\/#', '', $path);
         return $target . $path;
     }
-
+    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
