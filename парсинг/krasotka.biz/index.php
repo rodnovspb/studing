@@ -66,11 +66,19 @@ Page::chunkById(200, function ($pages){
             } else {
                 $text = $page->first('#art');
             }
-
-            $content = $head->html() . $text->html();
+            if($text){
+                $images = $text->find('img');
+            } else {
+                $images = [];
+            }
+            
+            $head = $head ? $head->html() : null;
+            $text = $text ? $text->html() : null;
+            $content =  $head . $text;
+            $content = remove_emoji($content);
             Content::create(['title' => $title, 'subtitle' => $subtitle, 'text' => $content]);
 
-            $images = $text->find('img');
+            
             if(count($images) > 0){
                 foreach ($images as $image){
                     $src = str_replace('..', '',  $image->src);
@@ -82,6 +90,8 @@ Page::chunkById(200, function ($pages){
     }
 });
 
+
+//не сработала, нужно что-то править
 $i = 0;
 foreach ($imageUrlArr as $item){
     $data = file_get_contents($item);
@@ -141,7 +151,17 @@ function normalize($domain, $target, $path){
 
 
 
-
+function remove_emoji($string) {
+    $symbols = "\x{1F100}-\x{1F1FF}" // Enclosed Alphanumeric Supplement
+        ."\x{1F300}-\x{1F5FF}" // Miscellaneous Symbols and Pictographs
+        ."\x{1F600}-\x{1F64F}" //Emoticons
+        ."\x{1F680}-\x{1F6FF}" // Transport And Map Symbols
+        ."\x{1F900}-\x{1F9FF}" // Supplemental Symbols and Pictographs
+        ."\x{2600}-\x{26FF}" // Miscellaneous Symbols
+        ."\x{2700}-\x{27BF}"; // Dingbats
+    
+    return preg_replace('/['. $symbols . ']+/u', '', $string);
+}
 
 
 
