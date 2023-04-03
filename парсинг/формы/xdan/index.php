@@ -47,6 +47,7 @@ $html = curl_exec($curl);
 $document = new Document($html);
 $k = $document->first('#dynamic_recaptcha_1')->attr('data-sitekey');
 
+
 $keyRucaptcha = '090cf340b43935740f22863d01dbf2c2';
 
 $solver = new \TwoCaptcha\TwoCaptcha($keyRucaptcha);
@@ -58,8 +59,11 @@ $result = $solver->recaptcha([
 
 
 //Отправка комментария-------------------------------------------------------------------------------------------
+//Все работает до этого момента, комментарий не отправляется
 
-$data = ['comment' => 'Спасибо за материал'];
+
+
+$data = ['comment' => 'Спасибо за материал', 'g-recaptcha-response' => $result];
 
 $curl = curl_init($page);
 curl_setopt($curl, CURLOPT_COOKIEFILE, 'cookie.txt');
