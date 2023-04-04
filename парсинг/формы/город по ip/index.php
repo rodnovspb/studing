@@ -1,6 +1,5 @@
 <?php
 
-use function Symfony\Component\String\s;
 
 require_once '../../show.php';
 require_once '../../vendor/autoload.php';
