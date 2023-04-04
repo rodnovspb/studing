@@ -11,16 +11,23 @@ ignore_user_abort(true);
 
 
 
-$curl = curl_init('https://www.cy-pr.com');
+$curl = curl_init('https://www.cy-pr.com/a/www.w3schools.com');
 curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 $html = curl_exec($curl);
 
 $document = new Document($html);
-$scripts = $document->find('script');
 
-foreach ($scripts as $script){
-    $script->remove();
-}
+$tic = $document->first('td[colspan=4] .htips.greymsg')->text();
+preg_match('#(\d+)#', $document->find('.lt')[2]->text(), $match1);
 
-echo $document->html();
+
+preg_match('#(\d+)#', $tic, $match2);
+
+echo "PR - $match1[1]";
+echo "<br>";
+echo "ТИЦ - $match2[1]";
+
+
+
+
