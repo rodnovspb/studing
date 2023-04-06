@@ -68,12 +68,12 @@ $data = [
     's' => '',
     'do' => 'addmember',
     'url' => 'https://javascript.ru/forum/index.php',
-    'agree' => 1,
+    'agree' => '1',
     'password_md5' => 'a76cf9c8da9afcbf591dc300ddf72315',
     'passwordconfirm_md5' => 'a76cf9c8da9afcbf591dc300ddf72315',
-    'day' => 0,
-    'month' => 0,
-    'year' => 0,
+    'day' => '0',
+    'month' => '0',
+    'year' => '0',
     'username' => 'cined-skynet111',
     'password' => '',
     'passwordconfirm' => '',
@@ -81,8 +81,8 @@ $data = [
     'emailconfirm' => 'rodnovspb1@mail.ru',
     'imagestamp' => $result,
     'imagehash' => $imgHash,
-    'timezoneoffset' => 3,
-    'dst' => 2,
+    'timezoneoffset' => '3',
+    'dst' => '2',
 ];
 
 $curl = curl_init('https://javascript.ru/forum/register.php?do=addmember');
