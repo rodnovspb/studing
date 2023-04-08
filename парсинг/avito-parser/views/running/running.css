@@ -1,0 +1,15 @@
+#usage {
+    font-family: Consolas, Menlo, Monaco, monospace;
+    background-color: #000;
+    padding: 0;
+    color: #1cd22c;
+    font-size: 14px;
+    min-height: 450px;
+    max-height: 450px; 
+    overflow-y: scroll;
+}
+
+#terminal {
+    line-height: 20px;
+    padding: 10px 15px;
+}

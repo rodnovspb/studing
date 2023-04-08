@@ -13,7 +13,9 @@ $headers = [
     'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
     'Referer: https://javascript.ru/',
     'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36',
-    'cookie: _ga=GA1.2.384234155.1662157442; _ym_uid=1662157442977818928; _ym_d=1662157442; cf_clearance=7dW320oF8TUzSpH.S9FtsQpe805OISZK2ENoZHX8lRM-1680655298-0-160; cf_chl_2=38a3a6bf63692b1; vbsessionhash=67e60c4016f117db0c68647a433792a5; vblastvisit=1680658320; vblastactivity=0'
+    'cookie: _ga=GA1.2.384234155.1662157442; _ym_uid=1662157442977818928; _ym_d=1662157442; vblastvisit=1680658682; vblastactivity=0; cf_clearance=hQmXcIFVoJ1wXUs3qQKJ5Z107_KiDAL6kFb0lzDQfEs-1680799285-0-160; vbsessionhash=69dd05477d9b7d6e68fd1f471b472326',
+    'Content-Type: application/x-www-form-urlencoded',
+    'Origin: https://javascript.ru'
     
 ];
 
@@ -53,7 +55,6 @@ $solver = new \TwoCaptcha\TwoCaptcha($keyRucaptcha);
 
 $result = $solver->normal('cap.jpg')->code;
 
-
 $headers = [
     'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
     'Referer: https://javascript.ru/forum/register.php',
@@ -67,18 +68,18 @@ $headers = [
 $data = [
     's' => '',
     'do' => 'addmember',
-    'url' => 'https://javascript.ru/forum/index.php',
+    'url' => 'index.php',
     'agree' => '1',
-    'password_md5' => 'a76cf9c8da9afcbf591dc300ddf72315',
-    'passwordconfirm_md5' => 'a76cf9c8da9afcbf591dc300ddf72315',
+    'password_md5' => '78b9f228e5a12506fef1cbba45a36841',
+    'passwordconfirm_md5' => '78b9f228e5a12506fef1cbba45a36841',
     'day' => '0',
     'month' => '0',
     'year' => '0',
-    'username' => 'cined-skynet111',
+    'username' => 'cined-skynet11124',
     'password' => '',
     'passwordconfirm' => '',
-    'email' => 'rodnovspb1@mail.ru',
-    'emailconfirm' => 'rodnovspb1@mail.ru',
+    'email' => 'rodnovspb@mail.ru',
+    'emailconfirm' => 'rodnovspb@mail.ru',
     'imagestamp' => $result,
     'imagehash' => $imgHash,
     'timezoneoffset' => '3',
@@ -95,9 +96,8 @@ curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
 curl_setopt($curl, CURLOPT_VERBOSE, true);
 curl_setopt($curl, CURLOPT_STDERR, fopen('./curl.log', 'w+'));
 curl_exec($curl);
-show(curl_getinfo($curl), 1);
-curl_close($curl);
 
+show($result, 1);
 
 
 

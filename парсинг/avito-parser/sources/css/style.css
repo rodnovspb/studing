@@ -1,0 +1,11 @@
+p {
+    text-indent: 30px;
+    text-align: justify;
+}
+.main_menu_link {
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+#reportPanel>div {
+    padding: 10px 0;
+}
