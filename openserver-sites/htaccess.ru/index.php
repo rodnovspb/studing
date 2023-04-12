@@ -1,9 +1,5 @@
+<h1>Основная страница</h1>
+
 <?php
 
-var_dump($_SERVER['REQUEST_URI']);
-
-var_dump($_GET['get']);
-
-?>
-
-
+include 'test.php';

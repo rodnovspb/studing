@@ -1,9 +1,7 @@
 RewriteEngine On
 RewriteBase /
 
+deny from all
 
-RewriteCond %{REQUEST_URI} !^index\.php$
-RewriteCond %{REQUEST_URI} (.+)
-RewriteRule (.+) index.php?get=%1
 
 
