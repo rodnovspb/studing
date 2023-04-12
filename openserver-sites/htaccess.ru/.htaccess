@@ -2,6 +2,8 @@ RewriteEngine On
 RewriteBase /
 
 
-RewriteCond %{REQUEST_URI} \.php$ [OR]
-RewriteCond %{REQUEST_URI} ^dir/
-RewriteRule .+ index.php
+RewriteCond %{REQUEST_URI} !^index\.php$
+RewriteCond %{REQUEST_URI} (.+)
+RewriteRule (.+) index.php?get=%1
+
+
