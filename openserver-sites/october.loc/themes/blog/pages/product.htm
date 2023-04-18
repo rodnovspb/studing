@@ -1,0 +1,29 @@
+title = "Product"
+url = "/product/:slug"
+layout = "default"
+is_hidden = 0
+
+[builderDetails]
+modelClass = "Dmitryvalak\Products\Models\Products"
+identifierValue = "{{ :slug }}"
+modelKeyColumn = "slug"
+displayColumn = "title"
+notFoundMessage = "Record not found"
+==
+{% set record = builderDetails.record %}
+{% set displayColumn = builderDetails.displayColumn %}
+{% set notFoundMessage = builderDetails.notFoundMessage %}
+
+
+<div class="container">
+    {% if record %}
+        <h1>{{ record.title }}</h1>
+        <p>{{ record.price }}</p>
+        <p><img class="img" src="{{ record.image|media }}" alt=""></p>
+        <div class="text">
+            {{ record.text|raw }}
+        </div>
+    {% else %}
+        {{ notFoundMessage }}
+    {% endif %}
+</div>

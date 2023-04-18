@@ -902,11 +902,11 @@ section.other-goods {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  height: 400px;
-  overflow: auto;
+  /*height: 400px;*/
+  /*overflow: auto;*/
   padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: var(--border-radius-marked);
+  /*border: 1px solid #ccc;*/
+  /*border-radius: var(--border-radius-marked);*/
 
 }
 

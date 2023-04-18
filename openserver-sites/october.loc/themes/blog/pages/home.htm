@@ -1,0 +1,162 @@
+title = "Homepage"
+url = "/"
+layout = "default"
+is_hidden = 0
+
+[builderList]
+modelClass = "Dmitryvalak\Products\Models\Products"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "slug"
+noRecordsMessage = "Нет товаров"
+detailsPage = "product"
+detailsKeyColumn = "slug"
+detailsUrlParameter = "slug"
+pageNumber = "{{ :page }}"
+==
+<!-- Slider -->
+<div class="slider">
+    <div class="container">
+
+        <div id="introSlider">
+            <div class="slick-item">
+                <div class="slider__item">
+                    <p class="slider__subtitle"><span>New</span> ARRIVALS</p>
+                    <h2 class="slider__title">
+                        Sky Planter
+                        <sup>$18.00</sup>
+                    </h2>
+                    <a class="slider__btn" href="#">Shop Now</a>
+                </div>
+            </div>
+        </div><!-- /#introSlider -->
+
+    </div><!-- /.container -->
+</div><!-- /.slider -->
+
+
+
+<!-- Products -->
+<div class="container">
+    <div class="filter">
+
+        <div class="row">
+            <div class="col-lg-9">
+                <div class="filter__nav">
+                    <a class="filter__nav-item" href="#">
+                        <img src="assets/img/burger.png" alt="">
+                    </a>
+                    <a class="filter__nav-item  active" href="#">All</a>
+                    <a class="filter__nav-item" href="#">Home</a>
+                    <a class="filter__nav-item" href="#">Learning</a>
+                    <a class="filter__nav-item" href="#">Office</a>
+                    <a class="filter__nav-item" href="#">Outdoor</a>
+                </div>
+            </div><!-- /.col -->
+
+            <div class="col-lg-3">
+                <form class="search" action="/" method="post">
+                    <input class="search__input" type="text" placeholder="Search">
+                </form>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.filter -->
+
+    <div class="row">
+    
+{% set records = builderList.records %}
+{% set displayColumn = builderList.displayColumn %}
+{% set noRecordsMessage = builderList.noRecordsMessage %}
+{% set detailsPage = builderList.detailsPage %}
+{% set detailsKeyColumn = builderList.detailsKeyColumn %}
+{% set detailsUrlParameter = builderList.detailsUrlParameter %}
+    
+        {% for record in records %}
+        <div class="col-lg-4  col-md-6  mb-5">
+            <div class="product">
+                <div class="product__header">
+                    <ul class="product__header-left">
+                        <li>
+                            <button class="product__header-btn" type="button">
+                                <img class="img" src="{{ 'assets/images/burger.png'|theme }}" alt="">
+                            </button>
+                        </li>
+                        <li>
+                            <button class="product__header-btn" type="button">
+                                <img class="img" src="{{ 'assets/images/add-to-wishlist.png'|theme }}" alt="">
+                            </button>
+                        </li>
+                        <li>
+                            <button class="product__header-btn"  type="button">
+                                <img class="img" src="{{ 'assets/images/compare-icon.png'|theme }}" alt="">
+                            </button>
+                        </li>
+                    </ul>
+
+                    <div class="product__header-right">
+                        <div class="product__label  product__label--green">new</div>
+                        <a href="{{ detailsPage|page({ (detailsUrlParameter): attribute(record, detailsKeyColumn) }) }}">
+                            <img class="img" src="{{ record.image|media }}" alt="">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="product__main">
+                    <h3 class="product__title">
+                        <a href="{{ detailsPage|page({ (detailsUrlParameter): attribute(record, detailsKeyColumn) }) }}">{{ record.title }}</a>
+                    </h3>
+                    <div class="product__price">
+                        <del>${{ record.old_price }}</del>${{ record.price }}
+                    </div>
+                    <div class="product__footer">
+                        <button class="product__add" type="button">Add To cart</button>
+                    </div>
+                </div>
+            </div><!-- /.product -->
+        </div><!-- /.col -->
+        {% else %}
+            <p>{{ noRecordsMessage }}</p>
+        {% endfor %}
+        
+    </div><!-- /.row -->
+</div><!-- /.container -->
+
+
+
+<!-- Featured -->
+<div class="featured">
+    <div class="featured__left">
+        <div class="featured__price">
+            <div>
+                <span>
+                    <del>$65.00</del>
+                    $35.00
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="featured__right">
+        <h3 class="featured__title">Featured</h3>
+
+        <div class="f-product">
+            <div class="f-product__header">
+                <h4 class="f-product__subtitle">Lava Vase</h4>
+                <h3 class="f-product__title">Ceramic Planter with Wood Stand</h3>
+            </div>
+            <div class="f-product__text">
+                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+            </div>
+            <a class="f-product__btn" href="#">Shop Now</a>
+        </div>
+
+        <div class="featured__left-title">Wood Stand</div>
+
+    </div><!-- /.featured__right -->
+</div><!-- /.featured -->
+
+
+
+
+<!-- Benefits -->
+{% partial 'benefits' %}
