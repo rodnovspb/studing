@@ -1,10 +1,9 @@
-title = "Homepage"
 url = "/"
 layout = "default"
-is_hidden = 0
+title = "Homepage"
 
 [builderList]
-modelClass = "Dmitryvalak\Products\Models\Products"
+modelClass = "Cined\Products\Models\Product"
 scope = "-"
 scopeValue = "{{ :scope }}"
 displayColumn = "slug"
@@ -63,14 +62,14 @@ pageNumber = "{{ :page }}"
     </div><!-- /.filter -->
 
     <div class="row">
-    
+
 {% set records = builderList.records %}
 {% set displayColumn = builderList.displayColumn %}
 {% set noRecordsMessage = builderList.noRecordsMessage %}
 {% set detailsPage = builderList.detailsPage %}
 {% set detailsKeyColumn = builderList.detailsKeyColumn %}
 {% set detailsUrlParameter = builderList.detailsUrlParameter %}
-    
+
         {% for record in records %}
         <div class="col-lg-4  col-md-6  mb-5">
             <div class="product">
@@ -96,7 +95,8 @@ pageNumber = "{{ :page }}"
                     <div class="product__header-right">
                         <div class="product__label  product__label--green">new</div>
                         <a href="{{ detailsPage|page({ (detailsUrlParameter): attribute(record, detailsKeyColumn) }) }}">
-                            <img class="img" src="{{ record.image|media }}" alt="">
+                            <img class="img" src="https://placehold.it/265x265" alt="">
+{#                            <img class="img" src="{{ record.image|media }}" alt="">#}
                         </a>
                     </div>
                 </div>
@@ -117,7 +117,7 @@ pageNumber = "{{ :page }}"
         {% else %}
             <p>{{ noRecordsMessage }}</p>
         {% endfor %}
-        
+
     </div><!-- /.row -->
 </div><!-- /.container -->
 
