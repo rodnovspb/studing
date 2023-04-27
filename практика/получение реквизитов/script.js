@@ -39,7 +39,7 @@
 	}
 
 function getData(inn){
-	fetch('/get_req.php', {
+	fetch('get_req.php', { // если в корень сайта помещаю, то /get_req.php
 		method: "POST",
 		mode: 'cors',
 		body: JSON.stringify({query: inn})
@@ -66,7 +66,6 @@ function show(result){
 }
 
 })()
-
 
 
 
