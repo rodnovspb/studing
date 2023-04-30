@@ -1,0 +1,132 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial;
+}
+
+body {
+    background: #043f81;
+    height: 100vh;
+}
+.wrapper {
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 8%;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    background-color: transparent;
+}
+
+input {
+    font-size: 20px;
+    padding: 8px;
+    border: none;
+    border-radius: 7px;
+}
+
+input:focus {
+    outline: none;
+    box-shadow: 0 0 5px white;
+}
+.title {
+    font-size: 20px;
+    text-align: center;
+    color: #fff;
+}
+
+.links {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    font-family: Arial;
+    gap: 10px;
+
+}
+
+.links a {
+    text-decoration: none;
+    color: #ccc;
+    background-color: transparent;
+    padding: 8px 15px;
+    border-radius: 7px;
+    border: 2px solid #ccc;
+    transition: all .1s;
+    min-width: 45%;
+    font-size: 16px;
+
+}
+.links a.active {
+    color: #fff;
+    border: 2px solid white;
+    box-shadow: 0 0 8px white;
+}
+
+.links a:hover {
+    color: #fff;
+    border: 2px solid white;
+    background: #033375;
+}
+
+.example {
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: -12px;
+    font-style: italic;
+}
+
+@media (min-width: 575.98px){
+    .wrapper {
+        width: 75%;
+        gap: 30px;
+    }
+    .example {
+        margin-bottom: -18px;
+    }
+    input {
+        padding: 10px;
+    }
+    .links a {
+        font-size: 18px;
+    }
+}
+
+@media (min-width: 767.98px){
+    .wrapper {
+        width: 65%;
+        gap: 30px;
+    }
+    .title {
+        font-size: 24px;
+    }
+    .links a {
+        font-size: 20px;
+    }
+    input {
+        font-size: 22px;
+    }
+    .example {
+        font-size: 18px;
+    }
+
+}
+
+@media (min-width: 991.98px){
+    .wrapper {
+        width: 50%;
+    }
+    .links a {
+        padding: 10px 25px;
+    }
+}
+
+@media (min-width: 1199.98px){
+    .wrapper {
+        width: 33%;
+    }
+    .title {
+        font-size: 26px;
+    }
+}
