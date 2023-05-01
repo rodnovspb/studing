@@ -1,8 +1,26 @@
-html {
-    background-color: #000;
-    font-family: "Lab Grotesque";
-    font-size: 24px;
+:root {
+    --font-color: #fff;
+    --font-color-blue: #7dd3fc;
+    --bg-color: #000;
+    --transition: all .1s;
 }
+
+html {
+    background-color: var(--bg-color);
+    font-family: "Lab Grotesque";
+    font-size: 26px;
+    color: var(--font-color);
+}
+
+a {
+    color: var(--font-color);
+    transition: color .1s;
+}
+
+a:hover {
+    color: #D4D8DB;
+}
+
 .wrapper {
     display: flex;
     flex-direction: column;
@@ -19,6 +37,7 @@ html {
     margin-right: auto;
     padding: 0 15px;
 }
+
 img {
     width: 100%;
     height: 100%;
@@ -29,10 +48,6 @@ img {
 .header {
     padding-top: 30px;
     padding-bottom: 30px;
-}
-
-.menu__link {
-    color: #fff;
 }
 
 .header__block {
@@ -46,8 +61,74 @@ img {
     fill: #fff;
 }
 
+.header__logo svg {
+    width: 100%;
+    height: 100%;
+    transition: var(--transition);
+}
+
+.header__logo svg:hover {
+    fill: var(--font-color-blue);
+}
+
 .header__menu {
     display: flex;
-    gap: 130px;
+    gap: 50px;
     margin-left: auto;
+    margin-right: 30px;
+}
+
+.header__contacts {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-left: auto;
+}
+
+.header__phone {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header__messengers {
+    display: flex;
+}
+
+.header__messengers svg {
+    fill: #fff;
+    width: 100%;
+    height: 100%;
+    transition: var(--transition);
+}
+
+.header__messengers svg:hover {
+    fill: var(--font-color-blue);
+}
+
+.header__whatsapp {
+    width: 40px;
+    height: 40px;
+}
+
+.header__telegram {
+    width: 38px;
+    height: 38px;
+}
+
+/*=====================================Main=====================================*/
+
+.main {
+    padding-top: 180px;
+    height: 100%;
+    flex-grow: 1;
+}
+
+.content__title {
+    font-size: 50px;
+    font-weight: 700;
+}
+
+.content__subtitle {
+    background-color: #2563eb;
 }
