@@ -1,0 +1,7 @@
+FROM php:8.1.5-cli
+
+RUN apt-get update && apt-get install -y libmcrypt-dev default-mysql-client pcntl\
+    && pecl install -n mcrypt \
+    && docker-php-ext-enable mcrypt
+
+WORKDIR /var/www
