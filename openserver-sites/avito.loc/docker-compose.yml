@@ -43,7 +43,7 @@ services:
             - "ELASTICSEARCH_HOSTS=elasticsearch:9200"
         tty: true
     mysql:
-        image: mysql
+        image: mysql:8
         volumes:
             - ./storage/docker/mysql:/var/lib/mysql
         environment:
