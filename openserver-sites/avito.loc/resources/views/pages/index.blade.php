@@ -3,5 +3,7 @@
 @section('content')
     {{ Breadcrumbs::render('blog') }}
 
-    <div>@include('flash::message')</div>
+    {!! Form::select('size', ['L' => 'Large', 'S' => 'Small']) !!}
+
+    {!! Form::close() !!}
 @endsection
