@@ -1,0 +1,93 @@
+:root {
+
+}
+
+html {
+    font-family: "Lab Grotesque";
+}
+
+a {
+
+}
+
+a:hover {
+
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 15px;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+body {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+}
+
+body.login-register {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login__register {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*================================Header===================================*/
+.header {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background: #2563eb;
+    font-size: 24px;
+}
+
+.header__container {
+    display: flex;
+    align-items: center;
+}
+
+.header__logo {
+    color: white;
+}
+
+.header__buttons {
+    display: flex;
+    margin-left: auto;
+    gap: 30px;
+}
+
+.header__buttons a,
+.header__buttons button {
+    color: #fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.main {
+    flex-grow: 1;
+}
+
