@@ -15,7 +15,10 @@ class MainController extends Controller
 
     public function index()
     {
-        dd(User::find(1)->is_admin());
+
+
+
+
         return view('pages.index' );
     }
 
