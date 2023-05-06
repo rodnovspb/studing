@@ -12,8 +12,16 @@ class MainController extends Controller
 
     public function index()
     {
-        dd(App::make(MyClass::class)->func(7));
-//        return view('pages.index');
+        throw new \Exception('Верифицировали');
+
+        try {
+            throw new \Exception('Верифицировали');
+        } catch (\Exception $exception){
+            echo $exception->getMessage();
+        }
+
+
+        return view('pages.index');
     }
 
 }
