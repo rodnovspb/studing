@@ -12,16 +12,9 @@ class MainController extends Controller
 
     public function index()
     {
-        throw new \Exception('Верифицировали');
+        $users = User::all();
 
-        try {
-            throw new \Exception('Верифицировали');
-        } catch (\Exception $exception){
-            echo $exception->getMessage();
-        }
-
-
-        return view('pages.index');
+        return view('pages.index', compact('users'));
     }
 
 }
