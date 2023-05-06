@@ -10,11 +10,11 @@ use Illuminate\Support\Facades\Gate;
 
 class MainController extends Controller
 {
-    const USER_ROLE = 'admin';
 
     public function index()
     {
-        Gate::allowIf(fn (User $user) => $user->name === 'asdasd');
+        $a = User::find(1);
+        dd($a->getConstant());
         return view('pages.index' );
     }
 
