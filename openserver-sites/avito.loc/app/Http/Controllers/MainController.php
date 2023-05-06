@@ -8,13 +8,14 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Gate;
 
 
+
+
 class MainController extends Controller
 {
 
     public function index()
     {
-        $a = User::find(1);
-        dd($a->getConstant());
+        dd(User::find(1)->is_admin());
         return view('pages.index' );
     }
 
