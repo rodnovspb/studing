@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\MyClasses\Library;
+namespace App\MyClasses;
 
 
 class LinguaStemRu

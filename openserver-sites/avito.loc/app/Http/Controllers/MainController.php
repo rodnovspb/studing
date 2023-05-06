@@ -2,24 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
-use App\MyClasses\MyClass;
-use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\Gate;
-
-
+use App\Models\Product;
+use Illuminate\Support\Facades\Request;
 
 
 class MainController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
+//        $s = $request->s;
+//        $request->validate([
+//            's' => 'required',
+//        ]);
 
+        $s = 'профилактические товара';
+        $products = Product::like($s)->paginate(20);
+        return view('pages.index', compact('products', 's'));
 
-
-
-        return view('pages.index' );
     }
 
 }
