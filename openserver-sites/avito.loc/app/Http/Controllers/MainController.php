@@ -13,8 +13,19 @@ class MainController extends Controller
 
     public function index()
     {
+//        Product::query()->forceCreate([
+//            'name' => 'Товар',
+//            'list' => [1,2,3],
+//        ]);
 
-        return view('pages.index');
+        $product = Product::find(10);
+        $product->list[0] = 555;
+        $product->save();
+
+//        $product = Product::query()->find(10)->list;
+//
+//        dd($product);
+
     }
 
 }

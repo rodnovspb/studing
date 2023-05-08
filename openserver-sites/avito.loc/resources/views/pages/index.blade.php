@@ -4,10 +4,5 @@
 
 
 
-    @can('my_gate')
-        asdasdasd
-    @endcan
-
-
 
 @endsection
