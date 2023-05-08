@@ -3,23 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\User;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Request;
 
 
 class MainController extends Controller
 {
 
-    public function index(Request $request)
+    public function index()
     {
-//        $s = $request->s;
-//        $request->validate([
-//            's' => 'required',
-//        ]);
 
-        $s = 'профилактические товара';
-        $products = Product::like($s)->paginate(20);
-        return view('pages.index', compact('products', 's'));
-
+        return view('pages.index');
     }
 
 }

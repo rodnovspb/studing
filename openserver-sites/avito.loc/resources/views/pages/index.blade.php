@@ -4,10 +4,9 @@
 
 
 
-    @foreach($products as $product)
-        <div>{{ $product->name }}</div>
-    @endforeach
-
+    @can('my_gate')
+        asdasdasd
+    @endcan
 
 
 
