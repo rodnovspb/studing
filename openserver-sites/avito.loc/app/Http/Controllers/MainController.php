@@ -9,24 +9,28 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Str;
 
+use function Termwind\render;
+
 
 class MainController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
-//       Product::create([
-//           'name' => '111',
-//           'date' => now(),
-//       ]);
-
-        try {
-            Product::query()->findOrFail(1111)->date;
-        } catch (\Exception $exception){
-            dd($exception);
-        }
-
+        self::func();
 
     }
+
+
+    public function func(){
+        self::func1();
+        throw new \Exception('исключение 1');
+    }
+
+    public function func1(){
+        throw new \Exception('исключение 2');
+    }
+
+
 
 }
