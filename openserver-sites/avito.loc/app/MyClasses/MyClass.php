@@ -12,4 +12,8 @@ class MyClass
        $this->obj =  $smsClass;
    }
 
+   public function sendSms($var){
+       $this->obj->send($var);
+   }
+
 }
