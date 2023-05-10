@@ -1,12 +1,12 @@
 :root {
     --font-color: #fff;
     --font-color-blue: #7dd3fc;
-    --bg-color: #000;
+    --bg-color: -webkit-linear-gradient(top, #1c242d 0%, #000000 100%);
     --transition: all .1s;
 }
 
 html {
-    background-color: var(--bg-color);
+    background: var(--bg-color);
     font-family: "Lab Grotesque";
     font-size: 26px;
     color: var(--font-color);

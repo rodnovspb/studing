@@ -22,23 +22,8 @@ class MainController extends Controller
 
     public function index()
     {
-        $sms = new SMSRU('F42F1F6B-E9DC-0497-BE58-CC17DD10FF0F');
-        $data = new stdClass();
-
-        $data->to = '79507261797';
-        $data->text = 'Привет';
-
-        $sms = $sms->send_one($data);
-
-        if ($sms->status == "OK") { // Запрос выполнен успешно
-            echo "Сообщение отправлено успешно. ";
-            echo "ID сообщения: $sms->sms_id. ";
-            echo "Ваш новый баланс: $sms->balance";
-        } else {
-            echo "Сообщение не отправлено. ";
-            echo "Код ошибки: $sms->status_code. ";
-            echo "Текст ошибки: $sms->status_text.";
-        }
+        $text = file_get_contents('https://docs.guzzlephp.org/en/stable/');
+        echo $text;
     }
 
 
