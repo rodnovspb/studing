@@ -6,6 +6,10 @@ namespace App\MyClasses;
 
 class MyClass
 {
-    public $var = 5;
+   public $obj;
+   public function __construct(SmsClass $smsClass)
+   {
+       $this->obj =  $smsClass;
+   }
 
 }

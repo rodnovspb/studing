@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Models\User;
+use App\MyClasses\MyClass;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Request;
@@ -15,21 +16,13 @@ use function Termwind\render;
 class MainController extends Controller
 {
 
-    public function index(Request $request)
+    public function index(Request $request, MyClass $myClass)
     {
-        self::func();
-
+        $myClass->obj->send();
     }
 
 
-    public function func(){
-        self::func1();
-        throw new \Exception('исключение 1');
-    }
 
-    public function func1(){
-        throw new \Exception('исключение 2');
-    }
 
 
 
