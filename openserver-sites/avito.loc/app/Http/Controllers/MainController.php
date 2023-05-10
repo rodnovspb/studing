@@ -22,8 +22,8 @@ class MainController extends Controller
 
     public function index()
     {
-        $text = file_get_contents('https://docs.guzzlephp.org/en/stable/');
-        echo $text;
+         $key = config('cache.default');
+         dd(config("cache.stores.$key"));
     }
 
 
