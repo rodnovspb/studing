@@ -19,7 +19,7 @@ class MainController extends Controller
     }
 
     public function give(Request $request){
-        return $request->all();
+        return [1];
     }
 
 
