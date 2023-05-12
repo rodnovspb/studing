@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 
 
+use App\Models\Product;
+use Barryvdh\Debugbar\Facades\Debugbar;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
-use stdClass;
 
-use function Termwind\render;
 
 
 class MainController extends Controller
@@ -15,12 +16,14 @@ class MainController extends Controller
 
     public function index()
     {
+        $date = Product::query()->findOrFail(1)->created_at->format('d M H:m');;
+
+        dd($date);
+
         return view('pages.index');
     }
 
-    public function give(Request $request){
-        return [1];
-    }
+
 
 
 
