@@ -18,6 +18,7 @@ class MainController extends Controller
     {
         $date = Product::query()->findOrFail(1)->created_at->format('d M H:m');;
 
+
         dd($date);
 
         return view('pages.index');
