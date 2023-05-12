@@ -39,7 +39,7 @@
 
 	    <footer class="footer">
 		    <div class="container">
-
+                @yield('text', 2222222222)
 		    </div>
 	    </footer>
 
