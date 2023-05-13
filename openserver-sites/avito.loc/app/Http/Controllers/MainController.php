@@ -19,12 +19,7 @@ class MainController extends Controller
 
     public function index()
     {
-        $imageUrl = 'https://img3.akspic.ru/previews/5/5/4/1/7/171455/171455-zhivopis-illustracia-art-voda-oblako-500x.jpg';
-        $image = file_get_contents($imageUrl);
-
-
-        $path = Storage::disk('public')->put("/products_images/1/"  . uniqid() . ".jpg", $image);
-        dd($path);
+        throw new \DomainException('ошибка');
         return view('pages.index');
     }
 
