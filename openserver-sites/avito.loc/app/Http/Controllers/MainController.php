@@ -12,6 +12,7 @@ use Illuminate\Http\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 
 class MainController extends Controller
@@ -19,8 +20,11 @@ class MainController extends Controller
 
     public function index()
     {
-        throw new \DomainException('ошибка');
         return view('pages.index');
+    }
+
+    public function city($city, $dis){
+        return $city . $dis;
     }
 
 

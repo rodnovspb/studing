@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <h1>1111111111</h1>
+    <a href="{{ route('city', ['chel', 'dis']) }}">ссылка</a>
 
 @endsection
 
