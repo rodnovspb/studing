@@ -21,6 +21,10 @@ class MainController extends Controller
 
     public function index()
     {
+
+        $users = Cache::rememberForever('users', function (){
+            return User::get();
+        });
         return view('pages.index');
     }
 
