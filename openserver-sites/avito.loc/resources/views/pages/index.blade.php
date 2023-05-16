@@ -2,7 +2,7 @@
 
 @section('content')
 
-
+    <a href="{{ route('func') }}">Кнопка</a>
 
 @endsection
 

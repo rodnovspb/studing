@@ -15,16 +15,27 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
+use function Illuminate\Events\queueable;
+
 
 class MainController extends Controller
 {
 
     public function index()
     {
+        try {
+            $this->func();
+        } catch (\Exception $exception){
+            return redirect()->route('func1')->with('error', $exception->getMessage());
+        }
+        return view('pages.index');
+    }
 
-        $users = Cache::rememberForever('users', function (){
-            return User::get();
-        });
+    public function func(){
+        throw new \Exception('Ошибка');
+    }
+
+    public function func1(){
         return view('pages.index');
     }
 
