@@ -17,6 +17,8 @@ use Illuminate\Support\Str;
 
 use Meilisearch\Client;
 
+use PDOStatement;
+
 use function Illuminate\Events\queueable;
 
 
@@ -25,17 +27,12 @@ class MainController extends Controller
 
     public function index()
     {
+        $arr = [1, null, 2, false, 3, 0, '', ' '];
 
-        $client = new Client(config('scout.meilisearch.host'), config('scout.meilisearch.key'));
-
-        $prods = Product::all()->toArray();
-        $client->index('prods')->addDocuments($prods);
+        var_dump(array_filter([1, null, 2, false, 3, 0, '', ' ']));
 
 
-        $products = Product::search('Вот какой был Ноздрев!')->get();
-
-//        dd($client->index('prods')->search('вызолоченные'));
-        return view('pages.index', compact('products'));
+//        return view('pages.index');
     }
 
 
