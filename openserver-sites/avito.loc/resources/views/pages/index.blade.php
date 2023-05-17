@@ -2,7 +2,9 @@
 
 @section('content')
 
-    <a href="{{ route('func') }}">Кнопка</a>
+@foreach($products as $product)
+    <div>{{ $product->text }}</div><br><br>
+@endforeach
 
 @endsection
 
