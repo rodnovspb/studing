@@ -58,7 +58,7 @@ function show(result){
 		if(city.value.length === 0){
 			city.focus();
 		} else {
-			inn.blur()
+			inn_node.blur()
 		}
 	} else {
 		flag = false
