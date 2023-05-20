@@ -22,22 +22,15 @@ use function Illuminate\Events\queueable;
 class MainController extends Controller
 {
 
-    private $user;
 
-    public function __construct(User $user)
-    {
-        $this->user = $user;
-    }
 
     public function index()
     {
 
-        $obj = null;
+       $hash = \Hash::make('123');
+       dd(\Hash::check('123', $hash));
 
-        dd($this->user);
-
-
-        return view('pages.index');
+//        return view('pages.index');
     }
 
 
