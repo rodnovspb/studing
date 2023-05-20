@@ -22,17 +22,21 @@ use function Illuminate\Events\queueable;
 class MainController extends Controller
 {
 
+    private $user;
+
+    public function __construct(User $user)
+    {
+        $this->user = $user;
+    }
+
     public function index()
     {
 
+        $obj = null;
 
+        dd(is_null($obj) ? null :  $obj->var);
 
-
-        Cache::put('key', 1119);
-
-        Session::put('key', 2229);
-
-
+        dd(optional($obj)->df);
 
         return view('pages.index');
     }
