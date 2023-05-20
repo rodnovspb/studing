@@ -34,9 +34,8 @@ class MainController extends Controller
 
         $obj = null;
 
-        dd(is_null($obj) ? null :  $obj->var);
+        dd($this->user);
 
-        dd(optional($obj)->df);
 
         return view('pages.index');
     }
