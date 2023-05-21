@@ -24,13 +24,9 @@ class MainController extends Controller
 
 
 
-    public function index()
+    public function index(Request $request)
     {
-
-       $hash = \Hash::make('123');
-       dd(\Hash::check('123', $hash));
-
-//        return view('pages.index');
+        return view('pages.index');
     }
 
 
