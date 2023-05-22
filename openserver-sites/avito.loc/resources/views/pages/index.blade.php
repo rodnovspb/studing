@@ -2,7 +2,10 @@
 
 @section('content')
 
-    <a href="{{ route('network', ['network' => 'vkontakte']) }}">Вход через ВК</a>
+    @guest
+        <a href="{{ route('network', ['network' => 'vkontakte']) }}">Вход через ВК</a>
+    @endguest
+
 
 
 @endsection
