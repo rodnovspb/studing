@@ -15,25 +15,29 @@ use Illuminate\Http\Request;
 
 class MainController extends Controller
 {
+    private $service;
+
+    public function __construct(UserService $user)
+    {
+        $this->service = $user;
+    }
 
     public function index(UserService $user)
     {
-        return UserService::showUser(13);
-        return $user->getUser(13);
+        return $this->service->getUser(14);
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
