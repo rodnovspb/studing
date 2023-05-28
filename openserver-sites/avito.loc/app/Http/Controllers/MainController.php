@@ -3,31 +3,26 @@
 namespace App\Http\Controllers;
 
 
-
-use App\Models\Product;
+use App\Http\Controllers\Services\UserService;
 use App\Models\User;
 use Barryvdh\Debugbar\Facades\Debugbar;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Storage;
 
 
-use Memcache;
 
-use function Illuminate\Events\queueable;
+
 
 
 class MainController extends Controller
 {
 
-
-
-    public function index(Request $request)
+    public function index(UserService $user)
     {
-        return view('pages.index');
+        return UserService::showUser(13);
+        return $user->getUser(13);
     }
+
+
 
 
 
