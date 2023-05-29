@@ -41,6 +41,7 @@ class MainController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
+
         return response()->json(['создан'], 201);
     }
 
