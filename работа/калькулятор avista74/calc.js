@@ -78,10 +78,9 @@
 		document.querySelector('.result__price').value += str;
 	})
 
-
+	document.querySelector('.first').click();
 
 })()
-
 
 
 

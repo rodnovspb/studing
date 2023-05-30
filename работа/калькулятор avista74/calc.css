@@ -45,6 +45,7 @@ h3.calc__title {
     text-align: center;
     transition: all .1s ease;
     min-height: 60px;
+    font-size: 17px;
 }
 
 .calc__block .calc__item {
@@ -63,8 +64,8 @@ h3.calc__title {
 }
 
 .calc__system .calc__item {
-    padding-left: 34px;
-    padding-right: 34px;
+    padding-left: 25px;
+    padding-right: 25px;
 }
 
 form.calc__result {
@@ -145,10 +146,14 @@ textarea.result__price {
     .calc__block {
         flex-direction: column;
         width: 80vw;
-        font-size: 21px;
+
     }
     h3.calc__title {
         font-size: 21px;
+    }
+
+    .calc__block .calc__item {
+        font-size: 18px;
     }
 
     form.calc__result {

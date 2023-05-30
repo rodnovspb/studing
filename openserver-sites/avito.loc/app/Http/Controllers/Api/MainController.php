@@ -18,16 +18,6 @@ class MainController extends Controller
     {
         /** @var User $user */
 
-        /**
-         * @OA\Get(
-         *     path="/api/data.json",
-         *     @OA\Response(
-         *         response="200",
-         *         description="The data"
-         *     )
-         * )
-         */
-
         $user = User::find(13);
         return $user->toJson();
     }

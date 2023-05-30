@@ -20,8 +20,8 @@ class MainController extends Controller
 
     public function index()
     {
-        $user = User::query()->findOrFail(13);
-        return new UserResource($user);
+        return view('pages.index');
+
     }
 
 }
