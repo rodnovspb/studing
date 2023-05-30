@@ -9,7 +9,17 @@
 
 @push('scripts')
 
-    <script src="https://pechati-darom.ru/_debugbar/assets/javascript?v=1681411688">
+    <script>
+
+
+        function func(){
+            window.a = 5
+        }
+
+        func()
+
+        console.log(window.a)
+
 
         // if(navigator.geolocation){
         //     navigator.geolocation.getCurrentPosition(
