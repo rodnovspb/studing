@@ -6,6 +6,7 @@
         <title>Laravel</title>
         <link rel="stylesheet" href="{{ asset('storage/fonts/fonts.css') }}">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        @stack('scripts_header')
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body>
@@ -43,7 +44,7 @@
 		    </div>
 	    </footer>
 
-        @stack('scripts')
+        @stack('scripts_footer')
 
     </body>
 </html>

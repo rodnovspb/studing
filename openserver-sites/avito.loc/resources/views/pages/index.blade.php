@@ -2,53 +2,28 @@
 
 @section('content')
 
-    <button id="btn">Кнопка</button>
+
+
+    <textarea id="ckeditor" cols="30" rows="10"></textarea>
+
 
 
 @endsection
 
-@push('scripts')
+@push('scripts_header')
+    <script src="{{ asset('storage/js/ckeditor/ckeditor.js') }}"></script>
+@endpush
 
+@push('scripts_footer')
     <script>
-
-        let apiKey = '7c9c02ad-211c-4e76-bbdf-f654e63cec96'
-
-         if(navigator.geolocation){
-             navigator.geolocation.getCurrentPosition(
-                 function (pos){
-                     getAddress(pos.coords.latitude, pos.coords.longitude)
-                 },
-                 function (error){console.log(error.message)})}
-
-
-        function getAddress(lat, lon){
-
-            fetch(`https://geocode-maps.yandex.ru/1.x/?format=json&apikey=${apiKey}&geocode=${lon},${lat}`, {
-
-            })
-            .then(res=>res.json())
-            .then(res=>console.log(res))
-            .catch(e=>console.log(e))
-
-        }
-
-         function func(res){
-             console.log(res)
-         }
-
-
-
-
-
-
-
-
-
+        window.addEventListener('load', ()=>{
+            if(document.body.querySelector('#ckeditor')){
+                CKEDITOR.replace('ckeditor', {
+                    filebrowserBrowseUrl:  "/ckeditor/ckfinder/ckfinder.html",
+                    filebrowserUploadUrl:  '/ckeditor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files'})}})
 
 
 
     </script>
-
 @endpush
-
 

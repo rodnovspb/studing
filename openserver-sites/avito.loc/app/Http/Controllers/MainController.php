@@ -8,10 +8,7 @@ use App\Http\Resources\UserResource;
 use App\Models\User;
 use Barryvdh\Debugbar\Facades\Debugbar;
 use Illuminate\Http\Request;
-
-
-
-
+use Mews\Purifier\Facades\Purifier;
 
 
 class MainController extends Controller
@@ -21,7 +18,6 @@ class MainController extends Controller
     public function index()
     {
 
-        dd(clean('This is my H1 title', 'titles'));
 
         return view('pages.index');
 
