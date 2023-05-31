@@ -20,15 +20,21 @@
                  },
                  function (error){console.log(error.message)})}
 
+
         function getAddress(lat, lon){
+
             fetch(`https://geocode-maps.yandex.ru/1.x/?format=json&apikey=${apiKey}&geocode=${lon},${lat}`, {
-                Referer: 'localhost'
+
             })
             .then(res=>res.json())
             .then(res=>console.log(res))
             .catch(e=>console.log(e))
 
         }
+
+         function func(res){
+             console.log(res)
+         }
 
 
 

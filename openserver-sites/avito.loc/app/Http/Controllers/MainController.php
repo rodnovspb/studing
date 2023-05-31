@@ -20,6 +20,9 @@ class MainController extends Controller
 
     public function index()
     {
+
+        dd(clean('This is my H1 title', 'titles'));
+
         return view('pages.index');
 
     }
