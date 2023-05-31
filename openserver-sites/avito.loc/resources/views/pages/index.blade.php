@@ -11,20 +11,30 @@
 
     <script>
 
+        let apiKey = '7c9c02ad-211c-4e76-bbdf-f654e63cec96'
 
-        function func(){
-            window.a = 5
+         if(navigator.geolocation){
+             navigator.geolocation.getCurrentPosition(
+                 function (pos){
+                     getAddress(pos.coords.latitude, pos.coords.longitude)
+                 },
+                 function (error){console.log(error.message)})}
+
+        function getAddress(lat, lon){
+            fetch(`https://geocode-maps.yandex.ru/1.x/?format=json&apikey=${apiKey}&geocode=${lon},${lat}`, {
+                Referer: 'localhost'
+            })
+            .then(res=>res.json())
+            .then(res=>console.log(res))
+            .catch(e=>console.log(e))
+
         }
 
-        func()
-
-        console.log(window.a)
 
 
-        // if(navigator.geolocation){
-        //     navigator.geolocation.getCurrentPosition(
-        //         function (pos){console.log(pos)},
-        //         function (error){console.log(error.message)})}
+
+
+
 
 
 
