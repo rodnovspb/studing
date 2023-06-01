@@ -19,8 +19,6 @@ class MainController extends Controller
     {
 
 
-        dd(base64_decode('0JDQkdCS0JPQlA=='));
-
         return view('pages.index');
 
     }
