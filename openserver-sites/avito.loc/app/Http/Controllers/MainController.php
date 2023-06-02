@@ -22,10 +22,6 @@ class MainController extends Controller
 
 
 
-        $user = User::query()->find(8);
-
-        $user->notify(new PaidNotification($user));
-
         return view('pages.index');
 
     }
