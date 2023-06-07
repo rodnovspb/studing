@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Laravel</title>
+        <title>@yield('title')</title>
         <link rel="stylesheet" href="{{ asset('storage/fonts/fonts.css') }}">
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
@@ -13,9 +13,7 @@
 		        <div class="container">
                     <div class="header__block">
                         <a class="header__logo" href="{{ route('index') }}">
-                            <svg>
-                                <use href="{{ asset('storage/images/sprite.svg#logo') }}"></use>
-                            </svg>
+                           rodnovspb
                         </a>
 {{--                        <nav class="header__menu menu">--}}
 {{--                            <a href="#" class="menu__link">Сайты</a>--}}
@@ -45,15 +43,11 @@
 		        </div>
 	        </header>
 	        <main class="main">
-	            <section class="content">
-		            <div class="container">
-                        <h1 class="content__title">Самое сложное&nbsp;&mdash; <span class="content__subtitle">сделать просто</span></h1>
-		            </div>
-	            </section>
+                @yield('content')
 	        </main>
 	        <footer class="footer">
 		        <div class="container">
-
+                    <a href="{{ route('cities') }}">Работаем по всей России</a>
 		        </div>
 	        </footer>
 	    </div>
