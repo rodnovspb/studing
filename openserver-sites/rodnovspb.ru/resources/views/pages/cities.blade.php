@@ -1,6 +1,10 @@
 @extends('layouts.layout')
 
-@section('title', 'Мы работаем во всей России')
+@section('title', "Мы работаем по всей России")
+
+@section('keywords')Список городов где мы работаем@endsection
+
+@section('description')Список городов где мы работаем@endsection
 
 @section('content')
     <section class="cities">

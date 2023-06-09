@@ -3,6 +3,8 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="keywords" content="@yield('keywords')">
+        <meta name="description" content="@yield('description')">
         <title>@yield('title')</title>
         <link rel="stylesheet" href="{{ asset('storage/fonts/fonts.css') }}">
         @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -47,7 +49,7 @@
 	        </main>
 	        <footer class="footer">
 		        <div class="container">
-                    <a href="{{ route('cities') }}">Работаем по всей России</a>
+                    <a href="{{ route('cities') }}">Выберите ваш город</a>
 		        </div>
 	        </footer>
 	    </div>

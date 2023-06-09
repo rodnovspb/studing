@@ -2,6 +2,10 @@
 
 @section('title', 'Главная страница')
 
+@section('keywords')Главная страница@endsection
+
+@section('description')Главная страница@endsection
+
 @section('content')
     <section class="main-page">
         <div class="container">

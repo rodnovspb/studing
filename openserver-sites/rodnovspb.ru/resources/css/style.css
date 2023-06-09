@@ -1,6 +1,10 @@
 :root {
-    --font-color: #fff;
-    --font-color-blue: #7dd3fc;
+    --font-color: #ccc;
+    --font-link-hover-color: #fff;
+    --header-link-hover-color: #e3e1e1;
+    --font-bg-color: #2563eb;
+    --tgm-hover-blue: #7dd3fc;
+    --wsp-hover-blue: #4ade80;
     --bg-color: -webkit-linear-gradient(top, #1c242d 0%, #000000 100%);
     --transition: all .1s;
 }
@@ -18,12 +22,20 @@ a {
 }
 
 a:hover {
-    color: #D4D8DB;
+    color: var(--font-link-hover-color);
 }
 
 .main a:hover {
     text-decoration: underline;
     text-underline-offset: 3px;
+}
+
+.header a {
+    color: var(--font-link-hover-color);
+}
+
+.header a:hover {
+    text-shadow: 0 0 1px #fff;
 }
 
 .wrapper {
@@ -47,6 +59,18 @@ img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.selected {
+    background-color: var(--font-bg-color);
+    /*border: 2px solid var(--font-bg-color);*/
+    color: #eee;
+}
+
+.underlined {
+    text-decoration: underline !important;
+    text-underline-offset: 3px;
+    text-decoration-skip-ink: none;
 }
 
 /*=====================================Header=====================================*/
@@ -113,8 +137,12 @@ img {
     transition: var(--transition);
 }
 
-.header__messengers svg:hover {
-    fill: var(--font-color-blue);
+.header__telegram svg:hover {
+    fill: var(--tgm-hover-blue);
+}
+
+.header__whatsapp svg:hover {
+    fill: var(--wsp-hover-blue);
 }
 
 .header__whatsapp {
@@ -153,10 +181,11 @@ img {
 .main-page__title {
     font-size: 50px;
     font-weight: 700;
+    color: #fff;
 }
 
 .content__subtitle {
-    background-color: #2563eb;
+    background-color: var(--font-bg-color);
 }
 
 /*=====================================Cities=====================================*/
@@ -169,4 +198,55 @@ img {
 
 .cities__list {
     font-size: 18px;
+}
+
+/*=====================================Pages=====================================*/
+
+.page {
+    font-size: 22px;
+}
+
+.page h3 {
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+.page p {
+    margin-bottom: 12px;
+    line-height: 1.6;
+
+}
+
+.page section {
+    margin-bottom: 40px;
+}
+
+.page-banner {
+    max-width: 80%;
+    margin: 30px auto 0;
+    box-shadow: 0 0 10px #eee;
+    position: relative;
+    overflow: hidden;
+}
+
+.page-banner:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 30%;
+    transform: skewX(45deg);
+    left: -150%;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+    animation: flareAnimation 5s infinite linear;
+}
+
+
+@keyframes flareAnimation {
+    0% {
+        left: -150%;
+    }
+    100% {
+        left: 150%;
+    }
 }
