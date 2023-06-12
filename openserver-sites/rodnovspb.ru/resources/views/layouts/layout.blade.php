@@ -17,11 +17,9 @@
                         <a class="header__logo" href="{{ route('index') }}">
                            rodnovspb
                         </a>
-{{--                        <nav class="header__menu menu">--}}
-{{--                            <a href="#" class="menu__link">Сайты</a>--}}
-{{--                            <a href="#" class="menu__link">Боты</a>--}}
-{{--                            <a href="#" class="menu__link">Парсинг</a>--}}
-{{--                        </nav>--}}
+                        <nav class="header__menu menu">
+                            <a href="{{ route('cities') }}">Выберите ваш город</a>
+                        </nav>
                         <div class="header__contacts">
                             <div class="header__phone">
                                 <div class="header__messengers">
@@ -49,7 +47,6 @@
 	        </main>
 	        <footer class="footer">
 		        <div class="container">
-                    <a href="{{ route('cities') }}">Выберите ваш город</a>
 		        </div>
 	        </footer>
 	    </div>

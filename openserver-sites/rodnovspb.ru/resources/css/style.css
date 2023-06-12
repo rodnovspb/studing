@@ -200,6 +200,17 @@ img {
     font-size: 18px;
 }
 
+/*=====================================City-services=============================*/
+.city-services__list li {
+    line-height: 1.6;
+}
+
+.city-services__list li:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+
+
 /*=====================================Pages=====================================*/
 
 .page {
@@ -249,4 +260,25 @@ img {
     100% {
         left: 150%;
     }
+}
+
+/*==================================== Медиа запросы ====================================*/
+
+@media (max-width: 992px) {
+    .page-banner {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+
+}
+
+@media (max-width: 576px) {
+
+}
+
+@media (max-width: 375px) {
+
+
 }
