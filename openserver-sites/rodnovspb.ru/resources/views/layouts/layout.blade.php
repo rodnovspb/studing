@@ -8,6 +8,8 @@
         <title>@yield('title')</title>
         <link rel="stylesheet" href="{{ asset('storage/fonts/fonts.css') }}">
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @include('parts.services')
+        @include('parts.favicon')
     </head>
     <body>
         <div class="wrapper">

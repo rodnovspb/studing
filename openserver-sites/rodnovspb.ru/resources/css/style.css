@@ -83,6 +83,7 @@ img {
 .header__block {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .header__logo {
@@ -252,6 +253,11 @@ img {
     animation: flareAnimation 5s infinite linear;
 }
 
+.page ol li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
 
 @keyframes flareAnimation {
     0% {
@@ -265,20 +271,101 @@ img {
 /*==================================== Медиа запросы ====================================*/
 
 @media (max-width: 992px) {
+    .main-page__title {
+        font-size: 40px;
+    }
+    .header {
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+    }
+    .page__title {
+        font-size: 25px;
+        margin-bottom: 10px;
+    }
+    .page {
+        font-size: 18px;
+    }
+    .header__contacts {
+        width: 100%;
+        justify-content: center;
+        margin-top: 10px;
+    }
     .page-banner {
         max-width: 100%;
+    }
+    .header__menu {
+        margin-right: 0;
+    }
+    .page ol li {
+        margin-bottom: 5px;
     }
 }
 
 @media (max-width: 768px) {
-
+    .city-services__list {
+        font-size: 20px;
+    }
+    .main-page {
+        padding: 50px;
+    }
 }
 
 @media (max-width: 576px) {
+    .city-services__list {
+        font-size: 18px;
+    }
+    .header__contacts {
+        font-size: 22px;
+        justify-content: space-between;
+        gap: 0;
+    }
+    .header__menu {
+        font-size: 22px;
+    }
+    .page__title {
+        font-size: 22px;
+    }
+    .page h3 {
+        font-size: 22px;
+    }
+}
 
+@media (max-width: 470px) {
+    .header__logo {
+        font-size: 22px;
+    }
+    .header__menu {
+        font-size: 18px;
+    }
+    .header__contacts {
+        font-size: 18px;
+    }
+    .header__telegram {
+        width: 30px;
+    }
+    .header__whatsapp {
+        width: 30px;
+    }
+    .main-page__title {
+        font-size: 35px;
+    }
 }
 
 @media (max-width: 375px) {
-
+    .header__telegram {
+        width: 22px;
+    }
+    .header__whatsapp {
+        width: 22px;
+    }
+    .header__phone {
+        gap: 3px;
+    }
+    .header__contacts {
+        font-size: 16px;
+    }
+    .header__menu {
+        font-size: 16px;
+    }
 
 }
