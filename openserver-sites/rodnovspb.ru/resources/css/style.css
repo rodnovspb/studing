@@ -4,7 +4,7 @@
     --header-link-hover-color: #000;
     --font-link-hover-color: #474646;
     --font-border-color: #b6efff;
-    --bg-color: #fff;
+    --bg-color: #F9F9F9;
     --transition: all .1s;
 }
 
@@ -144,23 +144,110 @@ a.underlined:hover {
     fill: #2BB741;
 }
 
-.footer {
-    padding-top: 30px;
-    padding-bottom: 30px;
-    margin-top: 30px;
-}
-
 .page__title {
     font-size: 30px;
     font-weight: 700;
     margin-bottom: 30px;
 }
 
+/*=====================================Footer=====================================*/
+
+.footer {
+    padding: 60px 45px;
+    margin-top: 30px;
+    background-color: #24252F;
+    color: #ccc;
+    font-size: 43px;
+}
+
+.footer__wrapper {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer__col-1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer__logo {
+    color: #fff;
+}
+
+.footer__logo span{
+    color: #2072FA;
+    text-shadow: 0 0 1px #2072FA;
+}
+
+.footer__col-2 {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.footer__col-3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer__address {
+    max-width: 400px;
+    line-height: 1.4;
+}
+
+.footer__col-4 {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    gap: 30px;
+}
+
+.footer__whatsapp, .footer__telegram {
+    padding: 15px 35px;
+    display: flex;
+    font-size: 23px;
+    border-radius: 12px;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    color: #fff;
+}
+
+.footer__whatsapp {
+    background-color: #0B7BFF;
+}
+
+.footer__whatsapp:hover {
+    background-color: #3270f3;
+}
+
+.footer__telegram {
+    background-color: #2CC54E;
+}
+
+.footer__telegram:hover {
+    background-color: #19b85e;
+}
+
+.footer__whatsapp svg, .footer__telegram svg {
+    width: 50px;
+    height: 50px;
+    fill: white;
+}
+
+
+
+
+
 
 /*=====================================Creating=====================================*/
 
 .creating {
-    height: 80vh;
+    height: 83vh;
     padding-top: 100px;
     background-image: url('/public/storage/images/bg.svg');
     background-size: 45%;
@@ -212,7 +299,6 @@ a.underlined:hover {
 /*=====================================Creating=====================================*/
 
 .types {
-    background-color: #E8EEFB;
     padding-bottom: 20px;
     padding-top: 20px;
 }
@@ -220,9 +306,55 @@ a.underlined:hover {
 .types__title {
     font-size: 90px;
     font-weight: 700;
-    color: var(--font-gray-color);
+    color: #ccc;
+    margin-bottom: 40px;
+    text-align: center;
 }
 
+.types__wrapper h3 {
+    font-size: 70px;
+}
+
+.types__item {
+    background-color: #fff;
+    border-radius: 38px;
+    margin-bottom: 30px;
+    padding: 40px 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.types__item.item-1 {
+    background-color: #C7F8FF;
+}
+
+.types__item.item-2 {
+    background-color: #FFF0BC;
+}
+
+.types__item.item-3 {
+    background-color: #A9FFCC;
+}
+
+.types__image {
+    width: 200px;
+}
+
+
+/*=====================================Result=====================================*/
+
+.result {
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.result__title {
+    font-size: 90px;
+    font-weight: 700;
+    color: #ccc;
+    margin-bottom: 40px;
+    text-align: center;
+}
 
 
 

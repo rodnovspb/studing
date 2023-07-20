@@ -43,8 +43,32 @@
                 @yield('content')
 	        </main>
 	        <footer class="footer">
-		        <div class="container">
-		        </div>
+                    <div class="footer__wrapper">
+                        <div class="footer__col-1">
+                            <a class="footer__logo" href="{{ route('index') }}">rodnov<span>spb</span></a>
+                        </div>
+                        <div class="footer__col-2">
+                            <div class="footer__email">rodnovspb@mail.ru</div>
+                            <div class="footer__email">8-950-726-17-97</div>
+                        </div>
+                        <div class="footer__col-3">
+                            <div class="footer__address">Санкт-Петербург, ул. Бармалеева, 7А</div>
+                        </div>
+                        <div class="footer__col-4">
+                            <a class="footer__whatsapp" href="https://wa.me/79507261797" target="_blank" title="whatsapp">
+                                <svg>
+                                    <use href="{{ asset('storage/images/sprite.svg#whatsapp') }}"></use>
+                                </svg>
+                                <span>Написать в WhatsApp</span>
+                            </a>
+                            <a class="footer__telegram" href="https://telegram.me/cinedbs" target="_blank" title="telegram">
+                                <svg>
+                                    <use href="{{ asset('storage/images/sprite.svg#telegram') }}"></use>
+                                </svg>
+                                <span>Написать в Телеграм</span>
+                            </a>
+                        </div>
+                    </div>
 	        </footer>
 	    </div>
     </body>
