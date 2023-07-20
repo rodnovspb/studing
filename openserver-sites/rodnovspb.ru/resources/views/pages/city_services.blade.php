@@ -9,7 +9,7 @@
 @section('content')
     <section class="city-services">
         <div class="container">
-            <h1 class="page__title">Наши услуги в {{ $city->name_pred }}</h1>
+            <h1 class="page__title">Наши услуги в г. {{ $city->name }}</h1>
             <ul class="city-services__list">
                 <li><a class="underlined" href="{{ route('site', $city->slug) }}" title="Сделать сайт на заказ в г. {{ $city->name}}">Создание сайтов</a> - разработка сайта-визитки, интернет-магазина, корпоратиного, посадочной страницы. Адаптация под мобильные устройства и поисковые системы.</li>
 

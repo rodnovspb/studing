@@ -1,18 +1,17 @@
 :root {
-    --font-color: #ccc;
-    --font-link-hover-color: #fff;
-    --header-link-hover-color: #e3e1e1;
-    --font-bg-color: #2563eb;
-    --tgm-hover-blue: #7dd3fc;
-    --wsp-hover-blue: #4ade80;
-    --bg-color: -webkit-linear-gradient(top, #1c242d 0%, #000000 100%);
+    --font-color: #000;
+    --font-gray-color: #8dafc1;
+    --header-link-hover-color: #000;
+    --font-link-hover-color: #474646;
+    --font-border-color: #b6efff;
+    --bg-color: #fff;
     --transition: all .1s;
 }
 
 html {
     background: var(--bg-color);
     font-family: "Lab Grotesque";
-    font-size: 26px;
+    font-size: 32px;
     color: var(--font-color);
 }
 
@@ -21,21 +20,10 @@ a {
     transition: color .1s;
 }
 
-a:hover {
-    color: var(--font-link-hover-color);
-}
 
 .main a:hover {
     text-decoration: underline;
     text-underline-offset: 3px;
-}
-
-.header a {
-    color: var(--font-link-hover-color);
-}
-
-.header a:hover {
-    text-shadow: 0 0 1px #fff;
 }
 
 .wrapper {
@@ -49,7 +37,7 @@ a:hover {
 .container {
     position: relative;
     width: 100%;
-    max-width: 1400px;
+    max-width: 1500px;
     margin-left: auto;
     margin-right: auto;
     padding: 0 15px;
@@ -62,50 +50,48 @@ img {
 }
 
 .selected {
-    background-color: var(--font-bg-color);
-    /*border: 2px solid var(--font-bg-color);*/
-    color: #eee;
+    border: solid 2px var(--font-border-color);
+
 }
 
 .underlined {
-    text-decoration: underline !important;
+    text-decoration: underline;
+    text-decoration-color: #000;
     text-underline-offset: 3px;
     text-decoration-skip-ink: none;
 }
 
+a.underlined {
+    text-decoration: underline;
+    text-decoration-color: #9b9999;
+    text-underline-offset: 3px;
+    text-decoration-skip-ink: none;
+}
+
+a.underlined:hover {
+    text-decoration-color: #000;
+}
+
 /*=====================================Header=====================================*/
 .header {
-    padding-top: 30px;
-    padding-bottom: 30px;
-    margin-bottom: 30px;
+    padding: 30px 35px 30px 35px;
 }
 
 .header__block {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
+    font-size: 40px;
 }
 
 .header__logo {
-    font-size: 30px;
+    font-size: 40px;
 }
 
-/****************стили для svg********************/
-/*.header__logo {*/
-/*    width: 80px;*/
-/*    height: 80px;*/
-/*    fill: #fff;*/
-/*}*/
+.header__logo span{
+    color: #2072FA;
+}
 
-/*.header__logo svg {*/
-/*    width: 100%;*/
-/*    height: 100%;*/
-/*    transition: var(--transition);*/
-/*}*/
-
-/*.header__logo svg:hover {*/
-/*    fill: var(--font-color-blue);*/
-/*}*/
 
 .header__menu {
     display: flex;
@@ -117,43 +103,45 @@ img {
 .header__contacts {
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 40px;
     margin-left: auto;
 }
 
 .header__phone {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 20px;
 }
 
 .header__messengers {
     display: flex;
 }
 
+.header__messengers a {
+    width: 50px;
+    height: 50px;
+}
+
 .header__messengers svg {
-    fill: #fff;
     width: 100%;
     height: 100%;
     transition: var(--transition);
 }
 
+.header__telegram svg {
+    fill: #000;
+}
+
 .header__telegram svg:hover {
-    fill: var(--tgm-hover-blue);
+    fill: #229ED9;
+}
+
+.header__whatsapp svg {
+    fill: #000;
 }
 
 .header__whatsapp svg:hover {
-    fill: var(--wsp-hover-blue);
-}
-
-.header__whatsapp {
-    width: 40px;
-    height: 40px;
-}
-
-.header__telegram {
-    width: 38px;
-    height: 38px;
+    fill: #2BB741;
 }
 
 .footer {
@@ -168,26 +156,79 @@ img {
     margin-bottom: 30px;
 }
 
-/*=====================================Main=====================================*/
 
-.main {
-    height: 100%;
-    flex-grow: 1;
+/*=====================================Creating=====================================*/
+
+.creating {
+    height: 80vh;
+    padding-top: 100px;
+    background-image: url('/public/storage/images/bg.svg');
+    background-size: 45%;
+    background-repeat: no-repeat;
+    background-position: right top;
 }
 
-.main-page {
-    padding-top: 180px;
-}
-
-.main-page__title {
-    font-size: 50px;
+.creating__title {
+    font-size: 90px;
     font-weight: 700;
-    color: #fff;
+    color: var(--font-color);
 }
 
-.content__subtitle {
-    background-color: var(--font-bg-color);
+.creating__subtitle {
+    margin-bottom: 50px;
+    color: var(--font-color);
+    font-weight: 300;
+    font-size: 52px;
+    line-height: 1;
 }
+
+.creating__subtitle span {
+    position: relative;
+}
+
+.creating__subtitle span::after {
+    position: absolute;
+    content: url("/public/storage/images/line.svg");
+    left: 0;
+    right: 0;
+    bottom: -10px;
+
+}
+
+.creating__steps {
+    font-size: 52px;
+    font-weight: 300;
+}
+
+.creating__steps li {
+    list-style-type: disc;
+}
+
+.creating__steps li:not(:last-of-type) {
+    margin-bottom: 20px;
+}
+
+
+/*=====================================Creating=====================================*/
+
+.types {
+    background-color: #E8EEFB;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.types__title {
+    font-size: 90px;
+    font-weight: 700;
+    color: var(--font-gray-color);
+}
+
+
+
+
+
+
+
 
 /*=====================================Cities=====================================*/
 .cities__list {
@@ -271,7 +312,7 @@ img {
 /*==================================== Медиа запросы ====================================*/
 
 @media (max-width: 992px) {
-    .main-page__title {
+    .creating__title {
         font-size: 40px;
     }
     .header {
@@ -305,7 +346,7 @@ img {
     .city-services__list {
         font-size: 20px;
     }
-    .main-page {
+    .creating {
         padding: 50px;
     }
 }
@@ -346,7 +387,7 @@ img {
     .header__whatsapp {
         width: 30px;
     }
-    .main-page__title {
+    .creating__title {
         font-size: 35px;
     }
 }

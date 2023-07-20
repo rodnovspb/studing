@@ -1,15 +1,27 @@
 @extends('layouts.layout')
 
-@section('title', 'Главная страница')
+@section('title', 'Заказать создание сайта | Разработка сайта под ключ')
 
-@section('keywords')Главная страница@endsection
+@section('keywords')Создание сайтов, заказать сайт, разработка сайтов, изготовление сайтов@endsection
 
-@section('description')Главная страница@endsection
+@section('description')В создании сайтов самое сложное - сделать просто@endsection
 
 @section('content')
-    <section class="main-page">
+    <section class="creating">
         <div class="container">
-            <h1 class="main-page__title">Самое сложное&nbsp;&mdash; <span class="content__subtitle">сделать просто</span></h1>
+            <h1 class="creating__title">Создание сайтов</h1>
+            <div class="creating__subtitle">cложное делаю <span>простым</span></div>
+            <ul class="creating__steps">
+                <li>изучаем вашу нишу</li>
+                <li>находим хорошие варианты</li>
+                <li>совмещаем и получаем лучшее</li>
+            </ul>
 	    </div>
+    </section>
+
+    <section class="types">
+        <div class="container">
+            <h2 class="types__title">Что делаю</h2>
+        </div>
     </section>
 @endsection

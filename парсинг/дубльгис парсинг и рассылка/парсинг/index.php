@@ -8,13 +8,11 @@ ini_set('memory_limit', '2048M');
 ignore_user_abort(true);
 
 $sites = Site::pluck('site')->all();
-$emails = Mail::pluck('email')->all();
+$emails_common = MailCommon::pluck('email')->all();
+$emails_dubl = MailDubl::pluck('email')->all();
 
 
-show(1, 1);
 
-
-//$emails = [];
 
 
 foreach ($sites as $site){
@@ -23,15 +21,25 @@ foreach ($sites as $site){
     if(!empty($matches[0])){
         foreach ($matches[0] as $match){
             $match = mb_strtolower($match);
-            if(!in_array($match, $emails) && !preg_match('#svg|jpg|webp|png|jpeg|wixpress|ingest|gif#', $match)){
-                array_push($emails, $match);
-                Mail::query()->create(['email' => $match]);
+            if(!in_array($match, $emails_common) && !preg_match('#svg|jpg|webp|png|jpeg|wixpress|ingest|gif#', $match)){
+                array_push($emails_common, $match);
+                MailNew::create(['email' => $match]);
+                MailCommon::create(['email' => $match]);
             }
         }
     }
 }
 
 
+
+foreach ($emails_dubl as $email){
+    $email = mb_strtolower($email);
+    if(!in_array($email, $emails_common) && !preg_match('#svg|jpg|webp|png|jpeg|wixpress|ingest|gif#', $email)){
+        array_push($emails_common, $email);
+        MailNew::create(['email' => $email]);
+        MailCommon::create(['email' => $email]);
+    }
+}
 
 
 
@@ -47,8 +55,8 @@ function getPage($path) {
     ];
     $curl = curl_init($path);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($curl, CURLOPT_COOKIEFILE, 'cookie.txt');
-    curl_setopt($curl, CURLOPT_COOKIEJAR,  'cookie.txt');
+//    curl_setopt($curl, CURLOPT_COOKIEFILE, 'cookie.txt');
+//    curl_setopt($curl, CURLOPT_COOKIEJAR,  'cookie.txt');
     curl_setopt($curl, CURLOPT_FOLLOWLOCATION, 1);
     curl_setopt($curl, CURLOPT_HEADER, false);
     curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0);
