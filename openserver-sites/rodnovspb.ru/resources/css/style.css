@@ -72,6 +72,16 @@ a.underlined:hover {
     text-decoration-color: #000;
 }
 
+/*==========Мигание курсора============*/
+
+.blink {
+    animation: cursor 1s step-end;
+
+}
+@keyframes cursor {
+    50% { color: transparent }
+}
+
 /*=====================================Header=====================================*/
 .header {
     padding: 30px 35px 30px 35px;
@@ -153,24 +163,23 @@ a.underlined:hover {
 /*=====================================Footer=====================================*/
 
 .footer {
-    padding: 60px 45px;
+    padding: 50px 45px;
     margin-top: 30px;
     background-color: #24252F;
     color: #ccc;
-    font-size: 43px;
+    font-size: 42px;
 }
 
 .footer__wrapper {
     display: flex;
     gap: 10px;
     justify-content: space-between;
-    align-items: center;
+    align-items: start;
 }
 
 .footer__col-1 {
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
 .footer__logo {
@@ -188,6 +197,19 @@ a.underlined:hover {
     gap: 30px;
 }
 
+.footer__email, .footer__phone, .footer__address {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+
+.footer__email svg, .footer__phone svg, .footer__address svg{
+    max-height: 40px;
+    max-width: 43px;
+    fill: #ccc;
+}
+
 .footer__col-3 {
     display: flex;
     justify-content: center;
@@ -195,8 +217,15 @@ a.underlined:hover {
 }
 
 .footer__address {
-    max-width: 400px;
+    max-width: 450px;
     line-height: 1.4;
+    align-items: flex-start;
+}
+
+.footer__address a {
+    line-height: 1;
+    margin-top: 12px;
+
 }
 
 .footer__col-4 {
@@ -243,7 +272,6 @@ a.underlined:hover {
 
 
 
-
 /*=====================================Creating=====================================*/
 
 .creating {
@@ -269,18 +297,16 @@ a.underlined:hover {
     line-height: 1;
 }
 
-.creating__subtitle span {
-    position: relative;
+.creating__subtitle-wrapper {
+    display: inline-block;
+    background: linear-gradient(181deg,transparent 0,transparent 75%, #92ebff 75%);
+    width: 230px;
 }
 
-.creating__subtitle span::after {
-    position: absolute;
-    content: url("/public/storage/images/line.svg");
-    left: 0;
-    right: 0;
-    bottom: -10px;
-
+.creating__subtitle .creating__cursor {
+    margin-left: -8px;
 }
+
 
 .creating__steps {
     font-size: 52px;

@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Документ</title>
+<style>
+    .blink {
+        animation: cursor 1s step-end;
+
+    }
+    @keyframes cursor {
+        50% { color: transparent }
+    }
+
+</style>
+</head>
+<body>
+
+
+<span></span><span class="cursor">|</span>
+
+
+
+
+
+
+<script>
+
+  let span = document.querySelector('span')
+  let cursor = document.querySelector('.cursor')
+  let texts = ['простым', 'понятным', 'удобным']
+  let countWord = 0;
+  let countLetter = 0;
+  let increase = true;
+
+  function addLetter(){
+	  cursor.classList.add('blink')
+      setTimeout(()=>{
+		  cursor.classList.remove('blink')
+		  let word = texts[countWord]
+		  let timerIncrease = setInterval(()=>{
+			  if(span.textContent.length !== word.length){
+				  span.textContent += word[countLetter++]
+			  } else {
+				  countLetter = 0
+				  countWord++
+				  if(countWord === texts.length){
+					  countWord = 0
+				  }
+				  clearInterval(timerIncrease)
+				  cursor.classList.add('blink')
+				  setTimeout(()=>{
+					  deleteLetter(span)
+				  }, 1000)
+
+			  }
+		  }, 600)
+      }, 1200)
+
+  }
+
+
+  function deleteLetter(text){
+  	cursor.classList.remove('blink')
+  	let length = text.textContent.length
+    let timerDecrease = setInterval(()=>{
+    	if(text.textContent.length !== 0){
+			text.textContent = text.textContent.substring(0, length--)
+        } else {
+    		clearInterval(timerDecrease)
+			addLetter()
+        }
+    }, 100)
+  }
+
+  addLetter()
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

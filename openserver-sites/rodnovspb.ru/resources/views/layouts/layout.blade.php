@@ -17,7 +17,7 @@
                <div class="header__block">
                    <a class="header__logo" href="{{ route('index') }}">rodnov<span>spb</span></a>
                    <nav class="header__menu menu">
-{{--                       <a href="{{ route('cities') }}">Выберите ваш город</a>--}}
+
                    </nav>
                    <div class="header__contacts">
                        <div class="header__phone">
@@ -48,11 +48,28 @@
                             <a class="footer__logo" href="{{ route('index') }}">rodnov<span>spb</span></a>
                         </div>
                         <div class="footer__col-2">
-                            <div class="footer__email">rodnovspb@mail.ru</div>
-                            <div class="footer__email">8-950-726-17-97</div>
+                            <div class="footer__email">
+                                <svg>
+                                    <use href="{{ asset('storage/images/sprite.svg#mail') }}"></use>
+                                </svg>
+                                rodnovspb@mail.ru
+                            </div>
+                            <div class="footer__phone">
+                                <svg>
+                                    <use href="{{ asset('storage/images/sprite.svg#phone') }}"></use>
+                                </svg>
+                                8-950-726-17-97
+                            </div>
                         </div>
                         <div class="footer__col-3">
-                            <div class="footer__address">Санкт-Петербург, ул. Бармалеева, 7А</div>
+                            <div class="footer__address">
+                                <a href="{{ route('cities') }}" target="_blank">
+                                    <svg>
+                                        <use href="{{ asset('storage/images/sprite.svg#map') }}"></use>
+                                    </svg>
+                                </a>
+                                Санкт-Петербург, ул. Бармалеева, 7А
+                            </div>
                         </div>
                         <div class="footer__col-4">
                             <a class="footer__whatsapp" href="https://wa.me/79507261797" target="_blank" title="whatsapp">
@@ -71,6 +88,7 @@
                     </div>
 	        </footer>
 	    </div>
+        @stack('scripts')
     </body>
 </html>
 
