@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Документ</title>
+
+    <style>
+        svg {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+
+</head>
+<body>
+
+
+
+
+
+
+
+<div>
+  <svg xmlns="http://www.w3.org/2000/svg"  width="500" height="515" viewBox="0 0 100 100">
+
+  <path id="one" fill="none" stroke="#2B2A29" stroke-width="4"  d="M0.38 90.53c7.21,-5.48 -6.07,-102.54 26.62,-88.54 5.9,2.53 9.95,26.98 -9.59,35.51 -13.17,5.74 -9.59,0.44 -17.03,-1.53" stroke-dasharray="165" stroke-dashoffset="165">
+      <animate attributeName="stroke-dasharray" begin="1s" dur="1s" values="0,165;165,0" fill="freeze"></animate>
+    </path>
+
+    <path id="two" fill="none" stroke="#2B2A29" stroke-width="4"  d="M65.46 10.65c-0.45,-8.72 -31.48,1.04 -15.45,24 5.29,7.56 37.48,-0.06 37.48,-8.46 0,-29.5 -22.39,-27.33 -45.42,-22.41 -0.36,0.07 -0.64,1.47 -0.6,1.94" stroke-dasharray="150" stroke-dashoffset="150"><animate attributeName="stroke-dasharray" begin="2s" dur="1s" values="0,150;150,0" fill="freeze"></animate></path>
+
+</svg>
+</div>
+
+
+
+
+
+<script>
+    console.log(Math.round(one.getTotalLength()))
+    console.log(Math.round(two.getTotalLength()))
+
+
+</script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
