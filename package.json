@@ -2,19 +2,20 @@
   "dependencies": {
     "bootstrap": "^5.2.1",
     "express": "^4.17.2",
+    "html5-boilerplate": "^8.0.0",
     "lodash": "^4.17.21",
     "mongodb": "^4.2.2",
     "node": "^17.4.0",
     "nodemon": "^2.0.15",
     "prop-types": "^15.7.2",
     "request": "^2.88.2",
-    "require": "^2.4.20",
+    "require": "^0.4.4",
     "vue": "^3.2.36",
     "ws": "^8.8.1"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.13",
-    "gulp": "^4.0.2",
+    "gulp": "^3.9.1",
     "gulp-clean-css": "^4.3.0",
     "nanoid": "^3.1.30",
     "postcss": "^8.4.19",

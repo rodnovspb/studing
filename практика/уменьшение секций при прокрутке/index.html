@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Документ</title>
+<style>
+    * {
+        font-family: "Segoe UI";
+    }
+
+    .wrapper {
+        overflow: hidden;
+    }
+
+    .first, .third {
+        background-color: #BCF6FF;
+        height: 150vh;
+    }
+
+    .two {
+        background-color: #fff;
+        height: 100vh;
+        text-align: center;
+    }
+
+    .two h1 {
+        margin: 0;
+        font-size: 150px;
+        transform-origin: top center;
+        transition: transform 0.2s;
+    }
+
+
+</style>
+</head>
+<body>
+
+<div class="wrapper">
+<section class="first">
+
+</section>
+
+<section class="two">
+    <h1 id="title">Автоматизация</h1>
+    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo facere inventore ipsam reiciendis voluptas. Error ex labore numquam odit tenetur?</div>
+</section>
+
+<section class="third">
+
+</section>
+</div>
+
+
+
+
+
+
+
+
+
+<script>
+
+
+    let elem = document.querySelector('.two')
+    let title = document.querySelector('#title')
+    let scaleNum;
+	changeSize()
+
+    let observer = new IntersectionObserver((entry)=>{
+    	if(entry[0].isIntersecting) {
+			document.addEventListener('scroll', changeSize)
+        } else {
+			document.removeEventListener('scroll', changeSize)
+        }
+    }, { threshold: 0.5 })
+
+	observer.observe(elem)
+
+
+
+
+    function changeSize(){
+    	let percent =  (document.documentElement.clientHeight - elem.getBoundingClientRect().top)/elem.offsetHeight * 100
+
+		scaleNum = 1.9 / (percent/50)
+
+        if(percent > 50 && percent < 100){
+			title.style.transform = `scale(${scaleNum})`
+        }
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
