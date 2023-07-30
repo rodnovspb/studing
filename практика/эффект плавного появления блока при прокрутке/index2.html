@@ -4,8 +4,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
-
 <title>Документ</title>
 <style>
     div {
@@ -13,25 +11,21 @@
     }
     #first {
         background-color: #a3e635;
-        transition: opacity 1s, transform 1s;
         opacity: var(--progress);
         transform: translateY(calc(10% - 10%*var(--progress, 0)));
     }
     #second {
         background-color: #f87171;
-        transition: opacity .2s, transform .2s;
         opacity: var(--progress);
         transform: translateY(calc(10% - 10%*var(--progress, 0)));
     }
     #third {
         background-color: #38bdf8;
-        transition: opacity .2s, transform .2s;
         opacity: var(--progress);
         transform: translateY(calc(10% - 10%*var(--progress, 0)));
     }
     #four {
         background-color: #f472b6;
-        transition: opacity .2s, transform .2s;
         opacity: var(--progress);
         transform: translateY(calc(10% - 10%*var(--progress, 0)));
     }
@@ -51,15 +45,32 @@
 
 
 
-
+        /******************Дребезжит, короче не работает**********************/
 
 
 
     function setProgress(elem){
-		let percent = (elem.getBoundingClientRect().height - ((window.scrollY + elem.getBoundingClientRect().bottom) - (window.scrollY + document.documentElement.clientHeight)))/elem.getBoundingClientRect().height
+		let percent = ((elem.getBoundingClientRect().height - ((window.scrollY + elem.getBoundingClientRect().bottom) - (window.scrollY + document.documentElement.clientHeight)))/elem.getBoundingClientRect().height)
 
 		if(percent > 0 && percent < 1){
-			elem.style.setProperty('--progress', percent.toFixed(2))
+			let currentProgress = +(elem.style.getPropertyValue('--progress') || 0);
+			currentProgress = +(currentProgress.toFixed(3))
+			elem.style.setProperty('--progress', percent.toFixed(3))
+
+			let id = setInterval(()=>{
+				if(percent > currentProgress){
+
+						let newProgress = (currentProgress += 0.01).toFixed(3)
+						elem.style.setProperty('--progress', newProgress)
+
+
+                } else {
+
+					clearInterval(id)
+                }
+
+            }, 10)
+
 		}
     }
 

@@ -42,7 +42,7 @@
         <div class="container">
             <h2 class="types__title">Что делаю</h2>
             <div class="types__wrapper">
-                <div class="types__item item-1 smooth">
+                <div class="types__item item-1">
                     <div class="types__text">
                         <h3>Одностраничные сайты</h3>
                         <div class="types__desc">Знакомим, призываем к действию</div>
@@ -54,7 +54,7 @@
                 <div class="types__item item-2 smooth">
                     <div class="types__text">
                         <h3>Интернет-магазины</h3>
-                        <div class="types__desc">Удобные покупки</div>
+                        <div class="types__desc">Простые и удобные покупки</div>
                     </div>
                     <div class="types__image">
                         <img src="{{ asset('storage/images/internet-magaziny-sajty.svg') }}" alt="создать сайт интернет-магазин">
