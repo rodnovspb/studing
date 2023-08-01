@@ -6,43 +6,54 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>Документ</title>
 <style>
-    div {
-        height: 80vh;
-    }
-    #first {
-        background-color: #a3e635;
-        opacity: var(--progress);
-        transform: translateY(calc(10% - 10%*var(--progress, 0)));
-        width: calc(100% + 12rem - (100% + 12rem - 146px)*var(--progress, 0));
-    }
-    #second {
-        background-color: #f87171;
-        opacity: var(--progress);
-        transform: translateY(calc(10% - 10%*var(--progress, 0)));
-        width: calc(100% + 12rem - (100% + 12rem - 146px)*var(--progress, 0));
-    }
-    #third {
-        background-color: #38bdf8;
-        opacity: var(--progress);
-        transform: translateY(calc(10% - 10%*var(--progress, 0)));
-        width: calc(100% + 12rem - (100% + 12rem - 146px)*var(--progress, 0));
-    }
-    #four {
-        background-color: #f472b6;
-        opacity: var(--progress);
-        transform: translateY(calc(10% - 10%*var(--progress, 0)));
-        width: calc(100% + 12rem - (100% + 12rem - 146px)*var(--progress, 0));
-    }
+
+*, :after, :before {
+    box-sizing: border-box;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: dodgerblue;
+    height: 100vh;
+}
+
+.child {
+    padding: 30px;
+    background-color: #00d084;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    transform: scale(calc(3.23 - var(--progress, 0)*2.23)) translateY(calc(30%*var(--progress)));
+    border-radius: calc(6rem - 5.4rem*var(--progress, 0));
+
+    transform-origin: bottom;
+    white-space: nowrap;
+
+}
+
+
+
+
 </style>
 </head>
 <body>
 
-<div style="height: 100vh;"></div>
-<div id="first" class="item"></div>
-<div id="second" class="item"></div>
-<div id="third" class="item"></div>
-<div id="four" class="item"></div>
-<div style="height: 100vh;"></div>
+
+<div style="height: 150vh"></div>
+
+<div class="wrapper">
+    <div class="child">Текст</div>
+</div>
+
+
+
+<div style="height: 150vh"></div>
 
 
 <script>
@@ -51,23 +62,42 @@
 
         /******************Подправить, чтобы не создавалось много idFrame, тормозит**********************/
 
+
+
 		function setProgress(elem){
-			let idFrame;
-			let percent = ((elem.getBoundingClientRect().height - ((window.scrollY + elem.getBoundingClientRect().bottom) - (window.scrollY + document.documentElement.clientHeight)))/elem.getBoundingClientRect().height)
+			/*Ось Y нижней границы экрана относительно начала документа*/
+			let screenBottomY = window.scrollY + document.documentElement.clientHeight
+
+			/*Ось Y нижней границы блока относительно начала документа*/
+			let elemBottomY = window.scrollY + elem.getBoundingClientRect().bottom
+
+			/*На сколько пикселей элемент показывается над нижней границей экрана*/
+			let elemShowHeight = elem.getBoundingClientRect().height - (elemBottomY - screenBottomY)
+
+			/*Процент показа над нижней границей экрана*/
+			let percent = (elemShowHeight / elem.getBoundingClientRect().height)
+
+			if(percent < 0){
+				percent = 0
+			} else if(percent > 1){
+				percent = 1
+			}
 
 
-			if(percent > 0 && percent < 1){
-				let currentProgress = +(elem.style.getPropertyValue('--progress') || 0);
+			let currentProgress = +(elem.style.getPropertyValue('--progress') || 0);
+			let count = 0
 
-				idFrame = requestAnimationFrame(function move(){
-						let differ = (percent - currentProgress)/20 /*быстрота изменения*/
-						let newProgress = (currentProgress += differ).toFixed(5)
-						elem.style.setProperty('--progress', newProgress)
-						requestAnimationFrame(move)
-                })
-			} else {
-				cancelAnimationFrame(idFrame)
-            }
+			requestAnimationFrame(function move(){
+				count++
+				let differ = (percent - currentProgress)/15 /*быстрота изменения*/
+				let newProgress = (currentProgress += differ).toFixed(5)
+				elem.style.setProperty('--progress', newProgress)
+                if(count < 75){
+					requestAnimationFrame(move)
+                }
+
+            })
+
 		}
 
 
@@ -79,13 +109,15 @@
 			let observer = new IntersectionObserver(((entries, observer) => {
 				entries.forEach(entry => {
 					if(entry.isIntersecting){
-						window.addEventListener('scroll', ()=>{setProgress(entry.target)})
+						window.addEventListener('scroll', () => {
+                            setProgress(entry.target)
+						})
 						observer.unobserve(entry.target)
 					}
 				})
 			}))
 
-			let items = document.querySelectorAll('div')
+			let items = document.querySelectorAll('.wrapper')
 			items.forEach(item => { observer.observe(item) })
 		}
 

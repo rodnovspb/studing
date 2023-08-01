@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Документ</title>
+<style>
+
+    .item {
+        background-color: #1f8e68;
+        height: 80vh;
+        width: calc(100% + 12rem - (100% + 12rem - 146px)*var(--progress, 0));
+        transition: width 1s ease;
+    }
+
+</style>
+</head>
+<body>
+
+<div style="height: 150vh;"></div>
+<div id="first" class="item"></div>
+<div style="height: 150vh;"></div>
+
+
+
+
+<script>
+
+    const element = document.querySelector('.item');
+	let progress = 0;
+	let startTime = null;
+
+	window.addEventListener('scroll', () => {
+		const { bottom } = element.getBoundingClientRect();
+		const windowHeight = window.innerHeight;
+		progress = 1 - Math.max(0, bottom / windowHeight);
+		if (startTime === null) {
+			startTime = performance.now();
+		}
+		requestAnimationFrame(animation);
+	}, true);
+
+	function animation(currentTime) {
+		if (startTime === null) {
+			startTime = currentTime;
+		}
+		const timeElapsed = currentTime - startTime;
+		const duration = 1000; // 1 second
+		const progressPercentage = Math.min(timeElapsed / duration, 1);
+		const currentProgress = progress * progressPercentage;
+		element.style.setProperty('--progress', currentProgress);
+		if (timeElapsed < duration) {
+			requestAnimationFrame(animation);
+		} else {
+			startTime = null;
+		}
+	}
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
