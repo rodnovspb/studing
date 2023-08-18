@@ -3,7 +3,7 @@
     --font-gray-color: #8dafc1;
     --header-link-hover-color: #000;
     --font-link-hover-color: #474646;
-    --font-border-color: #b6efff;
+    --font-border-color: #2072fa;
     --bg-color: #F9F9F9;
     --transition: all .1s;
 }
@@ -11,8 +11,11 @@
 html {
     background: var(--bg-color);
     font-family: "Lab Grotesque";
-    font-size: 32px;
     color: var(--font-color);
+}
+
+body {
+    font-size: 32px;
 }
 
 a {
@@ -33,9 +36,9 @@ a {
     overflow: hidden;
     min-height: 100vh;
     background-image: url('/public/storage/images/bg-main.svg');
-    background-size: 60vw;
+    background-size: 65vw;
     background-repeat: no-repeat;
-    background-position: 147% -18%;
+    background-position: 170% -16%;
 }
 
 .container {
@@ -52,6 +55,7 @@ img {
     height: 100%;
     object-fit: cover;
 }
+
 
 .selected {
     border: solid 2px var(--font-border-color);
@@ -76,6 +80,14 @@ a.underlined:hover {
     text-decoration-color: #000;
 }
 
+.title {
+    font-size: clamp(3.313rem, 2.386rem + 4.63vw, 6.875rem);
+    font-weight: 700;
+    text-align: center;
+    color: #ccc;;
+    margin-bottom: clamp(0.625rem, 0.462rem + 0.81vw, 1.25rem);
+}
+
 /*==========Мигание курсора============*/
 
 .blink {
@@ -88,58 +100,52 @@ a.underlined:hover {
 
 /*=====================================Header=====================================*/
 .header {
-    padding: 30px 35px 30px 35px;
+    padding: clamp(0.938rem, 0.683rem + 1.27vw, 1.875rem) clamp(0.938rem, 0.599rem + 1.69vw, 2.188rem);
 }
 
 .header__block {
     display: flex;
-    align-items: center;
     flex-wrap: wrap;
     font-size: 40px;
-}
-
-.header__logo {
-    font-size: 40px;
+    gap: 30px;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .header__logo span{
     color: #2072FA;
 }
 
-
-.header__menu {
+.header__row-1 {
     display: flex;
-    gap: 50px;
-    margin-left: auto;
-    margin-right: 30px;
-}
-
-.header__contacts {
-    display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 40px;
-    margin-left: auto;
+    flex-grow: 1;
 }
 
 .header__phone {
     display: flex;
     align-items: center;
-    gap: 20px;
 }
 
 .header__messengers {
     display: flex;
+    align-items: center;
 }
 
-.header__messengers a {
+.header__phone svg {
+    max-width: 100%;
+    max-height: 100%;
+    transition: var(--transition);
+}
+
+.header__whatsapp, .header__telegram {
     width: 50px;
     height: 50px;
 }
 
-.header__messengers svg {
-    width: 100%;
-    height: 100%;
-    transition: var(--transition);
+.header__telegram {
+    margin-right: 10px;
 }
 
 .header__telegram svg {
@@ -171,12 +177,13 @@ a.underlined:hover {
     margin-top: 30px;
     background-color: #24252F;
     color: #ccc;
-    font-size: 42px;
+    font-size: 40px;
 }
 
 .footer__wrapper {
     display: flex;
     gap: 10px;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: start;
 }
@@ -205,6 +212,7 @@ a.underlined:hover {
     display: flex;
     align-items: center;
     gap: 12px;
+
 }
 
 
@@ -214,14 +222,18 @@ a.underlined:hover {
     fill: #ccc;
 }
 
+.footer__phone, .footer__email {
+    color: #ccc;
+}
+
 .footer__col-3 {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-basis: 450px;
 }
 
 .footer__address {
-    max-width: 450px;
     line-height: 1.4;
     align-items: flex-start;
 }
@@ -251,19 +263,19 @@ a.underlined:hover {
 }
 
 .footer__whatsapp {
-    background-color: #0B7BFF;
-}
-
-.footer__whatsapp:hover {
-    background-color: #3270f3;
-}
-
-.footer__telegram {
     background-color: #2CC54E;
 }
 
-.footer__telegram:hover {
+.footer__whatsapp:hover {
     background-color: #19b85e;
+}
+
+.footer__telegram {
+    background-color: #0B7BFF;
+}
+
+.footer__telegram:hover {
+    background-color: #3270f3;
 }
 
 .footer__whatsapp svg, .footer__telegram svg {
@@ -279,7 +291,7 @@ a.underlined:hover {
 /*=====================================Creating=====================================*/
 
 .creating {
-    padding-top: 40px;
+    padding-top: 20px;
     padding-bottom: 30px;
     background-image: url('/public/storage/images/bg1.svg');
     background-size: 45%;
@@ -288,13 +300,14 @@ a.underlined:hover {
 }
 
 .creating__title {
-    font-size: 90px;
+    font-size: 70px;
     font-weight: 700;
-    color: var(--font-color);
+    max-width: 693px;
+    margin-bottom: 20px;
 }
 
 .creating__subtitle {
-    margin-bottom: 50px;
+    margin-bottom: 40px;
     color: var(--font-color);
     font-weight: 300;
     font-size: 52px;
@@ -343,21 +356,13 @@ a.underlined:hover {
     padding-bottom: 10px;
 }
 
-.types__title {
-    font-size: 110px;
-    font-weight: 700;
-    color: #ccc;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
 .types__wrapper {
     margin: 0 auto;
     width: 85vw;
 }
 
 .types__text {
-    max-width: 70%;
+    /*max-width: 70%;*/
 }
 
 .types__wrapper h3 {
@@ -417,14 +422,178 @@ a.underlined:hover {
     padding-top: 10px;
 }
 
-.result__title {
-    font-size: 110px;
-    font-weight: 700;
-    color: #ccc;
-    margin-bottom: 40px;
-    text-align: center;
+.result__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+.result__list li {
+    display: flex;
+    align-items: center;
+    font-size: 42px;
+    font-weight: 400;
+}
+
+.result__list li:not(:last-child){
+    margin-bottom: 20px;
+}
+
+.result__list li:before {
+    flex: 0 0 auto;
+    height: 80px;
+    margin-right: 25px;
+    width: 73px;
+    content: "";
+}
+
+.result__list li:nth-child(5n+1):before{
+    background-image: url('/public/storage/images/blue-mark.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.result__list li:nth-child(5n+2):before{
+    background-image: url('/public/storage/images/green-mark.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.result__list li:nth-child(5n+3):before{
+    background-image: url('/public/storage/images/orange-mark.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.result__list li:nth-child(5n+4):before{
+    background-image: url('/public/storage/images/red-mark.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.result__list li:nth-child(5n+5):before{
+    background-image: url('/public/storage/images/purple-mark.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+
+/*=====================================Questions=====================================*/
+
+.questions {
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+
+.questions__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 30px;
+    max-width: 70vw;
+    margin: 0 auto;
+}
+
+.questions__item {
+    border-radius: 13px;
+    background-color: #C7F8FF;
+    display: flex;
+    flex-direction: column;
+    padding-top: 26px;
+    padding-bottom: 26px;
+    padding-right: 44px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.questions__top {
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: space-between;
+}
+
+.questions__img {
+    position: absolute;
+    max-width: 82px;
+    max-height: 82px;
+    left: 4%;
+}
+
+.questions__question {
+    user-select: none;
+}
+
+.questions__item.active .questions__toggle {
+    transform: rotate(-45deg);
+}
+
+.questions__item.active .questions__toggle:before,
+.questions__item.active .questions__toggle:after {
+    background-color: #16BF54;
+}
+
+.questions__item:hover .questions__toggle{
+    background-color: #16BF54;
+}
+
+.questions__toggle {
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    transition: background-color .3s, transform .2s;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.questions__toggle:before, .questions__toggle:after {
+    position: absolute;
+    z-index: 10;
+    content: '';
+    width: 60%;
+    height: 3px;
+    background: #16BF54;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    transition: all .3s;
+}
+
+.questions__toggle:after {
+    transform: rotate(90deg);
+}
+
+.questions__item:hover .questions__toggle:before,
+.questions__item:hover .questions__toggle:after {
+    background-color: white;
+}
+
+.questions__question, .questions__bottom {
+    padding-left: 18%;
+    line-height: 1.56;
+}
+
+.questions__item.active .questions__bottom {
+    opacity: .65;
+    max-height: 1000px;
+}
+
+.questions__bottom {
+    max-width: 87%;
+    font-weight: 400;
+    color: #1D1D1F;
+    opacity: 0;
+    transition: all .3s ease;
+    max-height: 0;
+    letter-spacing: .01em;
+}
+
+.questions__stages li {
+    list-style-type: decimal;
+    list-style-position: inside;
+}
 
 
 
@@ -500,6 +669,10 @@ a.underlined:hover {
     line-height: 1.6;
 }
 
+.page-img-right {
+    float: right;
+    width: 30vw;
+}
 
 @keyframes flareAnimation {
     0% {
@@ -512,14 +685,169 @@ a.underlined:hover {
 
 /*==================================== Медиа запросы ====================================*/
 
-@media (max-width: 992px) {
+@media (max-width: 1550px) {
+    .wrapper {
+        background-size: 70vw;
+        background-position: 194% -17%;
+    }
+    .types__wrapper h3 {
+        font-size: clamp(2.938rem, 0.938rem + 3.23vw, 4.063rem);
+    }
+    .types__desc {
+        font-size: clamp(2.063rem, -0.049rem + 3.41vw, 3.25rem);
+    }
+    .types__item {
+        padding: 25px clamp(2.188rem, -1.146rem + 5.38vw, 4.063rem);
+    }
+    .footer__col-4 {
+        margin-left: auto;
+        flex-direction: row;
+        margin-top: 30px;
+        justify-content: space-between;
+        gap: 50px;
+    }
+
+}
+
+@media (max-width: 1450px) {
+    .wrapper {
+        background-size: 70vw;
+        background-position: 194% -15%;
+    }
+    .types__item {
+        padding: 25px 55px;
+    }
+}
+
+@media (max-width: 1400px) {
+    .wrapper {
+        background-size: 70vw;
+        background-position: 194% -13%;
+    }
     .creating__title {
-        font-size: 40px;
+        font-size: 65px;
     }
-    .header {
+    .creating__subtitle {
+        font-size: 48px;
+    }
+    .creating__subtitle-wrapper {
+        width: 210px;
+    }
+    .creating__steps {
+        font-size: 48px;
+    }
+    .creating__steps li svg {
+        max-width: 81px;
+    }
+    .types__item {
+        padding: 25px 45px;
+    }
+    .page-img-right {
+        width: 40vw;
+    }
+}
+
+@media (max-width: 1200px) {
+    .wrapper {
+        background-size: 70vw;
+        background-position: 194% -9%;
+    }
+    .creating {
+        background-size: 48%;
+    }
+    .creating__title {
+        font-size: 57px;
+    }
+    .creating__subtitle {
+        font-size: 42px;
+        margin-bottom: 35px;
+    }
+    .creating__subtitle-wrapper {
+        width: 183px;
+    }
+    .creating__steps li svg {
+        max-height: 120px;
+    }
+    .creating__steps {
+        font-size: 42px;
+    }
+
+    .types__wrapper h3 {
         margin-bottom: 10px;
-        padding-bottom: 10px;
     }
+    .footer {
+        font-size: 34px;
+    }
+    .footer__col-3 {
+        flex-basis: 377px;
+    }
+}
+
+@media (max-width: 992px) {
+    .wrapper {
+        background-size: 118vw;
+        background-position: -315% -32%;
+    }
+    .header__block {
+        gap: unset;
+        font-size: 35px;
+    }
+    .header__whatsapp, .header__telegram {
+        width: 45px;
+        height: 45px;
+    }
+    .header__row-2 {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+    .creating {
+        padding-bottom: 10px;
+        padding-top: unset;
+    }
+    .creating__title {
+        font-size: 43px;
+        max-width: 522px;
+    }
+    .creating__subtitle {
+        font-size: 35px;
+        margin-bottom: 20px;
+    }
+    .creating__subtitle-wrapper {
+        width: 157px;
+    }
+    .creating__steps {
+        font-size:35px;
+    }
+    .creating__steps li svg {
+        max-height: 120px;
+    }
+    .creating__steps li:not(:last-of-type) {
+        margin-bottom: unset;
+    }
+
+    .types__wrapper {
+        width: unset;
+    }
+
+    .types__item {
+        padding: 20px 40px;
+    }
+
+    .result__list li {
+        font-size: 33px;
+    }
+
+    .questions__wrapper {
+        max-width: unset;
+    }
+
+    .footer__col-4 {
+        flex-direction: column;
+        gap: 25px;
+    }
+
     .page__title {
         font-size: 25px;
         margin-bottom: 10px;
@@ -527,42 +855,276 @@ a.underlined:hover {
     .page {
         font-size: 18px;
     }
-    .header__contacts {
-        width: 100%;
-        justify-content: center;
-        margin-top: 10px;
-    }
     .page-banner {
         max-width: 100%;
     }
-    .header__menu {
-        margin-right: 0;
-    }
+
     .page ol li {
         margin-bottom: 5px;
     }
 }
 
-@media (max-width: 768px) {
-    .city-services__list {
-        font-size: 20px;
+@media (max-width: 850px){
+    .footer__wrapper {
+        gap: 28px;
     }
-    .creating {
-        padding: 50px;
+    .footer__col-4 {
+        flex-direction: row;
+        margin-top: unset;
+        width: 100%;
+    }
+    .footer__col-3 {
+        margin-left: auto;
+        flex-basis: 354px;
+    }
+
+    .footer__whatsapp, .footer__telegram {
+        padding-left: unset;
+        padding-right: unset;
+        flex-basis: 50%;
     }
 }
 
+@media (max-width: 816px) {
+    .types__wrapper h3 {
+        font-size: 40px;
+    }
+    .types__desc {
+        font-size: 30px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .wrapper {
+        background-size: 118vw;
+        background-position: -315% -23%;
+    }
+    .city-services__list {
+        font-size: 20px;
+    }
+    .header__block {
+        font-size: 32px;
+    }
+
+    .types__item {
+        padding: 20px 35px;
+    }
+    .result__list li {
+        font-weight: 300;
+    }
+    .result__list li:before {
+        height: 70px;
+        width: 70px;
+        margin-right: 13px;
+    }
+    .questions__question, .questions__bottom {
+        padding-left: 20%;
+    }
+    .questions__toggle {
+        width: 65px;
+        height: 65px;
+    }
+    .questions__img {
+        max-width: 70px;
+        max-height: 70px;
+    }
+    .questions__bottom {
+        font-size: 28px;
+    }
+    .questions__item {
+        padding-right: 20px;
+    }
+    .footer {
+        font-size: 32px;
+    }
+    .footer__whatsapp, .footer__telegram {
+        gap: 10px;
+    }
+    .page-img-right {
+        width: 45vw;
+    }
+
+}
+
+@media (max-width: 740px) {
+    .creating {
+        background-position-x: 110%;
+    }
+    .types__text {
+        max-width: 415px;
+    }
+    .types__image {
+        max-width: 25%;
+    }
+    .questions__toggle {
+        width: 60px;
+        height: 60px;
+    }
+    .questions__question {
+        line-height: 1.3;
+    }
+    .footer__whatsapp, .footer__telegram {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .footer__whatsapp span, .footer__telegram span {
+        max-width: 50%;
+    }
+}
+
+@media (max-width: 676px) {
+    .wrapper {
+        background-size: 129vw;
+        background-position: -225% -21%;
+    }
+    .creating {
+        background-position-x: 130%;
+    }
+    .types__item {
+        padding: 20px 30px;
+    }
+    .types__text {
+        max-width: 362px;
+    }
+    .types__image {
+        max-width: 30%;
+    }
+}
+
+@media (max-width: 637px) {
+    .types__wrapper h3 {
+        font-size: 38px;
+    }
+    .types__desc {
+        font-size: 27px;
+    }
+    .types__image {
+        max-width: 27%;
+    }
+    .types__text {
+        max-width: 328px;
+    }
+    .types__item {
+        padding: 20px 25px;
+        margin-bottom: 20px;
+        border-radius: 30px;
+    }
+    .questions__toggle {
+        width: 60px;
+        height: 60px;
+    }
+    .questions__img {
+        max-width: 65px;
+        max-height: 65px;
+    }
+    .questions__bottom {
+        font-size: 26px;
+    }
+    .footer {
+        padding-top: 35px;
+        padding-bottom: 35px;
+    }
+    .footer__wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer__whatsapp span, .footer__telegram span {
+        max-width: unset;
+    }
+    .footer__col-4 {
+        flex-direction: column;
+    }
+    .footer__col-3 {
+        flex-basis: unset;
+        max-width: 338px;
+        margin-left: unset;
+    }
+
+
+}
+
 @media (max-width: 576px) {
+    .wrapper {
+        background-position: -211% -17%;
+    }
+    .header__block {
+        font-size: 28px;
+    }
+    .header__whatsapp, .header__telegram {
+        width: 40px;
+        height: 40px;
+    }
+    .creating {
+        background-position-x: 120%;
+    }
+    .creating__title {
+        font-size: 40px;
+        max-width: 283px;
+        margin-bottom: 15px;
+    }
+    .creating__subtitle {
+        font-size: 30px;
+        margin-bottom: 25px;
+        max-width: 300px;
+
+    }
+    .creating__subtitle-wrapper {
+        width: 130px;
+    }
+    .creating__steps {
+        font-size:30px;
+    }
+    .creating__steps li {
+        gap: 10px;
+    }
+    .creating__steps li svg {
+        max-height: 100px;
+    }
+
+    .creating__steps li.creating__interest svg {
+        max-height: 120px;
+    }
+
+    .creating__steps li:not(:last-of-type) {
+        margin-bottom: 10px;
+    }
+    .types__wrapper h3 {
+        font-size: 33px;
+        margin-bottom: 7px;
+    }
+
+    .result__list li {
+        font-size: 30px;
+    }
+
+    .questions__bottom {
+        font-size: 25px;
+    }
+
+    .questions__toggle {
+        width: 55px;
+        height: 55px;
+    }
+
+    .questions__question {
+        font-size: 27px;
+    }
+    .questions__img {
+        max-height: 60px;
+        max-width: 60px;
+    }
+    .footer {
+        font-size: 28px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .footer__col-3 {
+        max-width: 302px;
+    }
     .city-services__list {
         font-size: 18px;
-    }
-    .header__contacts {
-        font-size: 22px;
-        justify-content: space-between;
-        gap: 0;
-    }
-    .header__menu {
-        font-size: 22px;
     }
     .page__title {
         font-size: 22px;
@@ -570,44 +1132,187 @@ a.underlined:hover {
     .page h3 {
         font-size: 22px;
     }
+    .page-img-right {
+        width: 80vw;
+        float: unset;
+        margin: 0 auto;
+        display: block;
+        position: relative;
+        z-index: 2;
+    }
 }
 
+@media (max-width: 500px) {
+    .types__image {
+        display: none;
+    }
+    .types__text {
+        max-width: unset;
+    }
+    .questions__img {
+        max-height: 55px;
+        max-width: 55px;
+    }
+    .questions__item {
+        padding-right: 10px;
+    }
+    .questions__question {
+        font-size: 27px;
+    }
+    .questions__bottom {
+        font-size: 25px;
+        line-height: 1.5;
+    }
+    .questions__question, .questions__bottom {
+        padding-left: 22%;
+    }
+    .questions__toggle {
+        max-height: 50px;
+        max-width: 50px;
+    }
+}
+
+
 @media (max-width: 470px) {
-    .header__logo {
-        font-size: 22px;
+    .header__block {
+        font-size: 26px;
     }
-    .header__menu {
-        font-size: 18px;
-    }
-    .header__contacts {
-        font-size: 18px;
+    .header__whatsapp, .header__telegram {
+        width: 36px;
+        height: 36px;
     }
     .header__telegram {
-        width: 30px;
+        margin-right: 5px;
     }
-    .header__whatsapp {
-        width: 30px;
+    .questions__img {
+        left: 2%;
+    }
+    .questions__question, .questions__bottom {
+        padding-left: 20%;
+    }
+}
+
+@media (max-width: 407px) {
+    .wrapper {
+        background-position: -213% -9%;
+    }
+    .header__tel, .header__email {
+        font-size: 22px;
+    }
+    .header__whatsapp, .header__telegram {
+        width: 32px;
+        height: 32px;
+    }
+    .creating {
+        background-position-x: 120%;
     }
     .creating__title {
         font-size: 35px;
+        max-width: 263px;
+        margin-bottom: 10px;
+    }
+    .creating__steps {
+        font-size: 28px;
+    }
+    .types__wrapper h3 {
+        font-size: 30px;
+        margin-bottom: 5px;
+    }
+    .result__list li {
+        font-size: 28px;
+    }
+    .result__list li:before {
+        height: 65px;
+        width: 65px;
+        margin-right: 10px;
+    }
+    .questions__question {
+        font-size: 25px;
+    }
+    .questions__bottom {
+        font-size: 23px;
     }
 }
 
 @media (max-width: 375px) {
+    .header__whatsapp, .header__telegram {
+        width: 28px;
+        height: 28px;
+    }
+    .header__logo {
+        font-size: 22px;
+    }
+    .header__tel, .header__email {
+        font-size: 20px;
+    }
     .header__telegram {
-        width: 22px;
+        margin-right: 3px;
     }
-    .header__whatsapp {
-        width: 22px;
+    .title {
+        font-size: 45px;
     }
-    .header__phone {
-        gap: 3px;
+    .creating__title {
+        font-size: 31px;
+        max-width: 225px;
     }
-    .header__contacts {
-        font-size: 16px;
+    .creating__subtitle {
+        font-size: 28px;
     }
-    .header__menu {
-        font-size: 16px;
+    .creating__subtitle-wrapper{
+        max-width: 120px;
+    }
+    .creating__steps li svg {
+        max-height: 90px;
+    }
+    .creating__steps li.creating__interest svg {
+        max-height: 110px;
+    }
+    .types__wrapper h3 {
+        font-size: 28px;
+    }
+    .types__desc {
+        font-size: 25px;
+    }
+    .result__list li {
+        font-size: 25px;
+    }
+    .result__list li:before {
+        height: 60px;
+        width: 60px;
+        margin-right: 7px;
+    }
+    .questions__img {
+        max-height: 50px;
+        max-width: 50px;
+    }
+    .questions__toggle {
+        max-height: 45px;
+        max-width: 45px;
+    }
+    .questions__question, .questions__bottom {
+        padding-left: 22%;
+    }
+    .footer {
+        font-size: 24px;
+    }
+    .footer__wrapper {
+        gap: 20px;
+    }
+    .footer__whatsapp, .footer__telegram {
+        font-size: 22px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .footer__whatsapp svg, .footer__telegram svg {
+        width: 40px;
+        height: 40px;
+    }
+    .footer__col-3 {
+        max-width: 266px;
+    }
+    .footer__col-2 {
+        gap: 20px;
     }
 
 }
+

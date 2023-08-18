@@ -1,18 +1,18 @@
 @extends('layouts.layout')
 
-@section('title', "Мы работаем по всей России")
+@section('title', "Купить сайт в городе")
 
-@section('keywords')Список городов где мы работаем@endsection
+@section('keywords')купить, сайт, заказать, создание@endsection
 
-@section('description')Список городов где мы работаем@endsection
+@section('description')Купить сайт или заказать создание можно в следующих городах@endsection
 
 @section('content')
     <section class="cities">
         <div class="container">
-            <h1 class="page__title">Ваш город</h1>
+            <h1 class="page__title">Купить сайт или заказать создание в городе</h1>
             <div class="cities__list">
                 @foreach($cities as $city)
-                    <a href="{{ route('city_services', $city->slug) }}" title="Наши услуги в {{ $city->name_pred }}">{{ $city->name }}</a>
+                    <a href="{{ route('site', $city->slug) }}" title="Купить сайт {{ $city->name }}">{{ $city->name }}</a>
                 @endforeach
             </div>
 	    </div>

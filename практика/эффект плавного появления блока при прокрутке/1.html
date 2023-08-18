@@ -29,7 +29,7 @@
     align-items: center;
     justify-content: center;
     font-size: 50px;
-    transform: scale(calc(3.23 - var(--progress, 0)*2.23)) translateY(calc(30%*var(--progress)));
+    transform: scale(calc(3.23 - var(--progress, 0)*2.23)) translateY(calc(-50% + 100%*calc(var(--progress, 0))));
     border-radius: calc(6rem - 5.4rem*var(--progress, 0));
 
     transform-origin: bottom;
@@ -44,11 +44,15 @@
 </head>
 <body>
 
+Нужно сделать inner position sticky, чтобы не прыгало изображение при уменьшении
+
 
 <div style="height: 150vh"></div>
 
 <div class="wrapper">
-    <div class="child">Текст</div>
+    <div class="inner">
+        <div class="child">Текст</div>
+    </div>
 </div>
 
 

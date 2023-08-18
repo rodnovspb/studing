@@ -15,27 +15,24 @@
         <div class="wrapper">
 	        <header class="header">
                <div class="header__block">
-                   <a class="header__logo" href="{{ route('index') }}">rodnov<span>spb</span></a>
-                   <nav class="header__menu menu">
-
-                   </nav>
-                   <div class="header__contacts">
+                   <div class="header__row-1">
+                       <a class="header__logo" href="{{ route('index') }}" title="На главную">rodnov<span>spb</span></a>
                        <div class="header__phone">
-                           <div class="header__messengers">
-                               <a class="header__whatsapp" href="https://wa.me/79507261797" target="_blank" title="whatsapp">
-                                   <svg>
-                                       <use href="{{ asset('storage/images/sprite.svg#whatsapp') }}"></use>
-                                   </svg>
-                               </a>
-                               <a class="header__telegram" href="https://telegram.me/cinedbs" target="_blank" title="telegram">
-                                   <svg>
-                                       <use href="{{ asset('storage/images/sprite.svg#telegram') }}"></use>
-                                   </svg>
-                               </a>
-                           </div>
-                           <a class="header__tel" href="tel:+79507261797">89507261797</a>
+                            <a class="header__whatsapp" href="https://wa.me/79507261797" target="_blank" title="whatsapp">
+                                <svg>
+                                    <use href="{{ asset('storage/images/sprite.svg#whatsapp') }}"></use>
+                                </svg>
+                            </a>
+                            <a class="header__telegram" href="https://telegram.me/cinedbs" target="_blank" title="telegram">
+                                <svg>
+                                    <use href="{{ asset('storage/images/sprite.svg#telegram') }}"></use>
+                                </svg>
+                            </a>
+                            <a title="Позвонить" class="header__tel" href="tel:+79507261797">89507261797</a>
                        </div>
-                       <a class="header__email" href="mailto:rodnovspb@mail.ru">rodnovspb@mail.ru</a>
+                   </div>
+                   <div class="header__row-2">
+                       <a title="Написать" class="header__email" href="mailto:rodnovspb@mail.ru">rodnovspb@mail.ru</a>
                    </div>
                </div>
 	        </header>
@@ -44,26 +41,26 @@
 	        </main>
 	        <footer class="footer">
                     <div class="footer__wrapper">
-                        <div class="footer__col-1">
+                        <div class="footer__col-1" title="На главную">
                             <a class="footer__logo" href="{{ route('index') }}">rodnov<span>spb</span></a>
                         </div>
                         <div class="footer__col-2">
-                            <div class="footer__email">
+                            <a href="mailto:rodnovspb@mail.ru" class="footer__email" title="Купить сайт по электронной почте">
                                 <svg>
                                     <use href="{{ asset('storage/images/sprite.svg#mail') }}"></use>
                                 </svg>
                                 rodnovspb@mail.ru
-                            </div>
-                            <div class="footer__phone">
+                            </a>
+                            <a href="tel:+79507261797" class="footer__phone" title="Купить сайт по телефону">
                                 <svg>
                                     <use href="{{ asset('storage/images/sprite.svg#phone') }}"></use>
                                 </svg>
                                 8-950-726-17-97
-                            </div>
+                            </a>
                         </div>
                         <div class="footer__col-3">
                             <div class="footer__address">
-                                <a href="{{ route('cities') }}" target="_blank">
+                                <a href="{{ route('cities') }}" title="Купить сайт или заказать создание сайта в городах">
                                     <svg>
                                         <use href="{{ asset('storage/images/sprite.svg#map') }}"></use>
                                     </svg>
@@ -72,13 +69,13 @@
                             </div>
                         </div>
                         <div class="footer__col-4">
-                            <a class="footer__whatsapp" href="https://wa.me/79507261797" target="_blank" title="whatsapp">
+                            <a class="footer__whatsapp" href="https://wa.me/79507261797" target="_blank" title="Купить сайт через whatsapp">
                                 <svg>
                                     <use href="{{ asset('storage/images/sprite.svg#whatsapp') }}"></use>
                                 </svg>
                                 <span>Написать в WhatsApp</span>
                             </a>
-                            <a class="footer__telegram" href="https://telegram.me/cinedbs" target="_blank" title="telegram">
+                            <a class="footer__telegram" href="https://telegram.me/dghgcghh" target="_blank" title="Купить сайт через telegram">
                                 <svg>
                                     <use href="{{ asset('storage/images/sprite.svg#telegram') }}"></use>
                                 </svg>

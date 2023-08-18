@@ -18,3 +18,17 @@
     }
 })();
 
+;(function (){
+    let questions = document.querySelectorAll('.questions__item')
+    if(questions && questions.length > 0){
+        questions.forEach(item => {
+            item.addEventListener('click', function (e){
+                item.classList.toggle('active')
+            })
+        })
+    }
+
+
+
+})();
+

@@ -1,15 +1,15 @@
 @extends('layouts.layout')
 
-@section('title', 'Заказать создание сайта | Разработка сайта под ключ')
+@section('title', 'Купить сайт | Создание сайта | Заказать разработку сайта')
 
-@section('keywords')Создание сайтов, заказать сайт, разработка сайтов, изготовление сайтов@endsection
+@section('keywords')сайт, купить, создание, заказать, разработка, заказ, под ключ, создать@endsection
 
-@section('description')В создании сайтов самое сложное - сделать просто@endsection
+@section('description')У нас вы можете купить сайт или заказать создание сайта под ключ. Сложное делаем простым@endsection
 
 @section('content')
     <section class="creating">
         <div class="container">
-            <h1 class="creating__title">Создание сайтов</h1>
+            <h1 class="creating__title">Купить сайт или заказать создание</h1>
             <div class="creating__subtitle">cложное делаю
                 <div class="creating__subtitle-wrapper">
                     <span class="creating__span"></span><span class="creating__cursor">|</span>
@@ -19,17 +19,20 @@
                 <li >
                     <svg>
                         <use href="{{ asset('storage/images/sprite.svg#search') }}"></use>
+                        <title>Перед созданием сайта изучаем вашу нишу</title>
                     </svg>
                     изучаем вашу нишу
                 </li>
                 <li class="creating__interest">
                     <svg>
+                        <title>Находим интересные сайты</title>
                         <use href="{{ asset('storage/images/sprite.svg#lamp') }}"></use>
                     </svg>
                     находим интересные варианты
                 </li>
                 <li>
                     <svg>
+                        <title>Изучаем варианты и создаем лучший сайт</title>
                         <use href="{{ asset('storage/images/sprite.svg#best') }}"></use>
                     </svg>
                     совмещаем и получаем лучшее
@@ -40,15 +43,15 @@
 
     <section class="types">
         <div class="container">
-            <h2 class="types__title">Что делаю</h2>
+            <h2 class="types__title title">Что делаю</h2>
             <div class="types__wrapper">
-                <div class="types__item item-1">
+                <div class="types__item item-1 smooth">
                     <div class="types__text">
                         <h3>Одностраничные сайты</h3>
                         <div class="types__desc">Знакомим, призываем к действию</div>
                     </div>
                     <div class="types__image">
-                        <img src="{{ asset('storage/images/odnostranichnye-sajty.svg') }}" alt="создать одностраничный сайт-лендинг">
+                        <img src="{{ asset('storage/images/odnostranichnye-sajty.svg') }}" alt="создать одностраничный сайт-лендинг" title="Заказать или купить сайт-одностраничник">
                     </div>
                 </div>
                 <div class="types__item item-2 smooth">
@@ -57,16 +60,16 @@
                         <div class="types__desc">Простые и удобные покупки</div>
                     </div>
                     <div class="types__image">
-                        <img src="{{ asset('storage/images/internet-magaziny-sajty.svg') }}" alt="создать сайт интернет-магазин">
+                        <img src="{{ asset('storage/images/internet-magaziny-sajty.svg') }}" alt="создать сайт интернет-магазин" title="Заказать или купить интернет-магазин">
                     </div>
                 </div>
                 <div class="types__item item-3 smooth">
                     <div class="types__text">
                         <h3>Многостраничные сайты</h3>
-                        <div class="types__desc">Чтобы два раза не бегать</div>
+                        <div class="types__desc">Сайты различного назначения</div>
                     </div>
                     <div class="types__image">
-                        <img src="{{ asset('storage/images/mnogostranichnye-sajty.svg') }}" alt="создать многостраничный сайт">
+                        <img src="{{ asset('storage/images/mnogostranichnye-sajty.svg') }}" alt="создать многостраничный сайт" title="Заказать или купить другой сайт">
                     </div>
                 </div>
             </div>
@@ -75,8 +78,75 @@
 
     <section class="result">
         <div class="container">
-            <h2 class="result__title">Что будет</h2>
+            <h2 class="result__title title">Что будет</h2>
             <div class="result__wrapper">
+                <ul class="result__list">
+                    <li class="smooth">Верстка под все размеры экранов</li>
+                    <li class="smooth">Оптимизация под поисковые системы</li>
+                    <li class="smooth">Чат с посетителями сайта</li>
+                    <li class="smooth">Яндекс метрика (статистика посещаемости)</li>
+                    <li class="smooth">По необходимости реклама в Я.Директ</li>
+            </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="questions">
+        <div class="container">
+            <h2 class="questions__title title">Ответы</h2>
+            <div class="questions__wrapper">
+
+                <dl class="questions__item smooth">
+                    <div class="questions__top">
+                        <svg class="questions__img">
+                            <title>Сроки готовности сайта</title>
+                            <use href="{{ asset('storage/images/sprite.svg#time') }}"></use>
+                        </svg>
+                        <dt class="questions__question">Какие сроки?</dt>
+                        <div class="questions__toggle">
+                        </div>
+                    </div>
+                    <dd class="questions__bottom">
+                        В зависимости от сложности сайта и загруженности на момент заказа. В целом мы придержимаемся правила: тише едешь - дальше будешь. Создание простых сайтов - от 2 недель. Разработка сложных сайтов - от месяца. Также у нас можно купить готовые сайты - быстро, недорого, по готовому шаблону, с самостоятельным заполнением.
+                    </dd>
+                </dl>
+
+                <dl class="questions__item smooth">
+                    <div class="questions__top">
+                        <svg class="questions__img">
+                            <title>Стоимость заказа сайта</title>
+                            <use href="{{ asset('storage/images/sprite.svg#payment') }}"></use>
+                        </svg>
+                        <dt class="questions__question">Стоимость и порядок оплаты</dt>
+                        <div class="questions__toggle">
+                        </div>
+                    </div>
+                    <dd class="questions__bottom">
+                        Стоимость сайта в зависимости от сложности. Самые простые сайты - от 15000 руб. Перед началом работ понадобится предоплата 50%. Оплата на счет ИП УСН 6% или переводом на карту.
+                    </dd>
+                </dl>
+
+                <dl class="questions__item smooth">
+                    <div class="questions__top">
+                        <svg class="questions__img">
+                            <title>Купить или заказать сайт - этапы</title>
+                            <use href="{{ asset('storage/images/sprite.svg#stages') }}"></use>
+                        </svg>
+                        <dt class="questions__question">Этапы работ</dt>
+                        <div class="questions__toggle">
+                        </div>
+                    </div>
+                    <dd class="questions__bottom">
+                        <ul class="questions__stages">
+                            <li><span>Определяем задачи сайта, основной функционал, работы</span></li>
+                            <li><span>Называем стоимость. Предоплата 50%</span></li>
+                            <li><span>Изучаем нишу и подбираем варианты решения</span></li>
+                            <li><span>Согласовываем прототип, начинаем создание сайта</span></li>
+                            <li><span>Дизайн, верстка, программирование</span></li>
+                            <li><span>Окончательный расчет и выкладка сайта на хостинг</span></li>
+                        </ul>
+                    </dd>
+                </dl>
 
             </div>
         </div>
@@ -133,6 +203,8 @@
             }
 
             addLetter()
+
+
 
         })();
     </script>
