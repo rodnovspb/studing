@@ -4,13 +4,13 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="description" content="Создаем сайты в СПБ от 15 до 60 рабочих дней. Цены на создание сайтов: от 15000 руб." />
-        <meta name="keywords" content="купить, сайт, Санкт-Петербург, заказать, создание, разработка, под ключ" />
+        <meta name="description" content="В нашей веб студии вы можете заказать создание сайтов в Санкт-Петербурге. Мы изучаем вашу нишу, находим интересные варианты." />
+        <meta name="keywords" content="сайт, Санкт-Петербург, заказать, создание, разработка, под ключ" />
         <meta name="format-detection" content="telephone=no">
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         @include('parts.metrika')
         <link rel="stylesheet" href="{{ asset('storage/fonts/fonts.css') }}">
-        <title>Купить сайт в Санкт-Петербурге | Заказать создание сайта в СПб</title>
+        <title>Создание сайтов СПб. Заказать разработку сайта. Цена</title>
     </head>
     <body>
     <div class="wrapper">
@@ -28,12 +28,11 @@
         <main class="main">
             <section class="creating">
                 <div class="container">
-                    <h1 class="creating__title">Купить сайт в Санкт-Петербурге, заказать создание</h1>
+                    <h1 class="creating__title">Создание сайтов в Санкт-Петербурге, заказать разработку</h1>
 
-                    <p class="creating__text">Для создания сайта мы изучаем вашу нишу, находим интересные варианты, собираем базу ключевых слов, изображений, создаем дизайн, согласовываем и начинаем все это совмещать в единое. Для того, чтобы заказать создание сайта в Санкт-Петербурге свяжитесь с нами по электронной почте.</p>
-                    <p class="creating__text">Сроки создания сайта в СПБ нашей компанией - от 15 до 60 рабочих дней. Зависит от сложности проекта и нашей загруженности на время заказа. Напишите нам и мы обговорим этот вопрос</p>
+                    <p class="creating__text">В нашей веб студии вы можете заказать <strong>создание сайтов в Санкт-Петербурге</strong>. Перед разработкой мы изучаем вашу нишу, находим интересные варианты, собираем семантическое ядро.</p>
+                    <p class="creating__text">Сроки создания сайта  - от 15 до 60 рабочих дней. Зависит от сложности проекта и нашей загруженности на время заказа. Напишите нам и мы обговорим этот вопрос</p>
                     <p class="creating__text">Разрабатываем сайты на Ларавель или готовых CMS системах (Битрикс, Wordpress, ModX). Используем технологии и языки: php, javascript, html, css, view, laravel, nodejs, redux, react.</p>
-                    <p>Также можно купить сайт в Санкт-Петербурге на CMS с установкой на хостинг и настройкой.</p>
 
                     <h2>Мы создаем такие сайты в Санкт-Петербурге:</h2>
                     <ul class="creating__types">
@@ -68,9 +67,9 @@
                     </table>
 
 
-{{--                    <div class="creating__img">--}}
-{{--                        <img src="{{ asset('storage/images/bg-image.svg') }}" alt="Купить сайт в Санкт-Петербурге" title="Купить сайт в Санкт-Петербурге">--}}
-{{--                    </div>--}}
+                    <div class="creating__img">
+                        <img src="{{ asset('storage/images/bg-image.svg') }}" alt="Создание сайтов СПб" title="Заказать разработку сайта в Санкт-Петербурге">
+                    </div>
                 </div>
             </section>
         </main>

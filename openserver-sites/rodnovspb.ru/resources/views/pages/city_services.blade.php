@@ -1,17 +1,17 @@
 @extends('layouts.layout')
 
-@section('title')Сайты, боты, калькуляторы, верстка в г. {{ $city->name }}@endsection
+@section('title')Наши услуги в г. {{ $city->name }}@endsection
 
-@section('keywords')Онлайн калькулятор для сайта, телеграм и вк бот, создание сайта, купить сайт, верстка, {{ $city->name }}@endsection
+@section('keywords')Наши услуги в г. {{ $city->name }}: калькулятор для сайта, телеграм и вк бот, создание сайта, верстка, {{ $city->name }}@endsection
 
-@section('description')Сделаем в г. {{ $city->name }}: создание сайтов на заказ, онлайн калькуляторы, телеграм и вк боты@endsection
+@section('description')Наши услуги в г. {{ $city->name }}: создание сайтов, онлайн калькуляторы, телеграм и вк боты, верстка@endsection
 
 @section('content')
     <section class="city-services">
         <div class="container">
             <h1 class="page__title">Наши услуги в г. {{ $city->name }}</h1>
             <ul class="city-services__list">
-                <li><a class="underlined" href="{{ route('site', $city->slug) }}" title="Купить сайт в г. {{ $city->name}}">Создание сайтов</a> - разработка сайта-визитки, интернет-магазина, корпоратиного, посадочной страницы. Купить сайт на готовом шаблоне. Адаптация под мобильные устройства и поисковые системы.</li>
+                <li><a class="underlined" href="{{ route('site', $city->slug) }}" title="Заказать разработку сайта в г. {{ $city->name}}">Создание сайтов</a> - разработка сайта-визитки, интернет-магазина, корпоратиного, посадочной страницы. Купить сайт на готовом шаблоне. Адаптация под мобильные устройства и поисковые системы.</li>
 
                 <li><a class="underlined" href="{{ route('site_edit', $city->slug) }}" title="Изменение, редактирование сайта в г. {{ $city->name}}">Изменение и доработка сайта</a> - изменим стили, оптимизируем, внедрим новые возможности, исправим ошибки и многое другое</li>
 

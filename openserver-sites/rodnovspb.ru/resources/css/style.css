@@ -38,7 +38,7 @@ a {
     background-image: url('/public/storage/images/bg-main.svg');
     background-size: 65vw;
     background-repeat: no-repeat;
-    background-position: 170% -16%;
+    background-position: 170% -19%;
 }
 
 .container {
@@ -81,11 +81,12 @@ a.underlined:hover {
 }
 
 .title {
-    font-size: clamp(3.313rem, 2.386rem + 4.63vw, 6.875rem);
+    font-size: clamp(2.5rem, 1.591rem + 4.55vw, 5rem);
     font-weight: 700;
     text-align: center;
     color: #ccc;;
     margin-bottom: clamp(0.625rem, 0.462rem + 0.81vw, 1.25rem);
+    line-height: 1.1;
 }
 
 /*==========Мигание курсора============*/
@@ -113,6 +114,24 @@ a.underlined:hover {
 }
 
 .header__logo span{
+    color: #2072FA;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo__image {
+    line-height: 1.05;
+}
+
+.logo__text {
+    font-size: 17px;
+    font-family: monospace;
+    letter-spacing: 1.5px;
     color: #2072FA;
 }
 
@@ -167,7 +186,7 @@ a.underlined:hover {
 .page__title {
     font-size: 30px;
     font-weight: 700;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 
 /*=====================================Footer=====================================*/
@@ -300,10 +319,11 @@ a.underlined:hover {
 }
 
 .creating__title {
-    font-size: 70px;
+    font-size: clamp(1.938rem, 1.051rem + 4.43vw, 4.375rem);
     font-weight: 700;
-    max-width: 693px;
-    margin-bottom: 20px;
+    max-width: 750px;
+    margin-bottom: clamp(0.438rem, 0.142rem + 1.48vw, 1.25rem);
+    line-height: 1.15;
 }
 
 .creating__subtitle {
@@ -683,6 +703,66 @@ a.underlined:hover {
     }
 }
 
+/*==================================== Создание сайта ====================================*/
+
+.price__title, .works__title, .conditions__title {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.price__list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 55vw;
+}
+
+.price__item {
+    display: flex;
+    align-items: center;
+    border: 2px solid #ccc;
+    padding: 15px;
+}
+
+.price__header {
+    font-size: clamp(1.313rem, 1.244rem + 0.34vw, 1.5rem);
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.price__text {
+    width: 70%;
+    border-right: 2px solid #eee;
+    padding-right: 15px;
+}
+
+
+
+.price__cost {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.works__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.works__item {
+    padding: 15px;
+    border: 2px solid #ccc;
+    flex-basis: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+
 /*==================================== Медиа запросы ====================================*/
 
 @media (max-width: 1550px) {
@@ -724,9 +804,7 @@ a.underlined:hover {
         background-size: 70vw;
         background-position: 194% -13%;
     }
-    .creating__title {
-        font-size: 65px;
-    }
+
     .creating__subtitle {
         font-size: 48px;
     }
@@ -755,9 +833,7 @@ a.underlined:hover {
     .creating {
         background-size: 48%;
     }
-    .creating__title {
-        font-size: 57px;
-    }
+
     .creating__subtitle {
         font-size: 42px;
         margin-bottom: 35px;
@@ -788,6 +864,10 @@ a.underlined:hover {
         background-size: 118vw;
         background-position: -315% -32%;
     }
+    .logo__text {
+        font-size: 16px;
+        letter-spacing: .7px;
+    }
     .header__block {
         gap: unset;
         font-size: 35px;
@@ -807,8 +887,7 @@ a.underlined:hover {
         padding-top: unset;
     }
     .creating__title {
-        font-size: 43px;
-        max-width: 522px;
+        max-width: 380px;
     }
     .creating__subtitle {
         font-size: 35px;
@@ -850,7 +929,6 @@ a.underlined:hover {
 
     .page__title {
         font-size: 25px;
-        margin-bottom: 10px;
     }
     .page {
         font-size: 18px;
@@ -865,6 +943,12 @@ a.underlined:hover {
 }
 
 @media (max-width: 850px){
+    .price__list {
+        width: 100%;
+    }
+    .works__item {
+        flex-basis: 100%;
+    }
     .footer__wrapper {
         gap: 28px;
     }
@@ -899,6 +983,10 @@ a.underlined:hover {
     .wrapper {
         background-size: 118vw;
         background-position: -315% -23%;
+    }
+    .logo__text {
+        font-size: 14px;
+        letter-spacing: .8px;
     }
     .city-services__list {
         font-size: 20px;
@@ -1049,6 +1137,10 @@ a.underlined:hover {
     .wrapper {
         background-position: -211% -17%;
     }
+    .logo__text {
+        font-size: 13px;
+        letter-spacing: .3px;
+    }
     .header__block {
         font-size: 28px;
     }
@@ -1060,9 +1152,8 @@ a.underlined:hover {
         background-position-x: 120%;
     }
     .creating__title {
-        font-size: 40px;
+        font-size: clamp(2.375rem, 1.594rem + 3.91vw, 3rem);
         max-width: 283px;
-        margin-bottom: 15px;
     }
     .creating__subtitle {
         font-size: 30px;
@@ -1090,6 +1181,7 @@ a.underlined:hover {
     .creating__steps li:not(:last-of-type) {
         margin-bottom: 10px;
     }
+
     .types__wrapper h3 {
         font-size: 33px;
         margin-bottom: 7px;
@@ -1140,6 +1232,16 @@ a.underlined:hover {
         position: relative;
         z-index: 2;
     }
+    .works__list {
+        flex-direction: column;
+    }
+    .price__item, .works__item {
+        padding: 8px;
+    }
+    .works__item {
+        width: 100%;
+    }
+
 }
 
 @media (max-width: 500px) {
@@ -1174,6 +1276,10 @@ a.underlined:hover {
 
 
 @media (max-width: 470px) {
+    .logo__text {
+        font-size: 12px;
+        letter-spacing: .3px;
+    }
     .header__block {
         font-size: 26px;
     }
@@ -1207,9 +1313,7 @@ a.underlined:hover {
         background-position-x: 120%;
     }
     .creating__title {
-        font-size: 35px;
         max-width: 263px;
-        margin-bottom: 10px;
     }
     .creating__steps {
         font-size: 28px;
@@ -1232,9 +1336,16 @@ a.underlined:hover {
     .questions__bottom {
         font-size: 23px;
     }
+    .price__cost {
+        font-size: 16px;
+    }
 }
 
 @media (max-width: 375px) {
+    .logo__text {
+        font-size: 10px;
+        letter-spacing: .5px;
+    }
     .header__whatsapp, .header__telegram {
         width: 28px;
         height: 28px;
@@ -1248,11 +1359,7 @@ a.underlined:hover {
     .header__telegram {
         margin-right: 3px;
     }
-    .title {
-        font-size: 45px;
-    }
     .creating__title {
-        font-size: 31px;
         max-width: 225px;
     }
     .creating__subtitle {

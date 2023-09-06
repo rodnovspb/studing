@@ -16,23 +16,26 @@
 	        <header class="header">
                <div class="header__block">
                    <div class="header__row-1">
-                       <a class="header__logo" href="{{ route('index') }}" title="На главную">rodnov<span>spb</span></a>
+                       <a class="header__logo logo" href="{{ route('index') }}" title="На главную">
+                           <div class="logo__image">rodnov<span>spb</span></div>
+                           <div class="logo__text">разработка сайтов</div>
+                       </a>
                        <div class="header__phone">
-                            <a class="header__whatsapp" href="https://wa.me/79507261797" target="_blank" title="whatsapp">
+                            <a class="header__whatsapp" href="https://wa.me/79507261797" target="_blank" title="whatsapp по созданию сайтов">
                                 <svg>
                                     <use href="{{ asset('storage/images/sprite.svg#whatsapp') }}"></use>
                                 </svg>
                             </a>
-                            <a class="header__telegram" href="https://telegram.me/cinedbs" target="_blank" title="telegram">
+                            <a class="header__telegram" href="https://telegram.me/cinedbs" target="_blank" title="telegram по разработке сайтов">
                                 <svg>
                                     <use href="{{ asset('storage/images/sprite.svg#telegram') }}"></use>
                                 </svg>
                             </a>
-                            <a title="Позвонить" class="header__tel" href="tel:+79507261797">89507261797</a>
+                            <a title="Телефон - создание сайтов" class="header__tel" href="tel:+79507261797">89507261797</a>
                        </div>
                    </div>
                    <div class="header__row-2">
-                       <a title="Написать" class="header__email" href="mailto:rodnovspb@mail.ru">rodnovspb@mail.ru</a>
+                       <a title="Почта - разработка сайтов" class="header__email" href="mailto:rodnovspb@mail.ru">rodnovspb@mail.ru</a>
                    </div>
                </div>
 	        </header>
@@ -41,17 +44,17 @@
 	        </main>
 	        <footer class="footer">
                     <div class="footer__wrapper">
-                        <div class="footer__col-1" title="На главную">
+                        <div class="footer__col-1" title="Главная - разработка сайтов">
                             <a class="footer__logo" href="{{ route('index') }}">rodnov<span>spb</span></a>
                         </div>
                         <div class="footer__col-2">
-                            <a href="mailto:rodnovspb@mail.ru" class="footer__email" title="Купить сайт по электронной почте">
+                            <a href="mailto:rodnovspb@mail.ru" class="footer__email" title="Почта - заказать создание сайта">
                                 <svg>
                                     <use href="{{ asset('storage/images/sprite.svg#mail') }}"></use>
                                 </svg>
                                 rodnovspb@mail.ru
                             </a>
-                            <a href="tel:+79507261797" class="footer__phone" title="Купить сайт по телефону">
+                            <a href="tel:+79507261797" class="footer__phone" title="Телефон - заказать разработку сайта">
                                 <svg>
                                     <use href="{{ asset('storage/images/sprite.svg#phone') }}"></use>
                                 </svg>
@@ -60,7 +63,7 @@
                         </div>
                         <div class="footer__col-3">
                             <div class="footer__address">
-                                <a href="{{ route('cities') }}" title="Купить сайт или заказать создание сайта в городах">
+                                <a href="{{ route('cities') }}" title="Разработка сайтов в городах">
                                     <svg>
                                         <use href="{{ asset('storage/images/sprite.svg#map') }}"></use>
                                     </svg>
@@ -69,13 +72,13 @@
                             </div>
                         </div>
                         <div class="footer__col-4">
-                            <a class="footer__whatsapp" href="https://wa.me/79507261797" target="_blank" title="Купить сайт через whatsapp">
+                            <a class="footer__whatsapp" href="https://wa.me/79507261797" target="_blank" title="WhatsApp по созданию сайта и цене">
                                 <svg>
                                     <use href="{{ asset('storage/images/sprite.svg#whatsapp') }}"></use>
                                 </svg>
                                 <span>Написать в WhatsApp</span>
                             </a>
-                            <a class="footer__telegram" href="https://telegram.me/dghgcghh" target="_blank" title="Купить сайт через telegram">
+                            <a class="footer__telegram" href="https://telegram.me/dghgcghh" target="_blank" title="Telegram по разработке сайта и цене">
                                 <svg>
                                     <use href="{{ asset('storage/images/sprite.svg#telegram') }}"></use>
                                 </svg>

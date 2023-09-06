@@ -1,3 +1,10 @@
+:root {
+    --basic-color: #3b82f6;
+    --shadow-btn-hover: 0 0 13px var(--basic-color);
+    --shadow-btn-focus: 0 0 16px var(--basic-color);
+    --transition: all .2s;
+}
+
 h1 {
     font-size: 3.2rem;
     font-weight: 500;
@@ -20,14 +27,11 @@ body {
     width: 100%;
     overflow: hidden;
     min-height: 100vh;
-    /*background-image: url("/public/storage/images/bg.png");*/
-    /*background-repeat: no-repeat;*/
-    /*background-size: cover;*/
     font-family: "Lab Grotesque", sans-serif;
-    color: white;
+    color: black;
     font-size: 20px;
     font-weight: 300;
-    background: linear-gradient( to bottom, #6854FF, #6372FF );
+    background: #F9F9F9;
     line-height: 1.5;
 }
 .container {
@@ -51,6 +55,10 @@ h2.title {
     margin-bottom: 10px;
 }
 
+.dn {
+    display: none !important;
+}
+
 /*******************************************Header*******************************************/
 
 a.header__logo {
@@ -64,6 +72,10 @@ a.header__logo {
     padding-top: 30px;
     padding-bottom: 30px;
     font-size: 30px;
+}
+
+a.header__email {
+    text-decoration: none;
 }
 
 
@@ -157,6 +169,8 @@ section {
     font-weight: 500;
     white-space: nowrap;
 }
+
+
 
 /*******************************************Bottom*******************************************/
 

@@ -1,15 +1,15 @@
 @extends('layouts.layout')
 
-@section('title', 'Купить сайт | Создание сайта | Заказать разработку сайта')
+@section('title', 'Создание сайтов. Заказать разработку сайта. Стоимость')
 
-@section('keywords')сайт, купить, создание, заказать, разработка, заказ, под ключ, создать@endsection
+@section('keywords')сайт, создание, разработка, заказать, стоимость, цена, под ключ, изготовление@endsection
 
 @section('description')У нас вы можете купить сайт или заказать создание сайта под ключ. Сложное делаем простым@endsection
 
 @section('content')
     <section class="creating">
         <div class="container">
-            <h1 class="creating__title">Купить сайт или заказать создание</h1>
+            <h1 class="creating__title">Создание сайтов</h1>
             <div class="creating__subtitle">cложное делаю
                 <div class="creating__subtitle-wrapper">
                     <span class="creating__span"></span><span class="creating__cursor">|</span>
@@ -19,7 +19,7 @@
                 <li >
                     <svg>
                         <use href="{{ asset('storage/images/sprite.svg#search') }}"></use>
-                        <title>Перед созданием сайта изучаем вашу нишу</title>
+                        <title>Перед созданием сайта изучаем нишу</title>
                     </svg>
                     изучаем вашу нишу
                 </li>
@@ -32,7 +32,7 @@
                 </li>
                 <li>
                     <svg>
-                        <title>Изучаем варианты и создаем лучший сайт</title>
+                        <title>Разрабатываем лучший сайт</title>
                         <use href="{{ asset('storage/images/sprite.svg#best') }}"></use>
                     </svg>
                     совмещаем и получаем лучшее
@@ -99,7 +99,7 @@
                 <dl class="questions__item smooth">
                     <div class="questions__top">
                         <svg class="questions__img">
-                            <title>Сроки готовности сайта</title>
+                            <title>Сроки создания сайта сайта</title>
                             <use href="{{ asset('storage/images/sprite.svg#time') }}"></use>
                         </svg>
                         <dt class="questions__question">Какие сроки?</dt>
@@ -107,7 +107,7 @@
                         </div>
                     </div>
                     <dd class="questions__bottom">
-                        В зависимости от сложности сайта и загруженности на момент заказа. В целом мы придержимаемся правила: тише едешь - дальше будешь. Создание простых сайтов - от 2 недель. Разработка сложных сайтов - от месяца. Также у нас можно купить готовые сайты - быстро, недорого, по готовому шаблону, с самостоятельным заполнением.
+                        В зависимости от сложности сайта и загруженности на момент заказа. Создание простых сайтов - от 2 недель. Разработка сложных сайтов - от месяца. Также у нас можно купить готовые сайты - быстро, недорого, по готовому шаблону, с самостоятельным заполнением.
                     </dd>
                 </dl>
 
@@ -129,7 +129,7 @@
                 <dl class="questions__item smooth">
                     <div class="questions__top">
                         <svg class="questions__img">
-                            <title>Купить или заказать сайт - этапы</title>
+                            <title>Этапы разработки сайта</title>
                             <use href="{{ asset('storage/images/sprite.svg#stages') }}"></use>
                         </svg>
                         <dt class="questions__question">Этапы работ</dt>

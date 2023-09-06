@@ -18,7 +18,7 @@ class AdminController extends Controller
 
     public function save(Request $request)
     {
-        $arr = $request->all();
+        $arr = $request->post();
         $arr = str_replace(',', '.', $arr);
         $bill = Bill::query()->create($arr);
         return redirect()->back();
