@@ -8,8 +8,8 @@
 <style>
     .parent {
         display: grid;
-        grid-template-columns: 100px 150px auto;
-        width: 600px;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+
     }
     .parent > div {
         padding: 10px;
