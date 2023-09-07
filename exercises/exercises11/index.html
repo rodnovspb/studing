@@ -12,7 +12,7 @@
 		height: 300px;
 		width: 400px;
 		padding: 10px;
-		grid-template: 1fr 1fr / 1fr 1fr 1fr;
+		grid-template: 1fr 1fr 1fr/ 1fr 1fr 1fr;
 
 	}
 	#parent > div {
@@ -20,7 +20,7 @@
 		border: 1px solid #696989;
 	}
 	#elem1 {
-
+		grid-column: 1/4;
 	}
 	#elem2 {
 
@@ -29,10 +29,10 @@
 
 	}
 	#elem4 {
-		grid-column: 1/4;
+
 	}
 	#elem5 {
-
+		grid-column: 1/4;
 	}
 
 </style>
@@ -44,6 +44,7 @@
 	<div id="elem2">2</div>
 	<div id="elem3">3</div>
 	<div id="elem4">4</div>
+	<div id="elem5">5</div>
 
 </div>
 
