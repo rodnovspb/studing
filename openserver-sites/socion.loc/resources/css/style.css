@@ -59,6 +59,10 @@ h2.title {
     display: none !important;
 }
 
+.bold {
+    font-weight: 600;
+}
+
 /*******************************************Header*******************************************/
 
 a.header__logo {

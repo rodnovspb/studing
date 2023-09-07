@@ -124,6 +124,7 @@
                 document.querySelector('.test__wrapper').innerHTML = `
                     <h1 class="test__title">Ваш социотип ${res['name']}</h1>
                     <div class="test__description">${res['description']}</div>
+                    <div class="test__description test__annotation">По тесту сразу определить социотип сложно. Кроме того описание примерное, обобщенное. Если оно совсем не подходит пройдите тест еще раз, либо пройдите <a href="{{route('index')}}#tests">другой тест</a>. Также можно записаться на <a href="{{route('index')}}#typing">типирование</a>.</div>
                     <div class="test__refresh"><a href="{{ route('meged') }}">Пройти заново</a></div>`
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }

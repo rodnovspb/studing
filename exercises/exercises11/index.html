@@ -6,35 +6,45 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>Документ</title>
 <style>
-    .parent {
-        display: grid;
-		grid-template: 2fr 1fr / 1fr 1fr 2fr 4fr 4fr;
-		height: 70vh;
-    }
-    .parent > div {
-        padding: 10px;
-        border: 1px solid #696989;
-        box-sizing: border-box;
-        border: 1px solid #696989;
-    }
+    #parent {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		height: 300px;
+		width: 400px;
+		padding: 10px;
+
+	}
+	#parent > div {
+		padding: 10px;
+		border: 1px solid #696989;
+	}
+	#elem1 {
+		grid-row: 1/2
+	}
+	#elem2 {
+		grid-row: 2/3
+	}
+	#elem3 {
+
+	}
+	#elem4 {
+		grid-row: 2/4;
+	}
+	#elem5 {
+
+	}
 
 </style>
 </head>
 <body>
 
-<div class="parent">
-    <div>1</div>
-	<div>2</div>
-	<div>3</div>
-	<div>4</div>
-	<div>5</div>
-	<div>6</div>
-	<div>7</div>
-	<div>8</div>
-	<div>9</div>
-	<div>10</div>
+<div id="parent">
+	<div id="elem1">1</div>
+	<div id="elem2">2</div>
+	<div id="elem3">3</div>
+	<div id="elem4">4</div>
+	<div id="elem5">5</div>
 </div>
-
 
 
 
