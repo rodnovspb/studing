@@ -10,9 +10,8 @@
     <nav class="main">
         <ul>
             <li class="search">
-                <a class="fa-search" href="#search">Поиск</a>
-                <form id="search" method="get" action="#">
-                    <input type="text" name="query" placeholder="Найти" />
+                <form class="search" method="get" action="{{urlProcessor::makeUrl(15)}}">
+                    <input type="text" name="search" placeholder="Search" />
                 </form>
             </li>
             <li class="menu">

@@ -105,6 +105,32 @@ section {
     display: inline;
 }
 
+.definition__figure {
+    float: right;
+    max-width: 20%;
+    padding-left: 15px;
+}
+
+.definition__figure figcaption {
+    text-align: center;
+    font-size: 17px;
+    line-height: 1.2;
+    font-weight: 400;
+}
+
+.definition__figure figcaption span {
+    max-width: 100%;
+    display: inline-block;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.definition__aushra {
+    border-radius: 5px;
+    transform: scale(-1, 1);
+
+}
+
 /*******************************************Macro*******************************************/
 
 .functions__macro {
@@ -198,6 +224,16 @@ section {
 
 }
 
+@media (max-width: 800px) {
+    .definition__figure {
+        max-width: 23%;
+    }
+    .definition__figure figcaption {
+        font-size: 15px;
+
+    }
+}
+
 @media (max-width: 768px) {
     .functions__table {
         overflow-x: auto;
@@ -206,10 +242,26 @@ section {
     }
 }
 
+@media (max-width: 650px) {
+    .definition__figure {
+        max-width: 30%;
+    }
+}
+
 @media (max-width: 576px) {
     .header__row {
         font-size: 26px;
     }
+    .definition__figure {
+        max-width: 33%;
+    }
+}
+
+@media (max-width: 480px) {
+    .definition__figure {
+        max-width: 40%;
+    }
+
 }
 
 @media (max-width: 375px) {
@@ -218,5 +270,8 @@ section {
         padding-top: 10px;
         padding-bottom: 10px;
         font-size: 30px;
+    }
+    .definition__figure {
+        max-width: 48%;
     }
 }

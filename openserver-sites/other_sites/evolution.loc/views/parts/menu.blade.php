@@ -1,8 +1,8 @@
 <section id="menu">
     <!-- Search -->
     <section>
-        <form class="search" method="get" action="#">
-            <input type="text" name="query" placeholder="Search" />
+        <form class="search" method="get" action="{{urlProcessor::makeUrl(15)}}">
+            <input type="text" name="search" placeholder="Search" />
         </form>
     </section>
 
