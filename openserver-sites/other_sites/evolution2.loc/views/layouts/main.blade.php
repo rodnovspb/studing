@@ -9,6 +9,7 @@
 @include('parts.newsletter')
 @include('parts.footer')
 @include('parts.footer_scripts')
+@stack('scripts')
 
 </body>
 
