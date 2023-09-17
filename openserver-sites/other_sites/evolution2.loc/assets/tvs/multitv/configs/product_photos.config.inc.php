@@ -5,11 +5,11 @@ $settings['fields'] = array(
         'caption' => 'Фото',
         'type' => 'image'
     ),
-    'thumb' => array(
-        'caption' => 'Thumbnail',
-        'type' => 'thumb',
-        'thumbof' => 'image'
-    ),
+//    'thumb' => array(
+//        'caption' => 'Thumbnail',
+//        'type' => 'thumb',
+//        'thumbof' => 'image'
+//    ),
     'title' => array(
         'caption' => 'Описание',
         'type' => 'text'
