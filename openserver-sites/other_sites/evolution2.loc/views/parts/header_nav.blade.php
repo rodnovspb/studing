@@ -1,3 +1,4 @@
+@php use EvolutionCMS\UrlProcessor; @endphp
 <!-- Mobile Nav (max width 767px)-->
         <div class="mobile-nav">
             <!-- Navbar Brand -->
@@ -32,9 +33,15 @@
             </nav>
             <!-- Button Group -->
             <div class="amado-btn-group mt-30 mb-100">
-                <a href="#" class="btn amado-btn mb-15">%Discount%</a>
-                <a href="#" class="btn amado-btn active">New this week</a>
+                @guest
+                    <a href="/login" class="btn amado-btn mb-15">Вход</a>
+                @else
+                    не гость
+                @endguest
+
+                <a href="/register" class="btn amado-btn active">Регистрация</a>
             </div>
+
             <!-- Cart Menu -->
             <div class="cart-fav-search mb-100">
                 <a href="cart.html" class="cart-nav"><img src="/template/img/core-img/cart.png" alt=""> Cart <span>(0)</span></a>
