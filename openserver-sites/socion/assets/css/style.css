@@ -63,10 +63,6 @@ h2.title {
     font-weight: 600;
 }
 
-.footer {
-    padding-top: 50px;
-}
-
 /*******************************************Header*******************************************/
 
 a.header__logo {
@@ -203,124 +199,6 @@ section {
     font-weight: 500;
     white-space: nowrap;
 }
-
-/**************************************Questionnaire***************************************/
-
-.questionnaire h1, .questionnaire h2  {
-    text-align: center;
-}
-
-.questionnaire_meged {
-    display: flex;
-    gap: 70px;
-    flex-direction: column;
-    margin-bottom: 50px;
-}
-
-.meged__question {
-    margin-bottom: 10px;
-}
-
-.meged__block {
-    display: flex;
-    align-items: center;
-    max-width: 100%;
-    margin: 0 auto;
-    justify-content: space-between;
-}
-
-.meged__span {
-    font-size: 0.9em;
-}
-
-.meged__inputs,
-.activity__btns {
-    height: 40px;
-    justify-content: space-between;
-    display: flex;
-    border-radius: 5px;
-    outline: 2px solid silver;
-    flex-grow: 1;
-}
-
-.meged__inputs {
-    margin-left: 10px;
-    margin-right: 10px;
-}
-
-.meged__inputs label,
-.activity__btns label {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    user-select: none;
-}
-
-.meged__inputs label.active,
-.activity__btns label.active {
-    background-color: #38bdf8;
-    color: #fff;
-}
-
-.meged__inputs label:not(.active):hover,
-.activity__btns label:not(.active):hover {
-    box-shadow: 0 0 6px var(--basic-color);
-}
-
-.meged__inputs label:not(:last-child),
-.activity__btns label:not(:last-child){
-    border-right: 2px solid silver;
-}
-
-.meged__inputs input,
-.activity__btns input{
-    display: none;
-}
-
-.activity__desc {
-    text-align: center;
-}
-
-.activity__type {
-    margin-bottom: 5px;
-}
-
-.activity__btns {
-    margin-bottom: 25px;
-}
-
-.questionnaire__other {
-    display: block;
-    width: 50%;
-    border: 1px solid silver;
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 25px;
-}
-
-.questionnaire__other:focus {
-    outline: none;
-    box-shadow: 0 0 3px var(--basic-color)
-}
-
-.questionnaire__btn {
-    border: 1px solid silver;
-    padding: 8px 25px;
-}
-
-.questionnaire__btn:hover {
-    box-shadow: 0 0 5px var(--basic-color)
-}
-
-.questionnaire__btn:active {
-    box-shadow: 0 0 3px var(--basic-color)
-}
-
-
-
 
 
 

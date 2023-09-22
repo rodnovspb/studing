@@ -1,8 +1,8 @@
 @extends('layouts.layout')
 
 @section('title', 'Соционический тест Вайсбанда')
-@section('description', 'Тест Мегедь-Овчарова')
-@section('keywords', 'Тест Мегедь-Овчарова')
+@section('description', 'Соционический тест Вайсбанда')
+@section('keywords', 'Соционический тест Вайсбанда')
 
 @section('content')
 
