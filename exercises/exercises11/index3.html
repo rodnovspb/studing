@@ -10,11 +10,9 @@
       display: grid;
       border: 1px solid red;
       grid-template-rows: 1fr 1fr;
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: 100px 100px;
       height: 50vh;
-      justify-items: end;
-      align-items: center;
-
+      place-items: start end;
     }
     .parent div {
       border: 1px solid silver;
@@ -36,7 +34,6 @@
 	<div>2</div>
 	<div>3</div>
 	<div>4</div>
-	<div>5</div>
 
 </div>
 
