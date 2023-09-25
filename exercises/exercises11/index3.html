@@ -8,12 +8,13 @@
 <style>
     .parent {
         display: grid;
-        grid-template-rows: 50px 50px 50px;
-        grid-template-columns: 50px 50px;
+        grid-template-rows: repeat(3, 1fr);
+        grid-template-columns: 1fr 1fr;
         border: 1px solid red;
         height: 50vh;
-        justify-content: start;
-        align-content: center;
+        gap: 20px;
+
+
     }
     .parent div {
       border: 1px solid silver;
@@ -36,8 +37,6 @@
 	<div>3</div>
 	<div>4</div>
 	<div>5</div>
-	<div>6</div>
-
 </div>
 
 
