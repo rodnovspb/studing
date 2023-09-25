@@ -8,32 +8,35 @@
 <style>
     .parent {
       display: grid;
-      width: 400px;
-      height: 60vh;
-      grid-template: 50px 50px / 50px 50px 50px;
-      border: 1px solid red;
+      grid-template: 50px 50px/ 50px 50px;
+      grid-auto-rows: 100px;
+      grid-auto-columns: 100px;
     }
     .parent div {
       border: 1px solid silver;
     }
 
     #elem1 {
-      grid-row: 1/2;
-      grid-column: 1/2;
-    }
 
+    }
     #elem2 {
-      grid-row: 2/3;
-      grid-column: 2/3;
+
     }
     #elem3 {
-      grid-row: 3/4;
-      grid-column: 3/4;
+
     }
     #elem4 {
-      grid-row: 4/5;
-      grid-column: 4/5;
+
     }
+    #elem5 {
+        grid-column: 3/4;
+      grid-row: 3/4;
+    }
+    #elem6 {
+
+    }
+
+
 
 
 </style>
@@ -46,7 +49,11 @@
 	<div id="elem2">2</div>
 	<div id="elem3">3</div>
 	<div id="elem4">4</div>
-
+	<div id="elem5">5</div>
+	<div id="elem6">6</div>
+	<div id="elem7">7</div>
+	<div id="elem8">8</div>
+	<div id="elem9">9</div>
 </div>
 
 
