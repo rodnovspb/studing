@@ -6,28 +6,37 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>Документ</title>
 <style>
-    .parent {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
+    #parent {
+      display: grid;
+      grid-template: 1fr 1fr / 1fr 1fr;
+      grid-gap: 5px;
+      border: 2px solid #696989;
+      padding: 10px;
+      width: 300px;
+      height: 200px;
     }
-    .parent > div {
+    #parent > div {
       padding: 10px;
       border: 1px solid #696989;
     }
-    .parent div:nth-child(2){
+    #elem4 {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      grid-gap: 5px;
+      border: 2px solid #696989;
+      padding: 5px;
+      background-color: silver;
     }
-    .parent div:nth-child(1) {
+    #elem4 > div {
+      grid-gap: 5px;
+      padding: 6px;
+      box-sizing: border-box;
+      border: 1px solid #696989;
+    }
+    #elem3 {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-    }
-    .parent div:nth-child(3) {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-    }
-    .qqq {
-      display: subgrid;
+      grid-template-columns: 1fr 1fr;
     }
 
 
@@ -36,30 +45,21 @@
 <body>
 
 
-<div class="parent">
-    <div>
-        <div>000</div>
-        <div>000</div>
-        <div>000</div>
-    </div>
-    <div>
-        <div>111</div>
+<div id="parent">
+	<div id="elem1">1</div>
+	<div id="elem2">2</div>
+	<div id="elem3">
         <div>111</div>
         <div>111</div>
         <div>111</div>
         <div>111</div>
     </div>
-    <div>
-        <div>222</div>
-        <div>222</div>
-        <div>222</div>
-    </div>
-    <div class="qqq">
-        <div>333</div>
-        <div>333</div>
-        <div>333</div>
-    </div>
-    <div>5</div>
+	<div id="elem4">
+		<div>5</div>
+		<div>6</div>
+		<div>7</div>
+		<div>8</div>
+	</div>
 </div>
 
 
