@@ -6,36 +6,41 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>Документ</title>
 <style>
-    .parent {
+    #parent {
       display: grid;
       grid: repeat(6, 1fr) / repeat(6, 1fr);
+      border: 2px solid #696989;
+      padding: 10px;
       width: 400px;
       height: 300px;
-
     }
-    .parent div {
-      border: 1px solid silver;
+    #parent > div {
+      padding: 10px;
+      border: 1px solid #696989;
     }
-    .elem1 {
-      grid-row: 1/5;
-      grid-column: 1/4;
-      background-color: #0cf;
-      order: 3;
-
-    }
-    .elem2 {
-      grid-row: 3/6;
-      grid-column: 2/5;
-      background-color: #00f;
-      order: 2;
+    #elem1 {
+      background-color: pink;
+      grid-row: 1/4;
+      grid-column: 3/7;
       z-index: 2;
     }
-    .elem3 {
+    #elem2 {
+      background-color: orange;
+      grid-row: 3/6;
+      grid-column: 2/5;
+      z-index: 3;
+    }
+    #elem3 {
+      background-color: green;
       grid-row: 2/4;
-      grid-column: 3/6;
-      background-color: red;
-      order: 1;
+      grid-column: 1/4;
       z-index: 1;
+    }
+    #elem4 {
+      background-color: lightblue;
+      grid-row: 2/7;
+      grid-column: 4/6;
+      z-index: 4;
     }
 </style>
 </head>
