@@ -6,37 +6,14 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>Документ</title>
 <style>
-    #parent {
+    .parent {
       display: grid;
-      grid-template: 1fr 1fr / 1fr 1fr;
-      grid-gap: 5px;
-      border: 2px solid #696989;
-      padding: 10px;
-      width: 300px;
-      height: 200px;
+      border: 1px solid red;
+      grid: 2fr 1fr 1fr / 0.5fr 1fr 1fr;
+      height: 50vh;
     }
-    #parent > div {
-      padding: 10px;
-      border: 1px solid #696989;
-    }
-    #elem4 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 1fr 1fr;
-      grid-gap: 5px;
-      border: 2px solid #696989;
-      padding: 5px;
-      background-color: silver;
-    }
-    #elem4 > div {
-      grid-gap: 5px;
-      padding: 6px;
-      box-sizing: border-box;
-      border: 1px solid #696989;
-    }
-    #elem3 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+    .parent > div {
+      border: 1px solid silver;
     }
 
 
@@ -45,21 +22,16 @@
 <body>
 
 
-<div id="parent">
-	<div id="elem1">1</div>
-	<div id="elem2">2</div>
-	<div id="elem3">
-        <div>111</div>
-        <div>111</div>
-        <div>111</div>
-        <div>111</div>
-    </div>
-	<div id="elem4">
-		<div>5</div>
-		<div>6</div>
-		<div>7</div>
-		<div>8</div>
-	</div>
+<div class="parent">
+	<div>1</div>
+	<div>2</div>
+	<div>3</div>
+	<div>4</div>
+	<div>5</div>
+	<div>6</div>
+	<div>7</div>
+	<div>8</div>
+	<div>9</div>
 </div>
 
 
