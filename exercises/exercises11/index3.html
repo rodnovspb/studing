@@ -6,41 +6,53 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>Документ</title>
 <style>
-    #parent {
-      display: grid;
-      grid: repeat(2, 1fr) / repeat(2, 1fr);
-      border: 2px solid #696989;
-      padding: 10px;
-      width: 400px;
-      height: 300px;
+    .parent {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
     }
-    #parent > div {
+    .parent > div {
       padding: 10px;
       border: 1px solid #696989;
     }
-    #elem4 {
+    .parent div:nth-child(2){
       display: grid;
-      grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+      grid-template-columns: repeat(5, 1fr);
     }
-    #elem4>div {
-      border: 1px solid #696989;
+    .parent div:nth-child(1) {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
     }
+    .parent div:nth-child(3) {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
 
 </style>
 </head>
 <body>
 
 
-<div id="parent">
-	<div id="elem1">1</div>
-	<div id="elem2">2</div>
-	<div id="elem3">3</div>
-	<div id="elem4">
-        <div>1111</div>
-        <div>2222</div>
-        <div>3333</div>
-        <div>4444</div>
+<div class="parent">
+    <div>
+        <div>000</div>
+        <div>000</div>
+        <div>000</div>
     </div>
+    <div>
+        <div>111</div>
+        <div>111</div>
+        <div>111</div>
+        <div>111</div>
+        <div>111</div>
+    </div>
+    <div>
+        <div>222</div>
+        <div>222</div>
+        <div>222</div>
+    </div>
+    <div>4</div>
+    <div>5</div>
 </div>
 
 
