@@ -8,48 +8,45 @@
 <style>
     .parent {
       display: grid;
-      grid-template-rows: 1fr 1fr;
-      grid-template-columns: 1fr 1fr 1fr;
-      height: 50vh;
+      grid: repeat(6, 1fr) / repeat(6, 1fr);
+      width: 400px;
+      height: 300px;
 
     }
     .parent div {
       border: 1px solid silver;
     }
-    .first {
+    .elem1 {
+      grid-row: 1/5;
+      grid-column: 1/4;
+      background-color: #0cf;
+      order: 3;
 
     }
-    .two {
-        place-self: end start;
+    .elem2 {
+      grid-row: 3/6;
+      grid-column: 2/5;
+      background-color: #00f;
+      order: 2;
+      z-index: 2;
     }
-    .third {
-
+    .elem3 {
+      grid-row: 2/4;
+      grid-column: 3/6;
+      background-color: red;
+      order: 1;
+      z-index: 1;
     }
-    .fourth {
-        place-self: start center;
-    }
-    .fifth {
-        place-self: end center;
-    }
-    .sixth {
-
-    }
-
-
-
 </style>
 </head>
 <body>
 
 
-<div class="parent">
-    <div class="first">1</div>
-	<div class="two">2</div>
-	<div class="third">3</div>
-	<div class="fourth">4</div>
-	<div class="fifth">5</div>
-
-
+<div id="parent">
+	<div id="elem1">1</div>
+	<div id="elem2">2</div>
+	<div id="elem3">3</div>
+	<div id="elem4">4</div>
 </div>
 
 
