@@ -11,17 +11,13 @@
 <body>
 
 <div id="app">
-   <h2>
-       <a href="https://ya.ru" @click.prevent="clickFunc">Ссылка</a>
-   </h2>
-
-    <div @mousemove="handleMouseMove">
-        X: {{ x }} / Y : {{ y }}
-        <span @mousemove.stop="">Не изменять</span>
-    </div>
-    <hr>
-
-    <input type="text" @keyup="alertValue">
+  <h2>
+      <a :href="url">Ссылка</a>
+  </h2>
+    <h2>
+        Счетчик: {{ counter }}
+    </h2>
+    <button @click="counter++">Увеличить</button>
 </div>
 
 
@@ -29,21 +25,11 @@
 new Vue({
     el: '#app',
     data: {
-		x: 0,
-        y: 0,
+		url: 'https://ya.ru',
+        counter: 0
     },
     methods: {
-		handleMouseMove(e){
-            this.x = e.clientX
-            this.y = e.clientY
-            e.preventDefault()
-        },
-		alertValue(e){
-			if(e.keyCode === 13){
-				alert(e.target.value)
-            }
 
-        }
     }
 });
 
