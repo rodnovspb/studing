@@ -11,7 +11,12 @@
 <body>
 
 <div id="app">
-    <h2><a :href="url">Яндекс</a></h2>
+   <h2>Счетчик: {{ counter }}</h2>
+    <button @click="riseCounter">Увеличить</button>
+
+    <hr>
+    <h2 @mouseover="onHover">Счетчик: {{ counter2 }}</h2>
+    <button @click="counter2++">Увеличить</button>
 </div>
 
 
@@ -19,10 +24,16 @@
 new Vue({
     el: '#app',
     data: {
-        url: 'https://ya.ru'
+        counter: 0,
+        counter2: 0,
     },
     methods: {
-
+		riseCounter: function (){
+			this.counter++
+        },
+		onHover: function (event){
+			event.target.style.color = 'red'
+        }
     }
 });
 
