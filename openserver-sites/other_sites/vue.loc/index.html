@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Vue</title>
+<script src="https://unpkg.com/vue@next"></script>
+
+</head>
+<body>
+
+<div id="app">
+    <h1>{{ title }}</h1>
+
+    <form @submit.prevent="onSubmit">
+        <textarea v-model="item" required placeholder="Напечатайте здесь"></textarea>
+        <br>
+        <button type="submit">Отправить</button>
+    </form>
+    {{ item }}
+
+    <ul>
+        <li v-for="tweet in items" :key="tweet.id">
+            <div>
+                <img :src="tweet.avatar" width="150">
+                {{ tweet.body }}
+                <span>{{ tweet.date }}</span>
+            </div>
+        </li>
+    </ul>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<script src="app.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
