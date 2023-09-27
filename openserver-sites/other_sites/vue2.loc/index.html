@@ -11,12 +11,7 @@
 <body>
 
 <div id="app">
-    <h1>Строка: {{ name }}</h1>
-    <h1>Сумма: {{ 10+60 }}</h1>
-    <h1>Число: {{ number }}</h1>
-    <h1>Метод: {{ sayHello() }}</h1>
-    <h1>Если: {{ isOk ? 1 : 2 }}</h1>
-    <h1>Функция {{ string.split('').reverse().join('') }}</h1>
+    <h2><a :href="url">Яндекс</a></h2>
 </div>
 
 
@@ -24,15 +19,10 @@
 new Vue({
     el: '#app',
     data: {
-		name: 'Вью',
-        number: 100,
-        isOk: true,
-        string: 'My name is Vlad'
+        url: 'https://ya.ru'
     },
     methods: {
-		sayHello: function (){
-			return 'Привет';
-        }
+
     }
 });
 
