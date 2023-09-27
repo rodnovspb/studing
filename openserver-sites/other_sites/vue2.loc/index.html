@@ -19,6 +19,9 @@
         X: {{ x }} / Y : {{ y }}
         <span @mousemove.stop="">Не изменять</span>
     </div>
+    <hr>
+
+    <input type="text" @keyup="alertValue">
 </div>
 
 
@@ -34,6 +37,12 @@ new Vue({
             this.x = e.clientX
             this.y = e.clientY
             e.preventDefault()
+        },
+		alertValue(e){
+			if(e.keyCode === 13){
+				alert(e.target.value)
+            }
+
         }
     }
 });
