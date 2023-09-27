@@ -11,8 +11,10 @@
 <body>
 
 <div id="app">
-    <input type="text" v-on:input="changeName">
-    <h1>Привет, {{ name }}</h1>
+    <h1>Строка: {{ name }}</h1>
+    <h1>Сумма: {{ 10+60 }}</h1>
+    <h1>Число: {{ number }}</h1>
+    <h1>Метод: {{ sayHello() }}</h1>
 </div>
 
 
@@ -20,13 +22,15 @@
 new Vue({
     el: '#app',
     data: {
-		name: 'Вью'
+		name: 'Вью',
+        number: 100,
     },
     methods: {
-		changeName: function (event){
-			this.name = event.target.value
+		sayHello: function (){
+			return 'qqq';
         }
     }
+
 });
 
 
