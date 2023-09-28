@@ -15,13 +15,15 @@
 
 
 <div id="app">
-    <ul>
-        <li v-for="item of people">{{ item.age }}</li>
-    </ul>
+    <h2>{{ counter }} \ {{ counter2 }}</h2>
+    <h3>{{ result() }}</h3>
+    <h3>{{ computedResult }}</h3>
 
-    <div v-for="item of [1,2,3]">{{ item }}</div>
+    <button @click="add">Увеличить</button>
+    <button @click="sub">Уменьшить</button>
+    <button @click="counter2++">2 счетчик</button>
 
-    <div v-for="(value, key) in person">{{ key }}{{ value }}</div>
+
 </div>
 
 
@@ -29,22 +31,33 @@
 new Vue({
     el: '#app',
     data: {
-		people: [
-			{name: 'Денис', 'age': 21},
-			{name: 'Макс', 'age': 22},
-			{name: 'Женя', 'age': 23},
-        ],
-        person: {
-			name: 'Денис',
-            age: 50,
-            job: 'it'
-        }
+		counter: 0,
+		counter2: 0,
+		condition: 'Меньше 3'
     },
     methods: {
-
+		add(){
+			this.counter++
+        },
+        sub(){
+			this.counter--
+        },
+        result(){
+			 return this.counter > 3 ? 'Больше 3' : 'Меньше 3'
+        }
     },
     computed: {
-
+        computedResult(){
+			return this.counter > 3 ? 'Больше 3' : 'Меньше 3'
+        }
+    },
+    watch: {
+		counter(a){
+			console.log(a)
+        },
+		counter2(a){
+			console.log(a)
+		}
     }
 });
 
