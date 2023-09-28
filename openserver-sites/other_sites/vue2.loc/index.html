@@ -7,29 +7,22 @@
 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 <title>Вью</title>
 <style>
-    .circle {
-      width: 100px;
-      height: 100px;
-      display: inline-block;
-      border-radius: 50%;
-      border: 2px solid black;
-      margin: 50px;
-    }
-    .red {
-        background: red;
-    }
-    .green {
-      background: greenyellow;
-    }
+
 </style>
 </head>
 <body>
 
+
+
 <div id="app">
-   <div class="circle" :style="circleClasses"></div>
-   <div class="circle" :style="[circleClasses,  {'width' : height + 'px'}]"></div>
-    <input type="text" v-model="color">
-    <input type="text" v-model="height">
+  <h2 v-if="type === 'a'">A</h2>
+  <h2 v-else-if="type === 'b'">B</h2>
+  <h2 v-else-if="type === 'c'">C</h2>
+  <h2 v-else>не выбрано</h2>
+    <hr>
+    <input type="text" v-model="type">
+
+    <button @click="isVisible = !isVisible">Изменить</button>
 </div>
 
 
@@ -37,17 +30,13 @@
 new Vue({
     el: '#app',
     data: {
-		isActive: false,
-		color: 'green',
-		height: 100
+		type: 'a'
     },
     methods: {
 
     },
     computed: {
-        circleClasses(){
-			return {'background': this.color, 'height': this.height + 'px'}
-        }
+
     }
 });
 
