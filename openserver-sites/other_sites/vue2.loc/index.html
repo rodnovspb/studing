@@ -15,27 +15,52 @@
 
 
 <div id="app">
-    <h1 ref="heading">{{ title }}</h1>
-    <button @click="update">Изменить</button>
-    <hr ref="line">
+
+<h1>{{ title }}</h1>
+<button @click="title = '111'">Изменить</button>
+<button @click="destroy">Удалить</button>
 </div>
 
 
 <script>
-let vue1 = new Vue({
+let vue = new Vue({
     el: '#app',
     data: {
 		title: 'Заголовок 1'
     },
     methods: {
-		update: function (){
-			this.title = 'Новый заголовок';
-			this.$refs.heading.style.color = 'red'
-			this.$refs.line.style.height = '10px'
-            console.log(document.querySelector('h1'))
+		destroy(){
+			this.$destroy()
         }
     },
+    beforeCreate: function (){
+		console.log('beforeCreate')
+    },
+	created(){
+		console.log('created')
+    },
+    beforeMount(){
+		console.log('beforeMount')
+    },
+    mounted(){
+		console.log('mounted')
+    },
+    beforeUpdate(){
+		console.log('beforeUpdate')
+    },
+    updated(){
+		console.log('updated')
+    },
+    beforeDestroy(){
+		console.log('beforeDestroy')
+    },
+    destroyed(){
+		console.log('destroyed')
+    }
+
 });
+
+
 
 
 </script>

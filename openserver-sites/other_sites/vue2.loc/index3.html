@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<title>Документ</title>
+<style>
+
+
+</style>
+</head>
+<body>
+
+
+<div id="app">
+    <my-counter v-for="item in 20"></my-counter>
+
+
+</div>
+
+
+
+
+<script>
+    Vue.component('my-counter', {
+        template: `
+        <div style="border: 1px solid black; padding: 10px">
+            <h2>Счетчик: {{ counter }}</h2>
+            <button @click="add">+</button>
+        </div>`,
+        data: function(){
+			return {
+				counter: 0,
+            }
+        },
+        methods: {
+			add: function (){
+				this.counter++
+            }
+        }
+});
+
+new Vue({
+    el: '#app',
+
+})
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
