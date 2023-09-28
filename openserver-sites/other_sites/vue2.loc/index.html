@@ -15,13 +15,9 @@
 
 
 <div id="app">
-   <h1>{{ title }}</h1>
-    <button @click="title='Другой'">Изменить</button>
-</div>
-
-<div id="app2">
-    <h1>{{ title }}</h1>
-    <button @click="updateFirstTitle">Изменить 1 заголовок</button>
+    <h1 ref="heading">{{ title }}</h1>
+    <button @click="update">Изменить</button>
+    <hr ref="line">
 </div>
 
 
@@ -32,29 +28,14 @@ let vue1 = new Vue({
 		title: 'Заголовок 1'
     },
     methods: {
-        alertFast(){
-			alert(1111111111)
+		update: function (){
+			this.title = 'Новый заголовок';
+			this.$refs.heading.style.color = 'red'
+			this.$refs.line.style.height = '10px'
+            console.log(document.querySelector('h1'))
         }
     },
 });
-
-
-
-new Vue({
-	el: '#app2',
-	data: {
-		title: 'Заголовок 2'
-    },
-    methods: {
-		updateFirstTitle(){
-			vue1.title = 'Обновлено'
-			vue1.q = 555
-            setTimeout(()=>{
-				vue1.alertFast()
-            }, 1000)
-        }
-    }
-})
 
 
 </script>
