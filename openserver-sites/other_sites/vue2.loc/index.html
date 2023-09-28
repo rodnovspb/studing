@@ -15,11 +15,13 @@
 
 
 <div id="app">
-    <h2 v-show="isVisible">!!!!!!</h2>
-    <h2 v-show="!isVisible">?????</h2>
-
-
-    <button @click="isVisible = !isVisible">Изменить</button>
+    <ul>
+        <li v-for="item of people">{{ item.age }}</li>
+    </ul>
+    <ul>
+        <li v-for="(item, key) in 100">{{ key }} {{ item }}</li>
+    </ul>
+    <div v-for="item of [1,2,3]">{{ item }}</div>
 </div>
 
 
@@ -27,7 +29,11 @@
 new Vue({
     el: '#app',
     data: {
-		isVisible: false
+		people: [
+			{name: 'Денис', 'age': 21},
+			{name: 'Макс', 'age': 22},
+			{name: 'Женя', 'age': 23},
+        ]
     },
     methods: {
 
