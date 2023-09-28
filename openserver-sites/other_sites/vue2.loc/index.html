@@ -15,13 +15,9 @@
 
 
 <div id="app">
-    <template v-if="isVisible">
-        <h2>Lorem ipsum dolor sit amet.</h2>
-    </template>
+    <h2 v-show="isVisible">!!!!!!</h2>
+    <h2 v-show="!isVisible">?????</h2>
 
-    <template v-else>
-        <h2>Lorem ipsum dolor sit amet!!!</h2>
-    </template>
 
     <button @click="isVisible = !isVisible">Изменить</button>
 </div>
