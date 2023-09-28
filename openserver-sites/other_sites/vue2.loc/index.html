@@ -18,10 +18,10 @@
     <ul>
         <li v-for="item of people">{{ item.age }}</li>
     </ul>
-    <ul>
-        <li v-for="(item, key) in 100">{{ key }} {{ item }}</li>
-    </ul>
+
     <div v-for="item of [1,2,3]">{{ item }}</div>
+
+    <div v-for="(value, key) in person">{{ key }}{{ value }}</div>
 </div>
 
 
@@ -33,7 +33,12 @@ new Vue({
 			{name: 'Денис', 'age': 21},
 			{name: 'Макс', 'age': 22},
 			{name: 'Женя', 'age': 23},
-        ]
+        ],
+        person: {
+			name: 'Денис',
+            age: 50,
+            job: 'it'
+        }
     },
     methods: {
 
