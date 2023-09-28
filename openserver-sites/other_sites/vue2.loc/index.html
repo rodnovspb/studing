@@ -15,12 +15,13 @@
 
 
 <div id="app">
-  <h2 v-if="type === 'a'">A</h2>
-  <h2 v-else-if="type === 'b'">B</h2>
-  <h2 v-else-if="type === 'c'">C</h2>
-  <h2 v-else>не выбрано</h2>
-    <hr>
-    <input type="text" v-model="type">
+    <template v-if="isVisible">
+        <h2>Lorem ipsum dolor sit amet.</h2>
+    </template>
+
+    <template v-else>
+        <h2>Lorem ipsum dolor sit amet!!!</h2>
+    </template>
 
     <button @click="isVisible = !isVisible">Изменить</button>
 </div>
@@ -30,7 +31,7 @@
 new Vue({
     el: '#app',
     data: {
-		type: 'a'
+		isVisible: false
     },
     methods: {
 
