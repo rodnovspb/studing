@@ -16,38 +16,47 @@
 
 <div id="app">
     <my-counter v-for="item in 2"></my-counter>
-
-
+</div>
+<hr>
+<div id="app2">
+    <my-counter></my-counter>
 </div>
 
 
-
-
 <script>
-
-
-
-    Vue.component('my-counter', {
-        template: `
+    let component = {
+		template: `
         <div style="border: 1px solid black; padding: 10px">
             <h2>Счетчик: {{ counter }}</h2>
             <button @click="add">+</button>
         </div>`,
-        data: function(){
+		data: function(){
 			return {
 				counter: 0,
-            }
-        },
-        methods: {
+			}
+		},
+		methods: {
 			add: function (){
 				this.counter++
-            }
-        }
-});
+			}
+		}
+	}
+
+
+
 
 new Vue({
     el: '#app',
+    components: {
+		'my-counter': component
+    }
+})
 
+new Vue({
+	el: '#app2',
+	components: {
+		myCounter: component
+	}
 })
 
 

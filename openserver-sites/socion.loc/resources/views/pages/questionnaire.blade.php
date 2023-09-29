@@ -208,7 +208,7 @@
                 @endforeach
             </ul>
 
-            <textarea class="questionnaire__other" rows="3" name="questionnaire__other" placeholder="Напишите имя, оставьте телеграм/вотсап. Также здесь можно указать любую полезную для типирования информацию"></textarea>
+            <textarea class="questionnaire__other" rows="3" name="questionnaire__other" placeholder="Напишите имя, оставьте телеграм/вотсап. Также здесь можно указать любую полезную для типирования информацию" required></textarea>
 
             <button class="questionnaire__btn" type="submit">Отправить</button>
         </form>
