@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>Машина</h2>
+    <h2>Счетчик</h2>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum, perspiciatis.</p>
   </div>
 </template>
@@ -11,9 +11,8 @@
   }
 </script>
 
-
 <style scoped>
-  div {
-    border: 1px solid black;
+  h2 {
+    color: red;
   }
 </style>
