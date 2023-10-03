@@ -1,8 +1,19 @@
 export default {
 	bind(el, bindings, vnode){
-		// el.style.color = 'red'
-		const arg = bindings.arg
 
-		el.style[arg] = bindings.value
+		const fontModifier = bindings.modifiers['font']
+		const delayModifier = bindings.modifiers['delay']
+
+		if(fontModifier){
+			el.style.fontSize = '30px'
+		}
+		let delay = 0
+		if(delayModifier){
+			delay=2000
+		}
+		setTimeout(()=>{
+			const arg = bindings.arg
+			el.style[arg] = bindings.value
+		}, delay)
 	}
 }
