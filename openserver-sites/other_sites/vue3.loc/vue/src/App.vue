@@ -1,19 +1,33 @@
 <template>
   <div>
     <h2>Инпуты</h2>
-    <textarea v-model="textarea">{{ textarea }}</textarea>
-    <p>{{ textarea }}</p>
+
+    <label>
+      <input v-model="social" type="checkbox" value="111"> 111
+    </label>
+
+    <label>
+      <input v-model="social" type="checkbox" value="222"> 222
+    </label>
+
+    <label>
+      <input v-model="social" type="checkbox" value="333"> 333
+    </label>
+
+    <hr>
+
+    <ul>
+      <li v-for="item in social">{{ item }}</li>
+    </ul>
   </div>
 </template>
 
 <script>
 
-
-
 export default {
   data(){
     return {
-      textarea: ''
+      social: ['222']
     }
   }
 }
@@ -21,13 +35,7 @@ export default {
 </script>
 
 <style scoped>
-  textarea {
-    height: 100px;
-    width: 400px;
-  }
-  p {
-    white-space: pre;
-  }
+
 </style>
 
 
