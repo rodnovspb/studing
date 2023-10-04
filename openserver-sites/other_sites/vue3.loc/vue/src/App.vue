@@ -1,14 +1,8 @@
 <template>
   <div>
     <h2>Инпуты</h2>
-
-    <select v-model="soc">
-      <option v-for="s in social" >{{ s }}</option>
-    </select>
-
-    <hr>
-
-    <p>{{ soc }}</p>
+    <input type="text" v-model.number="age">
+    <p>{{ age }}</p>
   </div>
 </template>
 
@@ -17,9 +11,12 @@
 export default {
   data(){
     return {
-      social: ['111', '222', '333'],
-      def: '333',
-      soc: '222'
+      age: 20
+    }
+  },
+  watch: {
+    age(value){
+      console.log(typeof value)
     }
   }
 }
