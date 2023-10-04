@@ -2,13 +2,13 @@
   <div>
     <h2>Инпуты</h2>
 
-    <select>
-      <option v-for="s in social" :selected="s === def">{{ s }}</option>
+    <select v-model="soc">
+      <option v-for="s in social" >{{ s }}</option>
     </select>
 
     <hr>
 
-
+    <p>{{ soc }}</p>
   </div>
 </template>
 
@@ -18,7 +18,8 @@ export default {
   data(){
     return {
       social: ['111', '222', '333'],
-      def: '333'
+      def: '333',
+      soc: '222'
     }
   }
 }
