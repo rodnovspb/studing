@@ -1,7 +1,15 @@
 <template>
   <div>
     <h1>Car id {{ id }}</h1>
-    <button class="btn btn-sm btn-info" @click="goBack">Назад</button>
+    <button class="btn btn-sm btn-danger mb-2" @click="goBack">Назад</button>
+    <br>
+    <router-link
+        class="btn btn-info mt-2"
+        tag="button"
+        :to="{ name: 'carFull', params: {id: id} }"
+    >Полные сведения</router-link>
+    <hr>
+    <router-view></router-view>
   </div>
 
 </template>
