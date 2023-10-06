@@ -6,7 +6,7 @@
     <router-link
         class="btn btn-info mt-2"
         tag="button"
-        :to="{ name: 'carFull', params: {id: id} }"
+        :to="{ name: 'carFull', params: {id: id}, query: {name: '555', year: 2000}, hash: '#scroll' }"
     >Полные сведения</router-link>
     <hr>
     <router-view></router-view>
@@ -30,6 +30,14 @@
     methods: {
       goBack(){
         this.$router.push('/cars')
+      },
+    },
+    beforeRouteLeave(to, from, next){
+      console.log('beforeRouteLeave')
+      if(window.confirm('Уверены?')){
+        next()
+      } else {
+        next(false)
       }
     }
   }
