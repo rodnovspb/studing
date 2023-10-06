@@ -1,15 +1,19 @@
 import Vue from "vue";
 import Vuex from 'vuex'
+import counter from "@/store/counter";
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
+	modules: {
+		counter: counter
+	},
 	state: {
-		counter: 0
+		title: 'Заголовок'
 	},
 	getters: {
-		computedCounter(state){
-			return state.counter * 11
+		title(state){
+			return state.title + '!!!'
 		}
 	}
 })

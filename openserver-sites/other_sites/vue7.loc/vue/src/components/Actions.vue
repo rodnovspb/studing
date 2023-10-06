@@ -17,7 +17,12 @@ export default {
   },
   methods: {
     updateCounter(val){
-      this.$store.state.counter += val
+      // this.$store.state.counter += val
+      // this.$store.commit('changeCounter', val)
+      this.$store.dispatch('asyncChangeCounter', {
+        counterValue: val,
+        delay: 10
+      })
     }
   }
 }
