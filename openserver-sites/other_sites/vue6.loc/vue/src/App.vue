@@ -32,7 +32,8 @@ export default {
     return {
       carName: '',
       carYear: 2018,
-      cars: []
+      cars: [],
+      resource: null
     }
   },
   methods: {
@@ -41,15 +42,24 @@ export default {
         name: this.carName,
         year: this.carYear
       }
-      this.$http.post('http://localhost:3000/cars', car)
-          .then(res => res.json())
-          .then(res => console.log(res))
+      // this.$http.post('http://localhost:3000/cars', car)
+      //     .then(res => res.json())
+      //     .then(res => console.log(res))
+
+      this.resource.save({}, car)
     },
     loadCars(){
-      this.$http.get('http://localhost:3000/cars')
+      // this.$http.get('http://localhost:3000/cars')
+      //     .then(res => res.json())
+      //     .then(res => this.cars = res)
+
+      this.resource.get()
           .then(res => res.json())
           .then(res => this.cars = res)
     }
+  },
+  created() {
+    this.resource = this.$resource('cars')
   }
 }
 
