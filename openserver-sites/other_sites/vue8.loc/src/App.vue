@@ -68,13 +68,12 @@
     },
     watch: {
       selectedSort(newValue){
-        console.log(newValue)
+        this.posts.sort((post1,post2) => {return post1[newValue]?.localeCompare(post2[newValue])})
       },
-      posts: {
-        handler(val){
-
-        },
-        deep: true
+    },
+    computed: {
+      sortedPosts(){
+        return [...this.posts].sort((post1,post2) => {return post1[this.selectedSort]?.localeCompare(post2[this.selectedSort])})
       }
     }
   }
