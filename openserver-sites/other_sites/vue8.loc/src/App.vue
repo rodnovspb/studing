@@ -1,12 +1,16 @@
 <template>
   <div class="app">
     <h1>Страница со статьями</h1>
-    <my-button @click="fetchPosts">Фетч</my-button>
-    <my-button @click="showDialog" style="margin: 20px 0">Создать пост</my-button>
+    <div class="app_btns">
+      <my-button @click="showDialog">Создать пост</my-button>
+      <my-select v-model="selectedSort" :options="sortOptions"></my-select>
+    </div>
+
     <my-dialog v-model:show="dialogVisible">
       <post-form @create="createPost"/>
     </my-dialog>
-    <post-list :posts="posts" @remove="removePost"/>
+    <post-list :posts="posts" @remove="removePost" v-if="!isPostLoading"/>
+    <h2 v-else>Идет загрузка</h2>
   </div>
 </template>
 
@@ -16,15 +20,23 @@
   import MyDialog from "@/components/UI/MyDialog.vue";
   import MyButton from "@/components/UI/MyButton.vue";
   import axios from "axios";
+  import MySelect from "@/components/UI/MySelect.vue";
 
   export default {
     data(){
       return {
         posts: [],
         dialogVisible: false,
+        isPostLoading: false,
+        selectedSort: '',
+        sortOptions: [
+          {value: 'title', name: 'По названию'},
+          {value: 'body', name: 'По содержимому'},
+        ]
       }
     },
     components: {
+      MySelect,
       MyButton,
       MyDialog, PostForm, PostList
     },
@@ -41,11 +53,28 @@
       },
       async fetchPosts(){
         try {
-          const response = await axios.get('https://jsonplaceholder.typicode.com/posts?_limit=10')
-          this.posts = response.data
+          this.isPostLoading = true
+            const response = await axios.get('https://jsonplaceholder.typicode.com/posts?_limit=10')
+            this.posts = response.data
         } catch (e){
           console.log('ошибка')
+        } finally {
+          this.isPostLoading = false
         }
+      }
+    },
+    mounted() {
+      this.fetchPosts()
+    },
+    watch: {
+      selectedSort(newValue){
+        console.log(newValue)
+      },
+      posts: {
+        handler(val){
+
+        },
+        deep: true
       }
     }
   }
@@ -60,6 +89,12 @@
 
   .app {
     padding: 20px;
+  }
+
+  .app_btns {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
   }
 
 
