@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Документ</title>
+<script src="vue.global.js"></script>
+
+</head>
+<body>
+
+<div id="app">
+    {{ counter }}
+    <button @click="increase">+</button>
+</div>
+
+
+
+<script>
+
+const App = {
+	data() {
+		return {
+			counter: 0
+		}
+	},
+	methods: {
+		increase(){
+			this.counter++
+        }
+	}
+}
+
+Vue.createApp(App).mount('#app')
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
