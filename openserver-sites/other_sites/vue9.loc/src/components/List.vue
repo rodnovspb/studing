@@ -1,10 +1,12 @@
 <template>
-  <button @click="$store.state.text='222'">Изменить текст</button>
+  <button @click="$store.commit('changeNumber', 1)">+</button>
 </template>
 
 <script>
  export default {
+   props: {
 
+   }
  };
 </script>
 
