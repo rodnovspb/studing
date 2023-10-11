@@ -5,37 +5,48 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>Документ</title>
-<script src="vue.global.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script src="main.js" defer></script>
 </head>
 <body>
 
 <div id="app">
-    {{ counter }}
-    <button @click="increase">+</button>
+
+<!--{{ text }}-->
+
 </div>
 
-
+<div id="elem">
+    <div>{{ length }}</div>
+</div>
 
 <script>
 
-const App = {
-	data() {
-		return {
-			counter: 0
-		}
-	},
-	methods: {
-		increase(){
-			this.counter++
-        }
-	}
-}
+    const component = new Vue({
+        el: '#elem',
+		data() {
+			return {
+                posts: [1,2,3,4,5,6]
+            }
+		},
+        methods: {
 
-Vue.createApp(App).mount('#app')
+        },
+        computed: {
+			length(){
+				return this.posts.length > 5 ? 'Массив больше 5' : 'Массив меньше 5'
+            }
+        }
+	})
+
+
+
+
+
 
 
 </script>
+
 
 
 

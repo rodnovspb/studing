@@ -1,13 +1,17 @@
 <template>
-  <div v-for="post in posts">{{ post }}</div>
-  <button @click="deleteNum">-</button>
+  <div>{{ text }}</div>
+  <button @click="$emit('update:text', '111')">-</button>
 </template>
 
 <script>
  export default {
+   data() {
+     return {
+
+     }
+   },
    props: {
-     posts: Array,
-     deleteNum: Function
+     text: String,
    }
  };
 </script>

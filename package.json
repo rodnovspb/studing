@@ -12,7 +12,7 @@
     "prop-types": "^15.7.2",
     "request": "^2.88.2",
     "require": "^0.4.4",
-    "vue": "^3.2.36",
+    "vue": "^3.3.4",
     "vue-resource": "^1.5.3",
     "vue-router": "^4.2.5",
     "vuelidate": "^0.7.7",
