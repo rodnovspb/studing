@@ -17,7 +17,9 @@
 </div>
 
 <div id="elem">
-    <div>{{ length }}</div>
+    <div :class="{active: isActive}" :title="func">Lorem ipsum dolor.</div>
+    <button @click="isActive = !isActive">+++</button>
+
 </div>
 
 <script>
@@ -26,28 +28,30 @@
         el: '#elem',
 		data() {
 			return {
-                posts: [1,2,3,4,5,6]
+				isActive: true,
+                text: 111
             }
 		},
         methods: {
 
         },
         computed: {
-			length(){
-				return this.posts.length > 5 ? 'Массив больше 5' : 'Массив меньше 5'
+			func(){
+				return this.text
             }
+
+        },
+        watch: {
+
         }
 	})
-
-
-
-
-
-
-
 </script>
 
-
+<style>
+    .active {
+      font-size: 50px;
+    }
+</style>
 
 
 
