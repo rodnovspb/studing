@@ -1,31 +1,29 @@
 <template>
 
-<select v-model="elem">
-  <option disabled value="">Выберите</option>
-  <option v-for="item in options" :value="item.text">{{ item.value }}</option>
-</select>
-
-  {{ elem }}
+  <div v-if="flag">Lorem ipsum dolor sit amet.</div>
+  <app-button v-model="flag"></app-button>
 
 </template>
 
 <script>
 
 
+  import Button from "@/components/Button.vue";
+
   export default {
     data(){
       return {
-        elem: '',
-        options: [
-          { text: 'Один', value: 'A' },
-          { text: 'Два', value: 'B' },
-          { text: 'Три', value: 'C' }
-        ]
+        flag: true
       }
     },
     methods: {
 
+    },
+
+    components: {
+      'app-button': Button
     }
+
 
   }
 

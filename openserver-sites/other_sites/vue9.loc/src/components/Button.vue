@@ -1,6 +1,6 @@
 <template>
-  <div>{{ text }}</div>
-  <button @click="$emit('update:text', '111')">-</button>
+
+  <button @click="$emit('update:modelValue', !modelValue)">Кнопка</button>
 </template>
 
 <script>
@@ -10,9 +10,7 @@
 
      }
    },
-   props: {
-     text: String,
-   }
+   props: ['modelValue']
  };
 </script>
 
