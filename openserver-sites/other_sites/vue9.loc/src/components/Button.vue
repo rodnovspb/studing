@@ -1,8 +1,7 @@
 <template>
   <div>
     <button @click="$emit('update:modelValue', !modelValue)">Кнопка</button>
-    <slot name="header"></slot>
-    {{ num  }}
+    <input type="text" ref="inp">
   </div>
 
 </template>
@@ -11,12 +10,21 @@
  export default {
    data() {
      return {
+        elem1: 5
+     }
+   },
+
+   methods: {
+     log(){
 
      }
    },
+
    props: ['modelValue'],
 
-   inject: ['num']
+   mounted() {
+     console.log(this.$refs.inp)
+   }
 
  };
 
