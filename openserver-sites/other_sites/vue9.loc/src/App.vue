@@ -1,7 +1,13 @@
 <template>
+  <div>
+    <div v-if="flag">Lorem ipsum dolor sit amet.</div>
+     <app-button v-model="flag">
+       <template #header>
+        <h1>Здесь мог быть заголовок страницы</h1>
+      </template>
+    </app-button>
+  </div>
 
-  <div v-if="flag">Lorem ipsum dolor sit amet.</div>
-  <app-button v-model="flag"></app-button>
 
 </template>
 
@@ -21,9 +27,14 @@
     },
 
     components: {
-      'app-button': Button
-    }
+      'AppButton': Button
+    },
 
+    provide() {
+      return {
+        num: this.flag
+      }
+    }
 
   }
 

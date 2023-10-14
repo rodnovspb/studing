@@ -1,6 +1,10 @@
 <template>
+  <div>
+    <button @click="$emit('update:modelValue', !modelValue)">Кнопка</button>
+    <slot name="header"></slot>
+    {{ num  }}
+  </div>
 
-  <button @click="$emit('update:modelValue', !modelValue)">Кнопка</button>
 </template>
 
 <script>
@@ -10,8 +14,12 @@
 
      }
    },
-   props: ['modelValue']
+   props: ['modelValue'],
+
+   inject: ['num']
+
  };
+
 </script>
 
 <style scoped>
