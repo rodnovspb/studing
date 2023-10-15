@@ -1,46 +1,32 @@
 <template>
 
- <div>
-   <app-list></app-list>
- </div>
+<button @click="increment">+</button>
+  <div>{{ num}}</div>
+  <div>{{ qqq }}</div>
 
 
 </template>
 
-<script>
+<script setup>
+
+import {computed, ref, watch} from "vue";
+
+let num = ref(0)
+
+function increment(){
+  num.value++
+}
+
+let qqq = computed(()=>{ return num.value > 5 ? 'Больше' : 'Меньше' })
 
 
-  import List from "@/components/List.vue";
+watch(num, (newValue, oldValue)=>{
+  console.log(newValue)
+})
 
-  export default {
-    data(){
-      return {
-
-      }
-    },
-    methods: {
-
-    },
-
-    components: {
-      'app-list': List
-    },
-
-  }
 
 </script>
 
 <style>
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 5s ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
 
 </style>
-<script setup>
-</script>
