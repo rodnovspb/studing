@@ -1,27 +1,21 @@
 <template>
 
-  <div>
-    <button @click="flag = !flag">Кнопка</button>
-    <transition name="fade">
-      <div v-if="flag" id="div" style="width: 180px; height: 180px; border: 2px #00d084 solid; background-color: #00d084"></div>
-    </transition>
+ <div>
+   <app-list></app-list>
+ </div>
 
-
-
-
-  </div>
 
 </template>
 
 <script>
 
 
-  import Button from "@/components/Button.vue";
+  import List from "@/components/List.vue";
 
   export default {
     data(){
       return {
-        flag: true
+
       }
     },
     methods: {
@@ -29,7 +23,7 @@
     },
 
     components: {
-      'AppButton': Button
+      'app-list': List
     },
 
   }
