@@ -1,20 +1,24 @@
 <template>
 
-<app-button @add="num++"></app-button>
-  <div>{{ num}}</div>
-  <div>{{ qqq }}</div>
+<app-input></app-input>
+
+  {{ num }}
 
 
 </template>
 
 <script setup>
+import AppInput from "@/components/AppInput.vue";
+import {ref, provide } from "vue";
 
-import {computed, ref, watch} from "vue";
-import AppButton from "@/components/AppButton.vue";
+let num = ref(1)
 
-let num = ref(0)
+function increment() {
+  num.value++
+}
 
-let qqq = computed(()=>{ return num.value > 5 ? 'Больше' : 'Меньше' })
+provide('data', {num, increment})
+
 
 
 </script>
