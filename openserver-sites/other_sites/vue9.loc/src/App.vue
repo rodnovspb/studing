@@ -1,23 +1,20 @@
 <template>
 
-<app-input></app-input>
+<input type="text" v-focus>
 
-  {{ num }}
+
 
 
 </template>
 
 <script setup>
-import AppInput from "@/components/AppInput.vue";
-import {ref, provide } from "vue";
 
-let num = ref(1)
-
-function increment() {
-  num.value++
+const vFocus = {
+  mounted: (elem) => elem.focus()
 }
 
-provide('data', {num, increment})
+
+
 
 
 

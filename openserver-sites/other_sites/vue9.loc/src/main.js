@@ -4,5 +4,14 @@ import router from './router'
 import store from './store'
 
 
-let app = createApp(App).use(store).use(router).mount('#app')
+let app = createApp(App)
+
+app.directive('focus', {
+	mounted(elem){
+		elem.focus()
+	}
+})
+
+
+app.use(store).use(router).mount('#app')
 
