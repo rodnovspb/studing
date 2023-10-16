@@ -1,6 +1,6 @@
 <template>
 
-<button @click="increment">+</button>
+<app-button @add="num++"></app-button>
   <div>{{ num}}</div>
   <div>{{ qqq }}</div>
 
@@ -10,19 +10,11 @@
 <script setup>
 
 import {computed, ref, watch} from "vue";
+import AppButton from "@/components/AppButton.vue";
 
 let num = ref(0)
 
-function increment(){
-  num.value++
-}
-
 let qqq = computed(()=>{ return num.value > 5 ? 'Больше' : 'Меньше' })
-
-
-watch(num, (newValue, oldValue)=>{
-  console.log(newValue)
-})
 
 
 </script>

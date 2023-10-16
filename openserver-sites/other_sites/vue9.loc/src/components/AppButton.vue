@@ -1,23 +1,17 @@
 <template>
   <div>
-    <button @click="$emit('add', 1)">{{ title }}</button>
+    <button @click="send">+</button>
   </div>
 
 </template>
 
 <script setup>
-const emit = defineEmits(['click'])
 
- defineProps({
-  title: {
-    type: String,
-    default: ()=>{ return 'Текст'}
-  }
-})
+const emit = defineEmits(['add'])
 
- function func(){
-   $emit('send', 111)
- }
+function send(){
+  emit('add', 1)
+}
 
 
 
