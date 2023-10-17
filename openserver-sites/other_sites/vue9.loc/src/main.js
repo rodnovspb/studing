@@ -13,5 +13,6 @@ app.directive('focus', {
 })
 
 
-app.use(store).use(router).mount('#app')
+// app.use(store).use(router).mount('#app')
+app.use(store).mount('#app')
 

@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Документ</title>
+<style>
+img {
+  width: 50%;
+  height: auto;
+}
+
+</style>
+</head>
+<body>
+
+
+
+
+<div id="parent">
+
+</div>
+
+
+<template id="elem">
+    <img class="lazy" src="images/default.jpg" data-src="images/1 (1).jpg">
+</template>
+
+
+
+<script>
+    let template = document.querySelector('#elem')
+    for(let i=1; i<31; i++){
+		let node = template.content.cloneNode(true)
+		let img = node.querySelector('img')
+		img.dataset.src = `images/1 (${i}).jpg`
+		document.querySelector('#parent').appendChild(node)
+
+    }
+
+
+
+
+
+    document.addEventListener("DOMContentLoaded", function() {
+		let lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
+
+		if ("IntersectionObserver" in window) {
+			let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+				entries.forEach(function(entry) {
+					if (entry.isIntersecting) {
+						let lazyImage = entry.target;
+						lazyImage.src = lazyImage.dataset.src;
+						lazyImage.classList.remove("lazy");
+						lazyImageObserver.unobserve(lazyImage);
+					}
+				});
+			});
+
+			lazyImages.forEach(function(lazyImage) {
+				lazyImageObserver.observe(lazyImage);
+			});
+		} else {
+			// Possibly fall back to event handlers here
+		}
+	});
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
