@@ -1,13 +1,10 @@
 <template>
-  <h1>Главная</h1>
-  <button @click="store.increment">+</button>
-  {{ store.count}}
+  <div>
+    <h1>Главная</h1>
+  </div>
+
 </template>
 
 <script setup>
-
-import {store} from "../store";
-
-
 
 </script>
