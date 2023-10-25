@@ -26,7 +26,7 @@
                                     <use href="{{ asset('storage/images/sprite.svg#whatsapp') }}"></use>
                                 </svg>
                             </a>
-                            <a class="header__telegram" href="https://telegram.me/cinedbs" target="_blank" title="telegram по разработке сайтов">
+                            <a class="header__telegram" href="https://telegram.me/soc_typing" target="_blank" title="telegram по разработке сайтов">
                                 <svg>
                                     <use href="{{ asset('storage/images/sprite.svg#telegram') }}"></use>
                                 </svg>
@@ -78,7 +78,7 @@
                                 </svg>
                                 <span>Написать в WhatsApp</span>
                             </a>
-                            <a class="footer__telegram" href="https://telegram.me/dghgcghh" target="_blank" title="Telegram по разработке сайта и цене">
+                            <a class="footer__telegram" href="https://telegram.me/soc_typing" target="_blank" title="Telegram по разработке сайта и цене">
                                 <svg>
                                     <use href="{{ asset('storage/images/sprite.svg#telegram') }}"></use>
                                 </svg>

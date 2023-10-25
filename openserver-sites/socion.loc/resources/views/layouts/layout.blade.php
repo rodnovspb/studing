@@ -18,10 +18,10 @@
 <header class="header">
     <div class="container">
         <div class="header__row">
-            <a href="{{ route('index') }}" class="header__logo" title="На главную">социон.рф</a>
-            <div class="header__contacts">
-                <a class="header__email" href="mailto:socion@internet.ru" title="Наша почта">socion@internet.ru</a>
-            </div>
+            <a href="{{ route('index') }}" title="На главную">социон.рф</a>
+            <a href="{{ route('tests') }}" title="Тесты по соционике">тесты</a>
+            <a href="{{ route('tipirovanie') }}" title="Типирование по соционике">типирование</a>
+            <a href="{{ route('contacts') }}">контакты</a>
         </div>
     </div>
 

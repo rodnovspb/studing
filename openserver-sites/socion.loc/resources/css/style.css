@@ -8,15 +8,20 @@
 h1 {
   font-size: 3.2rem;
   font-weight: 500;
+  text-align: center;
 }
 h2 {
   font-size: 2.4rem;
+  text-align: center;
 }
 h3 {
-  font-size: 2rem;
+  font-size: 2.2rem;
+  text-align: center;
+  font-weight: bold;
 }
 h4 {
   font-size: 1.6rem;
+  text-align: center;
 }
 body {
   font-size: 1.6rem;
@@ -52,15 +57,51 @@ p {
   text-align: justify;
 }
 
-h2.title {
+ul {
+  margin-bottom: 10px;
+}
+
+table {
+  margin-bottom: 20px;
+  border-collapse: collapse;
+}
+
+table td {
+  border: 1px solid #ccc;
+}
+
+table th {
+  border: 3px solid #ccc;
+  font-weight: normal;
+  font-size: 90%;
+  line-height: 1.2;
+  padding: 5px;
+}
+
+h1.page__title {
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+h2.page__subtitle {
   text-align: center;
   font-weight: 500;
-  font-size: 26px;
+  font-size: 27px;
   margin-bottom: 10px;
 }
 
 .dn {
   display: none !important;
+}
+
+.without_underline {
+  text-decoration: none !important;
+}
+
+.ordered li{
+  list-style-type: decimal;
+  list-style-position: inside;
 }
 
 .bold {
@@ -71,11 +112,8 @@ h2.title {
   padding-top: 50px;
 }
 
-/*******************************************Header*******************************************/
 
-a.header__logo {
-  text-decoration: none;
-}
+/*******************************************Header*******************************************/
 
 .header__row {
   display: flex;
@@ -84,11 +122,13 @@ a.header__logo {
   padding-top: 30px;
   padding-bottom: 30px;
   font-size: 30px;
+  flex-wrap: wrap;
 }
 
-a.header__email {
+.header__row > a {
   text-decoration: none;
 }
+
 
 
 /*******************************************Definition*******************************************/
@@ -139,25 +179,28 @@ section {
 
 }
 
+/*******************************************Beginners*****************************************/
+
+.beginners__block {
+  overflow-x: auto;
+}
+
+.beginners__sociotypes {
+  max-width: 100%;
+}
+
+.beginners__sociotypes td {
+  padding: 5px 30px;
+}
+
+
 /*******************************************Macro*******************************************/
 
-.functions__macro {
-  margin-bottom: 10px;
-}
-
-.functions__macro li {
-  list-style-type: decimal;
-  list-style-position: inside;
-}
-
 .functions__table {
-  margin-bottom: 30px;
-  border-collapse: collapse;
   width: 100%;
 }
 
 .functions__table td {
-  border: 1px solid #ccc;
   padding: 20px;
 }
 
@@ -169,11 +212,12 @@ section {
   letter-spacing: 2px;
 }
 
-/*******************************************Tests*******************************************/
-
-.tests__list {
-  margin-bottom: 10px;
+.functions__examples li {
+  list-style-type: disc;
+  list-style-position: inside;
 }
+
+/*******************************************Tests*******************************************/
 
 .tests__list li {
   list-style-type: decimal;
@@ -399,11 +443,29 @@ section {
   font-style: italic;
 }
 
+/*******************************************Contacts*****************************************/
 
-/*******************************************Bottom*******************************************/
+.contacts__info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 26px;
+}
 
-.bottom {
+.contacts__email, .contacts__tg {
   text-align: center;
+  margin-bottom: 20px;
+}
+
+/*******************************************Typing*****************************************/
+
+.typing__list li {
+  margin-bottom: 20px;
+}
+
+.typing__option {
+  display: inline-block;
+  font-weight: 500;
 }
 
 
@@ -440,6 +502,9 @@ section {
 }
 
 @media (max-width: 768px) {
+  .header__row {
+    font-size: 26px;
+  }
   .functions__table {
     overflow-x: auto;
     white-space: nowrap;
@@ -483,9 +548,6 @@ section {
 }
 
 @media (max-width: 576px) {
-  .header__row {
-    font-size: 26px;
-  }
   .definition__figure {
     max-width: 33%;
   }
@@ -516,6 +578,11 @@ section {
 }
 
 @media (max-width: 480px) {
+  .header__row {
+    flex-direction: column;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
   .definition__figure {
     max-width: 40%;
   }
@@ -530,12 +597,6 @@ section {
 }
 
 @media (max-width: 375px) {
-  .header__row {
-    flex-direction: column;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    font-size: 30px;
-  }
   .definition__figure {
     max-width: 48%;
   }
