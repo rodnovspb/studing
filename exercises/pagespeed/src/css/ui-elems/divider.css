@@ -1,0 +1,38 @@
+.divider {
+	display: block;
+	position: relative;
+}
+
+.divider[data-content]:after {
+	background: #fff;
+	color: #bcc3ce;
+	content: attr(data-content);
+	display: inline-block;
+	font-size: .7rem;
+	padding: 0 .4rem;
+	transform: translateY(-.65rem);
+}
+
+.divider {
+	border-top: .05rem solid #f1f3f5;
+	height: .05rem;
+	margin: .4rem 0;
+}
+
+.divider[data-content] {
+	margin: .8rem 0;
+}
+
+/* custom */
+.divider-in-menu {
+  border-top-color: #cbcfd2;
+}
+
+.divider-in-menu:nth-child(n+2) {
+  margin-top: 1.6rem!important;
+}
+
+.divider-in-menu:after {
+  color: #3b4351!important;
+  text-transform: uppercase;
+}

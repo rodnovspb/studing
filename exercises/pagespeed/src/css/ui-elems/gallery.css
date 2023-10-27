@@ -1,0 +1,15 @@
+.galleryItem{
+	width: calc(100% / 3 - 30px);
+}
+
+@media screen and (max-width: 720px) {
+	.galleryItem{
+		width: calc(100% / 2 - 30px);
+	}
+}
+
+@media screen and (max-width: 450px) {
+	.galleryItem{
+		width: calc(100% - 30px);
+	}
+}

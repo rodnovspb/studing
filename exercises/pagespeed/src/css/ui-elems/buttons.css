@@ -1,0 +1,60 @@
+.btn {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background: #fff;
+	border: .05rem solid #5755d9;
+	border-radius: .1rem;
+	color: #5755d9;
+	cursor: pointer;
+	display: inline-block;
+	font-size: .8rem;
+	height: 1.8rem;
+	line-height: 1.2rem;
+	outline: 0;
+	padding: .25rem .4rem;
+	text-align: center;
+	text-decoration: none;
+	-webkit-transition: background .2s,border .2s,box-shadow .2s,color .2s;
+	transition: background .2s,border .2s,box-shadow .2s,color .2s;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	vertical-align: middle;
+	white-space: nowrap;
+}
+
+.btn:focus {
+	box-shadow: 0 0 0 .1rem rgba(87,85,217,.2);
+}
+
+.btn:focus,
+.btn:hover {
+	background: #f1f1fc;
+	border-color: #4b48d6;
+	text-decoration: none;
+}
+
+.btn:active {
+	background: #4b48d6;
+	border-color: #3634d2;
+	color: #fff;
+	text-decoration: none;
+}
+
+.btn:disabled {
+	cursor: default;
+	opacity: .5;
+	pointer-events: none;
+}
+
+.btn-toggle {
+	display: none;
+}
+
+@media screen and (max-width:910px) {
+	.btn-toggle {
+		display: block;
+	}
+}

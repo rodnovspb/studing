@@ -1,0 +1,26 @@
+.breadcrumb {
+  list-style: none;
+  margin: .2rem 0;
+  padding: .2rem 0;
+}
+
+.breadcrumb .breadcrumb-item {
+  color: #66758c;
+  display: inline-block;
+  margin: 0;
+  padding: .2rem 0;
+}
+
+.breadcrumb .breadcrumb-item:not(:last-child) {
+  margin-right: .2rem;
+}
+
+.breadcrumb .breadcrumb-item:not(:last-child) a {
+  color: #66758c;
+}
+
+.breadcrumb .breadcrumb-item:not(:first-child):before {
+  color: #66758c;
+  content: "/";
+  padding-right: .4rem;
+}
