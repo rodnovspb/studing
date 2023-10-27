@@ -11,6 +11,7 @@
 @include('parts.services')
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 <link rel="stylesheet" href="{{ asset('storage/fonts/fonts.css') }}">
+<script src="//code.jivo.ru/widget/IVgSsGUjK0" async></script>
 <title>@yield('title', 'Соционика - заголовок по умолчанию')</title>
 </head>
 <body>

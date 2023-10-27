@@ -1,8 +1,8 @@
 @extends('layouts.layout')
 
-@section('title', 'Соционический тест Мегедь-Овчарова на 4 вопроса')
-@section('description', 'Тест Мегедь-Овчарова 4 вопроса')
-@section('keywords', 'Тест Мегедь-Овчарова')
+@section('title', 'Тест по соционике Мегедь-Овчарова на 4 вопроса')
+@section('description', 'Тест по соционике Мегедь-Овчарова 4 вопроса')
+@section('keywords', 'Тест, Мегедь-Овчарова, соционика')
 
 @section('content')
 
@@ -10,7 +10,7 @@
 <section class="test">
     <div class="container">
         <div class="test__wrapper">
-        <h1 class="test__title">Тест Мегедь-Овчарова</h1>
+        <h1 class="test__title">Соционический тест Мегедь-Овчарова</h1>
         <div class="test__choose_title">Выбирайте более подходящее для себя утверждение:</div>
         <div class="test__block">
             <h3 class="test__ques_num">Вопрос №<span>1</span> из 4</h3>

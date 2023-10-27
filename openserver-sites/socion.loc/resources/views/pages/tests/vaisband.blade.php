@@ -10,7 +10,7 @@
     <section class="test">
     <div class="container">
         <div class="test__wrapper">
-        <h1 class="test__title">Тест Вайсбанда</h1>
+        <h1 class="test__title">Соционический тест Вайсбанда</h1>
         <div class="test__choose_title">В каждой паре выберите ту часть, которая в наибольшей степени соответствует вашему духовному складу.</div>
         <div class="test__block">
             <h3 class="test__ques_num">Вопрос №<span>1</span> из 4</h3>

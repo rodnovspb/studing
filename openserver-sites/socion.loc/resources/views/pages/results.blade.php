@@ -6,6 +6,12 @@
 
 @section('content')
 <div class="container container--res">
+
+  <form action="{{ route('logout') }}" method="post" style="text-align: right; padding-bottom: 10px;">
+    @csrf
+    <button class="questionnaire__btn" type="submit">Выйти</button>
+  </form>
+
     <section class="result">
       <table class="result__table">
         <thead>
