@@ -6,6 +6,9 @@ Car.prototype.logName = function (){
 	console.log('Имя: ', this.carName)
 }
 
-export default {
-	Car: Car
-}
+// export default {
+// 	Car: Car
+// }
+
+export const a = 1
+export const b = 2
