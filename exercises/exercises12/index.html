@@ -18,24 +18,23 @@
 
 <script>
 
-    async function func() {
+
+	async function func() {
 		try {
-			return 5
+			let promise = new Promise((res, rej) => {
+				setTimeout(() => {
+					let num = Math.random()
+					num >= 0.5 ? res(num) : rej('меньше 0.5')
+				}, 1000)
+            })
+            let result = await promise
+            console.log(result)
 		} catch (e){
 			console.log(e)
-        }
-    }
+		}
+	}
 
-
-    let promise = new Promise((res, rej) => {
-		setTimeout(() => {
-			let num = Math.random()
-            num >= 0.5 ? res(num) : rej('меньше 0.5')
-        }, 1000)
-    })
-
-	promise.then(success => { console.log(success) }).catch(error => { console.log(error)})
-
+	func()
 
 </script>
 
