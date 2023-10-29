@@ -1,13 +1,11 @@
-let fs = require('fs')
+let http = require('http')
 
-fs.writeFile('test.txt','1111', function (err){
-	if (err) {
-		console.log('ошибка');
-	}
+let server = new http.Server
+
+server.listen(80, '127.0.0.1')
+
+let counter = 0
+
+server.on('request', function (req, res){
+	res.end('counter: ' + counter++)
 })
-
-fs.readFile('test.txt', 'utf8', function (e,d){
-	console.log(d)
-})
-
-console.log(22)
