@@ -1,10 +1,13 @@
-// import Car from './car.js'
-//
-// let bmw = new Car.Car('BMW')
-//
-// bmw.logName()
+let fs = require('fs')
 
+fs.writeFile('test.txt','1111', function (err){
+	if (err) {
+		console.log('ошибка');
+	}
+})
 
-import {a, b} from './car.js'
+fs.readFile('test.txt', 'utf8', function (e,d){
+	console.log(d)
+})
 
-console.log(a, b)
+console.log(22)
