@@ -7,6 +7,7 @@
         <meta name="description" content="@yield('description')">
         <title>@yield('title')</title>
         <link rel="stylesheet" href="{{ asset('storage/fonts/fonts.css') }}">
+        <link rel="canonical" href="{{ url()->current() }}" />
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         @include('parts.services')
         @include('parts.favicon')
@@ -18,7 +19,6 @@
                    <div class="header__row-1">
                        <a class="header__logo logo" href="{{ route('index') }}" title="На главную">
                            <div class="logo__image">rodnov<span>spb</span></div>
-                           <div class="logo__text">разработка сайтов</div>
                        </a>
                        <div class="header__phone">
                             <a class="header__whatsapp" href="https://wa.me/79507261797" target="_blank" title="whatsapp по созданию сайтов">
@@ -68,7 +68,12 @@
                                         <use href="{{ asset('storage/images/sprite.svg#map') }}"></use>
                                     </svg>
                                 </a>
-                                Санкт-Петербург, ул. Бармалеева, 7А
+                                @isset($city->address)
+                                    {{ $city->name }}
+                                @else
+                                    Санкт-Петербург, ул. Бармалеева, 7А
+                                @endisset
+
                             </div>
                         </div>
                         <div class="footer__col-4">

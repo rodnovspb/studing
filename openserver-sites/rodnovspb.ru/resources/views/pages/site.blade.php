@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 
-@section('title')Создание сайтов {{ $city->name }}. Заказать разработку сайта. Цена@endsection
+@section('title')Создание сайтов в г. {{ $city->name }} | Заказать разработку сайта | Цена@endsection
 
 @section('keywords')сайт, {{ $city->name }}, создание, заказать, разработка, изготовление, заказ, под ключ, цена, стоимость@endsection
 
@@ -8,11 +8,10 @@
 
 @section('content')
     <div class="container page">
-
-        <h1 class="page__title">Создание сайта в г. {{ $city->name }}, заказать разработку</h1>
+        <h1 class="page__title">Разработка сайтов в {{ $city->name_pred }}</h1>
         <p>В нашей веб студии можно заказать создание сайта в {{ $city->name_pred }} под ключ <img class="page-img-right" src="{{ asset('storage/images/zakazat-sozdanie-razrabotka-sajtov.svg') }}" alt="Заказать разработку сайта {{ $city->name }}" title="Заказать создание сайта {{ $city->name }}"> включая seo оптимизацию под поисковые системы. Веб сайт будет настроен для Яндекса и Гугла, самостоятельно постепенно подниматься в поисковой выдаче.</p>
         <p>Стоимость разработки от 15000 руб, цена зависит от сложности проекта. Срок изготовления от 10 рабочих дней.</p>
-        <p>Заказать разработку сайта в г. {{ $city->name }} можно по email, телеграм и вотсап.</p>
+        <p>Заказать разработку можно по email, телеграм и вотсап.</p>
 
         <section class="price">
             <h2 class="price__title">Цены на создание сайта</h2>
@@ -20,7 +19,7 @@
                 <li class="price__item">
                     <div class="price__text">
                         <div class="price__header">Готовые</div>
-                        <div class="price__desc">Домен, хостинг, установка cms. Админ-панель с самостоятельным заполнением сайта.</div>
+                        <div class="price__desc">Домен, хостинг, установка cms. Админ-панель с самостоятельным заполнением страниц.</div>
                     </div>
                     <div class="price__cost">от 5000 руб.</div>
                 </li>
@@ -56,8 +55,8 @@
                 <li class="works__item">Изучение рынка, поиск лучших решений</li>
                 <li class="works__item">Проработка семантического ядра</li>
                 <li class="works__item">Внутренняя SEO оптимизация сайта</li>
-                <li class="works__item">Разработка мобильной версии сайта</li>
-                <li class="works__item">Онлайн-чат, Яндекс-метрика</li>
+                <li class="works__item">Разработка мобильной версии</li>
+                <li class="works__item">Установка чата, метрики, вебмастера, аналитики</li>
             </ul>
         </section>
 
@@ -68,12 +67,11 @@
 
         </section>
 
-
-        @includeIf('parts.links')
-            <div class="page-banner">
-                <img src="{{ asset("storage/images/cities/$pathBanner") }}" alt="Купить сайт {{ $city->name }}" title="Купить сайт {{ $city->name }}">
-            </div>
     </div>
+
+    @include('parts.page_contacts')
 @endsection
+
+
 
 

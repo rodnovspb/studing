@@ -16,32 +16,41 @@
 </head>
 <body>
 <div class="wrapper">
-<header class="header">
-    <div class="container">
-        <div class="header__row">
-            <a href="{{ route('index') }}" title="На главную">социон.рф</a>
-            <a href="{{ route('tests') }}" title="Тесты по соционике">тесты</a>
-            <a href="{{ route('tipirovanie') }}" title="Типирование по соционике">типирование</a>
-            <a href="{{ route('contacts') }}">контакты</a>
-        </div>
-    </div>
 
+<header class="header">
+  <div class="container header__container">
+    <div class="header__menu">
+      <button class="header__burger"></button>
+      <a class="header__logo" href="{{ route('index') }}" title="На главную">социон.рф</a>
+      <div class="header__nav">
+<!--        Пункты верхнего меню-->
+      </div>
+    </div>
+  </div>
 </header>
 
 <main class="main">
-
-@yield('content')
-
+      <div class="container main__container">
+        <div class="main__left">
+          <button class="header__burger"></button>
+          <div class="main__menu">
+            <a href="{{ route('index') }}" @if(request()->route()->getName() === 'index') class="{{ 'active' }}" @endif>О соционике</a>
+            <a href="{{ route('tests') }}" @if(request()->route()->getName() === 'tests') class="{{ 'active' }}" @endif>Тесты</a>
+            <a href="{{ route('tipirovanie') }}" @if(request()->route()->getName() === 'tipirovanie') class="{{ 'active' }}" @endif>Типирование</a>
+            <a href="{{ route('contacts') }}" @if(request()->route()->getName() === 'contacts') class="{{ 'active' }}" @endif>Контакты</a>
+          </div>
+        </div>
+        <div class="main__right">
+          <div class="main__content">
+            @yield('content')
+          </div>
+        </div>
+      </div>
 </main>
-<footer class="footer">
-
-</footer>
-
-
-
-
 
 </div>
+
+<div class="overlay" hidden></div>
 
 @stack('script')
 

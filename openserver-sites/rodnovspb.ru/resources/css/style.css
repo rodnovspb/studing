@@ -128,13 +128,6 @@ a.underlined:hover {
     line-height: 1.05;
 }
 
-.logo__text {
-    font-size: 17px;
-    font-family: monospace;
-    letter-spacing: 1.5px;
-    color: #2072FA;
-}
-
 .header__row-1 {
     display: flex;
     justify-content: space-between;
@@ -254,7 +247,6 @@ a.underlined:hover {
 
 .footer__address {
     line-height: 1.4;
-    align-items: flex-start;
 }
 
 .footer__address a {
@@ -664,25 +656,6 @@ a.underlined:hover {
     margin-bottom: 40px;
 }
 
-.page-banner {
-    max-width: 80%;
-    margin: 30px auto 0;
-    box-shadow: 0 0 10px #eee;
-    position: relative;
-    overflow: hidden;
-}
-
-.page-banner:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    height: 100%;
-    width: 30%;
-    transform: skewX(45deg);
-    left: -150%;
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
-    animation: flareAnimation 5s infinite linear;
-}
 
 .page ol li {
     margin-bottom: 10px;
@@ -694,18 +667,59 @@ a.underlined:hover {
     width: 30vw;
 }
 
-@keyframes flareAnimation {
-    0% {
-        left: -150%;
-    }
-    100% {
-        left: 150%;
-    }
+section.contacts {
+    position: relative;
+    height: 400px;
 }
+
+.contacts .page {
+    height: 100%;
+}
+
+.contacts__text {
+    height: 100%;
+    font-size: 20px;
+}
+
+.contacts__blocks {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 20px;
+    width: 50%;
+}
+
+.contacts__block {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+}
+
+.office__outside {
+    display: block;
+    color: #ADADAD;
+    margin-top: 6px;
+
+}
+
+#map {
+    position: absolute;
+    width: 50vw;
+    height: 100%;
+    top: 0;
+    right: 0;
+}
+
+.page .list_services {
+    position: absolute;
+    bottom: 0;
+    left: 15px;
+    font-size: 20px;
+    margin-bottom: 0;
+}
+
 
 /*==================================== Создание сайта ====================================*/
 
-.price__title, .works__title, .conditions__title {
+.price__title, .works__title, .conditions__title, .contacts__title {
     font-size: 28px;
     font-weight: 700;
     margin-bottom: 10px;
@@ -864,10 +878,6 @@ a.underlined:hover {
         background-size: 118vw;
         background-position: -315% -32%;
     }
-    .logo__text {
-        font-size: 16px;
-        letter-spacing: .7px;
-    }
     .header__block {
         gap: unset;
         font-size: 35px;
@@ -927,18 +937,44 @@ a.underlined:hover {
         gap: 25px;
     }
 
+    .footer__col-3 {
+        justify-content: flex-start;
+    }
+
     .page__title {
         font-size: 25px;
     }
     .page {
         font-size: 18px;
     }
-    .page-banner {
-        max-width: 100%;
-    }
 
     .page ol li {
         margin-bottom: 5px;
+    }
+
+    section.contacts {
+        height: unset;
+    }
+
+    .contacts__text {
+        font-size: inherit;
+    }
+
+    .contacts__blocks {
+        width: 100%;
+    }
+
+    .page .list_services {
+        position: static;
+        margin-top: 30px;
+        font-size: inherit;
+        margin-bottom: 20px;
+    }
+
+    #map {
+        position: static;
+        width: 100vw;
+        height: 350px;
     }
 }
 
@@ -960,7 +996,9 @@ a.underlined:hover {
     .footer__col-3 {
         margin-left: auto;
         flex-basis: 354px;
+        justify-content: center;
     }
+
 
     .footer__whatsapp, .footer__telegram {
         padding-left: unset;
@@ -983,10 +1021,6 @@ a.underlined:hover {
     .wrapper {
         background-size: 118vw;
         background-position: -315% -23%;
-    }
-    .logo__text {
-        font-size: 14px;
-        letter-spacing: .8px;
     }
     .city-services__list {
         font-size: 20px;
@@ -1137,10 +1171,6 @@ a.underlined:hover {
     .wrapper {
         background-position: -211% -17%;
     }
-    .logo__text {
-        font-size: 13px;
-        letter-spacing: .3px;
-    }
     .header__block {
         font-size: 28px;
     }
@@ -1180,6 +1210,10 @@ a.underlined:hover {
 
     .creating__steps li:not(:last-of-type) {
         margin-bottom: 10px;
+    }
+
+    .contacts__block {
+        grid-template-columns: 200px 1fr;
     }
 
     .types__wrapper h3 {
@@ -1272,14 +1306,19 @@ a.underlined:hover {
         max-height: 50px;
         max-width: 50px;
     }
+
+    .contacts__blocks {
+        row-gap: 30px;
+    }
+
+    .contacts__block {
+        grid-template-columns: 1fr;
+        row-gap: 5px;
+    }
 }
 
 
 @media (max-width: 470px) {
-    .logo__text {
-        font-size: 12px;
-        letter-spacing: .3px;
-    }
     .header__block {
         font-size: 26px;
     }
@@ -1342,10 +1381,6 @@ a.underlined:hover {
 }
 
 @media (max-width: 375px) {
-    .logo__text {
-        font-size: 10px;
-        letter-spacing: .5px;
-    }
     .header__whatsapp, .header__telegram {
         width: 28px;
         height: 28px;

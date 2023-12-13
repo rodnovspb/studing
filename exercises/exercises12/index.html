@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="robots" content="noindex, nofollow" />
 <title>Документ</title>
 <style>
 
@@ -13,28 +14,21 @@
 <body>
 
 
-
+<a href="..." rel="nofollow">Ссылка</a>
 
 
 <script>
 
-
-	async function func() {
+    (async () => {
 		try {
-			let promise = new Promise((res, rej) => {
-				setTimeout(() => {
-					let num = Math.random()
-					num >= 0.5 ? res(num) : rej('меньше 0.5')
-				}, 1000)
-            })
-            let result = await promise
-            console.log(result)
-		} catch (e){
-			console.log(e)
+			let res = await fetch('https://site.ru')
+			let data = await res.json()
+			console.log(data)
+		} catch (e) {
+            console.log(e)
 		}
-	}
+    })()
 
-	func()
 
 </script>
 

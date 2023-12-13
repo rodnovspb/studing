@@ -24,6 +24,7 @@ class HomeController extends Controller
 {
     public function index(Request $request)
     {
+        abort(404);
         $posts = Post::orderBy('created_at', 'desc')->paginate(3);
         $title = 'Заголовок';
 

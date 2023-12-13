@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Документ</title>
+  <style>
+    :root {
+      --bg-color: #F9F9F9;
+      --container-width: 1250px;
+      --header-height: 60px;
+      --padding-wrapper: 15px;
+      --color: #000;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    a:hover {
+      cursor: pointer;
+    }
+
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      min-height: 100vh;
+      font-size: 22px;
+      font-family: sans-serif;
+      background-color: var(--bg-color);
+      color: var(--color);
+    }
+
+    .container {
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0 var(--padding-wrapper);
+      max-width: var(--container-width);
+    }
+
+    .header {
+      height: var(--header-height);
+      border-bottom: 1px solid silver;
+      position: fixed;
+      width: 100%;
+      z-index: 10;
+      background-color: var(--bg-color);
+      font-size: 24px;
+    }
+
+    .header__container {
+      height: 100%;
+    }
+
+    .header__logo {
+      padding: 15px 20px;
+    }
+
+    .header__menu {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+
+
+
+    .header__nav {
+      display: flex;
+      gap: 150px;
+      margin-left: auto;
+    }
+
+    .header__burger {
+      border: 0;
+      padding: 0;
+      background: transparent;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+      position: relative;
+      width: 35px;
+      height: 17px;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .header__burger:before {
+      position: absolute;
+      content: '';
+      top: 0;
+      left: 0;
+      background-color: #475569;
+      height: 2.5px;
+      width: 100%;
+
+    }
+
+    .header__burger:after {
+      position: absolute;
+      content: '';
+      bottom: 0;
+      left: 0;
+      background-color: #475569;
+      height: 2.5px;
+      width: 100%;
+    }
+
+    .main {
+      margin-top: var(--header-height);
+    }
+
+    .main__container {
+      padding-top: 20px;
+      padding-bottom: 30px;
+    }
+
+    .main__left {
+      position: fixed;
+      height: 100%;
+      z-index: 20;
+      font-size: 18px;
+    }
+
+    .main__left .header__burger {
+      position: absolute;
+      right: 13px;
+      top: 23px;
+    }
+
+
+    .main__left .header__burger:before {
+      top: 50%;
+      transform: translateY(-50%) rotate(45deg);
+    }
+
+    .main__left .header__burger:after {
+      bottom: 50%;
+      transform: translateY(50%) rotate(-45deg);
+    }
+
+
+    .main__menu {
+      display: inline-flex;
+      flex-direction: column;
+    }
+
+    .main__menu a {
+      padding: 15px 20px;
+      border-radius: 7px;
+    }
+
+    .main__menu a.active {
+      background-color: #fff;
+    }
+
+    .main__menu a:not(.active):hover {
+      background-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .main__left.visible .main__menu a.active {
+      background-color: #eee;
+    }
+
+    .main__left.visible .main__menu a:not(.active):hover,
+    .main__left.visible .main__menu a:not(.active):active {
+      background-color: rgba(238, 238, 238, 0.5);
+    }
+
+    .main__right {
+      margin-left: clamp(15.813rem, 6.801rem + 16.76vw, 19rem);
+    }
+
+    .main__title {
+      text-align: center;
+      font-size: 32px;
+    }
+
+    .main__content {
+      max-width: clamp(36.563rem, 10.478rem + 48.53vw, 46.875rem);
+      background-color: #fff;
+      padding: clamp(0rem, -1.327rem + 3.69vw, 1.438rem) clamp(0rem, -0.577rem + 1.6vw, 0.625rem);
+      border-radius: 15px;
+      line-height: 1.5;
+    }
+
+    .main__content div.text {
+      padding: 0 clamp(0rem, -3.462rem + 9.62vw, 3.75rem);
+    }
+
+    .main__text div.text {
+      margin-bottom: 15px;
+      font-size: 19px;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 15;
+    }
+
+    .fixed {
+      overflow: hidden;
+      height: 100%;
+    }
+
+
+    @media (max-width: 860px) {
+      .wrapper {
+        background-color: unset;
+      }
+
+      .header {
+        font-size: 21px;
+      }
+
+      .header__burger {
+        display: unset;
+      }
+      .main__left {
+        left: -100%;
+      }
+      .main__left.visible {
+        left: 0;
+        top: 0;
+        width: 315px;
+        background-color: white;
+        padding-left: var(--padding-wrapper);
+      }
+
+      .main__menu {
+        padding-top: 7px;
+      }
+
+      .main__right {
+        margin-left: 0;
+      }
+      .main__content {
+        margin: 0 auto;
+        max-width: 675px;
+      }
+    }
+
+    @media (max-width: 767.98px) {
+      .main__content {
+        max-width: unset;
+      }
+    }
+
+    @media (max-width: 575.98px) {
+      .main__text div.text {
+        font-size: 17px;
+      }
+    }
+
+    @media (min-width: 860px) {
+      .header__burger {
+        display: none;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="wrapper">
+
+    <header class="header">
+      <div class="container header__container">
+        <div class="header__menu">
+          <button class="header__burger"></button>
+          <a class="header__logo" href="/">социон.рф</a>
+          <div class="header__nav">
+            <a class="header__item" href="/">типирование</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="container main__container">
+        <div class="main__left">
+          <button class="header__burger"></button>
+          <div class="main__menu">
+            <a href="#" class="active">О соционике</a>
+            <a href="#">Функции</a>
+            <a href="#">Модели</a>
+            <a href="#">Признаки Рейнина</a>
+            <a href="#">Отношения</a>
+            <a href="#">Представители</a>
+          </div>
+        </div>
+        <div class="main__right">
+          <div class="main__content">
+            <h1 class="main__title">Заголовок</h1>
+            <div class="main__text">
+              <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus autem corporis fugit in itaque nemo numquam reiciendis tempore! Molestiae, sapiente, voluptatem? Earum est et excepturi fugiat necessitatibus nisi, repudiandae voluptas!</div>
+              <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus autem corporis fugit in itaque nemo numquam reiciendis tempore! Molestiae, sapiente, voluptatem? Earum est et excepturi fugiat necessitatibus nisi, repudiandae voluptas!</div>
+              <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus autem corporis fugit in itaque nemo numquam reiciendis tempore! Molestiae, sapiente, voluptatem? Earum est et excepturi fugiat necessitatibus nisi, repudiandae voluptas!</div>
+              <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus autem corporis fugit in itaque nemo numquam reiciendis tempore! Molestiae, sapiente, voluptatem? Earum est et excepturi fugiat necessitatibus nisi, repudiandae voluptas!</div>
+              <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus autem corporis fugit in itaque nemo numquam reiciendis tempore! Molestiae, sapiente, voluptatem? Earum est et excepturi fugiat necessitatibus nisi, repudiandae voluptas!</div>
+              <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus autem corporis fugit in itaque nemo numquam reiciendis tempore! Molestiae, sapiente, voluptatem? Earum est et excepturi fugiat necessitatibus nisi, repudiandae voluptas!</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+  </div>
+
+  <div class="overlay" hidden></div>
+</body>
+
+<script>
+    let burgerForOpen = document.querySelector('.header__menu .header__burger')
+    let burgerForClose = document.querySelector('.main__left .header__burger')
+    let menu = document.querySelector('.main__left')
+    let overlay = document.querySelector('.overlay')
+    let body = document.querySelector('body')
+
+    document.addEventListener('click', function (e){
+		if(e.target.closest('.header__burger') || e.target === overlay){
+			menu.classList.toggle('visible')
+			overlay.hidden = ! overlay.hidden
+			body.classList.toggle('fixed')
+		}
+
+    })
+
+
+</script>
+
+</html>

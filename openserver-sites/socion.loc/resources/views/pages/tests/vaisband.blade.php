@@ -2,60 +2,58 @@
 
 @section('title', 'Соционический тест Вайсбанда на 4 вопроса')
 @section('description', 'Соционический тест Вайсбанда 4 вопроса')
-@section('keywords', 'Соционический тест Вайсбанда')
+@section('keywords', 'Соционика, тест, Вайсбанда')
 
 @section('content')
 
 
-    <section class="test">
-    <div class="container">
-        <div class="test__wrapper">
-        <h1 class="test__title">Соционический тест Вайсбанда</h1>
-        <div class="test__choose_title">В каждой паре выберите ту часть, которая в наибольшей степени соответствует вашему духовному складу.</div>
-        <div class="test__block">
-            <h3 class="test__ques_num">Вопрос №<span>1</span> из 4</h3>
-            <div class="test__questions">
-                <button class="test__item" data-number="1">Импровизация; свобода от обязательств; действия по ситуации; гибкая воля; реальность, а не догмы; работа по вдохновению; поиск; использовать шанс; приспособление к меняющемуся миру; уловить ситуацию и тенденции; импульсивные поступки, эмоции, решения; удовольствия от начинаний.</button>
-                <button class="test__item" data-number="2">Планомерное продвижение; заблаговременная подготовка; системная работа; не отложить на последнюю минуту; довести начатое до конца; сделать и полюбоваться результатом; решительность; устойчивость мнений; правильные поступки, эмоции и решения; удовольствие от завершения.</button>
-            </div>
-            <div class="test__questions dn">
-                <button class="test__item" data-number="3">Абстракция; теория; интересные задачи; понять суть, смысл вещей, перспектив; уступить в мелочах; весь мир — в будущем.</button>
-                <button class="test__item" data-number="4">Конкретная практика; полезные дела; понять расстановку сил, влияний; добиться своего; моя жизнь — сегодня.</button>
-                <button class="test__item" data-number="5">Рассудок; холодный анализ; логика; объективный подход; трезвое мышление; непредвзятость; сдержанность.</button>
-                <button class="test__item" data-number="6">Чувства, эмоции; сопереживание людям; симпатии, антипатии; любовь и ненависть; неравнодушие; сердечность.</button>
-            </div>
-            <div class="test__questions dn">
-                <button class="test__item" data-number="7">Азарт открытия; увлечение людьми и начинаниями.</button>
-                <button class="test__item" data-number="8">Интуиция; духовность; самопознание; время и история.</button>
-                <button class="test__item" data-number="9">Воля; преодоление трудностей; сила и красота.</button>
-                <button class="test__item" data-number="10">Ощущение момента; интересы близких; эстетика.</button>
-                <button class="test__item" data-number="11">Правильные действия; логика поступков; мое право.</button>
-                <button class="test__item" data-number="12">Спокойное мышление; логика отношений; мое место.</button>
-                <button class="test__item" data-number="13">Эмоциональная открытость; порыв любви, гнева.</button>
-                <button class="test__item" data-number="14">Скрытый мир чувств; добро и зло; приязнь, осуждение.</button>
-            </div>
-            <div class="test__questions dn">
-                <button class="test__item" data-number="15">Драматизм, трагедия; сопереживание.</button>
-                <button class="test__item" data-number="16">Радость, эмоции, праздник; доброе настроение.</button>
-                <button class="test__item" data-number="17">Вера, надежда, любовь; преданность близким.</button>
-                <button class="test__item" data-number="18">Неприятие зла; воля к моральной чистоте.</button>
-                <button class="test__item" data-number="19">Равенство, справедливость; система знаний.</button>
-                <button class="test__item" data-number="20">Логика системы; волевое внедрение.</button>
-                <button class="test__item" data-number="21">Я все делаю быстро, эффективно, с пользой.</button>
-                <button class="test__item" data-number="22">Добросовестность дел; надежность, качество.</button>
-                <button class="test__item" data-number="23">Кто хочет — тот добьется; логика борьбы.</button>
-                <button class="test__item" data-number="24">Энергия; влияние на людей, на их чувства.</button>
-                <button class="test__item" data-number="25">Условия жизни; умелые руки; независимость.</button>
-                <button class="test__item" data-number="26">Ощущения, природа; теплое общение и эмоции.</button>
-                <button class="test__item" data-number="27">Скептическое предвидение; профессионализм.</button>
-                <button class="test__item" data-number="28">Эмоциональное предчувствие; поэтичность.</button>
-                <button class="test__item" data-number="29">Вдохновляющие идеи; начинания и теории.</button>
-                <button class="test__item" data-number="30">Интересные, талантливые люди, общение.</button>
-            </div>
-            <button class="test__arrow_back">❮</button>
-        </div>
-         </div>
-    </div>
+<section class="test">
+<div class="text">
+  <h1 class="test__title">Соционический тест Вайсбанда</h1>
+  <div class="test__choose_title">В каждой паре выберите ту часть, которая в наибольшей степени соответствует вашему духовному складу.</div>
+  <div class="test__block">
+      <h3 class="test__ques_num">Вопрос №<span>1</span> из 4</h3>
+      <div class="test__questions">
+          <button class="test__item" data-number="1">Импровизация; свобода от обязательств; действия по ситуации; гибкая воля; реальность, а не догмы; работа по вдохновению; поиск; использовать шанс; приспособление к меняющемуся миру; уловить ситуацию и тенденции; импульсивные поступки, эмоции, решения; удовольствия от начинаний.</button>
+          <button class="test__item" data-number="2">Планомерное продвижение; заблаговременная подготовка; системная работа; не отложить на последнюю минуту; довести начатое до конца; сделать и полюбоваться результатом; решительность; устойчивость мнений; правильные поступки, эмоции и решения; удовольствие от завершения.</button>
+      </div>
+      <div class="test__questions dn">
+          <button class="test__item" data-number="3">Абстракция; теория; интересные задачи; понять суть, смысл вещей, перспектив; уступить в мелочах; весь мир — в будущем.</button>
+          <button class="test__item" data-number="4">Конкретная практика; полезные дела; понять расстановку сил, влияний; добиться своего; моя жизнь — сегодня.</button>
+          <button class="test__item" data-number="5">Рассудок; холодный анализ; логика; объективный подход; трезвое мышление; непредвзятость; сдержанность.</button>
+          <button class="test__item" data-number="6">Чувства, эмоции; сопереживание людям; симпатии, антипатии; любовь и ненависть; неравнодушие; сердечность.</button>
+      </div>
+      <div class="test__questions dn">
+          <button class="test__item" data-number="7">Азарт открытия; увлечение людьми и начинаниями.</button>
+          <button class="test__item" data-number="8">Интуиция; духовность; самопознание; время и история.</button>
+          <button class="test__item" data-number="9">Воля; преодоление трудностей; сила и красота.</button>
+          <button class="test__item" data-number="10">Ощущение момента; интересы близких; эстетика.</button>
+          <button class="test__item" data-number="11">Правильные действия; логика поступков; мое право.</button>
+          <button class="test__item" data-number="12">Спокойное мышление; логика отношений; мое место.</button>
+          <button class="test__item" data-number="13">Эмоциональная открытость; порыв любви, гнева.</button>
+          <button class="test__item" data-number="14">Скрытый мир чувств; добро и зло; приязнь, осуждение.</button>
+      </div>
+      <div class="test__questions dn">
+          <button class="test__item" data-number="15">Драматизм, трагедия; сопереживание.</button>
+          <button class="test__item" data-number="16">Радость, эмоции, праздник; доброе настроение.</button>
+          <button class="test__item" data-number="17">Вера, надежда, любовь; преданность близким.</button>
+          <button class="test__item" data-number="18">Неприятие зла; воля к моральной чистоте.</button>
+          <button class="test__item" data-number="19">Равенство, справедливость; система знаний.</button>
+          <button class="test__item" data-number="20">Логика системы; волевое внедрение.</button>
+          <button class="test__item" data-number="21">Я все делаю быстро, эффективно, с пользой.</button>
+          <button class="test__item" data-number="22">Добросовестность дел; надежность, качество.</button>
+          <button class="test__item" data-number="23">Кто хочет — тот добьется; логика борьбы.</button>
+          <button class="test__item" data-number="24">Энергия; влияние на людей, на их чувства.</button>
+          <button class="test__item" data-number="25">Условия жизни; умелые руки; независимость.</button>
+          <button class="test__item" data-number="26">Ощущения, природа; теплое общение и эмоции.</button>
+          <button class="test__item" data-number="27">Скептическое предвидение; профессионализм.</button>
+          <button class="test__item" data-number="28">Эмоциональное предчувствие; поэтичность.</button>
+          <button class="test__item" data-number="29">Вдохновляющие идеи; начинания и теории.</button>
+          <button class="test__item" data-number="30">Интересные, талантливые люди, общение.</button>
+      </div>
+      <button class="test__arrow_back">❮</button>
+  </div>
+</div>
 </section>
 
 @endsection
@@ -171,11 +169,12 @@
             }
 
             function showText(res){
-                document.querySelector('.test__wrapper').innerHTML = `
-                    <h1 class="test__title">Ваш социотип ${res['name']}</h1>
+                document.querySelector('.test').innerHTML = `
+                    <div class="text">
+                    <h1>Ваш социотип ${res['name']}</h1>
                     <div class="test__description">${res['description']}</div>
-                    <div class="test__description test__annotation">По тесту сразу определить социотип сложно. Кроме того описание примерное, обобщенное. Если оно совсем не подходит пройдите тест еще раз, либо пройдите <a href="{{route('tests')}}#tests">другой тест</a>. Также можно записаться на <a href="{{route('tipirovanie')}}">типирование</a>.</div>
-                    <div class="test__refresh"><a href="{{ route('vaisband') }}">Пройти заново</a></div>`
+                    <div class="test__description test__annotation">По тесту сразу определить социотип сложно. Кроме того описание примерное, обобщенное. Если оно совсем не подходит пройдите тест еще раз, либо пройдите <a href="{{route('tests')}}">другой тест</a>. Также можно записаться на <a href="{{route('tipirovanie')}}">типирование</a>.</div>
+                    <div class="test__refresh"><a href="{{ route('vaisband') }}">Пройти заново</a></div></div>`
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
 

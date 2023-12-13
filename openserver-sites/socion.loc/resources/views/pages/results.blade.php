@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('layouts.layout-wide')
 
 @section('title', 'Результаты')
 @section('description', 'Результаты')
@@ -9,7 +9,10 @@
 
   <form action="{{ route('logout') }}" method="post" style="text-align: right; padding-bottom: 10px;">
     @csrf
-    <button class="questionnaire__btn" type="submit">Выйти</button>
+    <div class="header__result">
+      <a class="header__logo" href="{{ route('index') }}" title="На главную">социон.рф</a>
+      <button class="questionnaire__btn questionnaire__btn-res" type="submit">Выйти</button>
+    </div>
   </form>
 
     <section class="result">
