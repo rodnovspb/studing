@@ -1660,6 +1660,7 @@ class ComposerStaticInit290afeda14f59ab96a6622520aef0a10
         'EvolutionCMS\\Main\\Controllers\\VrachController' => __DIR__ . '/../..' . '/custom/packages/main/src/Controllers/VrachController.php',
         'EvolutionCMS\\Main\\MainServiceProvider' => __DIR__ . '/../..' . '/custom/packages/main/src/MainServiceProvider.php',
         'EvolutionCMS\\Main\\Models\\CaseItem' => __DIR__ . '/../..' . '/custom/packages/main/src/Models/CaseItem.php',
+        'EvolutionCMS\\Main\\Models\\File' => __DIR__ . '/../..' . '/custom/packages/main/src/Models/File.php',
         'EvolutionCMS\\Main\\Models\\Order' => __DIR__ . '/../..' . '/custom/packages/main/src/Models/Order.php',
         'EvolutionCMS\\Main\\Models\\Page' => __DIR__ . '/../..' . '/custom/packages/main/src/Models/Page.php',
         'EvolutionCMS\\Main\\Models\\Product' => __DIR__ . '/../..' . '/custom/packages/main/src/Models/Product.php',

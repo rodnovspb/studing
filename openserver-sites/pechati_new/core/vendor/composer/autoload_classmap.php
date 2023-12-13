@@ -1028,6 +1028,7 @@ return array(
     'EvolutionCMS\\Main\\Controllers\\VrachController' => $baseDir . '/custom/packages/main/src/Controllers/VrachController.php',
     'EvolutionCMS\\Main\\MainServiceProvider' => $baseDir . '/custom/packages/main/src/MainServiceProvider.php',
     'EvolutionCMS\\Main\\Models\\CaseItem' => $baseDir . '/custom/packages/main/src/Models/CaseItem.php',
+    'EvolutionCMS\\Main\\Models\\File' => $baseDir . '/custom/packages/main/src/Models/File.php',
     'EvolutionCMS\\Main\\Models\\Order' => $baseDir . '/custom/packages/main/src/Models/Order.php',
     'EvolutionCMS\\Main\\Models\\Page' => $baseDir . '/custom/packages/main/src/Models/Page.php',
     'EvolutionCMS\\Main\\Models\\Product' => $baseDir . '/custom/packages/main/src/Models/Product.php',

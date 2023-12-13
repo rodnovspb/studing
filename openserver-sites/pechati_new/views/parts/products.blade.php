@@ -9,7 +9,7 @@
            <div class="swiper-slide">
            <div class="slide-block">
              <div class="slide__top">
-                <input type="checkbox" class="slide__input" id="product_{{$loop->index}}" name="products[]" value="{{$product->img}}" data-price="{{$product->price}}">
+                <input type="checkbox" class="slide__input" id="product_{{$loop->index}}" name="products[]" value="{{$product->id}}" data-price="{{$product->price}}">
                 <label class="slide__label" for="product_{{$loop->index}}">
                   <img class="slide__img product__img border-radius-unset" src="{{$product->img}}">
                 </label>

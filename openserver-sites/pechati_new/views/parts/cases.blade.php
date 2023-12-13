@@ -9,7 +9,7 @@
            <div class="swiper-slide">
            <div class="slide-block">
              <div class="slide__top">
-                <input type="radio" class="slide__input" id="case_{{$loop->index}}" name="case" value="{{$case->img}}" data-price="{{$case->price}}">
+                <input type="radio" class="slide__input" id="case_{{$loop->index}}" name="case" value="{{$case->id}}" data-price="{{$case->price}}">
                 <label class="slide__label" for="case_{{$loop->index}}">
                   <img class="slide__img case__img" src="{{ $case->img }}" alt="{{$case->alt}}">
                 </label>

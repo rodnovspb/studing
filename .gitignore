@@ -12,6 +12,7 @@ node_modules/*
 /webovio/Webovio.fig
 /телеграмм бот/
 /без синхронизации с гитхабом/
+/без синхронизации с гитхабом/*
 /openserver-sites/shop.loc/vendor/gabordemooij/
 /openserver-sites/shop.loc/public/adminlte/dist/
 /openserver-sites/shop.loc/public/adminlte/plugins/
@@ -24,3 +25,4 @@ node_modules/*
 /openserver-sites/shop.loc/public/adminlte/dist/img/
 /openserver-sites/shop.loc/public/adminlte/dist/js/
 /openserver-sites/shop.loc/public/adminlte/plugins/
+/настройки phpstorm/

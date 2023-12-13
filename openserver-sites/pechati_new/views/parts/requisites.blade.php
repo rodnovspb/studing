@@ -33,7 +33,7 @@
     <div class="requisites__row">
       <div class="requisites__title">{{ $name }}</div>
       <div class="requisites__field">
-        <input class="requisites__name" type="text" name="name" <!--maxlength="255"-->>
+        <input class="requisites__name" type="text" name="name" maxlength="255">
       </div>
     </div>
     @endif
@@ -41,11 +41,7 @@
     <div class="requisites__row">
       <div class="requisites__title">Ваши контакты</div>
       <div class="requisites__field">
-        <input class="requisites__contacts"
-               type="text"
-               name="contact"
-               value="@error('contact') {{ old('contact') }} @enderror"
-        <!--maxlength="255"-->>
+        <input class="requisites__contacts" type="text" name="contact" maxlength="255">
       </div>
     </div>
 
