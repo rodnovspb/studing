@@ -150,6 +150,7 @@ class MainController extends Controller
         for($i = 1; $i <= count($arr1); $i++){
             $arr[$i] = ceil($arr1[$i] * self::getPercent() + $arr2[$i] * self::getPercent() + $arr3[$i] * self::getPercent() + $arr4[$i]);
         }
+
         return $arr;
     }
 
