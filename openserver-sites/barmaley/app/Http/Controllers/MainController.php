@@ -147,8 +147,14 @@ class MainController extends Controller
 
     public function getResultSumWithCommission($arr1, $arr2, $arr3, $arr4) {
         $arr = [];
-        for($i = 1; $i <= count($arr1); $i++){
+
+        /*код, когда комиссия за перевод считалась только за электричество*/
+        /*for($i = 1; $i <= count($arr1); $i++){
             $arr[$i] = ceil($arr1[$i] * self::getPercent() + $arr2[$i] * self::getPercent() + $arr3[$i] * self::getPercent() + $arr4[$i]);
+        }*/
+
+        for($i = 1; $i <= count($arr1); $i++){
+            $arr[$i] = ceil( self::getPercent() * ($arr1[$i] + $arr2[$i] + $arr3[$i] + $arr4[$i]));
         }
 
         return $arr;

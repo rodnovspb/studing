@@ -2,7 +2,7 @@
   --padding-side: 15px;
   --width-wrapper: 1350px;
   --border-style: 1px solid #ccc;
-  --header-height: clamp(3.125rem, 2.67rem + 2.27vw, 4.375rem);
+  --header-height: clamp(3.75rem, 3.523rem + 1.14vw, 4.375rem);
   --color-icons: #bac2ce;
   --color-icons-hover: #94a3b8;
   --scale: scale(1.03);
@@ -19,6 +19,9 @@
 
 /******************************** Общие стили ********************************/
 
+html {
+  width: 100vw;
+}
 
 body {
   font-family: Lab Grotesque, BlinkMacSystemFont, Roboto, Open Sans, Helvetica Neue, sans-serif;
@@ -76,8 +79,8 @@ img {
 
 h1 {
   font-size: clamp(1.375rem, 1.193rem + 0.91vw, 1.875rem);
-  font-weight: bold;
-  margin-bottom: 5px;
+  font-weight: 400;
+  margin-bottom: 8px;
 }
 
 section {
@@ -106,6 +109,35 @@ section {
 
 /********************** Текст пользователя из "content" **********************/
 
+.content p:not(:last-of-type),
+.order__content p:not(:last-of-type) {
+  margin-bottom: revert;
+}
+
+.content p {
+  font-size: clamp(1rem, 0.942rem + 0.24vw, 1.125rem);
+  text-align: justify;
+}
+
+.order__content p {
+  font-size: clamp(1.125rem, 1.009rem + 0.49vw, 1.375rem);
+  text-align: justify;
+}
+
+.content,
+.order__content {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.content {
+  width: 900px;
+}
+
+.order__content {
+  width: 1200px;
+}
+
 .order__content a {
   color: #2f84d8;
 }
@@ -125,7 +157,7 @@ section {
 
 .mobile {
   position: fixed;
-  height: 100vh;
+  height: 100%;
   width: 100vw;
   top: 0;
   right: 0;
@@ -135,8 +167,9 @@ section {
   transform: translateX(120%);
   transition: opacity .1s ease;
   display: flex;
-  justify-content: center;
-  padding: var(--header-height) var(--padding-side) var(--padding-side);
+  flex-direction: column;
+  padding: 20px;
+  overflow: auto;
 }
 
 .mobile.active {
@@ -164,14 +197,51 @@ section {
   transform: rotate(-45deg);
 }
 
-.mobile__menu {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  font-size: 30px;
+.mobile__menu,
+.mobile__submenu {
+  margin-bottom: 20px;
 }
 
+.mobile__menu,
+.mobile__submenu,
+.mobile__contacts {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 22px;
+}
+
+.mobile__link {
+  padding: 4px 8px;
+}
+
+.mobile__time,
+.mobile__address {
+  padding: 4px 8px;
+}
+
+
+.mobile__phone {
+  display: flex;
+  align-items: center;
+}
+
+.mobile__number {
+  margin-left: 20px;
+}
+
+.mobile__icon {
+  width: 50px;
+  height: 50px;
+}
+
+.mobile__yandex {
+  margin-top: 28px;
+}
+
+.mobile__yandex img {
+  width: 200px;
+}
 
 
 
@@ -230,8 +300,8 @@ section {
 }
 
 .header__messengers a {
-  height: clamp(2.188rem, 1.96rem + 1.14vw, 2.813rem);
-  width: clamp(2.188rem, 1.96rem + 1.14vw, 2.813rem);
+  height: 45px;
+  width: 45px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -254,8 +324,8 @@ section {
 }
 
 a.header__phone-icon {
-  width: clamp(1.688rem, 1.506rem + 0.91vw, 2.188rem);
-  height: clamp(1.688rem, 1.506rem + 0.91vw, 2.188rem);
+  width: 35px;
+  height: 35px;
   margin-left: 11px;
   display: none;
 }
@@ -314,14 +384,10 @@ a.header__phone-icon {
 }
 
 .menu {
-  padding-top: 8px;
-  padding-bottom: 8px;
   border-bottom: var(--border-style);
 }
 
 .submenu {
-  padding-top: 8px;
-  padding-bottom: 8px;
   border-bottom: var(--border-style);
   position: sticky;
   top: var(--header-height);
@@ -335,7 +401,20 @@ a.header__phone-icon {
   justify-content: space-between;
   font-size: 21px;
   flex-wrap: wrap;
-  gap: 7px;
+}
+
+.menu__link {
+  padding: clamp(0.188rem, 0.043rem + 0.61vw, 0.5rem) clamp(0.188rem, -0.199rem + 1.93vw, 1.25rem);
+}
+
+.menu__link:hover {
+  background-color: #f8fafc;
+}
+
+.menu__link.active,
+.mobile__link.active{
+  background-color: #f3f4f6;
+  border-radius: 5px;
 }
 
 
@@ -367,9 +446,6 @@ a.header__phone-icon {
   .header__email {
     font-size: 20px;
   }
-  .menu__list, .submenu__list {
-    font-size: 17px;
-  }
 }
 
 @media (max-width: 768.98px){
@@ -384,9 +460,6 @@ a.header__phone-icon {
   .header__email {
     display: none;
   }
-  .menu__list, .submenu__list {
-    font-size: 16px;
-  }
 }
 
 @media (max-width: 576.98px){
@@ -399,6 +472,9 @@ a.header__phone-icon {
   .menu {
     display: none;
   }
+  .menu__list, .submenu__list {
+    font-size: 19px;
+  }
 }
 
 
@@ -408,16 +484,91 @@ a.header__phone-icon {
 /*********************************** Подвал ***********************************/
 
 .footer {
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 14px;
+  padding-bottom: 14px;
   border-top: var(--border-style);
   margin-top: auto;
+}
+
+.footer a {
+  color: #64748b;
 }
 
 .footer__row {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footer__item-yandex {
+  width: clamp(6.563rem, 5.313rem + 6.25vw, 10rem);
+}
+
+.footer__item-karty {
+  width: clamp(9.625rem, 7.443rem + 10.91vw, 15.625rem);
+}
+
+.footer__item-vk {
+  width: clamp(1.875rem, 1.648rem + 1.14vw, 2.5rem);
+}
+
+.footer__item-politics {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.footer__link {
+  display: inline-block;
+}
+
+.footer__item-politics a {
+  font-size: clamp(0.75rem, 0.705rem + 0.23vw, 0.875rem);
+}
+
+.footer__item-politics a:hover,
+.footer__item-contacts a:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  color: black;
+}
+
+
+@media (max-width: 1400.98px) {
+
+}
+
+@media (max-width: 1200.98px) {
+
+}
+
+@media (max-width: 990.98px) {
+
+}
+
+@media (max-width: 820.98px) {
+  .footer__item-politics {
+    width: 60%;
+    margin-top: 20px;
+    align-items: flex-start;
+  }
+  .footer__item-contacts {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 768.98px) {
+
+}
+
+@media (max-width: 576.98px) {
+
+}
+
+@media (max-width: 390.98px) {
+
 }
 
 
@@ -460,6 +611,7 @@ a.header__phone-icon {
   background-color: white;
   padding: 2px;
   line-height: 1;
+  font-weight: inherit;
 }
 
 @media (max-width: 1400.98px) {
@@ -496,18 +648,11 @@ a.header__phone-icon {
 @media (max-width: 390.98px) {
 
 }
-/***************************** Главная страница *****************************/
 
 
 
 
 /***************************** Страницы заказа *****************************/
-
-.order__methods {
-  text-align: center;
-  font-size: var(--step-title-height);
-  line-height: 1.4em;
-}
 
 .order-step {
   margin: 0 auto;
@@ -524,7 +669,7 @@ a.header__phone-icon {
 .step-title {
   font-size: var(--step-title-height);
   text-align: center;
-  font-weight: 500;
+  /*color: var(--color-blue);*/
 }
 
 .slide__label {
@@ -540,6 +685,9 @@ a.header__phone-icon {
 .slide__img {
   transition: transform .25s ease-out;
   cursor: pointer;
+}
+
+.templates .slide__img {
   border-radius: 50%;
 }
 
@@ -548,7 +696,7 @@ a.header__phone-icon {
 }
 
 .slide__img.big-scale:hover {
-  transform: scale(1.4);
+  transform: scale(1.25);
   background: #fff;
   position: relative;
   z-index: 11;
@@ -602,6 +750,7 @@ a.header__phone-icon {
 .slide__bottom {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 10px;
   padding-top: 10px;
 }
@@ -609,12 +758,25 @@ a.header__phone-icon {
 .slide__name {
   display: flex;
   align-items: center;
+  text-align: center;
 
 }
 
 .slide__youtube {
-  max-width: 25px;
+  max-width: clamp(1.313rem, 1.244rem + 0.34vw, 1.5rem);
   align-self: flex-start;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide__youtube svg {
+  fill: var(--color-icons);
+  max-height: 23px;
+}
+
+.slide__youtube svg:hover {
+  fill: #FF0000;
 }
 
 
@@ -638,7 +800,7 @@ a.header__phone-icon {
 }
 
 .requisites__title {
-  flex-basis: 20%;
+  flex-basis: 23%;
   flex-shrink: 0;
 }
 
@@ -674,6 +836,7 @@ a.header__phone-icon {
 
 .requisites__field textarea {
   resize: vertical;
+  overflow-y: auto;
 }
 
 .urgency {
@@ -741,8 +904,11 @@ a.header__phone-icon {
 }
 
 .delivery__list {
-  margin-bottom: 15px;
   gap: 7px;
+}
+
+.delivery__text {
+  margin-top: 15px;
 }
 
 .delivery__label {
@@ -751,6 +917,31 @@ a.header__phone-icon {
   justify-content: center;
   align-items: center;
   height: 50px;
+}
+
+
+.grecaptcha-logo {
+  display: none !important;
+}
+
+.grecaptcha-badge {
+  display: none !important;
+}
+
+
+.personal {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.personal input {
+  opacity: 0.5;
+}
+
+.personal-text {
+  font-size: clamp(0.875rem, 0.817rem + 0.24vw, 1rem);
+  color: #afaeae;
 }
 
 .checkout__cost {
@@ -862,7 +1053,7 @@ a.header__phone-icon {
   .delivery__list {
     flex-direction: column;
     align-items: stretch;
-    margin-bottom: 15px;
+
   }
   .delivery__label img{
     max-height: 30px;

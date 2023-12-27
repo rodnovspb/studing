@@ -51,4 +51,19 @@ class MainController extends BaseController
     }
 
   }
+
+  public function checkCaptcha(Request $request){
+      // Задаем параметры
+      $recaptcha_url = 'https://www.google.com/recaptcha/api/siteverify';
+      $recaptcha_secret = '6LdPET0pAAAAAAq27Foz_elOOfY8lVNbHOaDbl_-';
+      $code = $request->code;
+
+      // Обрабатываем параметры
+      $recaptcha = file_get_contents($recaptcha_url . '?secret=' . $recaptcha_secret . '&response=' . $code);
+      $recaptcha = json_decode($recaptcha);
+
+      return $recaptcha->score;
+    }
+
+
 }

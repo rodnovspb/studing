@@ -52,6 +52,7 @@ return array(
     'Pathologic\\EvolutionCMS\\MODxAPI\\' => array($vendorDir . '/pathologic/modxapi/src'),
     'Pathologic\\EvolutionCMS\\DoctrineCache\\' => array($vendorDir . '/pathologic/doctrine-cache-bridge/src'),
     'PHPMailer\\PHPMailer\\' => array($vendorDir . '/phpmailer/phpmailer/src'),
+    'MoveMoveIo\\DaData\\' => array($vendorDir . '/movemoveapp/laravel-dadata/src'),
     'Monolog\\' => array($vendorDir . '/monolog/monolog/src/Monolog'),
     'LocateBinaries\\' => array($vendorDir . '/rosell-dk/locate-binaries/src'),
     'League\\MimeTypeDetection\\' => array($vendorDir . '/league/mime-type-detection/src'),

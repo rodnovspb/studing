@@ -3,8 +3,6 @@
 namespace EvolutionCMS\Main\Controllers;
 
 
-use Illuminate\Http\Request;
-
 class IpController extends BaseController
 {
 

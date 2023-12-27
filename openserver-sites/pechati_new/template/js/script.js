@@ -62,20 +62,19 @@
                 if(label.previousElementSibling.checked){
                     label.previousElementSibling.checked = false
                     textarea.classList.add('dn')
-                    deliveryText.classList.add('dn')
+                    if(deliveryText) { deliveryText.classList.add('dn') }
                     e.preventDefault()
                 } else if(label.hasAttribute('data-default')){
                     textarea.classList.add('dn')
-                    deliveryText.classList.add('dn')
+                    if(deliveryText) {deliveryText.classList.add('dn') }
                 } else {
                     textarea.placeholder = label.dataset.text || ''
-                    deliveryText.classList.remove('dn')
                     textarea.classList.remove('dn')
+                    if(deliveryText) {deliveryText.classList.remove('dn') }
                 }
             })
         })
     }
-
 
     /*Своя кнопка "Прикрепить файл"*/
     let fileInput = document.querySelector('#file__input')
@@ -91,7 +90,7 @@
                     filesize += fileInput.files[i].size;
                 }
                 if(filesize > 20971520){
-                    alert('Не больше 20 мб файлов. Либо отправьте файлы на почту');
+                    alert('Не больше 20 мб файлов, пожалуйста. Также файлы можно отправить на почту');
                     fileInput.value = null
                     return false;
                 }
@@ -146,6 +145,147 @@
         })
     }
 
+
+    /*****************Капча*******************/
+    ;(function (){
+        let order_form = document.querySelector('form[name="order"]')
+        if (typeof (order_form) != 'undefined' && order_form != null){
+
+            order_form.addEventListener('submit', function (e) {
+                e.preventDefault()
+                getRecaptchaToken()
+            })
+
+            function getRecaptchaToken(){
+                grecaptcha.ready(function () {
+                    grecaptcha.execute('6LdPET0pAAAAAFA8NdG5hLAnfiulnMWRsb690ixs', { action: 'form' }).then(function (code) {
+                        getScore(code)
+                    });
+                });
+            }
+
+            function getScore(code){
+                fetch('/captcha', {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    method: "POST",
+                    body: JSON.stringify({code: code, _token: document.querySelector('input[name=_token]').value})
+                })
+                        .then(response => response.json())
+                        .then(result => sendForm(result))
+                        .catch(error => console.log(error));
+            }
+
+            function sendForm(result){
+                if(result > 0.5){
+                    order_form.submit();
+                } else {
+                    let result = confirm('Нажмите, если вы не робот')
+                    if(result){
+                        order_form.submit();
+                    }
+                }
+            }
+        }
+
+    })()
+
+
+
+    /*****************Дадата*******************/
+    /*Флаг для того, чтобы фетч переставал работать если пользователь редактирует реквизиты*/
+    let flagForFetch = true;
+    let csrf_token = document.querySelector('meta[name=csrf-token]').content;
+
+    /*Функция получения названия ИП по ИНН/ОГРН*/
+    ;(function  fetchGetOrg(){
+        let inputInn = document.querySelector('#inn');
+        let inputName = document.querySelector('#name');
+        if ((typeof (inputInn) != 'undefined' && inputInn != null) && (typeof (inputName) != 'undefined' && inputName != null)) {
+            inputInn.addEventListener('input', function (e) {
+                if (inputInn.value.length < 10) flagForFetch = true
+                if(!flagForFetch) return false;
+                if (inputInn.value.length >= 10) {
+                    // ищем числа состоящие из 10 или 13 цифр
+                    let number = inputInn.value.match(/\b\d{13}\b|\b\d{10}\b/g);
+                    if (number && number.length > 0) {
+                        fetch('/get/org', {
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Accept': 'application/json',
+                            },
+                            method: "POST",
+                            body: JSON.stringify({inn: number[0], _token: csrf_token})
+                        })
+                                .then(response => response.json())
+                                .then(result => {
+                                    if (result.suggestions[0]) {
+                                        let obj = result.suggestions[0];
+                                        inputName.value = `${obj.data.opf.short} "${obj.data.name.full}"`;
+                                        let city = null;
+                                        if(obj.data.address.data.city_with_type){
+                                            city = obj.data.address.data.city_with_type
+                                        } else if(obj.data.address.data.settlement_with_type){
+                                            city = result.suggestions[0].data.address.data.region_with_type + ', ' + result.suggestions[0].data.address.data.settlement_with_type;
+                                        }
+                                        inputInn.value = `ИНН: ${obj.data.inn} ОГРН: ${obj.data.ogrn}\r\n${city}`
+                                        document.querySelector('input[name="contact"]').focus()
+                                        flagForFetch = false
+                                    }
+                                    if(inputInn.value.length > 40) { inputInn.rows = 2 }
+                                    if(inputInn.value.length > 85) { inputInn.rows = 3 }
+                                    if(inputName.value.length > 40) { inputName.rows = 2 }
+                                    if(inputName.value.length > 85) { inputName.rows = 3 }
+                                })
+                                .catch(error => console.log("error", error));
+                    }
+
+                }
+            });
+        }
+    })();
+
+    /*Функция получения названия ООО по ИНН/ОГРН*/
+    (function  fetchGetIp(){
+        let inputInn = document.querySelector('#inn');
+        let inputName = document.querySelector('#name');
+        if ((typeof (inputInn) != 'undefined' && inputInn != null) && (typeof (inputName) != 'undefined' && inputName != null)) {
+            inputInn.addEventListener('input', function (e) {
+                if (inputInn.value.length < 10) flagForFetch = true
+                if(!flagForFetch) return false;
+                if (inputInn.value.length >= 12) {
+                    // ищем числа состоящие из 12 или 15 цифр
+                    let number = inputInn.value.match(/\b(\d{15})\b|\b(\d{12})\b/g);
+                    if (number && number.length > 0) {
+                        fetch('/get/ip', {
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Accept': 'application/json',
+                            },
+                            method: "POST",
+                            body: JSON.stringify({inn: number[0], _token: csrf_token})
+                        })
+                                .then(response => response.json())
+                                .then(result => {
+                                    if (result.suggestions[0]) {
+                                        let obj = result.suggestions[0];
+                                        inputName.value = obj.value;
+                                        inputInn.value = `ИНН: ${obj.data.inn} ОГРНИП: ${obj.data.ogrn}\r\n${obj.data.address ? obj.data.address.value: ''}`
+                                        if(inputInn.value.length > 40) { inputInn.rows = 2 }
+                                        if(inputInn.value.length > 95) { inputInn.rows = 3 }
+                                        document.querySelector('input[name="contact"]').focus()
+                                        flagForFetch = false
+                                    }
+
+                                })
+                                .catch(error => console.log("error", error));
+                    }
+                }
+            });
+        }
+    })();
 
 
 

@@ -17,8 +17,12 @@
              </div>
              <div class="slide__bottom">
                <label class="slide__name" for="case_{{$loop->index}}">{{ $case->name }}</label>
-               @if($case->link_video)
-               <a class="slide__youtube" href="{{ $case->link_video }}" target="_blank"><img src="/template/images/youtube.png" title="Смотреть видео"></a>
+               @if($case->video)
+               <a class="slide__youtube" href="{{ $case->video }}" target="_blank" title="Смотреть видео">
+                  <svg>
+                      <use href="/template/images/sprite.svg#youtube"></use>
+                  </svg>
+               </a>
                @endif
              </div>
            </div>

@@ -20,7 +20,7 @@
                 <table class="table content__price">
                     <tr>
                         <th>Студия</th>
-                        <th>Сумма + 1% ПЭС</th>
+                        <th>Сумма + 1%</th>
                         <th>Сумма</th>
                         <th>Площадь (м2)</th>
                         <th>% площади</th>

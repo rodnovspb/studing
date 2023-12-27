@@ -200,6 +200,7 @@ class ManagerTheme implements ManagerThemeInterface
         if ($this->getCore()->getConfig('mgr_date_picker_path', '') === '') {
             $this->getCore()->setConfig('mgr_date_picker_path', 'media/calendar/datepicker.inc.php');
         }
+
     }
 
     protected function loadLang($lang = 'english')
@@ -208,7 +209,6 @@ class ManagerTheme implements ManagerThemeInterface
         $modx_lang_attribute = $this->getLang();
         $modx_manager_charset = $this->getCharset();
         $modx_textdir = $this->getTextDir();
-
         include EVO_CORE_PATH . 'lang/en/global.php';
 
         // now include_once different language file as english
@@ -271,6 +271,7 @@ class ManagerTheme implements ManagerThemeInterface
     public function setTextDir($textDir = 'rtl')
     {
         $this->textDir = $textDir === 'rtl' ? 'rtl' : 'ltr';
+
     }
 
     public function getLexicon($key = null, $default = '')
@@ -304,6 +305,7 @@ class ManagerTheme implements ManagerThemeInterface
         $_lang = $this->getLexicon();
         include_once $this->getThemeDir(true) . 'style.php';
         $this->style = $_style;
+
     }
 
     /**
@@ -423,6 +425,7 @@ class ManagerTheme implements ManagerThemeInterface
             /** @var Interfaces\ManagerTheme\PageControllerInterface $controller */
             $controller = new $controllerName($this, $data);
             $controller->setIndex($action);
+
             if (!$controller->canView()) {
                 $this->alertAndQuit('error_no_privileges');
             } elseif ($controller->checkLocked() === true) {
@@ -438,7 +441,6 @@ class ManagerTheme implements ManagerThemeInterface
             $action = 0;
             $out = $this->view('page.' . $action)->render();
         }
-
         /********************************************************************/
         // log action, unless it's a frame request
         if ($action > 0 && \in_array($action, [1, 2, 7], true) === false) {
@@ -628,6 +630,7 @@ class ManagerTheme implements ManagerThemeInterface
             'manager_path' => MGR_DIR,
             'csrf' => csrf_field()->toHtml()
         ];
+
         // set login logo image
         $logo = $this->getCore()->getConfig('login_logo', '');
         if ($logo !== '') {
@@ -791,10 +794,10 @@ class ManagerTheme implements ManagerThemeInterface
 
     public function css()
     {
-        $css = $this->getThemeUrl() . 'style.css';
-        $minCssName = 'css/styles.min.css';
-
+      $css = $this->getThemeUrl() . 'style.css';
+      $minCssName = 'css/styles.min.css';
         if (!file_exists($this->getThemeDir() . $minCssName) && is_writable($this->getThemeDir() . 'css')) {
+
             $files = $this->getCssFiles();
             $evtOut = $this->getCore()->invokeEvent('OnBeforeMinifyCss', array(
                 'files' => $files,
@@ -816,6 +819,7 @@ class ManagerTheme implements ManagerThemeInterface
 
             $minifier = new \EvolutionCMS\Support\Formatter\CSSMinify($files);
             $css = $minifier->minify();
+
             file_put_contents(
                 $this->getThemeDir() . $minCssName,
                 $css

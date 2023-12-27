@@ -2,6 +2,14 @@
   vertical-align: middle !important;
 }
 
+.module-page * {
+  font-size: clamp(0.875rem, 0.817rem + 0.24vw, 1rem) !important;
+}
+
+.module-page .tab span {
+  font-size: 12px !important;
+}
+
 .custom_edit {
   display: flex;
   flex-wrap: wrap;
@@ -9,15 +17,20 @@
   margin-bottom: 20px;
 }
 
+
 .custom_edit-text {
-  flex-basis: 50%;
+  flex-basis: 60%;
+}
+
+.show_order .custom_edit-text {
+  flex-basis: 100%;
 }
 
 .custom_edit-row {
   display: flex;
   align-items: center;
   gap: 5px;
-  margin-bottom: 8px;
+  margin-bottom: 15px;
 }
 
 .custom_edit-title {
@@ -25,6 +38,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-shrink: 0;
 }
 
 .custom_edit-insert-img {
@@ -37,12 +51,18 @@
   flex-basis: 100%;
 }
 
-.custom_edit-img {
-  height: 210px;
-  width: 210px;
+.custom_edit-images {
+  display: flex;
+  gap: 20px;
 }
 
-.custom_edit-img img {
+.custom_edit-img {
+  height: clamp(6.25rem, 3.933rem + 9.76vw, 11.25rem);
+  width: clamp(6.25rem, 3.933rem + 9.76vw, 11.25rem);
+}
+
+.custom_edit-img img,
+.product-img img {
   max-height: 100%;
   max-width: 100%;
   object-fit: contain;
@@ -65,5 +85,94 @@
 
 .pagination {
   margin-top: 10px;
-  justify-content: center;
+  justify-content: flex-end;
+}
+
+.search-pagination-block {
+  position: relative;
+}
+
+.search-input {
+  position: absolute;
+  left: 10px;
+  top: 20px;
+  width: 200px !important;
+}
+
+.order-comment,
+.order-name {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.order-name {
+  max-width: 250px;
+}
+
+.order-comment {
+  max-width: 180px;
+}
+
+.comment-textarea {
+  white-space: pre-wrap;
+}
+
+.product-wrapper {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.product-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 160px;
+}
+
+.product-name {
+  text-align: center;
+  word-break: break-word;
+}
+
+.product-name,
+.product-price {
+  font-size: 14px !important;
+}
+
+.product-img {
+  height: clamp(4.375rem, 1.768rem + 10.98vw, 10rem);
+  margin-bottom: 4px;
+}
+
+
+
+
+@media (max-width: 1400.98px) {
+
+}
+
+@media (max-width: 1200.98px) {
+
+}
+
+@media (max-width: 990.98px) {
+
+}
+
+@media (max-width: 820.98px) {
+
+}
+
+@media (max-width: 768.98px) {
+
+}
+
+@media (max-width: 576.98px) {
+
+}
+
+@media (max-width: 390.98px) {
+
 }

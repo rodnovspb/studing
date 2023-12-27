@@ -8,5 +8,8 @@
       @endforeach
     </div>
   </section>
+  @if($documentObject['content'])
+    <div>{!! $documentObject['content'] !!}</div>
+  @endif
 @endsection
 

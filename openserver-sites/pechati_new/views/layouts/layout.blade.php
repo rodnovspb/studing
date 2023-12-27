@@ -1,4 +1,3 @@
-@php use function React\Promise\all; @endphp
 <!DOCTYPE html>
 <html lang="ru">
     <head>
@@ -13,6 +12,7 @@
         <link rel="stylesheet" href="/template/css/app.css">
         @stack('header')
         <link rel="canonical" href="{{ $modx->getConfig('site_start_url') }}{{ urlProcessor::makeUrl($documentObject['id']) }}">
+        <script src="//code.jivo.ru/widget/d2e8kuV8fO" async></script>
     </head>
     <body>
       <div class="wrapper">
@@ -20,7 +20,7 @@
           <div class="container">
             <div class="header__row">
               <a class="header__logo" href="/">
-                <img src="/template/images/logo.png" alt="">
+                <img src="{{ $modx->getConfig('client_logo') }}" alt="Логотип">
               </a>
               <div class="header__place">
                 <div class="header__time">{{ $modx->getConfig('client_time') }}</div>
@@ -46,7 +46,7 @@
                 </div>
                 <a class="header__number" href="tel:{{ $modx->getConfig('client_phone_+7') }}">{{ $modx->getConfig('client_phone') }}</a>
               </div>
-              <a class="header__email" href="mailto:zakaz-pechati@mail.ru">
+              <a class="header__email" href="mailto:{{ $modx->getConfig('client_email') }}">
                 <svg>
                   <use href="/template/images/sprite.svg#mail"></use>
                 </svg>
@@ -60,7 +60,7 @@
           <div class="container">
             <div class="menu__list">
               @foreach($menu as $id => $menuTitle)
-                <a href="{{ urlProcessor::makeUrl($id) }}">{{ $menuTitle }}</a>
+                <a class="menu__link @if($documentObject['id'] === $id) active @endif" href="{{ urlProcessor::makeUrl($id) }}">{{ $menuTitle }}</a>
               @endforeach
             </div>
           </div>
@@ -69,7 +69,7 @@
           <div class="container">
             <div class="submenu__list">
               @foreach($submenu as $id => $menuTitle)
-                <a href="{{ urlProcessor::makeUrl($id) }}">{{ $menuTitle }}</a>
+                <a class="menu__link @if($documentObject['id'] === $id) active @endif" href="{{ urlProcessor::makeUrl($id) }}">{{ $menuTitle }}</a>
               @endforeach
             </div>
           </div>
@@ -86,10 +86,32 @@
         <footer class="footer">
           <div class="container">
             <div class="footer__row">
-              <a href="#">Ссылка 1</a>
-              <a href="#">Ссылка 2</a>
-              <a href="#">Ссылка 3</a>
-              <a href="#">Ссылка 4</a>
+
+              <div class="footer__item footer__item-yandex">
+                <a href="#" class="footer__link">
+                  <img src="assets/images/yandex-ocenka.png" alt="Оценка на в Яндекс" title="Наша оценка в Яндекс">
+                </a>
+              </div>
+
+              <div class="footer__item footer__item-karty">
+                <img src="assets/images/oplata.png" alt="Способы оплаты" title="Способы оплаты">
+              </div>
+
+              <div class="footer__item footer__item-vk">
+                 <a href="#" class="footer__link">
+                   <img src="assets/images/vk.png" alt="ВК" title="Группа ВК">
+                 </a>
+              </div>
+
+              <div class="footer__item footer__item-politics">
+                <a href="/soglashenie">Соглашение о персональных данных</a>
+                <a href="/politika-konfidencialnosti">Политика конфиденциальности</a>
+              </div>
+
+              <div class="footer__item footer__item-contacts">
+                <a href="/kontakty">Контакты</a>
+              </div>
+
             </div>
           </div>
         </footer>
@@ -100,13 +122,42 @@
         <button class="burger"></button>
         <div class="mobile__menu">
           @foreach($menu as $id => $menuTitle)
-            <a href="{{ urlProcessor::makeUrl($id) }}">{{ $menuTitle }}</a>
+            <a class="mobile__link @if($documentObject['id'] === $id) active @endif" href="{{ urlProcessor::makeUrl($id) }}">{{ $menuTitle }}</a>
           @endforeach
         </div>
+        <div class="mobile__submenu">
+          @foreach($submenu as $id => $menuTitle)
+            <a class="mobile__link @if($documentObject['id'] === $id) active @endif" href="{{ urlProcessor::makeUrl($id) }}">{{ $menuTitle }}</a>
+          @endforeach
+        </div>
+
+        <div class="mobile__contacts">
+          <div class="mobile__time">{{ $modx->getConfig('client_time') }}</div>
+          <div class="mobile__address">{{ $modx->getConfig('client_address') }}</div>
+          <div class="mobile__phone">
+            <a class="header__whatsapp-icon mobile__icon" href="https://wa.me/{{ $modx->getConfig('client_whatsapp') }}" target="_blank">
+              <svg>
+                <use href="/template/images/sprite.svg#whatsapp"></use>
+              </svg>
+            </a>
+            <a class="header__telegram-icon mobile__icon" href="https://telegram.me/{{ $modx->getConfig('client_telegram') }}" target="_blank">
+              <svg>
+                <use href="/template/images/sprite.svg#telegram"></use>
+              </svg>
+            </a>
+            <a class="mobile__number" href="tel:{{ $modx->getConfig('client_phone_+7') }}">{{ $modx->getConfig('client_phone') }}</a>
+          </div>
+          <div class="mobile__yandex">
+            <img src="assets/images/yandex-ocenka.png" alt="Оценка на в Яндекс" title="Наша оценка в Яндекс">
+          </div>
+        </div>
+
       </div>
 
       <script src="/template/js/script.js"></script>
       @stack('footer')
     </body>
 </html>
+
+
 

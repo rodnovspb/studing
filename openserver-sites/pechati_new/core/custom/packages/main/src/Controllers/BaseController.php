@@ -2,7 +2,6 @@
 namespace EvolutionCMS\Main\Controllers;
 
 use EvolutionCMS\Main\Models\Page;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 
 class BaseController

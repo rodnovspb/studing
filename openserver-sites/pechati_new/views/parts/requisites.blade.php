@@ -24,7 +24,7 @@
     <div class="requisites__row">
       <div class="requisites__title">{{ $text_inn }}</div>
       <div class="requisites__field">
-        <textarea class="requisites__inn" name="inn" maxlength="255" rows="1"></textarea>
+        <textarea class="requisites__inn" name="inn" maxlength="255" rows="1" id="inn"></textarea>
       </div>
     </div>
     @endif
@@ -33,7 +33,7 @@
     <div class="requisites__row">
       <div class="requisites__title">{{ $name }}</div>
       <div class="requisites__field">
-        <input class="requisites__name" type="text" name="name" maxlength="255">
+        <textarea class="requisites__name" name="name" maxlength="255" rows="1" id="name"></textarea>
       </div>
     </div>
     @endif
@@ -86,6 +86,14 @@
       </div>
     </div>
     @endif
+    <div class="requisites__row">
+      <div class="requisites__title"></div>
+      <div class="requisites__field personal">
+        <input type="checkbox" checked required>
+        <div class="personal-text">Соглашаюсь на обработку персональных данных</div>
+      </div>
+    </div>
+
     <div class="requisites__row checkout">
       @if($documentObject['show_cost'] === "true")
       <input type="hidden" id="hidden_cost" name="cost">
@@ -97,7 +105,7 @@
         </div>
       </div>
       @endif
-      <button class="checkout__button" type="submit">Заказать</button>
+        <button class="checkout__button" type="submit">Заказать</button>
       </div>
     </div>
 

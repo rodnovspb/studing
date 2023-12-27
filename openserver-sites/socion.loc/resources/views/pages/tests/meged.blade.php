@@ -124,7 +124,7 @@
                     <div class="text">
                     <h1>Ваш социотип ${res['name']}</h1>
                     <div class="test__description">${res['description']}</div>
-                    <div class="test__description test__annotation">По тесту сразу определить социотип сложно. Кроме того описание примерное, обобщенное. Если оно совсем не подходит пройдите тест еще раз, либо пройдите <a href="{{route('tests')}}">другой тест</a>. Также можно записаться на <a href="{{route('tipirovanie')}}">типирование</a>.</div>
+                    <div class="test__description test__annotation">По тесту сразу определить социотип сложно. Кроме того описание примерное, обобщенное. Если оно совсем не подходит пройдите тест еще раз, либо пройдите <a href="{{route('tests')}}">другой тест</a>. Также можно пройти бесплатное <a href="{{route('tipirovanie')}}">типирование</a>.</div>
                     <div class="test__refresh"><a href="{{ route('meged') }}">Пройти заново</a></div></div>`
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }

@@ -11,7 +11,6 @@
         {!! Tracy\Debugger::renderLoader() !!}
     @endif
     <link rel="stylesheet" type="text/css" href="{{ ManagerTheme::css() }}"/>
-    <link rel="stylesheet" href="{{ MODX_BASE_URL }}template/css/admin.css">
     <script type="text/javascript" src="media/script/tabpane.js"></script>
     <script type="text/javascript" src="{{ $modx->getConfig('mgr_jquery_path') }}"></script>
     @if ($modx->getConfig('show_picker') === true)

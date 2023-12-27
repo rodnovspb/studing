@@ -13,8 +13,6 @@ $emails_dubl = MailDubl::pluck('email')->all();
 
 
 
-
-
 foreach ($sites as $site){
     $document = getPage($site);
     preg_match_all('#\b[a-zA-Z0-9_\.-]+@[\da-zA-Z\.-]+\.[a-zA-Z\.]{2,6}\b#', $document, $matches);

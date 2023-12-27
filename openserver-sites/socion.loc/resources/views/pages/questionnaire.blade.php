@@ -8,6 +8,7 @@
 
 <section class="questionnaire">
 <h1>Анкета перед типированием</h1>
+<div class="text">Интересное наблюдение: в большинстве случаев социотип, который получится при обработке анкеты не будет совпадать с итоговым социотипом после типирования.</div>
 <form action="{{ route('send_questionnaire') }}" class="questionnaire__form" method="post">
     @csrf
     <h2>1 этап. Тест Мегедь-Овчарова</h2>
