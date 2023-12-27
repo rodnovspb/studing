@@ -55,7 +55,7 @@ class MainController extends BaseController
   public function checkCaptcha(Request $request){
       // Задаем параметры
       $recaptcha_url = 'https://www.google.com/recaptcha/api/siteverify';
-      $recaptcha_secret = '6LdPET0pAAAAAAq27Foz_elOOfY8lVNbHOaDbl_-';
+      $recaptcha_secret = evo()->getConfig('recaptcha_secret');
       $code = $request->code;
 
       // Обрабатываем параметры
