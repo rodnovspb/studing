@@ -1,0 +1,52 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow: hidden;
+    min-height: 100vh;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 1500px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 15px;
+}
+
+.header {
+    background-color: #eee;
+}
+
+.header__block, .content {
+    padding: 10px;
+}
+
+.cities__list {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+a {
+    color: blue;
+    text-decoration: none;
+}
+
+
+a.active {
+    font-weight: bold;
+}
+
+
+.header__block {
+    display: flex;
+    justify-content: space-between;
+}
+
+.pages {
+    display: flex;
+    align-items: flex-end;
+    gap: 30px;
+}

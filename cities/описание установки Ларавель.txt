@@ -1,0 +1,21 @@
+1) В папке проекта:
+	composer create-project --prefer-dist laravel/laravel:10.* ./
+2) В phpmyadmin создаем БД: cities
+3) Создаем в openserver домен cities.loc
+4) В .env изменяем:
+	APP_URL=http://cities.loc
+	DB_DATABASE=cities
+	DB_USERNAME - имя БД
+	DB_PASSWORD - пароль БД
+5) Кодировка БД должна совпадать с кодировкой в config/database.php
+6) Сразу делаем ссылку: php artisan storage:link
+7) php artisan migrate
+8) npm i
+   npm run dev
+9) Сначала собираю города по http://cities.loc/get_cities с помощью метода контроллера getCities
+   После того как города добавились в БД удаляю или комментирую роут и этот метод
+
+10) Все работает по ссылке http://cities.loc
+
+Город записывается в сессию, в шапку грузится в AppServiceProvider.php
+Город добавляется в ссылку в app/Http/Middleware/AppendCitySlug.php
