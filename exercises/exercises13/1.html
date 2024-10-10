@@ -11,38 +11,11 @@
 
 <script>
 
+    function func(...a){
+		console.log(a)
+    }
 
-   function func(){
-	   let a = 0
-
-	   function increase() {
-		   a++
-	   }
-
-	   function show() {
-           console.log(a)
-	   }
-
-	   return {increase, show}
-   }
-
-
-   let z = func()
-
-   z.increase()
-   z.increase()
-   z.increase()
-   z.show()
-
-   let x = func()
-   x.increase()
-   x.increase()
-   x.increase()
-   x.show()
-
-
-
-
+	func(1)
 
 
 
