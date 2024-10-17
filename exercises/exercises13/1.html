@@ -11,11 +11,18 @@
 
 <script>
 
-    function func(...a){
-		console.log(a)
-    }
+    const cat = {
+		name: 'Борис',
+		color: 'red',
+		age: 8,
+        '11' : 5,
+		'9' : 5,
+	}
 
-	func(1)
+
+	for(let key in cat){
+		console.log(`${key} - ${cat[key]}`)
+    }
 
 
 
