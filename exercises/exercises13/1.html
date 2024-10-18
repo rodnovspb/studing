@@ -11,20 +11,19 @@
 
 <script>
 
-    const cat = {
-		name: 'Борис',
-		color: 'red',
-		age: 8,
-        '11' : 5,
-		'9' : 5,
-	}
 
 
-	for(let key in cat){
-		console.log(`${key} - ${cat[key]}`)
-    }
 
+   const currentDate = new Date('August 14, 2022 14:15:30')
 
+   const options = {
+	    month: 'numeric', day: 'numeric',
+	   hour: 'numeric', minute: 'numeric', second: 'numeric',
+	   timeZoneName: 'long'
+   }
+
+   console.log(new Intl.DateTimeFormat('ru-RU', options).format(currentDate))
+   // 14.08.2022, 14:15:30 Москва, стандартное время
 
 
 </script>
