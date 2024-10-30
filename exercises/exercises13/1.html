@@ -8,27 +8,25 @@
 </head>
 <body>
 
-<style>
-  .parent {
-    width: 500px;
-    height: 100px;
-    border: 1px solid blue;
-    display: flex;
-    justify-content: space-between;
+<dialog id="elem">
+    Живи долго и процветай!
+    <button id="closeWindow">Закрыть</button>
+</dialog>
 
-  }
-  .child {
-    border: 1px solid blue;
-    flex-grow: 1;
-  }
-</style>
+<button id="showWindow">Открыть</button>
+<button id="showWindowAsModal">Открыть как модальное</button>
 
 
-<div class="parent">
-    <div class="child">1</div>
-    <div class="child">2</div>
-    <div class="child">3</div>
-</div>
+
+
+<script>
+    showWindow.onclick = () => elem.show()
+	showWindowAsModal.onclick = () => elem.showModal()
+	closeWindow.onclick = () => elem.close()
+
+
+
+</script>
 
 
 
