@@ -1,10 +1,11 @@
 <?php
 
-$num1 = 1;
-$num2 = &$num1;
+require_once 'show.php';
 
-$num1++;
-$num2++;
+$arr1 = [1, 2, 3, 4, 5];
 
-echo $num1;
-echo $num2;
+$arr2 = &$arr1;
+
+$arr2[0] = 0;
+
+show($arr1);
