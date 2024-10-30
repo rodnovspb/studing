@@ -8,15 +8,27 @@
 </head>
 <body>
 
+<style>
+  .parent {
+    width: 500px;
+    height: 100px;
+    border: 1px solid blue;
+    display: flex;
+    justify-content: space-between;
 
-<blockquote>
-  <p>
-    Ваша работа заполнит большую часть жизни и единственный способ быть
-    полностью довольным — делать то, что по-вашему является великим делом.
-    И единственный способ делать великие дела — любить то, что вы делаете.
-  </p>
-</blockquote>
-<p>— Стив Джобс, <cite>Речь в Стенфорде</cite></p>
+  }
+  .child {
+    border: 1px solid blue;
+    flex-grow: 1;
+  }
+</style>
+
+
+<div class="parent">
+    <div class="child">1</div>
+    <div class="child">2</div>
+    <div class="child">3</div>
+</div>
 
 
 
