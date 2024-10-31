@@ -8,50 +8,95 @@
 </head>
 <body>
 
-<form >
-  <div class="form-row">
-    <label for="name">Имя:</label>
+
+
+<form method="get" action="../result">
+  <label class="input-label">
+    <span class="input-title">Текстовое поле в одну строчку:</span>
     <input
+            class="input"
             type="text"
-            name="name"
-            id="name"
-            placeholder="Микки"
+            size="40"
+            name="one-line"
     >
-  </div>
-  <div class="form-row required">
-    <label for="email">Почта</label>
+  </label>
+
+  <label class="input-label">
+    <span class="input-title">Поле для пароля:</span>
     <input
-            type="email"
-            name="email"
-            id="email"
-            placeholder="email@example.com"
-            required
+            class="input"
+            type="password"
+            size="40"
+            name="one-line-password"
     >
-  </div>
-  <div class="form-row required">
-    <label for="comment">Комментарий</label>
+  </label>
+
+  <fieldset class="radio-set">
+    <legend class="visually-hidden">Радиокнопки:</legend>
+    <span class="radio-legend" aria-hidden="true">Радиокнопки:</span>
+    <div class="radio-container">
+      <label class="radio-label">
+        <input
+                class="radio"
+                type="radio"
+                name="browser"
+                value="ie"
+                id="ie"
+        >
+        <span class="radio-title">Вариант 1</span>
+      </label>
+      <label class="radio-label">
+        <input
+                class="radio"
+                type="radio"
+                name="browser"
+                value="opera"
+                id="opera"
+        >
+        <span class="radio-title">Вариант 2</span>
+      </label>
+      <label class="radio-label">
+        <input
+                class="radio"
+                type="radio"
+                name="browser"
+                value="firefox"
+                id="firefox"
+        >
+        <span class="radio-title">Вариант 3</span>
+      </label>
+    </div>
+  </fieldset>
+
+  <label class="input-label">
+    <span class="input-title">Большое текстовое поле:</span>
     <textarea
+            class="input input-textarea"
             name="comment"
-            id="comment"
-            placeholder="Мне всё понравилось!"
-            required
+            cols="40"
+            rows="3"
     >
     </textarea>
+  </label>
+
+  <div class="buttons">
+    <input
+            type="reset"
+            value="Очистить"
+            class="button button-blue"
+    >
+    <input
+            type="submit"
+            value="Отправить"
+            class="button button-orange"
+            disabled
+    >
   </div>
-  <div class="form-row">
-    <label>
-      <input
-              type="checkbox"
-              name="agree"
-              required
-      >
-      <span class="checkbox-title">
-        Соглашаюсь с обработкой персональных данных
-      </span>
-    </label>
-  </div>
-  <button type="submit" formnovalidate>Отправить</button>
 </form>
+
+
+
+
 
 
 
