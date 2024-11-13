@@ -6,34 +6,56 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>Document</title>
 </head>
+
+<style>
+    .alert-span {
+      position: absolute;
+      margin-top: -1.3em;
+    }
+    .alert-span::before {
+      content: "Скопировано";
+      font-size: 0.6em;
+      padding: 2px;
+      background-color: white;
+      border: 1px solid #eee;
+    }
+
+</style>
+
+
 <body>
-
-
-
-<input type="email" list="list-of-emails" multiple>
-<datalist id="list-of-emails">
-  <option value="nekto@doka.guide">Неизвестный</option>
-  <option value="prikolist333@doka.guide">Друг шутник</option>
-  <option value="anderyBoss@doka.guide">Босс Андрей</option>
-  <option value="grish111a@doka.guide">Просто Гриша</option>
-  <option value="brigadir@doka.guide">Бригадир</option>
-  <option value="s0123tr1012dgs@doka.guide">Не знаю кто</option>
-  <option value="printerDanila01@doka.guide">Почта для принтера</option>
-</datalist>
-
-
-
-
-
-
-
-
+<div>adasdasdasdasd</div>
+<div>adasdasdasdasd</div>
+<div>adasdasdasdasd</div>
+<a href="#" id="elem">123123</a>adasdasd
 
 
 <script>
 
 
 
+
+   elem.addEventListener('click', (e) => {
+	   e.preventDefault();
+	   navigator.clipboard.writeText(e.target.textContent)
+			   .then(() => {
+				   const messageElement = document.createElement('span')
+				   messageElement.classList.add('alert-span')
+
+                   const linkRect = elem.getBoundingClientRect()
+				   messageElement.style.left = `${linkRect.left}px`;
+				   messageElement.style.top = `${linkRect.top}px`;
+
+                   document.body.appendChild(messageElement)
+
+				   setTimeout(() => {
+					   messageElement.remove()
+				   }, 700);
+			   })
+			   .catch(error => {
+				   console.error(`Текст не скопирован ${error}`)
+			   })
+     })
 
 
 
