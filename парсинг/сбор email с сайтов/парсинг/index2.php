@@ -8,23 +8,23 @@ ini_set('memory_limit', '2048M');
 ignore_user_abort(true);
 
 
-/*Вариант, когда не нужно вставлять название конторы*/
+/*Вариант, когда нужно вставлять название конторы*/
 
-$sites = Site::pluck('site')->all();
+$sites = Site::all();
+$count = count($sites);
 
 $emails = Mail::pluck('email')->all();
 
-
 foreach ($sites as $site){
-  echo $site . PHP_EOL;
-    $document = getPage($site);
+    echo $site['id'] . ": " .  $site['site'] .  PHP_EOL;
+    $document = getPage($site['site']);
     preg_match_all('#\b[a-zA-Z0-9_\.-]+@[\da-zA-Z\.-]+\.[a-zA-Z\.]{2,6}\b#', $document, $matches);
     if(!empty($matches[0])){
         foreach ($matches[0] as $match){
             $match = mb_strtolower($match);
-            if(!in_array($match, $emails) && !preg_match('#svg|jpg|webp|png|jpeg|wixpress|ingest|gif#', $match)){
+            if(!in_array($match, $emails) && !preg_match('#svg|jpg|webp|png|jpeg|wixpress|ingest|gif|beget|test|abuse|domain|support#', $match)){
                 array_push($emails, $match);
-                Mail::create(['email' => $match]);
+                Mail::create(['email' => $match, 'name' => $site['name']]);
             }
         }
     }
