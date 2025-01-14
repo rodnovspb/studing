@@ -1,21 +1,12 @@
-<script>
+<script setup>
 
-export default {
-  data(){
-    return {
-      count: 0
-    }
-  },
-  methods: {
-    inc(){
-      this.count++
-    }
-  }
-}
+import { ref } from 'vue'
+
+let count = ref(0)
+
+const inc = () => count.value ++
 
 </script>
-
-
 
 
 <template>
