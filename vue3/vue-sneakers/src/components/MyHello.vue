@@ -9,9 +9,11 @@ const inc = () => count.value ++
 
 </script>
 
+
 <template>
   <div>{{ count }}</div>
   <button @click="inc">+</button>
+  <input @keydown = 'inc'>
 </template>
 
 
