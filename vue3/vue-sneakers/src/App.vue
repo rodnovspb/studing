@@ -1,15 +1,23 @@
 <script setup>
-  import MyHello from '@/components/MyHello.vue'
+import Header from '@/components/Header.vue'
+import CardList from '@/components/CardList.vue'
+import Drawer from '@/components/Drawer.vue'
+
 
 </script>
 
 
 <template>
-  <MyHello title="1" :price = '9500 + 1000' :isAdded="true" />
-  <MyHello title="2" :price = '8500' :isAdded="true" />
-  <MyHello title="3" :price = '7500' :isAdded="false" />
-  <MyHello title="4" :price = '6500' :isAdded="true" />
-  <MyHello title="5" :price = '5500' :isAdded="true" />
+<!--  <Drawer />-->
+  <div class="w-4/5 m-auto bg-white rounded-xl shadow-xl mt-14">
+    <Header />
+
+    <div class="p-10">
+      <h2 class="text-3xl font-bold mb-8">Все кроссовки</h2>
+
+      <CardList />
+    </div>
+  </div>
 </template>
 
 
