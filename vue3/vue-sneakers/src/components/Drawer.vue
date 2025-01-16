@@ -1,6 +1,16 @@
 <script setup>
 import DrawerHead from '@/components/DrawerHead.vue'
 import CartItemList from '@/components/CartItemList.vue'
+import InfoBlock from '@/components/infoBlock.vue'
+
+const emit = defineEmits('createOrder')
+
+defineProps({
+  totalPrice: Number,
+  vatPrice: Number,
+  buttonDisabled: Boolean
+})
+
 
 </script>
 
@@ -9,23 +19,29 @@ import CartItemList from '@/components/CartItemList.vue'
   <div class="bg-white w-96 h-full fixed right-0 top-0 z-20 p-8">
   <DrawerHead />
 
-  <CartItemList />
+  <div class="flex h-full items-center" v-if="!totalPrice">
+    <InfoBlock title="Корзина пустая" description="Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ." image-url="/package-icon.png"/>
+  </div>
 
-  <div class="flex flex-col gap-4 mt-7">
-    <div class="flex gap-2">
-      <span>Итого: </span>
-      <div class="flex-1 border-b border-dashed"></div>
-      <b>12990 ₽</b>
-    </div>
-    <div class="flex gap-2">
-      <span>Налог 5%: </span>
-      <div class="flex-1 border-b border-dashed"></div>
-      <b>990 ₽</b>
-    </div>
+  <div v-else>
+    <CartItemList />
 
-    <button disabled class="bg-lime-500 w-full rounded-xl py-3 text-white hover:bg-lime-600 active:bg-lime-700 disabled:bg-slate-300 transition cursor-pointer mt-4">
-      Оформить заказ
-    </button>
+    <div class="flex flex-col gap-4 mt-7">
+      <div class="flex gap-2">
+        <span>Итого: </span>
+        <div class="flex-1 border-b border-dashed"></div>
+        <b>{{ totalPrice }} ₽</b>
+      </div>
+      <div class="flex gap-2">
+        <span>Налог 5%: </span>
+        <div class="flex-1 border-b border-dashed"></div>
+        <b>{{ vatPrice }} ₽</b>
+      </div>
+
+      <button :disabled = "buttonDisabled" @click="emit('createOrder')" class="bg-lime-500 w-full rounded-xl py-3 text-white hover:bg-lime-600 active:bg-lime-700 disabled:bg-slate-300 transition cursor-pointer mt-4">
+        Оформить заказ
+      </button>
+    </div>
   </div>
 
   </div>
