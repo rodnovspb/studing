@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<div class="search">
+    <span>Введите email</span>
+    <input class="search__input" type="search">
+    <button class="search__button">Найти</button>
+</div>
+<div class="result"></div>
+
+
+<script>
+    let searchInput = document.querySelector('.search__input')
+    let button = document.querySelector('.search__button')
+    let list = document.querySelector('.result')
+
+    button.addEventListener('click', ()=>{
+        let value = searchInput.value
+        if(value.length > 0){
+            fetch('search.php' + `?search=${value}`)
+                .then(res =>res.json())
+                .then(res => show(value, res))
+                .catch(e => console.log(e))
+        }
+    })
+
+
+    function show(email, arr){
+        let string = ''
+        if(arr.length > 0){
+            arr.forEach(item => {
+                string+= `<p>${item['email']} - ${item['info']['name']} ${item['info']['sname']} [id = ${item['id']}]</p>`
+            })
+        } else {
+            string = `<p>Записей для ${email} не найдено</p>`
+        }
+        list.innerHTML = string
+
+    }
+
+    // на событии input
+    // searchInput.addEventListener('input', (e)=> {
+    //     let value = e.target.value
+    //     if(value.length > 0){
+    //         fetch('search.php' + `?search=${value}`)
+    //             .then(res =>res.json())
+    //             .then(res => show(value, res))
+    //             .catch(e => console.log(e))
+    //     } else {
+    //         list.innerHTML = ''
+    //     }
+    // })
+
+
+</script>
+
+
+
+</body>
+</html>
