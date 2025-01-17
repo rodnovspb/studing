@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+
+<div class="wrapper">
+    <form class="form" method="post">
+        <input type="text" class="form__name" name="name" placeholder="Название">
+        <input type="text" class="form__inn" name="inn" placeholder="ИНН">
+        <input type="text" class="form__phone" name="phone" placeholder="Телефон">
+        <input type="text" class="form__email" name="email" placeholder="Эл. почта">
+        <input type="submit" class="form__submit" value="Зарегистрировать">
+    </form>
+
+    <ul class="errors"></ul>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Название</th>
+            <th>ИНН</th>
+            <th>Телефон</th>
+            <th>Эл. почта</th>
+        </tr>
+        </thead>
+
+        <tbody>
+
+        </tbody>
+    </table>
+
+</div>
+
+
+<script>
+    $(document).ready(function() {
+        $(".form").submit(function(event) {
+            event.preventDefault()
+
+            let isValid = true
+            let name = $(".form__name").val()
+            let inn = $(".form__inn").val()
+            let phone = $(".form__phone").val()
+            let email = $(".form__email").val()
+            let alertText = '';
+
+            if (name.trim() === "" || inn.trim() === "" || phone.trim() === "" || email.trim() === "") {
+                alertText += 'Все поля должны быть заполнены!\n'
+                isValid = false
+            }
+
+            if (!/^\d{10,12}$/.test(inn)) {
+                alertText += 'Неверный формат ИНН!\n'
+                isValid = false
+            }
+
+            if (!/^\+?[0-9]{6,15}$/.test(phone)) {
+                alertText += 'Неверный формат телефона!\n'
+                isValid = false
+            }
+
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                alertText += 'Неверный формат email!\n'
+                isValid = false
+            }
+
+            if (isValid) {
+                sendData()
+                alertText += 'Регистрация успешна'
+            }
+
+            alert(alertText)
+        });
+    });
+
+
+   document.addEventListener('DOMContentLoaded', () => {
+       getData()
+   })
+
+   function getData(){
+       fetch('script.php')
+           .then(res => res.json())
+           .then(data => showOrganizations(data['organizations']))
+           .catch(e => console.log(e))
+   }
+
+   function sendData(){
+       fetch('script.php', {
+           method: 'POST',
+           body: new FormData(document.querySelector('.form'))
+       })
+           .then(res => res.json())
+           .then(data => {
+               showErrors(data['errors'])
+               showOrganizations(data['organizations'])
+           })
+           .catch(e => console.log(e))
+
+   }
+
+
+   function resetForm(){
+       let inputs = document.querySelectorAll(".form input[type='text']")
+       inputs.forEach(elem => {
+           elem.value = '';
+       })
+   }
+
+
+   function showErrors(errors){
+       let errorBlock = document.querySelector('.errors')
+       errorBlock.innerHTML = ''
+       if(errors.length > 0) {
+           let fragment = document.createDocumentFragment()
+           for(let error of errors){
+               let li = document.createElement('li')
+               li.textContent = error
+               fragment.appendChild(li)
+           }
+           errorBlock.appendChild(fragment)
+       } else {
+           resetForm()
+       }
+   }
+
+   function showOrganizations(data){
+       let str = '';
+       data.forEach(item => {
+           str += `<tr>
+            <td>${item['name']}</td>
+            <td>${item['inn']}</td>
+            <td>${item['phone']}</td>
+            <td>${item['email']}</td>
+        </tr>`
+       })
+       if(!str) { str = '<tr><td colspan="4" style="text-align: center">Данных нет</td></tr>'}
+       document.querySelector('table tbody').innerHTML = str
+   }
+
+
+
+
+</script>
+
+
+
+
+</body>
+</html>

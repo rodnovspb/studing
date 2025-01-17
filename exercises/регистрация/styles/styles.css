@@ -1,0 +1,117 @@
+@import "reset.css";
+
+.wrapper {
+    font-size: 20px;
+    font-family: Arial, sans-serif;
+    padding-top: 30px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.header {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.errors {
+    margin-bottom: 20px;
+}
+
+.header div {
+    width: 250px;
+    border: 1px solid grey;
+}
+
+.form {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.form input {
+    width: 250px;
+    padding: 5px 15px;
+}
+
+.form input[type='text'] {
+    outline: 1px solid #ccc;
+}
+
+.form input[type='text']:focus {
+    outline: 2px solid #ccc;
+    background-color: #f1efef;
+}
+
+input.form__submit {
+    outline: 1px solid #ccc;
+    cursor: pointer;
+    background-color: #e0f2fe;
+}
+
+input.form__submit:hover {
+    background-color: #bae6fd;
+}
+
+input.form__submit:active {
+    background-color: #7dd3fc;
+}
+
+.table {
+    width: 100%;
+    margin-bottom: 20px;
+    border: 1px solid #dddddd;
+    border-collapse: collapse;
+}
+.table th {
+    font-weight: bold;
+    padding: 5px;
+    background: #efefef;
+    border: 1px solid #dddddd;
+}
+.table td {
+    border: 1px solid #dddddd;
+    padding: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
