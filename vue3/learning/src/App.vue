@@ -1,19 +1,19 @@
 <script setup>
   import {ref} from "vue";
 
-  const text = ref('')
+  const flag = ref(true)
 
-  const change = (e) => {
-    text.value = e.target.value
-  }
 
 </script>
 
 
 <template>
+  <div>{{ selectedOption }}</div>
 
-  <div>{{ text }}</div>
-  <input type="text" @input="change">
+  <input type="radio" v-model="selectedOption" value="A">
+  <input type="radio" v-model="selectedOption" value="B">
+  <input type="radio" v-model="selectedOption" value="C">
+  <input type="radio" v-model="selectedOption" value="D">
 
 
 </template>
