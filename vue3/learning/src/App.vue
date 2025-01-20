@@ -1,31 +1,25 @@
 <script setup>
   import {ref} from "vue";
 
-  const className = ref('red')
+  const text = ref('')
 
-  const func = () => {
-    className.value === 'red' ? className.value = 'green' : className.value = 'red'
+  const change = (e) => {
+    text.value = e.target.value
   }
 
 </script>
 
 
 <template>
-<div :class="className">Lorem ipsum dolor sit amet.</div>
 
-<button @click="func">Изменить</button>
+  <div>{{ text }}</div>
+  <input type="text" @input="change">
 
 
 </template>
 
 
 <style scoped>
-  .red {
-    color: red;
-  }
 
-  .green {
-    color: green;
-  }
 
 </style>
