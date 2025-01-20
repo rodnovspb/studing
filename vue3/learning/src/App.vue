@@ -1,27 +1,43 @@
 <script setup>
-  import {reactive, ref} from "vue";
+import { ref } from 'vue'
 
-  const list = reactive([1,2,3,4,5])
+// выдаем всем todo уникальные id
+let id = 0
 
-  const addTodo = () => {
-    list.push(1)
-  }
+const newTodo = ref('')
+const todos = ref([
+  { id: id++, text: 'Изучить HTML' },
+  { id: id++, text: 'Изучить JavaScript' },
+  { id: id++, text: 'Изучить Vue' }
+])
 
+function addTodo() {
+  todos.value[0].push({ id: id++, text: newTodo.value })
+  newTodo.value = ''
+}
+
+function removeTodo(todo) {
+  todos.value = todos.value.filter((elem) => {
+    if(elem.id !== todo.id){
+      return true;
+    } else {
+      return false;
+    }
+  })
+
+
+}
 </script>
 
-
 <template>
-
+  <form @submit.prevent="addTodo">
+    <input v-model="newTodo" required placeholder="new todo">
+    <button>Добавить задачу</button>
+  </form>
   <ul>
-    <li v-for="(item, index) in list" :key="index">{{ index }}</li>
+    <li v-for="todo in todos" :key="todo.id">
+      {{ todo.text }}
+      <button @click="removeTodo(todo)">X</button>
+    </li>
   </ul>
-
-  <button @click="addTodo">+</button>
-
 </template>
-
-
-<style scoped>
-
-
-</style>
