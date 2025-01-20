@@ -1,20 +1,22 @@
 <script setup>
-  import {ref} from "vue";
+  import {reactive, ref} from "vue";
 
-  const flag = ref(true)
+  const list = reactive([1,2,3,4,5])
 
+  const addTodo = () => {
+    list.push(1)
+  }
 
 </script>
 
 
 <template>
-  <div>{{ selectedOption }}</div>
 
-  <input type="radio" v-model="selectedOption" value="A">
-  <input type="radio" v-model="selectedOption" value="B">
-  <input type="radio" v-model="selectedOption" value="C">
-  <input type="radio" v-model="selectedOption" value="D">
+  <ul>
+    <li v-for="(item, index) in list" :key="index">{{ index }}</li>
+  </ul>
 
+  <button @click="addTodo">+</button>
 
 </template>
 
