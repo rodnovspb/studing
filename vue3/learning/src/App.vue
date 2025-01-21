@@ -2,9 +2,11 @@
 
 import {ref} from "vue";
 
-const list = ref([1,2,3,4])
-
-const show = ref(true)
+const text = ref('Текст')
+const flag = ref(1)
+const checked = ref(true)
+const checkedList = ref(['1'])
+const select = ref(['1', '2', '3'])
 
 
 
@@ -15,15 +17,27 @@ const show = ref(true)
 
 <template>
 
-<button @click="show = !show">Скрыть</button>
-<button @click="list.push(list.length + 1)">Добавить число</button>
-<button @click="list.pop()">Удалить число</button>
-<button @click="list.reverse()">Перевернуть</button>
+  <input type="text" v-model="text">
+  <p>{{ text }}</p>
 
-  <ul v-if="show">
-    <li v-for="(item, index) in list" :key="index">{{ item }}</li>
-  </ul>
-  <p v-else>Список скрыт</p>
+  <input type="radio" v-model="flag" value="1">
+  <input type="radio" v-model="flag" value="2">
+  <p>{{ flag }}</p>
+
+  <input type="checkbox" v-model="checked">
+  <p>{{ checked }}</p>
+
+  <input type="checkbox" v-model="checkedList" value="1">
+  <input type="checkbox" v-model="checkedList" value="2">
+  <input type="checkbox" v-model="checkedList" value="3">
+  <p>{{ checkedList }}</p>
+
+  <select v-model="select" multiple>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+  </select>
+  <p>{{ select }}</p>
 
 
 
