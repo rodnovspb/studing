@@ -10,8 +10,8 @@ const text = ref(0)
 
 
 <template>
-
-  <button @click="++text">+</button>
+  <p>3</p>
+  <button onclick="document.querySelector('p').textContent ++">+</button>
 
   <Hello :data="text" />
 
