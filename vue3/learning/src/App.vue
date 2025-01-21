@@ -3,7 +3,7 @@
 import Hello from "@/components/Hello.vue";
 import {ref} from "vue";
 
-
+const text = ref('текст')
 
 </script>
 
@@ -11,7 +11,9 @@ import {ref} from "vue";
 
 <template>
 
-  <Hello @func = "console.log(1)"/>
+  <Hello>
+    {{ text }}
+  </Hello>
 
 
 
