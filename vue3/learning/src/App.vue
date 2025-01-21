@@ -4,11 +4,12 @@ import {ref, watch} from "vue";
 
 const num = ref(0)
 
-watch(num, () => {
+watch(num, async (newValue) => {
   try {
-    fetch(`https://jsonplaceholder.typicode.com/todos/${num.value}`)
-        .then((res) => res.json())
-        .then(res => console.log(res))
+    let res = await fetch('https://jsonplaceholder.typicode.com/todos/' + newValue)
+    let data = await res.json()
+
+    console.log(data)
 
   } catch (e) {
     console.log(e)
