@@ -1,20 +1,27 @@
 <script setup>
 
-import {onMounted, ref} from "vue";
+import {ref, watch} from "vue";
 
-const elem = ref(null)
+const num = ref(0)
 
-onMounted(() => {
-  document.querySelector('p').textContent = 111111111111111
-  elem.value.textContent = 111111111111111
+watch(num, () => {
+  try {
+    fetch(`https://jsonplaceholder.typicode.com/todos/${num.value}`)
+        .then((res) => res.json())
+        .then(res => console.log(res))
+
+  } catch (e) {
+    console.log(e)
+  }
 })
+
 
 </script>
 
 
 <template>
 
-  <p ref="elem">Lorem ipsum dolor sit amet.</p>
+  <button @click="num++">+</button>
 
 
 </template>
