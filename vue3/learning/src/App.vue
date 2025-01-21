@@ -1,35 +1,22 @@
 <script setup>
 
-import {ref, watch} from "vue";
+import Hello from "@/components/Hello.vue";
+import {ref} from "vue";
 
-const num = ref(0)
-
-watch(num, async (newValue) => {
-  try {
-    let res = await fetch('https://jsonplaceholder.typicode.com/todos/' + newValue)
-    let data = await res.json()
-    console.log(data)
-  } catch (e) {
-    console.log(e)
-  }
-})
-
-watch(num,  () => {
-  console.log(num.value)
-})
-
+const text = ref(0)
 
 </script>
 
 
+
 <template>
 
-  <button @click="num++">+</button>
+  <button @click="++text">+</button>
+
+  <Hello :data="text" />
 
 
 </template>
-
-
 
 
 
