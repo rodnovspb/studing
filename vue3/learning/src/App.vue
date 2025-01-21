@@ -1,12 +1,13 @@
 <script setup>
 
 import {ref} from "vue";
+import Hello from "@/components/Hello.vue";
 
-const text = ref('Текст')
-const flag = ref(1)
-const checked = ref(true)
-const checkedList = ref(['1'])
-const select = ref(['1', '2', '3'])
+const groceryList = ref([
+  { id: 0, text: 'Овощи' },
+  { id: 1, text: 'Сыр' },
+  { id: 2, text: 'Что угодно съедобное для человека' }
+])
 
 
 
@@ -17,27 +18,7 @@ const select = ref(['1', '2', '3'])
 
 <template>
 
-  <input type="text" v-model="text">
-  <p>{{ text }}</p>
-
-  <input type="radio" v-model="flag" value="1">
-  <input type="radio" v-model="flag" value="2">
-  <p>{{ flag }}</p>
-
-  <input type="checkbox" v-model="checked">
-  <p>{{ checked }}</p>
-
-  <input type="checkbox" v-model="checkedList" value="1">
-  <input type="checkbox" v-model="checkedList" value="2">
-  <input type="checkbox" v-model="checkedList" value="3">
-  <p>{{ checkedList }}</p>
-
-  <select v-model="select" multiple>
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-  </select>
-  <p>{{ select }}</p>
+<Hello v-for="item in groceryList" :key="item.id" :todo="item"/>
 
 
 

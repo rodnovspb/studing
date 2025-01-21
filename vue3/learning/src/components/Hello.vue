@@ -1,5 +1,8 @@
 <script setup>
 
+defineProps({
+  todo: Object
+})
 
 
 
@@ -7,7 +10,7 @@
 
 <template>
 
- <slot>Текст по умолчанию</slot>
+<div>{{ todo.text }}</div>
 
 
 </template>
