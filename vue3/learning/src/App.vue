@@ -1,7 +1,7 @@
 <script setup>
 
 import {ref} from "vue";
-import Hello from "@/components/Hello.vue";
+
 
 const groceryList = ref([
   { id: 0, text: 'Овощи' },
