@@ -1,9 +1,10 @@
 <script setup>
 
-import Hello from "@/components/Hello.vue";
 import {ref} from "vue";
 
-const text = ref('текст')
+const color = ref('green')
+
+const danger = ref(true)
 
 </script>
 
@@ -11,9 +12,9 @@ const text = ref('текст')
 
 <template>
 
-  <Hello>
-    {{ text }}
-  </Hello>
+  <p :style="{ 'color': color }">Lorem ipsum dolor sit amet.</p>
+
+  <p @click="danger = !danger" :class="{ red: danger }">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, dolorum!</p>
 
 
 
@@ -22,6 +23,11 @@ const text = ref('текст')
 
 
 <style scoped>
+
+.red {
+  color: red;
+}
+
 
 
 </style>
