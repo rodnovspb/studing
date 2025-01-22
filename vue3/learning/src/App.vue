@@ -1,36 +1,28 @@
 <script setup>
-import { ref } from 'vue'
-import Grid from "@/components/Grid.vue";
+import { ref, reactive } from 'vue'
 
-const query = ref('')
-const gridColumns = ['name', 'power']
-const gridData = [
-  { name: 'Чак Норис', power: Infinity },
-  { name: 'Брюс Ли', power: 9000 },
-  { name: 'Джеки Чан', power: 7000 },
-  { name: 'Джет Ли', power: 8000 }
-]
+const stats = reactive([
+  { label: 'A', value: 100 },
+  { label: 'B', value: 100 },
+  { label: 'C', value: 100 },
+  { label: 'D', value: 100 },
+  { label: 'E', value: 100 },
+  { label: 'F', value: 100 }
+])
+
+const newLabel = ref('')
 
 
 </script>
 
-
-
 <template>
-
-  <input type="text" v-model="query">
-
-  <Grid :query="query" :data="gridData" :columns="gridColumns" />
+  <svg width="200" height="200">
+    <circle cx="100" cy="100" r="50" stroke="red" stroke-width="5" fill="transparent"></circle>
+  </svg>
 
 
 </template>
 
-
-
 <style scoped>
-
-
-
-
 
 </style>

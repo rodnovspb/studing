@@ -20,7 +20,7 @@ class RegistrationHandler {
         }
 
         // Проверка телефона
-        if (!empty($data['phone']) && !preg_match('/^\+?[0-9]{6,15}$/', $data['phone'])) {
+        if (!empty($data['phone']) && !preg_match('/^\+?[-\s()0-9]{6,15}$/', $data['phone'])) {
             $errors[] = "Неверный формат телефона.";
         }
 
