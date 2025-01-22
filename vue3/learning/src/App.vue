@@ -1,13 +1,16 @@
 <script setup>
+import { ref, watchEffect } from 'vue'
 
-import {ref, computed, watch} from "vue";
-import { debounce } from 'lodash'
+const commits = ref([])
+const branches = ['main', 'minor']
+const API_URL = `https://api.github.com/repos/vuejs/core/commits?per_page=3&sha=`
 
-const text = ref('Текст')
+const currentBranch = ref(branches[0])
 
-const showText = ref('')
-
-const show = debounce(() => showText.value = text.value, 500)
+watchEffect(async () => {
+  const res = await fetch(API_URL + currentBranch.value)
+  commits.value = await res.json()
+})
 
 
 </script>
@@ -16,9 +19,16 @@ const show = debounce(() => showText.value = text.value, 500)
 
 <template>
 
-  <textarea @input="show" v-model="text"></textarea>
+  <template v-for="(item, index) in branches" :key="index">
+    <input type="radio" v-model="currentBranch" :value="item">
+  </template>
 
-  <p>{{ showText }}</p>
+  <ul>
+    <li v-for="{html_url, sha, author, commit} in commits" :key="sha">
+      <li><img :src="author.avatar_url" alt=""></li>
+    </li>
+  </ul>
+
 
 
 
