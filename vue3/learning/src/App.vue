@@ -7,12 +7,7 @@ const text = ref('Текст')
 
 const showText = ref('')
 
-watch(text, debounce(() => showText.value = text.value, 500))
-
-
-
-
-
+const show = debounce(() => showText.value = text.value, 500)
 
 
 </script>
@@ -21,7 +16,7 @@ watch(text, debounce(() => showText.value = text.value, 500))
 
 <template>
 
-  <textarea v-model="text" ></textarea>
+  <textarea @input="show" v-model="text"></textarea>
 
   <p>{{ showText }}</p>
 
