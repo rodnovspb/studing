@@ -1,13 +1,16 @@
 <script setup>
 
-import {ref} from "vue";
+import {ref, computed, watch} from "vue";
+import { debounce } from 'lodash'
+
+const text = ref('Текст')
+
+const showText = ref('')
+
+watch(text, debounce(() => showText.value = text.value, 500))
 
 
-const groceryList = ref([
-  { id: 0, text: 'Овощи' },
-  { id: 1, text: 'Сыр' },
-  { id: 2, text: 'Что угодно съедобное для человека' }
-])
+
 
 
 
@@ -18,7 +21,9 @@ const groceryList = ref([
 
 <template>
 
-<Hello v-for="item in groceryList" :key="item.id" :todo="item"/>
+  <textarea v-model="text" ></textarea>
+
+  <p>{{ showText }}</p>
 
 
 
