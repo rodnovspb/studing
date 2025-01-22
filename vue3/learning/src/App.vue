@@ -1,16 +1,15 @@
 <script setup>
-import { ref, watchEffect } from 'vue'
+import { ref } from 'vue'
+import Grid from "@/components/Grid.vue";
 
-const commits = ref([])
-const branches = ['main', 'minor']
-const API_URL = `https://api.github.com/repos/vuejs/core/commits?per_page=3&sha=`
-
-const currentBranch = ref(branches[0])
-
-watchEffect(async () => {
-  const res = await fetch(API_URL + currentBranch.value)
-  commits.value = await res.json()
-})
+const query = ref('')
+const gridColumns = ['name', 'power']
+const gridData = [
+  { name: 'Чак Норис', power: Infinity },
+  { name: 'Брюс Ли', power: 9000 },
+  { name: 'Джеки Чан', power: 7000 },
+  { name: 'Джет Ли', power: 8000 }
+]
 
 
 </script>
@@ -19,17 +18,9 @@ watchEffect(async () => {
 
 <template>
 
-  <template v-for="(item, index) in branches" :key="index">
-    <input type="radio" v-model="currentBranch" :value="item">
-  </template>
+  <input type="text" v-model="query">
 
-  <ul>
-    <li v-for="{html_url, sha, author, commit} in commits" :key="sha">
-      <li><img :src="author.avatar_url" alt=""></li>
-    </li>
-  </ul>
-
-
+  <Grid :query="query" :data="gridData" :columns="gridColumns" />
 
 
 </template>
