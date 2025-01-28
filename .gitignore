@@ -26,3 +26,5 @@ node_modules/*
 /openserver-sites/shop.loc/public/adminlte/dist/js/
 /openserver-sites/shop.loc/public/adminlte/plugins/
 /настройки phpstorm/
+
+.idea
