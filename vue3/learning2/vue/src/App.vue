@@ -9,13 +9,25 @@ const products = ref([
 
 ])
 
-const filtered = computed(() => products.value.filter((item) => item.startsWith(search.value)))
+const filtered = computed(() => {
+  let productsList = products.value
+  if(search.value){
+    if(isNumeric(search.value)){
+      productsList = products.value.filter((item) => item.price.toString().startsWith(search.value))
+    } else {
+      productsList = products.value.filter((item) => item.title.startsWith(search.value))
+    }
 
-const reverseQuery = computed(() => {
-  return search.value.split('').reverse().join('')
+  }
+  return productsList
+
 })
 
 const search = ref('')
+
+function isNumeric(value) {
+  return !isNaN(parseFloat(value)) && isFinite(value);
+}
 
 
 
@@ -23,10 +35,9 @@ const search = ref('')
 
 <template>
   <input type="search" placeholder="Введите" v-model="search">
-  <div v-if="reverseQuery">{{ reverseQuery }}</div>
   <ul>
-    <li v-for="product in filtered" :key="product">
-      {{ product }}
+    <li v-for="product in filtered" :key="product.title ">
+      {{ product.title }} {{ product.price.toLocaleString() }}
     </li>
   </ul>
 
