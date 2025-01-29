@@ -1,0 +1,17 @@
+{
+  "name": "vue",
+  "version": "1.0.0",
+  "main": "script_1.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.1",
+    "vite": "^6.0.11"
+  }
+}
