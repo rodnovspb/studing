@@ -6,9 +6,40 @@
 </head>
 <body style="padding: 20px">
 
-<svg xmlns="http://www.w3.org/2000/svg" stroke="#bbb" stroke-width="45">
-  <rect width="100" height="100" fill="transparent"></rect>
+<!--<svg-->
+<!--        xmlns="http://www.w3.org/2000/svg"-->
+<!--        fill-rule="evenodd"-->
+<!--        clip-rule="evenodd"-->
+<!--        viewBox="0 0 24 24"-->
+<!--        class="dots-icon"-->
+<!--&gt;-->
+<!--  <path-->
+<!--          d="M16 12a3.001 3.001 0 016 0 3.001 3.001 0 01-6 0zm1 0a2 2 0-->
+<!--        114.001.001A2 2 0 0117 12zm-8 0a3.001 3.001 0 016 0 3.001 3.001 0-->
+<!--        01-6 0zm1 0a2 2 0 114.001.001A2 2 0 0110 12zm-8 0a3.001 3.001 0 016-->
+<!--        0 3.001 3.001 0 01-6 0zm1 0a2 2 0 114.001.001A2 2 0 013 12z"-->
+<!--  />-->
+<!--</svg>-->
+
+<svg viewBox="0 0 240 240" width="200" height="200">
+    <circle cx="10" cy="10" r="5" fill="blue" />
 </svg>
+
+<style>
+  .dots-icon {
+    animation: anima infinite 15s alternate;
+  }
+
+  @keyframes anima {
+    from {
+      fill: red;
+    }
+    to {
+      fill: green;
+    }
+  }
+
+</style>
 
 </body>
 </html>
