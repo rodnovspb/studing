@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ShopController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/catalog', [ShopController::class, 'catalog']);
+Route::post('/create-order', [ShopController::class, 'createOrder']);
+Route::post('/approve-order/{id}', [ShopController::class, 'approveOrder']);
