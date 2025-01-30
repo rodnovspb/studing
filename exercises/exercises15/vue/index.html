@@ -1,21 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
-<body style="padding: 20px">
+<body>
+    <div id="app"></div>
 
-<div id="app"></div>
+    <script type="module" src="app.js">
 
-
-<script type="module">
-    const { createApp } = Vue;
-    import App from './App.vue'
-    createApp(App).mount('#app');
-</script>
-
-
+    </script>
 </body>
 </html>
