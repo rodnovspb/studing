@@ -1,0 +1,9 @@
+{
+  "name": "selenium",
+  "version": "1.0.0",
+  "description": "",
+  "dependencies": {
+    "mocha": "^11.1.0",
+    "selenium-webdriver": "4.28.1"
+  }
+}
