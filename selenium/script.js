@@ -1,31 +1,33 @@
 const { Builder, By, until, Key } = require('selenium-webdriver');
 
-const fs = require('fs');
-
 const chrome = require('selenium-webdriver/chrome')
 
 ;(async function () {
 
-    let options = new chrome.Options()
-    // options.addArguments(['start-maximized'])
+    let driver = await new Builder().forBrowser('chrome').build();
 
+    await driver.get('https://111222333.ru/');
+
+    let elem = await driver.wait(driver.findElement(By.css('h1')))
+
+    let elem1 = await driver.wait(elem.findElement(By.css('[name=page]')))
+
+
+    console.log(elem1)
+
+    setTimeout(async () => { }, 30000);
+
+
+
+
+
+
+
+    // let options = new chrome.Options()
+    // options.addArguments(['start-maximized'])
     // options.addArguments("user-data-dir=C:/Users/rodno/AppData/Local/Google/Chrome/User Data");
     // options.addArguments("profile-directory=Default");
-
-
-
-    let driver = await new Builder().forBrowser('chrome').setChromeOptions(options).build();
-
-    await driver.get('https://www.vk.com/');
-
-    const cookies = JSON.parse(fs.readFileSync('cookies.json'));
-    for (let cookie of cookies) {
-        await driver.manage().addCookie(cookie);
-    }
-
-    await driver.navigate().refresh();
-
-
+    // let driver = await new Builder().forBrowser('chrome').setChromeOptions(options).build();
 
     // let elem = await driver.wait(until.elementIsVisible(driver.findElement(By.css('.Umvnrc'))))
     //
