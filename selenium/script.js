@@ -1,6 +1,7 @@
 const { Builder, By, until, Key } = require('selenium-webdriver');
 
 const chrome = require('selenium-webdriver/chrome')
+const fs = require('fs');
 
 ;(async function () {
 
@@ -12,11 +13,13 @@ const chrome = require('selenium-webdriver/chrome')
         await driver.get('https://111222333.ru');
         let elem = await driver.findElement(By.css('.divisions__card:nth-child(5)'));
 
-        const actions = driver.actions({async: true});
-        await actions.move({origin: elem}).perform();
+        await driver.executeScript("arguments[0].scrollIntoView();", elem);
+
+        const screenshot = await driver.takeScreenshot();
+        fs.writeFileSync('screenshot.png', screenshot, 'base64');
 
 
-        setTimeout(async () => { }, 30000);
+        await new Promise(resolve => setTimeout(resolve, 30000));
 
     } catch (e) {
         console.log('Ошибка:', e); }
@@ -24,7 +27,7 @@ const chrome = require('selenium-webdriver/chrome')
 
 
 
-    setTimeout(async () => { }, 30000);
+
 
 
 
