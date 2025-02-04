@@ -5,15 +5,17 @@ const chrome = require('selenium-webdriver/chrome')
 ;(async function () {
 
     let driver = await new Builder().forBrowser('chrome').build();
+    await driver.manage().setTimeouts({ implicit: 10000 });
 
-    await driver.get('https://111222333.ru/');
+    try {
+        await driver.get('https://111222333.ru');
+        let elem = await driver.findElement(By.css('h11'));
+    } catch (e) {
+        console.log('Ошибка:', e); }
 
-    let elem = await driver.wait(driver.findElement(By.css('h1')))
-
-    let elem1 = await driver.wait(elem.findElement(By.css('[name=page]')))
 
 
-    console.log(elem1)
+
 
     setTimeout(async () => { }, 30000);
 
