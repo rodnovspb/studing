@@ -5,11 +5,13 @@ const chrome = require('selenium-webdriver/chrome')
 ;(async function () {
 
     let driver = await new Builder().forBrowser('chrome').build();
-    await driver.manage().setTimeouts({ implicit: 10000 });
+    // await driver.manage().setTimeouts({ implicit: 3000 });
 
     try {
         await driver.get('https://111222333.ru');
-        let elem = await driver.findElement(By.css('h11'));
+        let elem = await driver.wait(until.elementLocated(By.css('h11')), 5000);
+        await driver.wait(until.elementIsVisible(elem), 5000);
+        console.log('Найден')
     } catch (e) {
         console.log('Ошибка:', e); }
 
@@ -23,6 +25,12 @@ const chrome = require('selenium-webdriver/chrome')
 
 
 
+
+    // try {
+    //     await driver.get('https://111222333.ru');
+    //     let elem = await driver.findElement(By.css('h11'));
+    // } catch (e) {
+    //     console.log('Ошибка:', e); }
 
 
     // let options = new chrome.Options()
