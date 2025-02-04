@@ -4,13 +4,17 @@ const chrome = require('selenium-webdriver/chrome')
 
 ;(async function () {
 
-    let driver = await new Builder().forBrowser('chrome').build();
+    let options = new chrome.Options()
+    options.addArguments("--headless");
+
+    let driver = await new Builder().forBrowser('chrome').setChromeOptions(options).build();
     await driver.manage().setTimeouts({ implicit: 3000 });
 
     try {
         await driver.get('https://111222333.ru');
-        let elem = await driver.executeScript("return document.querySelector('h1')");
-        console.log(elem)
+        let elem = await driver.findElement(By.css('.header__logo img'));
+
+        console.log(await elem.getAttribute('src'))
 
     } catch (e) {
         console.log('Ошибка:', e); }
@@ -18,7 +22,7 @@ const chrome = require('selenium-webdriver/chrome')
 
 
 
-    setTimeout(async () => { }, 30000);
+    // setTimeout(async () => { }, 30000);
 
 
 
