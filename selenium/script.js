@@ -22,19 +22,21 @@ options.addArguments(['start-maximized'])
 
     try {
 
+        await driver.manage().setTimeouts({ implicit: 10000 });
+
         await driver.get('https://uslugi.yandex.ru/profile/Avegaprint-1047311');
 
         await driver.findElement(By.css('a.WorkerControls-Control_chat')).click();
 
         await driver.findElement(By.xpath("//div[contains(text(), 'Я.Мессенджер')]")).click();
 
-        let frame = await driver.wait(until.elementLocated(By.css('iframe.ya-chat-base__iframe')), 8000);
+        let frame = driver.findElement(By.css('iframe.ya-chat-base__iframe'));
 
         await driver.switchTo().frame(frame);
 
-        let textarea = await driver.wait(until.elementLocated(By.xpath("//textarea[@placeholder='Сообщение…']")), 8000);
+        let textarea = driver.findElement(By.xpath("//textarea[@placeholder='Сообщение…']"));
 
-        await textarea.sendKeys('Добрый день!', Key.ENTER)
+        await textarea.sendKeys('Добрый день!', Key.ENTER);
 
         // let frames = await driver.wait(until.elementsLocated(By.css('iframe.ya-chat-base__iframe')), 8000);
 
