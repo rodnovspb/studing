@@ -1,25 +1,21 @@
 const { Builder, By, until, Key } = require('selenium-webdriver');
 
 const chrome = require('selenium-webdriver/chrome')
-const fs = require('fs');
+const path = require('path');
+
+
+let options = new chrome.Options()
+
+options.addArguments(`user-data-dir=${path.join(__dirname, 'profile')}`)
+options.addArguments(`profile-directory=Default`);
+
 
 ;(async function () {
 
-    let driver = await new Builder().forBrowser('chrome').build();
-    await driver.manage().setTimeouts({ implicit: 3000 });
-
+    let driver = await new Builder().forBrowser('chrome').setChromeOptions(options).build();
 
     try {
-        await driver.get('https://111222333.ru');
-        let elem = await driver.findElement(By.css('.divisions__card:nth-child(5)'));
-
-        await driver.executeScript("arguments[0].scrollIntoView();", elem);
-
-        const screenshot = await driver.takeScreenshot();
-        fs.writeFileSync('screenshot.png', screenshot, 'base64');
-
-
-        await new Promise(resolve => setTimeout(resolve, 30000));
+        await driver.get('https://2ip.io/');
 
     } catch (e) {
         console.log('Ошибка:', e); }
@@ -27,6 +23,12 @@ const fs = require('fs');
 
 
 
+    // let elem = await driver.findElement(By.css('.divisions__card:nth-child(5)'));
+    //
+    // await driver.executeScript("arguments[0].scrollIntoView();", elem);
+    //
+    // const screenshot = await driver.takeScreenshot();
+    // fs.writeFileSync('screenshot.png', screenshot, 'base64');
 
 
 
