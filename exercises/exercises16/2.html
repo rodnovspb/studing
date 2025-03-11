@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .benefits {
+            counter-reset: benefits 2;
+            list-style-type: none;
+        }
+
+        .benefits-item {
+            counter-increment: benefits;
+        }
+
+        .benefits-item::before {
+            content: counter(benefits);
+
+            font-size: 100px;
+            font-weight: bold;
+            opacity: 0.5;
+            color: #1A5AD7;
+        }
+
+    </style>
+</head>
+<body>
+
+<h2>Как мы работаем:</h2>
+<ol class="benefits">
+    <li class="benefits-item">Низкие цены</li>
+    <li class="benefits-item">Большая база поставщиков</li>
+    <li class="benefits-item">Быстрая доставка</li>
+</ol>
+
+
+
+</body>
+</html>

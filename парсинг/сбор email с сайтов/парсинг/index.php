@@ -13,10 +13,11 @@ ignore_user_abort(true);
 $sites = Site::pluck('site')->all();
 
 $emails = Mail::pluck('email')->all();
-
+$count = 0;
 
 foreach ($sites as $site){
-  echo $site . PHP_EOL;
+    echo $count . ": " . $site . PHP_EOL;
+    $count++;
     $document = getPage($site);
     preg_match_all('#\b[a-zA-Z0-9_\.-]+@[\da-zA-Z\.-]+\.[a-zA-Z\.]{2,6}\b#', $document, $matches);
     if(!empty($matches[0])){

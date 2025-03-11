@@ -1,0 +1,11 @@
+{
+  "name": "selenium",
+  "version": "1.0.0",
+  "description": "",
+  "dependencies": {
+    "selenium-webdriver": "4.28.1"
+  },
+  "devDependencies": {
+    "mysql2": "^3.12.0"
+  }
+}
