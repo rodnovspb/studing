@@ -4,34 +4,40 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-        .benefits {
-            counter-reset: benefits 2;
-            list-style-type: none;
+        .background-video {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
         }
 
-        .benefits-item {
-            counter-increment: benefits;
+        .content {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.5);
+            color: #f1f1f1;
+            width: 100%;
+            padding: 20px;
         }
 
-        .benefits-item::before {
-            content: counter(benefits);
-
-            font-size: 100px;
-            font-weight: bold;
-            opacity: 0.5;
-            color: #1A5AD7;
-        }
 
     </style>
 </head>
 <body>
 
-<h2>Как мы работаем:</h2>
-<ol class="benefits">
-    <li class="benefits-item">Низкие цены</li>
-    <li class="benefits-item">Большая база поставщиков</li>
-    <li class="benefits-item">Быстрая доставка</li>
-</ol>
+<video autoplay muted loop class="background-video">
+    <source src="storm.mp4" type="video/mp4">
+</video>
+<div class="content">
+    <h1>Банановый эквивалент</h1>
+    <p>Мы живём в радиоактивном мире. Это нормально?</p>
+</div>
 
 
 
