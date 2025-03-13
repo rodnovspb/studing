@@ -9,11 +9,13 @@
 </head>
 <body>
 
+<input type="range" id="rangeInput" min="1" max="100" value="50" oninput="this.nextElementSibling.value = this.value">
 
-    <details>
-        <summary>Открыть аккордеон</summary>
-        <p>Скрытый текст Скрытый текст Скрытый текст</p>
-    </details>
+<meter class="meter" min="1" max="100" low="20" high="80" optimum="50" value="50">60%</meter>
+
+<progress id="progress" value="50" max="100"></progress>
+
+
 
 
 </body>
