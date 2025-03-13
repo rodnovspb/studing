@@ -9,13 +9,23 @@
 </head>
 <body>
 
-<input type="range" id="rangeInput" min="1" max="100" value="50" oninput="this.nextElementSibling.value = this.value">
-
-<meter class="meter" min="1" max="100" low="20" high="80" optimum="50" value="50">60%</meter>
-
-<progress id="progress" value="50" max="100"></progress>
+<canvas id="myCanvas" width="300" height="300"></canvas>
 
 
+<script>
+    const canvas = document.getElementById('myCanvas');
+    const ctx = canvas.getContext('2d');
+
+    // Рисуем круг
+    ctx.beginPath();
+    ctx.arc(100, 100, 50, 0, 2 * Math.PI);
+    ctx.fillStyle = 'green';
+    ctx.fill();
+
+    // Рисуем квадрат
+    ctx.fillStyle = 'red';
+    ctx.fillRect(250, 50, 100, 100);
+</script>
 
 
 </body>
