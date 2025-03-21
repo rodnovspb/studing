@@ -9,23 +9,15 @@
 </head>
 <body>
 
-<canvas id="myCanvas" width="300" height="300"></canvas>
 
+<button type="button" onclick="window.myDialog.show()">
+    Просто открыть
+</button>
+<button type="button" onclick="window.myDialog.showModal()">
+    Открыть как модалку
+</button>
+<dialog id="myDialog">🖖 Живи долго и процветай!</dialog>
 
-<script>
-    const canvas = document.getElementById('myCanvas');
-    const ctx = canvas.getContext('2d');
-
-    // Рисуем круг
-    ctx.beginPath();
-    ctx.arc(100, 100, 50, 0, 2 * Math.PI);
-    ctx.fillStyle = 'green';
-    ctx.fill();
-
-    // Рисуем квадрат
-    ctx.fillStyle = 'red';
-    ctx.fillRect(250, 50, 100, 100);
-</script>
 
 
 </body>
