@@ -7,19 +7,21 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-        div::before {
-            content: attr(data-symbol);
+        div {
+            pointer-events: none;
         }
     </style>
 
 </head>
 <body>
 
-<div data-symbol="〷◠‿◠〷"></div>
-
-<script>
-    console.log(document.querySelector('p').dataset)
-</script>
+<input type="text" tabindex="10">
+<input type="text" tabindex="-1">
+<input type="text" tabindex="11">
+<input type="text" tabindex="2">
+<input type="text">
+<input type="text">
+<input type="text">
 
 
 </body>
