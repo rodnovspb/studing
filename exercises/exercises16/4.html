@@ -8,20 +8,26 @@
     <title>Document</title>
     <style>
         div {
-            pointer-events: none;
+            width: 300px;
+            height: 200px;
+            background-image: url("img.png");
+            background-size: cover;
         }
+        :is(main, header) span {
+            color: red;
+                   }
     </style>
 
 </head>
 <body>
 
-<input type="text" tabindex="10">
-<input type="text" tabindex="-1">
-<input type="text" tabindex="11">
-<input type="text" tabindex="2">
-<input type="text">
-<input type="text">
-<input type="text">
+<div></div>
+
+<header>
+    <span>111111111111111</span>
+</header>
+
+
 
 
 </body>
