@@ -6,23 +6,21 @@
 </head>
 
 <style>
-    :where(div, p) span {
-        color: green;
+    span {
+        display: none;
     }
+    input:out-of-range + span {
+        display: inline;
+    }
+
 </style>
 
 
 <body>
 
 
-<div>
-    <span>1</span>
-</div>
-
-<p>
-    <span>2</span>
-</p>
-
+<input type="number" min="10" max="15">
+<span>Неверные данные</span>
 
 
 
