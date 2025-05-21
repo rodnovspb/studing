@@ -6,17 +6,20 @@
 </head>
 
 <style>
-    div:before {
-        content: attr(data-q);
+
+    @media print {
+        a::after {
+            content: " (источник: " attr(href) ") ";
+        }
     }
+
 
 </style>
 
 
 <body>
 
-<div data-q = '111'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci minus optio possimus voluptatibus. Autem, consequatur ducimus eos esse id illo magni nam nulla officia quibusdam quisquam sed velit veniam voluptatibus?</div>
-
+<a href="http://best-site.ru/sales">по ссылке</a>
 
 
 
